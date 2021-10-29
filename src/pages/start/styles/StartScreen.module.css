@@ -93,3 +93,7 @@
     width: 16px;
     margin-right: var(--spacers-dp8);
 }
+.adornment {
+    margin-left: 4px;
+    fill: var(--colors-grey600);
+}

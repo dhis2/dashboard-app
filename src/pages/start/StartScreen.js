@@ -1,10 +1,9 @@
 import { useDataEngine, useOnlineStatus } from '@dhis2/app-runtime'
 import i18n from '@dhis2/d2-i18n'
-import { IconDashboardWindow16, colors } from '@dhis2/ui'
 import PropTypes from 'prop-types'
 import React, { useEffect, useState } from 'react'
-import { Link } from 'react-router-dom'
 import { apiGetDataStatistics } from '../../api/dataStatistics'
+import DashboardLink from './DashboardLink'
 import styles from './styles/StartScreen.module.css'
 
 const StartScreen = ({ username }) => {
@@ -24,7 +23,7 @@ const StartScreen = ({ username }) => {
                 setMostViewedDashboards(dashboards)
             }
         }
-        online ? populateMostViewedDashboards(dataEngine) : []
+        populateMostViewedDashboards(dataEngine)
     }, [username, online])
 
     const getContent = () => (
@@ -52,7 +51,7 @@ const StartScreen = ({ username }) => {
                     </li>
                 </ul>
             </div>
-            {online && mostViewedDashboards.length > 0 && (
+            {mostViewedDashboards.length > 0 && (
                 <div className={styles.section}>
                     <h3
                         className={styles.title}
@@ -65,18 +64,7 @@ const StartScreen = ({ username }) => {
                             key={index}
                             data-test="start-screen-most-viewed-list-item"
                         >
-                            <Link
-                                className={styles.dashboard}
-                                to={`/${dashboard.id}`}
-                                data-test="dashboard-chip"
-                            >
-                                <span className={styles.icon}>
-                                    <IconDashboardWindow16
-                                        color={colors.grey600}
-                                    />
-                                </span>
-                                <span>{dashboard.name}</span>
-                            </Link>
+                            <DashboardLink {...dashboard} />
                         </p>
                     ))}
                 </div>
