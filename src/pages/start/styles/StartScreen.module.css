@@ -66,34 +66,3 @@
     letter-spacing: 0.1px;
     margin-bottom: var(--spacers-dp12);
 }
-.dashboard {
-    display: flex;
-    align-items: center;
-    margin: 0 0 var(--spacers-dp12) 0;
-    padding: 0;
-    letter-spacing: 0.1px;
-    line-height: 16px;
-    cursor: pointer;
-    font-size: 14px;
-    color: var(--colors-grey900);
-    text-decoration: none;
-}
-.dashboard :hover {
-    text-decoration: underline;
-}
-.icon {
-    height: 16px;
-    display: flex;
-    align-items: center;
-    position: relative;
-    top: -1px;
-}
-.icon svg {
-    height: 16px;
-    width: 16px;
-    margin-right: var(--spacers-dp8);
-}
-.adornment {
-    margin-left: 4px;
-    fill: var(--colors-grey600);
-}
