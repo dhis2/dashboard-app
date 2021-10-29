@@ -33,7 +33,6 @@ exports[`renders the app with the start page 1`] = `
         >
           <h3
             class="title"
-            data-test="start-screen-primary-section-title"
           >
             Getting started
           </h3>
