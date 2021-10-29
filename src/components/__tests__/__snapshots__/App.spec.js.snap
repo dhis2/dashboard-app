@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`renders the app 1`] = `
+exports[`renders the app with a dashboard 1`] = `
 <div>
   <header
     style="height: 48px;"
@@ -8,5 +8,57 @@ exports[`renders the app 1`] = `
   <div
     class="viewdashboard"
   />
+</div>
+`;
+
+exports[`renders the app with the start page 1`] = `
+<div>
+  <header
+    style="height: 48px;"
+  />
+  <div>
+    DashboardsBar
+  </div>
+  <div
+    class="outer"
+  >
+    <div
+      class="inner"
+    >
+      <div
+        data-test="start-screen"
+      >
+        <div
+          class="section"
+        >
+          <h3
+            class="title"
+            data-test="start-screen-primary-section-title"
+          >
+            Getting started
+          </h3>
+          <ul
+            class="guide"
+          >
+            <li
+              class="guideItem"
+            >
+              Search for and open saved dashboards from the top bar.
+            </li>
+            <li
+              class="guideItem"
+            >
+              Click a dashboard chip to open it. Get back to this screen from the "More" menu.
+            </li>
+            <li
+              class="guideItem"
+            >
+              Create a new dashboard with the + button.
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
 `;

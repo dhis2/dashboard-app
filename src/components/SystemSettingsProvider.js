@@ -18,7 +18,7 @@ const SystemSettingsProvider = ({ children }) => {
             const { systemSettings } = await engine.query({
                 systemSettings: systemSettingsQuery,
             })
-            console.log('systemSettings', systemSettings)
+
             setSettings(
                 Object.assign(
                     {},
