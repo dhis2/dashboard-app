@@ -1,3 +1,10 @@
+# [31.20.0](https://github.com/dhis2/dashboard-app/compare/v31.19.19...v31.20.0) (2021-10-29)
+
+
+### Features
+
+* landing page (DHIS2-11989) ([#2049](https://github.com/dhis2/dashboard-app/issues/2049)) ([80612f8](https://github.com/dhis2/dashboard-app/commit/80612f8c3905c8e4422129afa57e0a9aac550bcd))
+
 ## [31.19.19](https://github.com/dhis2/dashboard-app/compare/v31.19.18...v31.19.19) (2021-10-28)
 
 
