@@ -29,12 +29,7 @@ const StartScreen = ({ username }) => {
     const getContent = () => (
         <div data-test="start-screen">
             <div className={styles.section}>
-                <h3
-                    className={styles.title}
-                    data-test="start-screen-primary-section-title"
-                >
-                    {i18n.t('Getting started')}
-                </h3>
+                <h3 className={styles.title}>{i18n.t('Getting started')}</h3>
                 <ul className={styles.guide}>
                     <li className={styles.guideItem}>
                         {i18n.t(
@@ -53,17 +48,11 @@ const StartScreen = ({ username }) => {
             </div>
             {mostViewedDashboards.length > 0 && (
                 <div className={styles.section}>
-                    <h3
-                        className={styles.title}
-                        data-test="start-screen-secondary-section-title"
-                    >
+                    <h3 className={styles.title}>
                         {i18n.t('Your most viewed dashboards')}
                     </h3>
                     {mostViewedDashboards.map((dashboard, index) => (
-                        <p
-                            key={index}
-                            data-test="start-screen-most-viewed-list-item"
-                        >
+                        <p key={index}>
                             <DashboardLink {...dashboard} />
                         </p>
                     ))}

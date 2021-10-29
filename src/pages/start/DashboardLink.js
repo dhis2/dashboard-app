@@ -10,11 +10,7 @@ const DashboardLink = ({ id, name }) => {
     const { isCached } = useCacheableSection(id)
 
     return (
-        <Link
-            className={styles.dashboard}
-            to={`/${id}`}
-            data-test="dashboard-chip"
-        >
+        <Link className={styles.dashboard} to={`/${id}`}>
             <span className={styles.icon}>
                 <IconDashboardWindow16 color={colors.grey600} />
             </span>
