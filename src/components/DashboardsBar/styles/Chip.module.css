@@ -10,7 +10,7 @@
 }
 
 .adornment {
-    margin-left: 4px;
+    margin-left: var(--spacers-dp4);
     fill: var(--colors-grey600);
 }
 

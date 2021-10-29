@@ -26,7 +26,7 @@
     margin-right: var(--spacers-dp8);
 }
 .adornment {
-    margin-left: 4px;
+    margin-left: var(--spacers-dp4);
     fill: var(--colors-grey600);
     position: relative;
     top: -2px;

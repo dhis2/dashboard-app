@@ -4,6 +4,7 @@ export const DEFAULT_SETTINGS = {
     keyDashboardContextMenuItemSwitchViewType: true,
     keyDashboardContextMenuItemViewFullscreen: true,
     keyGatherAnalyticalObjectStatisticsInDashboardViews: false,
+    startModuleEnableLightweight: false,
 }
 
 const SYSTEM_SETTINGS = [
@@ -17,7 +18,7 @@ const SYSTEM_SETTINGS = [
     'keyHideMonthlyPeriods',
     'keyHideWeeklyPeriods',
     'keyHideBiWeeklyPeriods',
-    // 'startModuleEnableLightweight',
+    'startModuleEnableLightweight',
 ]
 
 const SYSTEM_SETTINGS_REMAPPINGS = {
