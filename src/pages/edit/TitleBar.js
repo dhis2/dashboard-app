@@ -56,6 +56,7 @@ const EditTitleBar = ({
                     value={name}
                     placeholder={i18n.t('Untitled dashboard')}
                     dataTest="dashboard-title-input"
+                    dense
                 />
                 <TextAreaField
                     name="Dashboard description input"
@@ -63,6 +64,7 @@ const EditTitleBar = ({
                     onChange={updateDescription}
                     value={description}
                     dataTest="dashboard-description-input"
+                    dense
                 />
             </div>
             <div className={classes.searchContainer}>
