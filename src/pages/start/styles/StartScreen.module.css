@@ -1,7 +1,7 @@
 .outer {
     display: flex;
     justify-content: center;
-    height: 80%;
+    height: 85%;
 }
 .inner {
     padding: var(--spacers-dp16) var(--spacers-dp24);
