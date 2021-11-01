@@ -2,15 +2,15 @@
 # Translators:
 # phil_dhis2, 2019
 # Viktor Varland <viktor@dhis2.org>, 2021
-# easylin <lin_xd@126.com>, 2021
 # 晓东 林 <13981924470@126.com>, 2021
+# easylin <lin_xd@126.com>, 2021
 # 
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
 "POT-Creation-Date: 2021-10-28T06:43:54.981Z\n"
 "PO-Revision-Date: 2019-06-25 12:37+0000\n"
-"Last-Translator: 晓东 林 <13981924470@126.com>, 2021\n"
+"Last-Translator: easylin <lin_xd@126.com>, 2021\n"
 "Language-Team: Chinese (https://www.transifex.com/hisp-uio/teams/100509/zh/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -25,19 +25,19 @@ msgid "Cannot create a dashboard while offline"
 msgstr "离线时无法创建仪表板"
 
 msgid "Create new dashboard"
-msgstr "创建新仪表板"
+msgstr "创建新仪表盘"
 
 msgid "Search for a dashboard"
 msgstr "搜索仪表盘"
 
 msgid "Show fewer dashboards"
-msgstr "显示更少的仪表板"
+msgstr "显示更少的仪表盘"
 
 msgid "Show more dashboards"
-msgstr "显示更多仪表板"
+msgstr "显示更多仪表盘"
 
 msgid "Remove this item"
-msgstr "删除该项目"
+msgstr "删除该条目"
 
 msgid "This item has been shortened to fit on one page"
 msgstr "此项已缩短为适合一页"
@@ -376,18 +376,18 @@ msgid "Getting started"
 msgstr "开始"
 
 msgid "Search for and open saved dashboards from the top bar."
-msgstr ""
+msgstr "从顶部栏中搜索并打开保存的仪表盘。"
 
 msgid ""
 "Click a dashboard chip to open it. Get back to this screen from the \"More\""
 " menu."
-msgstr ""
+msgstr "单击仪表盘芯片将其打开。从“更多”菜单返回此屏幕。"
 
 msgid "Create a new dashboard with the + button."
-msgstr ""
+msgstr "使用 + 按钮创建一个新仪表盘。"
 
 msgid "Your most viewed dashboards"
-msgstr ""
+msgstr "您最常查看的仪表盘"
 
 msgid "No dashboards found. Use the + button to create a new dashboard."
 msgstr "没有发现仪表盘，使用+按钮创建新的仪表盘"
@@ -450,7 +450,7 @@ msgid "One item per page"
 msgstr "每页一项"
 
 msgid "Close dashboard"
-msgstr ""
+msgstr "关闭仪表盘"
 
 msgid "More"
 msgstr "更多"
@@ -500,7 +500,7 @@ msgid "This dashboard cannot be loaded while offline."
 msgstr "离线时无法加载此仪表板。"
 
 msgid "Go to start page"
-msgstr ""
+msgstr "转到起始页"
 
 msgid "Load dashboard failed"
 msgstr "加载仪表板失败"
