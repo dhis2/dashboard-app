@@ -111,7 +111,7 @@ jobs:
 
         strategy:
             matrix:
-                containers: [1]
+                containers: [1, 2]
 
         steps:
             - name: Checkout
