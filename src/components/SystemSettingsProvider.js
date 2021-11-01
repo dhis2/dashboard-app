@@ -23,10 +23,7 @@ const SystemSettingsProvider = ({ children }) => {
                 Object.assign(
                     {},
                     renameSystemSettings(DEFAULT_SETTINGS),
-                    renameSystemSettings(systemSettings),
-                    {
-                        startModuleEnableLightweight: true,
-                    }
+                    renameSystemSettings(systemSettings)
                 )
             )
         }
