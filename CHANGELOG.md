@@ -1,3 +1,10 @@
+## [31.20.1](https://github.com/dhis2/dashboard-app/compare/v31.20.0...v31.20.1) (2021-11-01)
+
+
+### Bug Fixes
+
+* disable offline cypress tests because they are flaky ([#2050](https://github.com/dhis2/dashboard-app/issues/2050)) ([a91b5cf](https://github.com/dhis2/dashboard-app/commit/a91b5cf3287b7741ce60362a23da1843441cf261))
+
 # [31.20.0](https://github.com/dhis2/dashboard-app/compare/v31.19.19...v31.20.0) (2021-10-29)
 
 
