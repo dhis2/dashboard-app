@@ -10,7 +10,7 @@ import {
 export const SystemSettingsCtx = createContext({})
 
 const SystemSettingsProvider = ({ children }) => {
-    const [settings, setSettings] = useState([])
+    const [settings, setSettings] = useState(null)
     const engine = useDataEngine()
 
     useEffect(() => {
@@ -23,7 +23,10 @@ const SystemSettingsProvider = ({ children }) => {
                 Object.assign(
                     {},
                     renameSystemSettings(DEFAULT_SETTINGS),
-                    renameSystemSettings(systemSettings)
+                    renameSystemSettings(systemSettings),
+                    {
+                        startModuleEnableLightweight: true,
+                    }
                 )
             )
         }

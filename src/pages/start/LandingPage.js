@@ -1,10 +1,14 @@
 import PropTypes from 'prop-types'
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import DashboardsBar from '../../components/DashboardsBar/DashboardsBar'
 import StartScreen from './StartScreen'
 
-const LandingPage = ({ username }) => {
+const LandingPage = ({ username, onMount }) => {
     const [controlbarExpanded, setControlbarExpanded] = useState(false)
+
+    useEffect(() => {
+        onMount()
+    }, [])
 
     return (
         <>
@@ -19,6 +23,7 @@ const LandingPage = ({ username }) => {
 
 LandingPage.propTypes = {
     username: PropTypes.string,
+    onMount: PropTypes.func,
 }
 
 export default LandingPage
