@@ -198,7 +198,7 @@ const ViewActions = ({
                     dataTest="print-oipp-menu-item"
                 />
             </MenuItem>
-            <Link to={ROUTE_START_PATH}>
+            <Link to={ROUTE_START_PATH} className={classes.link}>
                 <MenuItem
                     dense
                     disabledWhenOffline={false}
