@@ -1,3 +1,10 @@
+## [31.20.2](https://github.com/dhis2/dashboard-app/compare/v31.20.1...v31.20.2) (2021-11-02)
+
+
+### Bug Fixes
+
+* active landing page chip, close dashboard item style ([#2052](https://github.com/dhis2/dashboard-app/issues/2052)) ([f93dcd5](https://github.com/dhis2/dashboard-app/commit/f93dcd505dfec320f86b0da80a96036fec0472a5))
+
 ## [31.20.1](https://github.com/dhis2/dashboard-app/compare/v31.20.0...v31.20.1) (2021-11-01)
 
 
