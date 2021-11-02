@@ -15,9 +15,11 @@ const SystemSettingsProvider = ({ children }) => {
 
     useEffect(() => {
         async function fetchData() {
-            const { systemSettings } = await engine.query({
-                systemSettings: systemSettingsQuery,
-            })
+            const { systemSettings } = await engine
+                .query({
+                    systemSettings: systemSettingsQuery,
+                })
+                .catch(() => setSettings({}))
 
             setSettings(
                 Object.assign(
