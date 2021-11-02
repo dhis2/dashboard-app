@@ -10,14 +10,22 @@ import {
 export const SystemSettingsCtx = createContext({})
 
 const SystemSettingsProvider = ({ children }) => {
-    const [settings, setSettings] = useState([])
+    const [settings, setSettings] = useState(null)
     const engine = useDataEngine()
 
     useEffect(() => {
         async function fetchData() {
-            const { systemSettings } = await engine.query({
-                systemSettings: systemSettingsQuery,
-            })
+            const { systemSettings } = await engine.query(
+                {
+                    systemSettings: systemSettingsQuery,
+                },
+                {
+                    onError: error => {
+                        console.log('Error', 'systemSettingsQuery', error)
+                        setSettings({})
+                    },
+                }
+            )
 
             setSettings(
                 Object.assign(
