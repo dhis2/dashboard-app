@@ -1,3 +1,10 @@
+## [31.20.3](https://github.com/dhis2/dashboard-app/compare/v31.20.2...v31.20.3) (2021-11-04)
+
+
+### Bug Fixes
+
+* make landing page scrollable ([#2053](https://github.com/dhis2/dashboard-app/issues/2053)) ([2066f2b](https://github.com/dhis2/dashboard-app/commit/2066f2b9dcd9fa7ae9201aeb461231b073322eeb))
+
 ## [31.20.2](https://github.com/dhis2/dashboard-app/compare/v31.20.1...v31.20.2) (2021-11-02)
 
 
