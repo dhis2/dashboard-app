@@ -1,7 +1,8 @@
 .outer {
     display: flex;
     justify-content: center;
-    height: 85%;
+    flex-grow: 1;
+    overflow: auto;
 }
 .inner {
     padding: var(--spacers-dp16) var(--spacers-dp24);
@@ -9,8 +10,7 @@
     box-sizing: border-box;
     color: var(--colors-grey900);
     position: relative;
-    display: flex;
-    align-items: center;
+    padding-top: 15vh;
 }
 .errorContainer {
     display: flex;

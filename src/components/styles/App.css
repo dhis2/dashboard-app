@@ -37,6 +37,8 @@ body {
 
 .app-shell-app {
     overflow: hidden !important;
+    display: flex;
+    flex-direction: column;
 }
 
 /* plugin TODO */
