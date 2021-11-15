@@ -15,11 +15,11 @@
     height: 3px;
     width: 100%;
     background: var(--colors-white);
-    transition: background 0.2s 0.1s;
 }
 
 .draghandle:hover:after {
     background: var(--colors-blue300);
+    transition: background 0.2s 0.1s;
 }
 
 .draghandle:active:after {
