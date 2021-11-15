@@ -17,6 +17,15 @@
     height: 21px;
 }
 
+.showMore:hover {
+    background: var(--colors-grey200);
+    transition: background 0.2s 0.1s;
+}
+.showMore:active {
+    background: var(--colors-grey300);
+    transition: none;
+}
+
 .showMore:focus {
     outline: none;
 }

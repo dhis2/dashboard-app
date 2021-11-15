@@ -37,7 +37,7 @@ const ShowMoreButton = ({ onClick, dashboardBarIsExpanded, disabled }) => {
                 <Tooltip
                     content={buttonLabel}
                     placement="top"
-                    openDelay={500}
+                    openDelay={800}
                     closeDelay={0}
                 >
                     {({ onMouseOver, onMouseOut, ref }) => (
