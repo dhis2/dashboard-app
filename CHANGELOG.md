@@ -1,3 +1,10 @@
+# [31.21.0](https://github.com/dhis2/dashboard-app/compare/v31.20.3...v31.21.0) (2021-11-16)
+
+
+### Features
+
+* controlbar expand and drag hover and active states ([#2055](https://github.com/dhis2/dashboard-app/issues/2055)) ([7125d59](https://github.com/dhis2/dashboard-app/commit/7125d591d77f9c9f7130c0c6960bd5f4238e26f2))
+
 ## [31.20.3](https://github.com/dhis2/dashboard-app/compare/v31.20.2...v31.20.3) (2021-11-04)
 
 
