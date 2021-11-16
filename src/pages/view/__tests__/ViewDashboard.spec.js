@@ -30,7 +30,7 @@ jest.mock('@dhis2/app-runtime', () => ({
 jest.mock('../../../api/fetchDashboard')
 
 jest.mock(
-    '../DashboardsBar/DashboardsBar',
+    '../../../components/DashboardsBar/DashboardsBar',
     () =>
         function MockDashboardsBar() {
             return <div>DashboardsBar</div>

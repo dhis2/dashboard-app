@@ -283,7 +283,7 @@ const mapDispatchToProps = {
 
 const ItemWithSettings = props => (
     <SystemSettingsCtx.Consumer>
-        {({ settings }) => <Item settings={settings} {...props} />}
+        {({ systemSettings }) => <Item settings={systemSettings} {...props} />}
     </SystemSettingsCtx.Consumer>
 )
 

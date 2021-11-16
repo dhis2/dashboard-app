@@ -10,7 +10,7 @@ import {
 import PropTypes from 'prop-types'
 import React, { useState } from 'react'
 import { connect } from 'react-redux'
-import { Redirect } from 'react-router-dom'
+import { Link, Redirect } from 'react-router-dom'
 import { acSetDashboardStarred } from '../../../actions/dashboards'
 import { acClearItemFilters } from '../../../actions/itemFilters'
 import { acSetShowDescription } from '../../../actions/showDescription'
@@ -25,6 +25,7 @@ import { sGetDashboardStarred } from '../../../reducers/dashboards'
 import { sGetNamedItemFilters } from '../../../reducers/itemFilters'
 import { sGetSelected } from '../../../reducers/selected'
 import { sGetShowDescription } from '../../../reducers/showDescription'
+import { ROUTE_START_PATH } from '../../start'
 import { apiStarDashboard } from './apiStarDashboard'
 import FilterSelector from './FilterSelector'
 import StarDashboardButton from './StarDashboardButton'
@@ -197,6 +198,13 @@ const ViewActions = ({
                     dataTest="print-oipp-menu-item"
                 />
             </MenuItem>
+            <Link to={ROUTE_START_PATH} className={classes.link}>
+                <MenuItem
+                    dense
+                    disabledWhenOffline={false}
+                    label={i18n.t('Close dashboard')}
+                />
+            </Link>
         </FlyoutMenu>
     )
 

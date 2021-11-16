@@ -5,6 +5,7 @@ import cx from 'classnames'
 import PropTypes from 'prop-types'
 import React, { useState, useEffect } from 'react'
 import { connect } from 'react-redux'
+import { Link } from 'react-router-dom'
 import { acClearEditDashboard } from '../../actions/editDashboard'
 import { acSetPassiveViewRegistered } from '../../actions/passiveViewRegistered'
 import { acClearPrintDashboard } from '../../actions/printDashboard'
@@ -14,6 +15,7 @@ import {
 } from '../../actions/selected'
 import { apiPostDataStatistics } from '../../api/dataStatistics'
 import DashboardContainer from '../../components/DashboardContainer'
+import DashboardsBar from '../../components/DashboardsBar/DashboardsBar'
 import LoadingMask from '../../components/LoadingMask'
 import Notice from '../../components/Notice'
 import { setHeaderbarVisible } from '../../modules/setHeaderbarVisible'
@@ -21,7 +23,7 @@ import { useCacheableSection } from '../../modules/useCacheableSection'
 import { sGetDashboardById } from '../../reducers/dashboards'
 import { sGetPassiveViewRegistered } from '../../reducers/passiveViewRegistered'
 import { sGetSelectedId } from '../../reducers/selected'
-import DashboardsBar from './DashboardsBar/DashboardsBar'
+import { ROUTE_START_PATH } from '../start'
 import FilterBar from './FilterBar/FilterBar'
 import ItemGrid from './ItemGrid'
 import classes from './styles/ViewDashboard.module.css'
@@ -112,9 +114,23 @@ const ViewDashboard = props => {
             return (
                 <Notice
                     title={i18n.t('Offline')}
-                    message={i18n.t(
-                        'This dashboard cannot be loaded while offline.'
-                    )}
+                    message={
+                        <>
+                            <p>
+                                {i18n.t(
+                                    'This dashboard cannot be loaded while offline.'
+                                )}
+                            </p>
+                            <div>
+                                <Link
+                                    to={ROUTE_START_PATH}
+                                    className={classes.link}
+                                >
+                                    {i18n.t('Go to start page')}
+                                </Link>
+                            </div>
+                        </>
+                    }
                 />
             )
         }

@@ -6,9 +6,13 @@ import { useSystemSettings } from '../../../../SystemSettingsProvider'
 import WindowDimensionsProvider from '../../../../WindowDimensionsProvider'
 import ItemContextMenu from '../ItemContextMenu'
 
-jest.mock('../../../../SystemSettingsProvider', () => ({
-    useSystemSettings: jest.fn(),
-}))
+jest.mock('../../../../SystemSettingsProvider', () => {
+    return {
+        __esModule: true,
+        default: jest.fn(children => <div>{children}</div>),
+        useSystemSettings: jest.fn(),
+    }
+})
 
 jest.mock('@dhis2/app-runtime', () => ({
     useOnlineStatus: jest.fn(() => ({ offline: true })),
@@ -16,7 +20,7 @@ jest.mock('@dhis2/app-runtime', () => ({
 }))
 
 const mockSystemSettingsDefault = {
-    settings: {
+    systemSettings: {
         allowVisOpenInApp: true,
         allowVisShowInterpretations: true,
         allowVisViewAs: true,
@@ -41,7 +45,7 @@ const defaultProps = {
 }
 
 test('renders just the button when menu closed', () => {
-    useSystemSettings.mockImplementationOnce(() => mockSystemSettingsDefault)
+    useSystemSettings.mockReturnValue(mockSystemSettingsDefault)
 
     const { container } = render(
         <WindowDimensionsProvider>
@@ -53,7 +57,7 @@ test('renders just the button when menu closed', () => {
 })
 
 test('renders exit fullscreen button', () => {
-    useSystemSettings.mockImplementation(() => mockSystemSettingsDefault)
+    useSystemSettings.mockReturnValue(mockSystemSettingsDefault)
     const gridItemClassName = getGridItemDomElementClassName(
         defaultProps.item.id
     )
@@ -81,7 +85,7 @@ test('renders exit fullscreen button', () => {
 })
 
 test('renders popover menu for BAR chart', async () => {
-    useSystemSettings.mockImplementation(() => mockSystemSettingsDefault)
+    useSystemSettings.mockReturnValue(mockSystemSettingsDefault)
     const props = Object.assign({}, defaultProps, {
         visualization: {
             type: 'BAR',
@@ -108,7 +112,7 @@ test('renders popover menu for BAR chart', async () => {
 })
 
 test('renders popover menu for SINGLE_VALUE chart', async () => {
-    useSystemSettings.mockImplementation(() => mockSystemSettingsDefault)
+    useSystemSettings.mockReturnValue(mockSystemSettingsDefault)
     const props = Object.assign({}, defaultProps, {
         visualization: {
             type: 'SINGLE_VALUE',
@@ -135,7 +139,7 @@ test('renders popover menu for SINGLE_VALUE chart', async () => {
 })
 
 test('renders popover menu for YEAR_OVER_YEAR_LINE chart', async () => {
-    useSystemSettings.mockImplementation(() => mockSystemSettingsDefault)
+    useSystemSettings.mockReturnValue(mockSystemSettingsDefault)
     const props = Object.assign({}, defaultProps, {
         visualization: {
             type: 'YEAR_OVER_YEAR_LINE',
@@ -162,7 +166,7 @@ test('renders popover menu for YEAR_OVER_YEAR_LINE chart', async () => {
 })
 
 test('renders popover menu for GAUGE chart', async () => {
-    useSystemSettings.mockImplementation(() => mockSystemSettingsDefault)
+    useSystemSettings.mockReturnValue(mockSystemSettingsDefault)
     const props = Object.assign({}, defaultProps, {
         visualization: {
             type: 'GAUGE',
@@ -189,7 +193,7 @@ test('renders popover menu for GAUGE chart', async () => {
 })
 
 test('renders popover menu for PIE chart', async () => {
-    useSystemSettings.mockImplementation(() => mockSystemSettingsDefault)
+    useSystemSettings.mockReturnValue(mockSystemSettingsDefault)
     const props = Object.assign({}, defaultProps, {
         visualization: {
             type: 'PIE',
@@ -216,7 +220,7 @@ test('renders popover menu for PIE chart', async () => {
 })
 
 test('renders popover menu for PIVOT_TABLE', async () => {
-    useSystemSettings.mockImplementation(() => mockSystemSettingsDefault)
+    useSystemSettings.mockReturnValue(mockSystemSettingsDefault)
     const props = Object.assign({}, defaultProps, {
         item: {
             type: 'REPORT_TABLE',
@@ -247,7 +251,7 @@ test('renders popover menu for PIVOT_TABLE', async () => {
 })
 
 test('renders popover menu for MAP', async () => {
-    useSystemSettings.mockImplementation(() => mockSystemSettingsDefault)
+    useSystemSettings.mockReturnValue(mockSystemSettingsDefault)
     const props = Object.assign({}, defaultProps, {
         item: {
             type: 'MAP',
@@ -276,7 +280,7 @@ test('renders popover menu for MAP', async () => {
 })
 
 test('renders popover menu when interpretations displayed', async () => {
-    useSystemSettings.mockImplementation(() => mockSystemSettingsDefault)
+    useSystemSettings.mockReturnValue(mockSystemSettingsDefault)
     const props = Object.assign({}, defaultProps, {
         visualization: {
             type: 'BAR',
@@ -299,9 +303,13 @@ test('renders popover menu when interpretations displayed', async () => {
 
 test('does not render "View as" options if settings do not allow', async () => {
     useSystemSettings.mockImplementation(() => ({
-        settings: Object.assign({}, mockSystemSettingsDefault.settings, {
-            allowVisViewAs: false,
-        }),
+        systemSettings: Object.assign(
+            {},
+            mockSystemSettingsDefault.systemSettings,
+            {
+                allowVisViewAs: false,
+            }
+        ),
     }))
 
     const { getByRole, queryAllByText } = render(
@@ -317,11 +325,15 @@ test('does not render "View as" options if settings do not allow', async () => {
 })
 
 test('does not render "Open in [app]" option if settings do not allow', async () => {
-    useSystemSettings.mockImplementation(() => ({
-        settings: Object.assign({}, mockSystemSettingsDefault.settings, {
-            allowVisOpenInApp: false,
-        }),
-    }))
+    useSystemSettings.mockReturnValue({
+        systemSettings: Object.assign(
+            {},
+            mockSystemSettingsDefault.systemSettings,
+            {
+                allowVisOpenInApp: false,
+            }
+        ),
+    })
 
     const { getByRole, queryByText } = render(
         <WindowDimensionsProvider>
@@ -336,7 +348,7 @@ test('does not render "Open in [app]" option if settings do not allow', async ()
 })
 
 test('renders only View in App when item load failed', async () => {
-    useSystemSettings.mockImplementation(() => mockSystemSettingsDefault)
+    useSystemSettings.mockReturnValue(mockSystemSettingsDefault)
     const props = Object.assign({}, defaultProps, {
         item: {
             type: 'MAP',
@@ -366,11 +378,15 @@ test('renders only View in App when item load failed', async () => {
 })
 
 test('does not render "fullscreen" option if settings do not allow', async () => {
-    useSystemSettings.mockImplementation(() => ({
-        settings: Object.assign({}, mockSystemSettingsDefault.settings, {
-            allowVisFullscreen: false,
-        }),
-    }))
+    useSystemSettings.mockReturnValue({
+        systemSettings: Object.assign(
+            {},
+            mockSystemSettingsDefault.systemSettings,
+            {
+                allowVisFullscreen: false,
+            }
+        ),
+    })
 
     const { getByRole, queryByText } = render(
         <WindowDimensionsProvider>
@@ -385,11 +401,15 @@ test('does not render "fullscreen" option if settings do not allow', async () =>
 })
 
 test('does not render "Show interpretations" option if settings do not allow', async () => {
-    useSystemSettings.mockImplementation(() => ({
-        settings: Object.assign({}, mockSystemSettingsDefault.settings, {
-            allowVisShowInterpretations: false,
-        }),
-    }))
+    useSystemSettings.mockReturnValue({
+        systemSettings: Object.assign(
+            {},
+            mockSystemSettingsDefault.systemSettings,
+            {
+                allowVisShowInterpretations: false,
+            }
+        ),
+    })
 
     const { getByRole, queryByText } = render(
         <WindowDimensionsProvider>
@@ -404,14 +424,14 @@ test('does not render "Show interpretations" option if settings do not allow', a
 })
 
 test('renders null if all relevant settings are false', async () => {
-    useSystemSettings.mockImplementation(() => ({
-        settings: {
+    useSystemSettings.mockReturnValue({
+        systemSettings: {
             allowVisOpenInApp: false,
             allowVisShowInterpretations: false,
             allowVisViewAs: false,
             allowVisFullscreen: false,
         },
-    }))
+    })
 
     const { container } = render(
         <WindowDimensionsProvider>
@@ -424,7 +444,7 @@ test('renders null if all relevant settings are false', async () => {
 
 test('renders correct options for BAR in small screen', async () => {
     global.innerWidth = 480
-    useSystemSettings.mockImplementation(() => mockSystemSettingsDefault)
+    useSystemSettings.mockReturnValue(mockSystemSettingsDefault)
 
     const { getByRole, queryByTestId, queryByText } = render(
         <WindowDimensionsProvider>
@@ -449,7 +469,7 @@ test('renders correct options for BAR in small screen', async () => {
 
 test('renders correct options for PIE in small screen', async () => {
     global.innerWidth = 480
-    useSystemSettings.mockImplementation(() => mockSystemSettingsDefault)
+    useSystemSettings.mockReturnValue(mockSystemSettingsDefault)
 
     const props = Object.assign({}, defaultProps, {
         visualization: {

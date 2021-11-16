@@ -5,7 +5,7 @@ import React from 'react'
 import { Provider } from 'react-redux'
 import { Router } from 'react-router-dom'
 import configureMockStore from 'redux-mock-store'
-import WindowDimensionsProvider from '../../../../components/WindowDimensionsProvider'
+import WindowDimensionsProvider from '../../../components/WindowDimensionsProvider'
 import DashboardsBar, { MIN_ROW_COUNT, MAX_ROW_COUNT } from '../DashboardsBar'
 
 // TODO this spy is an implementation detail
