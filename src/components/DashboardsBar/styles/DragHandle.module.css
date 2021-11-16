@@ -8,6 +8,25 @@
     height: 7px;
 }
 
+.draghandle:after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    height: 3px;
+    width: 100%;
+    background: var(--colors-white);
+}
+
+.draghandle:hover:after {
+    background: var(--colors-blue300);
+    transition: background 0.2s 0.1s;
+}
+
+.draghandle:active:after {
+    background: var(--colors-blue500);
+    transition: none;
+}
+
 @media only screen and (max-width: 480px) {
     .draghandle {
         display: none;
