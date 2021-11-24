@@ -9,13 +9,14 @@
 # Yao Selom Saka <ysaka@hispwca.org>, 2020
 # Gabriela Rodriguez <grodriguezcoronado@gmail.com>, 2020
 # Yayra Gomado <ygomado@hispwca.org>, 2021
+# Alice Aké <aliceal@ifi.uio.no>, 2021
 # 
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
 "POT-Creation-Date: 2021-07-06T07:28:33.146Z\n"
 "PO-Revision-Date: 2020-12-22 22:13+0000\n"
-"Last-Translator: Yayra Gomado <ygomado@hispwca.org>, 2021\n"
+"Last-Translator: Alice Aké <aliceal@ifi.uio.no>, 2021\n"
 "Language-Team: French (https://www.transifex.com/hisp-uio/teams/100509/fr/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -186,9 +187,10 @@ msgstr "Ouvrir dans l'app {{appName}}"
 
 msgid "There was an error loading data for this item"
 msgstr ""
+"Une erreur s'est produite lors du chargement des données pour cet élément"
 
 msgid "Open this item in {{appName}}"
-msgstr ""
+msgstr "Ouvrez cet élément dans {{NomApp}}"
 
 msgid "Confirm"
 msgstr "Confirmer"
