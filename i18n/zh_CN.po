@@ -367,7 +367,7 @@ msgid ""
 msgstr ""
 
 msgid "Getting started"
-msgstr ""
+msgstr "开始"
 
 msgid "Search for and open saved dashboards from the top bar."
 msgstr ""
