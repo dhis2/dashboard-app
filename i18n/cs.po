@@ -106,7 +106,7 @@ msgid "There was a problem loading interpretations for this item"
 msgstr "Při načítání interpretací této položky došlo k problému"
 
 msgid "Maps with Earth Engine layers cannot be displayed when offline"
-msgstr ""
+msgstr "Mapy s vrstvami Earth Engine nelze zobrazit v režimu offline"
 
 msgid "Unable to load the plugin for this item"
 msgstr "Nelze načíst plugin pro tuto položku"
@@ -396,18 +396,20 @@ msgid "Getting started"
 msgstr "Začínáme"
 
 msgid "Search for and open saved dashboards from the top bar."
-msgstr ""
+msgstr "Vyhledejte a otevřete uložené ovládací panely z horní lišty."
 
 msgid ""
 "Click a dashboard chip to open it. Get back to this screen from the \"More\""
 " menu."
 msgstr ""
+"Kliknutím na čip ovládacího panelu jej otevřete. Vraťte se na tuto obrazovku"
+" z nabídky \"Více\"."
 
 msgid "Create a new dashboard with the + button."
-msgstr ""
+msgstr "Vytvořte nový ovládací panel pomocí tlačítka +."
 
 msgid "Your most viewed dashboards"
-msgstr ""
+msgstr "Vaše nejsledovanější ovládací panely"
 
 msgid "No dashboards found. Use the + button to create a new dashboard."
 msgstr ""
@@ -477,7 +479,7 @@ msgid "One item per page"
 msgstr "Jedna položka na stránku"
 
 msgid "Close dashboard"
-msgstr ""
+msgstr "Zavřete ovládací panel"
 
 msgid "More"
 msgstr "Více"
@@ -529,7 +531,7 @@ msgid "This dashboard cannot be loaded while offline."
 msgstr "Tento ovládací panel nelze načíst v režimu offline."
 
 msgid "Go to start page"
-msgstr ""
+msgstr "Přejít na úvodní stránku"
 
 msgid "Load dashboard failed"
 msgstr "Načtení ovládacího panelu se nezdařilo"
