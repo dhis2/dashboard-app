@@ -7,7 +7,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2021-10-18T11:58:56.192Z\n"
+"POT-Creation-Date: 2021-10-28T06:43:54.981Z\n"
 "PO-Revision-Date: 2021-09-03 23:41+0000\n"
 "Last-Translator: KRG HIS <antonia.bezenchek@informa.pro>, 2021\n"
 "Language-Team: Central Kurdish (https://www.transifex.com/hisp-uio/teams/100509/ckb/)\n"
@@ -18,6 +18,21 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 msgid "Untitled dashboard"
+msgstr ""
+
+msgid "Cannot create a dashboard while offline"
+msgstr ""
+
+msgid "Create new dashboard"
+msgstr ""
+
+msgid "Search for a dashboard"
+msgstr ""
+
+msgid "Show fewer dashboards"
+msgstr ""
+
+msgid "Show more dashboards"
 msgstr ""
 
 msgid "Remove this item"
@@ -353,25 +368,27 @@ msgid ""
 "graphics in the browser print dialog"
 msgstr ""
 
+msgid "Getting started"
+msgstr ""
+
+msgid "Search for and open saved dashboards from the top bar."
+msgstr ""
+
+msgid ""
+"Click a dashboard chip to open it. Get back to this screen from the \"More\""
+" menu."
+msgstr ""
+
+msgid "Create a new dashboard with the + button."
+msgstr ""
+
+msgid "Your most viewed dashboards"
+msgstr ""
+
 msgid "No dashboards found. Use the + button to create a new dashboard."
 msgstr ""
 
 msgid "Requested dashboard not found"
-msgstr ""
-
-msgid "Cannot create a dashboard while offline"
-msgstr ""
-
-msgid "Create new dashboard"
-msgstr ""
-
-msgid "Search for a dashboard"
-msgstr ""
-
-msgid "Show fewer dashboards"
-msgstr ""
-
-msgid "Show more dashboards"
 msgstr ""
 
 msgid "{{count}} selected"
@@ -429,6 +446,9 @@ msgstr ""
 msgid "One item per page"
 msgstr ""
 
+msgid "Close dashboard"
+msgstr ""
+
 msgid "More"
 msgstr ""
 
@@ -474,6 +494,9 @@ msgid "Offline"
 msgstr "ئۆفڵاین"
 
 msgid "This dashboard cannot be loaded while offline."
+msgstr ""
+
+msgid "Go to start page"
 msgstr ""
 
 msgid "Load dashboard failed"
