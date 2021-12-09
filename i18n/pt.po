@@ -5,13 +5,14 @@
 # Viktor Varland <viktor@dhis2.org>, 2021
 # Sheila André <sandre@saudigitus.org>, 2021
 # Ge Joao <gsimango@saudigitus.org>, 2021
+# Fernando Jorge Bade, 2021
 # 
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
 "POT-Creation-Date: 2021-10-28T06:43:54.981Z\n"
 "PO-Revision-Date: 2019-06-25 12:37+0000\n"
-"Last-Translator: Ge Joao <gsimango@saudigitus.org>, 2021\n"
+"Last-Translator: Fernando Jorge Bade, 2021\n"
 "Language-Team: Portuguese (https://www.transifex.com/hisp-uio/teams/100509/pt/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -23,10 +24,10 @@ msgid "Untitled dashboard"
 msgstr "Painel sem título"
 
 msgid "Cannot create a dashboard while offline"
-msgstr ""
+msgstr "Não é possível criar um painel enquanto está offline"
 
 msgid "Create new dashboard"
-msgstr ""
+msgstr "Criar novo painel"
 
 msgid "Search for a dashboard"
 msgstr "Pesquisar por um painel"
@@ -119,13 +120,13 @@ msgid "No data to display"
 msgstr "Não há dados para exibir"
 
 msgid "There was an error loading data for this item"
-msgstr ""
+msgstr "Houve um erro de carregamento de dados para este item"
 
 msgid "Open this item in {{appName}}"
-msgstr ""
+msgstr "Abra este item em {{appName}}"
 
 msgid "Not available offline"
-msgstr ""
+msgstr "Não disponível offline"
 
 msgid "Visualizations"
 msgstr "Visualizações"
@@ -161,11 +162,15 @@ msgid ""
 "Failed to save dashboard. You might be offline or not have access to edit "
 "this dashboard."
 msgstr ""
+"Falhou em salvar o painel. Pode estar offline ou não ter acesso a editar "
+"este dashboard."
 
 msgid ""
 "Failed to delete dashboard. You might be offline or not have access to edit "
 "this dashboard."
 msgstr ""
+"Falhou em apagar o painel de instrumentos. Pode estar offline ou não ter "
+"acesso a editar este painel."
 
 msgid "Cannot save this dashboard while offline"
 msgstr ""
@@ -180,7 +185,7 @@ msgid "Print preview"
 msgstr "Visualização de impressão"
 
 msgid "Filter settings"
-msgstr ""
+msgstr "Definições de filtro"
 
 msgid "Translate"
 msgstr "Traduzir"
@@ -219,12 +224,14 @@ msgid ""
 "This dashboard has unsaved changes. Are you sure you want to leave and "
 "discard these unsaved changes?"
 msgstr ""
+"Este painel tem alterações não salvas. Tem a certeza de que pretende sair e "
+"descartar estas alterações não salvas?"
 
 msgid "No, stay here"
-msgstr ""
+msgstr "Não, fique aqui."
 
 msgid "Yes, discard changes"
-msgstr ""
+msgstr "Sim, descartar alterações"
 
 msgid "No access"
 msgstr "Sem acesso"
@@ -252,6 +259,10 @@ msgid ""
 "                                         as filters. Alternatively, only selected dimensions can\n"
 "                                         be made available on a dashboard."
 msgstr ""
+"Os painéis  podem ser filtrados por dimensões para mudar\n"
+"os dados mostrados. Por padrão, todas as dimensões estão disponíveis\n"
+"como filtros. Em alternativa, apenas as dimensões selecionadas podem\n"
+"ser disponibilizado em um painéis"
 
 msgid "Available Filters"
 msgstr ""
