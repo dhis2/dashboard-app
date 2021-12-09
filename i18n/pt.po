@@ -4,13 +4,14 @@
 # Viktor Varland <viktor@dhis2.org>, 2020
 # Sheila André <sandre@saudigitus.org>, 2020
 # Gabriela Rodriguez <grodriguezcoronado@gmail.com>, 2021
+# Fernando Jorge Bade, 2021
 # 
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
 "POT-Creation-Date: 2021-07-06T07:28:33.146Z\n"
 "PO-Revision-Date: 2020-12-22 22:13+0000\n"
-"Last-Translator: Gabriela Rodriguez <grodriguezcoronado@gmail.com>, 2021\n"
+"Last-Translator: Fernando Jorge Bade, 2021\n"
 "Language-Team: Portuguese (https://www.transifex.com/hisp-uio/teams/100509/pt/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -176,10 +177,10 @@ msgid "Open in {{appName}} app"
 msgstr "Abrir no aplicativo {{appName}}"
 
 msgid "There was an error loading data for this item"
-msgstr ""
+msgstr "Houve um erro de carregamento de dados para este item"
 
 msgid "Open this item in {{appName}}"
-msgstr ""
+msgstr "Abra este item em {{appName}}"
 
 msgid "Confirm"
 msgstr "Confirmar"
