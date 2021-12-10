@@ -121,7 +121,7 @@ msgid "Open this item in {{appName}}"
 msgstr ""
 
 msgid "Not available offline"
-msgstr ""
+msgstr "غير متوفر في وضع عدم الإتصال"
 
 msgid "Visualizations"
 msgstr "مخططات بيانية"
