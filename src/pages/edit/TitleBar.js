@@ -10,6 +10,7 @@ import {
     acSetLayoutColumns,
     tSetDashboardItems,
     acSetItemConfigInsertPosition,
+    acSetDashboardCode,
 } from '../../actions/editDashboard'
 import OfflineTooltip from '../../components/OfflineTooltip'
 import { orObject } from '../../modules/util'
@@ -29,14 +30,21 @@ const EditTitleBar = ({
     columns,
     description,
     name,
+    code,
+    onChangeCode,
     onChangeInsertPosition,
     onChangeTitle,
     onChangeDescription,
     onSaveLayout,
 }) => {
     const { offline } = useOnlineStatus()
+
     const updateTitle = (_, e) => {
         onChangeTitle(e.target.value)
+    }
+
+    const updateCode = (_, e) => {
+        onChangeCode(e.target.value)
     }
 
     const updateDescription = (_, e) => {
@@ -48,22 +56,34 @@ const EditTitleBar = ({
     return (
         <div className={classes.container}>
             <div className={classes.inputWrapper}>
-                <InputField
-                    name="Dashboard title input"
-                    label={i18n.t('Dashboard title')}
-                    type="text"
-                    onChange={updateTitle}
-                    value={name}
-                    placeholder={i18n.t('Untitled dashboard')}
-                    dataTest="dashboard-title-input"
-                    dense
-                />
+                <div className={classes.inputFieldWrapper}>
+                    <InputField
+                        name="Dashboard title input"
+                        label={i18n.t('Dashboard title')}
+                        type="text"
+                        onChange={updateTitle}
+                        value={name}
+                        placeholder={i18n.t('Untitled dashboard')}
+                        dataTest="dashboard-title-input"
+                        dense
+                    />
+                    <InputField
+                        name="Dashboard code input"
+                        label={i18n.t('Dashboard code')}
+                        type="text"
+                        onChange={updateCode}
+                        value={code}
+                        dataTest="dashboard-code-input"
+                        dense
+                    />
+                </div>
                 <TextAreaField
                     name="Dashboard description input"
                     label={i18n.t('Dashboard description')}
                     onChange={updateDescription}
                     value={description}
                     dataTest="dashboard-description-input"
+                    rows="6"
                     dense
                 />
             </div>
@@ -139,6 +159,7 @@ const EditTitleBar = ({
 }
 
 EditTitleBar.propTypes = {
+    onChangeCode: PropTypes.func.isRequired,
     onChangeDescription: PropTypes.func.isRequired,
     onChangeInsertPosition: PropTypes.func.isRequired,
     onChangeTitle: PropTypes.func.isRequired,
@@ -160,6 +181,7 @@ const mapStateToProps = state => {
 
     return {
         name: selectedDashboard.name,
+        code: selectedDashboard.code,
         columns: sGetLayoutColumns(state),
         description: selectedDashboard.description,
         insertPosition: sGetItemConfigInsertPosition(state),
@@ -167,6 +189,7 @@ const mapStateToProps = state => {
 }
 
 const mapDispatchToProps = {
+    onChangeCode: acSetDashboardCode,
     onChangeTitle: acSetDashboardTitle,
     onChangeDescription: acSetDashboardDescription,
     onChangeInsertPosition: acSetItemConfigInsertPosition,

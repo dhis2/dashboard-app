@@ -59,6 +59,11 @@ export const acSetDashboardTitle = value => ({
     value,
 })
 
+export const acSetDashboardCode = value => ({
+    type: RECEIVED_CODE,
+    value,
+})
+
 export const acSetDashboardDescription = value => ({
     type: RECEIVED_DESCRIPTION,
     value,
@@ -166,6 +171,7 @@ export const tSetDashboardItems =
 
 export const tSaveDashboard = () => async (dispatch, getState, dataEngine) => {
     const dashboard = sGetEditDashboardRoot(getState())
+    console.log('dashboard to save', dashboard)
     const dashboardToSave = {
         ...dashboard,
         dashboardItems: convertUiItemsToBackend(dashboard.dashboardItems),

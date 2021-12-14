@@ -5,8 +5,8 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1)\n"
-"POT-Creation-Date: 2021-10-28T06:43:54.981Z\n"
-"PO-Revision-Date: 2021-10-28T06:43:54.981Z\n"
+"POT-Creation-Date: 2021-12-14T13:45:05.562Z\n"
+"PO-Revision-Date: 2021-12-14T13:45:05.562Z\n"
 
 msgid "Untitled dashboard"
 msgstr "Untitled dashboard"
@@ -331,6 +331,9 @@ msgstr "Save layout"
 
 msgid "Dashboard title"
 msgstr "Dashboard title"
+
+msgid "Dashboard code"
+msgstr "Dashboard code"
 
 msgid "Dashboard description"
 msgstr "Dashboard description"

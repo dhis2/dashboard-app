@@ -16,6 +16,7 @@ export const RECEIVED_EDIT_DASHBOARD = 'RECEIVED_EDIT_DASHBOARD'
 export const RECEIVED_NOT_EDITING = 'RECEIVED_NOT_EDITING'
 export const START_NEW_DASHBOARD = 'START_NEW_DASHBOARD'
 export const RECEIVED_TITLE = 'RECEIVED_TITLE'
+export const RECEIVED_CODE = 'RECEIVED_CODE'
 export const RECEIVED_DESCRIPTION = 'RECEIVED_DESCRIPTION'
 export const ADD_DASHBOARD_ITEM = 'ADD_DASHBOARD_ITEM'
 export const REMOVE_DASHBOARD_ITEM = 'REMOVE_DASHBOARD_ITEM'
@@ -33,6 +34,7 @@ export const EMPTY_STATE_EDIT_DASHBOARD = {}
 export const DEFAULT_STATE_EDIT_DASHBOARD = {
     id: '',
     name: '',
+    code: '',
     access: { update: true, delete: true },
     allowedFilters: [],
     description: '',
@@ -73,6 +75,12 @@ export default (state = DEFAULT_STATE_EDIT_DASHBOARD, action) => {
         case RECEIVED_TITLE: {
             return Object.assign({}, state, {
                 name: action.value,
+                isDirty: true,
+            })
+        }
+        case RECEIVED_CODE: {
+            return Object.assign({}, state, {
+                code: action.value,
                 isDirty: true,
             })
         }
@@ -239,6 +247,7 @@ export const sGetIsPrintPreviewView = state =>
     sGetEditDashboardRoot(state).printPreviewView
 
 export const sGetEditDashboardName = state => sGetEditDashboardRoot(state).name
+export const sGetEditDashboardCode = state => sGetEditDashboardRoot(state).code
 export const sGetEditDashboardDescription = state =>
     sGetEditDashboardRoot(state).description
 
