@@ -53,6 +53,7 @@ export const editDashboardQuery = {
             ...baseDashboardFields,
             `user[${getIdNameFields({ rename: true }).join(',')}]`,
             'name',
+            'code',
             'description',
             'created',
             'favorite',

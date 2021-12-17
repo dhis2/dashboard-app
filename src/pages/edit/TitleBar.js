@@ -75,6 +75,12 @@ const EditTitleBar = ({
                         value={code}
                         dataTest="dashboard-code-input"
                         dense
+                        {...(code.length > 50 && {
+                            error: true,
+                            validationText: i18n.t(
+                                "Code can't be longer than 50 characters"
+                            ),
+                        })}
                     />
                 </div>
                 <TextAreaField
@@ -83,7 +89,7 @@ const EditTitleBar = ({
                     onChange={updateDescription}
                     value={description}
                     dataTest="dashboard-description-input"
-                    rows="6"
+                    rows={6}
                     dense
                 />
             </div>
@@ -164,6 +170,7 @@ EditTitleBar.propTypes = {
     onChangeInsertPosition: PropTypes.func.isRequired,
     onChangeTitle: PropTypes.func.isRequired,
     onSaveLayout: PropTypes.func.isRequired,
+    code: PropTypes.string,
     columns: PropTypes.array,
     description: PropTypes.string,
     insertPosition: PropTypes.string,
@@ -172,6 +179,7 @@ EditTitleBar.propTypes = {
 
 EditTitleBar.defaultProps = {
     name: '',
+    code: '',
     description: '',
     insertPosition: 'END',
 }

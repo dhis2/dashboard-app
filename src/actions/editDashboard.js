@@ -28,6 +28,7 @@ import {
     sGetEditDashboardItems,
     sGetLayoutColumns,
     sGetItemConfigInsertPosition,
+    RECEIVED_CODE,
 } from '../reducers/editDashboard'
 import { tFetchDashboards } from './dashboards'
 
@@ -171,7 +172,7 @@ export const tSetDashboardItems =
 
 export const tSaveDashboard = () => async (dispatch, getState, dataEngine) => {
     const dashboard = sGetEditDashboardRoot(getState())
-    console.log('dashboard to save', dashboard)
+
     const dashboardToSave = {
         ...dashboard,
         dashboardItems: convertUiItemsToBackend(dashboard.dashboardItems),
