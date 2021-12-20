@@ -5,8 +5,8 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1)\n"
-"POT-Creation-Date: 2021-12-14T13:45:05.562Z\n"
-"PO-Revision-Date: 2021-12-14T13:45:05.562Z\n"
+"POT-Creation-Date: 2021-12-17T14:42:43.380Z\n"
+"PO-Revision-Date: 2021-12-17T14:42:43.380Z\n"
 
 msgid "Untitled dashboard"
 msgstr "Untitled dashboard"
@@ -334,6 +334,9 @@ msgstr "Dashboard title"
 
 msgid "Dashboard code"
 msgstr "Dashboard code"
+
+msgid "Code can't be longer than 50 characters"
+msgstr "Code can't be longer than 50 characters"
 
 msgid "Dashboard description"
 msgstr "Dashboard description"
