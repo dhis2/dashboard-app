@@ -29,17 +29,21 @@ import { deleteDashboardMutation } from './deleteDashboardMutation'
 import FilterSettingsDialog from './FilterSettingsDialog'
 import classes from './styles/ActionsBar.module.css'
 
-const saveFailedMessage = i18n.t(
-    'Failed to save dashboard. You might be offline or not have access to edit this dashboard.'
+const saveFailedMessage = i18n.t('Failed to save dashboard.')
+
+const defaultErrorMessage = i18n.t(
+    'You might be offline or not have access to edit this dashboard.'
 )
 
-const saveFailedCodeExistsMessage = i18n.t(
-    'This code is already being used on another dashboard'
-)
+const saveFailedDefaultMessage = `${saveFailedMessage} ${defaultErrorMessage}`
 
-const deleteFailedMessage = i18n.t(
-    'Failed to delete dashboard. You might be offline or not have access to edit this dashboard.'
-)
+const saveFailedCodeExistsMessage = `${saveFailedMessage} ${i18n.t(
+    'This code is already being used on another dashboard.'
+)}`
+
+const deleteFailedDefaultMessage = `${i18n.t(
+    'Failed to delete dashboard.'
+)} ${defaultErrorMessage}`
 
 const EditBar = ({ dashboard, ...props }) => {
     const { d2 } = useD2()
@@ -54,7 +58,7 @@ const EditBar = ({ dashboard, ...props }) => {
 
     const [redirectUrl, setRedirectUrl] = useState(undefined)
 
-    const saveFailureAlert = useAlert(saveFailedMessage, {
+    const saveFailureAlert = useAlert(saveFailedDefaultMessage, {
         critical: true,
     })
 
@@ -62,7 +66,7 @@ const EditBar = ({ dashboard, ...props }) => {
         critical: true,
     })
 
-    const deleteFailureAlert = useAlert(deleteFailedMessage, {
+    const deleteFailureAlert = useAlert(deleteFailedDefaultMessage, {
         critical: true,
     })
 
