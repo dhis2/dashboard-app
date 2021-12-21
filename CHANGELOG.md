@@ -1,3 +1,10 @@
+## [31.22.1](https://github.com/dhis2/dashboard-app/compare/v31.22.0...v31.22.1) (2021-12-21)
+
+
+### Bug Fixes
+
+* update code exists error message (DHIS2-11790) ([#2058](https://github.com/dhis2/dashboard-app/issues/2058)) ([147450a](https://github.com/dhis2/dashboard-app/commit/147450a197fa59d1d6ff48cb2168c2fd0affb1d0))
+
 # [31.22.0](https://github.com/dhis2/dashboard-app/compare/v31.21.0...v31.22.0) (2021-12-21)
 
 
