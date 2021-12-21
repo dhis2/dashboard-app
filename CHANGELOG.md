@@ -1,3 +1,10 @@
+# [31.22.0](https://github.com/dhis2/dashboard-app/compare/v31.21.0...v31.22.0) (2021-12-21)
+
+
+### Features
+
+* dashboard code (DHIS2-11790) ([#2057](https://github.com/dhis2/dashboard-app/issues/2057)) ([4a9e4bb](https://github.com/dhis2/dashboard-app/commit/4a9e4bba74cf80407fa08a1b437c8438a8ea4141))
+
 # [31.21.0](https://github.com/dhis2/dashboard-app/compare/v31.20.3...v31.21.0) (2021-11-16)
 
 
