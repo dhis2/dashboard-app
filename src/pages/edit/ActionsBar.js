@@ -34,7 +34,7 @@ const saveFailedMessage = i18n.t(
 )
 
 const saveFailedCodeExistsMessage = i18n.t(
-    'This code is already being used on another dashboard'
+    'Failed to save dashboard. This code is already being used on another dashboard.'
 )
 
 const deleteFailedMessage = i18n.t(
