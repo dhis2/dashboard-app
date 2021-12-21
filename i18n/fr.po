@@ -14,7 +14,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2021-10-28T06:43:54.981Z\n"
+"POT-Creation-Date: 2021-12-21T08:20:25.327Z\n"
 "PO-Revision-Date: 2019-06-25 12:37+0000\n"
 "Last-Translator: Alice Aké <aliceal@ifi.uio.no>, 2021\n"
 "Language-Team: French (https://www.transifex.com/hisp-uio/teams/100509/fr/)\n"
@@ -172,6 +172,11 @@ msgid ""
 msgstr ""
 "Échec de l'enregistrement du tableau de bord. Vous êtes peut-être hors ligne"
 " ou n'avez pas accès pour modifier ce tableau de bord."
+
+msgid ""
+"Failed to save dashboard. This code is already being used on another "
+"dashboard."
+msgstr ""
 
 msgid ""
 "Failed to delete dashboard. You might be offline or not have access to edit "
@@ -344,6 +349,12 @@ msgstr ""
 
 msgid "Dashboard title"
 msgstr "Titre du tableau de bord"
+
+msgid "Dashboard code"
+msgstr ""
+
+msgid "Code can't be longer than 50 characters"
+msgstr ""
 
 msgid "Dashboard description"
 msgstr "Description du tableau de bord"

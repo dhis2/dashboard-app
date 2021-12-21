@@ -10,7 +10,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2021-10-28T06:43:54.981Z\n"
+"POT-Creation-Date: 2021-12-21T08:20:25.327Z\n"
 "PO-Revision-Date: 2019-06-25 12:37+0000\n"
 "Last-Translator: Fernando Jorge Bade, 2021\n"
 "Language-Team: Portuguese (https://www.transifex.com/hisp-uio/teams/100509/pt/)\n"
@@ -164,6 +164,11 @@ msgid ""
 msgstr ""
 "Falhou em salvar o painel. Pode estar offline ou não ter acesso a editar "
 "este dashboard."
+
+msgid ""
+"Failed to save dashboard. This code is already being used on another "
+"dashboard."
+msgstr ""
 
 msgid ""
 "Failed to delete dashboard. You might be offline or not have access to edit "
@@ -336,6 +341,12 @@ msgstr ""
 
 msgid "Dashboard title"
 msgstr "Título do painel"
+
+msgid "Dashboard code"
+msgstr ""
+
+msgid "Code can't be longer than 50 characters"
+msgstr ""
 
 msgid "Dashboard description"
 msgstr "Descrição do painel"

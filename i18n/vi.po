@@ -7,7 +7,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2021-10-28T06:43:54.981Z\n"
+"POT-Creation-Date: 2021-12-21T08:20:25.327Z\n"
 "PO-Revision-Date: 2019-06-25 12:37+0000\n"
 "Last-Translator: Mai Nguyen <thanhmai.jica@gmail.com>, 2021\n"
 "Language-Team: Vietnamese (https://www.transifex.com/hisp-uio/teams/100509/vi/)\n"
@@ -158,6 +158,11 @@ msgstr "Người dùng"
 msgid ""
 "Failed to save dashboard. You might be offline or not have access to edit "
 "this dashboard."
+msgstr ""
+
+msgid ""
+"Failed to save dashboard. This code is already being used on another "
+"dashboard."
 msgstr ""
 
 msgid ""
@@ -323,6 +328,12 @@ msgstr ""
 
 msgid "Dashboard title"
 msgstr "Tiêu đề bảng điều khiển"
+
+msgid "Dashboard code"
+msgstr ""
+
+msgid "Code can't be longer than 50 characters"
+msgstr ""
 
 msgid "Dashboard description"
 msgstr "Mô tả bảng điều khiển"
