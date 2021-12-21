@@ -18,6 +18,16 @@
     margin-right: var(--spacers-dp8);
 }
 
+.inputFieldWrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.inputFieldWrapper > :not(:first-child) {
+    padding-top: var(--spacers-dp8);
+}
+
 .searchContainer {
     display: flex;
     flex-wrap: wrap;

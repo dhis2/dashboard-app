@@ -22,6 +22,7 @@ const generatePayload = (dashboard = {}, data) => {
     return {
         ...dashboard,
         name: data.name,
+        code: data.code,
         description: data.description,
         dashboardItems: data.dashboardItems.map(item => ({
             ...item,

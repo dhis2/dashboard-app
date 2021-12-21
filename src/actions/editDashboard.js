@@ -28,6 +28,7 @@ import {
     sGetEditDashboardItems,
     sGetLayoutColumns,
     sGetItemConfigInsertPosition,
+    RECEIVED_CODE,
 } from '../reducers/editDashboard'
 import { tFetchDashboards } from './dashboards'
 
@@ -56,6 +57,11 @@ export const acClearPrintPreviewView = () => ({
 
 export const acSetDashboardTitle = value => ({
     type: RECEIVED_TITLE,
+    value,
+})
+
+export const acSetDashboardCode = value => ({
+    type: RECEIVED_CODE,
     value,
 })
 
@@ -166,6 +172,7 @@ export const tSetDashboardItems =
 
 export const tSaveDashboard = () => async (dispatch, getState, dataEngine) => {
     const dashboard = sGetEditDashboardRoot(getState())
+
     const dashboardToSave = {
         ...dashboard,
         dashboardItems: convertUiItemsToBackend(dashboard.dashboardItems),

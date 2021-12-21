@@ -5,8 +5,8 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1)\n"
-"POT-Creation-Date: 2021-10-28T06:43:54.981Z\n"
-"PO-Revision-Date: 2021-10-28T06:43:54.981Z\n"
+"POT-Creation-Date: 2021-12-20T10:57:51.522Z\n"
+"PO-Revision-Date: 2021-12-20T10:57:51.522Z\n"
 
 msgid "Untitled dashboard"
 msgstr "Untitled dashboard"
@@ -149,6 +149,9 @@ msgid ""
 msgstr ""
 "Failed to save dashboard. You might be offline or not have access to edit "
 "this dashboard."
+
+msgid "This code is already being used on another dashboard"
+msgstr "This code is already being used on another dashboard"
 
 msgid ""
 "Failed to delete dashboard. You might be offline or not have access to edit "
@@ -331,6 +334,12 @@ msgstr "Save layout"
 
 msgid "Dashboard title"
 msgstr "Dashboard title"
+
+msgid "Dashboard code"
+msgstr "Dashboard code"
+
+msgid "Code can't be longer than 50 characters"
+msgstr "Code can't be longer than 50 characters"
 
 msgid "Dashboard description"
 msgstr "Dashboard description"

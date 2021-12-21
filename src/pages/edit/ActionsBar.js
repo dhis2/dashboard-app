@@ -33,6 +33,10 @@ const saveFailedMessage = i18n.t(
     'Failed to save dashboard. You might be offline or not have access to edit this dashboard.'
 )
 
+const saveFailedCodeExistsMessage = i18n.t(
+    'This code is already being used on another dashboard'
+)
+
 const deleteFailedMessage = i18n.t(
     'Failed to delete dashboard. You might be offline or not have access to edit this dashboard.'
 )
@@ -51,6 +55,10 @@ const EditBar = ({ dashboard, ...props }) => {
     const [redirectUrl, setRedirectUrl] = useState(undefined)
 
     const saveFailureAlert = useAlert(saveFailedMessage, {
+        critical: true,
+    })
+
+    const saveFailureCodeExistsAlert = useAlert(saveFailedCodeExistsMessage, {
         critical: true,
     })
 
@@ -85,7 +93,17 @@ const EditBar = ({ dashboard, ...props }) => {
                 props.clearSelected()
                 setRedirectUrl(`/${newId}`)
             })
-            .catch(() => saveFailureAlert.show())
+            .catch(e => {
+                if (
+                    e.details.httpStatusCode === 409 &&
+                    e.details.response?.errorReports?.at(0)?.errorCode ===
+                        'E5003'
+                ) {
+                    saveFailureCodeExistsAlert.show()
+                } else {
+                    saveFailureAlert.show()
+                }
+            })
     }
 
     const onPrintPreview = () => {

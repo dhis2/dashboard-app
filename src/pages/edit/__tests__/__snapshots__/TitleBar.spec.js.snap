@@ -9,43 +9,88 @@ exports[`TitleBar renders correctly when no name or description 1`] = `
       class="inputWrapper"
     >
       <div
-        class="jsx-1141087211 "
-        data-test="dashboard-title-input"
+        class="inputFieldWrapper"
       >
-        <label
-          class="jsx-2718078600 "
-          data-test="dashboard-title-input-label"
-          for="Dashboard title input"
-        >
-          <span
-            class="jsx-2718078600"
-          >
-            Dashboard title
-          </span>
-        </label>
         <div
-          class="jsx-3111771310 "
-          data-test="dashboard-title-input-content"
+          class="jsx-1141087211 "
+          data-test="dashboard-title-input"
         >
+          <label
+            class="jsx-2718078600 "
+            data-test="dashboard-title-input-label"
+            for="Dashboard title input"
+          >
+            <span
+              class="jsx-2718078600"
+            >
+              Dashboard title
+            </span>
+          </label>
           <div
-            class="jsx-1220078726 "
-            data-test="dhis2-uicore-box"
+            class="jsx-3111771310 "
+            data-test="dashboard-title-input-content"
           >
             <div
-              class="jsx-3353877153 jsx-2133963083 input"
-              data-test="dhis2-uicore-input"
+              class="jsx-1220078726 "
+              data-test="dhis2-uicore-box"
             >
-              <input
-                class="jsx-3353877153 jsx-2133963083 dense"
-                id="Dashboard title input"
-                name="Dashboard title input"
-                placeholder="Untitled dashboard"
-                type="text"
-                value=""
-              />
               <div
-                class="jsx-3353877153 jsx-2133963083 status-icon"
-              />
+                class="jsx-3353877153 jsx-2133963083 input"
+                data-test="dhis2-uicore-input"
+              >
+                <input
+                  class="jsx-3353877153 jsx-2133963083 dense"
+                  id="Dashboard title input"
+                  name="Dashboard title input"
+                  placeholder="Untitled dashboard"
+                  type="text"
+                  value=""
+                />
+                <div
+                  class="jsx-3353877153 jsx-2133963083 status-icon"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+        <div
+          class="jsx-1141087211 "
+          data-test="dashboard-code-input"
+        >
+          <label
+            class="jsx-2718078600 "
+            data-test="dashboard-code-input-label"
+            for="Dashboard code input"
+          >
+            <span
+              class="jsx-2718078600"
+            >
+              Dashboard code
+            </span>
+          </label>
+          <div
+            class="jsx-3111771310 "
+            data-test="dashboard-code-input-content"
+          >
+            <div
+              class="jsx-1220078726 "
+              data-test="dhis2-uicore-box"
+            >
+              <div
+                class="jsx-3353877153 jsx-2133963083 input"
+                data-test="dhis2-uicore-input"
+              >
+                <input
+                  class="jsx-3353877153 jsx-2133963083 dense"
+                  id="Dashboard code input"
+                  name="Dashboard code input"
+                  type="text"
+                  value=""
+                />
+                <div
+                  class="jsx-3353877153 jsx-2133963083 status-icon"
+                />
+              </div>
             </div>
           </div>
         </div>
@@ -81,7 +126,7 @@ exports[`TitleBar renders correctly when no name or description 1`] = `
                 class="jsx-4150870461 jsx-2961587785 dense"
                 id="Dashboard description input"
                 name="Dashboard description input"
-                rows="4"
+                rows="6"
               />
               <div
                 class="jsx-4150870461 jsx-2961587785 status-icon"
@@ -253,43 +298,88 @@ exports[`TitleBar renders correctly with name and description 1`] = `
       class="inputWrapper"
     >
       <div
-        class="jsx-1141087211 "
-        data-test="dashboard-title-input"
+        class="inputFieldWrapper"
       >
-        <label
-          class="jsx-2718078600 "
-          data-test="dashboard-title-input-label"
-          for="Dashboard title input"
-        >
-          <span
-            class="jsx-2718078600"
-          >
-            Dashboard title
-          </span>
-        </label>
         <div
-          class="jsx-3111771310 "
-          data-test="dashboard-title-input-content"
+          class="jsx-1141087211 "
+          data-test="dashboard-title-input"
         >
+          <label
+            class="jsx-2718078600 "
+            data-test="dashboard-title-input-label"
+            for="Dashboard title input"
+          >
+            <span
+              class="jsx-2718078600"
+            >
+              Dashboard title
+            </span>
+          </label>
           <div
-            class="jsx-1220078726 "
-            data-test="dhis2-uicore-box"
+            class="jsx-3111771310 "
+            data-test="dashboard-title-input-content"
           >
             <div
-              class="jsx-3353877153 jsx-2133963083 input"
-              data-test="dhis2-uicore-input"
+              class="jsx-1220078726 "
+              data-test="dhis2-uicore-box"
             >
-              <input
-                class="jsx-3353877153 jsx-2133963083 dense"
-                id="Dashboard title input"
-                name="Dashboard title input"
-                placeholder="Untitled dashboard"
-                type="text"
-                value="Rainbow Dash"
-              />
               <div
-                class="jsx-3353877153 jsx-2133963083 status-icon"
-              />
+                class="jsx-3353877153 jsx-2133963083 input"
+                data-test="dhis2-uicore-input"
+              >
+                <input
+                  class="jsx-3353877153 jsx-2133963083 dense"
+                  id="Dashboard title input"
+                  name="Dashboard title input"
+                  placeholder="Untitled dashboard"
+                  type="text"
+                  value="Rainbow Dash"
+                />
+                <div
+                  class="jsx-3353877153 jsx-2133963083 status-icon"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+        <div
+          class="jsx-1141087211 "
+          data-test="dashboard-code-input"
+        >
+          <label
+            class="jsx-2718078600 "
+            data-test="dashboard-code-input-label"
+            for="Dashboard code input"
+          >
+            <span
+              class="jsx-2718078600"
+            >
+              Dashboard code
+            </span>
+          </label>
+          <div
+            class="jsx-3111771310 "
+            data-test="dashboard-code-input-content"
+          >
+            <div
+              class="jsx-1220078726 "
+              data-test="dhis2-uicore-box"
+            >
+              <div
+                class="jsx-3353877153 jsx-2133963083 input"
+                data-test="dhis2-uicore-input"
+              >
+                <input
+                  class="jsx-3353877153 jsx-2133963083 dense"
+                  id="Dashboard code input"
+                  name="Dashboard code input"
+                  type="text"
+                  value=""
+                />
+                <div
+                  class="jsx-3353877153 jsx-2133963083 status-icon"
+                />
+              </div>
             </div>
           </div>
         </div>
@@ -325,7 +415,7 @@ exports[`TitleBar renders correctly with name and description 1`] = `
                 class="jsx-4150870461 jsx-2961587785 dense"
                 id="Dashboard description input"
                 name="Dashboard description input"
-                rows="4"
+                rows="6"
               >
                 A very colorful pony
               </textarea>
