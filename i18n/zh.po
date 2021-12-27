@@ -107,7 +107,7 @@ msgid "There was a problem loading interpretations for this item"
 msgstr "加载该项目的解释时出现问题"
 
 msgid "Maps with Earth Engine layers cannot be displayed when offline"
-msgstr "离线时无法显示带有 Earth Engine 图层的地图"
+msgstr "离线时无法显示带有地球引擎图层的地图"
 
 msgid "Unable to load the plugin for this item"
 msgstr "不能载入该条目的插件"
@@ -162,7 +162,7 @@ msgstr "保存仪表盘失败。您可能处于离线状态或无权编辑此仪
 msgid ""
 "Failed to save dashboard. This code is already being used on another "
 "dashboard."
-msgstr ""
+msgstr "未能保存仪表板。此代码已在另一个仪表板上使用。"
 
 msgid ""
 "Failed to delete dashboard. You might be offline or not have access to edit "
@@ -330,10 +330,10 @@ msgid "Dashboard title"
 msgstr "仪表盘标题"
 
 msgid "Dashboard code"
-msgstr ""
+msgstr "仪表盘代码"
 
 msgid "Code can't be longer than 50 characters"
-msgstr ""
+msgstr "代码不能超过 50 个字符"
 
 msgid "Dashboard description"
 msgstr "仪表盘描述"
