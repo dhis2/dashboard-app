@@ -163,30 +163,40 @@ const EditBar = props => {
 
     const renderActionButtons = () => (
         <ButtonStrip>
-            <Button primary onClick={onSave} dataTest="save-dashboard-button">
-                {i18n.t('Save changes')}
-            </Button>
+            {!props.isPrintPreviewView && (
+                <Button
+                    primary
+                    onClick={onSave}
+                    dataTest="save-dashboard-button"
+                >
+                    {i18n.t('Save changes')}
+                </Button>
+            )}
             <Button onClick={onPrintPreview}>
                 {props.isPrintPreviewView
-                    ? i18n.t('Exit Print preview')
+                    ? i18n.t('Exit print preview')
                     : i18n.t('Print preview')}
             </Button>
-            <Button onClick={toggleFilterSettingsDialog}>
-                {i18n.t('Filter settings')}
-            </Button>
-            {props.dashboardId && (
+            {!props.isPrintPreviewView && (
+                <Button onClick={toggleFilterSettingsDialog}>
+                    {i18n.t('Filter settings')}
+                </Button>
+            )}
+            {!props.isPrintPreviewView && props.dashboardId && (
                 <Button onClick={toggleTranslationDialog}>
                     {i18n.t('Translate')}
                 </Button>
             )}
-            {props.dashboardId && props.deleteAccess && (
-                <Button
-                    onClick={onConfirmDelete}
-                    dataTest="delete-dashboard-button"
-                >
-                    {i18n.t('Delete')}
-                </Button>
-            )}
+            {!props.isPrintPreviewView &&
+                props.dashboardId &&
+                props.deleteAccess && (
+                    <Button
+                        onClick={onConfirmDelete}
+                        dataTest="delete-dashboard-button"
+                    >
+                        {i18n.t('Delete')}
+                    </Button>
+                )}
         </ButtonStrip>
     )
 
@@ -203,9 +213,11 @@ const EditBar = props => {
             <div className={classes.editBar} data-test="edit-control-bar">
                 <div className={classes.controls}>
                     {props.updateAccess ? renderActionButtons() : null}
-                    <Button secondary onClick={onDiscard}>
-                        {discardBtnText}
-                    </Button>
+                    {!props.isPrintPreviewView && (
+                        <Button secondary onClick={onDiscard}>
+                            {discardBtnText}
+                        </Button>
+                    )}
                 </div>
             </div>
             {filterSettingsDialog()}

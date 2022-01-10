@@ -146,6 +146,48 @@ exports[`renders Translate, Delete, and Discard buttons when delete access 1`] =
 </div>
 `;
 
+exports[`renders only Exit print preview button in print preview 1`] = `
+<div>
+  <div
+    class="editBar"
+    data-test="edit-control-bar"
+  >
+    <div
+      class="controls"
+    >
+      <div
+        class="jsx-71743532 start"
+        data-test="dhis2-uicore-buttonstrip"
+      >
+        <div
+          class="jsx-71743532 box"
+        />
+        <div
+          class="jsx-71743532 box"
+        >
+          <button
+            class="jsx-2371629422 "
+            data-test="dhis2-uicore-button"
+            type="button"
+          >
+            Exit print preview
+          </button>
+        </div>
+        <div
+          class="jsx-71743532 box"
+        />
+        <div
+          class="jsx-71743532 box"
+        />
+        <div
+          class="jsx-71743532 box"
+        />
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
 exports[`renders only the Go to Dashboards button when no update access 1`] = `
 <div>
   <div
