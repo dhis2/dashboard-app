@@ -163,19 +163,24 @@ export class EditBar extends Component {
         return (
             <div className={classes.leftControls}>
                 <ButtonStrip>
-                    <Button primary onClick={this.onSave}>
-                        {i18n.t('Save changes')}
-                    </Button>
+                    {!this.props.isPrintPreviewView && (
+                        <Button primary onClick={this.onSave}>
+                            {i18n.t('Save changes')}
+                        </Button>
+                    )}
                     <Button onClick={this.onPrintPreview}>
                         {printPreviewText}
                     </Button>
 
-                    {this.props.dashboardId ? (
+                    {!this.props.isPrintPreviewView &&
+                    this.props.dashboardId ? (
                         <Button onClick={this.toggleTranslationDialog}>
                             {i18n.t('Translate')}
                         </Button>
                     ) : null}
-                    {this.props.dashboardId && this.props.deleteAccess ? (
+                    {!this.props.isPrintPreviewView &&
+                    this.props.dashboardId &&
+                    this.props.deleteAccess ? (
                         <Button onClick={this.onConfirmDelete}>
                             {i18n.t('Delete')}
                         </Button>
@@ -203,11 +208,13 @@ export class EditBar extends Component {
                     <div style={buttonBarStyle}>
                         {updateAccess ? this.renderActionButtons() : null}
 
-                        <div className={classes.rightControls}>
-                            <Button secondary onClick={this.onDiscard}>
-                                {discardBtnText}
-                            </Button>
-                        </div>
+                        {!this.props.isPrintPreviewView && (
+                            <div className={classes.rightControls}>
+                                <Button secondary onClick={this.onDiscard}>
+                                    {discardBtnText}
+                                </Button>
+                            </div>
+                        )}
                     </div>
                 </ControlBar>
                 <div className={classes.topMargin} />
