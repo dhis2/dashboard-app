@@ -4,13 +4,14 @@
 # Viktor Varland <viktor@dhis2.org>, 2021
 # Gabriela Rodriguez <grodriguezcoronado@gmail.com>, 2021
 # Sheila André <sandre@saudigitus.org>, 2021
+# Fernando Jorge Bade, 2021
 # 
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
 "POT-Creation-Date: 2021-09-16T08:58:12.325Z\n"
 "PO-Revision-Date: 2019-09-01 20:38+0000\n"
-"Last-Translator: Sheila André <sandre@saudigitus.org>, 2021\n"
+"Last-Translator: Fernando Jorge Bade, 2021\n"
 "Language-Team: Portuguese (https://www.transifex.com/hisp-uio/teams/100509/pt/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -46,6 +47,8 @@ msgid ""
 "Failed to save dashboard. You might be offline or not have access to edit "
 "this dashboard."
 msgstr ""
+"Falhou em salvar o painel. Pode estar offline ou não ter acesso a editar "
+"este dashboard."
 
 msgid "Save changes"
 msgstr "Gravar alterações"
@@ -57,7 +60,7 @@ msgid "Print preview"
 msgstr "Visualização de impressão"
 
 msgid "Filter settings"
-msgstr ""
+msgstr "Definições de filtro"
 
 msgid "Translate"
 msgstr "Traduzir"
@@ -215,10 +218,10 @@ msgid "No data to display"
 msgstr "Não há dados para exibir"
 
 msgid "There was an error loading data for this item"
-msgstr ""
+msgstr "Houve um erro de carregamento de dados para este item"
 
 msgid "Open this item in {{appName}}"
-msgstr ""
+msgstr "Abra este item em {{appName}}"
 
 msgid "Confirm"
 msgstr "Confirmar"
@@ -241,6 +244,10 @@ msgid ""
 "                                         as filters. Alternatively, only selected dimensions can\n"
 "                                         be made available on a dashboard."
 msgstr ""
+"Os painéis  podem ser filtrados por dimensões para mudar\n"
+"os dados mostrados. Por padrão, todas as dimensões estão disponíveis\n"
+"como filtros. Em alternativa, apenas as dimensões selecionadas podem\n"
+"ser disponibilizado em um painéis"
 
 msgid "Available Filters"
 msgstr ""
