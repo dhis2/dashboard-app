@@ -8,7 +8,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2021-09-28T07:35:26.454Z\n"
+"POT-Creation-Date: 2021-12-21T08:20:25.327Z\n"
 "PO-Revision-Date: 2019-06-25 12:37+0000\n"
 "Last-Translator: easylin <lin_xd@126.com>, 2021\n"
 "Language-Team: Chinese (https://www.transifex.com/hisp-uio/teams/100509/zh/)\n"
@@ -21,8 +21,23 @@ msgstr ""
 msgid "Untitled dashboard"
 msgstr "未命名的仪表板"
 
+msgid "Cannot create a dashboard while offline"
+msgstr "离线时无法创建仪表板"
+
+msgid "Create new dashboard"
+msgstr "创建新仪表盘"
+
+msgid "Search for a dashboard"
+msgstr "搜索仪表盘"
+
+msgid "Show fewer dashboards"
+msgstr "显示更少的仪表盘"
+
+msgid "Show more dashboards"
+msgstr "显示更多仪表盘"
+
 msgid "Remove this item"
-msgstr "删除该项目"
+msgstr "删除该条目"
 
 msgid "This item has been shortened to fit on one page"
 msgstr "此项已缩短为适合一页"
@@ -91,6 +106,9 @@ msgstr "查看地图"
 msgid "There was a problem loading interpretations for this item"
 msgstr "加载该项目的解释时出现问题"
 
+msgid "Maps with Earth Engine layers cannot be displayed when offline"
+msgstr "离线时无法显示带有地球引擎图层的地图"
+
 msgid "Unable to load the plugin for this item"
 msgstr "不能载入该条目的插件"
 
@@ -140,6 +158,11 @@ msgid ""
 "Failed to save dashboard. You might be offline or not have access to edit "
 "this dashboard."
 msgstr "保存仪表盘失败。您可能处于离线状态或无权编辑此仪表板。"
+
+msgid ""
+"Failed to save dashboard. This code is already being used on another "
+"dashboard."
+msgstr "未能保存仪表板。此代码已在另一个仪表板上使用。"
 
 msgid ""
 "Failed to delete dashboard. You might be offline or not have access to edit "
@@ -306,6 +329,12 @@ msgstr "保存布局"
 msgid "Dashboard title"
 msgstr "仪表盘标题"
 
+msgid "Dashboard code"
+msgstr "仪表盘代码"
+
+msgid "Code can't be longer than 50 characters"
+msgstr "代码不能超过 50 个字符"
+
 msgid "Dashboard description"
 msgstr "仪表盘描述"
 
@@ -354,26 +383,28 @@ msgid ""
 "graphics in the browser print dialog"
 msgstr "使用 A4 横向纸张大小、默认边距设置并在浏览器打印对话框中打开背景图形"
 
+msgid "Getting started"
+msgstr "开始"
+
+msgid "Search for and open saved dashboards from the top bar."
+msgstr "从顶部栏中搜索并打开保存的仪表盘。"
+
+msgid ""
+"Click a dashboard chip to open it. Get back to this screen from the \"More\""
+" menu."
+msgstr "单击仪表盘芯片将其打开。从“更多”菜单返回此屏幕。"
+
+msgid "Create a new dashboard with the + button."
+msgstr "使用 + 按钮创建一个新仪表盘。"
+
+msgid "Your most viewed dashboards"
+msgstr "您最常查看的仪表盘"
+
 msgid "No dashboards found. Use the + button to create a new dashboard."
 msgstr "没有发现仪表盘，使用+按钮创建新的仪表盘"
 
 msgid "Requested dashboard not found"
 msgstr "请求的仪表盘没有找到"
-
-msgid "Cannot create a dashboard while offline"
-msgstr "离线时无法创建仪表板"
-
-msgid "Create new dashboard"
-msgstr "创建新仪表板"
-
-msgid "Search for a dashboard"
-msgstr "搜索仪表盘"
-
-msgid "Show fewer dashboards"
-msgstr "显示更少的仪表板"
-
-msgid "Show more dashboards"
-msgstr "显示更多仪表板"
 
 msgid "{{count}} selected"
 msgid_plural "{{count}} selected"
@@ -429,6 +460,9 @@ msgstr "显示说明"
 msgid "One item per page"
 msgstr "每页一项"
 
+msgid "Close dashboard"
+msgstr "关闭仪表盘"
+
 msgid "More"
 msgstr "更多"
 
@@ -475,6 +509,9 @@ msgstr "离线"
 
 msgid "This dashboard cannot be loaded while offline."
 msgstr "离线时无法加载此仪表板。"
+
+msgid "Go to start page"
+msgstr "转到起始页"
 
 msgid "Load dashboard failed"
 msgstr "加载仪表板失败"

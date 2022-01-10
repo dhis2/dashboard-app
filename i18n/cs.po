@@ -5,7 +5,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2021-09-28T07:35:26.454Z\n"
+"POT-Creation-Date: 2021-12-21T08:20:25.327Z\n"
 "PO-Revision-Date: 2019-06-25 12:37+0000\n"
 "Last-Translator: trendspotter <jirka.p@volny.cz>, 2021\n"
 "Language-Team: Czech (https://www.transifex.com/hisp-uio/teams/100509/cs/)\n"
@@ -17,6 +17,21 @@ msgstr ""
 
 msgid "Untitled dashboard"
 msgstr "Ovládací panel bez názvu"
+
+msgid "Cannot create a dashboard while offline"
+msgstr "V režimu offline nelze vytvořit ovládací panel"
+
+msgid "Create new dashboard"
+msgstr "Vytvořit nový ovládací panel"
+
+msgid "Search for a dashboard"
+msgstr "Vyhledat ovládací panel"
+
+msgid "Show fewer dashboards"
+msgstr "Zobrazit méně ovládacích panelů"
+
+msgid "Show more dashboards"
+msgstr "Zobrazit další ovládací panely"
 
 msgid "Remove this item"
 msgstr "Odebrat tuto položku"
@@ -90,6 +105,9 @@ msgstr "Zobrazit jako mapu"
 msgid "There was a problem loading interpretations for this item"
 msgstr "Při načítání interpretací této položky došlo k problému"
 
+msgid "Maps with Earth Engine layers cannot be displayed when offline"
+msgstr "Mapy s vrstvami Earth Engine nelze zobrazit v režimu offline"
+
 msgid "Unable to load the plugin for this item"
 msgstr "Nelze načíst plugin pro tuto položku"
 
@@ -141,6 +159,13 @@ msgid ""
 msgstr ""
 "Uložení ovládacího panelu se nezdařilo. Možná jste offline nebo nemáte "
 "přístup k úpravám tohoto ovládacího panelu."
+
+msgid ""
+"Failed to save dashboard. This code is already being used on another "
+"dashboard."
+msgstr ""
+"Uložení ovládacího panelu se nezdařilo. Tento kód se již používá na jiném "
+"ovládacím panelu."
 
 msgid ""
 "Failed to delete dashboard. You might be offline or not have access to edit "
@@ -320,6 +345,12 @@ msgstr "Uložit rozvržení"
 msgid "Dashboard title"
 msgstr "Název ovládacího panelu"
 
+msgid "Dashboard code"
+msgstr "Kód ovládacího panelu"
+
+msgid "Code can't be longer than 50 characters"
+msgstr "Kód nesmí být delší než 50 znaků"
+
 msgid "Dashboard description"
 msgstr "Popis ovládacího panelu"
 
@@ -374,6 +405,25 @@ msgstr ""
 "Použijte formát papíru na šířku A4, výchozí nastavení okrajů a v dialogovém "
 "okně tisku v prohlížeči zapněte grafiku na pozadí"
 
+msgid "Getting started"
+msgstr "Začínáme"
+
+msgid "Search for and open saved dashboards from the top bar."
+msgstr "Vyhledejte a otevřete uložené ovládací panely z horní lišty."
+
+msgid ""
+"Click a dashboard chip to open it. Get back to this screen from the \"More\""
+" menu."
+msgstr ""
+"Kliknutím na čip ovládacího panelu jej otevřete. Vraťte se na tuto obrazovku"
+" z nabídky \"Více\"."
+
+msgid "Create a new dashboard with the + button."
+msgstr "Vytvořte nový ovládací panel pomocí tlačítka +."
+
+msgid "Your most viewed dashboards"
+msgstr "Vaše nejsledovanější ovládací panely"
+
 msgid "No dashboards found. Use the + button to create a new dashboard."
 msgstr ""
 "Nebyly nalezeny žádné ovládací panely. Pomocí tlačítka + vytvořte nový "
@@ -381,21 +431,6 @@ msgstr ""
 
 msgid "Requested dashboard not found"
 msgstr "Požadovaný ovládací panel nebyl nalezen"
-
-msgid "Cannot create a dashboard while offline"
-msgstr "V režimu offline nelze vytvořit ovládací panel"
-
-msgid "Create new dashboard"
-msgstr "Vytvořit nový ovládací panel"
-
-msgid "Search for a dashboard"
-msgstr "Vyhledat ovládací panel"
-
-msgid "Show fewer dashboards"
-msgstr "Zobrazit méně ovládacích panelů"
-
-msgid "Show more dashboards"
-msgstr "Zobrazit další ovládací panely"
 
 msgid "{{count}} selected"
 msgid_plural "{{count}} selected"
@@ -456,6 +491,9 @@ msgstr "Ukázat popis"
 msgid "One item per page"
 msgstr "Jedna položka na stránku"
 
+msgid "Close dashboard"
+msgstr "Zavřete ovládací panel"
+
 msgid "More"
 msgstr "Více"
 
@@ -504,6 +542,9 @@ msgstr "Offline"
 
 msgid "This dashboard cannot be loaded while offline."
 msgstr "Tento ovládací panel nelze načíst v režimu offline."
+
+msgid "Go to start page"
+msgstr "Přejít na úvodní stránku"
 
 msgid "Load dashboard failed"
 msgstr "Načtení ovládacího panelu se nezdařilo"

@@ -1,17 +1,18 @@
 # 
 # Translators:
 # Gabriela Rodriguez <grodriguezcoronado@gmail.com>, 2021
-# Ge Joao <gsimango@saudigitus.org>, 2021
 # phil_dhis2, 2021
 # Viktor Varland <viktor@dhis2.org>, 2021
 # Sheila André <sandre@saudigitus.org>, 2021
+# Ge Joao <gsimango@saudigitus.org>, 2021
+# Fernando Jorge Bade, 2021
 # 
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2021-09-28T07:35:26.454Z\n"
+"POT-Creation-Date: 2021-12-21T08:20:25.327Z\n"
 "PO-Revision-Date: 2019-06-25 12:37+0000\n"
-"Last-Translator: Sheila André <sandre@saudigitus.org>, 2021\n"
+"Last-Translator: Fernando Jorge Bade, 2021\n"
 "Language-Team: Portuguese (https://www.transifex.com/hisp-uio/teams/100509/pt/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -21,6 +22,21 @@ msgstr ""
 
 msgid "Untitled dashboard"
 msgstr "Painel sem título"
+
+msgid "Cannot create a dashboard while offline"
+msgstr "Não é possível criar um painel enquanto está offline"
+
+msgid "Create new dashboard"
+msgstr "Criar novo painel"
+
+msgid "Search for a dashboard"
+msgstr "Pesquisar por um painel"
+
+msgid "Show fewer dashboards"
+msgstr "Mostrar menos painéis"
+
+msgid "Show more dashboards"
+msgstr "Mostrar mais painéis"
 
 msgid "Remove this item"
 msgstr ""
@@ -94,6 +110,9 @@ msgstr "Ver como mapa"
 msgid "There was a problem loading interpretations for this item"
 msgstr ""
 
+msgid "Maps with Earth Engine layers cannot be displayed when offline"
+msgstr ""
+
 msgid "Unable to load the plugin for this item"
 msgstr "Não foi possível carregar o plug-in para este item"
 
@@ -101,13 +120,13 @@ msgid "No data to display"
 msgstr "Não há dados para exibir"
 
 msgid "There was an error loading data for this item"
-msgstr ""
+msgstr "Houve um erro de carregamento de dados para este item"
 
 msgid "Open this item in {{appName}}"
-msgstr ""
+msgstr "Abra este item em {{appName}}"
 
 msgid "Not available offline"
-msgstr ""
+msgstr "Não disponível offline"
 
 msgid "Visualizations"
 msgstr "Visualizações"
@@ -143,11 +162,20 @@ msgid ""
 "Failed to save dashboard. You might be offline or not have access to edit "
 "this dashboard."
 msgstr ""
+"Falhou em salvar o painel. Pode estar offline ou não ter acesso a editar "
+"este dashboard."
+
+msgid ""
+"Failed to save dashboard. This code is already being used on another "
+"dashboard."
+msgstr ""
 
 msgid ""
 "Failed to delete dashboard. You might be offline or not have access to edit "
 "this dashboard."
 msgstr ""
+"Falhou em apagar o painel de instrumentos. Pode estar offline ou não ter "
+"acesso a editar este painel."
 
 msgid "Cannot save this dashboard while offline"
 msgstr ""
@@ -162,7 +190,7 @@ msgid "Print preview"
 msgstr "Visualização de impressão"
 
 msgid "Filter settings"
-msgstr ""
+msgstr "Definições de filtro"
 
 msgid "Translate"
 msgstr "Traduzir"
@@ -201,12 +229,14 @@ msgid ""
 "This dashboard has unsaved changes. Are you sure you want to leave and "
 "discard these unsaved changes?"
 msgstr ""
+"Este painel tem alterações não salvas. Tem a certeza de que pretende sair e "
+"descartar estas alterações não salvas?"
 
 msgid "No, stay here"
-msgstr ""
+msgstr "Não, fique aqui."
 
 msgid "Yes, discard changes"
-msgstr ""
+msgstr "Sim, descartar alterações"
 
 msgid "No access"
 msgstr "Sem acesso"
@@ -234,6 +264,10 @@ msgid ""
 "                                         as filters. Alternatively, only selected dimensions can\n"
 "                                         be made available on a dashboard."
 msgstr ""
+"Os painéis  podem ser filtrados por dimensões para mudar\n"
+"os dados mostrados. Por padrão, todas as dimensões estão disponíveis\n"
+"como filtros. Em alternativa, apenas as dimensões selecionadas podem\n"
+"ser disponibilizado em um painéis"
 
 msgid "Available Filters"
 msgstr ""
@@ -308,6 +342,12 @@ msgstr ""
 msgid "Dashboard title"
 msgstr "Título do painel"
 
+msgid "Dashboard code"
+msgstr ""
+
+msgid "Code can't be longer than 50 characters"
+msgstr ""
+
 msgid "Dashboard description"
 msgstr "Descrição do painel"
 
@@ -358,26 +398,28 @@ msgid ""
 "graphics in the browser print dialog"
 msgstr ""
 
+msgid "Getting started"
+msgstr "Começando"
+
+msgid "Search for and open saved dashboards from the top bar."
+msgstr ""
+
+msgid ""
+"Click a dashboard chip to open it. Get back to this screen from the \"More\""
+" menu."
+msgstr ""
+
+msgid "Create a new dashboard with the + button."
+msgstr ""
+
+msgid "Your most viewed dashboards"
+msgstr ""
+
 msgid "No dashboards found. Use the + button to create a new dashboard."
 msgstr "Painel não encontrado. Use o botão + para criar um novo painel."
 
 msgid "Requested dashboard not found"
 msgstr "Painel solicitado não encontrado"
-
-msgid "Cannot create a dashboard while offline"
-msgstr ""
-
-msgid "Create new dashboard"
-msgstr ""
-
-msgid "Search for a dashboard"
-msgstr "Pesquisar por um painel"
-
-msgid "Show fewer dashboards"
-msgstr "Mostrar menos painéis"
-
-msgid "Show more dashboards"
-msgstr "Mostrar mais painéis"
 
 msgid "{{count}} selected"
 msgid_plural "{{count}} selected"
@@ -434,6 +476,9 @@ msgstr "Mostrar descrição"
 msgid "One item per page"
 msgstr "Um item por página"
 
+msgid "Close dashboard"
+msgstr ""
+
 msgid "More"
 msgstr "Mais"
 
@@ -479,6 +524,9 @@ msgid "Offline"
 msgstr "Desligado"
 
 msgid "This dashboard cannot be loaded while offline."
+msgstr ""
+
+msgid "Go to start page"
 msgstr ""
 
 msgid "Load dashboard failed"

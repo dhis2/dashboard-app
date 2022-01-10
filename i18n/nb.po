@@ -6,7 +6,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2021-09-28T07:35:26.454Z\n"
+"POT-Creation-Date: 2021-12-21T08:20:25.327Z\n"
 "PO-Revision-Date: 2019-06-25 12:37+0000\n"
 "Last-Translator: Karoline Tufte Lien <karoline@dhis2.org>, 2021\n"
 "Language-Team: Norwegian Bokmål (https://www.transifex.com/hisp-uio/teams/100509/nb/)\n"
@@ -18,6 +18,21 @@ msgstr ""
 
 msgid "Untitled dashboard"
 msgstr "Dashbord uten navn"
+
+msgid "Cannot create a dashboard while offline"
+msgstr ""
+
+msgid "Create new dashboard"
+msgstr ""
+
+msgid "Search for a dashboard"
+msgstr "Søk etter et dashbord"
+
+msgid "Show fewer dashboards"
+msgstr "Vis færre dashbord"
+
+msgid "Show more dashboards"
+msgstr "Vis flere dashbord"
 
 msgid "Remove this item"
 msgstr ""
@@ -91,6 +106,9 @@ msgstr "Vis som kart"
 msgid "There was a problem loading interpretations for this item"
 msgstr ""
 
+msgid "Maps with Earth Engine layers cannot be displayed when offline"
+msgstr ""
+
 msgid "Unable to load the plugin for this item"
 msgstr "Kan ikke laste inn plugin-modulen for dette elementet"
 
@@ -142,6 +160,11 @@ msgid ""
 msgstr ""
 "Kunne ikke lagre dashbordet. Du kan være frakoblet eller ikke ha tilgang til"
 " å redigere dette dashbordet."
+
+msgid ""
+"Failed to save dashboard. This code is already being used on another "
+"dashboard."
+msgstr ""
 
 msgid ""
 "Failed to delete dashboard. You might be offline or not have access to edit "
@@ -313,6 +336,12 @@ msgstr ""
 msgid "Dashboard title"
 msgstr "Dashbordtittel"
 
+msgid "Dashboard code"
+msgstr ""
+
+msgid "Code can't be longer than 50 characters"
+msgstr ""
+
 msgid "Dashboard description"
 msgstr "Beskrivelse av dashbord"
 
@@ -362,26 +391,28 @@ msgid ""
 "graphics in the browser print dialog"
 msgstr ""
 
+msgid "Getting started"
+msgstr "Komme i gang"
+
+msgid "Search for and open saved dashboards from the top bar."
+msgstr ""
+
+msgid ""
+"Click a dashboard chip to open it. Get back to this screen from the \"More\""
+" menu."
+msgstr ""
+
+msgid "Create a new dashboard with the + button."
+msgstr ""
+
+msgid "Your most viewed dashboards"
+msgstr ""
+
 msgid "No dashboards found. Use the + button to create a new dashboard."
 msgstr "Ingen dashbord funnet. Bruk + -knappen for å lage et nytt dashbord."
 
 msgid "Requested dashboard not found"
 msgstr "Forespurt dashbord ikke funnet"
-
-msgid "Cannot create a dashboard while offline"
-msgstr ""
-
-msgid "Create new dashboard"
-msgstr ""
-
-msgid "Search for a dashboard"
-msgstr "Søk etter et dashbord"
-
-msgid "Show fewer dashboards"
-msgstr "Vis færre dashbord"
-
-msgid "Show more dashboards"
-msgstr "Vis flere dashbord"
 
 msgid "{{count}} selected"
 msgid_plural "{{count}} selected"
@@ -438,6 +469,9 @@ msgstr "Vis beskrivelse"
 msgid "One item per page"
 msgstr "Ett element per side"
 
+msgid "Close dashboard"
+msgstr ""
+
 msgid "More"
 msgstr "Mer"
 
@@ -483,6 +517,9 @@ msgid "Offline"
 msgstr "Frakoblet"
 
 msgid "This dashboard cannot be loaded while offline."
+msgstr ""
+
+msgid "Go to start page"
 msgstr ""
 
 msgid "Load dashboard failed"
