@@ -35,7 +35,12 @@ const ShowMoreButton = ({ onClick, dashboardBarIsExpanded, disabled }) => {
                     <ChevronDown />
                 </div>
             ) : (
-                <Tooltip content={buttonLabel} placement="bottom">
+                <Tooltip
+                    content={buttonLabel}
+                    placement="top"
+                    openDelay={500}
+                    closeDelay={0}
+                >
                     {({ onMouseOver, onMouseOut, ref }) => (
                         <button
                             className={classes.showMore}

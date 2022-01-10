@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { connect } from 'react-redux'
 import PropTypes from 'prop-types'
-import { ComponentCover } from '@dhis2/ui'
 import cx from 'classnames'
 import DashboardContainer from './DashboardContainer'
 import ViewTitleBar from '../TitleBar/ViewTitleBar'
@@ -62,9 +61,8 @@ export const ViewDashboard = props => {
             />
             <DashboardContainer covered={controlbarExpanded}>
                 {controlbarExpanded && (
-                    <ComponentCover
+                    <div
                         className={classes.cover}
-                        translucent
                         onClick={() => setControlbarExpanded(false)}
                     />
                 )}
