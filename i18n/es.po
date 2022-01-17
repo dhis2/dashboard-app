@@ -11,7 +11,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2021-09-16T08:58:12.325Z\n"
+"POT-Creation-Date: 2022-01-10T14:24:29.926Z\n"
 "PO-Revision-Date: 2019-09-01 20:38+0000\n"
 "Last-Translator: Prabhjot Singh, 2021\n"
 "Language-Team: Spanish (https://www.transifex.com/hisp-uio/teams/100509/es/)\n"
@@ -55,8 +55,8 @@ msgstr ""
 msgid "Save changes"
 msgstr "Guardar cambios"
 
-msgid "Exit Print preview"
-msgstr "Salir de la vista previa"
+msgid "Exit print preview"
+msgstr "Salir de vista previa"
 
 msgid "Print preview"
 msgstr "Vista previa"
@@ -108,9 +108,6 @@ msgstr ""
 
 msgid "Not supported"
 msgstr "No soportado"
-
-msgid "Exit print preview"
-msgstr "Salir de vista previa"
 
 msgid "Print"
 msgstr "Imprimir"

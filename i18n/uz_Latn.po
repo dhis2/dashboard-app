@@ -5,7 +5,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2021-09-16T08:58:12.325Z\n"
+"POT-Creation-Date: 2022-01-10T14:24:29.926Z\n"
 "PO-Revision-Date: 2019-09-01 20:38+0000\n"
 "Last-Translator: Yury Rogachev <yury@dhis2.org>, 2021\n"
 "Language-Team: Uzbek (Latin) (https://www.transifex.com/hisp-uio/teams/100509/uz@Latn/)\n"
@@ -48,8 +48,8 @@ msgstr ""
 msgid "Save changes"
 msgstr "Oʼzgartirishni saqlash"
 
-msgid "Exit Print preview"
-msgstr "Chop etishdan avvalgi koʼrikdan chiqing"
+msgid "Exit print preview"
+msgstr ""
 
 msgid "Print preview"
 msgstr "Chop etishdan avvalgi koʼrik"
@@ -97,9 +97,6 @@ msgid ""
 msgstr ""
 
 msgid "Not supported"
-msgstr ""
-
-msgid "Exit print preview"
 msgstr ""
 
 msgid "Print"

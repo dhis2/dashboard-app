@@ -7,7 +7,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2021-09-16T08:58:12.325Z\n"
+"POT-Creation-Date: 2022-01-10T14:24:29.926Z\n"
 "PO-Revision-Date: 2019-09-01 20:38+0000\n"
 "Last-Translator: Wanda <wanda@frontlineaids.org>, 2021\n"
 "Language-Team: Ukrainian (https://www.transifex.com/hisp-uio/teams/100509/uk/)\n"
@@ -46,7 +46,7 @@ msgstr ""
 msgid "Save changes"
 msgstr ""
 
-msgid "Exit Print preview"
+msgid "Exit print preview"
 msgstr ""
 
 msgid "Print preview"
@@ -93,9 +93,6 @@ msgid ""
 msgstr ""
 
 msgid "Not supported"
-msgstr ""
-
-msgid "Exit print preview"
 msgstr ""
 
 msgid "Print"

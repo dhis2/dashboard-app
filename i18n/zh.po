@@ -8,7 +8,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2021-09-16T08:58:12.325Z\n"
+"POT-Creation-Date: 2022-01-10T14:24:29.926Z\n"
 "PO-Revision-Date: 2019-09-01 20:38+0000\n"
 "Last-Translator: easylin <lin_xd@126.com>, 2021\n"
 "Language-Team: Chinese (https://www.transifex.com/hisp-uio/teams/100509/zh/)\n"
@@ -47,7 +47,7 @@ msgstr "保存仪表盘失败。您可能处于离线状态，或者无权编辑
 msgid "Save changes"
 msgstr "保存改变"
 
-msgid "Exit Print preview"
+msgid "Exit print preview"
 msgstr "退出打印预览"
 
 msgid "Print preview"
@@ -95,9 +95,6 @@ msgstr "不支持在小屏幕上创建仪表板。调整屏幕大小以返回到
 
 msgid "Not supported"
 msgstr "不支持"
-
-msgid "Exit print preview"
-msgstr "退出打印预览"
 
 msgid "Print"
 msgstr "打印"
