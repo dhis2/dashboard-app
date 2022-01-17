@@ -144,6 +144,31 @@ test('renders Translate, Delete, and Discard buttons when delete access', async 
     expect(container).toMatchSnapshot()
 })
 
+test('renders only Exit print preview button in print preview', async () => {
+    const store = {
+        editDashboard: {
+            id: 'rainbowDash',
+            name: 'Rainbow Dash',
+            access: {
+                update: true,
+                delete: true,
+            },
+            printPreviewView: true,
+        },
+    }
+    const promise = Promise.resolve()
+    apiFetchDashboard.mockResolvedValue(promise)
+
+    const { container } = render(
+        <Provider store={mockStore(store)}>
+            <EditBar />
+        </Provider>
+    )
+
+    await act(() => promise)
+    expect(container).toMatchSnapshot()
+})
+
 test('shows the confirm delete dialog when delete button clicked', async () => {
     const store = {
         editDashboard: {
