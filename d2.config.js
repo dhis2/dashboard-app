@@ -3,6 +3,8 @@ const config = {
     name: 'dashboard',
     title: 'Dashboard',
     coreApp: true,
+    id: '97192bad-afc0-458e-96b9-cdd351f2896b',
+    minDHIS2Version: '2.31',
 
     pwa: {
         enabled: true,

@@ -1,0 +1,6 @@
+# default code owner for repo
+*        @dhis2/team-analytics
+
+# code owners for functionality
+/src/    @dhis2/team-analytics @dhis2/team-qa
+/docs/   @dhis2/team-analytics @dhis2/team-qa
