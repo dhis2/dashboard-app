@@ -28,7 +28,6 @@ const baseDashboardFields = arrayClean([
     'id',
     'displayName',
     'displayDescription',
-    'favorite~rename(starred)',
     'access',
     'restrictFilters',
     'allowedFilters',
@@ -41,7 +40,10 @@ export const viewDashboardQuery = {
     resource: 'dashboards',
     id: ({ id }) => id,
     params: {
-        fields: baseDashboardFields,
+        fields: arrayClean([
+            ...baseDashboardFields,
+            'favorite~rename(starred)',
+        ]),
     },
 }
 
