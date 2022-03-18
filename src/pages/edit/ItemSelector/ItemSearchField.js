@@ -9,18 +9,23 @@ const ItemSearchField = props => {
     const { online } = useOnlineStatus()
 
     const getInput = () => (
-        <Input
-            name="Dashboard item search"
-            label={i18n.t('Search for items to add to this dashboard')}
-            type="text"
-            onChange={props.onChange}
-            onFocus={props.onFocus}
-            value={props.value}
-            dataTest="item-search"
-            dense
-            disabled={!online}
-            placeholder={i18n.t('Search for visualizations, reports and more')}
-        />
+        // autoComplete not supported in ui@6, remove this form after upgrade
+        <form autoComplete="off" onSubmit={Function.prototype}>
+            <Input
+                name="Dashboard item search"
+                label={i18n.t('Search for items to add to this dashboard')}
+                type="text"
+                onChange={props.onChange}
+                onFocus={props.onFocus}
+                value={props.value}
+                dataTest="item-search"
+                dense
+                disabled={!online}
+                placeholder={i18n.t(
+                    'Search for visualizations, reports and more'
+                )}
+            />
+        </form>
     )
 
     return (
