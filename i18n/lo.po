@@ -3,13 +3,14 @@
 # phil_dhis2, 2021
 # Viktor Varland <viktor@dhis2.org>, 2021
 # Thuy Nguyen <thuynguyen@hispvietnam.org>, 2021
+# Somkhit Bouavong <bouavongk@gmail.com>, 2022
 # 
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
 "POT-Creation-Date: 2021-10-28T06:43:54.981Z\n"
 "PO-Revision-Date: 2021-09-03 23:41+0000\n"
-"Last-Translator: Thuy Nguyen <thuynguyen@hispvietnam.org>, 2021\n"
+"Last-Translator: Somkhit Bouavong <bouavongk@gmail.com>, 2022\n"
 "Language-Team: Lao (https://www.transifex.com/hisp-uio/teams/100509/lo/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -24,7 +25,7 @@ msgid "Cannot create a dashboard while offline"
 msgstr ""
 
 msgid "Create new dashboard"
-msgstr ""
+msgstr "ສ້າງກະດານຂ່າວໃໝ່"
 
 msgid "Search for a dashboard"
 msgstr "ຄົນຫາກະດານຂ່າວ"
@@ -259,7 +260,7 @@ msgid "There are no items on this dashboard"
 msgstr "ບໍ່່ທັນມີລາຍການໃນກະດານຂ່າວນີ້"
 
 msgid "Show fewer"
-msgstr ""
+msgstr "ສະແດງໜ່ອຍລົງ"
 
 msgid "Show more"
 msgstr "ສະແດງໃຫ້ເຫັນຫຼາຍຂຶ້ນ"
@@ -330,7 +331,7 @@ msgid_plural "{{count}} columns"
 msgstr[0] ""
 
 msgid "Change layout"
-msgstr ""
+msgstr "ປ່ຽນຮູບແບບ"
 
 msgid "Add new items to"
 msgstr ""
