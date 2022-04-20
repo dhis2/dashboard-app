@@ -1,18 +1,19 @@
 # 
 # Translators:
-# Gabriela Rodriguez <grodriguezcoronado@gmail.com>, 2021
-# phil_dhis2, 2021
-# Viktor Varland <viktor@dhis2.org>, 2021
-# Sheila André <sandre@saudigitus.org>, 2021
-# Ge Joao <gsimango@saudigitus.org>, 2021
-# Fernando Jorge Bade, 2021
+# Ge Joao <gsimango@saudigitus.org>, 2022
+# phil_dhis2, 2022
+# Viktor Varland <viktor@dhis2.org>, 2022
+# Fernando Jorge Bade, 2022
+# David Júnior <davidjr.mondlane@gmail.com>, 2022
+# Sheila André <sandre@saudigitus.org>, 2022
+# Gabriela Rodriguez <grodriguezcoronado@gmail.com>, 2022
 # 
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
 "POT-Creation-Date: 2021-12-21T08:20:25.327Z\n"
-"PO-Revision-Date: 2019-06-25 12:37+0000\n"
-"Last-Translator: Fernando Jorge Bade, 2021\n"
+"PO-Revision-Date: 2022-04-20 09:58+0000\n"
+"Last-Translator: Gabriela Rodriguez <grodriguezcoronado@gmail.com>, 2022\n"
 "Language-Team: Portuguese (https://www.transifex.com/hisp-uio/teams/100509/pt/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -162,13 +163,14 @@ msgid ""
 "Failed to save dashboard. You might be offline or not have access to edit "
 "this dashboard."
 msgstr ""
-"Falhou em salvar o painel. Pode estar offline ou não ter acesso a editar "
-"este dashboard."
+"Falha ao salvar o painel. Pode estar offline ou não ter acesso para editar "
+"este painel."
 
 msgid ""
 "Failed to save dashboard. This code is already being used on another "
 "dashboard."
 msgstr ""
+"Falha ao salvar o painel. Este código já está a ser usado em outro painel."
 
 msgid ""
 "Failed to delete dashboard. You might be offline or not have access to edit "
@@ -181,7 +183,7 @@ msgid "Cannot save this dashboard while offline"
 msgstr ""
 
 msgid "Save changes"
-msgstr "Gravar alterações"
+msgstr "Salvar alterações"
 
 msgid "Exit print preview"
 msgstr "Sair da visualização da impressão"
@@ -199,7 +201,7 @@ msgid "Cannot delete this dashboard while offline"
 msgstr ""
 
 msgid "Delete"
-msgstr "Apagar"
+msgstr "Suprimir"
 
 msgid "Exit without saving"
 msgstr "Sair sem gravar"
@@ -215,9 +217,9 @@ msgid ""
 "This action cannot be undone. Are you sure you want to permanently delete "
 "this dashboard?"
 msgstr ""
-"Ao apagar o painel \"{{dashboardName}}\" sera removido de todos os usuários "
-". Essa ação não pode ser desfeita. Tem certeza de que deseja apagar "
-"permanentemente este painel?"
+"A exclusão do painel \"{{ dashboardName }}\" o removerá para todos os "
+"utilizadores. Essa ação não pode ser desfeita. Tem certeza de que deseja "
+"excluir permanentemente este painel?"
 
 msgid "Cancel"
 msgstr "Cancelar"
@@ -276,7 +278,7 @@ msgid "Selected Filters"
 msgstr ""
 
 msgid "Confirm"
-msgstr "Confirmar"
+msgstr "confirme"
 
 msgid "There are no items on this dashboard"
 msgstr "Não há itens neste painel"
@@ -423,14 +425,14 @@ msgstr "Painel solicitado não encontrado"
 
 msgid "{{count}} selected"
 msgid_plural "{{count}} selected"
-msgstr[0] "{{count}} selecionado"
-msgstr[1] "{{count}} selecionado"
+msgstr[0] ""
+msgstr[1] ""
 
 msgid "Cannot remove filters while offline"
 msgstr ""
 
 msgid "Removing filters while offline"
-msgstr ""
+msgstr "A remover filtros enquanto estiver offline"
 
 msgid ""
 "Removing this filter while offline will remove all other filters. Do you "
@@ -438,7 +440,7 @@ msgid ""
 msgstr ""
 
 msgid "No, cancel"
-msgstr "Não, cancelar"
+msgstr "Não cancele"
 
 msgid "Yes, remove filters"
 msgstr ""
@@ -515,10 +517,10 @@ msgid "Cannot star this dashboard while offline"
 msgstr ""
 
 msgid "Loading dashboard – {{name}}"
-msgstr "Carregando painel– {{nome}}"
+msgstr "Carregando painel – {{nome}}"
 
 msgid "Loading dashboard"
-msgstr ""
+msgstr "A carregar painel"
 
 msgid "Offline"
 msgstr "Desligado"
