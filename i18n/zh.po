@@ -22,7 +22,7 @@ msgid "Untitled dashboard"
 msgstr "未命名的仪表板"
 
 msgid "Cannot create a dashboard while offline"
-msgstr ""
+msgstr "离线时无法创建仪表板"
 
 msgid "Create new dashboard"
 msgstr "创建新仪表盘"
@@ -77,10 +77,10 @@ msgid "There was a problem loading this dashboard item"
 msgstr "载入仪表盘有问题"
 
 msgid "Hide details and interpretations"
-msgstr ""
+msgstr "隐藏细节和解释"
 
 msgid "Show details and interpretations"
-msgstr ""
+msgstr "显示细节和解释"
 
 msgid "Open in {{appName}} app"
 msgstr "在{{appName}} 应用中打开"
@@ -157,7 +157,7 @@ msgstr "用户"
 msgid ""
 "Failed to save dashboard. You might be offline or not have access to edit "
 "this dashboard."
-msgstr ""
+msgstr "未能保存仪表板。您可能处于离线状态或无权编辑此仪表板。"
 
 msgid ""
 "Failed to save dashboard. This code is already being used on another "
@@ -170,7 +170,7 @@ msgid ""
 msgstr "删除仪表盘失败。您可能处于离线状态，或者无权编辑此仪表板。"
 
 msgid "Cannot save this dashboard while offline"
-msgstr ""
+msgstr "离线时无法保存此仪表板"
 
 msgid "Save changes"
 msgstr "保存修改"
@@ -182,13 +182,13 @@ msgid "Print preview"
 msgstr "打印预览"
 
 msgid "Filter settings"
-msgstr ""
+msgstr "过滤器设置"
 
 msgid "Translate"
 msgstr "翻译"
 
 msgid "Cannot delete this dashboard while offline"
-msgstr ""
+msgstr "离线时无法删除此仪表板"
 
 msgid "Delete"
 msgstr "删除"
@@ -217,13 +217,13 @@ msgstr "忽略修改"
 msgid ""
 "This dashboard has unsaved changes. Are you sure you want to leave and "
 "discard these unsaved changes?"
-msgstr ""
+msgstr "此仪表板有未保存的更改。您确定要离开并放弃这些未保存的更改吗？"
 
 msgid "No, stay here"
 msgstr "不，待在这里"
 
 msgid "Yes, discard changes"
-msgstr ""
+msgstr "是的，放弃更改"
 
 msgid "No access"
 msgstr "不能访问"
@@ -234,16 +234,16 @@ msgstr "不支持"
 msgid ""
 "Editing dashboards on small screens is not supported. Resize your screen to "
 "return to edit mode."
-msgstr ""
+msgstr "不支持在小屏幕上编辑仪表板。调整屏幕大小以返回编辑模式。"
 
 msgid "Allow filtering by all dimensions"
-msgstr ""
+msgstr "允许按所有维度过滤"
 
 msgid "Only allow filtering by selected dimensions"
 msgstr "仅允许按选定的维度进行过滤"
 
 msgid "Dashboard filter settings"
-msgstr ""
+msgstr "仪表板过滤器设置"
 
 msgid ""
 "Dashboards can be filtered by dimensions to change\n"
@@ -257,10 +257,10 @@ msgstr ""
 "                                         在仪表板上可用。"
 
 msgid "Available Filters"
-msgstr ""
+msgstr "可用的过滤器"
 
 msgid "Selected Filters"
-msgstr ""
+msgstr "选定的过滤器"
 
 msgid "Confirm"
 msgstr "确认"
@@ -281,7 +281,7 @@ msgid "Search for items to add to this dashboard"
 msgstr "搜索条目添加到该仪表盘"
 
 msgid "Search for visualizations, reports and more"
-msgstr ""
+msgstr "搜索可视化、报告等"
 
 msgid "Cannot search for dashboard items while offline"
 msgstr "离线时无法搜索仪表盘项目"
@@ -307,24 +307,24 @@ msgstr "固定列数"
 msgid ""
 "Dashboard items are automatically placed within fixed, horizontal columns. "
 "The number of columns can be adjusted."
-msgstr ""
+msgstr "仪表板项目自动放置在固定的水平列中。列数可以调整。"
 
 msgid "Number of columns"
-msgstr ""
+msgstr "列数"
 
 msgid "Gap size between columns (px)"
-msgstr ""
+msgstr "列之间的间隙大小 (px)"
 
 msgid ""
 "Default height only applies to items added to a dashboard, this setting will"
 " not change existing items"
-msgstr ""
+msgstr "默认高度仅适用于添加到仪表板的项目，此设置不会更改现有项目"
 
 msgid "Default height for items added to dashboard (rows)"
-msgstr ""
+msgstr "添加到仪表板的项目的默认高度（行）"
 
 msgid "Save layout"
-msgstr ""
+msgstr "保存布局"
 
 msgid "Dashboard title"
 msgstr "仪表盘标题"
@@ -343,19 +343,19 @@ msgstr "布局"
 
 msgid "{{count}} columns"
 msgid_plural "{{count}} columns"
-msgstr[0] ""
+msgstr[0] "{{count}} 列"
 
 msgid "Change layout"
-msgstr ""
+msgstr "更改布局"
 
 msgid "Add new items to"
-msgstr ""
+msgstr "将新项目添加到"
 
 msgid "End of dashboard"
-msgstr ""
+msgstr "仪表板结束"
 
 msgid "Start of dashboard"
-msgstr ""
+msgstr "仪表板开始"
 
 msgid "Print"
 msgstr "打印"
@@ -408,42 +408,42 @@ msgstr "请求的仪表盘没有找到"
 
 msgid "{{count}} selected"
 msgid_plural "{{count}} selected"
-msgstr[0] ""
+msgstr[0] "已选择 {{count}} 个"
 
 msgid "Cannot remove filters while offline"
-msgstr ""
+msgstr "离线时无法删除过滤器"
 
 msgid "Removing filters while offline"
-msgstr ""
+msgstr "离线时删除过滤器"
 
 msgid ""
 "Removing this filter while offline will remove all other filters. Do you "
 "want to remove all filters on this dashboard?"
-msgstr ""
+msgstr "脱机时删除此过滤器将删除所有其他过滤器。是否要删除此仪表板上的所有过滤器？"
 
 msgid "No, cancel"
 msgstr "不，取消"
 
 msgid "Yes, remove filters"
-msgstr ""
+msgstr "是的，删除过滤器"
 
 msgid "The dashboard couldn't be made available offline. Try again."
 msgstr "仪表盘无法离线使用。再试一次。"
 
 msgid "Failed to unstar the dashboard"
-msgstr ""
+msgstr "未能取消星标仪表板"
 
 msgid "Failed to star the dashboard"
-msgstr ""
+msgstr "未能为仪表板加注星标"
 
 msgid "Remove from offline storage"
-msgstr ""
+msgstr "从离线存储中删除"
 
 msgid "Make available offline"
-msgstr ""
+msgstr "离线使用"
 
 msgid "Sync offline data now"
-msgstr ""
+msgstr "立即同步离线数据"
 
 msgid "Unstar dashboard"
 msgstr "取消星标仪表盘"
@@ -473,15 +473,15 @@ msgid "Share"
 msgstr "分享"
 
 msgid "Clear dashboard filters?"
-msgstr ""
+msgstr "清除仪表板过滤器？"
 
 msgid ""
 "A dashboard's filters can’t be saved offline. Do you want to remove the "
 "filters and make this dashboard available offline?"
-msgstr ""
+msgstr "仪表板的过滤器无法离线保存。是否要删除过滤器并使此仪表板可脱机使用？"
 
 msgid "Yes, clear filters and sync"
-msgstr ""
+msgstr "是的，清除过滤器并同步"
 
 msgid "No description"
 msgstr "无描述"
@@ -490,13 +490,13 @@ msgid "Add filter"
 msgstr "添加过滤器"
 
 msgid "Offline data last updated {{time}}"
-msgstr ""
+msgstr "离线数据上次更新 {{time}}"
 
 msgid "Cannot unstar this dashboard while offline"
-msgstr ""
+msgstr "离线时无法取消此仪表板的星标"
 
 msgid "Cannot star this dashboard while offline"
-msgstr ""
+msgstr "离线时无法为此仪表板加注星标"
 
 msgid "Loading dashboard – {{name}}"
 msgstr "加载仪表盘-{{name}}"
@@ -508,13 +508,13 @@ msgid "Offline"
 msgstr "离线"
 
 msgid "This dashboard cannot be loaded while offline."
-msgstr ""
+msgstr "离线时无法加载此仪表板。"
 
 msgid "Go to start page"
 msgstr "转到起始页"
 
 msgid "Load dashboard failed"
-msgstr ""
+msgstr "加载仪表板失败"
 
 msgid "This dashboard could not be loaded. Please try again later."
-msgstr ""
+msgstr "无法加载此仪表板。请稍后再试。"
