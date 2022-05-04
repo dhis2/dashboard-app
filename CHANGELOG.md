@@ -1,3 +1,10 @@
+## [99.9.10](https://github.com/dhis2/dashboard-app/compare/v99.9.9...v99.9.10) (2022-05-04)
+
+
+### Bug Fixes
+
+* use form workaround ([#2076](https://github.com/dhis2/dashboard-app/issues/2076)) ([7523d60](https://github.com/dhis2/dashboard-app/commit/7523d605c5c5cd62b7b6b94613491546c200754b))
+
 ## [31.22.2](https://github.com/dhis2/dashboard-app/compare/v31.22.1...v31.22.2) (2022-01-10)
 
 
