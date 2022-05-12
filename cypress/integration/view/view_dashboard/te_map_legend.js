@@ -13,7 +13,7 @@ Given('I open the Cases Malaria dashboard', () => {
     const title = 'Cases Malaria'
     cy.get(dashboardChipSel, EXTENDED_TIMEOUT).contains(title).click()
 
-    cy.location().should(loc => {
+    cy.location().should((loc) => {
         expect(loc.hash).to.equal(dashboards[title].route)
     })
 

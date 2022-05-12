@@ -74,7 +74,7 @@ FilterBadge.propTypes = {
     onRemove: PropTypes.func.isRequired,
 }
 
-const mapStateToProps = state => ({
+const mapStateToProps = (state) => ({
     dashboardId: sGetSelectedId(state),
 })
 

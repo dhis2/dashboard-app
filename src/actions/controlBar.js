@@ -3,19 +3,19 @@ import { SET_CONTROLBAR_USER_ROWS } from '../reducers/controlBar'
 
 // actions
 
-export const acSetControlBarUserRows = rows => ({
+export const acSetControlBarUserRows = (rows) => ({
     type: SET_CONTROLBAR_USER_ROWS,
     value: rows,
 })
 
 // thunks
 
-export const tSetControlBarRows = () => async dispatch => {
-    const onSuccess = rows => {
+export const tSetControlBarRows = () => async (dispatch) => {
+    const onSuccess = (rows) => {
         dispatch(acSetControlBarUserRows(rows))
     }
 
-    const onError = error => {
+    const onError = (error) => {
         console.log('Error (apiGetControlBarRows): ', error)
         return error
     }

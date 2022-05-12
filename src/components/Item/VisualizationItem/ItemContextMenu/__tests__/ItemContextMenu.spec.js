@@ -9,7 +9,7 @@ import ItemContextMenu from '../ItemContextMenu'
 jest.mock('../../../../SystemSettingsProvider', () => {
     return {
         __esModule: true,
-        default: jest.fn(children => <div>{children}</div>),
+        default: jest.fn((children) => <div>{children}</div>),
         useSystemSettings: jest.fn(),
     }
 })

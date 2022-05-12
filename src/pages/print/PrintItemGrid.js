@@ -11,7 +11,7 @@ import { sGetPrintDashboardItems } from '../../reducers/printDashboard'
 import StaticGrid from './StaticGrid'
 
 const PrintItemGrid = ({ dashboardItems }) => {
-    const getItemComponent = item => (
+    const getItemComponent = (item) => (
         <div
             key={item.i}
             className={cx(
@@ -25,7 +25,8 @@ const PrintItemGrid = ({ dashboardItems }) => {
         </div>
     )
 
-    const getItemComponents = items => items.map(item => getItemComponent(item))
+    const getItemComponents = (items) =>
+        items.map((item) => getItemComponent(item))
 
     return (
         <StaticGrid className="print" layout={dashboardItems}>
@@ -38,7 +39,7 @@ PrintItemGrid.propTypes = {
     dashboardItems: PropTypes.array,
 }
 
-const mapStateToProps = state => {
+const mapStateToProps = (state) => {
     return {
         dashboardItems: orArray(sGetPrintDashboardItems(state)).filter(
             hasShape

@@ -44,7 +44,7 @@ export default (state = DEFAULT_STATE_DASHBOARDS, action) => {
 
 // root selector
 
-export const sGetDashboardsRoot = state => state.dashboards
+export const sGetDashboardsRoot = (state) => state.dashboards
 
 // selector level 1
 
@@ -67,7 +67,7 @@ export const sGetDashboardById = (state, id) =>
 export const sGetDashboardStarred = (state, id) =>
     sGetDashboardById(state, id).starred
 
-export const sDashboardsIsFetching = state => {
+export const sDashboardsIsFetching = (state) => {
     return sGetDashboardsRoot(state) === null
 }
 
@@ -78,23 +78,23 @@ export const sDashboardsIsFetching = state => {
  * @param {Object} state The current state
  * @returns {Object | undefined}
  */
-export const sGetAllDashboards = state => orObject(sGetDashboardsRoot(state))
+export const sGetAllDashboards = (state) => orObject(sGetDashboardsRoot(state))
 
 // selector level 2
 
-const sGetStarredDashboards = state =>
+const sGetStarredDashboards = (state) =>
     Object.values(sGetAllDashboards(state)).filter(
-        dashboard => dashboard.starred === true
+        (dashboard) => dashboard.starred === true
     )
 
-const sGetUnstarredDashboards = state =>
+const sGetUnstarredDashboards = (state) =>
     Object.values(sGetAllDashboards(state)).filter(
-        dashboard => dashboard.starred === false
+        (dashboard) => dashboard.starred === false
     )
 
 // selector level 3
 
-export const sGetDashboardsSortedByStarred = state => [
+export const sGetDashboardsSortedByStarred = (state) => [
     ...arraySort(sGetStarredDashboards(state), 'ASC', 'displayName'),
     ...arraySort(sGetUnstarredDashboards(state), 'ASC', 'displayName'),
 ]

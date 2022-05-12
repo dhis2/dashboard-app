@@ -22,4 +22,4 @@ export default (state = INITIAL_DIMENSIONS, action) => {
     }
 }
 
-export const sGetDimensions = state => state.dimensions
+export const sGetDimensions = (state) => state.dimensions

@@ -14,7 +14,9 @@ const LandingPage = ({ username, onMount }) => {
         <>
             <DashboardsBar
                 expanded={controlbarExpanded}
-                onExpandedChanged={expanded => setControlbarExpanded(expanded)}
+                onExpandedChanged={(expanded) =>
+                    setControlbarExpanded(expanded)
+                }
             />
             <StartScreen username={username} />
         </>

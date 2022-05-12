@@ -8,7 +8,7 @@ export const itemSearchSel = '[data-test="item-search"]'
 
 export const actionsBarSel = '[data-test="edit-control-bar"]'
 
-export const clickEditActionButton = action =>
+export const clickEditActionButton = (action) =>
     cy
         .get(actionsBarSel, EXTENDED_TIMEOUT)
         .find('button')
@@ -21,7 +21,7 @@ export const createDashboard = (title, items) => {
     cy.get(titleInputSel).type(title)
 
     // add the item
-    items.forEach(itemName => {
+    items.forEach((itemName) => {
         cy.get('[data-test="item-search"]').click()
         cy.get('[data-test="item-search"]')
             .find('input')

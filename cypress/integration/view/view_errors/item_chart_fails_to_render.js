@@ -94,7 +94,7 @@ When('I remove the filter', () => {
     cy.wait(4000) // eslint-disable-line cypress/no-unnecessary-waiting
 })
 
-Then('the {string} is displayed correctly', visType => {
+Then('the {string} is displayed correctly', (visType) => {
     if (visType === 'chart') {
         cy.get(chartSel, EXTENDED_TIMEOUT).should('be.visible')
     } else if (visType === 'table') {

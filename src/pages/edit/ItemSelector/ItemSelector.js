@@ -24,7 +24,7 @@ const ItemSelector = () => {
             Array.from(maxOptions)
         )
 
-        dataEngine.query({ items: query }).then(res => setItems(res.items))
+        dataEngine.query({ items: query }).then((res) => setItems(res.items))
     }, [debouncedFilterText, maxOptions])
 
     const closeMenu = () => {
@@ -37,11 +37,11 @@ const ItemSelector = () => {
 
     const getCategorizedMenuGroups = () => {
         return categorizedItems
-            .filter(type => {
+            .filter((type) => {
                 const itemType = itemTypeMap[type]
                 return items && items[itemType.endPointName]
             })
-            .map(type => {
+            .map((type) => {
                 const itemType = itemTypeMap[type]
                 const itemCount = getDefaultItemCount(type)
                 const allItems = items[itemType.endPointName]
@@ -63,14 +63,14 @@ const ItemSelector = () => {
             })
     }
     const getSinglesMenuGroups = () =>
-        singleItems.map(category => (
+        singleItems.map((category) => (
             <SinglesMenuGroup key={category.id} category={category} />
         ))
 
     const getMenuGroups = () =>
         getCategorizedMenuGroups().concat(getSinglesMenuGroups())
 
-    const updateMaxOptions = type => {
+    const updateMaxOptions = (type) => {
         if (type) {
             const options = new Set(maxOptions)
             options.has(type) ? options.delete(type) : options.add(type)

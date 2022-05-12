@@ -8,7 +8,7 @@ import classes from './styles/ContentMenuItem.module.css'
 
 const LaunchLink = ({ url }) => (
     <a
-        onClick={e => e.stopPropagation()}
+        onClick={(e) => e.stopPropagation()}
         className={classes.launchLink}
         target="_blank"
         rel="noopener noreferrer"

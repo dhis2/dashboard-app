@@ -42,11 +42,11 @@ const MIN_ITEM_GRID_HEIGHT = 4
 
 // isNonNegativeInteger
 
-const isNonNegativeInteger = x => Number.isInteger(x) && x >= 0
+const isNonNegativeInteger = (x) => Number.isInteger(x) && x >= 0
 
 // Does the item have all the shape properties?
 
-export const hasShape = item =>
+export const hasShape = (item) =>
     isNonNegativeInteger(item.x) &&
     isNonNegativeInteger(item.y) &&
     isNonNegativeInteger(item.w) &&
@@ -54,7 +54,7 @@ export const hasShape = item =>
 
 // returns a rectangular grid block dimensioned with x, y, w, h in grid units.
 // based on a grid with 3 items across
-const getShape = i => {
+const getShape = (i) => {
     const col = i % NUMBER_OF_ITEM_COLS
     const row = Math.floor(i / NUMBER_OF_ITEM_COLS)
     const itemWidth = Math.floor(MAX_ITEM_GRID_WIDTH / NUMBER_OF_ITEM_COLS)
@@ -82,15 +82,15 @@ export const withShape = (items = []) => {
         hasShape(item) ? item : Object.assign({}, item, getShape(i))
     )
 
-    return itemsWithShape.map(item =>
+    return itemsWithShape.map((item) =>
         Object.assign({}, item, { originalH: item.h })
     )
 }
 
-export const getGridWidth = windowWidthPx =>
+export const getGridWidth = (windowWidthPx) =>
     windowWidthPx - DASHBOARD_WRAPPER_LR_MARGIN_PX
 
-const getGridUnitsForSmFromPx = hPx => {
+const getGridUnitsForSmFromPx = (hPx) => {
     const gridUnitHeightPx = GRID_ROW_HEIGHT_PX + MARGIN_SM_PX[1]
     return Math.round((hPx + MARGIN_SM_PX[1]) / gridUnitHeightPx)
 }
@@ -135,7 +135,7 @@ export const getSmallLayout = (items, windowWidthPx) =>
         })
     )
 
-export const getGridItemProperties = itemId => {
+export const getGridItemProperties = (itemId) => {
     return {
         i: itemId,
         minH: MIN_ITEM_GRID_HEIGHT,
@@ -153,7 +153,7 @@ export const getPageBreakItemShape = (yPos, isStatic = true) => {
     }
 }
 
-export const getPrintTitlePageItemShape = isOneItemPerPage => {
+export const getPrintTitlePageItemShape = (isOneItemPerPage) => {
     return {
         x: 0,
         y: 0,
@@ -202,7 +202,7 @@ const getNumberOfColUnits = (columns, maxColUnits = GRID_COLUMNS) => {
     return Math.floor(maxColUnits / columns.length)
 }
 
-const sortItems = items =>
+const sortItems = (items) =>
     items
         .slice()
         .sort((a, b) => a.y - b.y || a.x - b.x || a.h - b.h || a.w - b.w)
@@ -295,9 +295,9 @@ export const updateItems = (items, dispatch, options = {}) => {
     }
 }
 
-export const hasLayout = layout => Boolean(layout?.columns?.length)
+export const hasLayout = (layout) => Boolean(layout?.columns?.length)
 
-export const getDashboardItem = item => {
+export const getDashboardItem = (item) => {
     const type = item.type
     const itemPropName = itemTypeMap[type]?.propName
 

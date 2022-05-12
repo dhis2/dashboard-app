@@ -7,7 +7,7 @@ export const messageConversationsQuery = {
     },
 }
 
-export const getMessages = async dataEngine => {
+export const getMessages = async (dataEngine) => {
     try {
         const { messageConversations } = await dataEngine.query({
             messageConversations: messageConversationsQuery,

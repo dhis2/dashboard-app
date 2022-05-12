@@ -8,7 +8,7 @@ import { getVisualizationId } from '../../../modules/item'
 import FatalErrorBoundary from './FatalErrorBoundary'
 import classes from './styles/ItemFooter.module.css'
 
-const ItemFooter = props => {
+const ItemFooter = (props) => {
     const { d2 } = useD2()
     const { offline } = useOnlineStatus()
 

@@ -3,7 +3,7 @@ import {
     CLEAR_VISUALIZATIONS,
 } from '../reducers/visualizations'
 
-export const acAddVisualization = value => ({
+export const acAddVisualization = (value) => ({
     type: ADD_VISUALIZATION,
     value,
 })

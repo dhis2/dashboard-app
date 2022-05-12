@@ -17,7 +17,7 @@ import { sGetItemFiltersRoot } from '../../../reducers/itemFilters'
 import FilterDialog from './FilterDialog'
 import classes from './styles/FilterSelector.module.css'
 
-const FilterSelector = props => {
+const FilterSelector = (props) => {
     const [filterDialogIsOpen, setFilterDialogIsOpen] = useState(false)
     const dimensions = useDimensions(filterDialogIsOpen)
     const { offline } = useOnlineStatus()
@@ -31,9 +31,9 @@ const FilterSelector = props => {
         props.clearActiveModalDimension()
     }
 
-    const selectDimension = id => {
+    const selectDimension = (id) => {
         props.setActiveModalDimension(
-            dimensions.find(dimension => dimension.id === id)
+            dimensions.find((dimension) => dimension.id === id)
         )
     }
 
@@ -41,7 +41,7 @@ const FilterSelector = props => {
         if (!props.restrictFilters) {
             return dimensions
         } else {
-            return dimensions.filter(d =>
+            return dimensions.filter((d) =>
                 [...props.allowedFilters].includes(d.id)
             )
         }
@@ -81,7 +81,7 @@ const FilterSelector = props => {
     )
 }
 
-const mapStateToProps = state => ({
+const mapStateToProps = (state) => ({
     dimension: sGetActiveModalDimension(state),
     initiallySelectedItems: sGetItemFiltersRoot(state),
 })

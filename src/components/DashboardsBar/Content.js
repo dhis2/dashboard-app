@@ -40,7 +40,7 @@ const Content = ({
     }
 
     const getChips = () =>
-        getFilteredDashboards(dashboards, filterText).map(dashboard => (
+        getFilteredDashboards(dashboards, filterText).map((dashboard) => (
             <Chip
                 key={dashboard.id}
                 label={dashboard.displayName}
@@ -126,7 +126,7 @@ Content.propTypes = {
     onSearchClicked: PropTypes.func,
 }
 
-const mapStateToProps = state => ({
+const mapStateToProps = (state) => ({
     dashboards: sGetAllDashboards(state),
     selectedId: sGetSelectedId(state),
     filterText: sGetDashboardsFilter(state),

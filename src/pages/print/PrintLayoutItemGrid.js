@@ -15,24 +15,24 @@ import { getDomGridItemsSortedByYPos, getTransformYPx } from './printUtils'
 import StaticGrid from './StaticGrid'
 
 class PrintLayoutItemGrid extends Component {
-    onLayoutChange = newLayout => {
+    onLayoutChange = (newLayout) => {
         this.props.updateDashboardLayout(newLayout)
     }
 
-    isFirstPageBreak = item => {
+    isFirstPageBreak = (item) => {
         if (item.type !== PAGEBREAK) {
             return false
         }
 
         const pageBreaks = this.props.dashboardItems.filter(
-            i => i.type === PAGEBREAK
+            (i) => i.type === PAGEBREAK
         )
 
         const sortedPageBreaks = sortBy(pageBreaks, ['y'])
         return item.y === sortedPageBreaks[0].y
     }
 
-    getItemComponent = item => {
+    getItemComponent = (item) => {
         // the first-page-break class is used in Edit print preview
         const itemClassNames = cx(
             'print',
@@ -57,7 +57,8 @@ class PrintLayoutItemGrid extends Component {
         )
     }
 
-    getItemComponents = items => items.map(item => this.getItemComponent(item))
+    getItemComponents = (items) =>
+        items.map((item) => this.getItemComponent(item))
 
     hideExtraPageBreaks() {
         const sortedElements = getDomGridItemsSortedByYPos(
@@ -138,7 +139,7 @@ PrintLayoutItemGrid.propTypes = {
     updateDashboardLayout: PropTypes.func,
 }
 
-const mapStateToProps = state => {
+const mapStateToProps = (state) => {
     return {
         dashboardItems: sGetPrintDashboardItems(state).filter(hasShape),
         isEditing: sGetIsEditing(state),

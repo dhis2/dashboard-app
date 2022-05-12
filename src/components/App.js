@@ -25,7 +25,7 @@ import 'react-grid-layout/css/styles.css'
 import 'react-resizable/css/styles.css'
 import './styles/ItemGrid.css'
 
-const App = props => {
+const App = (props) => {
     const { d2 } = useD2()
     const { systemSettings } = useSystemSettings()
 
@@ -54,7 +54,7 @@ const App = props => {
                         <Route
                             exact
                             path="/"
-                            render={props =>
+                            render={(props) =>
                                 systemSettings.startModuleEnableLightweight ? (
                                     <Redirect to={ROUTE_START_PATH} />
                                 ) : (
@@ -78,12 +78,12 @@ const App = props => {
                         <Route
                             exact
                             path="/new"
-                            render={props => <NewDashboard {...props} />}
+                            render={(props) => <NewDashboard {...props} />}
                         />
                         <Route
                             exact
                             path="/:dashboardId"
-                            render={props => (
+                            render={(props) => (
                                 <ViewDashboard
                                     {...props}
                                     username={d2.currentUser.username}
@@ -93,17 +93,17 @@ const App = props => {
                         <Route
                             exact
                             path="/:dashboardId/edit"
-                            render={props => <EditDashboard {...props} />}
+                            render={(props) => <EditDashboard {...props} />}
                         />
                         <Route
                             exact
                             path="/:dashboardId/printoipp"
-                            render={props => <PrintDashboard {...props} />}
+                            render={(props) => <PrintDashboard {...props} />}
                         />
                         <Route
                             exact
                             path="/:dashboardId/printlayout"
-                            render={props => (
+                            render={(props) => (
                                 <PrintLayoutDashboard {...props} />
                             )}
                         />
@@ -125,7 +125,7 @@ const mapDispatchToProps = {
     fetchDashboards: tFetchDashboards,
     setControlBarRows: tSetControlBarRows,
     setShowDescription: tSetShowDescription,
-    resetState: () => dispatch => {
+    resetState: () => (dispatch) => {
         dispatch(acSetSelected({}))
         dispatch(acClearDashboardsFilter())
         dispatch(acClearVisualizations())

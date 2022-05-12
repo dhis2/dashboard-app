@@ -6,7 +6,7 @@ import {
 import { REPORT_TABLE, CHART, MAP } from '../../../../modules/itemTypes'
 import getThematicMapViews from '../getThematicMapViews'
 
-const getWithoutId = object => ({
+const getWithoutId = (object) => ({
     ...object,
     id: undefined,
 })

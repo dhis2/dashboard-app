@@ -25,9 +25,9 @@ export default combineReducers({
  * @param {Object} state
  * @returns {Object}
  */
-const sGetControlBarRoot = state => state.controlBar
+const sGetControlBarRoot = (state) => state.controlBar
 
 // Selector dependency level 2
 
-export const sGetControlBarUserRows = state =>
+export const sGetControlBarUserRows = (state) =>
     sGetControlBarRoot(state).userRows

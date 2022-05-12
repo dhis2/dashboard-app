@@ -26,7 +26,7 @@ EditItemActions.propTypes = {
 }
 
 const mapDispatchToProps = {
-    onDeleteItem: itemId => (dispatch, getState) => {
+    onDeleteItem: (itemId) => (dispatch, getState) => {
         const columns = sGetLayoutColumns(getState())
         const dashboardItems = sGetEditDashboardItems(getState())
 

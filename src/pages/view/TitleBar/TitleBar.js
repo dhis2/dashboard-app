@@ -40,7 +40,7 @@ ViewTitleBar.propTypes = {
     showDescription: PropTypes.bool,
 }
 
-const mapStateToProps = state => {
+const mapStateToProps = (state) => {
     const dashboard = sGetSelected(state)
 
     return {

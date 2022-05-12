@@ -56,7 +56,7 @@ const PrintDashboard = ({
 
                 // remove spacers - don't want empty pages
                 let spacerCount = 0
-                sortedItems.forEach(item => {
+                sortedItems.forEach((item) => {
                     if (item.type === SPACER) {
                         spacerCount += 1
                         removeDashboardItem(item.id)
@@ -64,7 +64,7 @@ const PrintDashboard = ({
                 })
 
                 // Resize the items to the full page size
-                sortedItems.forEach(item => {
+                sortedItems.forEach((item) => {
                     updateDashboardItem(
                         Object.assign({}, item, {
                             w: MAX_ITEM_GRID_WIDTH_OIPP,

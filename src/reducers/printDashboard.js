@@ -25,7 +25,7 @@ export default (state = DEFAULT_STATE_PRINT_DASHBOARD, action) => {
         case SET_PRINT_DASHBOARD: {
             const newState = {}
             Object.keys(NEW_PRINT_DASHBOARD_STATE).map(
-                k => (newState[k] = action.value[k])
+                (k) => (newState[k] = action.value[k])
             )
             return newState
         }
@@ -50,7 +50,7 @@ export default (state = DEFAULT_STATE_PRINT_DASHBOARD, action) => {
             const idToRemove = action.value
 
             const dashboardItemIndex = state.dashboardItems.findIndex(
-                item => item.id === idToRemove
+                (item) => item.id === idToRemove
             )
 
             if (dashboardItemIndex > -1) {
@@ -67,7 +67,7 @@ export default (state = DEFAULT_STATE_PRINT_DASHBOARD, action) => {
             const dashboardItem = action.value
 
             const dashboardItemIndex = state.dashboardItems.findIndex(
-                item => item.id === dashboardItem.id
+                (item) => item.id === dashboardItem.id
             )
 
             if (dashboardItemIndex > -1) {
@@ -93,7 +93,7 @@ export default (state = DEFAULT_STATE_PRINT_DASHBOARD, action) => {
             let layoutHasChanged = false
 
             const newStateItems = action.value.map(({ x, y, w, h, i }) => {
-                const stateItem = stateItems.find(si => si.id === i)
+                const stateItem = stateItems.find((si) => si.id === i)
 
                 if (
                     !(
@@ -124,19 +124,19 @@ export default (state = DEFAULT_STATE_PRINT_DASHBOARD, action) => {
 
 // root selector
 
-export const sGetPrintDashboardRoot = state => state.printDashboard
+export const sGetPrintDashboardRoot = (state) => state.printDashboard
 
 // selectors
 
-export const sGetIsPrinting = state => !isEmpty(state.printDashboard)
+export const sGetIsPrinting = (state) => !isEmpty(state.printDashboard)
 
-export const sGetPrintDashboardName = state =>
+export const sGetPrintDashboardName = (state) =>
     sGetPrintDashboardRoot(state).name
 
-export const sGetPrintDashboardDescription = state =>
+export const sGetPrintDashboardDescription = (state) =>
     sGetPrintDashboardRoot(state).description
 
-export const sGetPrintDashboardItems = state => {
+export const sGetPrintDashboardItems = (state) => {
     return (
         sGetPrintDashboardRoot(state)?.dashboardItems || DEFAULT_DASHBOARD_ITEMS
     )

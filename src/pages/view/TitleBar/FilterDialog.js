@@ -54,7 +54,7 @@ const FilterDialog = ({
     const onDeselectItems = ({ dimensionId, itemIdsToRemove }) => {
         const oldList = filters[dimensionId] || []
         const newList = oldList.filter(
-            item => !itemIdsToRemove.includes(item.id)
+            (item) => !itemIdsToRemove.includes(item.id)
         )
 
         setFilters({ ...filters, [dimensionId]: newList })
@@ -62,8 +62,8 @@ const FilterDialog = ({
 
     const onReorderItems = ({ dimensionId, itemIds }) => {
         const oldList = filters[dimensionId] || []
-        const reorderedList = itemIds.map(id =>
-            oldList.find(item => item.id === id)
+        const reorderedList = itemIds.map((id) =>
+            oldList.find((item) => item.id === id)
         )
 
         setFilters({ ...filters, [dimensionId]: reorderedList })
@@ -187,7 +187,7 @@ FilterDialog.propTypes = {
     onClose: PropTypes.func,
 }
 
-const mapStateToProps = state => ({
+const mapStateToProps = (state) => ({
     initiallySelectedItems: sGetItemFiltersRoot(state),
 })
 

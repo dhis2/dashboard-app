@@ -9,7 +9,7 @@ import WindowDimensionsProvider from '../../../components/WindowDimensionsProvid
 import DashboardsBar, { MIN_ROW_COUNT, MAX_ROW_COUNT } from '../DashboardsBar'
 
 // TODO this spy is an implementation detail
-jest.spyOn(window, 'requestAnimationFrame').mockImplementation(cb => cb())
+jest.spyOn(window, 'requestAnimationFrame').mockImplementation((cb) => cb())
 
 jest.mock('@dhis2/app-runtime-adapter-d2', () => ({
     useD2: () => ({

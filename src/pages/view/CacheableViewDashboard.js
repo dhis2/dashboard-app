@@ -34,7 +34,7 @@ const CacheableViewDashboard = ({
             <>
                 <DashboardsBar
                     expanded={dashboardsBarExpanded}
-                    onExpandedChanged={expanded =>
+                    onExpandedChanged={(expanded) =>
                         setDashboardsBarExpanded(expanded)
                     }
                 />

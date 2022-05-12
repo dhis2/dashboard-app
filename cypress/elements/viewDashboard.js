@@ -26,13 +26,13 @@ export const innerScrollContainerSel = '[data-test="inner-scroll-container"]'
 
 /** Functions **/
 
-export const getViewActionButton = action =>
+export const getViewActionButton = (action) =>
     cy
         .get(titleBarSel, EXTENDED_TIMEOUT)
         .find('button')
         .contains(action, EXTENDED_TIMEOUT)
 
-export const clickViewActionButton = action =>
+export const clickViewActionButton = (action) =>
     cy
         .get(titleBarSel, EXTENDED_TIMEOUT)
         .find('button')

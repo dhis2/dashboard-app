@@ -1,6 +1,6 @@
 import { getGridItemDomElementClassName } from '../../../modules/getGridItemDomElementClassName'
 
-export const isElementFullscreen = itemId => {
+export const isElementFullscreen = (itemId) => {
     const fullscreenElement =
         document.fullscreenElement || document.webkitFullscreenElement
 

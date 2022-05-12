@@ -16,7 +16,7 @@ const getIframeSrc = (appDetails, item, itemFilters) => {
 
     if (itemFilters[FILTER_ORG_UNIT] && itemFilters[FILTER_ORG_UNIT].length) {
         const ouIds = itemFilters[FILTER_ORG_UNIT].map(
-            ouFilter => ouFilter.path.split('/').slice(-1)[0]
+            (ouFilter) => ouFilter.path.split('/').slice(-1)[0]
         )
 
         iframeSrc += `&userOrgUnit=${ouIds.join(',')}`
@@ -33,7 +33,7 @@ const AppItem = ({ dashboardMode, item, itemFilters }) => {
     const appKey = item.appKey
 
     if (appKey) {
-        appDetails = d2.system.installedApps.find(app => app.key === appKey)
+        appDetails = d2.system.installedApps.find((app) => app.key === appKey)
     }
 
     const hideTitle =

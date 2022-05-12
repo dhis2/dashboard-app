@@ -1,13 +1,13 @@
 import { apiGetShowDescription } from '../api/description'
 import { SET_SHOW_DESCRIPTION } from '../reducers/showDescription'
 
-export const acSetShowDescription = value => ({
+export const acSetShowDescription = (value) => ({
     type: SET_SHOW_DESCRIPTION,
     value,
 })
 
-export const tSetShowDescription = () => async dispatch => {
-    const onSuccess = value => {
+export const tSetShowDescription = () => async (dispatch) => {
+    const onSuccess = (value) => {
         dispatch(acSetShowDescription(value))
     }
 

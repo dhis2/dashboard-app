@@ -15,7 +15,7 @@ import { acClearVisualizations } from './visualizations'
 
 // actions
 
-export const acSetSelected = value => ({
+export const acSetSelected = (value) => ({
     type: SET_SELECTED,
     value,
 })
@@ -50,7 +50,7 @@ export const tSetSelectedDashboardById =
             dispatch(acClearItemActiveTypes())
         }
 
-        dashboard.dashboardItems.some(item => item.type === MESSAGES) &&
+        dashboard.dashboardItems.some((item) => item.type === MESSAGES) &&
             dispatch(tGetMessages(dataEngine))
 
         dispatch(acSetSelected(dashboard))

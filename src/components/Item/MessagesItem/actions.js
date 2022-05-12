@@ -6,12 +6,12 @@ const onError = (action, error) => {
     return error
 }
 
-export const receivedMessages = value => ({
+export const receivedMessages = (value) => ({
     type: RECEIVED_MESSAGES,
     value,
 })
 
-export const tGetMessages = dataEngine => async dispatch => {
+export const tGetMessages = (dataEngine) => async (dispatch) => {
     try {
         const messageConversations = await getMessages(dataEngine)
 

@@ -5,7 +5,7 @@ import {
 
 // actions
 
-export const acSetDashboardsFilter = value => ({
+export const acSetDashboardsFilter = (value) => ({
     type: SET_DASHBOARDS_FILTER,
     value,
 })

@@ -7,10 +7,10 @@ import {
 } from '../../../elements/viewDashboard'
 import { EXTENDED_TIMEOUT } from '../../../support/utils'
 
-Given('I open the {string} dashboard', title => {
+Given('I open the {string} dashboard', (title) => {
     cy.get(dashboardChipSel, EXTENDED_TIMEOUT).contains(title).click()
 
-    cy.location().should(loc => {
+    cy.location().should((loc) => {
         expect(loc.hash).to.equal(dashboards[title].route)
     })
 

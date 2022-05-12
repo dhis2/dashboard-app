@@ -29,7 +29,7 @@ import ItemGrid from './ItemGrid'
 import classes from './styles/ViewDashboard.module.css'
 import TitleBar from './TitleBar/TitleBar'
 
-const ViewDashboard = props => {
+const ViewDashboard = (props) => {
     const [controlbarExpanded, setControlbarExpanded] = useState(false)
     const [loadingMessage, setLoadingMessage] = useState(null)
     const [loaded, setLoaded] = useState(false)
@@ -48,7 +48,7 @@ const ViewDashboard = props => {
 
         Array.from(
             document.getElementsByClassName('dashboard-scroll-container')
-        ).forEach(container => {
+        ).forEach((container) => {
             container.scroll(0, 0)
         })
     }, [props.requestedId])
@@ -59,7 +59,7 @@ const ViewDashboard = props => {
                 .then(() => {
                     props.registerPassiveView()
                 })
-                .catch(error => console.info(error))
+                .catch((error) => console.info(error))
         }
     }, [props.passiveViewRegistered])
 
@@ -103,7 +103,7 @@ const ViewDashboard = props => {
         }
     }, [props.requestedId, props.currentId, loaded, online])
 
-    const onExpandedChanged = expanded => setControlbarExpanded(expanded)
+    const onExpandedChanged = (expanded) => setControlbarExpanded(expanded)
 
     const getContent = () => {
         if (

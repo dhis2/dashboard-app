@@ -11,7 +11,7 @@ const PERIOD = 'Last 6 months'
 const OU = 'Sierra Leone'
 const FACILITY_TYPE = 'Clinic'
 
-When('I add a {string} filter', dimensionType => {
+When('I add a {string} filter', (dimensionType) => {
     cy.contains('Add filter').click()
 
     // open the dimensions modal

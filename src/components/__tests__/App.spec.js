@@ -47,7 +47,7 @@ jest.mock('../../pages/view', () => {
 jest.mock('../SystemSettingsProvider', () => {
     return {
         __esModule: true,
-        default: jest.fn(children => <div>{children}</div>),
+        default: jest.fn((children) => <div>{children}</div>),
         useSystemSettings: jest.fn(() => ({
             systemSettings: { startModuleEnableLightweight: false },
         })),
@@ -57,7 +57,7 @@ jest.mock('../SystemSettingsProvider', () => {
 jest.mock('../UserSettingsProvider', () => {
     return {
         __esModule: true,
-        default: jest.fn(children => <div>{children}</div>),
+        default: jest.fn((children) => <div>{children}</div>),
         useUserSettings: jest.fn(() => ({
             userSettings: { keyAnalysisDisplayProperty: 'displayName' },
         })),

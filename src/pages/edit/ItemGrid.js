@@ -39,14 +39,14 @@ const EditItemGrid = ({
     const [gridWidth, setGridWidth] = useState({ width: 0 })
     const { width } = useWindowDimensions()
 
-    const onLayoutChange = newLayout => {
+    const onLayoutChange = (newLayout) => {
         acUpdateDashboardItemShapes(newLayout)
     }
 
-    const onWidthChanged = containerWidth =>
+    const onWidthChanged = (containerWidth) =>
         setTimeout(() => setGridWidth({ width: containerWidth }), 200)
 
-    const getItemComponent = item => (
+    const getItemComponent = (item) => (
         <ProgressiveLoadingContainer
             key={item.i}
             className={cx(
@@ -64,7 +64,8 @@ const EditItemGrid = ({
         </ProgressiveLoadingContainer>
     )
 
-    const getItemComponents = items => items.map(item => getItemComponent(item))
+    const getItemComponents = (items) =>
+        items.map((item) => getItemComponent(item))
 
     if (!dashboardItems.length) {
         return (
@@ -111,7 +112,7 @@ EditItemGrid.propTypes = {
 
 // Container
 
-const mapStateToProps = state => {
+const mapStateToProps = (state) => {
     return {
         dashboardItems: orArray(sGetEditDashboardItems(state)).filter(hasShape),
         hasLayout: hasLayout(sGetLayout(state)),

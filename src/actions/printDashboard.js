@@ -17,7 +17,7 @@ import {
 
 // actions
 
-export const acSetPrintDashboard = dashboard => ({
+export const acSetPrintDashboard = (dashboard) => ({
     type: SET_PRINT_DASHBOARD,
     value: dashboard,
 })
@@ -26,12 +26,12 @@ export const acClearPrintDashboard = () => ({
     type: CLEAR_PRINT_DASHBOARD,
 })
 
-export const acUpdatePrintDashboardLayout = value => ({
+export const acUpdatePrintDashboardLayout = (value) => ({
     type: SET_PRINT_DASHBOARD_LAYOUT,
     value,
 })
 
-export const acAddPrintDashboardItem = item => {
+export const acAddPrintDashboardItem = (item) => {
     const type = item.type
     delete item.type
     const itemPropName = itemTypeMap[type].propName
@@ -61,12 +61,12 @@ export const acAddPrintDashboardItem = item => {
     }
 }
 
-export const acRemovePrintDashboardItem = value => ({
+export const acRemovePrintDashboardItem = (value) => ({
     type: REMOVE_PRINT_DASHBOARD_ITEM,
     value,
 })
 
-export const acUpdatePrintDashboardItem = item => ({
+export const acUpdatePrintDashboardItem = (item) => ({
     type: UPDATE_PRINT_DASHBOARD_ITEM,
     value: item,
 })

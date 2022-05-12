@@ -191,7 +191,7 @@ describe('editDashboard', () => {
             })
 
             const actualItem = actualState.dashboardItems.find(
-                item => item.id === 'd1'
+                (item) => item.id === 'd1'
             )
             expect(actualItem).toEqual(updatedDashboardItem)
         })

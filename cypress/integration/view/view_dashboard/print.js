@@ -8,9 +8,9 @@ When('I click to preview the print one-item-per-page', () => {
     cy.get('[data-test="print-oipp-menu-item"]').click()
 })
 
-Then('the print one-item-per-page displays for {string} dashboard', title => {
+Then('the print one-item-per-page displays for {string} dashboard', (title) => {
     //check the url
-    cy.location().should(loc => {
+    cy.location().should((loc) => {
         expect(loc.hash).to.equal(`${dashboards[title].route}/printoipp`)
     })
 

@@ -14,20 +14,22 @@ const ITEM_2_UID = 'qXsjttMYuoZ'
 const ITEM_3_UID = 'Rwb3oXJ3bZ9'
 
 const interceptDashboardRequest = () => {
-    cy.intercept(/dashboards\/iMnYyBfSxmM/, req => {
-        req.reply(res => {
+    cy.intercept(/dashboards\/iMnYyBfSxmM/, (req) => {
+        req.reply((res) => {
             // modify 3 items with different styles of "missing" type property
-            res.body.dashboardItems.find(item => item.id === ITEM_1_UID).type =
-                null
+            res.body.dashboardItems.find(
+                (item) => item.id === ITEM_1_UID
+            ).type = null
 
             const item = res.body.dashboardItems.find(
-                item => item.id === ITEM_2_UID
+                (item) => item.id === ITEM_2_UID
             )
 
             delete item.type
 
-            res.body.dashboardItems.find(item => item.id === ITEM_3_UID).type =
-                'Unrecognized'
+            res.body.dashboardItems.find(
+                (item) => item.id === ITEM_3_UID
+            ).type = 'Unrecognized'
 
             res.send({ body: res.body })
         })

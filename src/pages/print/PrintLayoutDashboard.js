@@ -45,10 +45,10 @@ const PrintLayoutDashboard = ({
     const [redirectUrl, setRedirectUrl] = useState(null)
     const [isLoading, setIsLoading] = useState(true)
 
-    const customizePrintLayoutDashboard = dboard => {
+    const customizePrintLayoutDashboard = (dboard) => {
         // If any items are taller than one page, reduce it to one
         // page (react-grid-layout units)
-        dboard.dashboardItems.forEach(item => {
+        dboard.dashboardItems.forEach((item) => {
             if (item.h > MAX_ITEM_GRID_HEIGHT) {
                 item.shortened = true
                 updateDashboardItem(

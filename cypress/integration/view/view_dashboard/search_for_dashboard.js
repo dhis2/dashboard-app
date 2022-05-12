@@ -6,7 +6,7 @@ import {
     dashboardSearchInputSel,
 } from '../../../elements/viewDashboard'
 
-When('I search for dashboards containing {string}', title => {
+When('I search for dashboards containing {string}', (title) => {
     cy.get(dashboardSearchInputSel).type(title)
 })
 
@@ -22,10 +22,10 @@ Then('no dashboards are choices', () => {
     cy.get(dashboardChipSel).should('not.exist')
 })
 
-Then('dashboards list restored and dashboard is still {string}', title => {
+Then('dashboards list restored and dashboard is still {string}', (title) => {
     cy.get(dashboardChipSel).should('be.visible').and('have.lengthOf.above', 0)
 
-    cy.location().should(loc => {
+    cy.location().should((loc) => {
         expect(loc.hash).to.equal(dashboards[title].route)
     })
 

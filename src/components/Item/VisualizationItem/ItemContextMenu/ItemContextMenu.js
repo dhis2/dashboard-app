@@ -33,7 +33,7 @@ import { useWindowDimensions } from '../../../WindowDimensionsProvider'
 import { isElementFullscreen } from '../isElementFullscreen'
 import ViewAsMenuItems from './ViewAsMenuItems'
 
-const ItemContextMenu = props => {
+const ItemContextMenu = (props) => {
     const [menuIsOpen, setMenuIsOpen] = useState(false)
     const { width } = useWindowDimensions()
     const { baseUrl } = useConfig()
@@ -69,7 +69,7 @@ const ItemContextMenu = props => {
         closeMenu()
     }
 
-    const onActiveTypeChanged = type => {
+    const onActiveTypeChanged = (type) => {
         closeMenu()
         props.onSelectActiveType(type)
     }

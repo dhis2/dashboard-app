@@ -1,7 +1,7 @@
 import isObject from 'lodash/isObject'
 import { itemTypeMap } from './itemTypes'
 
-export const getVisualizationFromItem = item => {
+export const getVisualizationFromItem = (item) => {
     if (!isObject(item)) {
         return null
     }
@@ -18,6 +18,7 @@ export const getVisualizationFromItem = item => {
     )
 }
 
-export const getVisualizationId = item => getVisualizationFromItem(item).id
+export const getVisualizationId = (item) => getVisualizationFromItem(item).id
 
-export const getVisualizationName = item => getVisualizationFromItem(item).name
+export const getVisualizationName = (item) =>
+    getVisualizationFromItem(item).name

@@ -18,7 +18,7 @@ beforeEach(() => {
             'content-type': 'application/json',
         },
         body: '1',
-    }).then(response => expect(response.status).to.equal(201))
+    }).then((response) => expect(response.status).to.equal(201))
 })
 
 When('I toggle show more dashboards', () => {

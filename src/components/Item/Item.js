@@ -27,7 +27,7 @@ import SpacerItem from './SpacerItem/Item'
 import TextItem from './TextItem/Item'
 import VisualizationItem from './VisualizationItem/Item'
 
-const getGridItem = type => {
+const getGridItem = (type) => {
     switch (type) {
         case VISUALIZATION:
         case REPORT_TABLE:
@@ -57,7 +57,7 @@ const getGridItem = type => {
     }
 }
 
-export const Item = props => {
+export const Item = (props) => {
     const GridItem = getGridItem(props.item.type)
 
     return <GridItem {...props} />

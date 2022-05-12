@@ -2,7 +2,7 @@ import sortBy from 'lodash/sortBy'
 import { itemTypeMap } from '../../modules/itemTypes'
 import { orArray } from '../../modules/util'
 
-export const getTransformYPx = elStyle => {
+export const getTransformYPx = (elStyle) => {
     if (!elStyle || !elStyle.transform) {
         return null
     }
@@ -18,11 +18,11 @@ export const getTransformYPx = elStyle => {
     }
 }
 
-export const getDomGridItemsSortedByYPos = elements => {
+export const getDomGridItemsSortedByYPos = (elements) => {
     const types = Object.keys(itemTypeMap)
-    const elementsWithBoundingRect = orArray(elements).map(el => {
+    const elementsWithBoundingRect = orArray(elements).map((el) => {
         const type = Array.from(el.classList).find(
-            className => types.indexOf(className) > -1
+            (className) => types.indexOf(className) > -1
         )
 
         const rect = el.getBoundingClientRect()
@@ -38,11 +38,11 @@ export const getDomGridItemsSortedByYPos = elements => {
     return sortBy(elementsWithBoundingRect, ['bottomY'])
 }
 
-const isLeapPage = n => {
+const isLeapPage = (n) => {
     // pages 5,9,13,17,21,25,29... are leap pages
     let x = 0
     const startPage = 1
-    const getMultiple = factor => startPage + 4 * factor
+    const getMultiple = (factor) => startPage + 4 * factor
     let multiple = getMultiple(0)
     let isLeapPage = false
     while (multiple < n) {
@@ -56,7 +56,7 @@ const isLeapPage = n => {
     return isLeapPage
 }
 
-export const getPageBreakPositions = items => {
+export const getPageBreakPositions = (items) => {
     // add enough page breaks so that each item could
     // be put on its own page. Due to the react-grid-layout
     // unit system, we have to estimate roughly the size of each

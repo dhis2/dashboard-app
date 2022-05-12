@@ -22,7 +22,7 @@ import ItemGrid from './ItemGrid'
 import classes from './styles/EditDashboard.module.css'
 import TitleBar from './TitleBar'
 
-const EditDashboard = props => {
+const EditDashboard = (props) => {
     const dataEngine = useDataEngine()
     const { width } = useWindowDimensions()
     const [redirectUrl, setRedirectUrl] = useState(null)

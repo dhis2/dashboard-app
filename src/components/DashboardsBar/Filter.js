@@ -29,12 +29,12 @@ const Filter = ({
     const [inputFocused, setInputFocus] = useState(false)
     const { width } = useWindowDimensions()
 
-    const setFilterValue = event => {
+    const setFilterValue = (event) => {
         event.preventDefault()
         setDashboardsFilter(event.target.value)
     }
 
-    const onKeyUp = event => {
+    const onKeyUp = (event) => {
         switch (event.keyCode) {
             case KEYCODE_ENTER:
                 onKeypressEnter()
@@ -48,17 +48,17 @@ const Filter = ({
         }
     }
 
-    const onFocus = event => {
+    const onFocus = (event) => {
         event.preventDefault()
         setFocusedClassName(classes.focused)
     }
 
-    const onBlur = event => {
+    const onBlur = (event) => {
         event.preventDefault()
         setFocusedClassName('')
     }
 
-    const onFocusInput = input => {
+    const onFocusInput = (input) => {
         if (input && inputFocused && isSmallScreen(width)) {
             return input.focus()
         }
@@ -119,7 +119,7 @@ Filter.propTypes = {
     onSearchClicked: PropTypes.func,
 }
 
-const mapStateToProps = state => ({
+const mapStateToProps = (state) => ({
     filterText: sGetDashboardsFilter(state),
 })
 

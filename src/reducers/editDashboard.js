@@ -57,7 +57,7 @@ export default (state = DEFAULT_STATE_EDIT_DASHBOARD, action) => {
         case RECEIVED_EDIT_DASHBOARD: {
             const newState = {}
             Object.keys(DEFAULT_STATE_EDIT_DASHBOARD).forEach(
-                k => (newState[k] = action.value[k])
+                (k) => (newState[k] = action.value[k])
             )
             newState.printPreviewView =
                 DEFAULT_STATE_EDIT_DASHBOARD.printPreviewView
@@ -113,7 +113,7 @@ export default (state = DEFAULT_STATE_EDIT_DASHBOARD, action) => {
             const idToRemove = action.value
 
             const dashboardItemIndex = state.dashboardItems.findIndex(
-                item => item.id === idToRemove
+                (item) => item.id === idToRemove
             )
 
             if (dashboardItemIndex > -1) {
@@ -144,7 +144,7 @@ export default (state = DEFAULT_STATE_EDIT_DASHBOARD, action) => {
             let shapesHaveChanged = false
 
             const newStateItems = action.value.map(({ x, y, w, h, i }) => {
-                const stateItem = stateItems.find(si => si.id === i)
+                const stateItem = stateItems.find((si) => si.id === i)
                 if (
                     !(
                         stateItem.x === x &&
@@ -177,7 +177,7 @@ export default (state = DEFAULT_STATE_EDIT_DASHBOARD, action) => {
             const dashboardItem = action.value
 
             const dashboardItemIndex = state.dashboardItems.findIndex(
-                item => item.id === dashboardItem.id
+                (item) => item.id === dashboardItem.id
             )
 
             if (dashboardItemIndex > -1) {
@@ -237,42 +237,45 @@ export default (state = DEFAULT_STATE_EDIT_DASHBOARD, action) => {
 
 // root selector
 
-export const sGetEditDashboardRoot = state => state.editDashboard
+export const sGetEditDashboardRoot = (state) => state.editDashboard
 
 // selectors
 
-export const sGetIsEditing = state => !isEmpty(state.editDashboard)
+export const sGetIsEditing = (state) => !isEmpty(state.editDashboard)
 
-export const sGetIsPrintPreviewView = state =>
+export const sGetIsPrintPreviewView = (state) =>
     sGetEditDashboardRoot(state).printPreviewView
 
-export const sGetEditDashboardName = state => sGetEditDashboardRoot(state).name
-export const sGetEditDashboardCode = state => sGetEditDashboardRoot(state).code
-export const sGetEditDashboardDescription = state =>
+export const sGetEditDashboardName = (state) =>
+    sGetEditDashboardRoot(state).name
+export const sGetEditDashboardCode = (state) =>
+    sGetEditDashboardRoot(state).code
+export const sGetEditDashboardDescription = (state) =>
     sGetEditDashboardRoot(state).description
 
-export const sGetEditDashboardItems = state =>
+export const sGetEditDashboardItems = (state) =>
     orObject(sGetEditDashboardRoot(state)).dashboardItems
 
-export const sGetEditIsDirty = state => sGetEditDashboardRoot(state).isDirty
+export const sGetEditIsDirty = (state) => sGetEditDashboardRoot(state).isDirty
 
-export const sGetHideGrid = state => sGetEditDashboardRoot(state).hideGrid
+export const sGetHideGrid = (state) => sGetEditDashboardRoot(state).hideGrid
 
-const getLayout = editDashboard => editDashboard.layout
+const getLayout = (editDashboard) => editDashboard.layout
 
-export const sGetLayout = state =>
+export const sGetLayout = (state) =>
     orObject(getLayout(sGetEditDashboardRoot(state)))
 
-const getColumns = layout => layout.columns
+const getColumns = (layout) => layout.columns
 
-export const sGetLayoutColumns = state => orArray(getColumns(sGetLayout(state)))
+export const sGetLayoutColumns = (state) =>
+    orArray(getColumns(sGetLayout(state)))
 
-const getItemConfig = editDashboard => editDashboard.itemConfig
+const getItemConfig = (editDashboard) => editDashboard.itemConfig
 
-export const sGetItemConfig = state =>
+export const sGetItemConfig = (state) =>
     orObject(getItemConfig(sGetEditDashboardRoot(state)))
 
-const getInsertPosition = itemConfig => itemConfig.insertPosition
+const getInsertPosition = (itemConfig) => itemConfig.insertPosition
 
-export const sGetItemConfigInsertPosition = state =>
+export const sGetItemConfigInsertPosition = (state) =>
     getInsertPosition(sGetItemConfig(state))

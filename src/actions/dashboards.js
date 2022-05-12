@@ -8,12 +8,12 @@ import {
 
 // actions
 
-export const acSetDashboards = dashboards => ({
+export const acSetDashboards = (dashboards) => ({
     type: SET_DASHBOARDS,
     value: arrayToIdMap(dashboards),
 })
 
-export const acAppendDashboards = dashboards => ({
+export const acAppendDashboards = (dashboards) => ({
     type: ADD_DASHBOARDS,
     value: arrayToIdMap(dashboards),
 })

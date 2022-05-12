@@ -7,8 +7,8 @@ import { convertBackendItemsToUi } from './uiBackendItemConverter'
  * @param {Array} data The original dashboard list
  * @returns {Array}
  */
-export const getCustomDashboards = data =>
-    arrayFrom(data).map(d => ({
+export const getCustomDashboards = (data) =>
+    arrayFrom(data).map((d) => ({
         id: d.id,
         name: d.name,
         code: d.code,

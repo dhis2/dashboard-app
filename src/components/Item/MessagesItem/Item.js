@@ -25,12 +25,12 @@ const MessagesItem = ({ messages, item, dashboardMode }) => {
     const { baseUrl } = useConfig()
     const { userSettings } = useUserSettings()
 
-    const getMessageHref = msg => {
+    const getMessageHref = (msg) => {
         const msgIdentifier = msg ? `#/${msg.messageType}/${msg.id}` : ''
         return `${baseUrl}/dhis-web-messaging/${msgIdentifier}`
     }
 
-    const getMessageSender = msg => {
+    const getMessageSender = (msg) => {
         const latestMsg = msg.messages.slice(-1)[0]
         return latestMsg.sender ? latestMsg.sender.displayName : ''
     }
@@ -38,7 +38,7 @@ const MessagesItem = ({ messages, item, dashboardMode }) => {
     const getMessageItems = () => {
         const modeClass = isViewMode(dashboardMode) ? 'view' : null
 
-        return messages.map(msg => {
+        return messages.map((msg) => {
             const redirectToMsg = () => {
                 if (isViewMode(dashboardMode)) {
                     document.location.href = getMessageHref(msg)
@@ -102,7 +102,7 @@ MessagesItem.propTypes = {
     messages: PropTypes.array,
 }
 
-const mapStateToProps = state => {
+const mapStateToProps = (state) => {
     return {
         messages: Object.values(sGetMessagesRoot(state)),
     }

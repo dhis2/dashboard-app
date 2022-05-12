@@ -3,7 +3,7 @@ import { getVisualizationId } from '../modules/item'
 import { getEndPointName, MAP } from '../modules/itemTypes'
 import { getMapFields, getFavoriteFields } from './metadata'
 
-export const apiFetchVisualization = async item => {
+export const apiFetchVisualization = async (item) => {
     const id = getVisualizationId(item)
     const fields =
         item.type === MAP

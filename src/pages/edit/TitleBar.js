@@ -131,7 +131,7 @@ const EditTitleBar = ({
                             dense
                             label={i18n.t('End of dashboard')}
                             name="END"
-                            onChange={value =>
+                            onChange={(value) =>
                                 value.checked &&
                                 onChangeInsertPosition(value.name)
                             }
@@ -141,7 +141,7 @@ const EditTitleBar = ({
                             dense
                             label={i18n.t('Start of dashboard')}
                             name="START"
-                            onChange={value =>
+                            onChange={(value) =>
                                 value.checked &&
                                 onChangeInsertPosition(value.name)
                             }
@@ -184,7 +184,7 @@ EditTitleBar.defaultProps = {
     insertPosition: 'END',
 }
 
-const mapStateToProps = state => {
+const mapStateToProps = (state) => {
     const selectedDashboard = orObject(sGetEditDashboardRoot(state))
 
     return {
@@ -201,10 +201,10 @@ const mapDispatchToProps = {
     onChangeTitle: acSetDashboardTitle,
     onChangeDescription: acSetDashboardDescription,
     onChangeInsertPosition: acSetItemConfigInsertPosition,
-    onSaveLayout: columns => dispatch => {
+    onSaveLayout: (columns) => (dispatch) => {
         dispatch(
             acSetLayoutColumns(
-                [...Array(columns).keys()].map(i => ({ index: i }))
+                [...Array(columns).keys()].map((i) => ({ index: i }))
             )
         )
         dispatch(tSetDashboardItems())

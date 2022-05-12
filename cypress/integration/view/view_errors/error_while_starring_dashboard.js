@@ -7,7 +7,7 @@ import {
     dashboardChipSel,
 } from '../../../elements/viewDashboard'
 
-When('clicking to star {string} dashboard fails', title => {
+When('clicking to star {string} dashboard fails', (title) => {
     cy.log('url', `dashboards/${dashboards[title].id}/favorite`)
     cy.intercept('POST', `dashboards/${dashboards[title].id}/favorite`, {
         statusCode: 409,
@@ -28,7 +28,7 @@ Then(
     }
 )
 
-Then('the {string} dashboard is not starred', title => {
+Then('the {string} dashboard is not starred', (title) => {
     // check for the unfilled star next to the title
     cy.get(dashboardUnstarredSel).should('be.visible')
     cy.get(dashboardStarredSel).should('not.exist')

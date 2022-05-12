@@ -64,7 +64,7 @@ class ProgressiveLoadingContainer extends Component {
 
         Array.from(
             document.getElementsByClassName('dashboard-scroll-container')
-        ).forEach(container => {
+        ).forEach((container) => {
             container.addEventListener(
                 'scroll',
                 this.debouncedCheckShouldLoad,
@@ -72,9 +72,9 @@ class ProgressiveLoadingContainer extends Component {
             )
         })
 
-        const mutationCallback = mutationsList => {
+        const mutationCallback = (mutationsList) => {
             const styleChanged = mutationsList.find(
-                mutation => mutation.attributeName === 'style'
+                (mutation) => mutation.attributeName === 'style'
             )
 
             if (styleChanged) {
@@ -89,7 +89,7 @@ class ProgressiveLoadingContainer extends Component {
     removeHandler() {
         Array.from(
             document.getElementsByClassName('dashboard-scroll-container')
-        ).forEach(container => {
+        ).forEach((container) => {
             container.removeEventListener(
                 'scroll',
                 this.debouncedCheckShouldLoad,
@@ -129,7 +129,7 @@ class ProgressiveLoadingContainer extends Component {
 
         return (
             <div
-                ref={ref => (this.containerRef = ref)}
+                ref={(ref) => (this.containerRef = ref)}
                 style={style}
                 className={className}
                 data-test={`dashboarditem-${props.itemId}`}

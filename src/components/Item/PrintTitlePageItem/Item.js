@@ -24,7 +24,7 @@ const PrintTitlePageItem = ({
     const getItemFilterList = () => {
         const listItems = itemFilters.map(({ name, values }) => (
             <li className={classes.filterListItem} key={name}>
-                {name}: {values.map(val => val.name).join(', ')}
+                {name}: {values.map((val) => val.name).join(', ')}
             </li>
         ))
 
@@ -62,7 +62,7 @@ PrintTitlePageItem.defaultProps = {
     showDescription: false,
 }
 
-const mapStateToProps = state => {
+const mapStateToProps = (state) => {
     const isEditMode = sGetIsEditing(state)
 
     const name = isEditMode

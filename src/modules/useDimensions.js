@@ -6,10 +6,10 @@ import { acSetDimensions } from '../actions/dimensions'
 import { useUserSettings } from '../components/UserSettingsProvider'
 import getFilteredDimensions from './getFilteredDimensions'
 
-const useDimensions = doFetch => {
+const useDimensions = (doFetch) => {
     const dataEngine = useDataEngine()
     const { userSettings } = useUserSettings()
-    const dimensions = useSelector(state => state.dimensions)
+    const dimensions = useSelector((state) => state.dimensions)
     const dispatch = useDispatch()
 
     useEffect(() => {

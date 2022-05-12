@@ -17,7 +17,7 @@ beforeEach(() => {
         'POST',
         `${getApiBaseUrl()}/api/userSettings/keyDbLocale`,
         'en'
-    ).then(response => {
+    ).then((response) => {
         expect(response.status).to.equal(200)
     })
 })
@@ -41,7 +41,7 @@ Then('Norwegian title and description are displayed', () => {
         'POST',
         `${getApiBaseUrl()}/api/userSettings/keyDbLocale`,
         'no'
-    ).then(response => {
+    ).then((response) => {
         expect(response.status).to.equal(200)
     })
 

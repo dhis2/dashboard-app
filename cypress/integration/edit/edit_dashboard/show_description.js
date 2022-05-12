@@ -14,7 +14,7 @@ before(() => {
             'content-type': 'application/json',
         },
         body: 'false',
-    }).then(response =>
+    }).then((response) =>
         expect(response.status).to.equal(SHOW_DESC_RESP_CODE_SUCCESS)
     )
 })

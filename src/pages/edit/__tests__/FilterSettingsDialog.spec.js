@@ -20,7 +20,7 @@ jest.mock('@dhis2/ui', () => {
                 <div
                     className="transfer"
                     options={props.options //eslint-disable-line react/prop-types
-                        .map(option => `${option.label}`) //eslint-disable-line react/prop-types
+                        .map((option) => `${option.label}`) //eslint-disable-line react/prop-types
                         .join(', ')}
                     selecteddimensions={props.selected.join(', ')} //eslint-disable-line react/prop-types
                 />

@@ -3,8 +3,8 @@ import { dashboards } from '../../../assets/backends'
 import { EXTENDED_TIMEOUT } from '../../../support/utils'
 
 Given('I open a non-editable dashboard in edit mode', () => {
-    cy.intercept(`/dashboards/${dashboards.Delivery.id}`, req => {
-        req.reply(res => {
+    cy.intercept(`/dashboards/${dashboards.Delivery.id}`, (req) => {
+        req.reply((res) => {
             const noAccessResponse = Object.assign({}, res.body, {
                 access: { update: false, delete: false },
             })

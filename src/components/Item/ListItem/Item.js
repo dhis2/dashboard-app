@@ -14,23 +14,23 @@ import { orArray } from '../../../modules/util'
 import ItemHeader from '../ItemHeader/ItemHeader'
 import classes from './Item.module.css'
 
-const getItemTitle = item => itemTypeMap[item.type].pluralTitle
+const getItemTitle = (item) => itemTypeMap[item.type].pluralTitle
 
-const getContentItems = item =>
+const getContentItems = (item) =>
     orArray(item[itemTypeMap[item.type].propName]).filter(
         (item, index, array) =>
-            array.findIndex(el => el.id === item.id) === index
+            array.findIndex((el) => el.id === item.id) === index
     )
 
 const ListItem = ({ item, dashboardMode, removeItem, updateItem }) => {
     const { baseUrl } = useConfig()
     const contentItems = getContentItems(item)
 
-    const updateDashboardItem = content => {
+    const updateDashboardItem = (content) => {
         const listItemType = itemTypeMap[item.type].propName
 
         const newContent = item[listItemType].filter(
-            item => item.id !== content.id
+            (item) => item.id !== content.id
         )
 
         if (newContent.length) {
@@ -41,7 +41,7 @@ const ListItem = ({ item, dashboardMode, removeItem, updateItem }) => {
         }
     }
 
-    const getLink = contentItem => {
+    const getLink = (contentItem) => {
         const removeButton = (
             <button
                 className={classes.removeButton}
@@ -76,7 +76,7 @@ const ListItem = ({ item, dashboardMode, removeItem, updateItem }) => {
             <Divider margin={`0 0 ${spacers.dp4} 0`} />
             <div className="dashboard-item-content">
                 <ul className={classes.list}>
-                    {contentItems.map(contentItem => (
+                    {contentItems.map((contentItem) => (
                         <li className={classes.item} key={contentItem.id}>
                             <span className={classes.itemContent}>
                                 <IconFileDocument16 color={colors.grey600} />

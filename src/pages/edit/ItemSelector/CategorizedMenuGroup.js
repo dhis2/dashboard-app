@@ -24,7 +24,7 @@ const CategorizedMenuGroup = ({
     const { baseUrl } = useConfig()
     const [seeMore, setSeeMore] = useState(false)
 
-    const addItem = item => () => {
+    const addItem = (item) => () => {
         if (type === APP) {
             // acAddDashboardItem({ type, content: item.key })
             onAddItem({ type, content: item.key })
@@ -50,7 +50,7 @@ const CategorizedMenuGroup = ({
     return (
         <>
             <HeaderMenuItem title={title} />
-            {items.map(item => {
+            {items.map((item) => {
                 const itemUrl = getItemUrl(type, item, baseUrl)
                 return (
                     <ContentMenuItem
@@ -94,7 +94,7 @@ CategorizedMenuGroup.propTypes = {
 
 export default connect(null, {
     tAddListItemContent,
-    onAddItem: item => dispatch => {
+    onAddItem: (item) => (dispatch) => {
         dispatch(tSetDashboardItems(item))
     },
 })(CategorizedMenuGroup)

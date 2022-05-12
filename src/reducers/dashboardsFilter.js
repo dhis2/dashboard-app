@@ -23,4 +23,4 @@ export default (state = DEFAULT_STATE_DASHBOARDS_FILTER, action) => {
 
 // selectors
 
-export const sGetDashboardsFilter = state => state.dashboardsFilter
+export const sGetDashboardsFilter = (state) => state.dashboardsFilter

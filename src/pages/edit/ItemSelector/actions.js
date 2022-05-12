@@ -11,7 +11,7 @@ export const tAddListItemContent = (type, content) => (dispatch, getState) => {
     const listItemType = itemTypeMap[type].propName
     const dashboardItems = sGetEditDashboardRoot(state).dashboardItems
     const dashboardItemIndex = dashboardItems.findIndex(
-        item => item.type === type
+        (item) => item.type === type
     )
     let dashboardItem
 

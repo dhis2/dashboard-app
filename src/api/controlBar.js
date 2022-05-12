@@ -12,5 +12,5 @@ export const apiGetControlBarRows = async () =>
         DEFAULT_STATE_CONTROLBAR_ROWS
     )
 
-export const apiPostControlBarRows = async value =>
+export const apiPostControlBarRows = async (value) =>
     await apiPostUserDataStoreValue(KEY_CONTROLBAR_ROWS, value)

@@ -9,10 +9,10 @@ import DefaultPlugin from './DefaultPlugin'
 import NoVisualizationMessage from './NoVisualizationMessage'
 import { pluginIsAvailable, getPlugin, unmount } from './plugin'
 
-const mapViewIsThematicOrEvent = mapView =>
+const mapViewIsThematicOrEvent = (mapView) =>
     mapView.layer.includes('thematic') || mapView.layer.includes('event')
 
-const mapViewIsEELayer = mapView => mapView.layer.includes('earthEngine')
+const mapViewIsEELayer = (mapView) => mapView.layer.includes('earthEngine')
 
 const MapPlugin = ({
     visualization,
@@ -40,7 +40,7 @@ const MapPlugin = ({
     useEffect(() => () => unmount(props.item, MAP), [])
 
     useEffect(() => {
-        const setMapOfflineStatus = async offlineStatus => {
+        const setMapOfflineStatus = async (offlineStatus) => {
             const plugin = await getPlugin(MAP)
             plugin?.setOfflineStatus && plugin.setOfflineStatus(offlineStatus)
         }
@@ -54,7 +54,7 @@ const MapPlugin = ({
         if (props.item.type === MAP) {
             // apply filters only to thematic and event layers
             // for maps AO
-            const mapViews = visualization.mapViews.map(mapView => {
+            const mapViews = visualization.mapViews.map((mapView) => {
                 if (mapViewIsThematicOrEvent(mapView)) {
                     return applyFilters(mapView, itemFilters)
                 }

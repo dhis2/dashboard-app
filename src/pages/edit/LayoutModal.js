@@ -21,9 +21,9 @@ import classes from './styles/LayoutModal.module.css'
 
 const DEFAULT_COLUMNS = 3
 
-const isColumns = value => Boolean(value) || value === ''
+const isColumns = (value) => Boolean(value) || value === ''
 
-const getColsSaveValue = value =>
+const getColsSaveValue = (value) =>
     value === '' ? DEFAULT_COLUMNS : parseInt(value, 10)
 
 export const LayoutModal = ({ columns, onSaveLayout, onClose }) => {
@@ -32,7 +32,7 @@ export const LayoutModal = ({ columns, onSaveLayout, onClose }) => {
 
     useEffect(() => setCols(columns), [])
 
-    const setColsWrapper = value => {
+    const setColsWrapper = (value) => {
         const parsedValue = parseInt(value, 10)
 
         // handle values like ".2"

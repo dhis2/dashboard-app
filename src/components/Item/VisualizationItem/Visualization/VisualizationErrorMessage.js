@@ -39,7 +39,7 @@ const VisualizationErrorMessage = ({ item, dashboardMode }) => {
             {!isPrintMode(dashboardMode) ? (
                 <p className={classes.appLink}>
                     <a
-                        onClick={e => e.stopPropagation()}
+                        onClick={(e) => e.stopPropagation()}
                         target="_blank"
                         rel="noopener noreferrer"
                         href={visHref}

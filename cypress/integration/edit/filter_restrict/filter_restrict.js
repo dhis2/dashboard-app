@@ -42,7 +42,7 @@ Then('Filter settings are not restricted, and I can save the dashboard', () => {
         .should('be.visible')
         .and('contain', TEST_DASHBOARD_TITLE)
 
-    cy.location().should(loc => {
+    cy.location().should((loc) => {
         dashboardId = loc.hash
     })
 })

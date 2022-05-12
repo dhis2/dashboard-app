@@ -60,7 +60,7 @@ const ViewActions = ({
             isCritical ? { critical: true } : { warning: true }
     )
 
-    const toggleMoreOptions = small =>
+    const toggleMoreOptions = (small) =>
         small
             ? setMoreOptionsSmallIsOpen(!moreOptionsSmallIsOpen)
             : setMoreOptionsIsOpen(!moreOptionsIsOpen)
@@ -295,7 +295,7 @@ ViewActions.propTypes = {
     updateShowDescription: PropTypes.func,
 }
 
-const mapStateToProps = state => {
+const mapStateToProps = (state) => {
     const dashboard = sGetSelected(state)
 
     return {

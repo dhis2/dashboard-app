@@ -16,7 +16,7 @@ const FilterBar = ({ filters, removeFilter, removeAllFilters }) => {
     const { online } = useOnlineStatus()
     const [dialogIsOpen, setDialogIsOpen] = useState(false)
 
-    const onRemoveFilter = filterId => {
+    const onRemoveFilter = (filterId) => {
         if (!online && filters.length > 1) {
             setDialogIsOpen(true)
         } else {
@@ -29,7 +29,7 @@ const FilterBar = ({ filters, removeFilter, removeAllFilters }) => {
     return filters.length ? (
         <>
             <div className={classes.bar}>
-                {filters.map(filter => (
+                {filters.map((filter) => (
                     <FilterBadge
                         key={filter.id}
                         filter={filter}
@@ -62,7 +62,7 @@ FilterBar.defaultProps = {
     filters: [],
 }
 
-const mapStateToProps = state => ({
+const mapStateToProps = (state) => ({
     filters: sGetNamedItemFilters(state),
 })
 

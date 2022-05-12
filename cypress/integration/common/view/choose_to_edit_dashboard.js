@@ -5,7 +5,7 @@ import { EXTENDED_TIMEOUT } from '../../../support/utils'
 
 const ROUTE_EDIT = 'edit'
 
-const getRouteFromHash = hash => {
+const getRouteFromHash = (hash) => {
     const lastSlashIdx = hash.lastIndexOf('/')
     return hash.slice(lastSlashIdx + 1)
 }
@@ -13,7 +13,7 @@ const getRouteFromHash = hash => {
 const confirmEditMode = () => {
     cy.get(titleInputSel).should('exist')
 
-    cy.location().should(loc => {
+    cy.location().should((loc) => {
         expect(getRouteFromHash(loc.hash)).to.eq(ROUTE_EDIT)
     })
 }

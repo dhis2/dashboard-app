@@ -76,7 +76,7 @@ Then('the wide screen edit view is shown', () => {
 Then('my changes are still there', () => {
     //title or item changes
     var re = new RegExp(TEST_DASHBOARD_TITLE, 'g')
-    cy.get(`${titleInputSel} input`).should($input => {
+    cy.get(`${titleInputSel} input`).should(($input) => {
         const val = $input.val()
 
         expect(val).to.match(re)
@@ -86,14 +86,14 @@ Then('my changes are still there', () => {
 // Scenario: I change the url to new while in small screen
 When('I change url to new', () => {
     const url = `${Cypress.config().baseUrl}/#/new`
-    cy.window().then(win => {
+    cy.window().then((win) => {
         win.location.assign(url)
         cy.wait(2000) // eslint-disable-line cypress/no-unnecessary-waiting
     })
 })
 
-Then('the {string} dashboard displays in default view mode', title => {
-    cy.location().should(loc => {
+Then('the {string} dashboard displays in default view mode', (title) => {
+    cy.location().should((loc) => {
         expect(loc.hash).to.equal('#/')
     })
 
@@ -103,9 +103,9 @@ Then('the {string} dashboard displays in default view mode', title => {
 
 // Scenario: I change the url to 'edit' while in small screen
 When('I change url to edit', () => {
-    cy.location().then(loc => {
+    cy.location().then((loc) => {
         const url = `${loc.href}/edit`
-        cy.window().then(win => {
+        cy.window().then((win) => {
             win.location.assign(url)
             cy.wait(2000) // eslint-disable-line cypress/no-unnecessary-waiting
         })

@@ -1,4 +1,4 @@
-export const getPreferredDashboardId = username =>
+export const getPreferredDashboardId = (username) =>
     localStorage.getItem(`dhis2.dashboard.current.${username}`) || undefined
 
 export const storePreferredDashboardId = (username, dashboardId) => {

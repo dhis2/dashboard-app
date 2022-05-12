@@ -89,11 +89,11 @@ const EditBar = ({ dashboard, ...props }) => {
     const onSave = () => {
         props
             .saveDashboard()
-            .then(newId => {
+            .then((newId) => {
                 props.clearSelected()
                 setRedirectUrl(`/${newId}`)
             })
-            .catch(e => {
+            .catch((e) => {
                 if (
                     e.details.httpStatusCode === 409 &&
                     e.details.response?.errorReports?.at(0)?.errorCode ===
@@ -170,7 +170,7 @@ const EditBar = ({ dashboard, ...props }) => {
                     modelDefinition: { name: 'dashboard' },
                 }}
                 fieldsToTranslate={['name', 'description']}
-                onTranslationError={err =>
+                onTranslationError={(err) =>
                     console.log('translation update error', err)
                 }
                 onTranslationSaved={Function.prototype}
@@ -324,10 +324,10 @@ EditBar.propTypes = {
 }
 
 EditBar.defaultProps = {
-    columns: [...Array(5).keys()].map(i => ({ index: i })),
+    columns: [...Array(5).keys()].map((i) => ({ index: i })),
 }
 
-const mapStateToProps = state => ({
+const mapStateToProps = (state) => ({
     columns: sGetLayoutColumns(state),
     dashboard: sGetEditDashboardRoot(state),
     isPrintPreviewView: sGetIsPrintPreviewView(state),
@@ -335,15 +335,16 @@ const mapStateToProps = state => ({
 })
 
 const mapDispatchToProps = {
-    clearPrintDashboard: () => dispatch => dispatch(acClearPrintDashboard()),
-    clearPrintPreview: () => dispatch => dispatch(acClearPrintPreviewView()),
-    clearSelected: () => dispatch => dispatch(acClearSelected()),
-    saveDashboard: () => dispatch => dispatch(tSaveDashboard()).then(id => id),
-    fetchDashboards: () => dispatch => dispatch(tFetchDashboards()),
-    onDiscardChanges: () => dispatch => dispatch(acClearEditDashboard()),
-    setFilterSettings: value => dispatch =>
+    clearPrintDashboard: () => (dispatch) => dispatch(acClearPrintDashboard()),
+    clearPrintPreview: () => (dispatch) => dispatch(acClearPrintPreviewView()),
+    clearSelected: () => (dispatch) => dispatch(acClearSelected()),
+    saveDashboard: () => (dispatch) =>
+        dispatch(tSaveDashboard()).then((id) => id),
+    fetchDashboards: () => (dispatch) => dispatch(tFetchDashboards()),
+    onDiscardChanges: () => (dispatch) => dispatch(acClearEditDashboard()),
+    setFilterSettings: (value) => (dispatch) =>
         dispatch(acSetFilterSettings(value)),
-    showPrintPreview: () => dispatch => dispatch(acSetPrintPreviewView()),
+    showPrintPreview: () => (dispatch) => dispatch(acSetPrintPreviewView()),
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(EditBar)

@@ -63,7 +63,7 @@ jest.mock(
 
 jest.mock('../../../api/dataStatistics', () => ({
     apiPostDataStatistics: jest.fn(() => {
-        return new Promise(resolve => resolve(true))
+        return new Promise((resolve) => resolve(true))
     }),
 }))
 

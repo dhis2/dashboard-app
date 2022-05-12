@@ -11,7 +11,7 @@ const style = {
     color: colors.grey600,
 }
 
-const SpacerItem = props => {
+const SpacerItem = (props) => {
     return (
         <>
             <ItemHeader

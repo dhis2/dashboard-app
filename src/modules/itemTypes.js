@@ -35,17 +35,17 @@ const DOMAIN_TYPE_AGGREGATE = 'AGGREGATE'
 const DOMAIN_TYPE_TRACKER = 'TRACKER'
 
 // Dashboard helpers
-export const isVisualizationType = item =>
+export const isVisualizationType = (item) =>
     !!itemTypeMap[item.type]?.isVisualizationType
-export const hasMapView = itemType =>
+export const hasMapView = (itemType) =>
     itemTypeMap[itemType].domainType === DOMAIN_TYPE_AGGREGATE
-export const isTrackerDomainType = itemType =>
+export const isTrackerDomainType = (itemType) =>
     itemTypeMap[itemType].domainType === DOMAIN_TYPE_TRACKER
-export const getDefaultItemCount = itemType =>
+export const getDefaultItemCount = (itemType) =>
     itemTypeMap[itemType].defaultItemCount || 5
-export const getAppName = itemType => itemTypeMap[itemType].appName || ''
+export const getAppName = (itemType) => itemTypeMap[itemType].appName || ''
 
-export const getItemTypeForVis = item => {
+export const getItemTypeForVis = (item) => {
     if (item.type === VISUALIZATION) {
         if (item.visualization.type === VIS_TYPE_PIVOT_TABLE) {
             return REPORT_TABLE
@@ -66,7 +66,7 @@ export const itemTypeMap = {
         pluralTitle: i18n.t('Visualizations'),
         domainType: DOMAIN_TYPE_AGGREGATE,
         isVisualizationType: true,
-        appUrl: id => `dhis-web-data-visualizer/#/${id}`,
+        appUrl: (id) => `dhis-web-data-visualizer/#/${id}`,
         appName: 'Data Visualizer',
         defaultItemCount: 10,
     },
@@ -78,7 +78,7 @@ export const itemTypeMap = {
         pluralTitle: i18n.t('Pivot tables'),
         domainType: DOMAIN_TYPE_AGGREGATE,
         isVisualizationType: true,
-        appUrl: id => `dhis-web-data-visualizer/#/${id}`,
+        appUrl: (id) => `dhis-web-data-visualizer/#/${id}`,
         appName: 'Data Visualizer',
     },
     [CHART]: {
@@ -89,7 +89,7 @@ export const itemTypeMap = {
         pluralTitle: i18n.t('Charts'),
         domainType: DOMAIN_TYPE_AGGREGATE,
         isVisualizationType: true,
-        appUrl: id => `dhis-web-data-visualizer/#/${id}`,
+        appUrl: (id) => `dhis-web-data-visualizer/#/${id}`,
         appName: 'Data Visualizer',
     },
     [MAP]: {
@@ -100,7 +100,7 @@ export const itemTypeMap = {
         pluralTitle: i18n.t('Maps'),
         domainType: DOMAIN_TYPE_AGGREGATE,
         isVisualizationType: true,
-        appUrl: id => `dhis-web-maps/?id=${id}`,
+        appUrl: (id) => `dhis-web-maps/?id=${id}`,
         appName: 'Maps',
     },
     [EVENT_REPORT]: {
@@ -110,7 +110,7 @@ export const itemTypeMap = {
         pluralTitle: i18n.t('Event reports'),
         domainType: DOMAIN_TYPE_TRACKER,
         isVisualizationType: true,
-        appUrl: id => `dhis-web-event-reports/?id=${id}`,
+        appUrl: (id) => `dhis-web-event-reports/?id=${id}`,
         appName: 'Event Reports',
     },
     [EVENT_CHART]: {
@@ -120,7 +120,7 @@ export const itemTypeMap = {
         pluralTitle: i18n.t('Event charts'),
         domainType: DOMAIN_TYPE_TRACKER,
         isVisualizationType: true,
-        appUrl: id => `dhis-web-event-visualizer/?id=${id}`,
+        appUrl: (id) => `dhis-web-event-visualizer/?id=${id}`,
         appName: 'Event Visualizer',
     },
     [APP]: {
@@ -150,14 +150,15 @@ export const itemTypeMap = {
         endPointName: 'resources',
         propName: 'resources',
         pluralTitle: i18n.t('Resources'),
-        appUrl: id => `api/documents/${id}/data`,
+        appUrl: (id) => `api/documents/${id}/data`,
     },
     [USERS]: {
         id: USERS,
         endPointName: 'users',
         propName: 'users',
         pluralTitle: i18n.t('Users'),
-        appUrl: id => `dhis-web-dashboard-integration/profile.action?id=${id}`,
+        appUrl: (id) =>
+            `dhis-web-dashboard-integration/profile.action?id=${id}`,
     },
     [TEXT]: {
         id: TEXT,
@@ -177,9 +178,9 @@ export const itemTypeMap = {
     },
 }
 
-export const getEndPointName = type => itemTypeMap[type].endPointName
+export const getEndPointName = (type) => itemTypeMap[type].endPointName
 
-export const getDataStatisticsName = type =>
+export const getDataStatisticsName = (type) =>
     itemTypeMap[type].dataStatisticsName || null
 
 export const getItemUrl = (type, item, baseUrl) => {
@@ -196,7 +197,7 @@ export const getItemUrl = (type, item, baseUrl) => {
     return url
 }
 
-export const getItemIcon = type => {
+export const getItemIcon = (type) => {
     switch (type) {
         case REPORT_TABLE:
         case EVENT_REPORT:

@@ -17,7 +17,7 @@ import ItemGrid from './ItemGrid'
 import classes from './styles/NewDashboard.module.css'
 import TitleBar from './TitleBar'
 
-const NewDashboard = props => {
+const NewDashboard = (props) => {
     const { width } = useWindowDimensions()
     const [redirectUrl, setRedirectUrl] = useState(null)
 
@@ -66,7 +66,7 @@ NewDashboard.propTypes = {
     setNewDashboard: PropTypes.func,
 }
 
-const mapStateToProps = state => ({
+const mapStateToProps = (state) => ({
     isPrintPreviewView: sGetIsPrintPreviewView(state),
 })
 

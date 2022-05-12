@@ -38,10 +38,10 @@ const style = {
     },
 }
 
-const TextItem = props => {
+const TextItem = (props) => {
     const { item, dashboardMode, text, acUpdateDashboardItem } = props
 
-    const onChangeText = text => {
+    const onChangeText = (text) => {
         const updatedItem = {
             ...item,
             text,
@@ -70,7 +70,7 @@ const TextItem = props => {
                 <Divider margin={`0 0 ${spacers.dp4} 0`} />
                 <div className="dashboard-item-content">
                     <RichTextEditor
-                        onEdit={event => onChangeText(event.target.value)}
+                        onEdit={(event) => onChangeText(event.target.value)}
                     >
                         <TextArea
                             rows={30}
@@ -119,7 +119,7 @@ const mapStateToProps = (state, ownProps) => {
         items = sGetSelectedDashboardItems(state)
     }
 
-    const item = items.find(item => item.id === ownProps.item.id)
+    const item = items.find((item) => item.id === ownProps.item.id)
 
     return {
         text: item ? item.text : '',

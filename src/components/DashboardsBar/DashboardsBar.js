@@ -136,7 +136,7 @@ DashboardsBar.defaultProps = {
     onExpandedChanged: Function.prototype,
 }
 
-const mapStateToProps = state => ({
+const mapStateToProps = (state) => ({
     userRows: sGetControlBarUserRows(state),
 })
 

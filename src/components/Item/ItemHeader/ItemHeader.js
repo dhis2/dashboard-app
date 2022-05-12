@@ -7,7 +7,7 @@ import PrintItemInfo from './PrintItemInfo'
 import classes from './styles/ItemHeader.module.css'
 import ViewItemActions from './ViewItemActions'
 
-const getItemActionsMap = isShortened => {
+const getItemActionsMap = (isShortened) => {
     return {
         [VIEW]: ViewItemActions,
         [EDIT]: EditItemActions,

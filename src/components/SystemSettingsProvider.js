@@ -20,7 +20,7 @@ const SystemSettingsProvider = ({ children }) => {
                     systemSettings: systemSettingsQuery,
                 },
                 {
-                    onError: error => {
+                    onError: (error) => {
                         console.log('Error', 'systemSettingsQuery', error)
                         setSettings({})
                     },

@@ -2,10 +2,10 @@ import { getInstance } from 'd2'
 
 export const NAMESPACE = 'dashboard'
 
-export const hasDashboardNamespace = async d2 =>
+export const hasDashboardNamespace = async (d2) =>
     await d2.currentUser.dataStore.has(NAMESPACE)
 
-export const getNamespace = async d2 => {
+export const getNamespace = async (d2) => {
     const hasNamespace = await hasDashboardNamespace(d2)
 
     return hasNamespace
@@ -23,7 +23,7 @@ export const apiPostUserDataStoreValue = async (key, value) => {
 export const apiGetUserDataStoreValue = async (key, defaultValue) => {
     const d2 = await getInstance()
     const ns = await getNamespace(d2)
-    const hasKey = ns?.keys?.find(k => k === key)
+    const hasKey = ns?.keys?.find((k) => k === key)
 
     if (hasKey) {
         return await ns.get(key)

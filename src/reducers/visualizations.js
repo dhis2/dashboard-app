@@ -8,7 +8,7 @@ export const CLEAR_VISUALIZATIONS = 'CLEAR_VISUALIZATIONS'
 
 export const DEFAULT_STATE_VISUALIZATIONS = {}
 
-const isEmpty = p => p === undefined || p === null
+const isEmpty = (p) => p === undefined || p === null
 
 export default (state = DEFAULT_STATE_VISUALIZATIONS, action) => {
     switch (action.type) {
@@ -33,7 +33,7 @@ export default (state = DEFAULT_STATE_VISUALIZATIONS, action) => {
 }
 
 // root selector
-const sGetVisualizationsRoot = state => state.visualizations
+const sGetVisualizationsRoot = (state) => state.visualizations
 
 // selectors level 1
 export const sGetVisualization = (state, id) => {

@@ -124,7 +124,7 @@ class Item extends Component {
         )
     }
 
-    setActiveType = type => {
+    setActiveType = (type) => {
         type !== this.getActiveType() &&
             this.props.setActiveType(this.props.item.id, type)
     }
@@ -211,11 +211,11 @@ class Item extends Component {
                 >
                     <div
                         className="dashboard-item-content"
-                        ref={ref => (this.contentRef = ref)}
+                        ref={(ref) => (this.contentRef = ref)}
                     >
                         {this.state.configLoaded && (
                             <WindowDimensionsCtx.Consumer>
-                                {dimensions => (
+                                {(dimensions) => (
                                     <Visualization
                                         item={item}
                                         activeType={activeType}
@@ -281,7 +281,7 @@ const mapDispatchToProps = {
     setVisualization: acAddVisualization,
 }
 
-const ItemWithSettings = props => (
+const ItemWithSettings = (props) => (
     <SystemSettingsCtx.Consumer>
         {({ systemSettings }) => <Item settings={systemSettings} {...props} />}
     </SystemSettingsCtx.Consumer>

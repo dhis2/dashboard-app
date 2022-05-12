@@ -55,7 +55,7 @@ const ResponsiveItemGrid = ({ dashboardId, dashboardItems }) => {
         }
     }, [recordingState])
 
-    const onToggleItemExpanded = clickedId => {
+    const onToggleItemExpanded = (clickedId) => {
         const isExpanded =
             typeof expandedItems[clickedId] === 'boolean'
                 ? expandedItems[clickedId]
@@ -66,8 +66,8 @@ const ResponsiveItemGrid = ({ dashboardId, dashboardItems }) => {
         setExpandedItems(newExpandedItems)
     }
 
-    const getItemsWithAdjustedHeight = items =>
-        items.map(item => {
+    const getItemsWithAdjustedHeight = (items) =>
+        items.map((item) => {
             const expandedItem = expandedItems[item.id]
 
             if (expandedItem && expandedItem === true) {
@@ -83,7 +83,7 @@ const ResponsiveItemGrid = ({ dashboardId, dashboardItems }) => {
             return item
         })
 
-    const getItemComponent = item => {
+    const getItemComponent = (item) => {
         if (!layoutSm.length) {
             return <div key={item.i} />
         }
@@ -109,9 +109,10 @@ const ResponsiveItemGrid = ({ dashboardId, dashboardItems }) => {
         )
     }
 
-    const getItemComponents = items => items.map(item => getItemComponent(item))
+    const getItemComponents = (items) =>
+        items.map((item) => getItemComponent(item))
 
-    const onWidthChanged = containerWidth =>
+    const onWidthChanged = (containerWidth) =>
         setTimeout(() => setGridWidth(containerWidth), 200)
 
     if (!dashboardItems.length) {
@@ -154,7 +155,7 @@ ResponsiveItemGrid.propTypes = {
     dashboardItems: PropTypes.array,
 }
 
-const mapStateToProps = state => ({
+const mapStateToProps = (state) => ({
     dashboardItems: sGetSelectedDashboardItems(state),
     dashboardId: sGetSelectedId(state),
 })
