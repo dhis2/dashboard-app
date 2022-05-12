@@ -41,7 +41,7 @@ msgid "This item has been shortened to fit on one page"
 msgstr ""
 
 msgid "Remove"
-msgstr ""
+msgstr "Verwijderen"
 
 msgid "Messages"
 msgstr ""
@@ -120,7 +120,7 @@ msgid "Open this item in {{appName}}"
 msgstr ""
 
 msgid "Not available offline"
-msgstr ""
+msgstr "Niet beschikbaar offline"
 
 msgid "Visualizations"
 msgstr ""
