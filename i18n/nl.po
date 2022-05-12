@@ -73,7 +73,7 @@ msgstr[0] ""
 msgstr[1] ""
 
 msgid "Remove"
-msgstr ""
+msgstr "Verwijderen"
 
 msgid "Delete item"
 msgstr ""
@@ -176,7 +176,7 @@ msgid "Visualizations"
 msgstr ""
 
 msgid "Data Visualizer"
-msgstr ""
+msgstr "Gegevensvisualiseerder"
 
 msgid "Pivot tables"
 msgstr ""
