@@ -70,7 +70,7 @@ msgstr[0] ""
 msgstr[1] ""
 
 msgid "Remove"
-msgstr ""
+msgstr "Verwijderen"
 
 msgid "Messages"
 msgstr ""
