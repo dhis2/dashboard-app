@@ -28,6 +28,7 @@ const baseDashboardFields = arrayClean([
     'id',
     'displayName',
     'displayDescription',
+    'favorite~rename(starred)',
     'access',
     'restrictFilters',
     'allowedFilters',
