@@ -1,3 +1,10 @@
+## [99.9.11](https://github.com/dhis2/dashboard-app/compare/v99.9.10...v99.9.11) (2022-05-16)
+
+
+### Bug Fixes
+
+* remove duplicate field ([#2082](https://github.com/dhis2/dashboard-app/issues/2082)) ([408762b](https://github.com/dhis2/dashboard-app/commit/408762b54bf1b7bb31ad2c2d23cef8cf86596c18))
+
 ## [99.9.10](https://github.com/dhis2/dashboard-app/compare/v99.9.9...v99.9.10) (2022-05-04)
 
 
