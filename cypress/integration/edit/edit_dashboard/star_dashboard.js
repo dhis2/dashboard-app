@@ -5,8 +5,8 @@ import {
     dashboardUnstarredSel,
     dashboardChipSel,
     chipStarSel,
-} from '../../../elements/viewDashboard'
-import { TEST_DASHBOARD_TITLE } from './edit_dashboard'
+} from '../../../elements/viewDashboard.js'
+import { TEST_DASHBOARD_TITLE } from './edit_dashboard.js'
 
 // Scenario: I star the dashboard
 When('I click to star the dashboard', () => {

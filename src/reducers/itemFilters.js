@@ -1,5 +1,5 @@
 import { createSelector } from 'reselect'
-import { sGetDimensions } from './dimensions'
+import { sGetDimensions } from './dimensions.js'
 
 export const CLEAR_ITEM_FILTERS = 'CLEAR_ITEM_FILTERS'
 export const ADD_ITEM_FILTER = 'ADD_ITEM_FILTER'

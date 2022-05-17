@@ -6,9 +6,9 @@ import {
     AXIS_ID_ROWS,
     AXIS_ID_FILTERS,
 } from '@dhis2/analytics'
-import { REPORT_TABLE, CHART, MAP } from '../../../../../modules/itemTypes'
-import { THEMATIC_LAYER } from '../../getThematicMapViews'
-import getVisualizationConfig from '../getVisualizationConfig'
+import { REPORT_TABLE, CHART, MAP } from '../../../../../modules/itemTypes.js'
+import { THEMATIC_LAYER } from '../../getThematicMapViews.js'
+import getVisualizationConfig from '../getVisualizationConfig.js'
 
 describe('getVisualizationConfig', () => {
     let visualization

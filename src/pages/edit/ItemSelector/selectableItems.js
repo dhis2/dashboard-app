@@ -10,7 +10,7 @@ import {
     MESSAGES,
     TEXT,
     SPACER,
-} from '../../../modules/itemTypes'
+} from '../../../modules/itemTypes.js'
 
 export const singleItems = [
     {

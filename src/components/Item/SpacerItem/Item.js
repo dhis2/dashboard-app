@@ -2,7 +2,7 @@ import i18n from '@dhis2/d2-i18n'
 import { colors } from '@dhis2/ui'
 import PropTypes from 'prop-types'
 import React from 'react'
-import ItemHeader from '../ItemHeader/ItemHeader'
+import ItemHeader from '../ItemHeader/ItemHeader.js'
 
 const style = {
     margin: '21px 28px',

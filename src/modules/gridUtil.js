@@ -1,17 +1,17 @@
 // Dimensions for the react-grid-layout
-import { generateUid } from 'd2/uid'
-import sortBy from 'lodash/sortBy'
+import { generateUid } from 'd2/uid.js'
+import sortBy from 'lodash/sortBy.js'
 import {
     acSetHideGrid,
     acUpdateDashboardItemShapes,
-} from '../actions/editDashboard'
+} from '../actions/editDashboard.js'
 import {
     isVisualizationType,
     itemTypeMap,
     PAGEBREAK,
     PRINT_TITLE_PAGE,
-} from './itemTypes'
-import { isSmallScreen } from './smallScreen'
+} from './itemTypes.js'
+import { isSmallScreen } from './smallScreen.js'
 
 export const GRID_COMPACT_TYPE = 'vertical' // vertical | horizonal | null
 export const GRID_ROW_HEIGHT_PX = 10

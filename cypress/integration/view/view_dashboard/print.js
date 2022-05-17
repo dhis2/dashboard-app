@@ -1,6 +1,6 @@
 import { When, Then } from 'cypress-cucumber-preprocessor/steps'
-import { dashboards } from '../../../assets/backends/sierraLeone_236'
-import { clickViewActionButton } from '../../../elements/viewDashboard'
+import { dashboards } from '../../../assets/backends/sierraLeone_236.js'
+import { clickViewActionButton } from '../../../elements/viewDashboard.js'
 
 When('I click to preview the print one-item-per-page', () => {
     clickViewActionButton('More')

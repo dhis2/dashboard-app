@@ -1,7 +1,7 @@
 import {
     SET_DASHBOARDS_FILTER,
     CLEAR_DASHBOARDS_FILTER,
-} from '../reducers/dashboardsFilter'
+} from '../reducers/dashboardsFilter.js'
 
 // actions
 

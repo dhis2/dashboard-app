@@ -2,7 +2,7 @@ import { render } from '@testing-library/react'
 import React from 'react'
 import { Provider } from 'react-redux'
 import configureMockStore from 'redux-mock-store'
-import SinglesMenuGroup from '../SinglesMenuGroup'
+import SinglesMenuGroup from '../SinglesMenuGroup.js'
 
 const mockStore = configureMockStore()
 

@@ -7,8 +7,8 @@ import {
     CHART,
     EVENT_REPORT,
     EVENT_CHART,
-} from '../../../../../modules/itemTypes'
-import ViewAsMenuItems from '../ViewAsMenuItems'
+} from '../../../../../modules/itemTypes.js'
+import ViewAsMenuItems from '../ViewAsMenuItems.js'
 
 jest.mock('@dhis2/app-runtime', () => ({
     useOnlineStatus: jest.fn(() => ({ online: true, offline: false })),

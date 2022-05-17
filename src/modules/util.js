@@ -1,4 +1,4 @@
-import isObject from 'lodash/isObject'
+import isObject from 'lodash/isObject.js'
 
 export function orArray(param) {
     return Array.isArray(param) ? param : []

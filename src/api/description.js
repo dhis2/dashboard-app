@@ -1,8 +1,8 @@
-import { DEFAULT_STATE_SHOW_DESCRIPTION } from '../reducers/showDescription'
+import { DEFAULT_STATE_SHOW_DESCRIPTION } from '../reducers/showDescription.js'
 import {
     apiGetUserDataStoreValue,
     apiPostUserDataStoreValue,
-} from './userDataStore'
+} from './userDataStore.js'
 
 const KEY_SHOW_DESCRIPTION = 'showDescription'
 

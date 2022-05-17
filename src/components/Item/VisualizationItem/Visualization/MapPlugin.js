@@ -2,12 +2,12 @@ import { useOnlineStatus } from '@dhis2/app-runtime'
 import i18n from '@dhis2/d2-i18n'
 import PropTypes from 'prop-types'
 import React, { useState, useEffect } from 'react'
-import { MAP } from '../../../../modules/itemTypes'
-import getVisualizationContainerDomId from '../getVisualizationContainerDomId'
-import { isElementFullscreen } from '../isElementFullscreen'
-import DefaultPlugin from './DefaultPlugin'
-import NoVisualizationMessage from './NoVisualizationMessage'
-import { pluginIsAvailable, getPlugin, unmount } from './plugin'
+import { MAP } from '../../../../modules/itemTypes.js'
+import getVisualizationContainerDomId from '../getVisualizationContainerDomId.js'
+import { isElementFullscreen } from '../isElementFullscreen.js'
+import DefaultPlugin from './DefaultPlugin.js'
+import NoVisualizationMessage from './NoVisualizationMessage.js'
+import { pluginIsAvailable, getPlugin, unmount } from './plugin.js'
 
 const mapViewIsThematicOrEvent = (mapView) =>
     mapView.layer.includes('thematic') || mapView.layer.includes('event')

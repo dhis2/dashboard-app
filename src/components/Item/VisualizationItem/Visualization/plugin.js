@@ -5,9 +5,9 @@ import {
     MAP,
     EVENT_REPORT,
     EVENT_CHART,
-} from '../../../../modules/itemTypes'
-import getVisualizationContainerDomId from '../getVisualizationContainerDomId'
-import { loadExternalScript } from './loadExternalScript'
+} from '../../../../modules/itemTypes.js'
+import getVisualizationContainerDomId from '../getVisualizationContainerDomId.js'
+import { loadExternalScript } from './loadExternalScript.js'
 
 //external plugins
 const itemTypeToGlobalVariable = {

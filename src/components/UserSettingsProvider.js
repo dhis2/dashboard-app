@@ -1,7 +1,7 @@
 import { useDataEngine } from '@dhis2/app-runtime'
 import PropTypes from 'prop-types'
 import React, { useContext, useState, useEffect, createContext } from 'react'
-import { userSettingsQuery } from '../api/userSettings'
+import { userSettingsQuery } from '../api/userSettings.js'
 
 export const UserSettingsCtx = createContext({})
 

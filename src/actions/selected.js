@@ -1,17 +1,17 @@
-import { apiFetchDashboard } from '../api/fetchDashboard'
-import { tGetMessages } from '../components/Item/MessagesItem/actions'
-import { VIEW } from '../modules/dashboardModes'
-import { MESSAGES } from '../modules/itemTypes'
-import { storePreferredDashboardId } from '../modules/localStorage'
+import { apiFetchDashboard } from '../api/fetchDashboard.js'
+import { tGetMessages } from '../components/Item/MessagesItem/actions.js'
+import { VIEW } from '../modules/dashboardModes.js'
+import { MESSAGES } from '../modules/itemTypes.js'
+import { storePreferredDashboardId } from '../modules/localStorage.js'
 import {
     SET_SELECTED,
     CLEAR_SELECTED,
     sGetSelectedId,
-} from '../reducers/selected'
-import { acAppendDashboards } from './dashboards'
-import { acClearItemActiveTypes } from './itemActiveTypes'
-import { acClearItemFilters } from './itemFilters'
-import { acClearVisualizations } from './visualizations'
+} from '../reducers/selected.js'
+import { acAppendDashboards } from './dashboards.js'
+import { acClearItemActiveTypes } from './itemActiveTypes.js'
+import { acClearItemFilters } from './itemFilters.js'
+import { acClearVisualizations } from './visualizations.js'
 
 // actions
 

@@ -7,11 +7,11 @@ import { connect } from 'react-redux'
 import {
     acUpdateDashboardItem,
     acRemoveDashboardItem,
-} from '../../../actions/editDashboard'
-import { isEditMode } from '../../../modules/dashboardModes'
-import { itemTypeMap, getItemUrl } from '../../../modules/itemTypes'
-import { orArray } from '../../../modules/util'
-import ItemHeader from '../ItemHeader/ItemHeader'
+} from '../../../actions/editDashboard.js'
+import { isEditMode } from '../../../modules/dashboardModes.js'
+import { itemTypeMap, getItemUrl } from '../../../modules/itemTypes.js'
+import { orArray } from '../../../modules/util.js'
+import ItemHeader from '../ItemHeader/ItemHeader.js'
 import classes from './Item.module.css'
 
 const getItemTitle = (item) => itemTypeMap[item.type].pluralTitle

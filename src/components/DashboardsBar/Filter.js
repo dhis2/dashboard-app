@@ -7,11 +7,11 @@ import { connect } from 'react-redux'
 import {
     acSetDashboardsFilter,
     acClearDashboardsFilter,
-} from '../../actions/dashboardsFilter'
-import { isSmallScreen } from '../../modules/smallScreen'
-import { sGetDashboardsFilter } from '../../reducers/dashboardsFilter'
-import { useWindowDimensions } from '../WindowDimensionsProvider'
-import ClearButton from './ClearButton'
+} from '../../actions/dashboardsFilter.js'
+import { isSmallScreen } from '../../modules/smallScreen.js'
+import { sGetDashboardsFilter } from '../../reducers/dashboardsFilter.js'
+import { useWindowDimensions } from '../WindowDimensionsProvider.js'
+import ClearButton from './ClearButton.js'
 import classes from './styles/Filter.module.css'
 
 export const KEYCODE_ENTER = 13

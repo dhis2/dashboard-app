@@ -1,4 +1,4 @@
-import arraySort from 'd2-utilizr/lib/arraySort'
+import arraySort from 'd2-utilizr/lib/arraySort.js'
 
 export const getFilteredDashboards = (dashboards, filterText) => {
     const filteredDashboards = arraySort(

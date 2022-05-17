@@ -1,4 +1,4 @@
-import { DASHBOARD_WRAPPER_LR_MARGIN_PX } from './gridUtil'
+import { DASHBOARD_WRAPPER_LR_MARGIN_PX } from './gridUtil.js'
 
 const SMALL_SCREEN_BREAKPOINT = 480
 

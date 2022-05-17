@@ -1,11 +1,11 @@
 import { Given, When, Then } from 'cypress-cucumber-preprocessor/steps'
-import { dashboards } from '../../../assets/backends/sierraLeone_236'
-import { getDashboardItem, mapSel } from '../../../elements/dashboardItem'
+import { dashboards } from '../../../assets/backends/sierraLeone_236.js'
+import { getDashboardItem, mapSel } from '../../../elements/dashboardItem.js'
 import {
     dashboardTitleSel,
     dashboardChipSel,
-} from '../../../elements/viewDashboard'
-import { EXTENDED_TIMEOUT } from '../../../support/utils'
+} from '../../../elements/viewDashboard.js'
+import { EXTENDED_TIMEOUT } from '../../../support/utils.js'
 
 const mapItemUid = dashboards['Cases Malaria'].items.map.itemUid
 

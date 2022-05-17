@@ -1,5 +1,5 @@
 import { When, Then } from 'cypress-cucumber-preprocessor/steps'
-import { getApiBaseUrl } from '../../../support/server/utils'
+import { getApiBaseUrl } from '../../../support/server/utils.js'
 
 // Error scenario
 

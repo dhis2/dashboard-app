@@ -3,9 +3,9 @@ import i18n from '@dhis2/d2-i18n'
 import { colors } from '@dhis2/ui'
 import PropTypes from 'prop-types'
 import React from 'react'
-import { isPrintMode } from '../../../../modules/dashboardModes'
-import { getVisualizationId } from '../../../../modules/item'
-import { getAppName, itemTypeMap } from '../../../../modules/itemTypes'
+import { isPrintMode } from '../../../../modules/dashboardModes.js'
+import { getVisualizationId } from '../../../../modules/item.js'
+import { getAppName, itemTypeMap } from '../../../../modules/itemTypes.js'
 import classes from './styles/VisualizationErrorMessage.module.css'
 
 const getErrorIcon = () => (

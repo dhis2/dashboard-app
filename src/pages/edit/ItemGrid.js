@@ -4,13 +4,13 @@ import PropTypes from 'prop-types'
 import React, { useState } from 'react'
 import { Responsive as ResponsiveReactGridLayout } from 'react-grid-layout'
 import { connect } from 'react-redux'
-import { acUpdateDashboardItemShapes } from '../../actions/editDashboard'
-import { Item } from '../../components/Item/Item'
-import NoContentMessage from '../../components/NoContentMessage'
-import ProgressiveLoadingContainer from '../../components/ProgressiveLoadingContainer'
-import { useWindowDimensions } from '../../components/WindowDimensionsProvider'
-import { EDIT } from '../../modules/dashboardModes'
-import { getGridItemDomElementClassName } from '../../modules/getGridItemDomElementClassName'
+import { acUpdateDashboardItemShapes } from '../../actions/editDashboard.js'
+import { Item } from '../../components/Item/Item.js'
+import NoContentMessage from '../../components/NoContentMessage.js'
+import ProgressiveLoadingContainer from '../../components/ProgressiveLoadingContainer.js'
+import { useWindowDimensions } from '../../components/WindowDimensionsProvider.js'
+import { EDIT } from '../../modules/dashboardModes.js'
+import { getGridItemDomElementClassName } from '../../modules/getGridItemDomElementClassName.js'
 import {
     GRID_ROW_HEIGHT_PX,
     GRID_COMPACT_TYPE,
@@ -20,14 +20,14 @@ import {
     hasShape,
     getGridWidth,
     hasLayout,
-} from '../../modules/gridUtil'
-import { getBreakpoint } from '../../modules/smallScreen'
-import { orArray } from '../../modules/util'
+} from '../../modules/gridUtil.js'
+import { getBreakpoint } from '../../modules/smallScreen.js'
+import { orArray } from '../../modules/util.js'
 import {
     sGetEditDashboardItems,
     sGetHideGrid,
     sGetLayout,
-} from '../../reducers/editDashboard'
+} from '../../reducers/editDashboard.js'
 import classes from './styles/ItemGrid.module.css'
 
 const EditItemGrid = ({

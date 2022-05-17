@@ -1,6 +1,6 @@
 import { Given, Then } from 'cypress-cucumber-preprocessor/steps'
-import { dashboards } from '../../../assets/backends'
-import { EXTENDED_TIMEOUT } from '../../../support/utils'
+import { dashboards } from '../../../assets/backends/index.js'
+import { EXTENDED_TIMEOUT } from '../../../support/utils.js'
 
 Given('I open a non-editable dashboard in edit mode', () => {
     cy.intercept(`/dashboards/${dashboards.Delivery.id}`, (req) => {

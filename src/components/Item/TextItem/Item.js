@@ -7,16 +7,16 @@ import { Divider, TextArea, spacers } from '@dhis2/ui'
 import PropTypes from 'prop-types'
 import React from 'react'
 import { connect } from 'react-redux'
-import { acUpdateDashboardItem } from '../../../actions/editDashboard'
-import { isEditMode, PRINT_LAYOUT } from '../../../modules/dashboardModes'
-import { sGetEditDashboardItems } from '../../../reducers/editDashboard'
+import { acUpdateDashboardItem } from '../../../actions/editDashboard.js'
+import { isEditMode, PRINT_LAYOUT } from '../../../modules/dashboardModes.js'
+import { sGetEditDashboardItems } from '../../../reducers/editDashboard.js'
 import {
     sGetIsPrinting,
     sGetPrintDashboardItems,
-} from '../../../reducers/printDashboard'
-import { sGetSelectedDashboardItems } from '../../../reducers/selected'
-import ItemHeader from '../ItemHeader/ItemHeader'
-import PrintItemInfo from '../ItemHeader/PrintItemInfo'
+} from '../../../reducers/printDashboard.js'
+import { sGetSelectedDashboardItems } from '../../../reducers/selected.js'
+import ItemHeader from '../ItemHeader/ItemHeader.js'
+import PrintItemInfo from '../ItemHeader/PrintItemInfo.js'
 
 const style = {
     textDiv: {

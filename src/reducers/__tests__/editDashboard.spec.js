@@ -12,7 +12,7 @@ import reducer, {
     UPDATE_DASHBOARD_ITEM,
     REMOVE_DASHBOARD_ITEM,
     EMPTY_STATE_EDIT_DASHBOARD,
-} from '../editDashboard'
+} from '../editDashboard.js'
 
 describe('editDashboard', () => {
     const initialState = {

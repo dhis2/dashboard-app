@@ -1,4 +1,4 @@
-import { getGridItemDomElementClassName } from '../../../modules/getGridItemDomElementClassName'
+import { getGridItemDomElementClassName } from '../../../modules/getGridItemDomElementClassName.js'
 
 export const isElementFullscreen = (itemId) => {
     const fullscreenElement =

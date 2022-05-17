@@ -2,12 +2,12 @@ import { Given, Then } from 'cypress-cucumber-preprocessor/steps'
 import {
     getDashboardItem,
     clickItemDeleteButton,
-} from '../../../elements/dashboardItem'
+} from '../../../elements/dashboardItem.js'
 import {
     dashboardChipSel,
     dashboardTitleSel,
-} from '../../../elements/viewDashboard'
-import { EXTENDED_TIMEOUT } from '../../../support/utils'
+} from '../../../elements/viewDashboard.js'
+import { EXTENDED_TIMEOUT } from '../../../support/utils.js'
 
 const ITEM_1_UID = 'GaVhJpqABYX'
 const ITEM_2_UID = 'qXsjttMYuoZ'

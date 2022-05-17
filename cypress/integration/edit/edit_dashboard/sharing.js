@@ -1,7 +1,7 @@
 import { When, Then } from 'cypress-cucumber-preprocessor/steps'
-import { getSharingDialogUserSearch } from '../../../elements/sharingDialog'
-import { dashboardTitleSel } from '../../../elements/viewDashboard'
-import { EXTENDED_TIMEOUT } from '../../../support/utils'
+import { getSharingDialogUserSearch } from '../../../elements/sharingDialog.js'
+import { dashboardTitleSel } from '../../../elements/viewDashboard.js'
+import { EXTENDED_TIMEOUT } from '../../../support/utils.js'
 
 const USER_NAME = 'Kevin Boateng'
 

@@ -1,14 +1,14 @@
 import { Given, When, Then } from 'cypress-cucumber-preprocessor/steps'
-import { filterDimensionsPanelSel } from '../../../elements/dashboardFilter'
+import { filterDimensionsPanelSel } from '../../../elements/dashboardFilter.js'
 import {
     titleInputSel,
     confirmActionDialogSel,
     clickEditActionButton,
-} from '../../../elements/editDashboard'
+} from '../../../elements/editDashboard.js'
 import {
     dashboardTitleSel,
     clickViewActionButton,
-} from '../../../elements/viewDashboard'
+} from '../../../elements/viewDashboard.js'
 
 const TEST_DASHBOARD_TITLE = `aaa-${new Date().toUTCString()}`
 

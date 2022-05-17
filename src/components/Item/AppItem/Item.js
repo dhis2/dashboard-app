@@ -3,13 +3,13 @@ import { Divider, colors, spacers, IconQuestion24 } from '@dhis2/ui'
 import PropTypes from 'prop-types'
 import React from 'react'
 import { connect } from 'react-redux'
-import { FILTER_ORG_UNIT } from '../../../actions/itemFilters'
-import { EDIT, isEditMode } from '../../../modules/dashboardModes'
+import { FILTER_ORG_UNIT } from '../../../actions/itemFilters.js'
+import { EDIT, isEditMode } from '../../../modules/dashboardModes.js'
 import {
     sGetItemFiltersRoot,
     DEFAULT_STATE_ITEM_FILTERS,
-} from '../../../reducers/itemFilters'
-import ItemHeader from '../ItemHeader/ItemHeader'
+} from '../../../reducers/itemFilters.js'
+import ItemHeader from '../ItemHeader/ItemHeader.js'
 
 const getIframeSrc = (appDetails, item, itemFilters) => {
     let iframeSrc = `${appDetails.launchUrl}?dashboardItemId=${item.id}`

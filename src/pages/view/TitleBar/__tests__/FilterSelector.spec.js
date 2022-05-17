@@ -3,8 +3,8 @@ import { render, screen } from '@testing-library/react'
 import React from 'react'
 import { Provider } from 'react-redux'
 import configureMockStore from 'redux-mock-store'
-import useDimensions from '../../../../modules/useDimensions'
-import FilterSelector from '../FilterSelector'
+import useDimensions from '../../../../modules/useDimensions.js'
+import FilterSelector from '../FilterSelector.js'
 
 const mockStore = configureMockStore()
 

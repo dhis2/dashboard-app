@@ -1,7 +1,7 @@
 /** @module reducers/editDashboard */
 import update from 'immutability-helper'
-import isEmpty from 'lodash/isEmpty'
-import { orArray } from '../modules/util'
+import isEmpty from 'lodash/isEmpty.js'
+import { orArray } from '../modules/util.js'
 
 export const SET_PRINT_DASHBOARD = 'SET_PRINT_DASHBOARD'
 export const CLEAR_PRINT_DASHBOARD = 'CLEAR_PRINT_DASHBOARD'

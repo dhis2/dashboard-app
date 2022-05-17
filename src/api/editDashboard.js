@@ -1,5 +1,5 @@
-import { EDIT } from '../modules/dashboardModes'
-import { apiFetchDashboard } from './fetchDashboard'
+import { EDIT } from '../modules/dashboardModes.js'
+import { apiFetchDashboard } from './fetchDashboard.js'
 
 export const createDashboardMutation = {
     resource: 'dashboards',

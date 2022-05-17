@@ -7,7 +7,7 @@ import reducer, {
     SET_DASHBOARDS,
     ADD_DASHBOARDS,
     SET_DASHBOARD_STARRED,
-} from '../dashboards'
+} from '../dashboards.js'
 
 const dashId1 = 'dash1'
 const dashId2 = 'dash2'

@@ -4,8 +4,8 @@ import {
     filterDimensionsPanelSel,
     dimensionsModalSel,
     orgUnitCheckboxesSel,
-} from '../../../elements/dashboardFilter'
-import { EXTENDED_TIMEOUT } from '../../../support/utils'
+} from '../../../elements/dashboardFilter.js'
+import { EXTENDED_TIMEOUT } from '../../../support/utils.js'
 
 const PERIOD = 'Last 6 months'
 const OU = 'Sierra Leone'

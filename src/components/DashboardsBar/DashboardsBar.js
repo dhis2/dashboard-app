@@ -8,14 +8,14 @@ import React, {
     createRef,
 } from 'react'
 import { connect } from 'react-redux'
-import { acSetControlBarUserRows } from '../../actions/controlBar'
-import { apiPostControlBarRows } from '../../api/controlBar'
-import { useWindowDimensions } from '../../components/WindowDimensionsProvider'
-import { sGetControlBarUserRows } from '../../reducers/controlBar'
-import Content from './Content'
-import DragHandle from './DragHandle'
-import { getRowsFromHeight } from './getRowsFromHeight'
-import ShowMoreButton from './ShowMoreButton'
+import { acSetControlBarUserRows } from '../../actions/controlBar.js'
+import { apiPostControlBarRows } from '../../api/controlBar.js'
+import { useWindowDimensions } from '../../components/WindowDimensionsProvider.js'
+import { sGetControlBarUserRows } from '../../reducers/controlBar.js'
+import Content from './Content.js'
+import DragHandle from './DragHandle.js'
+import { getRowsFromHeight } from './getRowsFromHeight.js'
+import ShowMoreButton from './ShowMoreButton.js'
 import classes from './styles/DashboardsBar.module.css'
 
 export const MIN_ROW_COUNT = 1

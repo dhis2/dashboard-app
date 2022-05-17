@@ -4,12 +4,12 @@ import { connect } from 'react-redux'
 import {
     acRemoveDashboardItem,
     tSetDashboardItems,
-} from '../../../actions/editDashboard'
+} from '../../../actions/editDashboard.js'
 import {
     sGetEditDashboardItems,
     sGetLayoutColumns,
-} from '../../../reducers/editDashboard'
-import DeleteItemButton from './DeleteItemButton'
+} from '../../../reducers/editDashboard.js'
+import DeleteItemButton from './DeleteItemButton.js'
 import classes from './styles/ItemHeader.module.css'
 
 const EditItemActions = ({ itemId, onDeleteItem }) => {

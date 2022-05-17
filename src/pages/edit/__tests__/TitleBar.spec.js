@@ -2,7 +2,7 @@ import { render } from '@testing-library/react'
 import React from 'react'
 import { Provider } from 'react-redux'
 import configureMockStore from 'redux-mock-store'
-import TitleBar from '../TitleBar'
+import TitleBar from '../TitleBar.js'
 
 const mockStore = configureMockStore()
 

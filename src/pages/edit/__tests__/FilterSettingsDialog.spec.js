@@ -1,6 +1,6 @@
 import { render } from '@testing-library/react'
 import React from 'react'
-import FilterSettingsDialog from '../FilterSettingsDialog'
+import FilterSettingsDialog from '../FilterSettingsDialog.js'
 
 jest.mock('@dhis2/app-runtime', () => ({
     useOnlineStatus: () => ({ online: true }),

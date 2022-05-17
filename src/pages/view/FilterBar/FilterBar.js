@@ -6,10 +6,10 @@ import { connect } from 'react-redux'
 import {
     acRemoveItemFilter,
     acClearItemFilters,
-} from '../../../actions/itemFilters'
-import ConfirmActionDialog from '../../../components/ConfirmActionDialog'
-import { sGetNamedItemFilters } from '../../../reducers/itemFilters'
-import FilterBadge from './FilterBadge'
+} from '../../../actions/itemFilters.js'
+import ConfirmActionDialog from '../../../components/ConfirmActionDialog.js'
+import { sGetNamedItemFilters } from '../../../reducers/itemFilters.js'
+import FilterBadge from './FilterBadge.js'
 import classes from './styles/FilterBar.module.css'
 
 const FilterBar = ({ filters, removeFilter, removeAllFilters }) => {

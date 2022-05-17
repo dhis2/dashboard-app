@@ -1,13 +1,13 @@
 import { When, Then } from 'cypress-cucumber-preprocessor/steps'
-import { dashboards } from '../../../assets/backends'
+import { dashboards } from '../../../assets/backends/index.js'
 import {
     chartSel,
     mapSel,
     tableSel,
     clickMenuButton,
     getDashboardItem,
-} from '../../../elements/dashboardItem'
-import { EXTENDED_TIMEOUT } from '../../../support/utils'
+} from '../../../elements/dashboardItem.js'
+import { EXTENDED_TIMEOUT } from '../../../support/utils.js'
 
 // these tests being run on the "Delivery" dashboard
 const chartItemUid = dashboards.Delivery.items.chart.itemUid

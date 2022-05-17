@@ -3,7 +3,7 @@ import i18n from '@dhis2/d2-i18n'
 import { MenuItem } from '@dhis2/ui'
 import PropTypes from 'prop-types'
 import React from 'react'
-import OfflineTooltip from './OfflineTooltip'
+import OfflineTooltip from './OfflineTooltip.js'
 
 const MenuItemWithTooltip = ({
     disabledWhenOffline,

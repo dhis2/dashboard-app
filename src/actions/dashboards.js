@@ -1,10 +1,10 @@
-import { apiFetchDashboards } from '../api/fetchAllDashboards'
-import { arrayToIdMap } from '../modules/util'
+import { apiFetchDashboards } from '../api/fetchAllDashboards.js'
+import { arrayToIdMap } from '../modules/util.js'
 import {
     SET_DASHBOARDS,
     ADD_DASHBOARDS,
     SET_DASHBOARD_STARRED,
-} from '../reducers/dashboards'
+} from '../reducers/dashboards.js'
 
 // actions
 

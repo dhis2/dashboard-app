@@ -5,7 +5,7 @@ import {
     systemSettingsQuery,
     renameSystemSettings,
     DEFAULT_SETTINGS,
-} from '../api/systemSettings'
+} from '../api/systemSettings.js'
 
 export const SystemSettingsCtx = createContext({})
 

@@ -1,4 +1,4 @@
-import { getRowsFromHeight } from '../getRowsFromHeight'
+import { getRowsFromHeight } from '../getRowsFromHeight.js'
 
 test('getRowsFromHeight returns an integer', () => {
     const res = getRowsFromHeight(100)

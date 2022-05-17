@@ -1,7 +1,7 @@
 /** @module reducers/dashboards */
 
-import arraySort from 'd2-utilizr/lib/arraySort'
-import { orObject } from '../modules/util'
+import arraySort from 'd2-utilizr/lib/arraySort.js'
+import { orObject } from '../modules/util.js'
 
 export const SET_DASHBOARDS = 'SET_DASHBOARDS'
 export const ADD_DASHBOARDS = 'ADD_DASHBOARDS'

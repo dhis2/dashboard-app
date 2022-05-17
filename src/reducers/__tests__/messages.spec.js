@@ -1,4 +1,4 @@
-import reducer, { RECEIVED_MESSAGES } from '../messages'
+import reducer, { RECEIVED_MESSAGES } from '../messages.js'
 
 describe('messages reducer', () => {
     const currentState = {

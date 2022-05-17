@@ -1,4 +1,4 @@
-import memoizeOne from '../memoizeOne'
+import memoizeOne from '../memoizeOne.js'
 
 describe('memoizeOne', () => {
     it('Should return the same value when called twice with shallow-equal arguments', () => {

@@ -11,18 +11,18 @@ import {
     tSetDashboardItems,
     acSetItemConfigInsertPosition,
     acSetDashboardCode,
-} from '../../actions/editDashboard'
-import OfflineTooltip from '../../components/OfflineTooltip'
-import { orObject } from '../../modules/util'
+} from '../../actions/editDashboard.js'
+import OfflineTooltip from '../../components/OfflineTooltip.js'
+import { orObject } from '../../modules/util.js'
 import {
     sGetEditDashboardRoot,
     sGetItemConfigInsertPosition,
     sGetLayoutColumns,
-} from '../../reducers/editDashboard'
-import { LayoutFixedIcon } from './assets/LayoutFixed'
-import { LayoutFreeflowIcon } from './assets/LayoutFreeflow'
-import ItemSelector from './ItemSelector/ItemSelector'
-import { LayoutModal } from './LayoutModal'
+} from '../../reducers/editDashboard.js'
+import { LayoutFixedIcon } from './assets/LayoutFixed.js'
+import { LayoutFreeflowIcon } from './assets/LayoutFreeflow.js'
+import ItemSelector from './ItemSelector/ItemSelector.js'
+import { LayoutModal } from './LayoutModal.js'
 import classes from './styles/TitleBar.module.css'
 
 const EditTitleBar = ({

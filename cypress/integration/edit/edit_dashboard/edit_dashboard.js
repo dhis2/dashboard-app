@@ -3,18 +3,18 @@ import {
     gridItemSel,
     chartSel,
     chartSubtitleSel,
-} from '../../../elements/dashboardItem'
+} from '../../../elements/dashboardItem.js'
 import {
     confirmActionDialogSel,
     titleInputSel,
     itemMenuSel,
     clickEditActionButton,
-} from '../../../elements/editDashboard'
+} from '../../../elements/editDashboard.js'
 import {
     dashboardChipSel,
     dashboardTitleSel,
-} from '../../../elements/viewDashboard'
-import { EXTENDED_TIMEOUT } from '../../../support/utils'
+} from '../../../elements/viewDashboard.js'
+import { EXTENDED_TIMEOUT } from '../../../support/utils.js'
 
 // the length of the root route of the app (after the slash): #/
 const ROOT_ROUTE_LENGTH = 0

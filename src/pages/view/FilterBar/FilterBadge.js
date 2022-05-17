@@ -5,9 +5,9 @@ import cx from 'classnames'
 import PropTypes from 'prop-types'
 import React from 'react'
 import { connect } from 'react-redux'
-import { acSetActiveModalDimension } from '../../../actions/activeModalDimension'
-import { useCacheableSection } from '../../../modules/useCacheableSection'
-import { sGetSelectedId } from '../../../reducers/selected'
+import { acSetActiveModalDimension } from '../../../actions/activeModalDimension.js'
+import { useCacheableSection } from '../../../modules/useCacheableSection.js'
+import { sGetSelectedId } from '../../../reducers/selected.js'
 import classes from './styles/FilterBadge.module.css'
 
 const FilterBadge = ({ dashboardId, filter, openFilterModal, onRemove }) => {

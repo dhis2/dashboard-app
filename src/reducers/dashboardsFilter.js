@@ -1,4 +1,4 @@
-import { validateReducer } from '../modules/util'
+import { validateReducer } from '../modules/util.js'
 
 export const SET_DASHBOARDS_FILTER = 'SET_DASHBOARDS_FILTER'
 export const CLEAR_DASHBOARDS_FILTER = 'CLEAR_DASHBOARDS_FILTER'

@@ -1,4 +1,4 @@
-import { getDomGridItemsSortedByYPos, getTransformYPx } from '../printUtils'
+import { getDomGridItemsSortedByYPos, getTransformYPx } from '../printUtils.js'
 
 describe('printUtils', () => {
     describe('getDomGridItemsSortedByYPos', () => {

@@ -9,17 +9,17 @@ import {
     acSetPrintDashboard,
     acAddPrintDashboardItem,
     acUpdatePrintDashboardItem,
-} from '../../actions/printDashboard'
-import { apiFetchDashboard } from '../../api/fetchDashboard'
-import { VIEW } from '../../modules/dashboardModes'
-import { MAX_ITEM_GRID_HEIGHT } from '../../modules/gridUtil'
-import { PAGEBREAK, PRINT_TITLE_PAGE } from '../../modules/itemTypes'
-import { setHeaderbarVisible } from '../../modules/setHeaderbarVisible'
-import { sGetEditDashboardRoot } from '../../reducers/editDashboard'
-import PrintActionsBar from './ActionsBar'
-import PrintInfo from './PrintInfo'
-import PrintLayoutItemGrid from './PrintLayoutItemGrid'
-import { getPageBreakPositions } from './printUtils'
+} from '../../actions/printDashboard.js'
+import { apiFetchDashboard } from '../../api/fetchDashboard.js'
+import { VIEW } from '../../modules/dashboardModes.js'
+import { MAX_ITEM_GRID_HEIGHT } from '../../modules/gridUtil.js'
+import { PAGEBREAK, PRINT_TITLE_PAGE } from '../../modules/itemTypes.js'
+import { setHeaderbarVisible } from '../../modules/setHeaderbarVisible.js'
+import { sGetEditDashboardRoot } from '../../reducers/editDashboard.js'
+import PrintActionsBar from './ActionsBar.js'
+import PrintInfo from './PrintInfo.js'
+import PrintLayoutItemGrid from './PrintLayoutItemGrid.js'
+import { getPageBreakPositions } from './printUtils.js'
 import classes from './styles/PrintLayoutDashboard.module.css'
 
 import './styles/print.css'

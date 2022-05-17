@@ -1,11 +1,11 @@
 import PropTypes from 'prop-types'
 import React from 'react'
 import { connect } from 'react-redux'
-import { VIEW, EDIT, PRINT_LAYOUT } from '../../../modules/dashboardModes'
-import EditItemActions from './EditItemActions'
-import PrintItemInfo from './PrintItemInfo'
+import { VIEW, EDIT, PRINT_LAYOUT } from '../../../modules/dashboardModes.js'
+import EditItemActions from './EditItemActions.js'
+import PrintItemInfo from './PrintItemInfo.js'
 import classes from './styles/ItemHeader.module.css'
-import ViewItemActions from './ViewItemActions'
+import ViewItemActions from './ViewItemActions.js'
 
 const getItemActionsMap = (isShortened) => {
     return {

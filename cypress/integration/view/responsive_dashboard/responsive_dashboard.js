@@ -1,12 +1,12 @@
 import { When, Then } from 'cypress-cucumber-preprocessor/steps'
-import { dimensionsModalSel } from '../../../elements/dashboardFilter'
-import { chartSel } from '../../../elements/dashboardItem'
-import { titleInputSel } from '../../../elements/editDashboard'
+import { dimensionsModalSel } from '../../../elements/dashboardFilter.js'
+import { chartSel } from '../../../elements/dashboardItem.js'
+import { titleInputSel } from '../../../elements/editDashboard.js'
 import {
     dashboardTitleSel,
     newButtonSel,
-} from '../../../elements/viewDashboard'
-import { EXTENDED_TIMEOUT } from '../../../support/utils'
+} from '../../../elements/viewDashboard.js'
+import { EXTENDED_TIMEOUT } from '../../../support/utils.js'
 
 const TEST_DASHBOARD_TITLE = 'TEST_DASHBOARD_TITLE'
 

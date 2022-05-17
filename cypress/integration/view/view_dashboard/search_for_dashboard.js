@@ -1,10 +1,10 @@
 import { When, Then } from 'cypress-cucumber-preprocessor/steps'
-import { dashboards } from '../../../assets/backends/sierraLeone_236'
+import { dashboards } from '../../../assets/backends/sierraLeone_236.js'
 import {
     dashboardTitleSel,
     dashboardChipSel,
     dashboardSearchInputSel,
-} from '../../../elements/viewDashboard'
+} from '../../../elements/viewDashboard.js'
 
 When('I search for dashboards containing {string}', (title) => {
     cy.get(dashboardSearchInputSel).type(title)

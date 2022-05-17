@@ -30,10 +30,10 @@ import { connect } from 'react-redux'
 import {
     acAddItemFilter,
     acRemoveItemFilter,
-} from '../../../actions/itemFilters'
-import { useSystemSettings } from '../../../components/SystemSettingsProvider'
-import { useUserSettings } from '../../../components/UserSettingsProvider'
-import { sGetItemFiltersRoot } from '../../../reducers/itemFilters'
+} from '../../../actions/itemFilters.js'
+import { useSystemSettings } from '../../../components/SystemSettingsProvider.js'
+import { useUserSettings } from '../../../components/UserSettingsProvider.js'
+import { sGetItemFiltersRoot } from '../../../reducers/itemFilters.js'
 
 const FilterDialog = ({
     dimension,

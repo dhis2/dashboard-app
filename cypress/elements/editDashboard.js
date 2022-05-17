@@ -1,5 +1,5 @@
-import { EXTENDED_TIMEOUT } from '../support/utils'
-import { newButtonSel } from './viewDashboard'
+import { EXTENDED_TIMEOUT } from '../support/utils.js'
+import { newButtonSel } from './viewDashboard.js'
 
 export const confirmActionDialogSel = '[data-test="confirm-action-dialog"]'
 export const titleInputSel = '[data-test="dashboard-title-input"]'

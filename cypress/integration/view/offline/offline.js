@@ -1,12 +1,12 @@
 import { Given, When, Then } from 'cypress-cucumber-preprocessor/steps'
-import { itemMenuButtonSel } from '../../../elements/dashboardItem'
+import { itemMenuButtonSel } from '../../../elements/dashboardItem.js'
 import {
     titleInputSel,
     confirmActionDialogSel,
     clickEditActionButton,
     itemSearchSel,
-} from '../../../elements/editDashboard'
-import { getSharingDialogUserSearch } from '../../../elements/sharingDialog'
+} from '../../../elements/editDashboard.js'
+import { getSharingDialogUserSearch } from '../../../elements/sharingDialog.js'
 import {
     newButtonSel,
     getViewActionButton,
@@ -14,8 +14,12 @@ import {
     dashboardTitleSel,
     dashboardChipSel,
     dashboardDescriptionSel,
-} from '../../../elements/viewDashboard'
-import { EXTENDED_TIMEOUT, goOnline, goOffline } from '../../../support/utils'
+} from '../../../elements/viewDashboard.js'
+import {
+    EXTENDED_TIMEOUT,
+    goOnline,
+    goOffline,
+} from '../../../support/utils.js'
 
 beforeEach(() => {
     goOnline()

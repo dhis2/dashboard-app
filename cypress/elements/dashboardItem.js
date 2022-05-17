@@ -1,4 +1,4 @@
-import { EXTENDED_TIMEOUT } from '../support/utils'
+import { EXTENDED_TIMEOUT } from '../support/utils.js'
 
 export const chartSel = '.highcharts-container'
 export const chartSubtitleSel = '.highcharts-subtitle'

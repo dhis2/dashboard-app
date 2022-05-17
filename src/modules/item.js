@@ -1,5 +1,5 @@
-import isObject from 'lodash/isObject'
-import { itemTypeMap } from './itemTypes'
+import isObject from 'lodash/isObject.js'
+import { itemTypeMap } from './itemTypes.js'
 
 export const getVisualizationFromItem = (item) => {
     if (!isObject(item)) {

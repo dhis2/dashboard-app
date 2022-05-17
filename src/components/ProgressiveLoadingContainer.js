@@ -1,5 +1,5 @@
-import debounce from 'lodash/debounce'
-import pick from 'lodash/pick'
+import debounce from 'lodash/debounce.js'
+import pick from 'lodash/pick.js'
 import PropTypes from 'prop-types'
 import React, { Component } from 'react'
 

@@ -1,5 +1,5 @@
 import { Then } from 'cypress-cucumber-preprocessor/steps'
-import { dashboards } from '../../../assets/backends/sierraLeone_236'
+import { dashboards } from '../../../assets/backends/sierraLeone_236.js'
 
 Then('the print layout displays for {string} dashboard', (title) => {
     //check the url

@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types'
 import React, { useEffect, useState } from 'react'
-import DashboardsBar from '../../components/DashboardsBar/DashboardsBar'
-import StartScreen from './StartScreen'
+import DashboardsBar from '../../components/DashboardsBar/DashboardsBar.js'
+import StartScreen from './StartScreen.js'
 
 const LandingPage = ({ username, onMount }) => {
     const [controlbarExpanded, setControlbarExpanded] = useState(false)

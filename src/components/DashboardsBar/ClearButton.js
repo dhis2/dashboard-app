@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types'
 import React from 'react'
-import ClearIcon from './assets/Clear'
+import ClearIcon from './assets/Clear.js'
 import classes from './styles/ClearButton.module.css'
 
 const ClearButton = ({ onClear }) => (

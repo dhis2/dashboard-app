@@ -3,23 +3,23 @@ import {
     dimensionsModalSel,
     filterDimensionsPanelSel,
     filterBadgeSel,
-} from '../../../elements/dashboardFilter'
+} from '../../../elements/dashboardFilter.js'
 import {
     chartSel,
     tableSel,
     itemMenuButtonSel,
-} from '../../../elements/dashboardItem'
+} from '../../../elements/dashboardItem.js'
 import {
     clickEditActionButton,
     confirmActionDialogSel,
     createDashboard,
-} from '../../../elements/editDashboard'
+} from '../../../elements/editDashboard.js'
 import {
     clickViewActionButton,
     dashboardChipSel,
     dashboardTitleSel,
-} from '../../../elements/viewDashboard'
-import { EXTENDED_TIMEOUT } from '../../../support/utils'
+} from '../../../elements/viewDashboard.js'
+import { EXTENDED_TIMEOUT } from '../../../support/utils.js'
 
 const TEST_DASHBOARD_TITLE =
     '0filterfail' + new Date().toUTCString().slice(-12, -4)

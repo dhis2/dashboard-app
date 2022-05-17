@@ -3,8 +3,8 @@ import { render } from '@testing-library/react'
 import React from 'react'
 import { Provider } from 'react-redux'
 import configureMockStore from 'redux-mock-store'
-import { DEFAULT_STATE_EDIT_DASHBOARD } from '../../../reducers/editDashboard'
-import ActionsBar from '../ActionsBar'
+import { DEFAULT_STATE_EDIT_DASHBOARD } from '../../../reducers/editDashboard.js'
+import ActionsBar from '../ActionsBar.js'
 
 const mockStore = configureMockStore()
 

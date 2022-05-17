@@ -1,13 +1,13 @@
 import i18n from '@dhis2/d2-i18n'
-import { updateDashboard, postDashboard } from '../api/editDashboard'
+import { updateDashboard, postDashboard } from '../api/editDashboard.js'
 import {
     addToItemsEnd,
     addToItemsStart,
     getAutoItemShapes,
     getDashboardItem,
     updateItems,
-} from '../modules/gridUtil'
-import { convertUiItemsToBackend } from '../modules/uiBackendItemConverter'
+} from '../modules/gridUtil.js'
+import { convertUiItemsToBackend } from '../modules/uiBackendItemConverter.js'
 import {
     RECEIVED_EDIT_DASHBOARD,
     START_NEW_DASHBOARD,
@@ -29,8 +29,8 @@ import {
     sGetLayoutColumns,
     sGetItemConfigInsertPosition,
     RECEIVED_CODE,
-} from '../reducers/editDashboard'
-import { tFetchDashboards } from './dashboards'
+} from '../reducers/editDashboard.js'
+import { tFetchDashboards } from './dashboards.js'
 
 // actions
 

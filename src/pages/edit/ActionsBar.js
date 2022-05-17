@@ -7,26 +7,26 @@ import PropTypes from 'prop-types'
 import React, { useState } from 'react'
 import { connect } from 'react-redux'
 import { Redirect } from 'react-router-dom'
-import { tFetchDashboards } from '../../actions/dashboards'
+import { tFetchDashboards } from '../../actions/dashboards.js'
 import {
     tSaveDashboard,
     acClearEditDashboard,
     acSetPrintPreviewView,
     acClearPrintPreviewView,
     acSetFilterSettings,
-} from '../../actions/editDashboard'
-import { acClearPrintDashboard } from '../../actions/printDashboard'
-import { acClearSelected } from '../../actions/selected'
-import ConfirmActionDialog from '../../components/ConfirmActionDialog'
-import OfflineTooltip from '../../components/OfflineTooltip'
+} from '../../actions/editDashboard.js'
+import { acClearPrintDashboard } from '../../actions/printDashboard.js'
+import { acClearSelected } from '../../actions/selected.js'
+import ConfirmActionDialog from '../../components/ConfirmActionDialog.js'
+import OfflineTooltip from '../../components/OfflineTooltip.js'
 import {
     sGetEditDashboardRoot,
     sGetIsPrintPreviewView,
     sGetEditIsDirty,
     sGetLayoutColumns,
-} from '../../reducers/editDashboard'
-import { deleteDashboardMutation } from './deleteDashboardMutation'
-import FilterSettingsDialog from './FilterSettingsDialog'
+} from '../../reducers/editDashboard.js'
+import { deleteDashboardMutation } from './deleteDashboardMutation.js'
+import FilterSettingsDialog from './FilterSettingsDialog.js'
 import classes from './styles/ActionsBar.module.css'
 
 const saveFailedMessage = i18n.t(

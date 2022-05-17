@@ -1,6 +1,6 @@
 /** @module reducers/controlBar */
 import { combineReducers } from 'redux'
-import { validateReducer } from '../modules/util'
+import { validateReducer } from '../modules/util.js'
 
 export const SET_CONTROLBAR_USER_ROWS = 'SET_CONTROLBAR_USER_ROWS'
 

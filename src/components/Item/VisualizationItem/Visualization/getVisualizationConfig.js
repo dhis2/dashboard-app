@@ -3,8 +3,8 @@ import {
     VIS_TYPE_PIVOT_TABLE,
     getAdaptedUiLayoutByType,
 } from '@dhis2/analytics'
-import { REPORT_TABLE, CHART, MAP } from '../../../../modules/itemTypes'
-import getThematicMapViews from '../getThematicMapViews'
+import { REPORT_TABLE, CHART, MAP } from '../../../../modules/itemTypes.js'
+import getThematicMapViews from '../getThematicMapViews.js'
 
 const getWithoutId = (object) => ({
     ...object,

@@ -16,16 +16,16 @@ import {
     SPACER,
     PAGEBREAK,
     PRINT_TITLE_PAGE,
-} from '../../modules/itemTypes'
-import AppItem from './AppItem/Item'
-import ListItem from './ListItem/Item'
-import MessagesItem from './MessagesItem/Item'
-import NotSupportedItem from './NotSupportedItem/Item'
-import PageBreakItem from './PageBreakItem/Item'
-import PrintTitlePageItem from './PrintTitlePageItem/Item'
-import SpacerItem from './SpacerItem/Item'
-import TextItem from './TextItem/Item'
-import VisualizationItem from './VisualizationItem/Item'
+} from '../../modules/itemTypes.js'
+import AppItem from './AppItem/Item.js'
+import ListItem from './ListItem/Item.js'
+import MessagesItem from './MessagesItem/Item.js'
+import NotSupportedItem from './NotSupportedItem/Item.js'
+import PageBreakItem from './PageBreakItem/Item.js'
+import PrintTitlePageItem from './PrintTitlePageItem/Item.js'
+import SpacerItem from './SpacerItem/Item.js'
+import TextItem from './TextItem/Item.js'
+import VisualizationItem from './VisualizationItem/Item.js'
 
 const getGridItem = (type) => {
     switch (type) {

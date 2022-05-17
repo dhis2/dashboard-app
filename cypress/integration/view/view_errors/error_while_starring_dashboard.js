@@ -1,11 +1,11 @@
 import { When, Then } from 'cypress-cucumber-preprocessor/steps'
-import { dashboards } from '../../../assets/backends'
+import { dashboards } from '../../../assets/backends/index.js'
 import {
     starSel,
     dashboardUnstarredSel,
     dashboardStarredSel,
     dashboardChipSel,
-} from '../../../elements/viewDashboard'
+} from '../../../elements/viewDashboard.js'
 
 When('clicking to star {string} dashboard fails', (title) => {
     cy.log('url', `dashboards/${dashboards[title].id}/favorite`)

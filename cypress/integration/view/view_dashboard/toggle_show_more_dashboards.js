@@ -3,9 +3,9 @@ import {
     dashboardTitleSel,
     dashboardsBarContainerSel,
     showMoreLessSel,
-} from '../../../elements/viewDashboard'
-import { getApiBaseUrl } from '../../../support/server/utils'
-import { EXTENDED_TIMEOUT } from '../../../support/utils'
+} from '../../../elements/viewDashboard.js'
+import { getApiBaseUrl } from '../../../support/server/utils.js'
+import { EXTENDED_TIMEOUT } from '../../../support/utils.js'
 
 const MIN_DASHBOARDS_BAR_HEIGHT = 71
 const MAX_DASHBOARDS_BAR_HEIGHT = 431

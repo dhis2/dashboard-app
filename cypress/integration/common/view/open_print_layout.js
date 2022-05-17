@@ -1,5 +1,5 @@
 import { When } from 'cypress-cucumber-preprocessor/steps'
-import { clickViewActionButton } from '../../../elements/viewDashboard'
+import { clickViewActionButton } from '../../../elements/viewDashboard.js'
 
 When('I click to preview the print layout', () => {
     clickViewActionButton('More')

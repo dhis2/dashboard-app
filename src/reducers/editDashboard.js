@@ -1,8 +1,8 @@
 /** @module reducers/editDashboard */
 // import { generateUid } from 'd2/uid'
 import update from 'immutability-helper'
-import isEmpty from 'lodash/isEmpty'
-import { getDashboardItem } from '../modules/gridUtil'
+import isEmpty from 'lodash/isEmpty.js'
+import { getDashboardItem } from '../modules/gridUtil.js'
 // import {
 //     getGridItemProperties,
 //     getPageBreakItemShape,
@@ -10,7 +10,7 @@ import { getDashboardItem } from '../modules/gridUtil'
 //     NEW_ITEM_SHAPE,
 // } from '../modules/gridUtil'
 // import { itemTypeMap, PAGEBREAK, PRINT_TITLE_PAGE } from '../modules/itemTypes'
-import { orArray, orObject } from '../modules/util'
+import { orArray, orObject } from '../modules/util.js'
 
 export const RECEIVED_EDIT_DASHBOARD = 'RECEIVED_EDIT_DASHBOARD'
 export const RECEIVED_NOT_EDITING = 'RECEIVED_NOT_EDITING'

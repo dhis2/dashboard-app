@@ -12,7 +12,7 @@ import {
 } from '@dhis2/ui'
 import PropTypes from 'prop-types'
 import React, { useState } from 'react'
-import useDimensions from '../../modules/useDimensions'
+import useDimensions from '../../modules/useDimensions.js'
 import classes from './styles/FilterSettingsDialog.module.css'
 
 const RadioOptions = ({

@@ -4,12 +4,12 @@ import PropTypes from 'prop-types'
 import React, { useState, useEffect } from 'react'
 import { Responsive as ResponsiveReactGridLayout } from 'react-grid-layout'
 import { connect } from 'react-redux'
-import { Item } from '../../components/Item/Item'
-import NoContentMessage from '../../components/NoContentMessage'
-import ProgressiveLoadingContainer from '../../components/ProgressiveLoadingContainer'
-import { useWindowDimensions } from '../../components/WindowDimensionsProvider'
-import { VIEW } from '../../modules/dashboardModes'
-import { getGridItemDomElementClassName } from '../../modules/getGridItemDomElementClassName'
+import { Item } from '../../components/Item/Item.js'
+import NoContentMessage from '../../components/NoContentMessage.js'
+import ProgressiveLoadingContainer from '../../components/ProgressiveLoadingContainer.js'
+import { useWindowDimensions } from '../../components/WindowDimensionsProvider.js'
+import { VIEW } from '../../modules/dashboardModes.js'
+import { getGridItemDomElementClassName } from '../../modules/getGridItemDomElementClassName.js'
 import {
     GRID_ROW_HEIGHT_PX,
     SM_SCREEN_GRID_COLUMNS,
@@ -21,13 +21,13 @@ import {
     getSmallLayout,
     getGridWidth,
     getProportionalHeight,
-} from '../../modules/gridUtil'
-import { getBreakpoint, isSmallScreen } from '../../modules/smallScreen'
-import { useCacheableSection } from '../../modules/useCacheableSection'
+} from '../../modules/gridUtil.js'
+import { getBreakpoint, isSmallScreen } from '../../modules/smallScreen.js'
+import { useCacheableSection } from '../../modules/useCacheableSection.js'
 import {
     sGetSelectedId,
     sGetSelectedDashboardItems,
-} from '../../reducers/selected'
+} from '../../reducers/selected.js'
 import classes from './styles/ItemGrid.module.css'
 
 const EXPANDED_HEIGHT = 17

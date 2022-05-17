@@ -1,7 +1,7 @@
 import { When, Then } from 'cypress-cucumber-preprocessor/steps'
-import { titleInputSel } from '../../../elements/editDashboard'
-import { titleBarSel } from '../../../elements/viewDashboard'
-import { EXTENDED_TIMEOUT } from '../../../support/utils'
+import { titleInputSel } from '../../../elements/editDashboard.js'
+import { titleBarSel } from '../../../elements/viewDashboard.js'
+import { EXTENDED_TIMEOUT } from '../../../support/utils.js'
 
 const ROUTE_EDIT = 'edit'
 

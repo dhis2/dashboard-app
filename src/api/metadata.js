@@ -1,4 +1,4 @@
-import arrayClean from 'd2-utilizr/lib/arrayClean'
+import arrayClean from 'd2-utilizr/lib/arrayClean.js'
 
 // Id, name
 export const getIdNameFields = ({ rename } = {}) => [
