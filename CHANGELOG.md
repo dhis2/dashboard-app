@@ -1,3 +1,10 @@
+## [99.9.12](https://github.com/dhis2/dashboard-app/compare/v99.9.11...v99.9.12) (2022-05-24)
+
+
+### Bug Fixes
+
+* **translations:** sync translations from transifex (master) ([#2064](https://github.com/dhis2/dashboard-app/issues/2064)) ([583d729](https://github.com/dhis2/dashboard-app/commit/583d729854e0f5722eae9d67cacaa2b70c14b1f6))
+
 ## [99.9.11](https://github.com/dhis2/dashboard-app/compare/v99.9.10...v99.9.11) (2022-05-16)
 
 
