@@ -6,7 +6,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2021-09-16T08:58:12.325Z\n"
+"POT-Creation-Date: 2022-01-10T14:24:29.926Z\n"
 "PO-Revision-Date: 2019-09-01 20:38+0000\n"
 "Last-Translator: 晓东 林 <13981924470@126.com>, 2021\n"
 "Language-Team: Chinese (China) (https://www.transifex.com/hisp-uio/teams/100509/zh_CN/)\n"
@@ -45,7 +45,7 @@ msgstr ""
 msgid "Save changes"
 msgstr "保存更改"
 
-msgid "Exit Print preview"
+msgid "Exit print preview"
 msgstr ""
 
 msgid "Print preview"
@@ -92,9 +92,6 @@ msgid ""
 msgstr ""
 
 msgid "Not supported"
-msgstr ""
-
-msgid "Exit print preview"
 msgstr ""
 
 msgid "Print"

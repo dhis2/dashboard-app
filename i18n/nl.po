@@ -1,13 +1,14 @@
 # 
 # Translators:
 # Cherise Beek <cherise.beek@gmail.com>, 2021
+# Rica Zamora Duchateau, 2022
 # 
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2021-09-16T08:58:12.325Z\n"
+"POT-Creation-Date: 2022-01-10T14:24:29.926Z\n"
 "PO-Revision-Date: 2019-09-01 20:38+0000\n"
-"Last-Translator: Cherise Beek <cherise.beek@gmail.com>, 2021\n"
+"Last-Translator: Rica Zamora Duchateau, 2022\n"
 "Language-Team: Dutch (https://www.transifex.com/hisp-uio/teams/100509/nl/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -22,7 +23,7 @@ msgid "Loading dashboard – {{name}}"
 msgstr ""
 
 msgid "Cancel"
-msgstr ""
+msgstr "Annuleer"
 
 msgid "Delete"
 msgstr "Verwijderen"
@@ -44,7 +45,7 @@ msgstr ""
 msgid "Save changes"
 msgstr ""
 
-msgid "Exit Print preview"
+msgid "Exit print preview"
 msgstr ""
 
 msgid "Print preview"
@@ -54,7 +55,7 @@ msgid "Filter settings"
 msgstr ""
 
 msgid "Translate"
-msgstr ""
+msgstr "Vertaal"
 
 msgid "Exit without saving"
 msgstr ""
@@ -78,7 +79,7 @@ msgid "Requested dashboard not found"
 msgstr ""
 
 msgid "No access"
-msgstr ""
+msgstr "Geen toegang"
 
 msgid ""
 "Editing dashboards on small screens is not supported. Resize your screen to "
@@ -91,9 +92,6 @@ msgid ""
 msgstr ""
 
 msgid "Not supported"
-msgstr ""
-
-msgid "Exit print preview"
 msgstr ""
 
 msgid "Print"
@@ -128,7 +126,7 @@ msgstr[0] ""
 msgstr[1] ""
 
 msgid "Remove"
-msgstr ""
+msgstr "Verwijderen"
 
 msgid "Delete item"
 msgstr ""
@@ -213,7 +211,7 @@ msgid "Confirm"
 msgstr ""
 
 msgid "Add filter"
-msgstr ""
+msgstr "Voeg filter toe"
 
 msgid "Allow filtering by all dimensions"
 msgstr ""
@@ -292,7 +290,7 @@ msgid "More"
 msgstr ""
 
 msgid "Edit"
-msgstr ""
+msgstr "Bewerk"
 
 msgid "Share"
 msgstr ""
@@ -316,7 +314,7 @@ msgid "Charts"
 msgstr ""
 
 msgid "Maps"
-msgstr ""
+msgstr "Kaarten"
 
 msgid "Event reports"
 msgstr ""
