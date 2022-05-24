@@ -5,19 +5,20 @@
 # Sheila André <sandre@saudigitus.org>, 2020
 # Gabriela Rodriguez <grodriguezcoronado@gmail.com>, 2021
 # Fernando Jorge Bade, 2021
+# David Júnior <davidjr.mondlane@gmail.com>, 2022
 # 
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
 "POT-Creation-Date: 2021-07-06T07:28:33.146Z\n"
 "PO-Revision-Date: 2020-12-22 22:13+0000\n"
-"Last-Translator: Fernando Jorge Bade, 2021\n"
+"Last-Translator: David Júnior <davidjr.mondlane@gmail.com>, 2022\n"
 "Language-Team: Portuguese (https://www.transifex.com/hisp-uio/teams/100509/pt/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Language: pt\n"
-"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"Plural-Forms: nplurals=3; plural=(n == 0 || n == 1) ? 0 : n != 0 && n % 1000000 == 0 ? 1 : 2;\n"
 
 msgid "Untitled dashboard"
 msgstr "Painel sem título"
@@ -83,7 +84,7 @@ msgid "Print"
 msgstr "Imprimir"
 
 msgid "dashboard layout"
-msgstr ""
+msgstr "layout do painel"
 
 msgid "one item per page"
 msgstr "um item por página"
@@ -110,8 +111,9 @@ msgstr ""
 
 msgid "{{count}} selected"
 msgid_plural "{{count}} selected"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "{{count}} selecionado"
+msgstr[1] "{{count}} selecionado"
+msgstr[2] "{{count}} selecionado"
 
 msgid "Remove"
 msgstr "Remover"
@@ -219,10 +221,10 @@ msgid "Show description"
 msgstr "Mostrar descrição"
 
 msgid "Unstar dashboard"
-msgstr ""
+msgstr "Remover estrela do painel"
 
 msgid "Star dashboard"
-msgstr ""
+msgstr "Painel estrela"
 
 msgid "Edit"
 msgstr "Editar"
@@ -234,7 +236,7 @@ msgid "More"
 msgstr "Mais"
 
 msgid "Dashboard layout"
-msgstr ""
+msgstr "Layout do painel"
 
 msgid "One item per page"
 msgstr "Um item por página"
