@@ -5,8 +5,8 @@
     "private": true,
     "license": "BSD-3-Clause",
     "dependencies": {
-        "@dhis2/analytics": "^20.4.10",
-        "@dhis2/app-runtime": "^2.12.3",
+        "@dhis2/analytics": "^23.10.0",
+        "@dhis2/app-runtime": "^3.4.3",
         "@dhis2/app-runtime-adapter-d2": "^1.1.0",
         "@dhis2/d2-i18n": "^1.1.0",
         "@dhis2/d2-ui-core": "^7.3.3",
@@ -14,9 +14,10 @@
         "@dhis2/d2-ui-mentions-wrapper": "^7.3.3",
         "@dhis2/d2-ui-rich-text": "^7.3.3",
         "@dhis2/d2-ui-translation-dialog": "^7.3.3",
-        "@dhis2/data-visualizer-plugin": "^38.0.16",
-        "@dhis2/ui": "^6.25.0",
+        "@dhis2/data-visualizer-plugin": "^39.0.7",
+        "@dhis2/ui": "^8.2.6",
         "classnames": "^2.3.1",
+        "cypress": "^9.7.0",
         "d2": "^31.10.0",
         "d2-utilizr": "^0.2.16",
         "i18next": "^20.3.5",
@@ -42,26 +43,33 @@
         "test": "d2-app-scripts test",
         "validate-push": "CI=true yarn test",
         "postinstall": "patch-package",
-        "cypress:start": "BROWSER=none yarn start",
-        "cy:open-live": "cypress_dhis2_api_stub_mode=DISABLED d2-utils-cypress open --appStart 'yarn cypress:start'",
-        "cy:run-live": "cypress_dhis2_api_stub_mode=DISABLED d2-utils-cypress run --appStart 'yarn cypress:start'",
-        "cy:open-stub": "cypress_dhis2_api_stub_mode=STUB d2-utils-cypress open --appStart 'yarn cypress:start'",
-        "cy:run-stub": "cypress_dhis2_api_stub_mode=STUB d2-utils-cypress run --tags '@nonmutating' --appStart 'yarn cypress:start' --record",
-        "cy:capture": "cypress_dhis2_api_stub_mode=CAPTURE yarn d2-utils-cypress run --appStart 'yarn cypress:start'"
+        "start-proxy": "d2-app-scripts start --proxy https://debug.dhis2.org/dev --proxyPort 8081",
+        "start-cy-proxy": "BROWSER=none d2-app-scripts start --proxy https://debug.dhis2.org/dev --proxyPort 8081",
+        "cypress:capture": "start-server-and-test 'yarn start-cy-proxy' http://localhost:3000 'yarn cypress run --env networkMode=capture'",
+        "cypress:stub": "start-server-and-test 'yarn start-cy-proxy' http://localhost:3000 'yarn cypress run --env networkMode=stub'",
+        "cypress:live": "start-server-and-test 'yarn start-cy-proxy' http://localhost:3000 'yarn cypress open --env networkMode=live'"
     },
     "devDependencies": {
-        "@dhis2/cli-app-scripts": "^7.7.4",
+        "@dhis2/cli-app-scripts": "^9.0.0",
         "@dhis2/cli-style": "^10.4.1",
-        "@dhis2/cli-utils-cypress": "^7.0.1",
-        "@dhis2/cypress-commands": "^7.0.1",
+        "@dhis2/cli-utils-cypress": "^9.0.2",
+        "@dhis2/cypress-commands": "^9.0.2",
+        "@dhis2/cypress-plugins": "^9.0.2",
         "@testing-library/jest-dom": "^5.14.1",
         "@testing-library/react": "^12.0.0",
+        "cypress-cucumber-preprocessor": "^4.3.1",
         "d2-manifest": "^1.0.0",
-        "eslint-plugin-cypress": "^2.11.3",
+        "eslint-plugin-cypress": "^2.12.1",
         "immutability-helper": "^3.1.1",
         "patch-package": "^6.4.7",
         "postinstall-postinstall": "^2.1.0",
-        "redux-mock-store": "^1.5.4"
+        "redux-mock-store": "^1.5.4",
+        "start-server-and-test": "^1.14.0"
+    },
+    "resolutions": {
+        "@dhis2/prop-types": "^1.6.4",
+        "@dhis2/ui": "^8.2.6",
+        "i18next": "^20.5.0"
     },
     "jest": {
         "moduleNameMapper": {

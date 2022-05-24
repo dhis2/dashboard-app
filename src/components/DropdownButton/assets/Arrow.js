@@ -1,4 +1,4 @@
-import propTypes from '@dhis2/prop-types'
+import PropTypes from 'prop-types'
 import React from 'react'
 
 export function ArrowDown({ className }) {
@@ -22,7 +22,7 @@ export function ArrowDown({ className }) {
     )
 }
 ArrowDown.propTypes = {
-    className: propTypes.string,
+    className: PropTypes.string,
 }
 
 export function ArrowUp({ className }) {
@@ -49,5 +49,5 @@ export function ArrowUp({ className }) {
     )
 }
 ArrowUp.propTypes = {
-    className: propTypes.string,
+    className: PropTypes.string,
 }

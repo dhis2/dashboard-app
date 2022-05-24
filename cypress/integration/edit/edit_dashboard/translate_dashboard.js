@@ -5,8 +5,7 @@ import {
     dashboardDescriptionSel,
     clickViewActionButton,
 } from '../../../elements/viewDashboard.js'
-import { getApiBaseUrl } from '../../../support/server/utils.js'
-import { EXTENDED_TIMEOUT } from '../../../support/utils.js'
+import { EXTENDED_TIMEOUT, getApiBaseUrl } from '../../../support/utils.js'
 
 let norwegianTitle = ''
 let norwegianDesc = ''

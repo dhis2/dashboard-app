@@ -2,5 +2,11 @@
     "baseUrl": "http://localhost:3000",
     "video": true,
     "projectId": "5fk191",
-    "testFiles": "**/*.feature"
+    "testFiles": "**/*.feature",
+    "env": {
+        "dhis2DataTestPrefix": "dhis2-dashboard",
+        "networkMode": "live",
+        "dhis2ApiVersion": "39"
+    },
+    "experimentalInteractiveRunEvents": true
 }

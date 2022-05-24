@@ -1,7 +1,15 @@
-const plugins = require('@dhis2/cli-utils-cypress/plugins')
+const {
+    networkShim,
+    chromeAllowXSiteCookies,
+    cucumberPreprocessor
+} = require('@dhis2/cypress-plugins');
+
 const getCypressEnvVars = require('./getCypressEnvVars.js')
 
 module.exports = (on, config) => {
+    networkShim(on);
+    chromeAllowXSiteCookies(on);
+    cucumberPreprocessor(on, config);
     on('before:browser:launch', (browser, launchOptions) => {
         if (browser.family === 'chromium' && browser.name !== 'electron') {
             const disabledChromiumFeatures = [
@@ -16,8 +24,6 @@ module.exports = (on, config) => {
 
         return launchOptions
     })
-
-    plugins(on, config)
 
     config.env = getCypressEnvVars(config)
 
