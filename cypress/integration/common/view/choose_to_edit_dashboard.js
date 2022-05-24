@@ -1,11 +1,11 @@
 import { When, Then } from 'cypress-cucumber-preprocessor/steps'
-import { titleInputSel } from '../../../elements/editDashboard'
-import { titleBarSel } from '../../../elements/viewDashboard'
-import { EXTENDED_TIMEOUT } from '../../../support/utils'
+import { titleInputSel } from '../../../elements/editDashboard.js'
+import { titleBarSel } from '../../../elements/viewDashboard.js'
+import { EXTENDED_TIMEOUT } from '../../../support/utils.js'
 
 const ROUTE_EDIT = 'edit'
 
-const getRouteFromHash = hash => {
+const getRouteFromHash = (hash) => {
     const lastSlashIdx = hash.lastIndexOf('/')
     return hash.slice(lastSlashIdx + 1)
 }
@@ -13,7 +13,7 @@ const getRouteFromHash = hash => {
 const confirmEditMode = () => {
     cy.get(titleInputSel).should('exist')
 
-    cy.location().should(loc => {
+    cy.location().should((loc) => {
         expect(getRouteFromHash(loc.hash)).to.eq(ROUTE_EDIT)
     })
 }

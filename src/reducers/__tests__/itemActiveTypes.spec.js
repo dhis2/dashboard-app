@@ -2,7 +2,7 @@ import reducer, {
     SET_ITEM_ACTIVE_TYPE,
     CLEAR_ITEM_ACTIVE_TYPES,
     DEFAULT_STATE_ITEM_ACTIVE_TYPES,
-} from '../itemActiveTypes'
+} from '../itemActiveTypes.js'
 
 describe('itemActiveTypes reducer', () => {
     const defaultState = {}

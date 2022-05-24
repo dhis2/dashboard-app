@@ -10,9 +10,9 @@ import {
     EVENT_REPORT,
     isTrackerDomainType,
     hasMapView,
-} from '../../../../modules/itemTypes'
-import MenuItem from '../../../MenuItemWithTooltip'
-import getThematicMapViews from '../getThematicMapViews'
+} from '../../../../modules/itemTypes.js'
+import MenuItem from '../../../MenuItemWithTooltip.js'
+import getThematicMapViews from '../getThematicMapViews.js'
 
 const ViewAsMenuItems = ({
     type,

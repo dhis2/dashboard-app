@@ -12,4 +12,4 @@ export default (state = DEFAULT_STATE_SHOW_DESCRIPTION, action) => {
     }
 }
 
-export const sGetShowDescription = state => state.showDescription
+export const sGetShowDescription = (state) => state.showDescription

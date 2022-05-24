@@ -1,9 +1,9 @@
 import {
     SET_ACTIVE_MODAL_DIMENSION,
     CLEAR_ACTIVE_MODAL_DIMENSION,
-} from '../reducers/activeModalDimension'
+} from '../reducers/activeModalDimension.js'
 
-export const acSetActiveModalDimension = value => ({
+export const acSetActiveModalDimension = (value) => ({
     type: SET_ACTIVE_MODAL_DIMENSION,
     value,
 })

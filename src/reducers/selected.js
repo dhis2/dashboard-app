@@ -19,7 +19,7 @@ export default (state = DEFAULT_SELECTED_STATE, action) => {
         case SET_SELECTED: {
             const newState = {}
             Object.keys(SELECTED_PROPERTIES).map(
-                k => (newState[k] = action.value[k])
+                (k) => (newState[k] = action.value[k])
             )
             return newState
         }
@@ -33,17 +33,18 @@ export default (state = DEFAULT_SELECTED_STATE, action) => {
 
 // Selectors
 
-export const sGetSelected = state => state.selected
+export const sGetSelected = (state) => state.selected
 
-export const sGetSelectedId = state => sGetSelected(state).id
+export const sGetSelectedId = (state) => sGetSelected(state).id
 
-export const sGetSelectedDisplayName = state => sGetSelected(state).displayName
+export const sGetSelectedDisplayName = (state) =>
+    sGetSelected(state).displayName
 
-export const sGetSelectedDisplayDescription = state =>
+export const sGetSelectedDisplayDescription = (state) =>
     sGetSelected(state).displayDescription
 
-export const sGetSelectedDashboardItems = state =>
+export const sGetSelectedDashboardItems = (state) =>
     sGetSelected(state).dashboardItems || SELECTED_PROPERTIES.dashboardItems
 
-export const sGetIsNullDashboardItems = state =>
+export const sGetIsNullDashboardItems = (state) =>
     sGetSelected(state).dashboardItems === undefined

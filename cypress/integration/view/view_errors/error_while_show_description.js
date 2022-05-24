@@ -1,5 +1,5 @@
 import { When, Then } from 'cypress-cucumber-preprocessor/steps'
-import { getApiBaseUrl } from '../../../support/server/utils'
+import { getApiBaseUrl } from '../../../support/server/utils.js'
 
 // Error scenario
 
@@ -12,7 +12,7 @@ before(() => {
             'content-type': 'application/json',
         },
         body: 'false',
-    }).then(response => expect(response.status).to.equal(201))
+    }).then((response) => expect(response.status).to.equal(201))
 })
 
 When('clicking to show description fails', () => {

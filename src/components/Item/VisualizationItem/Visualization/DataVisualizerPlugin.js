@@ -1,9 +1,9 @@
 import PropTypes from 'prop-types'
 import React, { Suspense, useState, useEffect, useCallback } from 'react'
-import { useUserSettings } from '../../../UserSettingsProvider'
-import LoadingMask from './LoadingMask'
+import { useUserSettings } from '../../../UserSettingsProvider.js'
+import LoadingMask from './LoadingMask.js'
 import classes from './styles/DataVisualizerPlugin.module.css'
-import VisualizationErrorMessage from './VisualizationErrorMessage'
+import VisualizationErrorMessage from './VisualizationErrorMessage.js'
 
 const VisualizationPlugin = React.lazy(() =>
     import(

@@ -2,39 +2,42 @@ import i18n from '@dhis2/d2-i18n'
 import PropTypes from 'prop-types'
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import { acSetItemActiveType } from '../../../actions/itemActiveTypes'
-import { acAddVisualization } from '../../../actions/visualizations'
-import { apiPostDataStatistics } from '../../../api/dataStatistics'
-import { apiFetchVisualization } from '../../../api/fetchVisualization'
+import { acSetItemActiveType } from '../../../actions/itemActiveTypes.js'
+import { acAddVisualization } from '../../../actions/visualizations.js'
+import { apiPostDataStatistics } from '../../../api/dataStatistics.js'
+import { apiFetchVisualization } from '../../../api/fetchVisualization.js'
 import {
     isEditMode,
     isPrintMode,
     isViewMode,
-} from '../../../modules/dashboardModes'
-import { getItemHeightPx } from '../../../modules/gridUtil'
-import { getVisualizationId, getVisualizationName } from '../../../modules/item'
+} from '../../../modules/dashboardModes.js'
+import { getItemHeightPx } from '../../../modules/gridUtil.js'
+import {
+    getVisualizationId,
+    getVisualizationName,
+} from '../../../modules/item.js'
 import {
     getDataStatisticsName,
     getItemTypeForVis,
-} from '../../../modules/itemTypes'
-import { sGetIsEditing } from '../../../reducers/editDashboard'
-import { sGetItemActiveType } from '../../../reducers/itemActiveTypes'
+} from '../../../modules/itemTypes.js'
+import { sGetIsEditing } from '../../../reducers/editDashboard.js'
+import { sGetItemActiveType } from '../../../reducers/itemActiveTypes.js'
 import {
     sGetItemFiltersRoot,
     DEFAULT_STATE_ITEM_FILTERS,
-} from '../../../reducers/itemFilters'
-import { sGetVisualization } from '../../../reducers/visualizations'
-import { SystemSettingsCtx } from '../../SystemSettingsProvider'
-import { WindowDimensionsCtx } from '../../WindowDimensionsProvider'
-import ItemHeader from '../ItemHeader/ItemHeader'
-import FatalErrorBoundary from './FatalErrorBoundary'
-import { getGridItemElement } from './getGridItemElement'
-import { isElementFullscreen } from './isElementFullscreen'
-import ItemContextMenu from './ItemContextMenu/ItemContextMenu'
-import ItemFooter from './ItemFooter'
-import memoizeOne from './memoizeOne'
-import { pluginIsAvailable } from './Visualization/plugin'
-import Visualization from './Visualization/Visualization'
+} from '../../../reducers/itemFilters.js'
+import { sGetVisualization } from '../../../reducers/visualizations.js'
+import { SystemSettingsCtx } from '../../SystemSettingsProvider.js'
+import { WindowDimensionsCtx } from '../../WindowDimensionsProvider.js'
+import ItemHeader from '../ItemHeader/ItemHeader.js'
+import FatalErrorBoundary from './FatalErrorBoundary.js'
+import { getGridItemElement } from './getGridItemElement.js'
+import { isElementFullscreen } from './isElementFullscreen.js'
+import ItemContextMenu from './ItemContextMenu/ItemContextMenu.js'
+import ItemFooter from './ItemFooter.js'
+import memoizeOne from './memoizeOne.js'
+import { pluginIsAvailable } from './Visualization/plugin.js'
+import Visualization from './Visualization/Visualization.js'
 
 class Item extends Component {
     state = {
@@ -124,7 +127,7 @@ class Item extends Component {
         )
     }
 
-    setActiveType = type => {
+    setActiveType = (type) => {
         type !== this.getActiveType() &&
             this.props.setActiveType(this.props.item.id, type)
     }
@@ -211,11 +214,11 @@ class Item extends Component {
                 >
                     <div
                         className="dashboard-item-content"
-                        ref={ref => (this.contentRef = ref)}
+                        ref={(ref) => (this.contentRef = ref)}
                     >
                         {this.state.configLoaded && (
                             <WindowDimensionsCtx.Consumer>
-                                {dimensions => (
+                                {(dimensions) => (
                                     <Visualization
                                         item={item}
                                         activeType={activeType}
@@ -281,7 +284,7 @@ const mapDispatchToProps = {
     setVisualization: acAddVisualization,
 }
 
-const ItemWithSettings = props => (
+const ItemWithSettings = (props) => (
     <SystemSettingsCtx.Consumer>
         {({ systemSettings }) => <Item settings={systemSettings} {...props} />}
     </SystemSettingsCtx.Consumer>

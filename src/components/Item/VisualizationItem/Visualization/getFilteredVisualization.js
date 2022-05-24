@@ -4,18 +4,18 @@ const getFilteredVisualization = (visualization, filters) => {
     }
 
     // deep clone objects in filters to avoid changing the visualization in the Redux store
-    const visRows = visualization.rows.map(obj => ({ ...obj }))
-    const visColumns = visualization.columns.map(obj => ({ ...obj }))
-    const visFilters = visualization.filters.map(obj => ({ ...obj }))
+    const visRows = visualization.rows.map((obj) => ({ ...obj }))
+    const visColumns = visualization.columns.map((obj) => ({ ...obj }))
+    const visFilters = visualization.filters.map((obj) => ({ ...obj }))
 
-    Object.keys(filters).forEach(dimensionId => {
+    Object.keys(filters).forEach((dimensionId) => {
         if (filters[dimensionId]) {
             let dimensionFound = false
 
-            ;[visRows, visColumns, visFilters].forEach(dimensionObjects =>
+            ;[visRows, visColumns, visFilters].forEach((dimensionObjects) =>
                 dimensionObjects
-                    .filter(obj => obj.dimension === dimensionId)
-                    .forEach(obj => {
+                    .filter((obj) => obj.dimension === dimensionId)
+                    .forEach((obj) => {
                         dimensionFound = true
                         obj.items = filters[dimensionId]
                     })

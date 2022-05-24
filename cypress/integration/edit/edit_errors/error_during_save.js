@@ -1,5 +1,5 @@
 import { When, Then } from 'cypress-cucumber-preprocessor/steps'
-import { clickEditActionButton } from '../../../elements/editDashboard'
+import { clickEditActionButton } from '../../../elements/editDashboard.js'
 
 When("I save dashboard that I don't have access to save", () => {
     cy.intercept('PUT', '/dashboards', { statusCode: 409 })

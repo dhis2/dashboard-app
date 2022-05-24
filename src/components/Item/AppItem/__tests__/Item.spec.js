@@ -3,7 +3,7 @@ import { render } from '@testing-library/react'
 import React from 'react'
 import { Provider } from 'react-redux'
 import configureMockStore from 'redux-mock-store'
-import Item from '../Item'
+import Item from '../Item.js'
 
 jest.mock('@dhis2/app-runtime-adapter-d2')
 

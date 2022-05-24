@@ -5,14 +5,14 @@ import classes from './styles/DragHandle.module.css'
 const DragHandle = ({ onHeightChanged, setDragging }) => {
     const [startingY, setStartingY] = useState(0)
 
-    const onStartDrag = e => {
+    const onStartDrag = (e) => {
         setStartingY(e.clientY)
         setDragging(true)
         window.addEventListener('mousemove', onDrag)
         window.addEventListener('mouseup', onEndDrag)
     }
 
-    const onDrag = e => {
+    const onDrag = (e) => {
         e.preventDefault()
         e.stopPropagation()
 

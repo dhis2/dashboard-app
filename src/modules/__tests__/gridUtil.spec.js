@@ -5,7 +5,7 @@ import {
     getProportionalHeight,
     SM_SCREEN_GRID_COLUMNS,
     getAutoItemShapes,
-} from '../gridUtil'
+} from '../gridUtil.js'
 
 describe('withShape', () => {
     it('returns objects with new properties (x, y, w, h)', () => {

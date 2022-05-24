@@ -1,2 +1,2 @@
-export const getGridItemDomElementClassName = itemId =>
+export const getGridItemDomElementClassName = (itemId) =>
     `reactgriditem-${itemId}`

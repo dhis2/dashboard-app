@@ -6,12 +6,12 @@ import PropTypes from 'prop-types'
 import React, { useState } from 'react'
 import { connect } from 'react-redux'
 import { Redirect, withRouter } from 'react-router-dom'
-import { sGetAllDashboards } from '../../reducers/dashboards'
-import { sGetDashboardsFilter } from '../../reducers/dashboardsFilter'
-import { sGetSelectedId } from '../../reducers/selected'
-import Chip from './Chip'
-import Filter from './Filter'
-import { getFilteredDashboards } from './getFilteredDashboards'
+import { sGetAllDashboards } from '../../reducers/dashboards.js'
+import { sGetDashboardsFilter } from '../../reducers/dashboardsFilter.js'
+import { sGetSelectedId } from '../../reducers/selected.js'
+import Chip from './Chip.js'
+import Filter from './Filter.js'
+import { getFilteredDashboards } from './getFilteredDashboards.js'
 import classes from './styles/Content.module.css'
 
 const Content = ({
@@ -40,7 +40,7 @@ const Content = ({
     }
 
     const getChips = () =>
-        getFilteredDashboards(dashboards, filterText).map(dashboard => (
+        getFilteredDashboards(dashboards, filterText).map((dashboard) => (
             <Chip
                 key={dashboard.id}
                 label={dashboard.displayName}
@@ -126,7 +126,7 @@ Content.propTypes = {
     onSearchClicked: PropTypes.func,
 }
 
-const mapStateToProps = state => ({
+const mapStateToProps = (state) => ({
     dashboards: sGetAllDashboards(state),
     selectedId: sGetSelectedId(state),
     filterText: sGetDashboardsFilter(state),

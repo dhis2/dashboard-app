@@ -1,11 +1,11 @@
-const isRelative = path => path.startsWith('./')
-const normalizeRelativePath = path =>
+const isRelative = (path) => path.startsWith('./')
+const normalizeRelativePath = (path) =>
     [process.env.PUBLIC_URL, path.replace(/^\.\//, '')].join('/')
 
-const isScriptLoaded = src =>
+const isScriptLoaded = (src) =>
     document.querySelector('script[src="' + src + '"]') ? true : false
 
-export const loadExternalScript = src => {
+export const loadExternalScript = (src) => {
     if (isRelative(src)) {
         src = normalizeRelativePath(src)
     }

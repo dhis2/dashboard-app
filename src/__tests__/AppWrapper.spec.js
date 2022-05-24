@@ -1,6 +1,6 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
-import AppWrapper from '../AppWrapper'
+import AppWrapper from '../AppWrapper.js'
 
 jest.mock(
     '../components/App',

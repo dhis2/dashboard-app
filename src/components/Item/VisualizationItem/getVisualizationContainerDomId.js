@@ -1,3 +1,3 @@
-const getVisualizationContainerDomId = id => `item-${id}`
+const getVisualizationContainerDomId = (id) => `item-${id}`
 
 export default getVisualizationContainerDomId

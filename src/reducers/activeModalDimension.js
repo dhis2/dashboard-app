@@ -16,4 +16,4 @@ export default (state = DEFAULT_STATE_ACTIVE_MODAL_DIMENSION, action) => {
     }
 }
 
-export const sGetActiveModalDimension = state => state.activeModalDimension
+export const sGetActiveModalDimension = (state) => state.activeModalDimension

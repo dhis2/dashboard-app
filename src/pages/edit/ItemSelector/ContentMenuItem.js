@@ -3,12 +3,12 @@ import i18n from '@dhis2/d2-i18n'
 import { MenuItem, colors, IconLaunch16 } from '@dhis2/ui'
 import PropTypes from 'prop-types'
 import React from 'react'
-import { getItemIcon, VISUALIZATION } from '../../../modules/itemTypes'
+import { getItemIcon, VISUALIZATION } from '../../../modules/itemTypes.js'
 import classes from './styles/ContentMenuItem.module.css'
 
 const LaunchLink = ({ url }) => (
     <a
-        onClick={e => e.stopPropagation()}
+        onClick={(e) => e.stopPropagation()}
         className={classes.launchLink}
         target="_blank"
         rel="noopener noreferrer"

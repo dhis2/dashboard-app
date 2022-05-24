@@ -1,5 +1,5 @@
-import { EDIT } from '../modules/dashboardModes'
-import { apiFetchDashboard } from './fetchDashboard'
+import { EDIT } from '../modules/dashboardModes.js'
+import { apiFetchDashboard } from './fetchDashboard.js'
 
 export const createDashboardMutation = {
     resource: 'dashboards',
@@ -24,7 +24,7 @@ const generatePayload = (dashboard = {}, data) => {
         name: data.name,
         code: data.code,
         description: data.description,
-        dashboardItems: data.dashboardItems.map(item => ({
+        dashboardItems: data.dashboardItems.map((item) => ({
             ...item,
             width: item.w,
             height: item.h,

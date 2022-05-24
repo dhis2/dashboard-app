@@ -1,7 +1,7 @@
 /* eslint-disable react/prop-types */
 import { render } from '@testing-library/react'
 import React from 'react'
-import ConfirmActionDialog from '../ConfirmActionDialog'
+import ConfirmActionDialog from '../ConfirmActionDialog.js'
 
 jest.mock('@dhis2/ui', () => {
     const originalModule = jest.requireActual('@dhis2/ui')

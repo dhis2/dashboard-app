@@ -5,7 +5,7 @@ import {
     systemSettingsQuery,
     renameSystemSettings,
     DEFAULT_SETTINGS,
-} from '../api/systemSettings'
+} from '../api/systemSettings.js'
 
 export const SystemSettingsCtx = createContext({})
 
@@ -20,7 +20,7 @@ const SystemSettingsProvider = ({ children }) => {
                     systemSettings: systemSettingsQuery,
                 },
                 {
-                    onError: error => {
+                    onError: (error) => {
                         console.log('Error', 'systemSettingsQuery', error)
                         setSettings({})
                     },

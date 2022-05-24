@@ -1,9 +1,9 @@
 import { getInstance } from 'd2'
-import { getVisualizationId } from '../modules/item'
-import { getEndPointName, MAP } from '../modules/itemTypes'
-import { getMapFields, getFavoriteFields } from './metadata'
+import { getVisualizationId } from '../modules/item.js'
+import { getEndPointName, MAP } from '../modules/itemTypes.js'
+import { getMapFields, getFavoriteFields } from './metadata.js'
 
-export const apiFetchVisualization = async item => {
+export const apiFetchVisualization = async (item) => {
     const id = getVisualizationId(item)
     const fields =
         item.type === MAP

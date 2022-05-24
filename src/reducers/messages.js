@@ -1,5 +1,5 @@
 import update from 'immutability-helper'
-import { arrayToIdMap } from '../modules/util'
+import { arrayToIdMap } from '../modules/util.js'
 
 export const RECEIVED_MESSAGES = 'RECEIVED_MESSAGES'
 
@@ -19,4 +19,4 @@ export default (state = {}, action) => {
 
 // selectors
 
-export const sGetMessagesRoot = state => state.messages
+export const sGetMessagesRoot = (state) => state.messages

@@ -2,13 +2,13 @@ import { useDataEngine } from '@dhis2/app-runtime'
 import { D2Shim } from '@dhis2/app-runtime-adapter-d2'
 import React from 'react'
 import { Provider as ReduxProvider } from 'react-redux'
-import App from './components/App'
-import SystemSettingsProvider from './components/SystemSettingsProvider'
-import UserSettingsProvider from './components/UserSettingsProvider'
-import WindowDimensionsProvider from './components/WindowDimensionsProvider'
-import configureStore from './configureStore'
+import App from './components/App.js'
+import SystemSettingsProvider from './components/SystemSettingsProvider.js'
+import UserSettingsProvider from './components/UserSettingsProvider.js'
+import WindowDimensionsProvider from './components/WindowDimensionsProvider.js'
+import configureStore from './configureStore.js'
 
-import './locales'
+import './locales/index.js'
 
 const d2Config = {
     schemas: [

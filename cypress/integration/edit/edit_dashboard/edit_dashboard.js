@@ -3,18 +3,18 @@ import {
     gridItemSel,
     chartSel,
     chartSubtitleSel,
-} from '../../../elements/dashboardItem'
+} from '../../../elements/dashboardItem.js'
 import {
     confirmActionDialogSel,
     titleInputSel,
     itemMenuSel,
     clickEditActionButton,
-} from '../../../elements/editDashboard'
+} from '../../../elements/editDashboard.js'
 import {
     dashboardChipSel,
     dashboardTitleSel,
-} from '../../../elements/viewDashboard'
-import { EXTENDED_TIMEOUT } from '../../../support/utils'
+} from '../../../elements/viewDashboard.js'
+import { EXTENDED_TIMEOUT } from '../../../support/utils.js'
 
 // the length of the root route of the app (after the slash): #/
 const ROOT_ROUTE_LENGTH = 0
@@ -34,7 +34,7 @@ const nonViewRoutes = [
     ROUTE_PRINTOIPP,
 ]
 
-const getRouteFromHash = hash => {
+const getRouteFromHash = (hash) => {
     const lastSlashIdx = hash.lastIndexOf('/')
     return hash.slice(lastSlashIdx + 1)
 }
@@ -63,7 +63,7 @@ Then('the saved dashboard should be displayed', () => {
 })
 
 Then('the dashboard displays in view mode', () => {
-    cy.location().should(loc => {
+    cy.location().should((loc) => {
         const currentRoute = getRouteFromHash(loc.hash)
 
         expect(nonViewRoutes).not.to.include(currentRoute)
@@ -75,7 +75,7 @@ Then('the dashboard displays in view mode', () => {
 })
 
 Then('different dashboard displays in view mode', () => {
-    cy.location().should(loc => {
+    cy.location().should((loc) => {
         const currentRoute = getRouteFromHash(loc.hash)
 
         expect(nonViewRoutes).not.to.include(currentRoute)
@@ -91,7 +91,7 @@ Given('I open existing dashboard', () => {
         .contains(TEST_DASHBOARD_TITLE)
         .click()
 
-    cy.location().should(loc => {
+    cy.location().should((loc) => {
         const currentRoute = getRouteFromHash(loc.hash)
 
         expect(nonViewRoutes).not.to.include(currentRoute)
@@ -155,8 +155,8 @@ Then('the chart item is displayed', () => {
 
 Then('no analytics requests are made when item is moved', () => {
     const WRONG_SUBTITLE = 'WRONG_SUBTITLE'
-    cy.intercept(/analytics\.json(\S)*skipMeta=false/, req => {
-        req.reply(res => {
+    cy.intercept(/analytics\.json(\S)*skipMeta=false/, (req) => {
+        req.reply((res) => {
             // modify the chart subtitle so we can check whether the api request
             // was made. (It shouldn't be - that's the test)
             res.body.metaData.items.THIS_YEAR.name = WRONG_SUBTITLE

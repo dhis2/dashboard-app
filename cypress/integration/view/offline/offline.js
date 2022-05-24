@@ -1,12 +1,12 @@
 import { Given, When, Then } from 'cypress-cucumber-preprocessor/steps'
-import { itemMenuButtonSel } from '../../../elements/dashboardItem'
+import { itemMenuButtonSel } from '../../../elements/dashboardItem.js'
 import {
     titleInputSel,
     confirmActionDialogSel,
     clickEditActionButton,
     itemSearchSel,
-} from '../../../elements/editDashboard'
-import { getSharingDialogUserSearch } from '../../../elements/sharingDialog'
+} from '../../../elements/editDashboard.js'
+import { getSharingDialogUserSearch } from '../../../elements/sharingDialog.js'
 import {
     newButtonSel,
     getViewActionButton,
@@ -14,8 +14,12 @@ import {
     dashboardTitleSel,
     dashboardChipSel,
     dashboardDescriptionSel,
-} from '../../../elements/viewDashboard'
-import { EXTENDED_TIMEOUT, goOnline, goOffline } from '../../../support/utils'
+} from '../../../elements/viewDashboard.js'
+import {
+    EXTENDED_TIMEOUT,
+    goOnline,
+    goOffline,
+} from '../../../support/utils.js'
 
 beforeEach(() => {
     goOnline()
@@ -33,7 +37,7 @@ const UNCACHED_DASHBOARD_TITLE =
     'aa un' + new Date().toUTCString().slice(-12, -4)
 const CACHED_DASHBOARD_TITLE = 'aa ca' + new Date().toUTCString().slice(-12, -4)
 
-const createDashboard = cacheState => {
+const createDashboard = (cacheState) => {
     const cachedDashboard = cacheState === CACHED
     cy.get(newButtonSel, EXTENDED_TIMEOUT).click()
     cy.get(titleInputSel, EXTENDED_TIMEOUT).should('be.visible')
@@ -57,16 +61,16 @@ const createDashboard = cacheState => {
     cy.get(dashboardTitleSel, EXTENDED_TIMEOUT).should('be.visible')
 }
 
-const openDashboard = title => {
+const openDashboard = (title) => {
     cy.get(dashboardChipSel, EXTENDED_TIMEOUT).contains(title).click()
     checkDashboardIsVisible(title)
 }
 
-const checkDashboardIsVisible = title => {
+const checkDashboardIsVisible = (title) => {
     cy.get(dashboardTitleSel).contains(title).should('be.visible')
 }
 
-const openAndCacheDashboard = title => {
+const openAndCacheDashboard = (title) => {
     openDashboard(title)
     clickViewActionButton('More')
     cy.contains(MAKE_AVAILABLE_OFFLINE_TEXT, EXTENDED_TIMEOUT).click()
@@ -80,7 +84,7 @@ const enterEditMode = () => {
     cy.get(titleInputSel, EXTENDED_TIMEOUT).should('be.visible')
 }
 
-const checkCorrectMoreOptions = cacheState => {
+const checkCorrectMoreOptions = (cacheState) => {
     clickViewActionButton('More')
     if (cacheState === CACHED) {
         cy.contains('Remove from offline storage').should('be.visible')
@@ -121,7 +125,7 @@ const closeMenu = () => {
     cy.get('[data-test="dhis2-uicore-layer"]').click('topLeft')
 }
 
-const deleteDashboard = dashboardTitle => {
+const deleteDashboard = (dashboardTitle) => {
     openDashboard(dashboardTitle)
     enterEditMode()
     clickEditActionButton('Delete')
@@ -199,7 +203,7 @@ When('connectivity is turned on', () => {
 
 Then(
     'all actions for {string} dashboard requiring connectivity are disabled',
-    cacheState => {
+    (cacheState) => {
         // new button
         cy.get(newButtonSel).should('be.disabled')
         // edit, sharing, starring, filtering, all options under more

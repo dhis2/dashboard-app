@@ -4,14 +4,14 @@ import {
     filterDimensionsPanelSel,
     dimensionsModalSel,
     orgUnitCheckboxesSel,
-} from '../../../elements/dashboardFilter'
-import { EXTENDED_TIMEOUT } from '../../../support/utils'
+} from '../../../elements/dashboardFilter.js'
+import { EXTENDED_TIMEOUT } from '../../../support/utils.js'
 
 const PERIOD = 'Last 6 months'
 const OU = 'Sierra Leone'
 const FACILITY_TYPE = 'Clinic'
 
-When('I add a {string} filter', dimensionType => {
+When('I add a {string} filter', (dimensionType) => {
     cy.contains('Add filter').click()
 
     // open the dimensions modal

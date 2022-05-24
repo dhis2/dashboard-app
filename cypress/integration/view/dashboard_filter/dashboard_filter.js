@@ -2,16 +2,16 @@ import { Then } from 'cypress-cucumber-preprocessor/steps'
 import {
     filterBadgeSel,
     dimensionsModalSel,
-} from '../../../elements/dashboardFilter'
+} from '../../../elements/dashboardFilter.js'
 import {
     gridItemSel,
     mapLegendButtonSel,
     mapLegendContentSel,
     chartSubtitleSel,
     chartXAxisLabelSel,
-} from '../../../elements/dashboardItem'
-import { innerScrollContainerSel } from '../../../elements/viewDashboard'
-import { EXTENDED_TIMEOUT } from '../../../support/utils'
+} from '../../../elements/dashboardItem.js'
+import { innerScrollContainerSel } from '../../../elements/viewDashboard.js'
+import { EXTENDED_TIMEOUT } from '../../../support/utils.js'
 
 const PERIOD = 'Last 6 months'
 const OU = 'Sierra Leone'

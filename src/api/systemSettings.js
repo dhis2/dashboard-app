@@ -34,7 +34,7 @@ const SYSTEM_SETTINGS_REMAPPINGS = {
     keyHideBiWeeklyPeriods: 'hideBiWeeklyPeriods',
 }
 
-export const renameSystemSettings = settings => {
+export const renameSystemSettings = (settings) => {
     return Object.keys(settings).reduce((mapped, key) => {
         mapped[SYSTEM_SETTINGS_REMAPPINGS[key] || key] = settings[key]
         return mapped

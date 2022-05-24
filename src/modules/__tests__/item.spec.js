@@ -1,5 +1,5 @@
-import { getVisualizationFromItem } from '../item'
-import { VISUALIZATION, MAP, EVENT_REPORT, EVENT_CHART } from '../itemTypes'
+import { getVisualizationFromItem } from '../item.js'
+import { VISUALIZATION, MAP, EVENT_REPORT, EVENT_CHART } from '../itemTypes.js'
 
 test('getVisualizationFromItem for chart', () => {
     const vis = 'chart visualization'

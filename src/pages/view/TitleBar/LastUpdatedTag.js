@@ -3,7 +3,7 @@ import { Tag, Tooltip } from '@dhis2/ui'
 import moment from 'moment'
 import PropTypes from 'prop-types'
 import React from 'react'
-import { useCacheableSection } from '../../../modules/useCacheableSection'
+import { useCacheableSection } from '../../../modules/useCacheableSection.js'
 import classes from './styles/LastUpdatedTag.module.css'
 
 const LastUpdatedTag = ({ id }) => {

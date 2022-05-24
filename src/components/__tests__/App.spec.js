@@ -3,9 +3,9 @@ import React from 'react'
 import { Provider } from 'react-redux'
 import configureMockStore from 'redux-mock-store'
 import thunk from 'redux-thunk'
-import { apiFetchDashboards } from '../../api/fetchAllDashboards'
-import App from '../App'
-import { useSystemSettings } from '../SystemSettingsProvider'
+import { apiFetchDashboards } from '../../api/fetchAllDashboards.js'
+import App from '../App.js'
+import { useSystemSettings } from '../SystemSettingsProvider.js'
 
 jest.mock('@dhis2/analytics')
 
@@ -47,7 +47,7 @@ jest.mock('../../pages/view', () => {
 jest.mock('../SystemSettingsProvider', () => {
     return {
         __esModule: true,
-        default: jest.fn(children => <div>{children}</div>),
+        default: jest.fn((children) => <div>{children}</div>),
         useSystemSettings: jest.fn(() => ({
             systemSettings: { startModuleEnableLightweight: false },
         })),
@@ -57,7 +57,7 @@ jest.mock('../SystemSettingsProvider', () => {
 jest.mock('../UserSettingsProvider', () => {
     return {
         __esModule: true,
-        default: jest.fn(children => <div>{children}</div>),
+        default: jest.fn((children) => <div>{children}</div>),
         useUserSettings: jest.fn(() => ({
             userSettings: { keyAnalysisDisplayProperty: 'displayName' },
         })),

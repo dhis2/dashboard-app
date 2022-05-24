@@ -1,30 +1,30 @@
 import i18n from '@dhis2/d2-i18n'
-import uniqueId from 'lodash/uniqueId'
+import uniqueId from 'lodash/uniqueId.js'
 import PropTypes from 'prop-types'
 import React from 'react'
 import { connect } from 'react-redux'
-import { isEditMode } from '../../../../modules/dashboardModes'
-import { getVisualizationId } from '../../../../modules/item'
+import { isEditMode } from '../../../../modules/dashboardModes.js'
+import { getVisualizationId } from '../../../../modules/item.js'
 import {
     VISUALIZATION,
     MAP,
     CHART,
     REPORT_TABLE,
     getItemTypeForVis,
-} from '../../../../modules/itemTypes'
+} from '../../../../modules/itemTypes.js'
 import {
     sGetItemFiltersRoot,
     DEFAULT_STATE_ITEM_FILTERS,
-} from '../../../../reducers/itemFilters'
-import { sGetVisualization } from '../../../../reducers/visualizations'
-import memoizeOne from '../memoizeOne'
-import DataVisualizerPlugin from './DataVisualizerPlugin'
-import getFilteredVisualization from './getFilteredVisualization'
-import getVisualizationConfig from './getVisualizationConfig'
-import LegacyPlugin from './LegacyPlugin'
-import MapPlugin from './MapPlugin'
-import NoVisualizationMessage from './NoVisualizationMessage'
-import { pluginIsAvailable } from './plugin'
+} from '../../../../reducers/itemFilters.js'
+import { sGetVisualization } from '../../../../reducers/visualizations.js'
+import memoizeOne from '../memoizeOne.js'
+import DataVisualizerPlugin from './DataVisualizerPlugin.js'
+import getFilteredVisualization from './getFilteredVisualization.js'
+import getVisualizationConfig from './getVisualizationConfig.js'
+import LegacyPlugin from './LegacyPlugin.js'
+import MapPlugin from './MapPlugin.js'
+import NoVisualizationMessage from './NoVisualizationMessage.js'
+import { pluginIsAvailable } from './plugin.js'
 
 class Visualization extends React.Component {
     constructor(props) {

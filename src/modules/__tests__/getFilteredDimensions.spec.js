@@ -1,4 +1,4 @@
-import getFilteredDimensions from '../getFilteredDimensions'
+import getFilteredDimensions from '../getFilteredDimensions.js'
 
 test('getFilteredDimensions filters out CATEGORY dimensions that do not have dataDimensionType="ATTRIBUTE"', () => {
     const dimensions = [

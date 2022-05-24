@@ -30,7 +30,7 @@ export const isStubMode = () =>
 
 export const getFileName = () => NETWORK_FIXTURES_FILE_PATH
 
-export const removeAPIServerFromUrlPaths = text => {
+export const removeAPIServerFromUrlPaths = (text) => {
     const apiEndpointUrl = new RegExp(`${getApiBaseUrl()}/api`, 'gi')
 
     return text.replace(apiEndpointUrl, '')

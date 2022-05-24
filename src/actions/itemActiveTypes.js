@@ -1,7 +1,7 @@
 import {
     SET_ITEM_ACTIVE_TYPE,
     CLEAR_ITEM_ACTIVE_TYPES,
-} from '../reducers/itemActiveTypes'
+} from '../reducers/itemActiveTypes.js'
 
 export const acSetItemActiveType = (id, activeType) => {
     const action = {

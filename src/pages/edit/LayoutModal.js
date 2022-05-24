@@ -13,17 +13,17 @@ import {
 import cx from 'classnames'
 import PropTypes from 'prop-types'
 import React, { useEffect, useState } from 'react'
-import OfflineTooltip from '../../components/OfflineTooltip'
-import { GRID_COLUMNS } from '../../modules/gridUtil'
-import { LayoutFixedIcon } from './assets/LayoutFixed'
-import { LayoutFreeflowIcon } from './assets/LayoutFreeflow'
+import OfflineTooltip from '../../components/OfflineTooltip.js'
+import { GRID_COLUMNS } from '../../modules/gridUtil.js'
+import { LayoutFixedIcon } from './assets/LayoutFixed.js'
+import { LayoutFreeflowIcon } from './assets/LayoutFreeflow.js'
 import classes from './styles/LayoutModal.module.css'
 
 const DEFAULT_COLUMNS = 3
 
-const isColumns = value => Boolean(value) || value === ''
+const isColumns = (value) => Boolean(value) || value === ''
 
-const getColsSaveValue = value =>
+const getColsSaveValue = (value) =>
     value === '' ? DEFAULT_COLUMNS : parseInt(value, 10)
 
 export const LayoutModal = ({ columns, onSaveLayout, onClose }) => {
@@ -32,7 +32,7 @@ export const LayoutModal = ({ columns, onSaveLayout, onClose }) => {
 
     useEffect(() => setCols(columns), [])
 
-    const setColsWrapper = value => {
+    const setColsWrapper = (value) => {
         const parsedValue = parseInt(value, 10)
 
         // handle values like ".2"

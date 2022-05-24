@@ -1,6 +1,6 @@
 import { render } from '@testing-library/react'
 import React from 'react'
-import FilterSettingsDialog from '../FilterSettingsDialog'
+import FilterSettingsDialog from '../FilterSettingsDialog.js'
 
 jest.mock('@dhis2/app-runtime', () => ({
     useOnlineStatus: () => ({ online: true }),
@@ -20,7 +20,7 @@ jest.mock('@dhis2/ui', () => {
                 <div
                     className="transfer"
                     options={props.options //eslint-disable-line react/prop-types
-                        .map(option => `${option.label}`) //eslint-disable-line react/prop-types
+                        .map((option) => `${option.label}`) //eslint-disable-line react/prop-types
                         .join(', ')}
                     selecteddimensions={props.selected.join(', ')} //eslint-disable-line react/prop-types
                 />

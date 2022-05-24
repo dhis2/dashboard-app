@@ -10,7 +10,7 @@ export const PRINT_ACTIONS_BAR_HEIGHT = 44
 export const PRINT_ACTIONS_BAR_HEIGHT_SM = 36
 
 const PrintActionsBar = ({ id }) => {
-    const getExitPrintButton = isSmall => (
+    const getExitPrintButton = (isSmall) => (
         <Button
             className={isSmall ? classes.buttonSmall : classes.buttonLarge}
             small={isSmall}
@@ -20,7 +20,7 @@ const PrintActionsBar = ({ id }) => {
         </Button>
     )
 
-    const getPrintButton = isSmall => (
+    const getPrintButton = (isSmall) => (
         <Button
             className={isSmall ? classes.buttonSmall : classes.buttonLarge}
             small={isSmall}

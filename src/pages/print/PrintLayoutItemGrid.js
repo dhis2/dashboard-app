@@ -1,38 +1,38 @@
 import cx from 'classnames'
-import sortBy from 'lodash/sortBy'
+import sortBy from 'lodash/sortBy.js'
 import PropTypes from 'prop-types'
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import { acUpdatePrintDashboardLayout } from '../../actions/printDashboard'
-import { Item } from '../../components/Item/Item'
-import { PRINT_LAYOUT } from '../../modules/dashboardModes'
-import { getGridItemDomElementClassName } from '../../modules/getGridItemDomElementClassName'
-import { hasShape } from '../../modules/gridUtil'
-import { PAGEBREAK } from '../../modules/itemTypes'
-import { sGetIsEditing } from '../../reducers/editDashboard'
-import { sGetPrintDashboardItems } from '../../reducers/printDashboard'
-import { getDomGridItemsSortedByYPos, getTransformYPx } from './printUtils'
-import StaticGrid from './StaticGrid'
+import { acUpdatePrintDashboardLayout } from '../../actions/printDashboard.js'
+import { Item } from '../../components/Item/Item.js'
+import { PRINT_LAYOUT } from '../../modules/dashboardModes.js'
+import { getGridItemDomElementClassName } from '../../modules/getGridItemDomElementClassName.js'
+import { hasShape } from '../../modules/gridUtil.js'
+import { PAGEBREAK } from '../../modules/itemTypes.js'
+import { sGetIsEditing } from '../../reducers/editDashboard.js'
+import { sGetPrintDashboardItems } from '../../reducers/printDashboard.js'
+import { getDomGridItemsSortedByYPos, getTransformYPx } from './printUtils.js'
+import StaticGrid from './StaticGrid.js'
 
 class PrintLayoutItemGrid extends Component {
-    onLayoutChange = newLayout => {
+    onLayoutChange = (newLayout) => {
         this.props.updateDashboardLayout(newLayout)
     }
 
-    isFirstPageBreak = item => {
+    isFirstPageBreak = (item) => {
         if (item.type !== PAGEBREAK) {
             return false
         }
 
         const pageBreaks = this.props.dashboardItems.filter(
-            i => i.type === PAGEBREAK
+            (i) => i.type === PAGEBREAK
         )
 
         const sortedPageBreaks = sortBy(pageBreaks, ['y'])
         return item.y === sortedPageBreaks[0].y
     }
 
-    getItemComponent = item => {
+    getItemComponent = (item) => {
         // the first-page-break class is used in Edit print preview
         const itemClassNames = cx(
             'print',
@@ -57,7 +57,8 @@ class PrintLayoutItemGrid extends Component {
         )
     }
 
-    getItemComponents = items => items.map(item => this.getItemComponent(item))
+    getItemComponents = (items) =>
+        items.map((item) => this.getItemComponent(item))
 
     hideExtraPageBreaks() {
         const sortedElements = getDomGridItemsSortedByYPos(
@@ -138,7 +139,7 @@ PrintLayoutItemGrid.propTypes = {
     updateDashboardLayout: PropTypes.func,
 }
 
-const mapStateToProps = state => {
+const mapStateToProps = (state) => {
     return {
         dashboardItems: sGetPrintDashboardItems(state).filter(hasShape),
         isEditing: sGetIsEditing(state),
