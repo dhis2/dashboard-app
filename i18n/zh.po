@@ -1,16 +1,16 @@
 # 
 # Translators:
-# phil_dhis2, 2019
-# Viktor Varland <viktor@dhis2.org>, 2021
-# 晓东 林 <13981924470@126.com>, 2021
-# easylin <lin_xd@126.com>, 2021
+# phil_dhis2, 2022
+# Viktor Varland <viktor@dhis2.org>, 2022
+# 晓东 林 <13981924470@126.com>, 2022
+# easylin <lin_xd@126.com>, 2022
 # 
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
 "POT-Creation-Date: 2021-12-21T08:20:25.327Z\n"
-"PO-Revision-Date: 2019-06-25 12:37+0000\n"
-"Last-Translator: easylin <lin_xd@126.com>, 2021\n"
+"PO-Revision-Date: 2022-04-20 09:58+0000\n"
+"Last-Translator: easylin <lin_xd@126.com>, 2022\n"
 "Language-Team: Chinese (https://www.transifex.com/hisp-uio/teams/100509/zh/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -143,10 +143,10 @@ msgid "Event charts"
 msgstr "事件图表"
 
 msgid "Apps"
-msgstr "Apps"
+msgstr "应用"
 
 msgid "Reports"
-msgstr "报表管理"
+msgstr "报表"
 
 msgid "Resources"
 msgstr "资源"
@@ -157,7 +157,7 @@ msgstr "用户"
 msgid ""
 "Failed to save dashboard. You might be offline or not have access to edit "
 "this dashboard."
-msgstr "保存仪表盘失败。您可能处于离线状态或无权编辑此仪表板。"
+msgstr "未能保存仪表板。您可能处于离线状态或无权编辑此仪表板。"
 
 msgid ""
 "Failed to save dashboard. This code is already being used on another "
@@ -173,7 +173,7 @@ msgid "Cannot save this dashboard while offline"
 msgstr "离线时无法保存此仪表板"
 
 msgid "Save changes"
-msgstr "保存改变"
+msgstr "保存修改"
 
 msgid "Exit print preview"
 msgstr "退出打印预览"
@@ -182,7 +182,7 @@ msgid "Print preview"
 msgstr "打印预览"
 
 msgid "Filter settings"
-msgstr "筛选器设定"
+msgstr "过滤器设置"
 
 msgid "Translate"
 msgstr "翻译"
@@ -217,7 +217,7 @@ msgstr "忽略修改"
 msgid ""
 "This dashboard has unsaved changes. Are you sure you want to leave and "
 "discard these unsaved changes?"
-msgstr "此信息中心有未保存的更改。您确定要离开并丢弃这些未保存的更改吗？"
+msgstr "此仪表板有未保存的更改。您确定要离开并放弃这些未保存的更改吗？"
 
 msgid "No, stay here"
 msgstr "不，待在这里"
@@ -237,7 +237,7 @@ msgid ""
 msgstr "不支持在小屏幕上编辑仪表板。调整屏幕大小以返回编辑模式。"
 
 msgid "Allow filtering by all dimensions"
-msgstr "允许按所有维度进行过滤"
+msgstr "允许按所有维度过滤"
 
 msgid "Only allow filtering by selected dimensions"
 msgstr "仅允许按选定的维度进行过滤"
@@ -257,7 +257,7 @@ msgstr ""
 "                                         在仪表板上可用。"
 
 msgid "Available Filters"
-msgstr "可用过滤器"
+msgstr "可用的过滤器"
 
 msgid "Selected Filters"
 msgstr "选定的过滤器"
@@ -272,7 +272,7 @@ msgid "Show fewer"
 msgstr "显示较少"
 
 msgid "Show more"
-msgstr "显示更多"
+msgstr "更多"
 
 msgid "Insert"
 msgstr "插入"
@@ -355,7 +355,7 @@ msgid "End of dashboard"
 msgstr "仪表板结束"
 
 msgid "Start of dashboard"
-msgstr "仪表板的开始"
+msgstr "仪表板开始"
 
 msgid "Print"
 msgstr "打印"
@@ -408,7 +408,7 @@ msgstr "请求的仪表盘没有找到"
 
 msgid "{{count}} selected"
 msgid_plural "{{count}} selected"
-msgstr[0] "{{count}} 个被选择"
+msgstr[0] "已选择 {{count}} 个"
 
 msgid "Cannot remove filters while offline"
 msgstr "离线时无法删除过滤器"
@@ -419,7 +419,7 @@ msgstr "离线时删除过滤器"
 msgid ""
 "Removing this filter while offline will remove all other filters. Do you "
 "want to remove all filters on this dashboard?"
-msgstr "离线时删除此过滤器将删除所有其他过滤器。您要删除此仪表板上的所有过滤器吗？"
+msgstr "脱机时删除此过滤器将删除所有其他过滤器。是否要删除此仪表板上的所有过滤器？"
 
 msgid "No, cancel"
 msgstr "不，取消"
@@ -431,10 +431,10 @@ msgid "The dashboard couldn't be made available offline. Try again."
 msgstr "仪表盘无法离线使用。再试一次。"
 
 msgid "Failed to unstar the dashboard"
-msgstr "无法取消仪表板的星标"
+msgstr "未能取消星标仪表板"
 
 msgid "Failed to star the dashboard"
-msgstr "无法为仪表板加注星标"
+msgstr "未能为仪表板加注星标"
 
 msgid "Remove from offline storage"
 msgstr "从离线存储中删除"
@@ -478,25 +478,25 @@ msgstr "清除仪表板过滤器？"
 msgid ""
 "A dashboard's filters can’t be saved offline. Do you want to remove the "
 "filters and make this dashboard available offline?"
-msgstr "仪表板的过滤器无法离线保存。是否要删除过滤器并使此仪表板脱机可用？"
+msgstr "仪表板的过滤器无法离线保存。是否要删除过滤器并使此仪表板可脱机使用？"
 
 msgid "Yes, clear filters and sync"
 msgstr "是的，清除过滤器并同步"
 
 msgid "No description"
-msgstr "没有描述"
+msgstr "无描述"
 
 msgid "Add filter"
 msgstr "添加过滤器"
 
 msgid "Offline data last updated {{time}}"
-msgstr "离线数据最后更新时间 {{time}}"
+msgstr "离线数据上次更新 {{time}}"
 
 msgid "Cannot unstar this dashboard while offline"
 msgstr "离线时无法取消此仪表板的星标"
 
 msgid "Cannot star this dashboard while offline"
-msgstr "离线时无法为该仪表板加注星标"
+msgstr "离线时无法为此仪表板加注星标"
 
 msgid "Loading dashboard – {{name}}"
 msgstr "加载仪表盘-{{name}}"
