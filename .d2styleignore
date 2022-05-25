@@ -4,3 +4,6 @@
 /src/locales/*
 /cypress/assets
 /cypress/fixtures
+cypress.json
+cypress.env.json
+.cypress-cucumber-preprocessorrc.json
