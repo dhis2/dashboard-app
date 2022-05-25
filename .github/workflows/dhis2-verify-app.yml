@@ -106,7 +106,7 @@ jobs:
                   GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
                   CYPRESS_RECORD_KEY: ${{ secrets.CYPRESS_RECORD_KEY }}
                   CYPRESS_dhis2ApiVersion: 39
-                  CYPRESS_networkMode: stub
+                  CYPRESS_networkMode: live
                   REACT_APP_DHIS2_BASE_URL: ${{ secrets.CYPRESS_DHIS2_BASE_URL }}
                   CYPRESS_dhis2BaseUrl: ${{ secrets.CYPRESS_DHIS2_BASE_URL }}
                   CYPRESS_dhis2Username: ${{ secrets.CYPRESS_DHIS2_USERNAME }}
