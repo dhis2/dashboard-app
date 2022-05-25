@@ -1,0 +1,143 @@
+name: 'dhis2: verify (app)'
+
+# Requirements:
+#
+# - Org secrets:
+#       DHIS2_BOT_GITHUB_TOKEN
+#       DHIS2_BOT_APPHUB_TOKEN
+
+on: push
+
+concurrency:
+    group: ${{ github.workflow}}-${{ github.ref }}
+
+env:
+    GIT_AUTHOR_NAME: '@dhis2-bot'
+    GIT_AUTHOR_EMAIL: 'apps@dhis2.org'
+    GIT_COMMITTER_NAME: '@dhis2-bot'
+    GIT_COMMITTER_EMAIL: 'apps@dhis2.org'
+    D2_VERBOSE: true
+
+jobs:
+    build:
+        runs-on: ubuntu-latest
+        steps:
+            - uses: actions/checkout@v2
+            - uses: actions/setup-node@v1
+              with:
+                  node-version: 12.x
+
+            - uses: c-hive/gha-yarn-cache@v1
+            - run: yarn install --frozen-lockfile
+
+            - name: Build
+              run: yarn d2-app-scripts build
+
+            - uses: actions/upload-artifact@v2
+              with:
+                  name: app-build
+                  path: |
+                      **/build
+                      !**/node_modules
+                  retention-days: 1
+
+    lint:
+        runs-on: ubuntu-latest
+        steps:
+            - uses: actions/checkout@v2
+            - uses: actions/setup-node@v1
+              with:
+                  node-version: 12.x
+
+            - uses: c-hive/gha-yarn-cache@v1
+            - run: yarn install --frozen-lockfile
+
+            - name: Lint
+              run: yarn d2-style check
+
+    test:
+        runs-on: ubuntu-latest
+        steps:
+            - uses: actions/checkout@v2
+            - uses: actions/setup-node@v1
+              with:
+                  node-version: 12.x
+
+            - uses: c-hive/gha-yarn-cache@v1
+            - run: yarn install --frozen-lockfile
+
+            - name: Generate translations
+              run: yarn d2-app-scripts i18n generate
+
+            - name: Test
+              run: yarn d2-app-scripts test
+
+    e2e:
+        runs-on: ubuntu-latest
+        if: "!github.event.push.repository.fork && github.actor != 'dependabot[bot]'"
+
+        strategy:
+            fail-fast: false
+            matrix:
+                containers: [1, 2, 3, 4]
+
+        steps:
+            - name: Checkout
+              uses: actions/checkout@v2
+
+            - uses: actions/setup-node@v1
+              with:
+                  node-version: 12.x
+
+            - name: End-to-End tests
+              uses: cypress-io/github-action@v2
+              with:
+                  # This should be a command that serves the app.
+                  start: yarn d2-app-scripts start
+                  wait-on: 'http://localhost:3000'
+                  wait-on-timeout: 300
+                  record: true
+                  parallel: true
+              env:
+                  BROWSER: none
+                  GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+                  CYPRESS_RECORD_KEY: ${{ secrets.CYPRESS_RECORD_KEY }}
+                  CYPRESS_dhis2ApiVersion: 39
+                  CYPRESS_networkMode: stub
+                  REACT_APP_DHIS2_BASE_URL: ${{ secrets.CYPRESS_DHIS2_BASE_URL }}
+                  CYPRESS_dhis2BaseUrl: ${{ secrets.CYPRESS_DHIS2_BASE_URL }}
+                  CYPRESS_dhis2Username: ${{ secrets.CYPRESS_DHIS2_USERNAME }}
+                  CYPRESS_dhis2Password: ${{ secrets.CYPRESS_DHIS2_PASSWORD }}
+
+    release:
+        runs-on: ubuntu-latest
+        needs: [build, lint, test, e2e]
+        if: "!github.event.push.repository.fork && github.actor != 'dependabot[bot]'"
+        steps:
+            - uses: actions/checkout@v2
+              with:
+                  token: ${{ secrets.DHIS2_BOT_GITHUB_TOKEN }}
+
+            - uses: actions/setup-node@v1
+              with:
+                  node-version: 12.x
+
+            - uses: actions/download-artifact@v2
+              with:
+                  name: app-build
+
+            # ensure that d2-app-scripts is available
+            - uses: c-hive/gha-yarn-cache@v1
+            - run: yarn install --frozen-lockfile
+
+            - uses: dhis2/action-semantic-release@master
+              with:
+                  publish-apphub: true
+                  publish-github: true
+                  github-token: ${{ secrets.DHIS2_BOT_GITHUB_TOKEN }}
+                  apphub-token: ${{ secrets.DHIS2_BOT_APPHUB_TOKEN }}
+
+            - uses: dhis2/deploy-build@master
+              with:
+                  build-dir: build/app
+                  github-token: ${{ secrets.DHIS2_BOT_GITHUB_TOKEN }}
