@@ -15,7 +15,7 @@
         "@dhis2/d2-ui-rich-text": "^7.3.3",
         "@dhis2/d2-ui-translation-dialog": "^7.3.3",
         "@dhis2/data-visualizer-plugin": "^38.0.16",
-        "@dhis2/ui": "^6.25.0",
+        "@dhis2/ui": "^8.4.0",
         "classnames": "^2.3.1",
         "d2": "^31.10.0",
         "d2-utilizr": "^0.2.16",
@@ -31,7 +31,7 @@
         "redux-logger": "^3.0.6",
         "redux-thunk": "^2.3.0",
         "reselect": "^4.0.0",
-        "styled-jsx": "3.3.2"
+        "styled-jsx": "^4.0.1"
     },
     "scripts": {
         "start": "d2-app-scripts start",
