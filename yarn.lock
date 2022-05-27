@@ -2686,6 +2686,20 @@
     react-beautiful-dnd "^10.1.1"
     resize-observer-polyfill "^1.5.1"
 
+"@dhis2/analytics@^23.10.3":
+  version "23.10.3"
+  resolved "https://registry.yarnpkg.com/@dhis2/analytics/-/analytics-23.10.3.tgz#d0b86dad08727b468746e9908e147143a0cae6cb"
+  integrity sha512-oCN/Btc/dv1lY7tB62VpffHsZ5Vf3s8BI1nDlKIz2HOBg1NGLNjOqp2VWJb2NG7XbtwoPwSJLw1XquIYBTS9ag==
+  dependencies:
+    classnames "^2.3.1"
+    d2-utilizr "^0.2.16"
+    d3-color "^1.2.3"
+    highcharts "^10.1.0"
+    lodash "^4.17.21"
+    mathjs "^9.4.2"
+    react-beautiful-dnd "^10.1.1"
+    resize-observer-polyfill "^1.5.1"
+
 "@dhis2/app-adapter@7.7.4":
   version "7.7.4"
   resolved "https://registry.yarnpkg.com/@dhis2/app-adapter/-/app-adapter-7.7.4.tgz#d09f545b31f764c6ef26a912b912bb8ea0c58589"
@@ -10196,6 +10210,11 @@ hex-color-regex@^1.1.0:
   version "1.1.0"
   resolved "https://registry.yarnpkg.com/hex-color-regex/-/hex-color-regex-1.1.0.tgz#4c06fccb4602fe2602b3c93df82d7e7dbf1a8a8e"
   integrity sha512-l9sfDFsuqtOqKDsQdqrMRk0U85RZc0RtOR9yPI7mRVOa4FsR/BVnZ0shmQRM96Ji99kYZP/7hn1cedc1+ApsTQ==
+
+highcharts@^10.1.0:
+  version "10.1.0"
+  resolved "https://registry.yarnpkg.com/highcharts/-/highcharts-10.1.0.tgz#561872ae8ea819131d78949136d05bcaaa99108b"
+  integrity sha512-gW/pzy/Qy/hiYeCflYHpwgsP2nqQavwuRUswRf+papmbutZ3I7K7AIZJ/yZ9NL5yzpF7X7r2dX7/nzZGN4A1rg==
 
 highcharts@^9.1.2:
   version "9.2.2"

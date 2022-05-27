@@ -12,6 +12,20 @@ jest.mock('@dhis2/app-runtime', () => ({
     useOnlineStatus: jest.fn(() => ({ offline: false })),
 }))
 
+/* eslint-disable react/prop-types */
+jest.mock(
+    '../../../../components/DropdownButton/DropdownButton.js',
+    () =>
+        function Mock({ children, ...props }) {
+            return (
+                <button className="DropdownButton" type="button" {...props}>
+                    {children}
+                </button>
+            )
+        }
+)
+/* eslint-enable react/prop-types */
+
 jest.mock('../../../../modules/useDimensions', () => jest.fn())
 useDimensions.mockImplementation(() => ['Moomin', 'Snorkmaiden'])
 

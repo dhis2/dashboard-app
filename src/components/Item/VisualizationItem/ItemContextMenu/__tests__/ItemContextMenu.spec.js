@@ -47,13 +47,20 @@ const defaultProps = {
 test('renders just the button when menu closed', () => {
     useSystemSettings.mockImplementationOnce(() => mockSystemSettingsDefault)
 
-    const { container } = render(
+    const { getByRole, queryByTestId, queryByText } = render(
         <WindowDimensionsProvider>
             <ItemContextMenu {...defaultProps} />
         </WindowDimensionsProvider>
     )
 
-    expect(container).toMatchSnapshot()
+    expect(getByRole('button')).toBeTruthy()
+    expect(queryByText('View as Map')).toBeNull()
+    expect(queryByText('View as Chart')).toBeNull()
+    expect(queryByText('View as Table')).toBeNull()
+    expect(queryByTestId('divider')).toBeNull()
+    expect(queryByText('Open in Data Visualizer app')).toBeNull()
+    expect(queryByText('Show details and interpretations')).toBeNull()
+    expect(queryByText('View fullscreen')).toBeNull()
 })
 
 test('renders exit fullscreen button', () => {

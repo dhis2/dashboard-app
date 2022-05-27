@@ -4,16 +4,16 @@ exports[`ConfirmActionDialog does not render dialog if not open 1`] = `<div />`;
 
 exports[`ConfirmActionDialog renders confirm delete dialog 1`] = `
 <div>
-  <div>
-    <h1
-      class="jsx-3701517325 title"
-      data-test="dhis2-uicore-modaltitle"
+  <div
+    class="ui-Modal"
+  >
+    <div
+      class="ui-ModalTitle"
     >
       Delete dashboard
-    </h1>
+    </div>
     <div
-      class="jsx-659511263 "
-      data-test="dhis2-uicore-modalcontent"
+      class="ui-ModalContent"
     >
       <span
         class="content"
@@ -22,34 +22,20 @@ exports[`ConfirmActionDialog renders confirm delete dialog 1`] = `
       </span>
     </div>
     <div
-      class="jsx-752323619"
-      data-test="dhis2-uicore-modalactions"
+      class="ui-ModalActions"
     >
       <div
-        class="jsx-71743532 start"
-        data-test="dhis2-uicore-buttonstrip"
+        class="ui-ButtonStrip"
       >
         <div
-          class="jsx-71743532 box"
+          class="ui-Button"
         >
-          <button
-            class="jsx-1937199209 secondary"
-            data-test="dhis2-uicore-button"
-            type="button"
-          >
-            Cancel
-          </button>
+          Cancel
         </div>
         <div
-          class="jsx-71743532 box"
+          class="ui-Button"
         >
-          <button
-            class="jsx-1937199209 destructive"
-            data-test="dhis2-uicore-button"
-            type="button"
-          >
-            Delete
-          </button>
+          Delete
         </div>
       </div>
     </div>
@@ -59,16 +45,16 @@ exports[`ConfirmActionDialog renders confirm delete dialog 1`] = `
 
 exports[`ConfirmActionDialog renders discard changes dialog 1`] = `
 <div>
-  <div>
-    <h1
-      class="jsx-3701517325 title"
-      data-test="dhis2-uicore-modaltitle"
+  <div
+    class="ui-Modal"
+  >
+    <div
+      class="ui-ModalTitle"
     >
       Discard changes
-    </h1>
+    </div>
     <div
-      class="jsx-659511263 "
-      data-test="dhis2-uicore-modalcontent"
+      class="ui-ModalContent"
     >
       <span
         class="content"
@@ -77,34 +63,20 @@ exports[`ConfirmActionDialog renders discard changes dialog 1`] = `
       </span>
     </div>
     <div
-      class="jsx-752323619"
-      data-test="dhis2-uicore-modalactions"
+      class="ui-ModalActions"
     >
       <div
-        class="jsx-71743532 start"
-        data-test="dhis2-uicore-buttonstrip"
+        class="ui-ButtonStrip"
       >
         <div
-          class="jsx-71743532 box"
+          class="ui-Button"
         >
-          <button
-            class="jsx-1937199209 secondary"
-            data-test="dhis2-uicore-button"
-            type="button"
-          >
-            No, stay here
-          </button>
+          No, stay here
         </div>
         <div
-          class="jsx-71743532 box"
+          class="ui-Button"
         >
-          <button
-            class="jsx-1937199209 destructive"
-            data-test="dhis2-uicore-button"
-            type="button"
-          >
-            Yes, discard changes
-          </button>
+          Yes, discard changes
         </div>
       </div>
     </div>

@@ -14,6 +14,27 @@ jest.mock('../../../../SystemSettingsProvider', () => {
     }
 })
 
+/* eslint-disable react/prop-types */
+jest.mock('@dhis2/ui', () => {
+    const originalModule = jest.requireActual('@dhis2/ui')
+
+    return {
+        __esModule: true,
+        ...originalModule,
+        Button: function Mock({ small, secondary, icon }) {
+            return (
+                <div
+                    className="ui-button"
+                    small={small.toString()}
+                    secondary={secondary.toString()}
+                    icon={icon}
+                />
+            )
+        },
+    }
+})
+/* eslint-enable react/prop-types */
+
 jest.mock('@dhis2/app-runtime', () => ({
     useOnlineStatus: jest.fn(() => ({ offline: true })),
     useConfig: jest.fn(() => ({ baseUrl: 'dhis2' })),
@@ -44,7 +65,7 @@ const defaultProps = {
     loadItemFailed: false,
 }
 
-test('renders just the button when menu closed', () => {
+test.only('renders just the button when menu closed', () => {
     useSystemSettings.mockReturnValue(mockSystemSettingsDefault)
 
     const { container } = render(

@@ -39,7 +39,9 @@ const Chip = ({ starred, selected, label, dashboardId, onClick }) => {
             className={classes.link}
             to={`/${dashboardId}`}
             onClick={handleClick}
-            data-test="dashboard-chip"
+            data-testid={`dashboard-chip${selected ? '-selected' : ''}${
+                starred ? '-starred' : ''
+            }`}
         >
             <UiChip {...chipProps}>
                 <span

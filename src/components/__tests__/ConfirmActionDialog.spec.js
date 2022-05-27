@@ -3,17 +3,34 @@ import { render } from '@testing-library/react'
 import React from 'react'
 import ConfirmActionDialog from '../ConfirmActionDialog.js'
 
+/* eslint-disable react/prop-types */
 jest.mock('@dhis2/ui', () => {
     const originalModule = jest.requireActual('@dhis2/ui')
 
     return {
         __esModule: true,
         ...originalModule,
-        Modal: function MockComponent(props) {
-            return <div>{props.children}</div>
+        Modal: function Mock(props) {
+            return <div className="ui-Modal">{props.children}</div>
+        },
+        Button: function Mock({ children }) {
+            return <div className="ui-Button">{children}</div>
+        },
+        ButtonStrip: function Mock({ children }) {
+            return <div className="ui-ButtonStrip">{children}</div>
+        },
+        ModalActions: function Mock({ children }) {
+            return <div className="ui-ModalActions">{children}</div>
+        },
+        ModalContent: function Mock({ children }) {
+            return <div className="ui-ModalContent">{children}</div>
+        },
+        ModalTitle: function Mock({ children }) {
+            return <div className="ui-ModalTitle">{children}</div>
         },
     }
 })
+/* eslint-enable react/prop-types */
 
 test('ConfirmActionDialog renders confirm delete dialog', () => {
     const { container } = render(

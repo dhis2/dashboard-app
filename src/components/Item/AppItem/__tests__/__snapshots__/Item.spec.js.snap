@@ -12,8 +12,7 @@ exports[`renders a valid App item in view mode 1`] = `
     </p>
   </div>
   <div
-    class="jsx-1555285825 jsx-2740202828 "
-    data-test="dhis2-uicore-divider"
+    class="ui-Divider"
   />
   <iframe
     class="dashboard-item-content"
@@ -36,38 +35,13 @@ exports[`renders a valid App item with filter in edit mode 1`] = `
     <div
       class="itemActionsWrap"
     >
-      <span
-        class="jsx-611321200"
-        data-test="dhis2-uicore-tooltip-reference"
-      >
-        <button
-          class="jsx-1937199209 secondary small icon-only"
-          data-test="delete-item-button"
-          type="button"
-        >
-          <span
-            class="jsx-1937199209 button-icon"
-          >
-            <svg
-              color="#c62828"
-              height="24"
-              viewBox="0 0 24 24"
-              width="24"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                d="M20 5a1 1 0 010 2h-1v13a2 2 0 01-2 2H7a2 2 0 01-2-2V7H4a1 1 0 110-2zm-3 2H7v13h10zm-6 2v8h-1V9zm3 0v8h-1V9zm1-7v2H9V2z"
-                fill="currentColor"
-              />
-            </svg>
-          </span>
-        </button>
-      </span>
+      <div
+        class="DeleteItemButton"
+      />
     </div>
   </div>
   <div
-    class="jsx-1555285825 jsx-2740202828 "
-    data-test="dhis2-uicore-divider"
+    class="ui-Divider"
   />
   <iframe
     class="dashboard-item-content"
@@ -89,8 +63,7 @@ exports[`renders a valid App item with filter in view mode 1`] = `
     </p>
   </div>
   <div
-    class="jsx-1555285825 jsx-2740202828 "
-    data-test="dhis2-uicore-divider"
+    class="ui-Divider"
   />
   <iframe
     class="dashboard-item-content"
@@ -113,38 +86,13 @@ exports[`renders a valid App item with title in edit mode irrespective of app se
     <div
       class="itemActionsWrap"
     >
-      <span
-        class="jsx-611321200"
-        data-test="dhis2-uicore-tooltip-reference"
-      >
-        <button
-          class="jsx-1937199209 secondary small icon-only"
-          data-test="delete-item-button"
-          type="button"
-        >
-          <span
-            class="jsx-1937199209 button-icon"
-          >
-            <svg
-              color="#c62828"
-              height="24"
-              viewBox="0 0 24 24"
-              width="24"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                d="M20 5a1 1 0 010 2h-1v13a2 2 0 01-2 2H7a2 2 0 01-2-2V7H4a1 1 0 110-2zm-3 2H7v13h10zm-6 2v8h-1V9zm3 0v8h-1V9zm1-7v2H9V2z"
-                fill="currentColor"
-              />
-            </svg>
-          </span>
-        </button>
-      </span>
+      <div
+        class="DeleteItemButton"
+      />
     </div>
   </div>
   <div
-    class="jsx-1555285825 jsx-2740202828 "
-    data-test="dhis2-uicore-divider"
+    class="ui-Divider"
   />
   <iframe
     class="dashboard-item-content"
@@ -176,8 +124,7 @@ exports[`renders an invalid App item 1`] = `
     </p>
   </div>
   <div
-    class="jsx-1555285825 jsx-2740202828 "
-    data-test="dhis2-uicore-divider"
+    class="ui-Divider"
   />
   <div
     class="dashboard-item-content"
