@@ -342,7 +342,7 @@ msgid "Start of dashboard"
 msgstr ""
 
 msgid "Print"
-msgstr ""
+msgstr "Imprimare"
 
 msgid "dashboard layout"
 msgstr ""
