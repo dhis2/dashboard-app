@@ -39,6 +39,7 @@ test('Filter Badge displays badge containing number of items in filter', () => {
                 filter={filter}
                 openFilterModal={jest.fn()}
                 removeFilter={jest.fn}
+                onRemove={Function.prototype}
             />
         </Provider>
     )
@@ -58,6 +59,7 @@ test('FilterBadge displays badge with filter item name when only one filter item
                 filter={filter}
                 openFilterModal={jest.fn()}
                 removeFilter={jest.fn}
+                onRemove={Function.prototype}
             />
         </Provider>
     )

@@ -14,29 +14,8 @@ jest.mock('../../../../SystemSettingsProvider', () => {
     }
 })
 
-/* eslint-disable react/prop-types */
-jest.mock('@dhis2/ui', () => {
-    const originalModule = jest.requireActual('@dhis2/ui')
-
-    return {
-        __esModule: true,
-        ...originalModule,
-        Button: function Mock({ small, secondary, icon }) {
-            return (
-                <div
-                    className="ui-button"
-                    small={small.toString()}
-                    secondary={secondary.toString()}
-                    icon={icon}
-                />
-            )
-        },
-    }
-})
-/* eslint-enable react/prop-types */
-
 jest.mock('@dhis2/app-runtime', () => ({
-    useOnlineStatus: jest.fn(() => ({ offline: true })),
+    useOnlineStatus: jest.fn(() => ({ online: false, offline: true })),
     useConfig: jest.fn(() => ({ baseUrl: 'dhis2' })),
 }))
 
@@ -65,16 +44,23 @@ const defaultProps = {
     loadItemFailed: false,
 }
 
-test.only('renders just the button when menu closed', () => {
+test('renders just the button when menu closed', () => {
     useSystemSettings.mockReturnValue(mockSystemSettingsDefault)
 
-    const { container } = render(
+    const { getByRole, queryByTestId, queryByText } = render(
         <WindowDimensionsProvider>
             <ItemContextMenu {...defaultProps} />
         </WindowDimensionsProvider>
     )
 
-    expect(container).toMatchSnapshot()
+    expect(getByRole('button')).toBeTruthy()
+    expect(queryByText('View as Map')).toBeNull()
+    expect(queryByText('View as Chart')).toBeNull()
+    expect(queryByText('View as Table')).toBeNull()
+    expect(queryByTestId('divider')).toBeNull()
+    expect(queryByText('Open in Data Visualizer app')).toBeNull()
+    expect(queryByText('Show details and interpretations')).toBeNull()
+    expect(queryByText('View fullscreen')).toBeNull()
 })
 
 test('renders exit fullscreen button', () => {
@@ -323,7 +309,7 @@ test('renders popover menu when interpretations displayed', async () => {
 })
 
 test('does not render "View as" options if settings do not allow', async () => {
-    useSystemSettings.mockImplementation(() => ({
+    useSystemSettings.mockReturnValue({
         systemSettings: Object.assign(
             {},
             mockSystemSettingsDefault.systemSettings,
@@ -331,7 +317,7 @@ test('does not render "View as" options if settings do not allow', async () => {
                 allowVisViewAs: false,
             }
         ),
-    }))
+    })
 
     const { getByRole, queryAllByText } = render(
         <WindowDimensionsProvider>
