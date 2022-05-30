@@ -73,7 +73,7 @@ msgid "Exit print preview"
 msgstr ""
 
 msgid "Print"
-msgstr ""
+msgstr "Imprimare"
 
 msgid "dashboard layout"
 msgstr ""
