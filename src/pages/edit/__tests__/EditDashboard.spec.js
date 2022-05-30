@@ -11,6 +11,31 @@ import EditDashboard from '../EditDashboard.js'
 
 jest.mock('../../../api/fetchDashboard')
 
+/* eslint-disable react/prop-types */
+jest.mock('@dhis2/ui', () => {
+    const originalModule = jest.requireActual('@dhis2/ui')
+
+    return {
+        __esModule: true,
+        ...originalModule,
+        CenteredContent: function Mock({ children }) {
+            return <div className="ui-CenteredContent">{children}</div>
+        },
+    }
+})
+
+/* eslint-enable react/prop-types */
+
+/* eslint-disable react/prop-types */
+jest.mock(
+    '../../../components/Notice.js',
+    () =>
+        function Mock() {
+            return <div className="Notice" />
+        }
+)
+/* eslint-enable react/prop-types */
+
 jest.mock(
     '../ActionsBar',
     () =>
