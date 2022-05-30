@@ -94,7 +94,7 @@ msgid "Not supported"
 msgstr ""
 
 msgid "Print"
-msgstr ""
+msgstr "Imprimare"
 
 msgid "dashboard layout"
 msgstr ""
