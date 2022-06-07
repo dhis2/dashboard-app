@@ -10,6 +10,7 @@ import {
     MESSAGES,
     TEXT,
     SPACER,
+    EVENT_VISUALIZATION,
 } from '../../../modules/itemTypes.js'
 
 export const singleItems = [
@@ -40,6 +41,7 @@ export const singleItems = [
 export const categorizedItems = [
     VISUALIZATION,
     MAP,
+    EVENT_VISUALIZATION,
     EVENT_REPORT,
     EVENT_CHART,
     REPORTS,
