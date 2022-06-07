@@ -6,6 +6,7 @@ import {
     REPORT_TABLE,
     CHART,
     MAP,
+    EVENT_VISUALIZATION,
     EVENT_CHART,
     EVENT_REPORT,
     MESSAGES,
@@ -33,6 +34,7 @@ const getGridItem = (type) => {
         case REPORT_TABLE:
         case CHART:
         case MAP:
+        case EVENT_VISUALIZATION:
         case EVENT_CHART:
         case EVENT_REPORT:
             return VisualizationItem

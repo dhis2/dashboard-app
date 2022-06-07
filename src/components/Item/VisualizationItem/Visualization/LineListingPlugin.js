@@ -1,8 +1,8 @@
 import React from 'react'
-// import { Plugin } from '@dhis2/app-runtime'
 
+// import { Plugin } from '@dhis2/app-runtime'
 const Plugin = () => <div>Line Listing plugin</div>
 
-const LineListingPlugin = () => <Plugin />
+const LineListingPlugin = (props) => <Plugin {...props} />
 
 export default LineListingPlugin
