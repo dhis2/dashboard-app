@@ -11,6 +11,7 @@ import {
     CHART,
     REPORT_TABLE,
     getItemTypeForVis,
+    EVENT_VISUALIZATION,
 } from '../../../../modules/itemTypes.js'
 import {
     sGetItemFiltersRoot,
@@ -22,6 +23,7 @@ import DataVisualizerPlugin from './DataVisualizerPlugin.js'
 import getFilteredVisualization from './getFilteredVisualization.js'
 import getVisualizationConfig from './getVisualizationConfig.js'
 import LegacyPlugin from './LegacyPlugin.js'
+import LineListingPlugin from './LineListingPlugin.js'
 import MapPlugin from './MapPlugin.js'
 import NoVisualizationMessage from './NoVisualizationMessage.js'
 import { pluginIsAvailable } from './plugin.js'
@@ -75,6 +77,19 @@ class Visualization extends React.Component {
                         )}
                         style={style}
                         filterVersion={filterVersion}
+                        item={item}
+                        dashboardMode={this.props.dashboardMode}
+                    />
+                )
+            }
+            case EVENT_VISUALIZATION: {
+                return (
+                    <LineListingPlugin
+                        visualization={this.memoizedGetFilteredVisualization(
+                            visualizationConfig,
+                            itemFilters
+                        )}
+                        style={style}
                         item={item}
                         dashboardMode={this.props.dashboardMode}
                     />
