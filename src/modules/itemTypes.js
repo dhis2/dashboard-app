@@ -19,6 +19,7 @@ export const VISUALIZATION = 'VISUALIZATION'
 export const REPORT_TABLE = 'REPORT_TABLE'
 export const CHART = 'CHART'
 export const MAP = 'MAP'
+export const EVENT_VISUALIZATION = 'EVENT_VISUALIZATION'
 export const EVENT_REPORT = 'EVENT_REPORT'
 export const EVENT_CHART = 'EVENT_CHART'
 export const APP = 'APP'
@@ -102,6 +103,18 @@ export const itemTypeMap = {
         isVisualizationType: true,
         appUrl: (id) => `dhis-web-maps/?id=${id}`,
         appName: 'Maps',
+    },
+    [EVENT_VISUALIZATION]: {
+        id: EVENT_VISUALIZATION,
+        endPointName: 'eventVisualizations',
+        dataStatisticsName: 'EVENT_VISUALIZATION_VIEW',
+        propName: 'eventVisualization',
+        pluralTitle: i18n.t('Event visualizations'),
+        domainType: DOMAIN_TYPE_TRACKER,
+        isVisualizationType: true,
+        appUrl: (id) => `api/apps/line-listing/#/${id}`,
+        appName: 'Line Listing',
+        defaultItemCount: 10,
     },
     [EVENT_REPORT]: {
         id: EVENT_REPORT,
