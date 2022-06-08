@@ -22,7 +22,7 @@ msgid "Dashboard"
 msgstr ""
 
 msgid "Cancel"
-msgstr ""
+msgstr "Anulare"
 
 msgid "Delete"
 msgstr "Lichidare"
@@ -134,7 +134,7 @@ msgid "Open this item in {{appName}}"
 msgstr ""
 
 msgid "Confirm"
-msgstr ""
+msgstr "Confirmare"
 
 msgid "Add filter"
 msgstr ""
@@ -167,7 +167,7 @@ msgid "Edit"
 msgstr "Editare"
 
 msgid "Share"
-msgstr ""
+msgstr "Partajare"
 
 msgid "No description"
 msgstr ""
