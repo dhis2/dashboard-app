@@ -206,7 +206,7 @@ msgid ""
 msgstr ""
 
 msgid "Cancel"
-msgstr ""
+msgstr "Anulare"
 
 msgid "Discard changes"
 msgstr ""
@@ -256,7 +256,7 @@ msgid "Selected Filters"
 msgstr ""
 
 msgid "Confirm"
-msgstr ""
+msgstr "Confirmare"
 
 msgid "There are no items on this dashboard"
 msgstr ""
@@ -467,7 +467,7 @@ msgid "Edit"
 msgstr "Editare"
 
 msgid "Share"
-msgstr ""
+msgstr "Partajare"
 
 msgid "Clear dashboard filters?"
 msgstr ""
