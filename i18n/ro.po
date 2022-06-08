@@ -101,10 +101,10 @@ msgid "View in {{appName}} app"
 msgstr ""
 
 msgid "Cancel"
-msgstr ""
+msgstr "Anulare"
 
 msgid "Confirm"
-msgstr ""
+msgstr "Confirmare"
 
 msgid "Add filter"
 msgstr ""
@@ -143,7 +143,7 @@ msgid "Edit"
 msgstr "Editare"
 
 msgid "Share"
-msgstr ""
+msgstr "Partajare"
 
 msgid "No description"
 msgstr ""
