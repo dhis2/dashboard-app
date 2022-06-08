@@ -71,6 +71,9 @@ export const getFavoriteFields = ({ withDimensions, withOptions }) => {
 export const getFavoritesFields = () => [
     `visualization[${getFavoriteFields({ withDimensions: false }).join(',')}]`,
     `map[${getFavoriteFields({ withDimensions: false }).join(',')}]`,
+    `eventVisualization[${getFavoriteFields({ withDimensions: false }).join(
+        ','
+    )}]`,
     `eventReport[${getFavoriteFields({ withDimensions: false }).join(',')}]`,
     `eventChart[${getFavoriteFields({ withDimensions: false }).join(',')}]`,
 ]

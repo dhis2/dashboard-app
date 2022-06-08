@@ -64,7 +64,13 @@ class Visualization extends React.Component {
         )
 
         const filterVersion = this.getFilterVersion(itemFilters)
-
+        console.log(
+            'VIS',
+            this.memoizedGetFilteredVisualization(
+                visualizationConfig,
+                itemFilters
+            )
+        )
         switch (activeType) {
             case VISUALIZATION:
             case CHART:
