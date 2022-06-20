@@ -1,3 +1,10 @@
+## [99.9.13](https://github.com/dhis2/dashboard-app/compare/v99.9.12...v99.9.13) (2022-06-20)
+
+
+### Bug Fixes
+
+* bump interpretations component for DHIS2-12617 ([#2098](https://github.com/dhis2/dashboard-app/issues/2098)) ([556accf](https://github.com/dhis2/dashboard-app/commit/556accfc0d05781ab82bea5748c82a0066b742e6))
+
 ## [99.9.12](https://github.com/dhis2/dashboard-app/compare/v99.9.11...v99.9.12) (2022-05-24)
 
 
