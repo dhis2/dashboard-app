@@ -22,25 +22,25 @@ msgstr ""
 "Plural-Forms: nplurals=1; plural=0;\n"
 
 msgid "Untitled dashboard"
-msgstr ""
+msgstr "Dasbor tanpa judul"
 
 msgid "Cannot create a dashboard while offline"
-msgstr ""
+msgstr "Tidak dapat membuat sebuah dasbor saat offline"
 
 msgid "Create new dashboard"
-msgstr ""
+msgstr "Membuat dasbor baru"
 
 msgid "Search for a dashboard"
 msgstr "Cari dashboard"
 
 msgid "Show fewer dashboards"
-msgstr ""
+msgstr "Tampilkan lebih sedikit dasbor"
 
 msgid "Show more dashboards"
-msgstr ""
+msgstr "Tampilkan lebih banyak dasbor"
 
 msgid "Remove this item"
-msgstr ""
+msgstr "Hapus item ini"
 
 msgid "This item has been shortened to fit on one page"
 msgstr ""
@@ -64,7 +64,7 @@ msgid "Filters applied"
 msgstr ""
 
 msgid "Spacer"
-msgstr ""
+msgstr "Pengatur jarak"
 
 msgid ""
 "Use a spacer to create empty vertical space between other dashboard items."
@@ -91,22 +91,22 @@ msgid "Open in {{appName}} app"
 msgstr ""
 
 msgid "View fullscreen"
-msgstr ""
+msgstr "Lihat layar penuh"
 
 msgid "This map can't be displayed as a chart"
 msgstr ""
 
 msgid "View as Chart"
-msgstr ""
+msgstr "Lihat sebagai Grafik"
 
 msgid "This map can't be displayed as a table"
 msgstr ""
 
 msgid "View as Table"
-msgstr ""
+msgstr "Lihat sebagai Tabel"
 
 msgid "View as Map"
-msgstr ""
+msgstr "Lihat sebagai Peta"
 
 msgid "There was a problem loading interpretations for this item"
 msgstr ""
@@ -130,7 +130,7 @@ msgid "Not available offline"
 msgstr ""
 
 msgid "Visualizations"
-msgstr ""
+msgstr "Visualisasi"
 
 msgid "Pivot tables"
 msgstr "Tabel pivot"
@@ -148,7 +148,7 @@ msgid "Event charts"
 msgstr "Grafik kejadian"
 
 msgid "Apps"
-msgstr ""
+msgstr "Aplikasi"
 
 msgid "Reports"
 msgstr "Laporan"
@@ -187,7 +187,7 @@ msgid "Print preview"
 msgstr "Pratinjau"
 
 msgid "Filter settings"
-msgstr ""
+msgstr "Pengaturan filter"
 
 msgid "Translate"
 msgstr "Terjemahkan"
@@ -220,7 +220,7 @@ msgid "Cancel"
 msgstr "Batal"
 
 msgid "Discard changes"
-msgstr ""
+msgstr "Hapus perubahan"
 
 msgid ""
 "This dashboard has unsaved changes. Are you sure you want to leave and "
@@ -230,16 +230,16 @@ msgstr ""
 "keluar dan membuang perubahan yang belum disimpan ini?"
 
 msgid "No, stay here"
-msgstr ""
+msgstr "Tidak, tetap disini"
 
 msgid "Yes, discard changes"
-msgstr ""
+msgstr "Ya, hapus perubahan"
 
 msgid "No access"
 msgstr "Tidak ada akses"
 
 msgid "Not supported"
-msgstr ""
+msgstr "Tidak didukung"
 
 msgid ""
 "Editing dashboards on small screens is not supported. Resize your screen to "
@@ -269,10 +269,10 @@ msgstr ""
 "                                         tersedia di dasbor."
 
 msgid "Available Filters"
-msgstr ""
+msgstr "Filter yang tersedia"
 
 msgid "Selected Filters"
-msgstr ""
+msgstr "Filter yang dipilih"
 
 msgid "Confirm"
 msgstr "Konfirmasi"
@@ -336,7 +336,7 @@ msgid "Default height for items added to dashboard (rows)"
 msgstr ""
 
 msgid "Save layout"
-msgstr ""
+msgstr "Simpan tata letak"
 
 msgid "Dashboard title"
 msgstr "Judul dashboard"
@@ -358,7 +358,7 @@ msgid_plural "{{count}} columns"
 msgstr[0] ""
 
 msgid "Change layout"
-msgstr ""
+msgstr "Ubah tata letak"
 
 msgid "Add new items to"
 msgstr ""
@@ -410,7 +410,7 @@ msgid "Create a new dashboard with the + button."
 msgstr ""
 
 msgid "Your most viewed dashboards"
-msgstr ""
+msgstr "dasbor yang paling sering anda lihat"
 
 msgid "No dashboards found. Use the + button to create a new dashboard."
 msgstr ""
@@ -424,10 +424,10 @@ msgid_plural "{{count}} selected"
 msgstr[0] ""
 
 msgid "Cannot remove filters while offline"
-msgstr ""
+msgstr "Tidak dapat menghapus filter saat offline"
 
 msgid "Removing filters while offline"
-msgstr ""
+msgstr "Menghapus filter saat offline"
 
 msgid ""
 "Removing this filter while offline will remove all other filters. Do you "
@@ -438,7 +438,7 @@ msgid "No, cancel"
 msgstr "Tidak, batalkan"
 
 msgid "Yes, remove filters"
-msgstr ""
+msgstr "Ya, hapus filter"
 
 msgid "The dashboard couldn't be made available offline. Try again."
 msgstr ""
@@ -468,13 +468,13 @@ msgid "Hide description"
 msgstr ""
 
 msgid "Show description"
-msgstr ""
+msgstr "Tampilkan keterangan"
 
 msgid "One item per page"
-msgstr ""
+msgstr "Satu item per halaman"
 
 msgid "Close dashboard"
-msgstr ""
+msgstr "Tutup dasbor"
 
 msgid "More"
 msgstr "Lagi"
@@ -518,16 +518,16 @@ msgid "Loading dashboard"
 msgstr ""
 
 msgid "Offline"
-msgstr ""
+msgstr "Offline"
 
 msgid "This dashboard cannot be loaded while offline."
-msgstr ""
+msgstr "Dasbor ini tidak dapat dimuat saat sedang offline"
 
 msgid "Go to start page"
-msgstr ""
+msgstr "Pergi ke halaman awal"
 
 msgid "Load dashboard failed"
-msgstr ""
+msgstr "Gagal memuat dasbor"
 
 msgid "This dashboard could not be loaded. Please try again later."
-msgstr ""
+msgstr "Dasbor ini tidak bisa dimuat. Harap coba lagi nanti"
