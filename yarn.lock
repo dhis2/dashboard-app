@@ -2332,14 +2332,25 @@
     material-ui "^0.20.0"
     rxjs "^5.5.7"
 
-"@dhis2/d2-ui-interpretations@^7.3.3":
-  version "7.3.3"
-  resolved "https://registry.yarnpkg.com/@dhis2/d2-ui-interpretations/-/d2-ui-interpretations-7.3.3.tgz#9bd45f548dc7b51ddd938d51d24a3be043ab7b7a"
-  integrity sha512-6bREjYPwmniN7kPVnEmAbuA3xPd/YMcaTTo2DvXHcYPrmeVGxucuiogm0pJBsX+DFNDgC4d8Dlcly4d0URhEPQ==
+"@dhis2/d2-ui-core@7.4.0":
+  version "7.4.0"
+  resolved "https://registry.yarnpkg.com/@dhis2/d2-ui-core/-/d2-ui-core-7.4.0.tgz#796afffbca4cf7f76a500d979e53c01abe8ebcb2"
+  integrity sha512-lVk3q2PV3Xb0RoeCcK/UgR2zqymj3SUix4qQXm+5HLZww6UtP8sTj+QcEEuVbPBqHPHaXnSOsKgtoD02QJfm4A==
   dependencies:
-    "@dhis2/d2-ui-mentions-wrapper" "7.3.3"
-    "@dhis2/d2-ui-rich-text" "7.3.3"
-    "@dhis2/d2-ui-sharing-dialog" "7.3.3"
+    babel-runtime "^6.26.0"
+    d2 "~31.7"
+    lodash "^4.17.10"
+    material-ui "^0.20.0"
+    rxjs "^5.5.7"
+
+"@dhis2/d2-ui-interpretations@^7.4.0":
+  version "7.4.0"
+  resolved "https://registry.yarnpkg.com/@dhis2/d2-ui-interpretations/-/d2-ui-interpretations-7.4.0.tgz#c712a26886137009c32ab56e9b6d9e06ac90c424"
+  integrity sha512-54LYUNwwCd3L8HYlg8gv1URjbfM1FPVSJoUieeyhtdidpTFUPPoc9Ud4kgrq+Y2QJe/mgh8Dx0RYyqoNLrRmtw==
+  dependencies:
+    "@dhis2/d2-ui-mentions-wrapper" "7.4.0"
+    "@dhis2/d2-ui-rich-text" "7.4.0"
+    "@dhis2/d2-ui-sharing-dialog" "7.4.0"
     "@material-ui/core" "^3.3.1"
     "@material-ui/icons" "^3.0.1"
     babel-runtime "^6.26.0"
@@ -2349,7 +2360,16 @@
     prop-types "^15.5.10"
     react-portal "^4.1.5"
 
-"@dhis2/d2-ui-mentions-wrapper@7.3.3", "@dhis2/d2-ui-mentions-wrapper@^7.3.3":
+"@dhis2/d2-ui-mentions-wrapper@7.4.0":
+  version "7.4.0"
+  resolved "https://registry.yarnpkg.com/@dhis2/d2-ui-mentions-wrapper/-/d2-ui-mentions-wrapper-7.4.0.tgz#5cd2334aa70c877885fa7b9cdfb4a1165d5423c5"
+  integrity sha512-QPAxLoGa1FC6AlouvxE7ORLku8VdwRNnPkm4TeNBwmIDoHjg+c5EQ+Sc07NJykSt1f3l/LG+sAQxfFTfRAS6Sg==
+  dependencies:
+    "@material-ui/core" "^3.3.1"
+    lodash "^4.17.10"
+    prop-types "^15.6.2"
+
+"@dhis2/d2-ui-mentions-wrapper@^7.3.3":
   version "7.3.3"
   resolved "https://registry.yarnpkg.com/@dhis2/d2-ui-mentions-wrapper/-/d2-ui-mentions-wrapper-7.3.3.tgz#c927c1fef27821db4c24f54c180cdd5f19c22e2b"
   integrity sha512-WK0EoV0FBF4rItlOZAAbQAVvHM+n3Eq7nBfUxcyTqpTEeD5HuGhzLTlkKoS68jrj1pGEepbeYhBXtgdCT/hWqQ==
@@ -2378,7 +2398,16 @@
     babel-runtime "^6.26.0"
     prop-types "^15.5.10"
 
-"@dhis2/d2-ui-rich-text@7.3.3", "@dhis2/d2-ui-rich-text@^7.3.3":
+"@dhis2/d2-ui-rich-text@7.4.0":
+  version "7.4.0"
+  resolved "https://registry.yarnpkg.com/@dhis2/d2-ui-rich-text/-/d2-ui-rich-text-7.4.0.tgz#e1fb6eff7309ea80a6af3bee2a247c9f93ea721d"
+  integrity sha512-q8woPPyYHiqQfNtujuCQH8eq7zRcN0140XqrKHw1DXF/fnqmrcVDTNZkPSaWMuUsdPhcgTHcnuEySP0MRAXv6g==
+  dependencies:
+    babel-runtime "^6.26.0"
+    markdown-it "^8.4.2"
+    prop-types "^15.6.2"
+
+"@dhis2/d2-ui-rich-text@^7.3.3":
   version "7.3.3"
   resolved "https://registry.yarnpkg.com/@dhis2/d2-ui-rich-text/-/d2-ui-rich-text-7.3.3.tgz#4fdb8de8a56edc924f98768efc1fead47450f834"
   integrity sha512-3uVI4jT4MpwE4JYuJarTHEtf+fX0kt4JCKqgUUaRKW0Oul6/E1zm5vpHccPlhUVRtdmD/epcJ4AmWDznqp5rQg==
@@ -2387,12 +2416,12 @@
     markdown-it "^8.4.2"
     prop-types "^15.6.2"
 
-"@dhis2/d2-ui-sharing-dialog@7.3.3":
-  version "7.3.3"
-  resolved "https://registry.yarnpkg.com/@dhis2/d2-ui-sharing-dialog/-/d2-ui-sharing-dialog-7.3.3.tgz#890e072b6eb0e0064548916737966371cc935c61"
-  integrity sha512-xq3/8ZnstHFiholePV+KB0JSV1N7zK87z/7gH4grSIaQkeRrDeTXkPMM8epz4BHwSBv39eI0AAzXoJA8F3EQjw==
+"@dhis2/d2-ui-sharing-dialog@7.4.0":
+  version "7.4.0"
+  resolved "https://registry.yarnpkg.com/@dhis2/d2-ui-sharing-dialog/-/d2-ui-sharing-dialog-7.4.0.tgz#1910f96bbfb4c706b1fedc677e8a28e62599dc73"
+  integrity sha512-5ebCQ7WxhD6y0gyPeOUiFb4XiKPJI4gZfRFmcuNLphu57TkcWj6HxWF3cDv+DYM0BS8c9Pq2iSCThay5nPFYDA==
   dependencies:
-    "@dhis2/d2-ui-core" "7.3.3"
+    "@dhis2/d2-ui-core" "7.4.0"
     "@material-ui/core" "^3.3.1"
     "@material-ui/icons" "^3.0.1"
     babel-runtime "^6.26.0"
