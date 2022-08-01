@@ -26,7 +26,6 @@ jest.mock('@dhis2/ui', () => {
 
 /* eslint-enable react/prop-types */
 
-/* eslint-disable react/prop-types */
 jest.mock(
     '../../../components/Notice.js',
     () =>
@@ -34,7 +33,6 @@ jest.mock(
             return <div className="Notice" />
         }
 )
-/* eslint-enable react/prop-types */
 
 jest.mock(
     '../ActionsBar',

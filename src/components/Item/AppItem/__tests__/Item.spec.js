@@ -7,7 +7,6 @@ import Item from '../Item.js'
 
 jest.mock('@dhis2/app-runtime-adapter-d2')
 
-/* eslint-disable react/prop-types */
 jest.mock('@dhis2/ui', () => {
     const originalModule = jest.requireActual('@dhis2/ui')
 
@@ -19,7 +18,6 @@ jest.mock('@dhis2/ui', () => {
         },
     }
 })
-/* eslint-enable react/prop-types */
 
 jest.mock(
     '../../ItemHeader/DeleteItemButton.js',
