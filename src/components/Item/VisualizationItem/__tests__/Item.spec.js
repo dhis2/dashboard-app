@@ -17,6 +17,14 @@ jest.mock('../Visualization/plugin', () => {
 })
 
 jest.mock(
+    '../../ItemHeader/DeleteItemButton.js',
+    () =>
+        function Mock() {
+            return <div className="DeleteItemButton" />
+        }
+)
+
+jest.mock(
     '../Visualization/Visualization',
     () =>
         function MockVisualizationComponent(props) {

@@ -5,6 +5,24 @@ import React from 'react'
 import { Router } from 'react-router-dom'
 import Chip from '../Chip.js'
 
+/* eslint-disable react/prop-types */
+jest.mock('@dhis2/ui', () => {
+    const originalModule = jest.requireActual('@dhis2/ui')
+
+    return {
+        __esModule: true,
+        ...originalModule,
+        Chip: function Mock({ children, ...props }) {
+            return (
+                <div className="ui-Chip" {...props}>
+                    {children}
+                </div>
+            )
+        },
+    }
+})
+/* eslint-enable react/prop-types */
+
 jest.mock('@dhis2/app-runtime', () => ({
     useOnlineStatus: () => ({ online: true }),
     useCacheableSection: jest.fn(),
@@ -42,7 +60,7 @@ const defaultProps = {
     },
 }
 
-test('renders an unstarred chip for a non-offline dashboard', () => {
+test('renders an unstarred chip for a non-cached dashboard', () => {
     useCacheableSection.mockImplementation(() => mockNonOfflineDashboard)
     const { container } = render(
         <Router history={createMemoryHistory()}>
@@ -53,7 +71,7 @@ test('renders an unstarred chip for a non-offline dashboard', () => {
     expect(container).toMatchSnapshot()
 })
 
-test('renders an unstarred chip for an offline dashboard', () => {
+test('renders an unstarred chip for cached dashboard', () => {
     useCacheableSection.mockImplementation(() => mockOfflineDashboard)
     const { container } = render(
         <Router history={createMemoryHistory()}>

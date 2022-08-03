@@ -3,17 +3,15 @@
 exports[`renders correctly when filters are not restricted 1`] = `
 <div>
   <div
-    class="modal"
+    class="ui-Modal"
   >
-    <h1
-      class="jsx-3701517325 title"
-      data-test="dhis2-uicore-modaltitle"
+    <div
+      class="ui-ModalTitle"
     >
       Dashboard filter settings
-    </h1>
+    </div>
     <div
-      class="jsx-659511263 "
-      data-test="dhis2-uicore-modalcontent"
+      class="ui-ModalContent"
     >
       <div
         class="descContainer"
@@ -29,127 +27,42 @@ exports[`renders correctly when filters are not restricted 1`] = `
         <div
           class="radioButton"
         >
-          <label
-            class="jsx-869913229 dense"
-            data-test="dhis2-uicore-radio"
-          >
-            <input
-              checked=""
-              class="jsx-869913229"
-              name="radio-allow-filtering-on-all"
-              type="radio"
-              value="false"
-            />
-            <div
-              class="jsx-869913229 icon dense"
-            >
-              <svg
-                class="jsx-1659897952 jsx-1631270792 checked"
-                viewBox="0 0 14 14"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <circle
-                  class="jsx-1659897952 jsx-1631270792 background"
-                  cx="7"
-                  cy="7"
-                  r="7"
-                />
-                <path
-                  class="jsx-1659897952 jsx-1631270792 outer unchecked"
-                  d="M7,14 C10.8659932,14 14,10.8659932 14,7 C14,3.13400675 10.8659932,0 7,0 C3.13400675,0 0,3.13400675 0,7 C0,10.8659932 3.13400675,14 7,14 Z M7,13 C3.6862915,13 1,10.3137085 1,7 C1,3.6862915 3.6862915,1 7,1 C10.3137085,1 13,3.6862915 13,7 C13,10.3137085 10.3137085,13 7,13 Z"
-                />
-                <path
-                  class="jsx-1659897952 jsx-1631270792 outer checked"
-                  d="M7,14 C10.8659932,14 14,10.8659932 14,7 C14,3.13400675 10.8659932,0 7,0 C3.13400675,0 0,3.13400675 0,7 C0,10.8659932 3.13400675,14 7,14 Z M7,12 C4.23857625,12 2,9.76142375 2,7 C2,4.23857625 4.23857625,2 7,2 C9.76142375,2 12,4.23857625 12,7 C12,9.76142375 9.76142375,12 7,12 Z"
-                />
-                <circle
-                  class="jsx-1659897952 jsx-1631270792 inner"
-                  cx="7"
-                  cy="7"
-                  r="3"
-                />
-              </svg>
-            </div>
-            Allow filtering by all dimensions
-          </label>
+          <div
+            class="ui-Radio"
+            data-checked="true"
+            label="Allow filtering by all dimensions"
+            name="radio-allow-filtering-on-all"
+            value="false"
+          />
         </div>
         <div
           class="radioButton"
         >
-          <label
-            class="jsx-869913229 dense"
-            data-test="dhis2-uicore-radio"
-          >
-            <input
-              class="jsx-869913229"
-              name="radio-restrict-filtering"
-              type="radio"
-              value="true"
-            />
-            <div
-              class="jsx-869913229 icon dense"
-            >
-              <svg
-                class="jsx-1659897952 jsx-1631270792 "
-                viewBox="0 0 14 14"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <circle
-                  class="jsx-1659897952 jsx-1631270792 background"
-                  cx="7"
-                  cy="7"
-                  r="7"
-                />
-                <path
-                  class="jsx-1659897952 jsx-1631270792 outer unchecked"
-                  d="M7,14 C10.8659932,14 14,10.8659932 14,7 C14,3.13400675 10.8659932,0 7,0 C3.13400675,0 0,3.13400675 0,7 C0,10.8659932 3.13400675,14 7,14 Z M7,13 C3.6862915,13 1,10.3137085 1,7 C1,3.6862915 3.6862915,1 7,1 C10.3137085,1 13,3.6862915 13,7 C13,10.3137085 10.3137085,13 7,13 Z"
-                />
-                <path
-                  class="jsx-1659897952 jsx-1631270792 outer checked"
-                  d="M7,14 C10.8659932,14 14,10.8659932 14,7 C14,3.13400675 10.8659932,0 7,0 C3.13400675,0 0,3.13400675 0,7 C0,10.8659932 3.13400675,14 7,14 Z M7,12 C4.23857625,12 2,9.76142375 2,7 C2,4.23857625 4.23857625,2 7,2 C9.76142375,2 12,4.23857625 12,7 C12,9.76142375 9.76142375,12 7,12 Z"
-                />
-                <circle
-                  class="jsx-1659897952 jsx-1631270792 inner"
-                  cx="7"
-                  cy="7"
-                  r="3"
-                />
-              </svg>
-            </div>
-            Only allow filtering by selected dimensions
-          </label>
+          <div
+            class="ui-Radio"
+            data-checked="false"
+            label="Only allow filtering by selected dimensions"
+            name="radio-restrict-filtering"
+            value="true"
+          />
         </div>
       </form>
     </div>
     <div
-      class="jsx-752323619"
-      data-test="dhis2-uicore-modalactions"
+      class="ui-ModalActions"
     >
       <div
-        class="jsx-71743532 end"
-        data-test="dhis2-uicore-buttonstrip"
+        class="ui-ButtonStrip"
       >
         <div
-          class="jsx-71743532 box"
+          class="ui-Button"
         >
-          <button
-            class="jsx-1937199209 secondary"
-            data-test="dhis2-uicore-button"
-            type="button"
-          >
-            Cancel
-          </button>
+          Cancel
         </div>
         <div
-          class="jsx-71743532 box"
+          class="ui-Button"
         >
-          <button
-            class="jsx-1937199209 primary"
-            data-test="dhis2-uicore-button"
-            type="button"
-          >
-            Confirm
-          </button>
+          Confirm
         </div>
       </div>
     </div>
@@ -160,17 +73,15 @@ exports[`renders correctly when filters are not restricted 1`] = `
 exports[`renders correctly when filters are restricted 1`] = `
 <div>
   <div
-    class="modal"
+    class="ui-Modal"
   >
-    <h1
-      class="jsx-3701517325 title"
-      data-test="dhis2-uicore-modaltitle"
+    <div
+      class="ui-ModalTitle"
     >
       Dashboard filter settings
-    </h1>
+    </div>
     <div
-      class="jsx-659511263 "
-      data-test="dhis2-uicore-modalcontent"
+      class="ui-ModalContent"
     >
       <div
         class="descContainer"
@@ -186,132 +97,47 @@ exports[`renders correctly when filters are restricted 1`] = `
         <div
           class="radioButton"
         >
-          <label
-            class="jsx-869913229 dense"
-            data-test="dhis2-uicore-radio"
-          >
-            <input
-              class="jsx-869913229"
-              name="radio-allow-filtering-on-all"
-              type="radio"
-              value="false"
-            />
-            <div
-              class="jsx-869913229 icon dense"
-            >
-              <svg
-                class="jsx-1659897952 jsx-1631270792 "
-                viewBox="0 0 14 14"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <circle
-                  class="jsx-1659897952 jsx-1631270792 background"
-                  cx="7"
-                  cy="7"
-                  r="7"
-                />
-                <path
-                  class="jsx-1659897952 jsx-1631270792 outer unchecked"
-                  d="M7,14 C10.8659932,14 14,10.8659932 14,7 C14,3.13400675 10.8659932,0 7,0 C3.13400675,0 0,3.13400675 0,7 C0,10.8659932 3.13400675,14 7,14 Z M7,13 C3.6862915,13 1,10.3137085 1,7 C1,3.6862915 3.6862915,1 7,1 C10.3137085,1 13,3.6862915 13,7 C13,10.3137085 10.3137085,13 7,13 Z"
-                />
-                <path
-                  class="jsx-1659897952 jsx-1631270792 outer checked"
-                  d="M7,14 C10.8659932,14 14,10.8659932 14,7 C14,3.13400675 10.8659932,0 7,0 C3.13400675,0 0,3.13400675 0,7 C0,10.8659932 3.13400675,14 7,14 Z M7,12 C4.23857625,12 2,9.76142375 2,7 C2,4.23857625 4.23857625,2 7,2 C9.76142375,2 12,4.23857625 12,7 C12,9.76142375 9.76142375,12 7,12 Z"
-                />
-                <circle
-                  class="jsx-1659897952 jsx-1631270792 inner"
-                  cx="7"
-                  cy="7"
-                  r="3"
-                />
-              </svg>
-            </div>
-            Allow filtering by all dimensions
-          </label>
+          <div
+            class="ui-Radio"
+            data-checked="false"
+            label="Allow filtering by all dimensions"
+            name="radio-allow-filtering-on-all"
+            value="false"
+          />
         </div>
         <div
           class="radioButton"
         >
-          <label
-            class="jsx-869913229 dense"
-            data-test="dhis2-uicore-radio"
-          >
-            <input
-              checked=""
-              class="jsx-869913229"
-              name="radio-restrict-filtering"
-              type="radio"
-              value="true"
-            />
-            <div
-              class="jsx-869913229 icon dense"
-            >
-              <svg
-                class="jsx-1659897952 jsx-1631270792 checked"
-                viewBox="0 0 14 14"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <circle
-                  class="jsx-1659897952 jsx-1631270792 background"
-                  cx="7"
-                  cy="7"
-                  r="7"
-                />
-                <path
-                  class="jsx-1659897952 jsx-1631270792 outer unchecked"
-                  d="M7,14 C10.8659932,14 14,10.8659932 14,7 C14,3.13400675 10.8659932,0 7,0 C3.13400675,0 0,3.13400675 0,7 C0,10.8659932 3.13400675,14 7,14 Z M7,13 C3.6862915,13 1,10.3137085 1,7 C1,3.6862915 3.6862915,1 7,1 C10.3137085,1 13,3.6862915 13,7 C13,10.3137085 10.3137085,13 7,13 Z"
-                />
-                <path
-                  class="jsx-1659897952 jsx-1631270792 outer checked"
-                  d="M7,14 C10.8659932,14 14,10.8659932 14,7 C14,3.13400675 10.8659932,0 7,0 C3.13400675,0 0,3.13400675 0,7 C0,10.8659932 3.13400675,14 7,14 Z M7,12 C4.23857625,12 2,9.76142375 2,7 C2,4.23857625 4.23857625,2 7,2 C9.76142375,2 12,4.23857625 12,7 C12,9.76142375 9.76142375,12 7,12 Z"
-                />
-                <circle
-                  class="jsx-1659897952 jsx-1631270792 inner"
-                  cx="7"
-                  cy="7"
-                  r="3"
-                />
-              </svg>
-            </div>
-            Only allow filtering by selected dimensions
-          </label>
+          <div
+            class="ui-Radio"
+            data-checked="true"
+            label="Only allow filtering by selected dimensions"
+            name="radio-restrict-filtering"
+            value="true"
+          />
         </div>
       </form>
       <div
-        class="transfer"
+        class="ui-Transfer"
         options="kvikk lunsj, salt sild, seigmenn"
         selecteddimensions="kl"
       />
     </div>
     <div
-      class="jsx-752323619"
-      data-test="dhis2-uicore-modalactions"
+      class="ui-ModalActions"
     >
       <div
-        class="jsx-71743532 end"
-        data-test="dhis2-uicore-buttonstrip"
+        class="ui-ButtonStrip"
       >
         <div
-          class="jsx-71743532 box"
+          class="ui-Button"
         >
-          <button
-            class="jsx-1937199209 secondary"
-            data-test="dhis2-uicore-button"
-            type="button"
-          >
-            Cancel
-          </button>
+          Cancel
         </div>
         <div
-          class="jsx-71743532 box"
+          class="ui-Button"
         >
-          <button
-            class="jsx-1937199209 primary"
-            data-test="dhis2-uicore-button"
-            type="button"
-          >
-            Confirm
-          </button>
+          Confirm
         </div>
       </div>
     </div>

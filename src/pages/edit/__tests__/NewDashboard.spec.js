@@ -5,6 +5,29 @@ import configureMockStore from 'redux-mock-store'
 import WindowDimensionsProvider from '../../../components/WindowDimensionsProvider.js'
 import NewDashboard from '../NewDashboard.js'
 
+/* eslint-disable react/prop-types */
+jest.mock('@dhis2/ui', () => {
+    const originalModule = jest.requireActual('@dhis2/ui')
+
+    return {
+        __esModule: true,
+        ...originalModule,
+        NoticeBox: function Mock({ warning, ...props }) {
+            return (
+                <div
+                    className="ui-NoticeBox"
+                    data-warning={warning}
+                    {...props}
+                />
+            )
+        },
+        CenteredContent: function Mock({ children }) {
+            return <div className="ui-CenteredContent">{children}</div>
+        },
+    }
+})
+/* eslint-enable react/prop-types */
+
 jest.mock(
     '../ActionsBar',
     () =>

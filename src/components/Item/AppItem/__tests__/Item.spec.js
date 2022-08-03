@@ -7,6 +7,26 @@ import Item from '../Item.js'
 
 jest.mock('@dhis2/app-runtime-adapter-d2')
 
+jest.mock('@dhis2/ui', () => {
+    const originalModule = jest.requireActual('@dhis2/ui')
+
+    return {
+        __esModule: true,
+        ...originalModule,
+        Divider: function Mock() {
+            return <div className="ui-Divider" />
+        },
+    }
+})
+
+jest.mock(
+    '../../ItemHeader/DeleteItemButton.js',
+    () =>
+        function Mock() {
+            return <div className="DeleteItemButton" />
+        }
+)
+
 const mockStore = configureMockStore()
 
 const item = {

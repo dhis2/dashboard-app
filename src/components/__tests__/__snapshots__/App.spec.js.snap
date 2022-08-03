@@ -56,6 +56,41 @@ exports[`renders the app with the start page 1`] = `
             </li>
           </ul>
         </div>
+        <div
+          class="section"
+        >
+          <h3
+            class="title"
+          >
+            Your most viewed dashboards
+          </h3>
+          <p>
+            <a
+              class="dashboard"
+              href="#/rainbowdash"
+            >
+              <span
+                class="icon"
+              >
+                <svg
+                  color="#6e7a8a"
+                  height="16"
+                  viewBox="0 0 16 16"
+                  width="16"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M14 2a1 1 0 011 1v10a1 1 0 01-1 1H2a1 1 0 01-1-1V3a1 1 0 011-1zm0 4H2v7h12zM5.5 7A2.5 2.5 0 113 9.5h1A1.5 1.5 0 105.5 8zM11 7v5h-1V7zm2 2v3h-1V9zm1-6H2v2h12z"
+                    fill="currentColor"
+                  />
+                </svg>
+              </span>
+              <span>
+                Rainbow Dash name
+              </span>
+            </a>
+          </p>
+        </div>
       </div>
     </div>
   </div>

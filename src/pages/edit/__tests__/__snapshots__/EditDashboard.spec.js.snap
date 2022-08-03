@@ -32,56 +32,8 @@ exports[`EditDashboard renders dashboard 1`] = `
     class="notice"
   >
     <div
-      class="jsx-498096601 center top"
-      data-test="dhis2-uicore-centeredcontent"
-    >
-      <div
-        class="jsx-498096601 center-inner-content"
-      >
-        <div
-          class="noticeContainer"
-        >
-          <div
-            class="jsx-3561221191 root warning"
-            data-test="dhis2-uicore-noticebox"
-          >
-            <div
-              class="jsx-3231412310"
-              data-test="dhis2-uicore-noticebox-icon"
-            >
-              <svg
-                color="#e56408"
-                height="24"
-                viewBox="0 0 24 24"
-                width="24"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  d="M12.847 2.794l.056.102 8.416 17.674a1 1 0 01-.786 1.423l-.117.007H3.584a1 1 0 01-.947-1.322l.044-.108 8.416-17.674a1 1 0 011.75-.102zM12 18a1 1 0 100 2 1 1 0 000-2zm1-9h-2v7h2z"
-                  fill="currentColor"
-                />
-              </svg>
-            </div>
-            <div
-              class="jsx-3561221191"
-            >
-              <h6
-                class="jsx-1234954849"
-                data-test="dhis2-uicore-noticebox-title"
-              >
-                Not supported
-              </h6>
-              <div
-                class="jsx-3638294246"
-                data-test="dhis2-uicore-noticebox-message"
-              >
-                Editing dashboards on small screens is not supported. Resize your screen to return to edit mode.
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
+      class="Notice"
+    />
   </div>
 </div>
 `;
@@ -106,56 +58,8 @@ exports[`EditDashboard renders message when not enough access 1`] = `
     class="notice"
   >
     <div
-      class="jsx-498096601 center top"
-      data-test="dhis2-uicore-centeredcontent"
-    >
-      <div
-        class="jsx-498096601 center-inner-content"
-      >
-        <div
-          class="noticeContainer"
-        >
-          <div
-            class="jsx-3561221191 root warning"
-            data-test="dhis2-uicore-noticebox"
-          >
-            <div
-              class="jsx-3231412310"
-              data-test="dhis2-uicore-noticebox-icon"
-            >
-              <svg
-                color="#e56408"
-                height="24"
-                viewBox="0 0 24 24"
-                width="24"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  d="M12.847 2.794l.056.102 8.416 17.674a1 1 0 01-.786 1.423l-.117.007H3.584a1 1 0 01-.947-1.322l.044-.108 8.416-17.674a1 1 0 011.75-.102zM12 18a1 1 0 100 2 1 1 0 000-2zm1-9h-2v7h2z"
-                  fill="currentColor"
-                />
-              </svg>
-            </div>
-            <div
-              class="jsx-3561221191"
-            >
-              <h6
-                class="jsx-1234954849"
-                data-test="dhis2-uicore-noticebox-title"
-              >
-                Not supported
-              </h6>
-              <div
-                class="jsx-3638294246"
-                data-test="dhis2-uicore-noticebox-message"
-              >
-                Editing dashboards on small screens is not supported. Resize your screen to return to edit mode.
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
+      class="Notice"
+    />
   </div>
 </div>
 `;
@@ -178,56 +82,8 @@ exports[`EditDashboard renders print preview 1`] = `
     class="notice"
   >
     <div
-      class="jsx-498096601 center top"
-      data-test="dhis2-uicore-centeredcontent"
-    >
-      <div
-        class="jsx-498096601 center-inner-content"
-      >
-        <div
-          class="noticeContainer"
-        >
-          <div
-            class="jsx-3561221191 root warning"
-            data-test="dhis2-uicore-noticebox"
-          >
-            <div
-              class="jsx-3231412310"
-              data-test="dhis2-uicore-noticebox-icon"
-            >
-              <svg
-                color="#e56408"
-                height="24"
-                viewBox="0 0 24 24"
-                width="24"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  d="M12.847 2.794l.056.102 8.416 17.674a1 1 0 01-.786 1.423l-.117.007H3.584a1 1 0 01-.947-1.322l.044-.108 8.416-17.674a1 1 0 011.75-.102zM12 18a1 1 0 100 2 1 1 0 000-2zm1-9h-2v7h2z"
-                  fill="currentColor"
-                />
-              </svg>
-            </div>
-            <div
-              class="jsx-3561221191"
-            >
-              <h6
-                class="jsx-1234954849"
-                data-test="dhis2-uicore-noticebox-title"
-              >
-                Not supported
-              </h6>
-              <div
-                class="jsx-3638294246"
-                data-test="dhis2-uicore-noticebox-message"
-              >
-                Editing dashboards on small screens is not supported. Resize your screen to return to edit mode.
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
+      class="Notice"
+    />
   </div>
 </div>
 `;

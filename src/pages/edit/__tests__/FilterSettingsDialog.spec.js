@@ -6,28 +6,51 @@ jest.mock('@dhis2/app-runtime', () => ({
     useOnlineStatus: () => ({ online: true }),
 }))
 
+/* eslint-disable react/prop-types */
 jest.mock('@dhis2/ui', () => {
     const originalModule = jest.requireActual('@dhis2/ui')
 
     return {
         __esModule: true,
         ...originalModule,
-        Modal: function MockComponent(props) {
-            return <div className="modal">{props.children}</div> //eslint-disable-line react/prop-types
+        Modal: function Mock(props) {
+            return <div className="ui-Modal">{props.children}</div>
         },
         Transfer: function MockTransfer(props) {
             return (
                 <div
-                    className="transfer"
-                    options={props.options //eslint-disable-line react/prop-types
-                        .map((option) => `${option.label}`) //eslint-disable-line react/prop-types
+                    className="ui-Transfer"
+                    options={props.options
+                        .map((option) => `${option.label}`)
                         .join(', ')}
-                    selecteddimensions={props.selected.join(', ')} //eslint-disable-line react/prop-types
+                    selecteddimensions={props.selected.join(', ')}
                 />
             )
         },
+        Button: function Mock({ children }) {
+            return <div className="ui-Button">{children}</div>
+        },
+        //eslint-disable-next-line no-unused-vars
+        Radio: function Mock({ checked, dense, ...props }) {
+            return (
+                <div className="ui-Radio" data-checked={checked} {...props} />
+            )
+        },
+        ButtonStrip: function Mock({ children }) {
+            return <div className="ui-ButtonStrip">{children}</div>
+        },
+        ModalActions: function Mock({ children }) {
+            return <div className="ui-ModalActions">{children}</div>
+        },
+        ModalContent: function Mock({ children }) {
+            return <div className="ui-ModalContent">{children}</div>
+        },
+        ModalTitle: function Mock({ children }) {
+            return <div className="ui-ModalTitle">{children}</div>
+        },
     }
 })
+/* eslint-enable react/prop-types */
 
 jest.mock('../../../modules/useDimensions', () => ({
     __esModule: true,
