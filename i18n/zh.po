@@ -1,15 +1,15 @@
 # 
 # Translators:
-# phil_dhis2, 2019
-# easylin <lin_xd@126.com>, 2020
-# 晓东 林 <13981924470@126.com>, 2020
+# phil_dhis2, 2022
+# easylin <lin_xd@126.com>, 2022
+# 晓东 林 <13981924470@126.com>, 2022
 # 
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
 "POT-Creation-Date: 2019-01-23T12:57:13.874Z\n"
-"PO-Revision-Date: 2019-09-01 20:38+0000\n"
-"Last-Translator: 晓东 林 <13981924470@126.com>, 2020\n"
+"PO-Revision-Date: 2022-08-21 23:27+0000\n"
+"Last-Translator: 晓东 林 <13981924470@126.com>, 2022\n"
 "Language-Team: Chinese (https://www.transifex.com/hisp-uio/teams/100509/zh/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -18,40 +18,40 @@ msgstr ""
 "Plural-Forms: nplurals=1; plural=0;\n"
 
 msgid "Delete"
-msgstr "删除"
+msgstr ""
 
 msgid "Continue editing"
 msgstr "继续编辑"
 
 msgid "Confirm delete dashboard"
-msgstr "确认删除仪表盘"
+msgstr ""
 
 msgid "Are you sure you want to delete dashboard \"{{ dashboardName }}\"?"
-msgstr "你确定要删除这个仪表盘 \"{{ dashboardName }}\"吗？"
+msgstr ""
 
 msgid "Exit without saving"
-msgstr "不保存退出"
+msgstr ""
 
 msgid "Go to dashboards"
-msgstr "进到仪表盘"
+msgstr ""
 
 msgid "Save changes"
-msgstr "保存改变"
+msgstr ""
 
 msgid "Translate"
-msgstr "翻译"
+msgstr ""
 
 msgid "Search for a dashboard"
-msgstr "搜索仪表盘"
+msgstr ""
 
 msgid "Show less"
-msgstr "显示更少"
+msgstr "显示较少"
 
 msgid "Show more"
-msgstr "显示更多"
+msgstr ""
 
 msgid "No access"
-msgstr "不能访问"
+msgstr ""
 
 msgid "No dashboards found. Use the + button to create a new dashboard."
 msgstr "没有发现仪表盘，使用+按钮创建新的仪表盘"
@@ -63,10 +63,10 @@ msgid "Messages"
 msgstr "消息"
 
 msgid "See all messages"
-msgstr "查看所有消息"
+msgstr ""
 
 msgid "Edit your interpretation"
-msgstr "编辑你的注释"
+msgstr ""
 
 msgid "Update"
 msgstr "更新"
@@ -78,53 +78,53 @@ msgid "Edit"
 msgstr "编辑"
 
 msgid "like"
-msgstr "喜欢"
+msgstr ""
 
 msgid "likes"
-msgstr "喜欢"
+msgstr ""
 
 msgid "You like this"
 msgstr "你喜欢这个"
 
 msgid "Like"
-msgstr "如"
+msgstr ""
 
 msgid "View in Visualizer"
-msgstr "在可视化器中查看"
+msgstr ""
 
 msgid "Reply"
-msgstr "回复"
+msgstr "应答"
 
 msgid "Add your reply"
-msgstr "添加你的应答"
+msgstr ""
 
 msgid "Interpretations"
-msgstr "注释"
+msgstr ""
 
 msgid "Add your interpretation"
 msgstr "添加你的注释"
 
 msgid "Unable to load the plugin for this item"
-msgstr "不能载入该条目的插件"
+msgstr ""
 
 msgid "Spacer"
-msgstr "空白隔断"
+msgstr ""
 
 msgid ""
 "Use a spacer to create empty vertical space between other dashboard items."
-msgstr "使用空白隔断在不同条目间创建垂直的空白区"
+msgstr ""
 
 msgid "Text item"
 msgstr "文本条目"
 
 msgid "Add text here"
-msgstr "在这里添加文本"
+msgstr ""
 
 msgid "There are no items on this dashboard"
 msgstr "该仪表盘没有条目"
 
 msgid "Search for items to add to this dashboard"
-msgstr "搜索条目添加到仪表盘"
+msgstr ""
 
 msgid "See"
 msgstr "查看"
@@ -136,49 +136,49 @@ msgid "more"
 msgstr "较多"
 
 msgid "Text box"
-msgstr "文本框"
+msgstr ""
 
 msgid "Add title here"
-msgstr "添加标题"
+msgstr ""
 
 msgid "Add description here"
-msgstr "添加描述"
+msgstr ""
 
 msgid "No description"
-msgstr "没有描述"
+msgstr "无描述"
 
 msgid "Pivot tables"
-msgstr "透视表"
+msgstr ""
 
 msgid "Pivot Tables"
 msgstr "透视表"
 
 msgid "Charts"
-msgstr "图表"
+msgstr ""
 
 msgid "Visualizer"
-msgstr "可视化图"
+msgstr ""
 
 msgid "Maps"
-msgstr "地图"
+msgstr ""
 
 msgid "Event reports"
-msgstr "事件报表"
+msgstr "事件报表应用"
 
 msgid "Event Reports"
-msgstr "事件报表"
+msgstr ""
 
 msgid "Event charts"
-msgstr "事件图表"
+msgstr "事件图表应用"
 
 msgid "Event Visualizer"
-msgstr "事件可视化"
+msgstr ""
 
 msgid "Reports"
-msgstr "报表管理"
+msgstr "报表"
 
 msgid "Resources"
-msgstr "资源"
+msgstr "资源管理"
 
 msgid "Users"
-msgstr "用户"
+msgstr ""

@@ -1,15 +1,15 @@
 # 
 # Translators:
-# phil_dhis2, 2019
-# Viktor Varland <viktor@dhis2.org>, 2019
-# Hamza Assada <7amza.it@gmail.com>, 2020
+# Viktor Varland <viktor@dhis2.org>, 2022
+# Hamza Assada <7amza.it@gmail.com>, 2022
+# phil_dhis2, 2022
 # 
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
 "POT-Creation-Date: 2019-01-23T12:57:13.874Z\n"
-"PO-Revision-Date: 2019-09-01 20:38+0000\n"
-"Last-Translator: Hamza Assada <7amza.it@gmail.com>, 2020\n"
+"PO-Revision-Date: 2022-08-21 23:27+0000\n"
+"Last-Translator: phil_dhis2, 2022\n"
 "Language-Team: Arabic (https://www.transifex.com/hisp-uio/teams/100509/ar/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -18,44 +18,43 @@ msgstr ""
 "Plural-Forms: nplurals=6; plural=n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 && n%100<=10 ? 3 : n%100>=11 && n%100<=99 ? 4 : 5;\n"
 
 msgid "Delete"
-msgstr "حذف"
+msgstr ""
 
 msgid "Continue editing"
 msgstr "استمر في التعديل"
 
 msgid "Confirm delete dashboard"
-msgstr "تأكيد حذف لوحة المعلومات"
+msgstr ""
 
 msgid "Are you sure you want to delete dashboard \"{{ dashboardName }}\"?"
-msgstr "هل تريد بالتأكيد حذف لوحة المعلومات \"{{dashboardName}}\"؟"
+msgstr ""
 
 msgid "Exit without saving"
-msgstr "الخروج من غير حفظ التغيرات"
+msgstr ""
 
 msgid "Go to dashboards"
-msgstr "الذهاب إلى لوحة المعلومات"
+msgstr ""
 
 msgid "Save changes"
-msgstr "حفظ التغيرات"
+msgstr ""
 
 msgid "Translate"
-msgstr "ترجمة"
+msgstr ""
 
 msgid "Search for a dashboard"
-msgstr "البحث عن لوحة معلومات"
+msgstr ""
 
 msgid "Show less"
-msgstr "إظهار الأقل"
+msgstr "إظهار أقل"
 
 msgid "Show more"
-msgstr "إظهار المزيد"
+msgstr ""
 
 msgid "No access"
-msgstr "ممنوع الدخول"
+msgstr ""
 
 msgid "No dashboards found. Use the + button to create a new dashboard."
 msgstr ""
-"لم يتم العثور على لوحات معلومات. استخدم الزر + لإنشاء لوحة معلومات جديدة."
 
 msgid "Requested dashboard not found"
 msgstr "لم يتم العثور على لوحة المعلومات التي طلبتها"
@@ -64,68 +63,68 @@ msgid "Messages"
 msgstr "الرسائل"
 
 msgid "See all messages"
-msgstr "رؤية كافة الرسائل"
+msgstr ""
 
 msgid "Edit your interpretation"
-msgstr "عدل تفسيرك"
+msgstr ""
 
 msgid "Update"
 msgstr "تحديث"
 
 msgid "Cancel edit"
-msgstr "إلغاء التعديل"
+msgstr ""
 
 msgid "Edit"
-msgstr "تعديل"
+msgstr ""
 
 msgid "like"
-msgstr "إعجاب"
+msgstr ""
 
 msgid "likes"
-msgstr "الإعجابات"
+msgstr ""
 
 msgid "You like this"
-msgstr "يعجبك هذا"
+msgstr ""
 
 msgid "Like"
-msgstr "إعجاب"
+msgstr ""
 
 msgid "View in Visualizer"
-msgstr "عرض في تطبيق التحليل المرئي"
+msgstr ""
 
 msgid "Reply"
-msgstr "رد"
+msgstr ""
 
 msgid "Add your reply"
-msgstr "إضافة ردك"
+msgstr ""
 
 msgid "Interpretations"
-msgstr "التفسيرات"
+msgstr ""
 
 msgid "Add your interpretation"
 msgstr "إضافة تفسيرك"
 
 msgid "Unable to load the plugin for this item"
-msgstr "تعذر تحميل المكوّن الإضافي لهذا العنصر"
+msgstr ""
 
 msgid "Spacer"
-msgstr "مسافة فاصلة"
+msgstr ""
 
 msgid ""
 "Use a spacer to create empty vertical space between other dashboard items."
-msgstr "استخدم فاصل لإنشاء مساحة رأسية فارغة بين عناصر لوحة المعلومات الأخرى"
+msgstr ""
 
 msgid "Text item"
-msgstr "عنصر نصي"
+msgstr ""
 
 msgid "Add text here"
-msgstr "اضف نص هنا"
+msgstr ""
 
 msgid "There are no items on this dashboard"
-msgstr "لايوجد عناصر في لوحة المعلومات هذه"
+msgstr ""
 
 msgid "Search for items to add to this dashboard"
-msgstr "ابحث عن عناصر لإضافتها إلى لوحة المعلومات هذه"
+msgstr ""
 
 msgid "See"
 msgstr "إنظر"
@@ -134,52 +133,52 @@ msgid "fewer"
 msgstr "أقل"
 
 msgid "more"
-msgstr "أكثر"
+msgstr ""
 
 msgid "Text box"
-msgstr "مربع نص"
+msgstr ""
 
 msgid "Add title here"
-msgstr "أضف عنواناً هنا"
+msgstr ""
 
 msgid "Add description here"
-msgstr "أضف وصفاً هنا"
+msgstr ""
 
 msgid "No description"
-msgstr "لا يوجد وصف"
+msgstr ""
 
 msgid "Pivot tables"
-msgstr "الجداول المحورية"
+msgstr ""
 
 msgid "Pivot Tables"
 msgstr "الجداول المحورية"
 
 msgid "Charts"
-msgstr "المخططات البيانية"
+msgstr ""
 
 msgid "Visualizer"
-msgstr "التحليل المرئي"
+msgstr ""
 
 msgid "Maps"
-msgstr "الخرائط"
+msgstr ""
 
 msgid "Event reports"
 msgstr "تقارير الحدث"
 
 msgid "Event Reports"
-msgstr "تقارير الحدث"
+msgstr ""
 
 msgid "Event charts"
-msgstr "المخطط البياني للأحداث"
+msgstr ""
 
 msgid "Event Visualizer"
-msgstr "التحليل المرئي للأحداث"
+msgstr ""
 
 msgid "Reports"
-msgstr "التقارير"
+msgstr ""
 
 msgid "Resources"
-msgstr "المصادر"
+msgstr ""
 
 msgid "Users"
-msgstr "المستخدمون"
+msgstr ""

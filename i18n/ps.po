@@ -1,14 +1,14 @@
 # 
 # Translators:
-# phil_dhis2, 2019
-# Viktor Varland <viktor@dhis2.org>, 2019
+# Viktor Varland <viktor@dhis2.org>, 2022
+# phil_dhis2, 2022
 # 
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
 "POT-Creation-Date: 2019-01-23T12:57:13.874Z\n"
-"PO-Revision-Date: 2019-09-01 20:38+0000\n"
-"Last-Translator: Viktor Varland <viktor@dhis2.org>, 2019\n"
+"PO-Revision-Date: 2022-08-21 23:27+0000\n"
+"Last-Translator: phil_dhis2, 2022\n"
 "Language-Team: Pashto (https://www.transifex.com/hisp-uio/teams/100509/ps/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 msgid "Delete"
-msgstr "خذف یې کړئ"
+msgstr ""
 
 msgid "Continue editing"
 msgstr ""
@@ -38,7 +38,7 @@ msgid "Save changes"
 msgstr ""
 
 msgid "Translate"
-msgstr "ژباړه"
+msgstr ""
 
 msgid "Search for a dashboard"
 msgstr ""
@@ -47,7 +47,7 @@ msgid "Show less"
 msgstr "لږ ښکاره کړئ"
 
 msgid "Show more"
-msgstr "ډېر ښکاره کړئ"
+msgstr ""
 
 msgid "No access"
 msgstr ""
@@ -86,7 +86,7 @@ msgid "You like this"
 msgstr ""
 
 msgid "Like"
-msgstr "د خوښې وړ."
+msgstr ""
 
 msgid "View in Visualizer"
 msgstr ""
@@ -98,7 +98,7 @@ msgid "Add your reply"
 msgstr ""
 
 msgid "Interpretations"
-msgstr "شفاهي ژباړې"
+msgstr ""
 
 msgid "Add your interpretation"
 msgstr ""
@@ -147,37 +147,37 @@ msgid "No description"
 msgstr "هېڅ ډول تشریح نه لري"
 
 msgid "Pivot tables"
-msgstr "محوري جدولونه"
+msgstr ""
 
 msgid "Pivot Tables"
 msgstr "محوري جدول"
 
 msgid "Charts"
-msgstr "چارټونه"
+msgstr ""
 
 msgid "Visualizer"
 msgstr ""
 
 msgid "Maps"
-msgstr "نخشې"
+msgstr ""
 
 msgid "Event reports"
 msgstr ""
 
 msgid "Event Reports"
-msgstr "د پېښې اړوند راپورونه"
+msgstr ""
 
 msgid "Event charts"
 msgstr ""
 
 msgid "Event Visualizer"
-msgstr "د پېښې انځوروونکی"
+msgstr ""
 
 msgid "Reports"
-msgstr "راپورونه"
+msgstr ""
 
 msgid "Resources"
 msgstr ""
 
 msgid "Users"
-msgstr "کاروونکي [ کاروونکي ]"
+msgstr ""

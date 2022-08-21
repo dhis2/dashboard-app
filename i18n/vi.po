@@ -1,15 +1,15 @@
 # 
 # Translators:
-# phil_dhis2, 2019
-# Viktor Varland <viktor@dhis2.org>, 2019
-# Mai Nguyen <thanhmai.jica@gmail.com>, 2020
+# phil_dhis2, 2022
+# Mai Nguyen <thanhmai.jica@gmail.com>, 2022
+# Viktor Varland <viktor@dhis2.org>, 2022
 # 
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
 "POT-Creation-Date: 2019-01-23T12:57:13.874Z\n"
-"PO-Revision-Date: 2019-09-01 20:38+0000\n"
-"Last-Translator: Mai Nguyen <thanhmai.jica@gmail.com>, 2020\n"
+"PO-Revision-Date: 2022-08-21 23:27+0000\n"
+"Last-Translator: Viktor Varland <viktor@dhis2.org>, 2022\n"
 "Language-Team: Vietnamese (https://www.transifex.com/hisp-uio/teams/100509/vi/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -18,42 +18,40 @@ msgstr ""
 "Plural-Forms: nplurals=1; plural=0;\n"
 
 msgid "Delete"
-msgstr "Xóa"
+msgstr ""
 
 msgid "Continue editing"
 msgstr "Tiếp tục chỉnh sửa"
 
 msgid "Confirm delete dashboard"
-msgstr "Xác nhận xóa bảng điều khiển "
+msgstr ""
 
 msgid "Are you sure you want to delete dashboard \"{{ dashboardName }}\"?"
 msgstr ""
-"Bạn có chắc chắn muốn xóa bảng điều khiển  \"{{tên bảng điều khiển}}\" "
-"không?"
 
 msgid "Exit without saving"
-msgstr "Đóng và không lưu"
+msgstr ""
 
 msgid "Go to dashboards"
-msgstr "Di chuyển tới bảng điều khiển"
+msgstr ""
 
 msgid "Save changes"
-msgstr "Lưu các thay đổi"
+msgstr ""
 
 msgid "Translate"
-msgstr "Dịch"
+msgstr ""
 
 msgid "Search for a dashboard"
-msgstr "Tìm kiếm bảng điều khiển"
+msgstr ""
 
 msgid "Show less"
 msgstr "Ẩn bớt"
 
 msgid "Show more"
-msgstr "Hiện thêm"
+msgstr ""
 
 msgid "No access"
-msgstr "Không truy cập"
+msgstr ""
 
 msgid "No dashboards found. Use the + button to create a new dashboard."
 msgstr ""
@@ -66,10 +64,10 @@ msgid "Messages"
 msgstr "Tin nhắn"
 
 msgid "See all messages"
-msgstr "Xem tất cả tin nhắn"
+msgstr ""
 
 msgid "Edit your interpretation"
-msgstr "Chỉnh sửa diễn giải của bạn"
+msgstr ""
 
 msgid "Update"
 msgstr "Cập nhật"
@@ -81,55 +79,53 @@ msgid "Edit"
 msgstr "Chỉnh sửa"
 
 msgid "like"
-msgstr "giống"
+msgstr ""
 
 msgid "likes"
-msgstr "thích"
+msgstr ""
 
 msgid "You like this"
 msgstr "Bạn thích điều này"
 
 msgid "Like"
-msgstr "Thích"
+msgstr ""
 
 msgid "View in Visualizer"
-msgstr "Xem trong ứng dụng trực quan hóa"
+msgstr ""
 
 msgid "Reply"
 msgstr "Trả lời"
 
 msgid "Add your reply"
-msgstr "Thêm câu trả lời của bạn"
+msgstr ""
 
 msgid "Interpretations"
-msgstr "Diễn giải báo cáo"
+msgstr ""
 
 msgid "Add your interpretation"
 msgstr "Thêm diễn giải của bạn"
 
 msgid "Unable to load the plugin for this item"
-msgstr "Không thể tải plugin cho mục này"
+msgstr ""
 
 msgid "Spacer"
-msgstr "Dấu cách"
+msgstr ""
 
 msgid ""
 "Use a spacer to create empty vertical space between other dashboard items."
 msgstr ""
-"Sử dụng dấu cách để tạo không gian dọc trống giữa các mục bảng điều khiển "
-"khác."
 
 msgid "Text item"
 msgstr "Mục văn bản"
 
 msgid "Add text here"
-msgstr "Thêm văn bản tại đây"
+msgstr ""
 
 msgid "There are no items on this dashboard"
 msgstr "Không có mục nào trong bảng điều khiển này"
 
 msgid "Search for items to add to this dashboard"
-msgstr "Tìm mục để thêm vào bảng điều khiển này"
+msgstr ""
 
 msgid "See"
 msgstr "Xem"
@@ -141,43 +137,43 @@ msgid "more"
 msgstr "hơn"
 
 msgid "Text box"
-msgstr "Hộp văn bản"
+msgstr ""
 
 msgid "Add title here"
-msgstr "Thêm tiêu đề ở đây"
+msgstr ""
 
 msgid "Add description here"
-msgstr "Thêm mô tả ở đây"
+msgstr ""
 
 msgid "No description"
 msgstr "Không mô tả"
 
 msgid "Pivot tables"
-msgstr "Bảng xoay"
+msgstr ""
 
 msgid "Pivot Tables"
 msgstr "Bảng xoay"
 
 msgid "Charts"
-msgstr "Biểu đồ"
+msgstr ""
 
 msgid "Visualizer"
-msgstr "Biểu Đồ"
+msgstr ""
 
 msgid "Maps"
-msgstr "Bản đồ"
+msgstr ""
 
 msgid "Event reports"
 msgstr "Báo Cáo Sự Kiện"
 
 msgid "Event Reports"
-msgstr "Báo cáo sự kiện"
+msgstr ""
 
 msgid "Event charts"
 msgstr "Biểu Đồ Sự Kiện"
 
 msgid "Event Visualizer"
-msgstr "Biểu đồ sự kiện"
+msgstr ""
 
 msgid "Reports"
 msgstr "Báo cáo tổng hợp"
@@ -186,4 +182,4 @@ msgid "Resources"
 msgstr "Tài Nguyên"
 
 msgid "Users"
-msgstr "Người dùng"
+msgstr ""

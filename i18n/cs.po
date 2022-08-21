@@ -1,13 +1,13 @@
 # 
 # Translators:
-# trendspotter <jirka.p@volny.cz>, 2020
+# trendspotter <jirka.p@volny.cz>, 2022
 # 
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
 "POT-Creation-Date: 2019-01-23T12:57:13.874Z\n"
-"PO-Revision-Date: 2019-09-01 20:38+0000\n"
-"Last-Translator: trendspotter <jirka.p@volny.cz>, 2020\n"
+"PO-Revision-Date: 2022-08-21 23:27+0000\n"
+"Last-Translator: trendspotter <jirka.p@volny.cz>, 2022\n"
 "Language-Team: Czech (https://www.transifex.com/hisp-uio/teams/100509/cs/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -16,45 +16,43 @@ msgstr ""
 "Plural-Forms: nplurals=4; plural=(n == 1 && n % 1 == 0) ? 0 : (n >= 2 && n <= 4 && n % 1 == 0) ? 1: (n % 1 != 0 ) ? 2 : 3;\n"
 
 msgid "Delete"
-msgstr "Smazat"
+msgstr ""
 
 msgid "Continue editing"
 msgstr "Pokračovat v úpravách"
 
 msgid "Confirm delete dashboard"
-msgstr "Potvrďte smazání ovládacího panelu"
+msgstr ""
 
 msgid "Are you sure you want to delete dashboard \"{{ dashboardName }}\"?"
-msgstr "Opravdu chcete smazat ovládací panel \"{{ dashboardName }}\"?"
+msgstr ""
 
 msgid "Exit without saving"
-msgstr "Odejít bez uložení"
+msgstr ""
 
 msgid "Go to dashboards"
-msgstr "Přejít na ovládací panely"
+msgstr ""
 
 msgid "Save changes"
-msgstr "Uložit změny"
+msgstr ""
 
 msgid "Translate"
-msgstr "Přeložit"
+msgstr ""
 
 msgid "Search for a dashboard"
-msgstr "Vyhledat ovládací panel"
+msgstr ""
 
 msgid "Show less"
 msgstr "Zobrazit méně"
 
 msgid "Show more"
-msgstr "Zobrazit více"
+msgstr ""
 
 msgid "No access"
-msgstr "Žádný přístup"
+msgstr ""
 
 msgid "No dashboards found. Use the + button to create a new dashboard."
 msgstr ""
-"Nebyly nalezeny žádné ovládací panely. Pomocí tlačítka + vytvořte nový "
-"ovládací panel."
 
 msgid "Requested dashboard not found"
 msgstr "Požadovaný ovládací panel nebyl nalezen"
@@ -63,70 +61,68 @@ msgid "Messages"
 msgstr "Zprávy"
 
 msgid "See all messages"
-msgstr "Zobrazit všechny zprávy"
+msgstr ""
 
 msgid "Edit your interpretation"
-msgstr "Upravit svůj výklad"
+msgstr ""
 
 msgid "Update"
 msgstr "Aktualizovat"
 
 msgid "Cancel edit"
-msgstr "Zrušit úpravy"
+msgstr ""
 
 msgid "Edit"
-msgstr "Upravit"
+msgstr ""
 
 msgid "like"
-msgstr "líbí se"
+msgstr ""
 
 msgid "likes"
-msgstr "se líbí"
+msgstr ""
 
 msgid "You like this"
-msgstr "Líbí se vám"
+msgstr ""
 
 msgid "Like"
-msgstr "Jako"
+msgstr ""
 
 msgid "View in Visualizer"
-msgstr "Zobrazit ve Visualizeru"
+msgstr ""
 
 msgid "Reply"
-msgstr "Odpovědět"
+msgstr ""
 
 msgid "Add your reply"
-msgstr "Přidat svoji odpověď"
+msgstr ""
 
 msgid "Interpretations"
-msgstr "Interpretace"
+msgstr ""
 
 msgid "Add your interpretation"
 msgstr "Přidat svůj výklad"
 
 msgid "Unable to load the plugin for this item"
-msgstr "Nelze načíst plugin pro tuto položku"
+msgstr ""
 
 msgid "Spacer"
-msgstr "Distanční vložka"
+msgstr ""
 
 msgid ""
 "Use a spacer to create empty vertical space between other dashboard items."
 msgstr ""
-"Pomocí mezerníku vytvořte prázdný svislý prostor mezi ostatními položkami "
-"ovládacího panelu."
 
 msgid "Text item"
-msgstr "Textová položka"
+msgstr ""
 
 msgid "Add text here"
-msgstr "Sem přidat text"
+msgstr ""
 
 msgid "There are no items on this dashboard"
-msgstr "Na tomto ovládacím panelu nejsou žádné položky"
+msgstr ""
 
 msgid "Search for items to add to this dashboard"
-msgstr "Vyhledejte položky, které chcete přidat na tento ovládací panel"
+msgstr ""
 
 msgid "See"
 msgstr "Viz"
@@ -135,52 +131,52 @@ msgid "fewer"
 msgstr "méně"
 
 msgid "more"
-msgstr "více"
+msgstr ""
 
 msgid "Text box"
-msgstr "Textové pole"
+msgstr ""
 
 msgid "Add title here"
-msgstr "Sem přidat název"
+msgstr ""
 
 msgid "Add description here"
-msgstr "Přidat popis zde"
+msgstr ""
 
 msgid "No description"
-msgstr "Bez popisu"
+msgstr ""
 
 msgid "Pivot tables"
-msgstr "Kontingenční tabulky"
+msgstr ""
 
 msgid "Pivot Tables"
 msgstr "Kontingenční tabulky"
 
 msgid "Charts"
-msgstr "Grafy"
+msgstr ""
 
 msgid "Visualizer"
-msgstr "Vizualizér"
+msgstr ""
 
 msgid "Maps"
-msgstr "Mapy"
+msgstr ""
 
 msgid "Event reports"
 msgstr "Zprávy o událostech"
 
 msgid "Event Reports"
-msgstr "Zprávy o událostech"
+msgstr ""
 
 msgid "Event charts"
-msgstr "Grafy událostí"
+msgstr ""
 
 msgid "Event Visualizer"
-msgstr "Vizualizér událostí"
+msgstr ""
 
 msgid "Reports"
-msgstr "Zprávy"
+msgstr ""
 
 msgid "Resources"
-msgstr "Zdroje"
+msgstr ""
 
 msgid "Users"
-msgstr "Uživatelé"
+msgstr ""

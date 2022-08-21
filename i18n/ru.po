@@ -1,14 +1,15 @@
 # 
 # Translators:
-# Viktor Varland <viktor@dhis2.org>, 2019
-# phil_dhis2, 2019
+# phil_dhis2, 2022
+# Wanda <wanda@frontlineaids.org>, 2022
+# Viktor Varland <viktor@dhis2.org>, 2022
 # 
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
 "POT-Creation-Date: 2019-01-23T12:57:13.874Z\n"
-"PO-Revision-Date: 2019-09-01 20:38+0000\n"
-"Last-Translator: phil_dhis2, 2019\n"
+"PO-Revision-Date: 2022-08-21 23:27+0000\n"
+"Last-Translator: Viktor Varland <viktor@dhis2.org>, 2022\n"
 "Language-Team: Russian (https://www.transifex.com/hisp-uio/teams/100509/ru/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -17,7 +18,7 @@ msgstr ""
 "Plural-Forms: nplurals=4; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<12 || n%100>14) ? 1 : n%10==0 || (n%10>=5 && n%10<=9) || (n%100>=11 && n%100<=14)? 2 : 3);\n"
 
 msgid "Delete"
-msgstr "Удалить"
+msgstr ""
 
 msgid "Continue editing"
 msgstr ""
@@ -29,28 +30,28 @@ msgid "Are you sure you want to delete dashboard \"{{ dashboardName }}\"?"
 msgstr ""
 
 msgid "Exit without saving"
-msgstr "Выйти без сохранения"
+msgstr ""
 
 msgid "Go to dashboards"
-msgstr "Перейти на информационную панель"
+msgstr ""
 
 msgid "Save changes"
-msgstr "Сохранить изменения"
+msgstr ""
 
 msgid "Translate"
-msgstr "Перевести"
+msgstr ""
 
 msgid "Search for a dashboard"
-msgstr "Поиск информационной панели"
+msgstr ""
 
 msgid "Show less"
 msgstr "Показать меньше информации"
 
 msgid "Show more"
-msgstr "Показать больше информации"
+msgstr ""
 
 msgid "No access"
-msgstr "Нет доступа"
+msgstr ""
 
 msgid "No dashboards found. Use the + button to create a new dashboard."
 msgstr ""
@@ -64,7 +65,7 @@ msgid "Messages"
 msgstr "Сообщения"
 
 msgid "See all messages"
-msgstr "Посмотреть все сообщения"
+msgstr ""
 
 msgid "Edit your interpretation"
 msgstr ""
@@ -88,7 +89,7 @@ msgid "You like this"
 msgstr ""
 
 msgid "Like"
-msgstr "Похожий"
+msgstr ""
 
 msgid "View in Visualizer"
 msgstr ""
@@ -100,34 +101,32 @@ msgid "Add your reply"
 msgstr ""
 
 msgid "Interpretations"
-msgstr "Интерпретации"
+msgstr ""
 
 msgid "Add your interpretation"
 msgstr ""
 
 msgid "Unable to load the plugin for this item"
-msgstr "Невозможно загрузить плагин для этого элемента"
+msgstr ""
 
 msgid "Spacer"
-msgstr "Разделитель"
+msgstr ""
 
 msgid ""
 "Use a spacer to create empty vertical space between other dashboard items."
 msgstr ""
-"Используйте разделитель для того, чтобы создать пустое вертикальное "
-"пространство между элементами информационной панели."
 
 msgid "Text item"
-msgstr "Текстовый элемент"
+msgstr ""
 
 msgid "Add text here"
-msgstr "Добавить текст сюда"
+msgstr ""
 
 msgid "There are no items on this dashboard"
-msgstr "На этой информационной панели нет элементов"
+msgstr ""
 
 msgid "Search for items to add to this dashboard"
-msgstr "Поиск элементов для добавления на эту информационную панель"
+msgstr ""
 
 msgid "See"
 msgstr ""
@@ -139,7 +138,7 @@ msgid "more"
 msgstr ""
 
 msgid "Text box"
-msgstr "Текстовое окно"
+msgstr ""
 
 msgid "Add title here"
 msgstr ""
@@ -151,37 +150,37 @@ msgid "No description"
 msgstr "Нет описания"
 
 msgid "Pivot tables"
-msgstr "Сводные таблицы"
+msgstr ""
 
 msgid "Pivot Tables"
 msgstr "Сводные таблицы"
 
 msgid "Charts"
-msgstr "Диаграммы"
+msgstr ""
 
 msgid "Visualizer"
-msgstr "Визуализатор"
+msgstr ""
 
 msgid "Maps"
-msgstr "Maps"
+msgstr ""
 
 msgid "Event reports"
 msgstr "Отчеты по событиям"
 
 msgid "Event Reports"
-msgstr "Отчеты случаев"
+msgstr ""
 
 msgid "Event charts"
 msgstr "Диаграммы событий"
 
 msgid "Event Visualizer"
-msgstr "Визуализатор событий"
+msgstr ""
 
 msgid "Reports"
-msgstr "Отчеты"
+msgstr ""
 
 msgid "Resources"
 msgstr "Ресурсы"
 
 msgid "Users"
-msgstr "Пользователи"
+msgstr ""

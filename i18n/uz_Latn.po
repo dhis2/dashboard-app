@@ -1,13 +1,13 @@
 # 
 # Translators:
-# Yury Rogachev <yury@dhis2.org>, 2021
+# Yury Rogachev <yury@dhis2.org>, 2022
 # 
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
 "POT-Creation-Date: 2019-01-23T12:57:13.874Z\n"
-"PO-Revision-Date: 2019-09-01 20:38+0000\n"
-"Last-Translator: Yury Rogachev <yury@dhis2.org>, 2021\n"
+"PO-Revision-Date: 2022-08-21 23:27+0000\n"
+"Last-Translator: Yury Rogachev <yury@dhis2.org>, 2022\n"
 "Language-Team: Uzbek (Latin) (https://www.transifex.com/hisp-uio/teams/100509/uz@Latn/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Plural-Forms: nplurals=1; plural=0;\n"
 
 msgid "Delete"
-msgstr "Oʼchirib tashlash"
+msgstr ""
 
 msgid "Continue editing"
 msgstr ""
@@ -28,28 +28,28 @@ msgid "Are you sure you want to delete dashboard \"{{ dashboardName }}\"?"
 msgstr ""
 
 msgid "Exit without saving"
-msgstr "Saqlamasdan chiqish"
+msgstr ""
 
 msgid "Go to dashboards"
-msgstr "Boshqaruv panellariga oʼtish"
+msgstr ""
 
 msgid "Save changes"
-msgstr "Oʼzgartirishni saqlash"
+msgstr ""
 
 msgid "Translate"
-msgstr "Tarjima qiling"
+msgstr ""
 
 msgid "Search for a dashboard"
-msgstr "Boshqarish panelida izlash"
+msgstr ""
 
 msgid "Show less"
-msgstr "Kamroq koʼrsatilsin"
+msgstr "Kamroq koʼrsatish"
 
 msgid "Show more"
-msgstr "Koʼproq koʼrsatilsin"
+msgstr ""
 
 msgid "No access"
-msgstr "Kirish huquqi mavjud emas"
+msgstr ""
 
 msgid "No dashboards found. Use the + button to create a new dashboard."
 msgstr ""
@@ -63,13 +63,13 @@ msgid "Messages"
 msgstr "Xabarlar"
 
 msgid "See all messages"
-msgstr "Barcha xabarlarni koʼrish"
+msgstr ""
 
 msgid "Edit your interpretation"
 msgstr ""
 
 msgid "Update"
-msgstr "Yangilash"
+msgstr "Янгилаш"
 
 msgid "Cancel edit"
 msgstr ""
@@ -87,7 +87,7 @@ msgid "You like this"
 msgstr ""
 
 msgid "Like"
-msgstr "Kabi, oʼxshash"
+msgstr ""
 
 msgid "View in Visualizer"
 msgstr ""
@@ -99,34 +99,32 @@ msgid "Add your reply"
 msgstr ""
 
 msgid "Interpretations"
-msgstr "Sharhlar"
+msgstr ""
 
 msgid "Add your interpretation"
 msgstr ""
 
 msgid "Unable to load the plugin for this item"
-msgstr "Ushbu element uchun plagin yuklanmadi"
+msgstr ""
 
 msgid "Spacer"
-msgstr "Boʼsh joy"
+msgstr ""
 
 msgid ""
 "Use a spacer to create empty vertical space between other dashboard items."
 msgstr ""
-"Monitoring panelida elementlar orasida vertikal boʼsh joy yaratish uchun "
-"boʼsh joy qoldirish funktsiyasidan foydalaning"
 
 msgid "Text item"
 msgstr "Matn elementi"
 
 msgid "Add text here"
-msgstr "Matnni shu yerga qoʼshing"
+msgstr ""
 
 msgid "There are no items on this dashboard"
 msgstr "Ushbu boshqaruv panelida elementlar yoʼq"
 
 msgid "Search for items to add to this dashboard"
-msgstr "Ushbu boshqaruv paneliga kiritish uchun elementlarni qidiring"
+msgstr ""
 
 msgid "See"
 msgstr ""
@@ -138,7 +136,7 @@ msgid "more"
 msgstr ""
 
 msgid "Text box"
-msgstr "Matn joyi"
+msgstr ""
 
 msgid "Add title here"
 msgstr ""
@@ -156,25 +154,25 @@ msgid "Pivot Tables"
 msgstr "Solishtirma jadvallar"
 
 msgid "Charts"
-msgstr "Diagrammalar"
+msgstr ""
 
 msgid "Visualizer"
-msgstr "Vizualizator"
+msgstr ""
 
 msgid "Maps"
-msgstr "Xaritalar"
+msgstr ""
 
 msgid "Event reports"
 msgstr "Hodisalar hisoboti"
 
 msgid "Event Reports"
-msgstr "Hodisalar haqida hisobotlar"
+msgstr ""
 
 msgid "Event charts"
 msgstr "Hodisalar diagrammalarda"
 
 msgid "Event Visualizer"
-msgstr "Hodisalar vizualizatori"
+msgstr ""
 
 msgid "Reports"
 msgstr "Hisobotlar"
@@ -183,4 +181,4 @@ msgid "Resources"
 msgstr "Resurslar"
 
 msgid "Users"
-msgstr "Foydalanuvchilar"
+msgstr ""

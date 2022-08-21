@@ -1,14 +1,14 @@
 # 
 # Translators:
-# Caroline Hesthagen Holen <caroline@devotta.no>, 2020
-# Karoline Tufte Lien <karoline@dhis2.org>, 2020
+# Caroline Hesthagen Holen <caroline@devotta.no>, 2022
+# Karoline Tufte Lien <karoline@dhis2.org>, 2022
 # 
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
 "POT-Creation-Date: 2019-01-23T12:57:13.874Z\n"
-"PO-Revision-Date: 2019-09-01 20:38+0000\n"
-"Last-Translator: Karoline Tufte Lien <karoline@dhis2.org>, 2020\n"
+"PO-Revision-Date: 2022-08-21 23:27+0000\n"
+"Last-Translator: Karoline Tufte Lien <karoline@dhis2.org>, 2022\n"
 "Language-Team: Norwegian Bokmål (https://www.transifex.com/hisp-uio/teams/100509/nb/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -17,40 +17,40 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 msgid "Delete"
-msgstr "Slett"
+msgstr ""
 
 msgid "Continue editing"
 msgstr "Fortsett redigering"
 
 msgid "Confirm delete dashboard"
-msgstr "Bekreft sletting av dashbord"
+msgstr ""
 
 msgid "Are you sure you want to delete dashboard \"{{ dashboardName }}\"?"
-msgstr "Er du sikker på at du vil slette dashbordet \"{{dashboardName}}\"?"
+msgstr ""
 
 msgid "Exit without saving"
-msgstr "Avslutte uten å lagre"
+msgstr ""
 
 msgid "Go to dashboards"
-msgstr "Gå til dashbordene"
+msgstr ""
 
 msgid "Save changes"
-msgstr "Lagre endringer"
+msgstr ""
 
 msgid "Translate"
-msgstr "Oversett"
+msgstr ""
 
 msgid "Search for a dashboard"
-msgstr "Søk etter et dashbord"
+msgstr ""
 
 msgid "Show less"
 msgstr "Vis mindre"
 
 msgid "Show more"
-msgstr "Vis mer"
+msgstr ""
 
 msgid "No access"
-msgstr "Ingen tilgang"
+msgstr ""
 
 msgid "No dashboards found. Use the + button to create a new dashboard."
 msgstr "Ingen dashbord funnet. Bruk + -knappen for å lage et nytt dashbord."
@@ -62,70 +62,68 @@ msgid "Messages"
 msgstr "Meldinger"
 
 msgid "See all messages"
-msgstr "Se alle meldinger"
+msgstr ""
 
 msgid "Edit your interpretation"
-msgstr "Rediger din tolkning"
+msgstr ""
 
 msgid "Update"
 msgstr "Oppdater"
 
 msgid "Cancel edit"
-msgstr "Avbryt redigering"
+msgstr ""
 
 msgid "Edit"
 msgstr "Rediger"
 
 msgid "like"
-msgstr "like"
+msgstr ""
 
 msgid "likes"
-msgstr "likes"
+msgstr ""
 
 msgid "You like this"
-msgstr "Du liker dette"
+msgstr ""
 
 msgid "Like"
-msgstr "Like"
+msgstr ""
 
 msgid "View in Visualizer"
-msgstr "Vis i Visualizer"
+msgstr ""
 
 msgid "Reply"
 msgstr "Svar"
 
 msgid "Add your reply"
-msgstr "Legg til ditt svar"
+msgstr ""
 
 msgid "Interpretations"
-msgstr "Tolkninger"
+msgstr ""
 
 msgid "Add your interpretation"
 msgstr "Legg til din tolkning"
 
 msgid "Unable to load the plugin for this item"
-msgstr "Kan ikke laste inn plugin-modulen for dette elementet"
+msgstr ""
 
 msgid "Spacer"
-msgstr "Avstandsholder"
+msgstr ""
 
 msgid ""
 "Use a spacer to create empty vertical space between other dashboard items."
 msgstr ""
-"Bruk mellomrom for å lage tom vertikal plass mellom andre elementer i "
-"dashbordet."
 
 msgid "Text item"
-msgstr "Tekstelement"
+msgstr ""
 
 msgid "Add text here"
-msgstr "Legg til tekst her"
+msgstr ""
 
 msgid "There are no items on this dashboard"
-msgstr "Det er ingen elementer på dette dashbordet"
+msgstr ""
 
 msgid "Search for items to add to this dashboard"
-msgstr "Søk etter elementer du vil legge til i dette dashbordet"
+msgstr ""
 
 msgid "See"
 msgstr "Vis"
@@ -134,52 +132,52 @@ msgid "fewer"
 msgstr "færre"
 
 msgid "more"
-msgstr "mer"
+msgstr ""
 
 msgid "Text box"
-msgstr "Tekstboks"
+msgstr ""
 
 msgid "Add title here"
-msgstr "Legg til tittel her"
+msgstr ""
 
 msgid "Add description here"
-msgstr "Legg til beskrivelse her"
+msgstr ""
 
 msgid "No description"
 msgstr "Ingen beskrivelse"
 
 msgid "Pivot tables"
-msgstr "Pivottabeller"
+msgstr ""
 
 msgid "Pivot Tables"
 msgstr "Pivottabeller"
 
 msgid "Charts"
-msgstr "Diagrammer"
+msgstr ""
 
 msgid "Visualizer"
-msgstr "Visualizer"
+msgstr ""
 
 msgid "Maps"
-msgstr "Kart"
+msgstr ""
 
 msgid "Event reports"
 msgstr "Hendelsesrapporter"
 
 msgid "Event Reports"
-msgstr "Hendelsesrapporter"
+msgstr ""
 
 msgid "Event charts"
 msgstr "Hendelsesdiagrammer"
 
 msgid "Event Visualizer"
-msgstr "Hendelsesvisualizer"
+msgstr ""
 
 msgid "Reports"
-msgstr "Rapporter"
+msgstr ""
 
 msgid "Resources"
-msgstr "Ressurser"
+msgstr ""
 
 msgid "Users"
-msgstr "Brukere"
+msgstr ""

@@ -1,19 +1,17 @@
 # 
 # Translators:
-# Matthieu Pinard <matthieu@pinard.no>, 2019
-# a270031086f2a0d3514bc0cb507b48f6, 2019
-# Viktor Varland <viktor@dhis2.org>, 2019
-# phil_dhis2, 2019
-# Karoline Tufte Lien <karoline@dhis2.org>, 2020
-# Edem Kossi <ekossi@hispwca.org>, 2020
-# Yao Selom Saka <ysaka@hispwca.org>, 2020
+# a270031086f2a0d3514bc0cb507b48f6, 2022
+# Karoline Tufte Lien <karoline@dhis2.org>, 2022
+# Viktor Varland <viktor@dhis2.org>, 2022
+# Edem Kossi <ekossi@hispwca.org>, 2022
+# phil_dhis2, 2022
 # 
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
 "POT-Creation-Date: 2019-01-23T12:57:13.874Z\n"
-"PO-Revision-Date: 2019-09-01 20:38+0000\n"
-"Last-Translator: Yao Selom Saka <ysaka@hispwca.org>, 2020\n"
+"PO-Revision-Date: 2022-08-21 23:27+0000\n"
+"Last-Translator: phil_dhis2, 2022\n"
 "Language-Team: French (https://www.transifex.com/hisp-uio/teams/100509/fr/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -22,46 +20,43 @@ msgstr ""
 "Plural-Forms: nplurals=3; plural=(n == 0 || n == 1) ? 0 : n != 0 && n % 1000000 == 0 ? 1 : 2;\n"
 
 msgid "Delete"
-msgstr "Supprimer"
+msgstr ""
 
 msgid "Continue editing"
 msgstr "Continuer l'édition"
 
 msgid "Confirm delete dashboard"
-msgstr "Confirmer la suppression du tableau de bord"
+msgstr ""
 
 msgid "Are you sure you want to delete dashboard \"{{ dashboardName }}\"?"
 msgstr ""
-"Êtes-vous sûr de vouloir supprimer le tableau de bord \"{{dashboardName}}\"?"
 
 msgid "Exit without saving"
-msgstr "Quitter sans sauvegarder"
+msgstr ""
 
 msgid "Go to dashboards"
-msgstr "Aller aux tableaux de bord"
+msgstr ""
 
 msgid "Save changes"
-msgstr "Enregistrer les modifications"
+msgstr ""
 
 msgid "Translate"
-msgstr "Traduire"
+msgstr ""
 
 msgid "Search for a dashboard"
-msgstr "Rechercher un tableau de bord"
+msgstr ""
 
 msgid "Show less"
 msgstr "Afficher moins"
 
 msgid "Show more"
-msgstr "Afficher plus"
+msgstr ""
 
 msgid "No access"
-msgstr "Pas d'accès"
+msgstr ""
 
 msgid "No dashboards found. Use the + button to create a new dashboard."
 msgstr ""
-"Aucun tableau de bord trouvé. Utilisez le bouton + pour créer un nouveau "
-"tableau de bord."
 
 msgid "Requested dashboard not found"
 msgstr "Tableau de bord demandé introuvable"
@@ -70,70 +65,68 @@ msgid "Messages"
 msgstr "Messages"
 
 msgid "See all messages"
-msgstr "Voir tous les messages"
+msgstr ""
 
 msgid "Edit your interpretation"
-msgstr "Modifier votre interprétation"
+msgstr ""
 
 msgid "Update"
 msgstr "Mettre à jour"
 
 msgid "Cancel edit"
-msgstr "Annuler la modification"
+msgstr ""
 
 msgid "Edit"
 msgstr "Modifier"
 
 msgid "like"
-msgstr "j'aime"
+msgstr ""
 
 msgid "likes"
-msgstr "des j'aime"
+msgstr ""
 
 msgid "You like this"
-msgstr "Tu aimes ça"
+msgstr ""
 
 msgid "Like"
-msgstr "J'aime"
+msgstr ""
 
 msgid "View in Visualizer"
-msgstr "Voir dans le Visualiseur"
+msgstr ""
 
 msgid "Reply"
 msgstr "Répondre"
 
 msgid "Add your reply"
-msgstr "Ajouter votre réponse"
+msgstr ""
 
 msgid "Interpretations"
-msgstr "interprétations"
+msgstr ""
 
 msgid "Add your interpretation"
 msgstr "Ajoutez votre interprétation"
 
 msgid "Unable to load the plugin for this item"
-msgstr "Impossible de charger le plugin pour cet objet"
+msgstr ""
 
 msgid "Spacer"
-msgstr "Espaceur"
+msgstr ""
 
 msgid ""
 "Use a spacer to create empty vertical space between other dashboard items."
 msgstr ""
-"Utilisez une entretoise pour créer un espace vertical vide entre les autres "
-"éléments du tableau de bord."
 
 msgid "Text item"
-msgstr "Élément de texte"
+msgstr ""
 
 msgid "Add text here"
-msgstr "Ajouter du texte ici"
+msgstr ""
 
 msgid "There are no items on this dashboard"
-msgstr "Il n'y a aucun élément sur ce tableau de bord"
+msgstr ""
 
 msgid "Search for items to add to this dashboard"
-msgstr "Rechercher des éléments à ajouter à ce tableau de bord"
+msgstr ""
 
 msgid "See"
 msgstr "Voir"
@@ -142,52 +135,52 @@ msgid "fewer"
 msgstr "moins"
 
 msgid "more"
-msgstr "plus"
+msgstr ""
 
 msgid "Text box"
-msgstr "Zone de texte"
+msgstr ""
 
 msgid "Add title here"
-msgstr "Ajouter un titre ici"
+msgstr ""
 
 msgid "Add description here"
-msgstr "Ajouter une description ici"
+msgstr ""
 
 msgid "No description"
 msgstr "Aucune description"
 
 msgid "Pivot tables"
-msgstr "Tableaux croisés dynamiques"
+msgstr ""
 
 msgid "Pivot Tables"
 msgstr "Les Tableaux Croisés Dynamiques"
 
 msgid "Charts"
-msgstr "Graphiques"
+msgstr ""
 
 msgid "Visualizer"
-msgstr "Visualiseur"
+msgstr ""
 
 msgid "Maps"
-msgstr "Cartes"
+msgstr ""
 
 msgid "Event reports"
 msgstr "Rapports d'événements"
 
 msgid "Event Reports"
-msgstr "Rapports d'évènements"
+msgstr ""
 
 msgid "Event charts"
-msgstr "Tableaux d'événements"
+msgstr "Graphiques d'événements"
 
 msgid "Event Visualizer"
-msgstr "Visualiseur d'évènements"
+msgstr ""
 
 msgid "Reports"
-msgstr "Rapports"
+msgstr ""
 
 msgid "Resources"
-msgstr "Ressources"
+msgstr ""
 
 msgid "Users"
-msgstr "Utilisateurs"
+msgstr ""
