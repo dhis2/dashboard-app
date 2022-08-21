@@ -1,15 +1,15 @@
 # 
 # Translators:
 # Viktor Varland <viktor@dhis2.org>, 2022
-# Hamza Assada <7amza.it@gmail.com>, 2022
 # phil_dhis2, 2022
+# Hamza Assada <7amza.it@gmail.com>, 2022
 # 
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
 "POT-Creation-Date: 2019-01-23T12:57:13.874Z\n"
 "PO-Revision-Date: 2022-08-21 23:27+0000\n"
-"Last-Translator: phil_dhis2, 2022\n"
+"Last-Translator: Hamza Assada <7amza.it@gmail.com>, 2022\n"
 "Language-Team: Arabic (https://www.transifex.com/hisp-uio/teams/100509/ar/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -18,31 +18,31 @@ msgstr ""
 "Plural-Forms: nplurals=6; plural=n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 && n%100<=10 ? 3 : n%100>=11 && n%100<=99 ? 4 : 5;\n"
 
 msgid "Delete"
-msgstr ""
+msgstr "حذف"
 
 msgid "Continue editing"
 msgstr "استمر في التعديل"
 
 msgid "Confirm delete dashboard"
-msgstr ""
+msgstr "تأكيد حذف لوحة المعلومات"
 
 msgid "Are you sure you want to delete dashboard \"{{ dashboardName }}\"?"
-msgstr ""
+msgstr "هل تريد بالتأكيد حذف لوحة المعلومات \"{{dashboardName}}\"؟"
 
 msgid "Exit without saving"
-msgstr ""
+msgstr "الخروج من غير الحفظ"
 
 msgid "Go to dashboards"
-msgstr ""
+msgstr "الذهاب إلى لوحة المعلومات"
 
 msgid "Save changes"
-msgstr ""
+msgstr "حفظ التغيرات"
 
 msgid "Translate"
-msgstr ""
+msgstr "ترجمة"
 
 msgid "Search for a dashboard"
-msgstr ""
+msgstr "البحث عن لوحة معلومات"
 
 msgid "Show less"
 msgstr "إظهار أقل"
@@ -51,10 +51,11 @@ msgid "Show more"
 msgstr ""
 
 msgid "No access"
-msgstr ""
+msgstr "لا يمكن الوصول"
 
 msgid "No dashboards found. Use the + button to create a new dashboard."
 msgstr ""
+"لم يتم العثور على لوحات معلومات. استخدم الزر + لإنشاء لوحة معلومات جديدة."
 
 msgid "Requested dashboard not found"
 msgstr "لم يتم العثور على لوحة المعلومات التي طلبتها"
@@ -63,65 +64,65 @@ msgid "Messages"
 msgstr "الرسائل"
 
 msgid "See all messages"
-msgstr ""
+msgstr "رؤية كافة الرسائل"
 
 msgid "Edit your interpretation"
-msgstr ""
+msgstr "عدل تفسيرك"
 
 msgid "Update"
 msgstr "تحديث"
 
 msgid "Cancel edit"
-msgstr ""
+msgstr "إلغاء التعديل"
 
 msgid "Edit"
-msgstr ""
+msgstr "تعديل"
 
 msgid "like"
-msgstr ""
+msgstr "إعجاب"
 
 msgid "likes"
 msgstr ""
 
 msgid "You like this"
-msgstr ""
+msgstr "يعجبك هذا"
 
 msgid "Like"
-msgstr ""
+msgstr "إعجاب"
 
 msgid "View in Visualizer"
-msgstr ""
+msgstr "عرض في تطبيق التحليل المرئي"
 
 msgid "Reply"
-msgstr ""
+msgstr "رد"
 
 msgid "Add your reply"
-msgstr ""
+msgstr "إضافة ردك"
 
 msgid "Interpretations"
-msgstr ""
+msgstr "التفسيرات"
 
 msgid "Add your interpretation"
 msgstr "إضافة تفسيرك"
 
 msgid "Unable to load the plugin for this item"
-msgstr ""
+msgstr "تعذر تحميل المكوّن الإضافي لهذا العنصر"
 
 msgid "Spacer"
-msgstr ""
+msgstr "مسافة فاصلة"
 
 msgid ""
 "Use a spacer to create empty vertical space between other dashboard items."
 msgstr ""
 
 msgid "Text item"
-msgstr ""
+msgstr "عنصر نصي"
 
 msgid "Add text here"
-msgstr ""
+msgstr "اضف نص هنا"
 
 msgid "There are no items on this dashboard"
-msgstr ""
+msgstr "لايوجد عناصر في لوحة المعلومات هذه"
 
 msgid "Search for items to add to this dashboard"
 msgstr ""
@@ -133,19 +134,19 @@ msgid "fewer"
 msgstr "أقل"
 
 msgid "more"
-msgstr ""
+msgstr "أكثر"
 
 msgid "Text box"
-msgstr ""
+msgstr "مربع نص"
 
 msgid "Add title here"
-msgstr ""
+msgstr "أضف عنواناً هنا"
 
 msgid "Add description here"
 msgstr ""
 
 msgid "No description"
-msgstr ""
+msgstr "لا يوجد وصف"
 
 msgid "Pivot tables"
 msgstr ""
@@ -157,10 +158,10 @@ msgid "Charts"
 msgstr ""
 
 msgid "Visualizer"
-msgstr ""
+msgstr "التحليل المرئي"
 
 msgid "Maps"
-msgstr ""
+msgstr "الخرائط"
 
 msgid "Event reports"
 msgstr "تقارير الحدث"
@@ -169,16 +170,16 @@ msgid "Event Reports"
 msgstr ""
 
 msgid "Event charts"
-msgstr ""
+msgstr "المخطط البياني للأحداث"
 
 msgid "Event Visualizer"
 msgstr ""
 
 msgid "Reports"
-msgstr ""
+msgstr "التقارير"
 
 msgid "Resources"
-msgstr ""
+msgstr "المصادر"
 
 msgid "Users"
-msgstr ""
+msgstr "المستخدمون"

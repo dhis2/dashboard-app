@@ -1,5 +1,6 @@
 # 
 # Translators:
+# Thuy Nguyen <thuynguyen@hispvietnam.org>, 2022
 # phil_dhis2, 2022
 # Mai Nguyen <thanhmai.jica@gmail.com>, 2022
 # Viktor Varland <viktor@dhis2.org>, 2022
@@ -18,40 +19,42 @@ msgstr ""
 "Plural-Forms: nplurals=1; plural=0;\n"
 
 msgid "Delete"
-msgstr ""
+msgstr "Xóa"
 
 msgid "Continue editing"
 msgstr "Tiếp tục chỉnh sửa"
 
 msgid "Confirm delete dashboard"
-msgstr ""
+msgstr "Xác nhận xóa bảng điều khiển "
 
 msgid "Are you sure you want to delete dashboard \"{{ dashboardName }}\"?"
 msgstr ""
+"Bạn có chắc chắn muốn xóa bảng điều khiển  \"{{tên bảng điều khiển}}\" "
+"không?"
 
 msgid "Exit without saving"
-msgstr ""
+msgstr "Đóng và không lưu"
 
 msgid "Go to dashboards"
-msgstr ""
+msgstr "Di chuyển tới bảng điều khiển"
 
 msgid "Save changes"
-msgstr ""
+msgstr "Lưu các thay đổi"
 
 msgid "Translate"
-msgstr ""
+msgstr "Dịch"
 
 msgid "Search for a dashboard"
-msgstr ""
+msgstr "Tìm kiếm bảng điều khiển"
 
 msgid "Show less"
 msgstr "Ẩn bớt"
 
 msgid "Show more"
-msgstr ""
+msgstr "Hiện thêm"
 
 msgid "No access"
-msgstr ""
+msgstr "Không truy cập"
 
 msgid "No dashboards found. Use the + button to create a new dashboard."
 msgstr ""
@@ -64,10 +67,10 @@ msgid "Messages"
 msgstr "Tin nhắn"
 
 msgid "See all messages"
-msgstr ""
+msgstr "Xem tất cả tin nhắn"
 
 msgid "Edit your interpretation"
-msgstr ""
+msgstr "Chỉnh sửa diễn giải của bạn"
 
 msgid "Update"
 msgstr "Cập nhật"
@@ -79,53 +82,55 @@ msgid "Edit"
 msgstr "Chỉnh sửa"
 
 msgid "like"
-msgstr ""
+msgstr "giống"
 
 msgid "likes"
-msgstr ""
+msgstr "thích"
 
 msgid "You like this"
 msgstr "Bạn thích điều này"
 
 msgid "Like"
-msgstr ""
+msgstr "Thích"
 
 msgid "View in Visualizer"
-msgstr ""
+msgstr "Xem trong ứng dụng trực quan hóa"
 
 msgid "Reply"
 msgstr "Trả lời"
 
 msgid "Add your reply"
-msgstr ""
+msgstr "Thêm câu trả lời của bạn"
 
 msgid "Interpretations"
-msgstr ""
+msgstr "Diễn giải "
 
 msgid "Add your interpretation"
 msgstr "Thêm diễn giải của bạn"
 
 msgid "Unable to load the plugin for this item"
-msgstr ""
+msgstr "Không thể tải plugin cho mục này"
 
 msgid "Spacer"
-msgstr ""
+msgstr "Dấu cách"
 
 msgid ""
 "Use a spacer to create empty vertical space between other dashboard items."
 msgstr ""
+"Sử dụng dấu cách để tạo không gian dọc trống giữa các mục bảng điều khiển "
+"khác."
 
 msgid "Text item"
 msgstr "Mục văn bản"
 
 msgid "Add text here"
-msgstr ""
+msgstr "Thêm văn bản tại đây"
 
 msgid "There are no items on this dashboard"
 msgstr "Không có mục nào trong bảng điều khiển này"
 
 msgid "Search for items to add to this dashboard"
-msgstr ""
+msgstr "Tìm mục để thêm vào bảng điều khiển này"
 
 msgid "See"
 msgstr "Xem"
@@ -137,43 +142,43 @@ msgid "more"
 msgstr "hơn"
 
 msgid "Text box"
-msgstr ""
+msgstr "Hộp văn bản"
 
 msgid "Add title here"
-msgstr ""
+msgstr "Thêm tiêu đề ở đây"
 
 msgid "Add description here"
-msgstr ""
+msgstr "Thêm mô tả ở đây"
 
 msgid "No description"
 msgstr "Không mô tả"
 
 msgid "Pivot tables"
-msgstr ""
+msgstr "Bảng xoay"
 
 msgid "Pivot Tables"
 msgstr "Bảng xoay"
 
 msgid "Charts"
-msgstr ""
+msgstr "Biểu Đồ"
 
 msgid "Visualizer"
-msgstr ""
+msgstr "Biểu Đồ"
 
 msgid "Maps"
-msgstr ""
+msgstr "Bản đồ"
 
 msgid "Event reports"
 msgstr "Báo Cáo Sự Kiện"
 
 msgid "Event Reports"
-msgstr ""
+msgstr "Báo cáo sự kiện"
 
 msgid "Event charts"
 msgstr "Biểu Đồ Sự Kiện"
 
 msgid "Event Visualizer"
-msgstr ""
+msgstr "Biểu đồ sự kiện"
 
 msgid "Reports"
 msgstr "Báo cáo tổng hợp"
@@ -182,4 +187,4 @@ msgid "Resources"
 msgstr "Tài Nguyên"
 
 msgid "Users"
-msgstr ""
+msgstr "Người dùng"

@@ -1,8 +1,8 @@
 # 
 # Translators:
 # David Júnior <davidjr.mondlane@gmail.com>, 2022
-# Viktor Varland <viktor@dhis2.org>, 2022
 # phil_dhis2, 2022
+# Viktor Varland <viktor@dhis2.org>, 2022
 # Gabriela Rodriguez <grodriguezcoronado@gmail.com>, 2022
 # Sheila André <sandre@saudigitus.org>, 2022
 # 
@@ -20,40 +20,40 @@ msgstr ""
 "Plural-Forms: nplurals=3; plural=(n == 0 || n == 1) ? 0 : n != 0 && n % 1000000 == 0 ? 1 : 2;\n"
 
 msgid "Delete"
-msgstr ""
+msgstr "Suprimir"
 
 msgid "Continue editing"
 msgstr "Continue a editar"
 
 msgid "Confirm delete dashboard"
-msgstr ""
+msgstr "Confirmar a eliminação do painel"
 
 msgid "Are you sure you want to delete dashboard \"{{ dashboardName }}\"?"
-msgstr ""
+msgstr "Tem certeza de que deseja apagar o painel \"{{dashboardName}}\"?"
 
 msgid "Exit without saving"
-msgstr ""
+msgstr "Sair sem gravar"
 
 msgid "Go to dashboards"
-msgstr ""
+msgstr "Ir para o painel"
 
 msgid "Save changes"
-msgstr ""
+msgstr "Salvar alterações"
 
 msgid "Translate"
-msgstr ""
+msgstr "Traduzir"
 
 msgid "Search for a dashboard"
-msgstr ""
+msgstr "Pesquisar por um painel"
 
 msgid "Show less"
 msgstr "Mostrar menos"
 
 msgid "Show more"
-msgstr ""
+msgstr "Mostrar mais"
 
 msgid "No access"
-msgstr ""
+msgstr "Sem acesso"
 
 msgid "No dashboards found. Use the + button to create a new dashboard."
 msgstr "Painel não encontrado. Use o botão + para criar um novo painel."
@@ -65,10 +65,10 @@ msgid "Messages"
 msgstr "Mensagens"
 
 msgid "See all messages"
-msgstr ""
+msgstr "Ver todas as mensagens"
 
 msgid "Edit your interpretation"
-msgstr ""
+msgstr "Edite a sua interpretação"
 
 msgid "Update"
 msgstr "Atualizar"
@@ -80,53 +80,55 @@ msgid "Edit"
 msgstr "Editar"
 
 msgid "like"
-msgstr ""
+msgstr "Gosto"
 
 msgid "likes"
-msgstr ""
+msgstr "Gostos"
 
 msgid "You like this"
-msgstr ""
+msgstr "Você gosta disso"
 
 msgid "Like"
-msgstr ""
+msgstr "como"
 
 msgid "View in Visualizer"
-msgstr ""
+msgstr "Ver no Visualizador"
 
 msgid "Reply"
 msgstr "Responder"
 
 msgid "Add your reply"
-msgstr ""
+msgstr "Adicione a sua resposta"
 
 msgid "Interpretations"
-msgstr ""
+msgstr "Interpretações"
 
 msgid "Add your interpretation"
 msgstr "Adicione a sua interpretação"
 
 msgid "Unable to load the plugin for this item"
-msgstr ""
+msgstr "Não foi possível carregar o plug-in para este item"
 
 msgid "Spacer"
-msgstr ""
+msgstr "Espaçador"
 
 msgid ""
 "Use a spacer to create empty vertical space between other dashboard items."
 msgstr ""
+"Use um espaçador para criar espaço vertical vazio entre outros itens do "
+"painel."
 
 msgid "Text item"
-msgstr ""
+msgstr "Item do texto"
 
 msgid "Add text here"
-msgstr ""
+msgstr "Adicione texto aqui"
 
 msgid "There are no items on this dashboard"
-msgstr ""
+msgstr "Não há itens neste painel"
 
 msgid "Search for items to add to this dashboard"
-msgstr ""
+msgstr "Procurar itens para adicionar a este painel"
 
 msgid "See"
 msgstr "Ver"
@@ -138,49 +140,49 @@ msgid "more"
 msgstr "mais"
 
 msgid "Text box"
-msgstr ""
+msgstr "Caixa de texto"
 
 msgid "Add title here"
-msgstr ""
+msgstr "Adicionar a título aqui"
 
 msgid "Add description here"
-msgstr ""
+msgstr "Adicionar a descrição aqui"
 
 msgid "No description"
 msgstr "Sem descrição"
 
 msgid "Pivot tables"
-msgstr ""
+msgstr "Tabelas Pivô"
 
 msgid "Pivot Tables"
 msgstr "Tabelas dinâmicas"
 
 msgid "Charts"
-msgstr ""
+msgstr "Gráficos"
 
 msgid "Visualizer"
-msgstr ""
+msgstr "Visualizar"
 
 msgid "Maps"
-msgstr ""
+msgstr "Mapas"
 
 msgid "Event reports"
 msgstr "Relatórios de eventos"
 
 msgid "Event Reports"
-msgstr ""
+msgstr "Relatórios de Eventos"
 
 msgid "Event charts"
 msgstr "Gráficos de eventos"
 
 msgid "Event Visualizer"
-msgstr ""
+msgstr "Visualizador de Eventos"
 
 msgid "Reports"
-msgstr ""
+msgstr "Relatórios"
 
 msgid "Resources"
 msgstr "Recursos"
 
 msgid "Users"
-msgstr ""
+msgstr "Utilizadores"

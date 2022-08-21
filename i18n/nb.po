@@ -17,40 +17,40 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 msgid "Delete"
-msgstr ""
+msgstr "Slett"
 
 msgid "Continue editing"
 msgstr "Fortsett redigering"
 
 msgid "Confirm delete dashboard"
-msgstr ""
+msgstr "Bekreft sletting av dashbord"
 
 msgid "Are you sure you want to delete dashboard \"{{ dashboardName }}\"?"
-msgstr ""
+msgstr "Er du sikker på at du vil slette dashbordet \"{{dashboardName}}\"?"
 
 msgid "Exit without saving"
-msgstr ""
+msgstr "Avslutte uten å lagre"
 
 msgid "Go to dashboards"
-msgstr ""
+msgstr "Gå til dashbordene"
 
 msgid "Save changes"
-msgstr ""
+msgstr "Lagre endringer"
 
 msgid "Translate"
-msgstr ""
+msgstr "Oversett"
 
 msgid "Search for a dashboard"
-msgstr ""
+msgstr "Søk etter et dashbord"
 
 msgid "Show less"
 msgstr "Vis mindre"
 
 msgid "Show more"
-msgstr ""
+msgstr "Vis mer"
 
 msgid "No access"
-msgstr ""
+msgstr "Ingen tilgang"
 
 msgid "No dashboards found. Use the + button to create a new dashboard."
 msgstr "Ingen dashbord funnet. Bruk + -knappen for å lage et nytt dashbord."
@@ -62,68 +62,70 @@ msgid "Messages"
 msgstr "Meldinger"
 
 msgid "See all messages"
-msgstr ""
+msgstr "Se alle meldinger"
 
 msgid "Edit your interpretation"
-msgstr ""
+msgstr "Rediger din tolkning"
 
 msgid "Update"
 msgstr "Oppdater"
 
 msgid "Cancel edit"
-msgstr ""
+msgstr "Avbryt redigering"
 
 msgid "Edit"
 msgstr "Rediger"
 
 msgid "like"
-msgstr ""
+msgstr "like"
 
 msgid "likes"
-msgstr ""
+msgstr "likes"
 
 msgid "You like this"
-msgstr ""
+msgstr "Du liker dette"
 
 msgid "Like"
-msgstr ""
+msgstr "Like"
 
 msgid "View in Visualizer"
-msgstr ""
+msgstr "Vis i Visualizer"
 
 msgid "Reply"
 msgstr "Svar"
 
 msgid "Add your reply"
-msgstr ""
+msgstr "Legg til ditt svar"
 
 msgid "Interpretations"
-msgstr ""
+msgstr "Tolkninger"
 
 msgid "Add your interpretation"
 msgstr "Legg til din tolkning"
 
 msgid "Unable to load the plugin for this item"
-msgstr ""
+msgstr "Kan ikke laste inn plugin-modulen for dette elementet"
 
 msgid "Spacer"
-msgstr ""
+msgstr "Mellomrom"
 
 msgid ""
 "Use a spacer to create empty vertical space between other dashboard items."
 msgstr ""
+"Bruk mellomrom for å lage tom vertikal plass mellom andre elementer i "
+"dashbordet."
 
 msgid "Text item"
-msgstr ""
+msgstr "Tekstelement"
 
 msgid "Add text here"
-msgstr ""
+msgstr "Legg til tekst her"
 
 msgid "There are no items on this dashboard"
-msgstr ""
+msgstr "Det er ingen elementer på dette dashbordet"
 
 msgid "Search for items to add to this dashboard"
-msgstr ""
+msgstr "Søk etter elementer du vil legge til i dette dashbordet"
 
 msgid "See"
 msgstr "Vis"
@@ -132,52 +134,52 @@ msgid "fewer"
 msgstr "færre"
 
 msgid "more"
-msgstr ""
+msgstr "mer"
 
 msgid "Text box"
-msgstr ""
+msgstr "Tekstboks"
 
 msgid "Add title here"
-msgstr ""
+msgstr "Legg til tittel her"
 
 msgid "Add description here"
-msgstr ""
+msgstr "Legg til beskrivelse her"
 
 msgid "No description"
 msgstr "Ingen beskrivelse"
 
 msgid "Pivot tables"
-msgstr ""
+msgstr "Pivottabeller"
 
 msgid "Pivot Tables"
 msgstr "Pivottabeller"
 
 msgid "Charts"
-msgstr ""
+msgstr "Diagrammer"
 
 msgid "Visualizer"
-msgstr ""
+msgstr "Visualizer"
 
 msgid "Maps"
-msgstr ""
+msgstr "Kart"
 
 msgid "Event reports"
 msgstr "Hendelsesrapporter"
 
 msgid "Event Reports"
-msgstr ""
+msgstr "Hendelsesrapporter"
 
 msgid "Event charts"
 msgstr "Hendelsesdiagrammer"
 
 msgid "Event Visualizer"
-msgstr ""
+msgstr "Hendelsesvisualizer"
 
 msgid "Reports"
-msgstr ""
+msgstr "Rapporter"
 
 msgid "Resources"
-msgstr ""
+msgstr "Ressurser"
 
 msgid "Users"
-msgstr ""
+msgstr "Brukere"

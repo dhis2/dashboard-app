@@ -16,40 +16,40 @@ msgstr ""
 "Plural-Forms: nplurals=1; plural=0;\n"
 
 msgid "Delete"
-msgstr ""
+msgstr "Ўчириб ташлаш"
 
 msgid "Continue editing"
 msgstr "Таҳрирлашни давом этиш"
 
 msgid "Confirm delete dashboard"
-msgstr ""
+msgstr "Бошқарув панелини ўчириб ташлашни тасдиқлаш"
 
 msgid "Are you sure you want to delete dashboard \"{{ dashboardName }}\"?"
-msgstr ""
+msgstr "Бошқарув панелини ўчириб ташлашни хохлайсизми \"{{БошқарувПанелиНоми}}\"?"
 
 msgid "Exit without saving"
-msgstr ""
+msgstr "Сақламасдан чиқиш"
 
 msgid "Go to dashboards"
-msgstr ""
+msgstr "Бошқарув панелларига ўтиш"
 
 msgid "Save changes"
-msgstr ""
+msgstr "Ўзгартиришни сақлаш"
 
 msgid "Translate"
-msgstr ""
+msgstr "Таржима қилинг"
 
 msgid "Search for a dashboard"
-msgstr ""
+msgstr "Бошқариш панелида излаш"
 
 msgid "Show less"
 msgstr "Камроқ кўрсатиш"
 
 msgid "Show more"
-msgstr ""
+msgstr "Кўпроқ кўрсатиш"
 
 msgid "No access"
-msgstr ""
+msgstr "Кириш ҳуқуқи мавжуд эмас"
 
 msgid "No dashboards found. Use the + button to create a new dashboard."
 msgstr ""
@@ -63,10 +63,10 @@ msgid "Messages"
 msgstr "Хабарлар"
 
 msgid "See all messages"
-msgstr ""
+msgstr "Барча хабарларни кўриш"
 
 msgid "Edit your interpretation"
-msgstr ""
+msgstr "Талқинингизни таҳрирланг"
 
 msgid "Update"
 msgstr "Янгилаш"
@@ -78,53 +78,55 @@ msgid "Edit"
 msgstr "Таҳрирлаш"
 
 msgid "like"
-msgstr ""
+msgstr "мос келади"
 
 msgid "likes"
-msgstr ""
+msgstr "мос келди"
 
 msgid "You like this"
 msgstr "Сизга мос келади"
 
 msgid "Like"
-msgstr ""
+msgstr "Каби, ўхшаш"
 
 msgid "View in Visualizer"
-msgstr ""
+msgstr "Визуализаторда кўриш"
 
 msgid "Reply"
 msgstr "Изоҳ"
 
 msgid "Add your reply"
-msgstr ""
+msgstr "Изоҳингизни қўшинг"
 
 msgid "Interpretations"
-msgstr ""
+msgstr "Талқинлар"
 
 msgid "Add your interpretation"
 msgstr "Талқинингизни қўшинг"
 
 msgid "Unable to load the plugin for this item"
-msgstr ""
+msgstr "Ушбу элемент учун плагин юкланмади"
 
 msgid "Spacer"
-msgstr ""
+msgstr "Бўш жой"
 
 msgid ""
 "Use a spacer to create empty vertical space between other dashboard items."
 msgstr ""
+"Мониторинг панелида элементлар орасида вертикал бўш жой яратиш учун бўш жой "
+"қолдириш функциясидан фойдаланинг"
 
 msgid "Text item"
 msgstr "Матн элементи"
 
 msgid "Add text here"
-msgstr ""
+msgstr "Матнни шу ерга қўшинг"
 
 msgid "There are no items on this dashboard"
 msgstr "Ушбу бошқарув панелида элементлар йўқ"
 
 msgid "Search for items to add to this dashboard"
-msgstr ""
+msgstr "Ушбу бошқарув панелига киритиш учун элементларни қидиринг"
 
 msgid "See"
 msgstr "Қаранг"
@@ -136,43 +138,43 @@ msgid "more"
 msgstr "кўпроқ"
 
 msgid "Text box"
-msgstr ""
+msgstr "Матн жойи"
 
 msgid "Add title here"
-msgstr ""
+msgstr "Сарлавҳани шу ерга қўшинг"
 
 msgid "Add description here"
-msgstr ""
+msgstr "Тавсифни шу ерга қўшинг"
 
 msgid "No description"
 msgstr "Тавсиф йўқ"
 
 msgid "Pivot tables"
-msgstr ""
+msgstr "Солиштирма жадваллар"
 
 msgid "Pivot Tables"
 msgstr "Солиштирма Жадваллар"
 
 msgid "Charts"
-msgstr ""
+msgstr "Диаграммалар"
 
 msgid "Visualizer"
-msgstr ""
+msgstr "Визуализатор"
 
 msgid "Maps"
-msgstr ""
+msgstr "Хариталар"
 
 msgid "Event reports"
 msgstr "Ҳодиса/Тадбирлар ҳисоботи"
 
 msgid "Event Reports"
-msgstr ""
+msgstr "Ҳодисалар ҳақида Ҳисоботлар"
 
 msgid "Event charts"
 msgstr "Ҳодиса/Тадбирлар диаграммаларда"
 
 msgid "Event Visualizer"
-msgstr ""
+msgstr "Ҳодиса/Тадбирлар Визуализатори"
 
 msgid "Reports"
 msgstr "Ҳисоботлар"
@@ -181,4 +183,4 @@ msgid "Resources"
 msgstr "Ресурслар"
 
 msgid "Users"
-msgstr ""
+msgstr "Фойдаланувчилар"

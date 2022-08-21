@@ -1,7 +1,10 @@
 # 
 # Translators:
-# Untoro Dwi Raharjo <untoro.dwi.raharjo@mail.ugm.ac.id>, 2022
 # Guardian Sanjaya <gysanjaya@ugm.ac.id>, 2022
+# Viktor Varland <viktor@dhis2.org>, 2022
+# Raja Fathurrahim, 2022
+# Untoro Dwi Raharjo <untoro.dwi.raharjo@mail.ugm.ac.id>, 2022
+# Yusuf Setiawan <mohammadyusufsetiawan@gmail.com>, 2022
 # Aprisa Chrysantina <aprisa.chrysantina@gmail.com>, 2022
 # 
 msgid ""
@@ -18,7 +21,7 @@ msgstr ""
 "Plural-Forms: nplurals=1; plural=0;\n"
 
 msgid "Delete"
-msgstr ""
+msgstr "Hapus"
 
 msgid "Continue editing"
 msgstr ""
@@ -30,28 +33,28 @@ msgid "Are you sure you want to delete dashboard \"{{ dashboardName }}\"?"
 msgstr ""
 
 msgid "Exit without saving"
-msgstr ""
+msgstr "Keluar tanpa menyimpan"
 
 msgid "Go to dashboards"
-msgstr ""
+msgstr "Ke dashboard"
 
 msgid "Save changes"
-msgstr ""
+msgstr "Simpan perubahan"
 
 msgid "Translate"
-msgstr ""
+msgstr "Terjemahkan"
 
 msgid "Search for a dashboard"
-msgstr ""
+msgstr "Cari dashboard"
 
 msgid "Show less"
 msgstr "Tampilkan kurang"
 
 msgid "Show more"
-msgstr ""
+msgstr "Tampilkan lebih"
 
 msgid "No access"
-msgstr ""
+msgstr "Tidak ada akses"
 
 msgid "No dashboards found. Use the + button to create a new dashboard."
 msgstr ""
@@ -64,10 +67,10 @@ msgid "Messages"
 msgstr "Pesan"
 
 msgid "See all messages"
-msgstr ""
+msgstr "Lihat semua pesan"
 
 msgid "Edit your interpretation"
-msgstr ""
+msgstr "Edit interpretasi Anda"
 
 msgid "Update"
 msgstr "Perbarui"
@@ -85,10 +88,10 @@ msgid "likes"
 msgstr ""
 
 msgid "You like this"
-msgstr ""
+msgstr "Anda menyukai ini"
 
 msgid "Like"
-msgstr ""
+msgstr "Suka"
 
 msgid "View in Visualizer"
 msgstr ""
@@ -100,29 +103,31 @@ msgid "Add your reply"
 msgstr ""
 
 msgid "Interpretations"
-msgstr ""
+msgstr "Interpretasi"
 
 msgid "Add your interpretation"
 msgstr ""
 
 msgid "Unable to load the plugin for this item"
-msgstr ""
+msgstr "Tidak dapat memuat plugin untuk item ini"
 
 msgid "Spacer"
-msgstr ""
+msgstr "Pengatur jarak"
 
 msgid ""
 "Use a spacer to create empty vertical space between other dashboard items."
 msgstr ""
+"Gunakan spacer untuk memberi ruang vertikal kosong di antara item-item "
+"dashboard."
 
 msgid "Text item"
-msgstr ""
+msgstr "Item teks"
 
 msgid "Add text here"
-msgstr ""
+msgstr "Tambahkan teks di sini"
 
 msgid "There are no items on this dashboard"
-msgstr ""
+msgstr "Tidak ada item dalam dashboard ini"
 
 msgid "Search for items to add to this dashboard"
 msgstr ""
@@ -137,7 +142,7 @@ msgid "more"
 msgstr ""
 
 msgid "Text box"
-msgstr ""
+msgstr "Kotak teks"
 
 msgid "Add title here"
 msgstr ""
@@ -149,25 +154,25 @@ msgid "No description"
 msgstr "Tidak ada deskripsi"
 
 msgid "Pivot tables"
-msgstr ""
+msgstr "Tabel pivot"
 
 msgid "Pivot Tables"
 msgstr "Tabel Pivot"
 
 msgid "Charts"
-msgstr ""
+msgstr "Grafik"
 
 msgid "Visualizer"
-msgstr ""
+msgstr "Visualisator"
 
 msgid "Maps"
-msgstr ""
+msgstr "Peta"
 
 msgid "Event reports"
 msgstr "Laporan kejadian"
 
 msgid "Event Reports"
-msgstr ""
+msgstr "Laporan Kejadian"
 
 msgid "Event charts"
 msgstr "Grafik kejadian"
@@ -176,10 +181,10 @@ msgid "Event Visualizer"
 msgstr ""
 
 msgid "Reports"
-msgstr ""
+msgstr "Laporan"
 
 msgid "Resources"
-msgstr ""
+msgstr "Sumber Daya"
 
 msgid "Users"
-msgstr ""
+msgstr "User"

@@ -17,40 +17,40 @@ msgstr ""
 "Plural-Forms: nplurals=1; plural=0;\n"
 
 msgid "Delete"
-msgstr ""
+msgstr "删除"
 
 msgid "Continue editing"
 msgstr "继续编辑"
 
 msgid "Confirm delete dashboard"
-msgstr ""
+msgstr "确认删除仪表盘"
 
 msgid "Are you sure you want to delete dashboard \"{{ dashboardName }}\"?"
-msgstr ""
+msgstr "你确认要删除仪表盘： \"{{ dashboardName }}\"?"
 
 msgid "Exit without saving"
-msgstr ""
+msgstr "不保存退出"
 
 msgid "Go to dashboards"
-msgstr ""
+msgstr "进到仪表盘"
 
 msgid "Save changes"
-msgstr ""
+msgstr "保存修改"
 
 msgid "Translate"
-msgstr ""
+msgstr "翻译"
 
 msgid "Search for a dashboard"
-msgstr ""
+msgstr "搜索仪表盘"
 
 msgid "Show less"
 msgstr "较少"
 
 msgid "Show more"
-msgstr ""
+msgstr "更多"
 
 msgid "No access"
-msgstr ""
+msgstr "不能访问"
 
 msgid "No dashboards found. Use the + button to create a new dashboard."
 msgstr "没有找到仪表盘条目，使用+ 按钮创建新的仪表盘条目。"
@@ -62,7 +62,7 @@ msgid "Messages"
 msgstr "消息"
 
 msgid "See all messages"
-msgstr ""
+msgstr "发送所有消息"
 
 msgid "Edit your interpretation"
 msgstr ""
@@ -86,7 +86,7 @@ msgid "You like this"
 msgstr ""
 
 msgid "Like"
-msgstr ""
+msgstr "Like"
 
 msgid "View in Visualizer"
 msgstr ""
@@ -98,32 +98,32 @@ msgid "Add your reply"
 msgstr ""
 
 msgid "Interpretations"
-msgstr ""
+msgstr "注释"
 
 msgid "Add your interpretation"
 msgstr ""
 
 msgid "Unable to load the plugin for this item"
-msgstr ""
+msgstr "不能该条目的插件"
 
 msgid "Spacer"
-msgstr ""
+msgstr "空分割栏"
 
 msgid ""
 "Use a spacer to create empty vertical space between other dashboard items."
-msgstr ""
+msgstr "使用空白在条目间创建垂直分割栏"
 
 msgid "Text item"
 msgstr "文本条目"
 
 msgid "Add text here"
-msgstr ""
+msgstr "添加文本到这里"
 
 msgid "There are no items on this dashboard"
 msgstr "该仪表盘没有条目"
 
 msgid "Search for items to add to this dashboard"
-msgstr ""
+msgstr "搜索条目添加到仪表盘"
 
 msgid "See"
 msgstr "查看"
@@ -135,28 +135,28 @@ msgid "more"
 msgstr "更多"
 
 msgid "Text box"
-msgstr ""
+msgstr "文本框"
 
 msgid "Add title here"
-msgstr ""
+msgstr "这儿添加标题"
 
 msgid "Add description here"
-msgstr ""
+msgstr "这儿添加描述"
 
 msgid "No description"
 msgstr "没有描述"
 
 msgid "Pivot tables"
-msgstr ""
+msgstr "透视表"
 
 msgid "Pivot Tables"
 msgstr "透视表"
 
 msgid "Charts"
-msgstr ""
+msgstr "图表"
 
 msgid "Visualizer"
-msgstr ""
+msgstr "可视图"
 
 msgid "Maps"
 msgstr "地图"
@@ -165,13 +165,13 @@ msgid "Event reports"
 msgstr "事件报表"
 
 msgid "Event Reports"
-msgstr ""
+msgstr "事件报表"
 
 msgid "Event charts"
 msgstr "事件图表"
 
 msgid "Event Visualizer"
-msgstr ""
+msgstr "事件可视化"
 
 msgid "Reports"
 msgstr "报表管理"
@@ -180,4 +180,4 @@ msgid "Resources"
 msgstr "资源"
 
 msgid "Users"
-msgstr ""
+msgstr "用户"

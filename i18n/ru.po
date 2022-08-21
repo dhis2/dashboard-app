@@ -1,7 +1,9 @@
 # 
 # Translators:
-# phil_dhis2, 2022
 # Wanda <wanda@frontlineaids.org>, 2022
+# Ulanbek Abakirov <ulans@mail.ru>, 2022
+# Yury Rogachev <yury@dhis2.org>, 2022
+# phil_dhis2, 2022
 # Viktor Varland <viktor@dhis2.org>, 2022
 # 
 msgid ""
@@ -18,7 +20,7 @@ msgstr ""
 "Plural-Forms: nplurals=4; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<12 || n%100>14) ? 1 : n%10==0 || (n%10>=5 && n%10<=9) || (n%100>=11 && n%100<=14)? 2 : 3);\n"
 
 msgid "Delete"
-msgstr ""
+msgstr "Удалить"
 
 msgid "Continue editing"
 msgstr ""
@@ -30,28 +32,28 @@ msgid "Are you sure you want to delete dashboard \"{{ dashboardName }}\"?"
 msgstr ""
 
 msgid "Exit without saving"
-msgstr ""
+msgstr "Выйти без сохранения"
 
 msgid "Go to dashboards"
-msgstr ""
+msgstr "Перейти на информационную панель"
 
 msgid "Save changes"
-msgstr ""
+msgstr "Сохранить изменения"
 
 msgid "Translate"
-msgstr ""
+msgstr "Перевести"
 
 msgid "Search for a dashboard"
-msgstr ""
+msgstr "Поиск информационной панели"
 
 msgid "Show less"
 msgstr "Показать меньше информации"
 
 msgid "Show more"
-msgstr ""
+msgstr "Показать больше информации"
 
 msgid "No access"
-msgstr ""
+msgstr "Нет доступа"
 
 msgid "No dashboards found. Use the + button to create a new dashboard."
 msgstr ""
@@ -65,7 +67,7 @@ msgid "Messages"
 msgstr "Сообщения"
 
 msgid "See all messages"
-msgstr ""
+msgstr "Посмотреть все сообщения"
 
 msgid "Edit your interpretation"
 msgstr ""
@@ -89,7 +91,7 @@ msgid "You like this"
 msgstr ""
 
 msgid "Like"
-msgstr ""
+msgstr "Нравится"
 
 msgid "View in Visualizer"
 msgstr ""
@@ -101,32 +103,34 @@ msgid "Add your reply"
 msgstr ""
 
 msgid "Interpretations"
-msgstr ""
+msgstr "Interpretations"
 
 msgid "Add your interpretation"
 msgstr ""
 
 msgid "Unable to load the plugin for this item"
-msgstr ""
+msgstr "Невозможно загрузить плагин для этого элемента"
 
 msgid "Spacer"
-msgstr ""
+msgstr "Разделитель"
 
 msgid ""
 "Use a spacer to create empty vertical space between other dashboard items."
 msgstr ""
+"Используйте разделитель для того, чтобы создать пустое вертикальное "
+"пространство между элементами информационной панели."
 
 msgid "Text item"
-msgstr ""
+msgstr "Текстовый элемент"
 
 msgid "Add text here"
-msgstr ""
+msgstr "Добавить текст сюда"
 
 msgid "There are no items on this dashboard"
-msgstr ""
+msgstr "На этой информационной панели нет элементов"
 
 msgid "Search for items to add to this dashboard"
-msgstr ""
+msgstr "Поиск элементов для добавления на эту информационную панель"
 
 msgid "See"
 msgstr ""
@@ -138,7 +142,7 @@ msgid "more"
 msgstr ""
 
 msgid "Text box"
-msgstr ""
+msgstr "Текстовое окно"
 
 msgid "Add title here"
 msgstr ""
@@ -150,37 +154,37 @@ msgid "No description"
 msgstr "Нет описания"
 
 msgid "Pivot tables"
-msgstr ""
+msgstr "Сводные таблицы"
 
 msgid "Pivot Tables"
 msgstr "Сводные таблицы"
 
 msgid "Charts"
-msgstr ""
+msgstr "Диаграммы"
 
 msgid "Visualizer"
-msgstr ""
+msgstr "Визуализатор"
 
 msgid "Maps"
-msgstr ""
+msgstr "Карты"
 
 msgid "Event reports"
 msgstr "Отчеты по событиям"
 
 msgid "Event Reports"
-msgstr ""
+msgstr "Отчеты по событиям"
 
 msgid "Event charts"
 msgstr "Диаграммы событий"
 
 msgid "Event Visualizer"
-msgstr ""
+msgstr "Визуализатор событий"
 
 msgid "Reports"
-msgstr ""
+msgstr "Отчеты"
 
 msgid "Resources"
 msgstr "Ресурсы"
 
 msgid "Users"
-msgstr ""
+msgstr "Пользователи"

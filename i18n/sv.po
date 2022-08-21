@@ -1,5 +1,6 @@
 # 
 # Translators:
+# Jason Pickering <jason@dhis2.org>, 2022
 # phil_dhis2, 2022
 # Viktor Varland <viktor@dhis2.org>, 2022
 # 
@@ -17,7 +18,7 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 msgid "Delete"
-msgstr ""
+msgstr "Radera"
 
 msgid "Continue editing"
 msgstr ""
@@ -29,25 +30,25 @@ msgid "Are you sure you want to delete dashboard \"{{ dashboardName }}\"?"
 msgstr ""
 
 msgid "Exit without saving"
-msgstr ""
+msgstr "Avsluta utan att spara"
 
 msgid "Go to dashboards"
 msgstr ""
 
 msgid "Save changes"
-msgstr ""
+msgstr "Spara ändringar"
 
 msgid "Translate"
-msgstr ""
+msgstr "Översätta"
 
 msgid "Search for a dashboard"
-msgstr ""
+msgstr "Sök efter en dashboard"
 
 msgid "Show less"
 msgstr "Visa mindre"
 
 msgid "Show more"
-msgstr ""
+msgstr "Visa mer"
 
 msgid "No access"
 msgstr ""
@@ -98,7 +99,7 @@ msgid "Add your reply"
 msgstr ""
 
 msgid "Interpretations"
-msgstr ""
+msgstr "tolkningar"
 
 msgid "Add your interpretation"
 msgstr ""
@@ -107,23 +108,23 @@ msgid "Unable to load the plugin for this item"
 msgstr ""
 
 msgid "Spacer"
-msgstr ""
+msgstr "Utrymme"
 
 msgid ""
 "Use a spacer to create empty vertical space between other dashboard items."
 msgstr ""
 
 msgid "Text item"
-msgstr ""
+msgstr "Textobjekt"
 
 msgid "Add text here"
-msgstr ""
+msgstr "Lägg till text här"
 
 msgid "There are no items on this dashboard"
-msgstr ""
+msgstr "Det finns inga föremål på dashboarden"
 
 msgid "Search for items to add to this dashboard"
-msgstr ""
+msgstr "Sök föremål att lägga till denna dashboard"
 
 msgid "See"
 msgstr ""
@@ -147,37 +148,37 @@ msgid "No description"
 msgstr "Ingen beskrivning"
 
 msgid "Pivot tables"
-msgstr ""
+msgstr "pivottabeller"
 
 msgid "Pivot Tables"
 msgstr "Pivottabeller"
 
 msgid "Charts"
-msgstr ""
+msgstr "diagram"
 
 msgid "Visualizer"
-msgstr ""
+msgstr "Visualisering"
 
 msgid "Maps"
-msgstr ""
+msgstr "Kartor"
 
 msgid "Event reports"
 msgstr "Händelsesrapporter"
 
 msgid "Event Reports"
-msgstr ""
+msgstr "händelserapporter"
 
 msgid "Event charts"
 msgstr "Händelsesgrafiker"
 
 msgid "Event Visualizer"
-msgstr ""
+msgstr "händelse Visualizer"
 
 msgid "Reports"
-msgstr ""
+msgstr "rapporter"
 
 msgid "Resources"
 msgstr "Resurser"
 
 msgid "Users"
-msgstr ""
+msgstr "användare"

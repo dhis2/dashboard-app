@@ -17,7 +17,7 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 msgid "Delete"
-msgstr ""
+msgstr "خذف یې کړئ"
 
 msgid "Continue editing"
 msgstr ""
@@ -38,7 +38,7 @@ msgid "Save changes"
 msgstr ""
 
 msgid "Translate"
-msgstr ""
+msgstr "ژباړه"
 
 msgid "Search for a dashboard"
 msgstr ""
@@ -47,7 +47,7 @@ msgid "Show less"
 msgstr "لږ ښکاره کړئ"
 
 msgid "Show more"
-msgstr ""
+msgstr "ډېر ښکاره کړئ"
 
 msgid "No access"
 msgstr ""
@@ -86,7 +86,7 @@ msgid "You like this"
 msgstr ""
 
 msgid "Like"
-msgstr ""
+msgstr "د خوښې وړ."
 
 msgid "View in Visualizer"
 msgstr ""
@@ -98,7 +98,7 @@ msgid "Add your reply"
 msgstr ""
 
 msgid "Interpretations"
-msgstr ""
+msgstr "شفاهي ژباړې"
 
 msgid "Add your interpretation"
 msgstr ""
@@ -147,37 +147,37 @@ msgid "No description"
 msgstr "هېڅ ډول تشریح نه لري"
 
 msgid "Pivot tables"
-msgstr ""
+msgstr "محوري جدولونه"
 
 msgid "Pivot Tables"
 msgstr "محوري جدول"
 
 msgid "Charts"
-msgstr ""
+msgstr "چارټونه"
 
 msgid "Visualizer"
 msgstr ""
 
 msgid "Maps"
-msgstr ""
+msgstr "نخشې"
 
 msgid "Event reports"
 msgstr ""
 
 msgid "Event Reports"
-msgstr ""
+msgstr "د پېښې اړوند راپورونه"
 
 msgid "Event charts"
 msgstr ""
 
 msgid "Event Visualizer"
-msgstr ""
+msgstr "د پېښې انځوروونکی"
 
 msgid "Reports"
-msgstr ""
+msgstr "راپورونه"
 
 msgid "Resources"
 msgstr ""
 
 msgid "Users"
-msgstr ""
+msgstr "کاروونکي [ کاروونکي ]"

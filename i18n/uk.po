@@ -1,8 +1,8 @@
 # 
 # Translators:
+# Wanda <wanda@frontlineaids.org>, 2022
 # Viktor Varland <viktor@dhis2.org>, 2022
 # phil_dhis2, 2022
-# Wanda <wanda@frontlineaids.org>, 2022
 # Éva Tamási, 2022
 # 
 msgid ""
@@ -19,7 +19,7 @@ msgstr ""
 "Plural-Forms: nplurals=4; plural=(n % 1 == 0 && n % 10 == 1 && n % 100 != 11 ? 0 : n % 1 == 0 && n % 10 >= 2 && n % 10 <= 4 && (n % 100 < 12 || n % 100 > 14) ? 1 : n % 1 == 0 && (n % 10 ==0 || (n % 10 >=5 && n % 10 <=9) || (n % 100 >=11 && n % 100 <=14 )) ? 2: 3);\n"
 
 msgid "Delete"
-msgstr ""
+msgstr "Видалити"
 
 msgid "Continue editing"
 msgstr ""
@@ -31,28 +31,28 @@ msgid "Are you sure you want to delete dashboard \"{{ dashboardName }}\"?"
 msgstr ""
 
 msgid "Exit without saving"
-msgstr ""
+msgstr "Вийти без збереження"
 
 msgid "Go to dashboards"
-msgstr ""
+msgstr "Перейти до інформаційних панелей"
 
 msgid "Save changes"
-msgstr ""
+msgstr "Зберегти зміни"
 
 msgid "Translate"
-msgstr ""
+msgstr "Перекласти"
 
 msgid "Search for a dashboard"
-msgstr ""
+msgstr "Пошук інформаційної панелі"
 
 msgid "Show less"
 msgstr "Показати менше"
 
 msgid "Show more"
-msgstr ""
+msgstr "Показати більше"
 
 msgid "No access"
-msgstr ""
+msgstr "Немає доступу"
 
 msgid "No dashboards found. Use the + button to create a new dashboard."
 msgstr ""
@@ -66,7 +66,7 @@ msgid "Messages"
 msgstr "Повідомлення"
 
 msgid "See all messages"
-msgstr ""
+msgstr "Переглянути всі повідомлення"
 
 msgid "Edit your interpretation"
 msgstr ""
@@ -90,7 +90,7 @@ msgid "You like this"
 msgstr ""
 
 msgid "Like"
-msgstr ""
+msgstr "Вподобати"
 
 msgid "View in Visualizer"
 msgstr ""
@@ -102,32 +102,34 @@ msgid "Add your reply"
 msgstr ""
 
 msgid "Interpretations"
-msgstr ""
+msgstr "Інтерпретації"
 
 msgid "Add your interpretation"
 msgstr ""
 
 msgid "Unable to load the plugin for this item"
-msgstr ""
+msgstr "Неможливо завантажити плагін для цього елемента"
 
 msgid "Spacer"
-msgstr ""
+msgstr "Роздільник"
 
 msgid ""
 "Use a spacer to create empty vertical space between other dashboard items."
 msgstr ""
+"Використовуйте роздільник, щоб створити порожній вертикальний простір між "
+"іншими елементами інформаційної панелі."
 
 msgid "Text item"
-msgstr ""
+msgstr "Текстовий об'єкт"
 
 msgid "Add text here"
-msgstr ""
+msgstr "Додати текст сюди"
 
 msgid "There are no items on this dashboard"
-msgstr ""
+msgstr "На цій інформаційній панелі немає елементів"
 
 msgid "Search for items to add to this dashboard"
-msgstr ""
+msgstr "Пошук елементів для додавання до цієї інформаційної панелі"
 
 msgid "See"
 msgstr ""
@@ -139,7 +141,7 @@ msgid "more"
 msgstr ""
 
 msgid "Text box"
-msgstr ""
+msgstr "Текстове поле"
 
 msgid "Add title here"
 msgstr ""
@@ -151,37 +153,37 @@ msgid "No description"
 msgstr "Без опису"
 
 msgid "Pivot tables"
-msgstr ""
+msgstr "Зведені таблиці"
 
 msgid "Pivot Tables"
 msgstr "Зведені таблиці"
 
 msgid "Charts"
-msgstr ""
+msgstr "Діаграми"
 
 msgid "Visualizer"
-msgstr ""
+msgstr "Візуалізатор"
 
 msgid "Maps"
-msgstr ""
+msgstr "Мапи"
 
 msgid "Event reports"
 msgstr "Звіти про події"
 
 msgid "Event Reports"
-msgstr ""
+msgstr "Звіти про події"
 
 msgid "Event charts"
 msgstr "Діаграми подій"
 
 msgid "Event Visualizer"
-msgstr ""
+msgstr "Візуалізатор подій"
 
 msgid "Reports"
-msgstr ""
+msgstr "Звіти"
 
 msgid "Resources"
 msgstr "Ресурси"
 
 msgid "Users"
-msgstr ""
+msgstr "Користувачі"

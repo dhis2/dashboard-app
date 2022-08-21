@@ -17,7 +17,7 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 msgid "Delete"
-msgstr ""
+msgstr "حذف"
 
 msgid "Continue editing"
 msgstr ""
@@ -29,28 +29,28 @@ msgid "Are you sure you want to delete dashboard \"{{ dashboardName }}\"?"
 msgstr ""
 
 msgid "Exit without saving"
-msgstr ""
+msgstr "محفوظ کیے بغیر واپسی"
 
 msgid "Go to dashboards"
-msgstr ""
+msgstr "دیشبورڈ پر جاؤ"
 
 msgid "Save changes"
-msgstr ""
+msgstr "تبدیلیاں محفوظ کریں"
 
 msgid "Translate"
-msgstr ""
+msgstr "ترجمہ"
 
 msgid "Search for a dashboard"
-msgstr ""
+msgstr "ڈیشبورڈ ڈھونڈو"
 
 msgid "Show less"
 msgstr "کم دکھائیں"
 
 msgid "Show more"
-msgstr ""
+msgstr "اور دیکھاو"
 
 msgid "No access"
-msgstr ""
+msgstr "داخلہ ممنوع ہے"
 
 msgid "No dashboards found. Use the + button to create a new dashboard."
 msgstr ""
@@ -86,7 +86,7 @@ msgid "You like this"
 msgstr ""
 
 msgid "Like"
-msgstr ""
+msgstr "کی طرح"
 
 msgid "View in Visualizer"
 msgstr ""
@@ -98,7 +98,7 @@ msgid "Add your reply"
 msgstr ""
 
 msgid "Interpretations"
-msgstr ""
+msgstr "تشریحات"
 
 msgid "Add your interpretation"
 msgstr ""
@@ -107,23 +107,23 @@ msgid "Unable to load the plugin for this item"
 msgstr ""
 
 msgid "Spacer"
-msgstr ""
+msgstr "سپیسر"
 
 msgid ""
 "Use a spacer to create empty vertical space between other dashboard items."
 msgstr ""
 
 msgid "Text item"
-msgstr ""
+msgstr "ٹیکسٹ آیٹم"
 
 msgid "Add text here"
-msgstr ""
+msgstr "یہاں ٹیکسٹ لکھیے"
 
 msgid "There are no items on this dashboard"
-msgstr ""
+msgstr "ڈیشبورڈ پر کوءی آیٹم موجود نہیں"
 
 msgid "Search for items to add to this dashboard"
-msgstr ""
+msgstr "اس ڈیش بورڈ میں شامل کرنے کے لئے اشیاء تلاش کریں"
 
 msgid "See"
 msgstr ""
@@ -147,37 +147,37 @@ msgid "No description"
 msgstr "کوئی وضاحت نہیں"
 
 msgid "Pivot tables"
-msgstr ""
+msgstr "پیوٹ ٹیبلز"
 
 msgid "Pivot Tables"
 msgstr "محور میزیں"
 
 msgid "Charts"
-msgstr ""
+msgstr "چارٹس"
 
 msgid "Visualizer"
-msgstr ""
+msgstr "وزیولاءزر"
 
 msgid "Maps"
-msgstr ""
+msgstr "نقسے"
 
 msgid "Event reports"
 msgstr "ایونٹ رپورٹیں"
 
 msgid "Event Reports"
-msgstr ""
+msgstr "ایونٹ ریپورٹ"
 
 msgid "Event charts"
 msgstr "ایونٹ چارٹس"
 
 msgid "Event Visualizer"
-msgstr ""
+msgstr "ایونٹ ویزوئلائزر"
 
 msgid "Reports"
-msgstr ""
+msgstr "رپورٹس"
 
 msgid "Resources"
 msgstr "ریسورسس"
 
 msgid "Users"
-msgstr ""
+msgstr "صارف"

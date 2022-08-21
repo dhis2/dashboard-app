@@ -16,7 +16,7 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 
 msgid "Delete"
-msgstr ""
+msgstr "حذف"
 
 msgid "Continue editing"
 msgstr ""
@@ -37,7 +37,7 @@ msgid "Save changes"
 msgstr ""
 
 msgid "Translate"
-msgstr ""
+msgstr "ترجمه"
 
 msgid "Search for a dashboard"
 msgstr ""
@@ -46,10 +46,10 @@ msgid "Show less"
 msgstr "نمایش دادن کم"
 
 msgid "Show more"
-msgstr ""
+msgstr "نمایش دادن بیشتر"
 
 msgid "No access"
-msgstr ""
+msgstr "دسترسی وجود ندارد"
 
 msgid "No dashboards found. Use the + button to create a new dashboard."
 msgstr ""
@@ -73,7 +73,7 @@ msgid "Cancel edit"
 msgstr ""
 
 msgid "Edit"
-msgstr ""
+msgstr "تجدید"
 
 msgid "like"
 msgstr ""
@@ -85,19 +85,19 @@ msgid "You like this"
 msgstr ""
 
 msgid "Like"
-msgstr ""
+msgstr "موافق"
 
 msgid "View in Visualizer"
 msgstr ""
 
 msgid "Reply"
-msgstr ""
+msgstr "پاسخ"
 
 msgid "Add your reply"
 msgstr ""
 
 msgid "Interpretations"
-msgstr ""
+msgstr "تفسیر ها"
 
 msgid "Add your interpretation"
 msgstr ""
@@ -143,28 +143,28 @@ msgid "Add description here"
 msgstr ""
 
 msgid "No description"
-msgstr ""
+msgstr "بدون شرح"
 
 msgid "Pivot tables"
-msgstr ""
+msgstr "جداول محوری"
 
 msgid "Pivot Tables"
 msgstr "محوري جدول"
 
 msgid "Charts"
-msgstr ""
+msgstr "چارت ها"
 
 msgid "Visualizer"
 msgstr ""
 
 msgid "Maps"
-msgstr ""
+msgstr "نقشه ها"
 
 msgid "Event reports"
 msgstr ""
 
 msgid "Event Reports"
-msgstr ""
+msgstr "گزارشات رویداد"
 
 msgid "Event charts"
 msgstr ""
@@ -173,10 +173,10 @@ msgid "Event Visualizer"
 msgstr ""
 
 msgid "Reports"
-msgstr ""
+msgstr "گزارش ها"
 
 msgid "Resources"
 msgstr ""
 
 msgid "Users"
-msgstr ""
+msgstr "استفاده کننده گان"

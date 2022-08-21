@@ -16,7 +16,7 @@ msgstr ""
 "Plural-Forms: nplurals=1; plural=0;\n"
 
 msgid "Delete"
-msgstr ""
+msgstr "Oʼchirib tashlash"
 
 msgid "Continue editing"
 msgstr ""
@@ -28,28 +28,28 @@ msgid "Are you sure you want to delete dashboard \"{{ dashboardName }}\"?"
 msgstr ""
 
 msgid "Exit without saving"
-msgstr ""
+msgstr "Saqlamasdan chiqish"
 
 msgid "Go to dashboards"
-msgstr ""
+msgstr "Boshqaruv panellariga oʼtish"
 
 msgid "Save changes"
-msgstr ""
+msgstr "Oʼzgartirishni saqlash"
 
 msgid "Translate"
-msgstr ""
+msgstr "Tarjima qiling"
 
 msgid "Search for a dashboard"
-msgstr ""
+msgstr "Boshqarish panelida izlash"
 
 msgid "Show less"
 msgstr "Kamroq koʼrsatish"
 
 msgid "Show more"
-msgstr ""
+msgstr "Koʼproq koʼrsatish"
 
 msgid "No access"
-msgstr ""
+msgstr "Kirish taʼqiqlangan"
 
 msgid "No dashboards found. Use the + button to create a new dashboard."
 msgstr ""
@@ -63,7 +63,7 @@ msgid "Messages"
 msgstr "Xabarlar"
 
 msgid "See all messages"
-msgstr ""
+msgstr "Barcha xabarlarni koʼrish"
 
 msgid "Edit your interpretation"
 msgstr ""
@@ -87,7 +87,7 @@ msgid "You like this"
 msgstr ""
 
 msgid "Like"
-msgstr ""
+msgstr "Kabi, oʼxshash"
 
 msgid "View in Visualizer"
 msgstr ""
@@ -99,32 +99,34 @@ msgid "Add your reply"
 msgstr ""
 
 msgid "Interpretations"
-msgstr ""
+msgstr "Talqinlar"
 
 msgid "Add your interpretation"
 msgstr ""
 
 msgid "Unable to load the plugin for this item"
-msgstr ""
+msgstr "Ushbu element uchun plagin yuklanmadi"
 
 msgid "Spacer"
-msgstr ""
+msgstr "Boʼsh joy"
 
 msgid ""
 "Use a spacer to create empty vertical space between other dashboard items."
 msgstr ""
+"Monitoring panelida elementlar orasida vertikal boʼsh joy yaratish uchun "
+"boʼsh joy qoldirish funktsiyasidan foydalaning"
 
 msgid "Text item"
 msgstr "Matn elementi"
 
 msgid "Add text here"
-msgstr ""
+msgstr "Matnni shu yerga qoʼshing"
 
 msgid "There are no items on this dashboard"
 msgstr "Ushbu boshqaruv panelida elementlar yoʼq"
 
 msgid "Search for items to add to this dashboard"
-msgstr ""
+msgstr "Ushbu boshqaruv paneliga kiritish uchun elementlarni qidiring"
 
 msgid "See"
 msgstr ""
@@ -136,7 +138,7 @@ msgid "more"
 msgstr ""
 
 msgid "Text box"
-msgstr ""
+msgstr "Matn joyi"
 
 msgid "Add title here"
 msgstr ""
@@ -154,25 +156,25 @@ msgid "Pivot Tables"
 msgstr "Solishtirma jadvallar"
 
 msgid "Charts"
-msgstr ""
+msgstr "Diagrammalar"
 
 msgid "Visualizer"
-msgstr ""
+msgstr "Vizualizator"
 
 msgid "Maps"
-msgstr ""
+msgstr "Xaritalar"
 
 msgid "Event reports"
 msgstr "Hodisalar hisoboti"
 
 msgid "Event Reports"
-msgstr ""
+msgstr "Hodisalar haqida hisobotlar"
 
 msgid "Event charts"
 msgstr "Hodisalar diagrammalarda"
 
 msgid "Event Visualizer"
-msgstr ""
+msgstr "Hodisalar vizualizatori"
 
 msgid "Reports"
 msgstr "Hisobotlar"
@@ -181,4 +183,4 @@ msgid "Resources"
 msgstr "Resurslar"
 
 msgid "Users"
-msgstr ""
+msgstr "Foydalanuvchilar"
