@@ -1,6 +1,6 @@
 [main]
 host     = https://www.transifex.com
-lang_map = uz@Latn: uz_Latn, fa_AF: prs, uz@Cyrl: uz
+lang_map = fa_AF: prs, uz@Cyrl: uz, uz@Latn: uz_Latn
 
 [o:hisp-uio:p:app-dashboards-app:r:en-pot]
 file_filter  = i18n/<lang>.po
