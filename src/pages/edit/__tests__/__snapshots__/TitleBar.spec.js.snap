@@ -35,19 +35,16 @@ exports[`TitleBar renders correctly when no name or description 1`] = `
               data-test="dhis2-uicore-box"
             >
               <div
-                class="jsx-3353877153 jsx-2133963083 input"
+                class="jsx-3353877153 jsx-2422099811 input"
                 data-test="dhis2-uicore-input"
               >
                 <input
-                  class="jsx-3353877153 jsx-2133963083 dense"
+                  class="jsx-3353877153 jsx-2422099811 dense"
                   id="Dashboard title input"
                   name="Dashboard title input"
                   placeholder="Untitled dashboard"
                   type="text"
                   value=""
-                />
-                <div
-                  class="jsx-3353877153 jsx-2133963083 status-icon"
                 />
               </div>
             </div>
@@ -77,18 +74,15 @@ exports[`TitleBar renders correctly when no name or description 1`] = `
               data-test="dhis2-uicore-box"
             >
               <div
-                class="jsx-3353877153 jsx-2133963083 input"
+                class="jsx-3353877153 jsx-2422099811 input"
                 data-test="dhis2-uicore-input"
               >
                 <input
-                  class="jsx-3353877153 jsx-2133963083 dense"
+                  class="jsx-3353877153 jsx-2422099811 dense"
                   id="Dashboard code input"
                   name="Dashboard code input"
                   type="text"
                   value=""
-                />
-                <div
-                  class="jsx-3353877153 jsx-2133963083 status-icon"
                 />
               </div>
             </div>
@@ -119,17 +113,14 @@ exports[`TitleBar renders correctly when no name or description 1`] = `
             data-test="dhis2-uicore-box"
           >
             <div
-              class="jsx-4150870461 jsx-2961587785 textarea"
+              class="jsx-1940988187 jsx-2961587785 textarea"
               data-test="dhis2-uicore-textarea"
             >
               <textarea
-                class="jsx-4150870461 jsx-2961587785 dense"
+                class="jsx-1940988187 jsx-2961587785 dense"
                 id="Dashboard description input"
                 name="Dashboard description input"
                 rows="6"
-              />
-              <div
-                class="jsx-4150870461 jsx-2961587785 status-icon"
               />
             </div>
           </div>
@@ -170,7 +161,7 @@ exports[`TitleBar renders correctly when no name or description 1`] = `
             class="span"
           >
             <button
-              class="jsx-1937199209 small"
+              class="jsx-441677069 small"
               data-test="dhis2-uicore-button"
               type="button"
             >
@@ -191,18 +182,18 @@ exports[`TitleBar renders correctly when no name or description 1`] = `
           class="positionOptions"
         >
           <label
-            class="jsx-869913229 dense"
+            class="jsx-2076513581 dense"
             data-test="dhis2-uicore-radio"
           >
             <input
               checked=""
-              class="jsx-869913229"
+              class="jsx-2076513581"
               name="END"
               type="radio"
               value=""
             />
             <div
-              class="jsx-869913229 icon dense"
+              class="jsx-2076513581 icon dense"
             >
               <svg
                 class="jsx-1659897952 jsx-1631270792 checked"
@@ -234,17 +225,17 @@ exports[`TitleBar renders correctly when no name or description 1`] = `
             End of dashboard
           </label>
           <label
-            class="jsx-869913229 dense"
+            class="jsx-2076513581 dense"
             data-test="dhis2-uicore-radio"
           >
             <input
-              class="jsx-869913229"
+              class="jsx-2076513581"
               name="START"
               type="radio"
               value=""
             />
             <div
-              class="jsx-869913229 icon dense"
+              class="jsx-2076513581 icon dense"
             >
               <svg
                 class="jsx-1659897952 jsx-1631270792 "
@@ -324,19 +315,16 @@ exports[`TitleBar renders correctly with name and description 1`] = `
               data-test="dhis2-uicore-box"
             >
               <div
-                class="jsx-3353877153 jsx-2133963083 input"
+                class="jsx-3353877153 jsx-2422099811 input"
                 data-test="dhis2-uicore-input"
               >
                 <input
-                  class="jsx-3353877153 jsx-2133963083 dense"
+                  class="jsx-3353877153 jsx-2422099811 dense"
                   id="Dashboard title input"
                   name="Dashboard title input"
                   placeholder="Untitled dashboard"
                   type="text"
                   value="Rainbow Dash"
-                />
-                <div
-                  class="jsx-3353877153 jsx-2133963083 status-icon"
                 />
               </div>
             </div>
@@ -366,18 +354,15 @@ exports[`TitleBar renders correctly with name and description 1`] = `
               data-test="dhis2-uicore-box"
             >
               <div
-                class="jsx-3353877153 jsx-2133963083 input"
+                class="jsx-3353877153 jsx-2422099811 input"
                 data-test="dhis2-uicore-input"
               >
                 <input
-                  class="jsx-3353877153 jsx-2133963083 dense"
+                  class="jsx-3353877153 jsx-2422099811 dense"
                   id="Dashboard code input"
                   name="Dashboard code input"
                   type="text"
                   value=""
-                />
-                <div
-                  class="jsx-3353877153 jsx-2133963083 status-icon"
                 />
               </div>
             </div>
@@ -408,20 +393,17 @@ exports[`TitleBar renders correctly with name and description 1`] = `
             data-test="dhis2-uicore-box"
           >
             <div
-              class="jsx-4150870461 jsx-2961587785 textarea"
+              class="jsx-1940988187 jsx-2961587785 textarea"
               data-test="dhis2-uicore-textarea"
             >
               <textarea
-                class="jsx-4150870461 jsx-2961587785 dense"
+                class="jsx-1940988187 jsx-2961587785 dense"
                 id="Dashboard description input"
                 name="Dashboard description input"
                 rows="6"
               >
                 A very colorful pony
               </textarea>
-              <div
-                class="jsx-4150870461 jsx-2961587785 status-icon"
-              />
             </div>
           </div>
         </div>
@@ -461,7 +443,7 @@ exports[`TitleBar renders correctly with name and description 1`] = `
             class="span"
           >
             <button
-              class="jsx-1937199209 small"
+              class="jsx-441677069 small"
               data-test="dhis2-uicore-button"
               type="button"
             >
@@ -482,18 +464,18 @@ exports[`TitleBar renders correctly with name and description 1`] = `
           class="positionOptions"
         >
           <label
-            class="jsx-869913229 dense"
+            class="jsx-2076513581 dense"
             data-test="dhis2-uicore-radio"
           >
             <input
               checked=""
-              class="jsx-869913229"
+              class="jsx-2076513581"
               name="END"
               type="radio"
               value=""
             />
             <div
-              class="jsx-869913229 icon dense"
+              class="jsx-2076513581 icon dense"
             >
               <svg
                 class="jsx-1659897952 jsx-1631270792 checked"
@@ -525,17 +507,17 @@ exports[`TitleBar renders correctly with name and description 1`] = `
             End of dashboard
           </label>
           <label
-            class="jsx-869913229 dense"
+            class="jsx-2076513581 dense"
             data-test="dhis2-uicore-radio"
           >
             <input
-              class="jsx-869913229"
+              class="jsx-2076513581"
               name="START"
               type="radio"
               value=""
             />
             <div
-              class="jsx-869913229 icon dense"
+              class="jsx-2076513581 icon dense"
             >
               <svg
                 class="jsx-1659897952 jsx-1631270792 "

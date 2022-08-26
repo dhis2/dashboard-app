@@ -10,13 +10,13 @@ exports[`is disabled when offline 1`] = `
         class="span"
       >
         <button
-          class="jsx-1937199209 "
+          class="jsx-441677069 "
           data-test="dhis2-uicore-button"
           disabled=""
           type="button"
         >
           <span
-            class="jsx-1937199209 button-icon"
+            class="jsx-441677069 button-icon"
           >
             <svg
               color="#4a5768"
@@ -70,12 +70,12 @@ exports[`is enabled when online 1`] = `
         class="span"
       >
         <button
-          class="jsx-1937199209 "
+          class="jsx-441677069 "
           data-test="dhis2-uicore-button"
           type="button"
         >
           <span
-            class="jsx-1937199209 button-icon"
+            class="jsx-441677069 button-icon"
           >
             <svg
               color="#4a5768"

@@ -6,13 +6,13 @@ exports[`renders correctly when filters are not restricted 1`] = `
     class="modal"
   >
     <h1
-      class="jsx-3701517325 title"
+      class="jsx-2954721103 title"
       data-test="dhis2-uicore-modaltitle"
     >
       Dashboard filter settings
     </h1>
     <div
-      class="jsx-659511263 "
+      class="jsx-3719215021 "
       data-test="dhis2-uicore-modalcontent"
     >
       <div
@@ -30,18 +30,18 @@ exports[`renders correctly when filters are not restricted 1`] = `
           class="radioButton"
         >
           <label
-            class="jsx-869913229 dense"
+            class="jsx-2076513581 dense"
             data-test="dhis2-uicore-radio"
           >
             <input
               checked=""
-              class="jsx-869913229"
+              class="jsx-2076513581"
               name="radio-allow-filtering-on-all"
               type="radio"
               value="false"
             />
             <div
-              class="jsx-869913229 icon dense"
+              class="jsx-2076513581 icon dense"
             >
               <svg
                 class="jsx-1659897952 jsx-1631270792 checked"
@@ -77,17 +77,17 @@ exports[`renders correctly when filters are not restricted 1`] = `
           class="radioButton"
         >
           <label
-            class="jsx-869913229 dense"
+            class="jsx-2076513581 dense"
             data-test="dhis2-uicore-radio"
           >
             <input
-              class="jsx-869913229"
+              class="jsx-2076513581"
               name="radio-restrict-filtering"
               type="radio"
               value="true"
             />
             <div
-              class="jsx-869913229 icon dense"
+              class="jsx-2076513581 icon dense"
             >
               <svg
                 class="jsx-1659897952 jsx-1631270792 "
@@ -122,18 +122,18 @@ exports[`renders correctly when filters are not restricted 1`] = `
       </form>
     </div>
     <div
-      class="jsx-752323619"
+      class="jsx-1992272135"
       data-test="dhis2-uicore-modalactions"
     >
       <div
-        class="jsx-71743532 end"
+        class="jsx-1994200789 end"
         data-test="dhis2-uicore-buttonstrip"
       >
         <div
-          class="jsx-71743532 box"
+          class="jsx-1994200789 box"
         >
           <button
-            class="jsx-1937199209 secondary"
+            class="jsx-441677069 secondary"
             data-test="dhis2-uicore-button"
             type="button"
           >
@@ -141,10 +141,10 @@ exports[`renders correctly when filters are not restricted 1`] = `
           </button>
         </div>
         <div
-          class="jsx-71743532 box"
+          class="jsx-1994200789 box"
         >
           <button
-            class="jsx-1937199209 primary"
+            class="jsx-441677069 primary"
             data-test="dhis2-uicore-button"
             type="button"
           >
@@ -163,13 +163,13 @@ exports[`renders correctly when filters are restricted 1`] = `
     class="modal"
   >
     <h1
-      class="jsx-3701517325 title"
+      class="jsx-2954721103 title"
       data-test="dhis2-uicore-modaltitle"
     >
       Dashboard filter settings
     </h1>
     <div
-      class="jsx-659511263 "
+      class="jsx-3719215021 "
       data-test="dhis2-uicore-modalcontent"
     >
       <div
@@ -187,17 +187,17 @@ exports[`renders correctly when filters are restricted 1`] = `
           class="radioButton"
         >
           <label
-            class="jsx-869913229 dense"
+            class="jsx-2076513581 dense"
             data-test="dhis2-uicore-radio"
           >
             <input
-              class="jsx-869913229"
+              class="jsx-2076513581"
               name="radio-allow-filtering-on-all"
               type="radio"
               value="false"
             />
             <div
-              class="jsx-869913229 icon dense"
+              class="jsx-2076513581 icon dense"
             >
               <svg
                 class="jsx-1659897952 jsx-1631270792 "
@@ -233,18 +233,18 @@ exports[`renders correctly when filters are restricted 1`] = `
           class="radioButton"
         >
           <label
-            class="jsx-869913229 dense"
+            class="jsx-2076513581 dense"
             data-test="dhis2-uicore-radio"
           >
             <input
               checked=""
-              class="jsx-869913229"
+              class="jsx-2076513581"
               name="radio-restrict-filtering"
               type="radio"
               value="true"
             />
             <div
-              class="jsx-869913229 icon dense"
+              class="jsx-2076513581 icon dense"
             >
               <svg
                 class="jsx-1659897952 jsx-1631270792 checked"
@@ -284,18 +284,18 @@ exports[`renders correctly when filters are restricted 1`] = `
       />
     </div>
     <div
-      class="jsx-752323619"
+      class="jsx-1992272135"
       data-test="dhis2-uicore-modalactions"
     >
       <div
-        class="jsx-71743532 end"
+        class="jsx-1994200789 end"
         data-test="dhis2-uicore-buttonstrip"
       >
         <div
-          class="jsx-71743532 box"
+          class="jsx-1994200789 box"
         >
           <button
-            class="jsx-1937199209 secondary"
+            class="jsx-441677069 secondary"
             data-test="dhis2-uicore-button"
             type="button"
           >
@@ -303,10 +303,10 @@ exports[`renders correctly when filters are restricted 1`] = `
           </button>
         </div>
         <div
-          class="jsx-71743532 box"
+          class="jsx-1994200789 box"
         >
           <button
-            class="jsx-1937199209 primary"
+            class="jsx-441677069 primary"
             data-test="dhis2-uicore-button"
             type="button"
           >
