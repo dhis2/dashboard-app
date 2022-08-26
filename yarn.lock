@@ -2060,22 +2060,6 @@
     classnames "^2.3.1"
     prop-types "^15.7.2"
 
-"@dhis2/analytics@^20.4.10":
-  version "20.4.10"
-  resolved "https://registry.yarnpkg.com/@dhis2/analytics/-/analytics-20.4.10.tgz#b65faeef0443c908248a7018c472b7dbeabd37f9"
-  integrity sha512-ZrgLKsxDWx0+4Ab1AZdxCoMYhBmjvR++8D9PVjwwZ5w+tmdgw4sY6k4xiMiu++3lCMkChX64Sy7r3OvX0CjzXA==
-  dependencies:
-    "@dhis2/d2-ui-org-unit-dialog" "^7.3.0"
-    "@dhis2/d2-ui-translation-dialog" "^7.3.1"
-    classnames "^2.3.1"
-    d2-utilizr "^0.2.16"
-    d3-color "^1.2.3"
-    highcharts "^9.1.2"
-    lodash "^4.17.21"
-    mathjs "^9.4.2"
-    react-beautiful-dnd "^10.1.1"
-    resize-observer-polyfill "^1.5.1"
-
 "@dhis2/analytics@^21.8.1":
   version "21.8.1"
   resolved "https://registry.yarnpkg.com/@dhis2/analytics/-/analytics-21.8.1.tgz#2e04e80cb2f80336c80a6a1605c295702e1f8d65"
@@ -2282,17 +2266,6 @@
     i18next "^10.3"
     moment "^2.24.0"
 
-"@dhis2/d2-ui-core@7.3.2":
-  version "7.3.2"
-  resolved "https://registry.yarnpkg.com/@dhis2/d2-ui-core/-/d2-ui-core-7.3.2.tgz#45a969db714bc78aa76657cb0dd1bc18c593b6ff"
-  integrity sha512-yrg+oyyEofjk7KqDdHM2ggUSWqYU2aBLIcAn0Hqz4wenm3tbDlWgRoo0is4E601WZc80+AtzoX8ouGIsJpO6fQ==
-  dependencies:
-    babel-runtime "^6.26.0"
-    d2 "~31.7"
-    lodash "^4.17.10"
-    material-ui "^0.20.0"
-    rxjs "^5.5.7"
-
 "@dhis2/d2-ui-core@7.3.3":
   version "7.3.3"
   resolved "https://registry.yarnpkg.com/@dhis2/d2-ui-core/-/d2-ui-core-7.3.3.tgz#305dd9d4a1fe65672ace305c530230dfe7f89030"
@@ -2340,26 +2313,6 @@
     "@material-ui/core" "^3.3.1"
     lodash "^4.17.10"
     prop-types "^15.6.2"
-
-"@dhis2/d2-ui-org-unit-dialog@^7.3.0":
-  version "7.3.2"
-  resolved "https://registry.yarnpkg.com/@dhis2/d2-ui-org-unit-dialog/-/d2-ui-org-unit-dialog-7.3.2.tgz#1d63ff89028fa249f4fa42f468c693e6365148e7"
-  integrity sha512-H/PtItaNp5PuMJJUgp02ibDnUa5wU22I7DAtLViUqZ1fEgqcYwqMhkgXrFoMT4QH/mt8l+mYQQiCVG1H1K5L6Q==
-  dependencies:
-    "@dhis2/d2-ui-org-unit-tree" "7.3.2"
-    "@material-ui/core" "^3.3.1"
-    "@material-ui/icons" "^3.0.1"
-    prop-types "^15.5.10"
-
-"@dhis2/d2-ui-org-unit-tree@7.3.2":
-  version "7.3.2"
-  resolved "https://registry.yarnpkg.com/@dhis2/d2-ui-org-unit-tree/-/d2-ui-org-unit-tree-7.3.2.tgz#557265b3960fc4815882eb220ac2a7f55bb39ca3"
-  integrity sha512-13Yk/sqZ4OkcnDyFKdECt6hIY9my1IZHdAheMIoeUkjDShUpLkAA9AtagcA910HeNj+x1AeZLjsdPc92bOlw+w==
-  dependencies:
-    "@dhis2/d2-ui-core" "7.3.2"
-    "@material-ui/core" "^3.3.1"
-    babel-runtime "^6.26.0"
-    prop-types "^15.5.10"
 
 "@dhis2/d2-ui-rich-text@7.4.0", "@dhis2/d2-ui-rich-text@^7.3.3":
   version "7.4.0"
