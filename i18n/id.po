@@ -5,13 +5,14 @@
 # Viktor Varland <viktor@dhis2.org>, 2020
 # Carwoto Sa'an <carwoto@gmail.com>, 2020
 # Yusuf Setiawan <mohammadyusufsetiawan@gmail.com>, 2021
+# Raja Fathurrahim, 2022
 # 
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
 "POT-Creation-Date: 2021-07-06T07:28:33.146Z\n"
 "PO-Revision-Date: 2020-12-22 22:13+0000\n"
-"Last-Translator: Yusuf Setiawan <mohammadyusufsetiawan@gmail.com>, 2021\n"
+"Last-Translator: Raja Fathurrahim, 2022\n"
 "Language-Team: Indonesian (https://www.transifex.com/hisp-uio/teams/100509/id/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -176,10 +177,10 @@ msgid "Open in {{appName}} app"
 msgstr "Buka di aplikasi {{appName}}"
 
 msgid "There was an error loading data for this item"
-msgstr ""
+msgstr "Telah terjadi sebuah kesalahan dalam memuat data pada item ini"
 
 msgid "Open this item in {{appName}}"
-msgstr ""
+msgstr "Buka item ini pada {{Nama app}}"
 
 msgid "Confirm"
 msgstr "Konfirmasi"

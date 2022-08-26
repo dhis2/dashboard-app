@@ -5,14 +5,14 @@
 # Sergio Valenzuela <sergio.valenzuela@ehas.org>, 2020
 # William Aviles <waviles@clintonhealthaccess.org>, 2020
 # Gabriela Rodriguez <grodriguezcoronado@gmail.com>, 2020
-# Prabhjot Singh, 2022
+# Prabhjot Singh, 2021
 # 
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
 "POT-Creation-Date: 2021-07-06T07:28:33.146Z\n"
 "PO-Revision-Date: 2020-12-22 22:13+0000\n"
-"Last-Translator: Prabhjot Singh, 2022\n"
+"Last-Translator: Prabhjot Singh, 2021\n"
 "Language-Team: Spanish (https://www.transifex.com/hisp-uio/teams/100509/es/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
