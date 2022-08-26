@@ -73,7 +73,7 @@ exports[`renders the app with the start page 1`] = `
                 class="icon"
               >
                 <svg
-                  color="#6e7a8a"
+                  color="#6C7787"
                   height="16"
                   viewBox="0 0 16 16"
                   width="16"
