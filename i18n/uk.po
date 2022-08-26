@@ -1,14 +1,15 @@
 # 
 # Translators:
-# Viktor Varland <viktor@dhis2.org>, 2019
 # phil_dhis2, 2019
+# Viktor Varland <viktor@dhis2.org>, 2019
+# Éva Tamási, 2022
 # 
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
 "POT-Creation-Date: 2020-08-26T14:04:44.145Z\n"
 "PO-Revision-Date: 2019-09-01 20:37+0000\n"
-"Last-Translator: phil_dhis2, 2019\n"
+"Last-Translator: Éva Tamási, 2022\n"
 "Language-Team: Ukrainian (https://www.transifex.com/hisp-uio/teams/100509/uk/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -17,7 +18,7 @@ msgstr ""
 "Plural-Forms: nplurals=4; plural=(n % 1 == 0 && n % 10 == 1 && n % 100 != 11 ? 0 : n % 1 == 0 && n % 10 >= 2 && n % 10 <= 4 && (n % 100 < 12 || n % 100 > 14) ? 1 : n % 1 == 0 && (n % 10 ==0 || (n % 10 >=5 && n % 10 <=9) || (n % 100 >=11 && n % 100 <=14 )) ? 2: 3);\n"
 
 msgid "Untitled dashboard"
-msgstr ""
+msgstr "Інформаційна панель без назви"
 
 msgid "Dashboard"
 msgstr "Інформаційна панель (дашборд)"
@@ -29,28 +30,31 @@ msgid "Delete"
 msgstr "Видалити"
 
 msgid "Delete dashboard"
-msgstr ""
+msgstr "Видалити інформаційну панель"
 
 msgid ""
 "Deleting dashboard \"{{ dashboardName }}\" will remove it for all users. "
 "This action cannot be undone. Are you sure you want to permanently delete "
 "this dashboard?"
 msgstr ""
+"Після видалення інформаційної панелі \"{ { dashboardName}}\" її буде "
+"видалено для всіх користувачів. Цю дію неможливо скасувати. Ви дійсно хочете"
+" остаточно видалити цю інформаційну панель?"
 
 msgid "Exit without saving"
-msgstr ""
+msgstr "Вийти без збереження"
 
 msgid "Go to dashboards"
-msgstr ""
+msgstr "Перейти до інформаційних панелей"
 
 msgid "Save changes"
-msgstr ""
+msgstr "Зберегти зміни"
 
 msgid "Translate"
 msgstr "Перекласти"
 
 msgid "Search for a dashboard"
-msgstr ""
+msgstr "Пошук інформаційної панелі"
 
 msgid "Show more"
 msgstr "Показати більше"
@@ -59,81 +63,85 @@ msgid "Show less"
 msgstr "Показати менше"
 
 msgid "No access"
-msgstr ""
+msgstr "Немає доступу"
 
 msgid "No dashboards found. Use the + button to create a new dashboard."
 msgstr ""
+"Інформаційні панелі не знайдено. Скористайтеся кнопкою +, щоб створити нову "
+"інформаційну панель."
 
 msgid "Requested dashboard not found"
-msgstr ""
+msgstr "Потрібну інформаційну панель не знайдено"
 
 msgid "{{count}} selected"
 msgid_plural "{{count}} selected"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
-msgstr[3] ""
+msgstr[0] "Вибрано {{count}}"
+msgstr[1] "Вибрано {{count}}"
+msgstr[2] "Вибрано {{count}}"
+msgstr[3] "Вибрано {{count}}"
 
 msgid "Remove"
-msgstr "Прибрати"
+msgstr "Видалити"
 
 msgid "Messages"
 msgstr "Повідомлення"
 
 msgid "See all messages"
-msgstr ""
+msgstr "Переглянути всі повідомлення"
 
 msgid "Spacer"
-msgstr ""
+msgstr "Роздільник"
 
 msgid ""
 "Use a spacer to create empty vertical space between other dashboard items."
 msgstr ""
+"Використовуйте роздільник, щоб створити порожній вертикальний простір між "
+"іншими елементами інформаційної панелі."
 
 msgid "Text item"
-msgstr ""
+msgstr "Текстовий об'єкт"
 
 msgid "Add text here"
-msgstr ""
+msgstr "Додати текст сюди"
 
 msgid "Unable to load the plugin for this item"
-msgstr ""
+msgstr "Неможливо завантажити плагін для цього елемента"
 
 msgid "No data to display"
-msgstr ""
+msgstr "Немає даних для відображення"
 
 msgid "View in {{appName}} app"
-msgstr ""
+msgstr "Переглянути в додатку {{appName}}"
 
 msgid "Confirm"
-msgstr ""
+msgstr "Підтвердити"
 
 msgid "Add filter"
-msgstr ""
+msgstr "Додати фільтр"
 
 msgid "There are no items on this dashboard"
-msgstr ""
+msgstr "На цій інформаційній панелі немає елементів"
 
 msgid "Show fewer"
-msgstr ""
+msgstr "Показати менше"
 
 msgid "Insert"
-msgstr ""
+msgstr "Вставити"
 
 msgid "Search for items to add to this dashboard"
-msgstr ""
+msgstr "Пошук елементів для додавання до цієї інформаційної панелі"
 
 msgid "Additional items"
-msgstr ""
+msgstr "Додаткові елементи"
 
 msgid "Text box"
-msgstr ""
+msgstr "Текстове поле"
 
 msgid "Dashboard title"
-msgstr ""
+msgstr "Заголовок інформаційної панелі"
 
 msgid "Dashboard description"
-msgstr ""
+msgstr "Опис інформаційної панелі"
 
 msgid "Edit"
 msgstr "Редагувати"
@@ -142,7 +150,7 @@ msgid "Share"
 msgstr "Поділитися"
 
 msgid "No description"
-msgstr "Немає змалювання"
+msgstr "Без опису"
 
 msgid "Pivot tables"
 msgstr "Зведені таблиці"
@@ -154,19 +162,19 @@ msgid "Charts"
 msgstr "Діаграми"
 
 msgid "Visualizer"
-msgstr ""
+msgstr "Візуалізатор"
 
 msgid "Maps"
-msgstr "Maps"
+msgstr "Мапи"
 
 msgid "Event reports"
-msgstr ""
+msgstr "Звіти про події"
 
 msgid "Event Reports"
 msgstr "Звіти про події"
 
 msgid "Event charts"
-msgstr ""
+msgstr "Діаграми подій"
 
 msgid "Event Visualizer"
 msgstr "Візуалізатор подій"
@@ -178,7 +186,7 @@ msgid "Reports"
 msgstr "Звіти"
 
 msgid "Resources"
-msgstr ""
+msgstr "Ресурси"
 
 msgid "Users"
 msgstr "Користувачі"
