@@ -1,15 +1,15 @@
 # 
 # Translators:
-# phil_dhis2, 2019
-# easylin <lin_xd@126.com>, 2020
-# 晓东 林 <13981924470@126.com>, 2020
+# phil_dhis2, 2022
+# 晓东 林 <13981924470@126.com>, 2022
+# easylin <lin_xd@126.com>, 2022
 # 
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
 "POT-Creation-Date: 2019-01-23T12:57:13.874Z\n"
-"PO-Revision-Date: 2019-09-01 20:38+0000\n"
-"Last-Translator: 晓东 林 <13981924470@126.com>, 2020\n"
+"PO-Revision-Date: 2022-08-21 23:27+0000\n"
+"Last-Translator: easylin <lin_xd@126.com>, 2022\n"
 "Language-Team: Chinese (https://www.transifex.com/hisp-uio/teams/100509/zh/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -36,7 +36,7 @@ msgid "Go to dashboards"
 msgstr "进到仪表盘"
 
 msgid "Save changes"
-msgstr "保存改变"
+msgstr "保存修改"
 
 msgid "Translate"
 msgstr "翻译"
@@ -45,10 +45,10 @@ msgid "Search for a dashboard"
 msgstr "搜索仪表盘"
 
 msgid "Show less"
-msgstr "显示更少"
+msgstr "显示较少"
 
 msgid "Show more"
-msgstr "显示更多"
+msgstr "更多"
 
 msgid "No access"
 msgstr "不能访问"
@@ -87,19 +87,19 @@ msgid "You like this"
 msgstr "你喜欢这个"
 
 msgid "Like"
-msgstr "如"
+msgstr "喜欢"
 
 msgid "View in Visualizer"
 msgstr "在可视化器中查看"
 
 msgid "Reply"
-msgstr "回复"
+msgstr "应答"
 
 msgid "Add your reply"
 msgstr "添加你的应答"
 
 msgid "Interpretations"
-msgstr "注释"
+msgstr "解释"
 
 msgid "Add your interpretation"
 msgstr "添加你的注释"
@@ -124,7 +124,7 @@ msgid "There are no items on this dashboard"
 msgstr "该仪表盘没有条目"
 
 msgid "Search for items to add to this dashboard"
-msgstr "搜索条目添加到仪表盘"
+msgstr "搜索条目添加到该仪表盘"
 
 msgid "See"
 msgstr "查看"
@@ -145,40 +145,40 @@ msgid "Add description here"
 msgstr "添加描述"
 
 msgid "No description"
-msgstr "没有描述"
+msgstr "无描述"
 
 msgid "Pivot tables"
-msgstr "透视表"
+msgstr "透视表应用"
 
 msgid "Pivot Tables"
 msgstr "透视表"
 
 msgid "Charts"
-msgstr "图表"
+msgstr "可视化图表应用"
 
 msgid "Visualizer"
 msgstr "可视化图"
 
 msgid "Maps"
-msgstr "地图"
+msgstr "地图应用"
 
 msgid "Event reports"
-msgstr "事件报表"
+msgstr "事件报表应用"
 
 msgid "Event Reports"
 msgstr "事件报表"
 
 msgid "Event charts"
-msgstr "事件图表"
+msgstr "事件图表应用"
 
 msgid "Event Visualizer"
 msgstr "事件可视化"
 
 msgid "Reports"
-msgstr "报表管理"
+msgstr "报表"
 
 msgid "Resources"
-msgstr "资源"
+msgstr "资源管理"
 
 msgid "Users"
-msgstr "用户"
+msgstr "用户管理"

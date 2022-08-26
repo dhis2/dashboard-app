@@ -1,13 +1,13 @@
 # 
 # Translators:
-# trendspotter <jirka.p@volny.cz>, 2020
+# trendspotter <jirka.p@volny.cz>, 2022
 # 
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
 "POT-Creation-Date: 2019-01-23T12:57:13.874Z\n"
-"PO-Revision-Date: 2019-09-01 20:38+0000\n"
-"Last-Translator: trendspotter <jirka.p@volny.cz>, 2020\n"
+"PO-Revision-Date: 2022-08-21 23:27+0000\n"
+"Last-Translator: trendspotter <jirka.p@volny.cz>, 2022\n"
 "Language-Team: Czech (https://www.transifex.com/hisp-uio/teams/100509/cs/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -46,7 +46,7 @@ msgid "Show less"
 msgstr "Zobrazit méně"
 
 msgid "Show more"
-msgstr "Zobrazit více"
+msgstr ""
 
 msgid "No access"
 msgstr "Žádný přístup"
@@ -81,7 +81,7 @@ msgid "like"
 msgstr "líbí se"
 
 msgid "likes"
-msgstr "se líbí"
+msgstr ""
 
 msgid "You like this"
 msgstr "Líbí se vám"
@@ -108,13 +108,11 @@ msgid "Unable to load the plugin for this item"
 msgstr "Nelze načíst plugin pro tuto položku"
 
 msgid "Spacer"
-msgstr "Distanční vložka"
+msgstr "Mezerník"
 
 msgid ""
 "Use a spacer to create empty vertical space between other dashboard items."
 msgstr ""
-"Pomocí mezerníku vytvořte prázdný svislý prostor mezi ostatními položkami "
-"ovládacího panelu."
 
 msgid "Text item"
 msgstr "Textová položka"
@@ -126,7 +124,7 @@ msgid "There are no items on this dashboard"
 msgstr "Na tomto ovládacím panelu nejsou žádné položky"
 
 msgid "Search for items to add to this dashboard"
-msgstr "Vyhledejte položky, které chcete přidat na tento ovládací panel"
+msgstr ""
 
 msgid "See"
 msgstr "Viz"
@@ -144,19 +142,19 @@ msgid "Add title here"
 msgstr "Sem přidat název"
 
 msgid "Add description here"
-msgstr "Přidat popis zde"
+msgstr ""
 
 msgid "No description"
 msgstr "Bez popisu"
 
 msgid "Pivot tables"
-msgstr "Kontingenční tabulky"
+msgstr ""
 
 msgid "Pivot Tables"
 msgstr "Kontingenční tabulky"
 
 msgid "Charts"
-msgstr "Grafy"
+msgstr ""
 
 msgid "Visualizer"
 msgstr "Vizualizér"
@@ -168,13 +166,13 @@ msgid "Event reports"
 msgstr "Zprávy o událostech"
 
 msgid "Event Reports"
-msgstr "Zprávy o událostech"
+msgstr ""
 
 msgid "Event charts"
 msgstr "Grafy událostí"
 
 msgid "Event Visualizer"
-msgstr "Vizualizér událostí"
+msgstr ""
 
 msgid "Reports"
 msgstr "Zprávy"

@@ -1,13 +1,13 @@
 # 
 # Translators:
-# Yury Rogachev <yury@dhis2.org>, 2021
+# Yury Rogachev <yury@dhis2.org>, 2022
 # 
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
 "POT-Creation-Date: 2019-01-23T12:57:13.874Z\n"
-"PO-Revision-Date: 2019-09-01 20:38+0000\n"
-"Last-Translator: Yury Rogachev <yury@dhis2.org>, 2021\n"
+"PO-Revision-Date: 2022-08-21 23:27+0000\n"
+"Last-Translator: Yury Rogachev <yury@dhis2.org>, 2022\n"
 "Language-Team: Uzbek (Latin) (https://www.transifex.com/hisp-uio/teams/100509/uz@Latn/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -43,13 +43,13 @@ msgid "Search for a dashboard"
 msgstr "Boshqarish panelida izlash"
 
 msgid "Show less"
-msgstr "Kamroq koʼrsatilsin"
+msgstr "Kamroq koʼrsatish"
 
 msgid "Show more"
-msgstr "Koʼproq koʼrsatilsin"
+msgstr "Koʼproq koʼrsatish"
 
 msgid "No access"
-msgstr "Kirish huquqi mavjud emas"
+msgstr "Kirish taʼqiqlangan"
 
 msgid "No dashboards found. Use the + button to create a new dashboard."
 msgstr ""
@@ -69,7 +69,7 @@ msgid "Edit your interpretation"
 msgstr ""
 
 msgid "Update"
-msgstr "Yangilash"
+msgstr "Янгилаш"
 
 msgid "Cancel edit"
 msgstr ""
@@ -99,7 +99,7 @@ msgid "Add your reply"
 msgstr ""
 
 msgid "Interpretations"
-msgstr "Sharhlar"
+msgstr "Talqinlar"
 
 msgid "Add your interpretation"
 msgstr ""

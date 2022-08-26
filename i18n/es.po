@@ -1,18 +1,18 @@
 # 
 # Translators:
-# phil_dhis2, 2019
-# Viktor Varland <viktor@dhis2.org>, 2019
-# William Aviles <waviles@clintonhealthaccess.org>, 2020
-# Gabriela Rodriguez <grodriguezcoronado@gmail.com>, 2020
-# Sergio Valenzuela <sergio.valenzuela@ehas.org>, 2020
-# Prabhjot Singh, 2021
+# William Aviles <waviles@clintonhealthaccess.org>, 2022
+# Gabriela Rodriguez <grodriguezcoronado@gmail.com>, 2022
+# Prabhjot Singh, 2022
+# Sergio Valenzuela <sergio.valenzuela@ehas.org>, 2022
+# phil_dhis2, 2022
+# Viktor Varland <viktor@dhis2.org>, 2022
 # 
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
 "POT-Creation-Date: 2019-01-23T12:57:13.874Z\n"
-"PO-Revision-Date: 2019-09-01 20:38+0000\n"
-"Last-Translator: Prabhjot Singh, 2021\n"
+"PO-Revision-Date: 2022-08-21 23:27+0000\n"
+"Last-Translator: Viktor Varland <viktor@dhis2.org>, 2022\n"
 "Language-Team: Spanish (https://www.transifex.com/hisp-uio/teams/100509/es/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -21,7 +21,7 @@ msgstr ""
 "Plural-Forms: nplurals=3; plural=n == 1 ? 0 : n != 0 && n % 1000000 == 0 ? 1 : 2;\n"
 
 msgid "Delete"
-msgstr "Borrar"
+msgstr "Eliminar"
 
 msgid "Continue editing"
 msgstr "Continua editando"
@@ -85,7 +85,7 @@ msgid "like"
 msgstr "como"
 
 msgid "likes"
-msgstr "likes"
+msgstr ""
 
 msgid "You like this"
 msgstr "Te gusta este"
@@ -130,7 +130,7 @@ msgid "There are no items on this dashboard"
 msgstr "No hay objetos en este tablero"
 
 msgid "Search for items to add to this dashboard"
-msgstr "Buscar objetos para añadir en este tablero"
+msgstr ""
 
 msgid "See"
 msgstr "Ver"
@@ -145,10 +145,10 @@ msgid "Text box"
 msgstr "Caja de texto"
 
 msgid "Add title here"
-msgstr "Agregar título aquí"
+msgstr "Agrega título aquí"
 
 msgid "Add description here"
-msgstr "Agrega descripción aquí"
+msgstr ""
 
 msgid "No description"
 msgstr "Sin descripción"
@@ -178,7 +178,7 @@ msgid "Event charts"
 msgstr "Herramienta para gráficos con información individual"
 
 msgid "Event Visualizer"
-msgstr "Visualizador de eventos"
+msgstr ""
 
 msgid "Reports"
 msgstr "Informes"

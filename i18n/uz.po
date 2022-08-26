@@ -1,13 +1,13 @@
 # 
 # Translators:
-# Ibatov <ibatovk@who.int>, 2021
+# Ibatov <ibatovk@who.int>, 2022
 # 
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
 "POT-Creation-Date: 2019-01-23T12:57:13.874Z\n"
-"PO-Revision-Date: 2019-09-01 20:38+0000\n"
-"Last-Translator: Ibatov <ibatovk@who.int>, 2021\n"
+"PO-Revision-Date: 2022-08-21 23:27+0000\n"
+"Last-Translator: Ibatov <ibatovk@who.int>, 2022\n"
 "Language-Team: Uzbek (Cyrillic) (https://www.transifex.com/hisp-uio/teams/100509/uz@Cyrl/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -25,9 +25,7 @@ msgid "Confirm delete dashboard"
 msgstr "Бошқарув панелини ўчириб ташлашни тасдиқлаш"
 
 msgid "Are you sure you want to delete dashboard \"{{ dashboardName }}\"?"
-msgstr ""
-"Ҳақиқатдан ҳам ушбу бошқарув панелини ўчириб ташламоқчимисиз "
-"\"{{БошқарувПанелиНоми}}\"?"
+msgstr "Бошқарув панелини ўчириб ташлашни хохлайсизми \"{{БошқарувПанелиНоми}}\"?"
 
 msgid "Exit without saving"
 msgstr "Сақламасдан чиқиш"
@@ -45,13 +43,13 @@ msgid "Search for a dashboard"
 msgstr "Бошқариш панелида излаш"
 
 msgid "Show less"
-msgstr "Камроқ кўрсатилсин"
+msgstr "Камроқ кўрсатиш"
 
 msgid "Show more"
-msgstr "Кўпроқ кўрсатилсин"
+msgstr "Кўпроқ кўрсатиш"
 
 msgid "No access"
-msgstr "Кириш таъқиқланган"
+msgstr "Кириш ҳуқуқи мавжуд эмас"
 
 msgid "No dashboards found. Use the + button to create a new dashboard."
 msgstr ""
@@ -65,7 +63,7 @@ msgid "Messages"
 msgstr "Хабарлар"
 
 msgid "See all messages"
-msgstr "Барча хабарларни кщриш"
+msgstr "Барча хабарларни кўриш"
 
 msgid "Edit your interpretation"
 msgstr "Талқинингизни таҳрирланг"
@@ -95,13 +93,13 @@ msgid "View in Visualizer"
 msgstr "Визуализаторда кўриш"
 
 msgid "Reply"
-msgstr "Жавоб"
+msgstr "Изоҳ"
 
 msgid "Add your reply"
 msgstr "Изоҳингизни қўшинг"
 
 msgid "Interpretations"
-msgstr "Шарҳлар"
+msgstr "Талқинлар"
 
 msgid "Add your interpretation"
 msgstr "Талқинингизни қўшинг"
@@ -131,7 +129,7 @@ msgid "Search for items to add to this dashboard"
 msgstr "Ушбу бошқарув панелига киритиш учун элементларни қидиринг"
 
 msgid "See"
-msgstr "Кўриш"
+msgstr "Қаранг"
 
 msgid "fewer"
 msgstr "камроқ"
@@ -143,7 +141,7 @@ msgid "Text box"
 msgstr "Матн жойи"
 
 msgid "Add title here"
-msgstr "Сарлавҳани шу ерга киритинг"
+msgstr "Сарлавҳани шу ерга қўшинг"
 
 msgid "Add description here"
 msgstr "Тавсифни шу ерга қўшинг"
@@ -167,13 +165,13 @@ msgid "Maps"
 msgstr "Хариталар"
 
 msgid "Event reports"
-msgstr "Ҳодисалар ҳисоботи"
+msgstr "Ҳодиса/Тадбирлар ҳисоботи"
 
 msgid "Event Reports"
 msgstr "Ҳодисалар ҳақида Ҳисоботлар"
 
 msgid "Event charts"
-msgstr "Ҳодисалар диаграммаларда"
+msgstr "Ҳодиса/Тадбирлар диаграммаларда"
 
 msgid "Event Visualizer"
 msgstr "Ҳодиса/Тадбирлар Визуализатори"

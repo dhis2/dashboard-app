@@ -1,13 +1,13 @@
 # 
 # Translators:
-# KRG HIS <antonia.bezenchek@informa.pro>, 2020
+# KRG HIS <antonia.bezenchek@informa.pro>, 2022
 # 
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
 "POT-Creation-Date: 2019-01-23T12:57:13.874Z\n"
-"PO-Revision-Date: 2019-09-01 20:38+0000\n"
-"Last-Translator: KRG HIS <antonia.bezenchek@informa.pro>, 2020\n"
+"PO-Revision-Date: 2022-08-21 23:27+0000\n"
+"Last-Translator: KRG HIS <antonia.bezenchek@informa.pro>, 2022\n"
 "Language-Team: Arabic (Iraq) (https://www.transifex.com/hisp-uio/teams/100509/ar_IQ/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -46,7 +46,7 @@ msgid "Show less"
 msgstr "إظهار الأقل"
 
 msgid "Show more"
-msgstr "إظهار المزيد"
+msgstr ""
 
 msgid "No access"
 msgstr "ممنوع الدخول"
@@ -111,7 +111,7 @@ msgstr "مسافة فاصلة"
 
 msgid ""
 "Use a spacer to create empty vertical space between other dashboard items."
-msgstr "استخدم فاصل لإنشاء مساحة رأسية فارغة بين عناصر لوحة المعلومات الأخرى"
+msgstr ""
 
 msgid "Text item"
 msgstr "عنصر نصي"
@@ -123,7 +123,7 @@ msgid "There are no items on this dashboard"
 msgstr "لايوجد عناصر في لوحة المعلومات هذه"
 
 msgid "Search for items to add to this dashboard"
-msgstr "ابحث عن عناصر لإضافتها إلى لوحة المعلومات هذه"
+msgstr ""
 
 msgid "See"
 msgstr ""
@@ -147,13 +147,13 @@ msgid "No description"
 msgstr "لا يوجد وصف"
 
 msgid "Pivot tables"
-msgstr "الجداول المحورية"
+msgstr ""
 
 msgid "Pivot Tables"
 msgstr "الجداول المحورية"
 
 msgid "Charts"
-msgstr "المخططات البيانية"
+msgstr ""
 
 msgid "Visualizer"
 msgstr "التحليل المرئي"
@@ -165,13 +165,13 @@ msgid "Event reports"
 msgstr "تقارير الحدث"
 
 msgid "Event Reports"
-msgstr "تقارير الحدث"
+msgstr ""
 
 msgid "Event charts"
 msgstr "المخطط البياني للأحداث"
 
 msgid "Event Visualizer"
-msgstr "التحليل المرئي للأحداث"
+msgstr ""
 
 msgid "Reports"
 msgstr "التقارير"

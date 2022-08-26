@@ -1,19 +1,19 @@
 # 
 # Translators:
-# Matthieu Pinard <matthieu@pinard.no>, 2019
-# a270031086f2a0d3514bc0cb507b48f6, 2019
-# Viktor Varland <viktor@dhis2.org>, 2019
-# phil_dhis2, 2019
-# Karoline Tufte Lien <karoline@dhis2.org>, 2020
-# Edem Kossi <ekossi@hispwca.org>, 2020
-# Yao Selom Saka <ysaka@hispwca.org>, 2020
+# Karoline Tufte Lien <karoline@dhis2.org>, 2022
+# Yao Selom Saka <ysaka@hispwca.org>, 2022
+# Gabriela Rodriguez <grodriguezcoronado@gmail.com>, 2022
+# a270031086f2a0d3514bc0cb507b48f6, 2022
+# Edem Kossi <ekossi@hispwca.org>, 2022
+# phil_dhis2, 2022
+# Viktor Varland <viktor@dhis2.org>, 2022
 # 
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
 "POT-Creation-Date: 2019-01-23T12:57:13.874Z\n"
-"PO-Revision-Date: 2019-09-01 20:38+0000\n"
-"Last-Translator: Yao Selom Saka <ysaka@hispwca.org>, 2020\n"
+"PO-Revision-Date: 2022-08-21 23:27+0000\n"
+"Last-Translator: Viktor Varland <viktor@dhis2.org>, 2022\n"
 "Language-Team: French (https://www.transifex.com/hisp-uio/teams/100509/fr/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -35,13 +35,13 @@ msgstr ""
 "Êtes-vous sûr de vouloir supprimer le tableau de bord \"{{dashboardName}}\"?"
 
 msgid "Exit without saving"
-msgstr "Quitter sans sauvegarder"
+msgstr "Quitter sans enregistrer"
 
 msgid "Go to dashboards"
 msgstr "Aller aux tableaux de bord"
 
 msgid "Save changes"
-msgstr "Enregistrer les modifications"
+msgstr "Sauvegarder les modifications"
 
 msgid "Translate"
 msgstr "Traduire"
@@ -88,7 +88,7 @@ msgid "like"
 msgstr "j'aime"
 
 msgid "likes"
-msgstr "des j'aime"
+msgstr ""
 
 msgid "You like this"
 msgstr "Tu aimes ça"
@@ -106,7 +106,7 @@ msgid "Add your reply"
 msgstr "Ajouter votre réponse"
 
 msgid "Interpretations"
-msgstr "interprétations"
+msgstr "Interprétations"
 
 msgid "Add your interpretation"
 msgstr "Ajoutez votre interprétation"
@@ -120,20 +120,20 @@ msgstr "Espaceur"
 msgid ""
 "Use a spacer to create empty vertical space between other dashboard items."
 msgstr ""
-"Utilisez une entretoise pour créer un espace vertical vide entre les autres "
-"éléments du tableau de bord."
+"Utilisez un espaceur pour créer un espace vertical vide entre les autres "
+"objets du tableau de bord."
 
 msgid "Text item"
-msgstr "Élément de texte"
+msgstr "Objet texte"
 
 msgid "Add text here"
 msgstr "Ajouter du texte ici"
 
 msgid "There are no items on this dashboard"
-msgstr "Il n'y a aucun élément sur ce tableau de bord"
+msgstr "Il n'y a aucun objet sur ce tableau de bord"
 
 msgid "Search for items to add to this dashboard"
-msgstr "Rechercher des éléments à ajouter à ce tableau de bord"
+msgstr ""
 
 msgid "See"
 msgstr "Voir"
@@ -151,7 +151,7 @@ msgid "Add title here"
 msgstr "Ajouter un titre ici"
 
 msgid "Add description here"
-msgstr "Ajouter une description ici"
+msgstr ""
 
 msgid "No description"
 msgstr "Aucune description"
@@ -178,10 +178,10 @@ msgid "Event Reports"
 msgstr "Rapports d'évènements"
 
 msgid "Event charts"
-msgstr "Tableaux d'événements"
+msgstr "Graphiques d'événements"
 
 msgid "Event Visualizer"
-msgstr "Visualiseur d'évènements"
+msgstr ""
 
 msgid "Reports"
 msgstr "Rapports"

@@ -1,14 +1,14 @@
 # 
 # Translators:
-# 晓东 林 <13981924470@126.com>, 2020
-# easylin <lin_xd@126.com>, 2021
+# 晓东 林 <13981924470@126.com>, 2022
+# easylin <lin_xd@126.com>, 2022
 # 
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
 "POT-Creation-Date: 2019-01-23T12:57:13.874Z\n"
-"PO-Revision-Date: 2019-09-01 20:38+0000\n"
-"Last-Translator: easylin <lin_xd@126.com>, 2021\n"
+"PO-Revision-Date: 2022-08-21 23:27+0000\n"
+"Last-Translator: easylin <lin_xd@126.com>, 2022\n"
 "Language-Team: Chinese (China) (https://www.transifex.com/hisp-uio/teams/100509/zh_CN/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -35,7 +35,7 @@ msgid "Go to dashboards"
 msgstr "进到仪表盘"
 
 msgid "Save changes"
-msgstr "保存更改"
+msgstr "保存修改"
 
 msgid "Translate"
 msgstr "翻译"
@@ -74,7 +74,7 @@ msgid "Cancel edit"
 msgstr ""
 
 msgid "Edit"
-msgstr "编辑<br>"
+msgstr "编辑"
 
 msgid "like"
 msgstr ""
@@ -150,7 +150,7 @@ msgid "Pivot tables"
 msgstr "透视表"
 
 msgid "Pivot Tables"
-msgstr "图表"
+msgstr "透视表"
 
 msgid "Charts"
 msgstr "图表"
@@ -174,7 +174,7 @@ msgid "Event Visualizer"
 msgstr "事件可视化"
 
 msgid "Reports"
-msgstr "报表"
+msgstr "报表管理"
 
 msgid "Resources"
 msgstr "资源"
