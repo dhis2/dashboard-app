@@ -80,16 +80,16 @@ exports[`clicking "Show more" maximizes dashboards bar height 1`] = `
                   class="buttonPosition"
                 >
                   <span
-                    class="jsx-611321200"
+                    class="jsx-237564060"
                     data-test="dhis2-uicore-tooltip-reference"
                   >
                     <button
-                      class="jsx-1937199209 newButton small icon-only"
+                      class="jsx-441677069 newButton small icon-only"
                       data-test="new-button"
                       type="button"
                     >
                       <span
-                        class="jsx-1937199209 button-icon"
+                        class="jsx-441677069 button-icon"
                       >
                         <svg
                           height="24"
@@ -162,7 +162,7 @@ exports[`clicking "Show more" maximizes dashboards bar height 1`] = `
               href="/fluttershy123"
             >
               <span
-                class="jsx-3285323350 selected"
+                class="jsx-1296536102 jsx-730398794 selected"
                 data-test="dhis2-uicore-chip"
               >
                 <span
@@ -197,7 +197,7 @@ exports[`clicking "Show more" maximizes dashboards bar height 1`] = `
               href="/rainbow123"
             >
               <span
-                class="jsx-3285323350 "
+                class="jsx-1296536102 jsx-730398794 "
                 data-test="dhis2-uicore-chip"
               >
                 <span
@@ -326,16 +326,16 @@ exports[`renders a DashboardsBar with maximum height 1`] = `
                   class="buttonPosition"
                 >
                   <span
-                    class="jsx-611321200"
+                    class="jsx-237564060"
                     data-test="dhis2-uicore-tooltip-reference"
                   >
                     <button
-                      class="jsx-1937199209 newButton small icon-only"
+                      class="jsx-441677069 newButton small icon-only"
                       data-test="new-button"
                       type="button"
                     >
                       <span
-                        class="jsx-1937199209 button-icon"
+                        class="jsx-441677069 button-icon"
                       >
                         <svg
                           height="24"
@@ -409,7 +409,7 @@ exports[`renders a DashboardsBar with maximum height 1`] = `
               href="/fluttershy123"
             >
               <span
-                class="jsx-3285323350 "
+                class="jsx-1296536102 jsx-730398794 "
                 data-test="dhis2-uicore-chip"
               >
                 <span
@@ -444,7 +444,7 @@ exports[`renders a DashboardsBar with maximum height 1`] = `
               href="/rainbow123"
             >
               <span
-                class="jsx-3285323350 selected"
+                class="jsx-1296536102 jsx-730398794 selected"
                 data-test="dhis2-uicore-chip"
               >
                 <span
@@ -571,16 +571,16 @@ exports[`renders a DashboardsBar with minimum height 1`] = `
                   class="buttonPosition"
                 >
                   <span
-                    class="jsx-611321200"
+                    class="jsx-237564060"
                     data-test="dhis2-uicore-tooltip-reference"
                   >
                     <button
-                      class="jsx-1937199209 newButton small icon-only"
+                      class="jsx-441677069 newButton small icon-only"
                       data-test="new-button"
                       type="button"
                     >
                       <span
-                        class="jsx-1937199209 button-icon"
+                        class="jsx-441677069 button-icon"
                       >
                         <svg
                           height="24"
@@ -654,7 +654,7 @@ exports[`renders a DashboardsBar with minimum height 1`] = `
               href="/fluttershy123"
             >
               <span
-                class="jsx-3285323350 "
+                class="jsx-1296536102 jsx-730398794 "
                 data-test="dhis2-uicore-chip"
               >
                 <span
@@ -689,7 +689,7 @@ exports[`renders a DashboardsBar with minimum height 1`] = `
               href="/rainbow123"
             >
               <span
-                class="jsx-3285323350 selected"
+                class="jsx-1296536102 jsx-730398794 selected"
                 data-test="dhis2-uicore-chip"
               >
                 <span
@@ -818,16 +818,16 @@ exports[`renders a DashboardsBar with no items 1`] = `
                   class="buttonPosition"
                 >
                   <span
-                    class="jsx-611321200"
+                    class="jsx-237564060"
                     data-test="dhis2-uicore-tooltip-reference"
                   >
                     <button
-                      class="jsx-1937199209 newButton small icon-only"
+                      class="jsx-441677069 newButton small icon-only"
                       data-test="new-button"
                       type="button"
                     >
                       <span
-                        class="jsx-1937199209 button-icon"
+                        class="jsx-441677069 button-icon"
                       >
                         <svg
                           height="24"
@@ -1012,16 +1012,16 @@ exports[`renders a DashboardsBar with selected item 1`] = `
                   class="buttonPosition"
                 >
                   <span
-                    class="jsx-611321200"
+                    class="jsx-237564060"
                     data-test="dhis2-uicore-tooltip-reference"
                   >
                     <button
-                      class="jsx-1937199209 newButton small icon-only"
+                      class="jsx-441677069 newButton small icon-only"
                       data-test="new-button"
                       type="button"
                     >
                       <span
-                        class="jsx-1937199209 button-icon"
+                        class="jsx-441677069 button-icon"
                       >
                         <svg
                           height="24"
@@ -1095,7 +1095,7 @@ exports[`renders a DashboardsBar with selected item 1`] = `
               href="/fluttershy123"
             >
               <span
-                class="jsx-3285323350 selected"
+                class="jsx-1296536102 jsx-730398794 selected"
                 data-test="dhis2-uicore-chip"
               >
                 <span
@@ -1130,7 +1130,7 @@ exports[`renders a DashboardsBar with selected item 1`] = `
               href="/rainbow123"
             >
               <span
-                class="jsx-3285323350 "
+                class="jsx-1296536102 jsx-730398794 "
                 data-test="dhis2-uicore-chip"
               >
                 <span
@@ -1258,16 +1258,16 @@ exports[`small screen: clicking "Show more" maximizes dashboards bar height 1`] 
                   class="buttonPosition"
                 >
                   <span
-                    class="jsx-611321200"
+                    class="jsx-237564060"
                     data-test="dhis2-uicore-tooltip-reference"
                   >
                     <button
-                      class="jsx-1937199209 newButton small icon-only"
+                      class="jsx-441677069 newButton small icon-only"
                       data-test="new-button"
                       type="button"
                     >
                       <span
-                        class="jsx-1937199209 button-icon"
+                        class="jsx-441677069 button-icon"
                       >
                         <svg
                           height="24"
@@ -1340,7 +1340,7 @@ exports[`small screen: clicking "Show more" maximizes dashboards bar height 1`] 
               href="/fluttershy123"
             >
               <span
-                class="jsx-3285323350 selected"
+                class="jsx-1296536102 jsx-730398794 selected"
                 data-test="dhis2-uicore-chip"
               >
                 <span
@@ -1375,7 +1375,7 @@ exports[`small screen: clicking "Show more" maximizes dashboards bar height 1`] 
               href="/rainbow123"
             >
               <span
-                class="jsx-3285323350 "
+                class="jsx-1296536102 jsx-730398794 "
                 data-test="dhis2-uicore-chip"
               >
                 <span
@@ -1504,16 +1504,16 @@ exports[`small screen: renders a DashboardsBar with minimum height 1`] = `
                   class="buttonPosition"
                 >
                   <span
-                    class="jsx-611321200"
+                    class="jsx-237564060"
                     data-test="dhis2-uicore-tooltip-reference"
                   >
                     <button
-                      class="jsx-1937199209 newButton small icon-only"
+                      class="jsx-441677069 newButton small icon-only"
                       data-test="new-button"
                       type="button"
                     >
                       <span
-                        class="jsx-1937199209 button-icon"
+                        class="jsx-441677069 button-icon"
                       >
                         <svg
                           height="24"
@@ -1587,7 +1587,7 @@ exports[`small screen: renders a DashboardsBar with minimum height 1`] = `
               href="/fluttershy123"
             >
               <span
-                class="jsx-3285323350 "
+                class="jsx-1296536102 jsx-730398794 "
                 data-test="dhis2-uicore-chip"
               >
                 <span
@@ -1622,7 +1622,7 @@ exports[`small screen: renders a DashboardsBar with minimum height 1`] = `
               href="/rainbow123"
             >
               <span
-                class="jsx-3285323350 selected"
+                class="jsx-1296536102 jsx-730398794 selected"
                 data-test="dhis2-uicore-chip"
               >
                 <span
