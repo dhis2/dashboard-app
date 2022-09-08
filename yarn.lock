@@ -2485,7 +2485,61 @@
   resolved "https://registry.yarnpkg.com/@dhis2/ui-icons/-/ui-icons-8.4.16.tgz#f77ab5eff684e4794c1d53d343700bbff85ab522"
   integrity sha512-oq3vXRUxcoOtghZU0QoA5bK6HSIOJ1H26Xse6bmxJiQD16tCxD5SS7WCzkyHLDaWouzef/+pRd81ZnvJ8PMEVA==
 
-"@dhis2/ui@^8.0.0", "@dhis2/ui@^8.4.11", "@dhis2/ui@^8.4.16":
+"@dhis2/ui@^8.0.0", "@dhis2/ui@^8.4.11":
+  version "8.4.12"
+  resolved "https://registry.yarnpkg.com/@dhis2/ui/-/ui-8.4.12.tgz#a9c7d6d269d46a0c14e266e3de80cbfe82cf18a7"
+  integrity sha512-VMBHH39+AA/mvLI6VXFAnz2x98B7MzQN1yx/UNLdVwMOjW6S1WFA6gNbqYbqgFnCfg4tLi+j76syN5rJguU9EA==
+  dependencies:
+    "@dhis2-ui/alert" "8.4.12"
+    "@dhis2-ui/box" "8.4.12"
+    "@dhis2-ui/button" "8.4.12"
+    "@dhis2-ui/card" "8.4.12"
+    "@dhis2-ui/center" "8.4.12"
+    "@dhis2-ui/checkbox" "8.4.12"
+    "@dhis2-ui/chip" "8.4.12"
+    "@dhis2-ui/cover" "8.4.12"
+    "@dhis2-ui/css" "8.4.12"
+    "@dhis2-ui/divider" "8.4.12"
+    "@dhis2-ui/field" "8.4.12"
+    "@dhis2-ui/file-input" "8.4.12"
+    "@dhis2-ui/header-bar" "8.4.12"
+    "@dhis2-ui/help" "8.4.12"
+    "@dhis2-ui/input" "8.4.12"
+    "@dhis2-ui/intersection-detector" "8.4.12"
+    "@dhis2-ui/label" "8.4.12"
+    "@dhis2-ui/layer" "8.4.12"
+    "@dhis2-ui/legend" "8.4.12"
+    "@dhis2-ui/loader" "8.4.12"
+    "@dhis2-ui/logo" "8.4.12"
+    "@dhis2-ui/menu" "8.4.12"
+    "@dhis2-ui/modal" "8.4.12"
+    "@dhis2-ui/node" "8.4.12"
+    "@dhis2-ui/notice-box" "8.4.12"
+    "@dhis2-ui/organisation-unit-tree" "8.4.12"
+    "@dhis2-ui/pagination" "8.4.12"
+    "@dhis2-ui/popover" "8.4.12"
+    "@dhis2-ui/popper" "8.4.12"
+    "@dhis2-ui/portal" "8.4.12"
+    "@dhis2-ui/radio" "8.4.12"
+    "@dhis2-ui/required" "8.4.12"
+    "@dhis2-ui/segmented-control" "8.4.12"
+    "@dhis2-ui/select" "8.4.12"
+    "@dhis2-ui/selector-bar" "8.4.12"
+    "@dhis2-ui/sharing-dialog" "8.4.12"
+    "@dhis2-ui/switch" "8.4.12"
+    "@dhis2-ui/tab" "8.4.12"
+    "@dhis2-ui/table" "8.4.12"
+    "@dhis2-ui/tag" "8.4.12"
+    "@dhis2-ui/text-area" "8.4.12"
+    "@dhis2-ui/tooltip" "8.4.12"
+    "@dhis2-ui/transfer" "8.4.12"
+    "@dhis2-ui/user-avatar" "8.4.12"
+    "@dhis2/ui-constants" "8.4.12"
+    "@dhis2/ui-forms" "8.4.12"
+    "@dhis2/ui-icons" "8.4.12"
+    prop-types "^15.7.2"
+
+"@dhis2/ui@^8.4.16":
   version "8.4.16"
   resolved "https://registry.yarnpkg.com/@dhis2/ui/-/ui-8.4.16.tgz#effb8969e8b279af15e7870a985c36191aae1912"
   integrity sha512-PuSnVMYLZQsBAebV0nMV99QZDZYi++q4AAvfAOLKPjAN0VQqzc9zOjO4RxCzPqP4QgzI3udgR2hWoQ0ZhxDR7w==
@@ -2962,6 +3016,48 @@
   version "3.3.1"
   resolved "https://registry.yarnpkg.com/@juggle/resize-observer/-/resize-observer-3.3.1.tgz#b50a781709c81e10701004214340f25475a171a0"
   integrity sha512-zMM9Ds+SawiUkakS7y94Ymqx+S0ORzpG3frZirN3l+UlXUmSUR7hF4wxCVqW+ei94JzV5kt0uXBcoOEAuiydrw==
+
+"@krakenjs/belter@^2.0.0":
+  version "2.1.2"
+  resolved "https://registry.yarnpkg.com/@krakenjs/belter/-/belter-2.1.2.tgz#b51c5a2d0652279262eb2fa79a6e26b12a868867"
+  integrity sha512-9qg3xsfcMtljHyxYuin8/KDeqG80ecHCAbuqbHd8Cz0CszK4JvYS3tsmCzYnp6zfnR9uSRCuoj/dKWhZcJtqbg==
+  dependencies:
+    "@krakenjs/cross-domain-safe-weakmap" "^2.0.2"
+    "@krakenjs/cross-domain-utils" "^3.0.2"
+    "@krakenjs/zalgo-promise" "^2.0.0"
+
+"@krakenjs/cross-domain-safe-weakmap@^2.0.0", "@krakenjs/cross-domain-safe-weakmap@^2.0.2":
+  version "2.0.3"
+  resolved "https://registry.yarnpkg.com/@krakenjs/cross-domain-safe-weakmap/-/cross-domain-safe-weakmap-2.0.3.tgz#eb607534c14bd8bc2f3456d993618361fb38489f"
+  integrity sha512-WsGi6347ddZ9Y0HoBuTYCX2QTAHxYVaUs2T/0n8XJKXZOEJPnLWlW6eYAOgyyuUsYusWMAkYv00fvfxAlTU8/w==
+  dependencies:
+    "@krakenjs/cross-domain-utils" "^3.0.2"
+
+"@krakenjs/cross-domain-utils@^3.0.0", "@krakenjs/cross-domain-utils@^3.0.2":
+  version "3.0.2"
+  resolved "https://registry.yarnpkg.com/@krakenjs/cross-domain-utils/-/cross-domain-utils-3.0.2.tgz#cbbd3323e65e831debc351549c0b8972df0382d5"
+  integrity sha512-uNTQrAevzKtOu13UZzamCR6rKX2vpdb6g/gVXMJVSMvAlYhxBN6mOD6U56DmSdBJDKvLSYZbIYUkBh2inDyIXQ==
+
+"@krakenjs/post-robot@^11.0.0":
+  version "11.0.0"
+  resolved "https://registry.yarnpkg.com/@krakenjs/post-robot/-/post-robot-11.0.0.tgz#98a285b70db2bac2c58f297cd8403a4cc2518a6a"
+  integrity sha512-t+IlQCrwzLa1IWxEvdfr9r/xgOmQoykVQ1rtEukw1LYVHPU3p3eDDC5djODE7ErWYDbkYncrHcbDEh6Gc/G9wQ==
+  dependencies:
+    "@krakenjs/belter" "^2.0.0"
+    "@krakenjs/cross-domain-safe-weakmap" "^2.0.0"
+    "@krakenjs/cross-domain-utils" "^3.0.0"
+    "@krakenjs/universal-serialize" "^2.0.0"
+    "@krakenjs/zalgo-promise" "^2.0.0"
+
+"@krakenjs/universal-serialize@^2.0.0":
+  version "2.0.0"
+  resolved "https://registry.yarnpkg.com/@krakenjs/universal-serialize/-/universal-serialize-2.0.0.tgz#c4a508ec53f6b412b1032e78c570b87f4f2c7763"
+  integrity sha512-Qd9W2iaP5lMTzXPETomBDAaqbgHYkEjJKcQ+3eNC8EwWGCHFk3/+uQ41B+QYfSZqRoz8AEjdNHOps7nDEypAyw==
+
+"@krakenjs/zalgo-promise@^2.0.0":
+  version "2.0.1"
+  resolved "https://registry.yarnpkg.com/@krakenjs/zalgo-promise/-/zalgo-promise-2.0.1.tgz#36b4225a566f0a0903a8d771a11a9efc131c6987"
+  integrity sha512-n30eknZjD7z8/joFqjI8FIDZ0yJPZHcQBce1B3tAumwNZL0C42Ta/w37MfthxHV61JHEFGfy7b727h/kzagJDA==
 
 "@leichtgewicht/ip-codec@^2.0.1":
   version "2.0.4"
