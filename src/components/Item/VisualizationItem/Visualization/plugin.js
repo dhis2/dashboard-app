@@ -5,6 +5,7 @@ import {
     MAP,
     EVENT_REPORT,
     EVENT_CHART,
+    EVENT_VISUALIZATION,
 } from '../../../../modules/itemTypes'
 import getVisualizationContainerDomId from '../getVisualizationContainerDomId'
 import { loadExternalScript } from './loadExternalScript'
@@ -23,7 +24,7 @@ const itemTypeToScriptPath = {
 }
 
 const hasIntegratedPlugin = type =>
-    [CHART, REPORT_TABLE, VISUALIZATION].includes(type)
+    [CHART, REPORT_TABLE, VISUALIZATION, EVENT_VISUALIZATION].includes(type)
 
 export const getPlugin = async type => {
     if (hasIntegratedPlugin(type)) {
