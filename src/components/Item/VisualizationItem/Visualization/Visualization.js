@@ -26,26 +26,54 @@ import MapPlugin from './MapPlugin.js'
 import NoVisualizationMessage from './NoVisualizationMessage.js'
 import { pluginIsAvailable } from './plugin.js'
 
-class Visualization extends React.Component {
-    constructor(props) {
-        super(props)
+const Visualization = ({
+    visualization,
+    activeType,
+    item,
+    itemFilters,
+    availableHeight,
+    availableWidth,
+    dashboardMode,
+    ...rest
+}) => {
+    const memoizedGetFilteredVisualization = memoizeOne(
+        getFilteredVisualization
+    )
+    const memoizedGetVisualizationConfig = memoizeOne(getVisualizationConfig)
 
-        this.memoizedGetFilteredVisualization = memoizeOne(
-            getFilteredVisualization
-        )
-        this.memoizedGetVisualizationConfig = memoizeOne(getVisualizationConfig)
+    const getFilterVersion = memoizeOne(() => uniqueId())
 
-        this.getFilterVersion = memoizeOne(() => uniqueId())
+    if (!visualization) {
+        return <NoVisualizationMessage message={i18n.t('No data to display')} />
     }
 
-    render() {
-        const { visualization, activeType, item, itemFilters, ...rest } =
-            this.props
+    const style = { height: availableHeight }
+    if (availableWidth) {
+        style.width = availableWidth
+    }
 
-        if (!visualization) {
+    const visualizationConfig = memoizedGetVisualizationConfig(
+        visualization,
+        getItemTypeForVis(item),
+        activeType
+    )
+
+    const filterVersion = getFilterVersion(itemFilters)
+
+    switch (activeType) {
+        case VISUALIZATION:
+        case CHART:
+        case REPORT_TABLE: {
             return (
-                <NoVisualizationMessage
-                    message={i18n.t('No data to display')}
+                <DataVisualizerPlugin
+                    visualization={memoizedGetFilteredVisualization(
+                        visualizationConfig,
+                        itemFilters
+                    )}
+                    style={style}
+                    filterVersion={filterVersion}
+                    item={item}
+                    dashboardMode={dashboardMode}
                 />
             )
         }
@@ -54,67 +82,38 @@ class Visualization extends React.Component {
         if (this.props.availableWidth) {
             style.width = this.props.availableWidth
         }
-
-        const visualizationConfig = this.memoizedGetVisualizationConfig(
-            visualization,
-            getItemTypeForVis(item),
-            activeType
-        )
-
-        const filterVersion = this.getFilterVersion(itemFilters)
-
-        switch (activeType) {
-            case VISUALIZATION:
-            case CHART:
-            case REPORT_TABLE: {
-                return (
-                    <DataVisualizerPlugin
-                        visualization={this.memoizedGetFilteredVisualization(
-                            visualizationConfig,
-                            itemFilters
-                        )}
-                        style={style}
-                        filterVersion={filterVersion}
-                        item={item}
-                        dashboardMode={this.props.dashboardMode}
-                    />
-                )
-            }
-            case MAP: {
-                return (
-                    <MapPlugin
-                        item={item}
-                        activeType={activeType}
-                        visualization={visualizationConfig}
-                        itemFilters={itemFilters}
-                        applyFilters={this.memoizedGetFilteredVisualization}
-                        filterVersion={filterVersion}
-                        style={style}
-                        {...rest}
-                    />
-                )
-            }
-            default: {
-                return pluginIsAvailable(activeType || item.type) ? (
-                    <LegacyPlugin
-                        item={item}
-                        activeType={activeType}
-                        visualization={this.memoizedGetFilteredVisualization(
-                            visualizationConfig,
-                            itemFilters
-                        )}
-                        filterVersion={filterVersion}
-                        style={style}
-                        {...rest}
-                    />
-                ) : (
-                    <NoVisualizationMessage
-                        message={i18n.t(
-                            'Unable to load the plugin for this item'
-                        )}
-                    />
-                )
-            }
+        case MAP: {
+            return (
+                <MapPlugin
+                    item={item}
+                    activeType={activeType}
+                    visualization={visualizationConfig}
+                    itemFilters={itemFilters}
+                    applyFilters={memoizedGetFilteredVisualization}
+                    filterVersion={filterVersion}
+                    style={style}
+                    {...rest}
+                />
+            )
+        }
+        default: {
+            return pluginIsAvailable(activeType || item.type) ? (
+                <LegacyPlugin
+                    item={item}
+                    activeType={activeType}
+                    visualization={memoizedGetFilteredVisualization(
+                        visualizationConfig,
+                        itemFilters
+                    )}
+                    filterVersion={filterVersion}
+                    style={style}
+                    {...rest}
+                />
+            ) : (
+                <NoVisualizationMessage
+                    message={i18n.t('Unable to load the plugin for this item')}
+                />
+            )
         }
     }
 }
