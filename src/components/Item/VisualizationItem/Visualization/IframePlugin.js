@@ -1,8 +1,8 @@
-//import { useCachedDataQuery } from '@dhis2/analytics'
+import { useD2 } from '@dhis2/app-runtime-adapter-d2'
 import postRobot from '@krakenjs/post-robot'
 import PropTypes from 'prop-types'
 import React, { Suspense, useRef, useCallback, useState, useEffect } from 'react'
-//import { itemTypeMap } from '../../../../modules/itemTypes.js'
+import { itemTypeMap } from '../../../../modules/itemTypes.js'
 import { getPluginOverrides } from '../../../../modules/localStorage.js'
 import { useUserSettings } from '../../../UserSettingsProvider.js'
 import classes from './styles/DataVisualizerPlugin.module.css'
@@ -15,8 +15,10 @@ const IframePlugin = ({
     visualization,
     dashboardMode,
 }) => {
+    const { d2 } = useD2()
+    // TODO replace d2 with useCachedDataQuery
+    const apps = d2.system.installedApps
     const { userSettings } = useUserSettings()
-    //const { apps } = useCachedDataQuery()
     const iframeRef = useRef()
     const [error, setError] = useState(false)
 
@@ -43,22 +45,25 @@ const IframePlugin = ({
     }, [filterVersion, visualization.type])
 
     const getIframeSrc = useCallback(() => {
+        // 1. check if there is an override for the plugin
         const pluginOverrides = getPluginOverrides()
 
         if (pluginOverrides && pluginOverrides[item.type]) {
             return pluginOverrides[item.type]
         }
-/*
+
         const appKey = itemTypeMap[item.type].appKey
 
+        // 2. check if there is an installed app for the item type
+        // and use its plugin launch URL
         if (appKey) {
             const appDetails = apps.find((app) => app.key === appKey)
 
             return appDetails?.pluginLaunchUrl
         }
-*/
+
         return // XXX
-    }, [item.type])
+    }, [item.type, apps])
 
     if (error) {
         return (
