@@ -75,15 +75,24 @@ const IframePlugin = ({
     )
 
     const getIframeSrc = useCallback(() => {
+        // 1. check if there is an override for the plugin
         const pluginOverrides = getPluginOverrides()
 
         if (pluginOverrides && pluginOverrides[itemType]) {
             return pluginOverrides[itemType]
         }
-        /*
-         * TODO
-         * 1. check if there is an installed LL app and use the plugin url
-         */
+
+        const appKey = itemTypeMap[item.type].appKey
+
+        // 2. check if there is an installed app for the item type
+        // and use its plugin launch URL
+        if (appKey) {
+            const appDetails = apps.find(app => app.key === appKey)
+
+            if (appDetails.launchUrl) {
+                return itemTypeMap[item.type].pluginUrl()
+            }
+        }
 
         setError('missing-plugin')
 
