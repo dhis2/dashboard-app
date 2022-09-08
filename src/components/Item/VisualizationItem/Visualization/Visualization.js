@@ -7,6 +7,7 @@ import { isEditMode } from '../../../../modules/dashboardModes'
 import { getVisualizationId } from '../../../../modules/item'
 import {
     VISUALIZATION,
+    EVENT_VISUALIZATION,
     MAP,
     CHART,
     REPORT_TABLE,
@@ -15,16 +16,17 @@ import {
 import {
     sGetItemFiltersRoot,
     DEFAULT_STATE_ITEM_FILTERS,
-} from '../../../../reducers/itemFilters'
-import { sGetVisualization } from '../../../../reducers/visualizations'
-import memoizeOne from '../memoizeOne'
-import DataVisualizerPlugin from './DataVisualizerPlugin'
-import getFilteredVisualization from './getFilteredVisualization'
-import getVisualizationConfig from './getVisualizationConfig'
-import LegacyPlugin from './LegacyPlugin'
-import MapPlugin from './MapPlugin'
-import NoVisualizationMessage from './NoVisualizationMessage'
-import { pluginIsAvailable } from './plugin'
+} from '../../../../reducers/itemFilters.js'
+import { sGetVisualization } from '../../../../reducers/visualizations.js'
+import memoizeOne from '../memoizeOne.js'
+import DataVisualizerPlugin from './DataVisualizerPlugin.js'
+import getFilteredVisualization from './getFilteredVisualization.js'
+import getVisualizationConfig from './getVisualizationConfig.js'
+import IframePlugin from './IframePlugin.js'
+import LegacyPlugin from './LegacyPlugin.js'
+import MapPlugin from './MapPlugin.js'
+import NoVisualizationMessage from './NoVisualizationMessage.js'
+import { pluginIsAvailable } from './plugin.js'
 
 const Visualization = ({
     visualization,
@@ -77,10 +79,23 @@ const Visualization = ({
                 />
             )
         }
-
-        const style = { height: this.props.availableHeight }
-        if (this.props.availableWidth) {
-            style.width = this.props.availableWidth
+        case EVENT_VISUALIZATION: {
+            // XXX 1. check for plugin overrides
+            // 2. check for installed apps (use appKey and get the plugin launch URL)
+            // 3. fallback, use
+            // XXX check for installed app first (use appKey and get the launch
+            return (
+                <IframePlugin
+                    visualization={memoizedGetFilteredVisualization(
+                        visualizationConfig,
+                        itemFilters
+                    )}
+                    style={style}
+                    filterVersion={filterVersion}
+                    item={item}
+                    dashboardMode={dashboardMode}
+                />
+            )
         }
         case MAP: {
             return (
