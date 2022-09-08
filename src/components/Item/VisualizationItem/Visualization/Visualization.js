@@ -7,6 +7,7 @@ import { isEditMode } from '../../../../modules/dashboardModes.js'
 import { getVisualizationId } from '../../../../modules/item.js'
 import {
     VISUALIZATION,
+    EVENT_VISUALIZATION,
     MAP,
     CHART,
     REPORT_TABLE,
@@ -21,6 +22,7 @@ import memoizeOne from '../memoizeOne.js'
 import DataVisualizerPlugin from './DataVisualizerPlugin.js'
 import getFilteredVisualization from './getFilteredVisualization.js'
 import getVisualizationConfig from './getVisualizationConfig.js'
+import IframePlugin from './IframePlugin.js'
 import LegacyPlugin from './LegacyPlugin.js'
 import MapPlugin from './MapPlugin.js'
 import NoVisualizationMessage from './NoVisualizationMessage.js'
@@ -77,10 +79,23 @@ const Visualization = ({
                 />
             )
         }
-
-        const style = { height: this.props.availableHeight }
-        if (this.props.availableWidth) {
-            style.width = this.props.availableWidth
+        case EVENT_VISUALIZATION: {
+            // XXX 1. check for plugin overrides
+            // 2. check for installed apps (use appKey and get the plugin launch URL)
+            // 3. fallback, use
+            // XXX check for installed app first (use appKey and get the launch
+            return (
+                <IframePlugin
+                    visualization={memoizedGetFilteredVisualization(
+                        visualizationConfig,
+                        itemFilters
+                    )}
+                    style={style}
+                    filterVersion={filterVersion}
+                    item={item}
+                    dashboardMode={dashboardMode}
+                />
+            )
         }
         case MAP: {
             return (
