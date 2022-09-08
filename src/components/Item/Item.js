@@ -8,6 +8,7 @@ import {
     MAP,
     EVENT_CHART,
     EVENT_REPORT,
+    EVENT_VISUALIZATION,
     MESSAGES,
     REPORTS,
     RESOURCES,
@@ -35,6 +36,7 @@ const getGridItem = (type) => {
         case MAP:
         case EVENT_CHART:
         case EVENT_REPORT:
+        case EVENT_VISUALIZATION:
             return VisualizationItem
         case MESSAGES:
             return MessagesItem

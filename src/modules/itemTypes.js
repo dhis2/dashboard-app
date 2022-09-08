@@ -21,6 +21,7 @@ export const CHART = 'CHART'
 export const MAP = 'MAP'
 export const EVENT_REPORT = 'EVENT_REPORT'
 export const EVENT_CHART = 'EVENT_CHART'
+export const EVENT_VISUALIZATION = 'EVENT_VISUALIZATION'
 export const APP = 'APP'
 export const REPORTS = 'REPORTS'
 export const RESOURCES = 'RESOURCES'
@@ -123,6 +124,18 @@ export const itemTypeMap = {
         appUrl: (id) => `dhis-web-event-visualizer/?id=${id}`,
         appName: 'Event Visualizer',
     },
+    [EVENT_VISUALIZATION]: {
+        id: EVENT_VISUALIZATION,
+        endPointName: 'eventVisualizations',
+        propName: 'eventVisualization',
+        pluralTitle: i18n.t('Event visualizations'),
+        domainType: DOMAIN_TYPE_TRACKER,
+        isVisualizationType: true,
+        // TODO change to the path for the bundled app
+        appUrl: (id) => `api/apps/line-listing/index.html#/${id}`,
+        appName: 'Line Listing',
+        appKey: 'line-listing',
+    },
     [APP]: {
         endPointName: 'apps',
         propName: 'appKey',
@@ -206,6 +219,7 @@ export const getItemIcon = (type) => {
             return IconFileDocument24
         case CHART:
         case EVENT_CHART:
+        case EVENT_VISUALIZATION:
             return IconVisualizationColumn24
         case MAP:
             return IconWorld24
