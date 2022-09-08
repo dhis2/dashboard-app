@@ -8,6 +8,7 @@ import {
     REPORT_TABLE,
     EVENT_CHART,
     EVENT_REPORT,
+    EVENT_VISUALIZATION,
     isTrackerDomainType,
     hasMapView,
 } from '../../../../modules/itemTypes.js'
@@ -47,7 +48,7 @@ const ViewAsMenuItems = ({
                     icon={<IconVisualizationColumn16 />}
                 />
             )}
-            {activeType !== REPORT_TABLE && activeType !== EVENT_REPORT && (
+            {activeType !== REPORT_TABLE && activeType !== EVENT_REPORT && activeType !== EVENT_VISUALIZATION && (
                 <MenuItem
                     tooltip={
                         notSupported
