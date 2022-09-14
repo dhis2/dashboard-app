@@ -1,3 +1,10 @@
+## [99.9.14](https://github.com/dhis2/dashboard-app/compare/v99.9.13...v99.9.14) (2022-09-14)
+
+
+### Bug Fixes
+
+* bump internal deps (DHIS2-13298) ([#2103](https://github.com/dhis2/dashboard-app/issues/2103)) ([9e0fdb2](https://github.com/dhis2/dashboard-app/commit/9e0fdb2bc4bd5119c8b653767b4a0fd51a224c9d))
+
 ## [99.9.13](https://github.com/dhis2/dashboard-app/compare/v99.9.12...v99.9.13) (2022-06-20)
 
 
