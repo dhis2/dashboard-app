@@ -76,7 +76,6 @@ const IframePlugin = ({
         )
     }
 
-    // TODO use different URL for iframe src based on item.type
     return (
         <Suspense fallback={<div />}>
             <div className={classes.wrapper}>
