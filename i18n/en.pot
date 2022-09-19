@@ -131,8 +131,8 @@ msgstr "Event reports"
 msgid "Event charts"
 msgstr "Event charts"
 
-msgid "Event visualization"
-msgstr "Event visualization"
+msgid "Event visualizations"
+msgstr "Event visualizations"
 
 msgid "Apps"
 msgstr "Apps"
