@@ -34,6 +34,7 @@
         "styled-jsx": "^4.0.1"
     },
     "scripts": {
+        "deduplicate": "d2-app-scripts deduplicate",
         "start": "d2-app-scripts start",
         "coverage": "npm test -- --coverage",
         "lint": "d2-style check",
