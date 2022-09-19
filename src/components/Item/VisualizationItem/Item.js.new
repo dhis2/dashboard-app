@@ -1,0 +1,312 @@
+import { useD2 } from '@dhis2/app-runtime-adapter-d2'
+import i18n from '@dhis2/d2-i18n'
+import { Tag, Tooltip } from '@dhis2/ui'
+import PropTypes from 'prop-types'
+import React, { useCallback, useEffect, useRef, useState } from 'react'
+import { shallowEqual, useDispatch, useSelector } from 'react-redux'
+import { acSetItemActiveType } from '../../../actions/itemActiveTypes.js'
+import { acAddVisualization } from '../../../actions/visualizations.js'
+import { apiPostDataStatistics } from '../../../api/dataStatistics.js'
+import { apiFetchVisualization } from '../../../api/fetchVisualization.js'
+import {
+    isEditMode,
+    isPrintMode,
+    isViewMode,
+} from '../../../modules/dashboardModes.js'
+import { getItemHeightPx } from '../../../modules/gridUtil.js'
+import {
+    getVisualizationId,
+    getVisualizationName,
+} from '../../../modules/item.js'
+import {
+    getDataStatisticsName,
+    getItemTypeForVis,
+    EVENT_VISUALIZATION,
+} from '../../../modules/itemTypes.js'
+import { sGetIsEditing } from '../../../reducers/editDashboard.js'
+import { sGetItemActiveType } from '../../../reducers/itemActiveTypes.js'
+import {
+    sGetItemFiltersRoot,
+    DEFAULT_STATE_ITEM_FILTERS,
+} from '../../../reducers/itemFilters.js'
+import { sGetVisualization } from '../../../reducers/visualizations.js'
+import { SystemSettingsCtx } from '../../SystemSettingsProvider.js'
+import { WindowDimensionsCtx } from '../../WindowDimensionsProvider.js'
+import ItemHeader from '../ItemHeader/ItemHeader.js'
+import FatalErrorBoundary from './FatalErrorBoundary.js'
+import { getGridItemElement } from './getGridItemElement.js'
+import { isElementFullscreen } from './isElementFullscreen.js'
+import ItemContextMenu from './ItemContextMenu/ItemContextMenu.js'
+import ItemFooter from './ItemFooter.js'
+import { pluginIsAvailable } from './Visualization/plugin.js'
+import Visualization from './Visualization/Visualization.js'
+
+const Item = ({
+    dashboardMode,
+    gridWidth,
+    item,
+    settings,
+    onToggleItemExpanded,
+}) => {
+    const { d2 } = useD2()
+    const dispatch = useDispatch()
+
+    const [showFooter, setShowFooter] = useState(false)
+    const [configLoaded, setConfigLoaded] = useState(false)
+    const [loadItemFailed, setLoadItemFailed] = useState(false)
+    const [showNoFiltersOverlay, setShowNoFiltersOverlay] = useState(
+        item?.type === EVENT_VISUALIZATION
+    )
+
+    const contentRef = useRef(null)
+    const headerRef = useRef(null)
+
+    const isEditing = useSelector(sGetIsEditing)
+    const activeType = useSelector((state) =>
+        sGetItemActiveType(state, item?.id)
+    )
+    const visualization =
+        useSelector(
+            (state) => sGetVisualization(state, getVisualizationId(item)),
+            shallowEqual // XXX
+        ) || {}
+
+    const itemFiltersViewMode = useSelector(sGetItemFiltersRoot)
+
+    const itemFilters = !isEditMode(dashboardMode)
+        ? itemFiltersViewMode
+        : DEFAULT_STATE_ITEM_FILTERS
+
+    const style = window.getComputedStyle(document.documentElement)
+
+    const itemContentPadding = parseInt(
+        style.getPropertyValue('--item-content-padding').replace('px', '')
+    )
+
+    const itemHeaderTotalMargin =
+        parseInt(
+            style.getPropertyValue('--item-header-margin-top').replace('px', '')
+        ) +
+        parseInt(
+            style
+                .getPropertyValue('--item-header-margin-bottom')
+                .replace('px', '')
+        )
+
+    const memoizedGetContentHeight = useCallback(
+        (calculatedHeight, measuredHeight, preferMeasured) =>
+            preferMeasured
+                ? measuredHeight || calculatedHeight
+                : calculatedHeight,
+        []
+    )
+
+    useEffect(() => {
+        const loadVisualization = async () => {
+            dispatch(acAddVisualization(await apiFetchVisualization(item)))
+
+            try {
+                if (
+                    settings.keyGatherAnalyticalObjectStatisticsInDashboardViews &&
+                    isViewMode(dashboardMode)
+                ) {
+                    await apiPostDataStatistics(
+                        getDataStatisticsName(item.type),
+                        getVisualizationId(item)
+                    )
+                }
+            } catch (e) {
+                console.log(e)
+            }
+        }
+
+        loadVisualization()
+
+        setConfigLoaded(true)
+    }, [dashboardMode, dispatch, item, settings])
+
+    const isFullscreenSupported = () => {
+        const el = getGridItemElement(item.id)
+        return !!(el?.requestFullscreen || el?.webkitRequestFullscreen)
+    }
+
+    const onClickNoFiltersOverlay = useCallback(
+        () => setShowNoFiltersOverlay(false),
+        [setShowNoFiltersOverlay]
+    )
+
+    const onToggleFullscreen = () => {
+        if (!isElementFullscreen(item.id)) {
+            const el = getGridItemElement(item.id)
+            if (el?.requestFullscreen) {
+                el.requestFullscreen()
+            } else if (el?.webkitRequestFullscreen) {
+                el.webkitRequestFullscreen()
+            }
+        } else {
+            document.exitFullscreen
+                ? document.exitFullscreen()
+                : document.webkitExitFullscreen()
+        }
+    }
+
+    const onToggleFooter = () => {
+        // XXX still not sync but does what we want or should we move the toggle call in some useEffect?
+        setShowFooter((showFooter) => {
+            onToggleItemExpanded(item.id)
+            return !showFooter
+        })
+    }
+
+    const setActiveType = (type) => {
+        type !== getActiveType() && dispatch(acSetItemActiveType(item.id, type))
+    }
+
+    const getActiveType = () => {
+        if (isEditing) {
+            return getItemTypeForVis(item)
+        }
+        return activeType || getItemTypeForVis(item)
+    }
+
+    const getAvailableHeight = ({ width, height }) => {
+        if (isElementFullscreen(item.id)) {
+            return (
+                height -
+                headerRef.current.clientHeight -
+                itemHeaderTotalMargin -
+                itemContentPadding
+            )
+        }
+
+        const calculatedHeight =
+            getItemHeightPx(item, width) -
+            headerRef.current.clientHeight -
+            itemHeaderTotalMargin -
+            itemContentPadding
+
+        return memoizedGetContentHeight(
+            calculatedHeight,
+            contentRef ? contentRef.current.offsetHeight : null,
+            isEditMode(dashboardMode) || isPrintMode(dashboardMode)
+        )
+    }
+
+    const getAvailableWidth = () => {
+        const rect = getGridItemElement(item.id)?.getBoundingClientRect()
+
+        return rect && rect.width - itemContentPadding * 2
+    }
+
+    const onFatalError = useCallback(
+        () => setLoadItemFailed(true),
+        [setLoadItemFailed]
+    )
+
+    const activeTypeComputed = getActiveType()
+    const actionButtons =
+        pluginIsAvailable(activeTypeComputed || item.type, d2) &&
+        isViewMode(dashboardMode) ? (
+            <ItemContextMenu
+                item={item}
+                visualization={visualization}
+                onSelectActiveType={setActiveType}
+                onToggleFooter={onToggleFooter}
+                onToggleFullscreen={onToggleFullscreen}
+                activeType={activeTypeComputed}
+                activeFooter={showFooter}
+                fullscreenSupported={isFullscreenSupported()}
+                loadItemFailed={loadItemFailed}
+            />
+        ) : null
+
+    const tags =
+        isViewMode(dashboardMode) &&
+        Object.keys(itemFilters).length &&
+        !showNoFiltersOverlay &&
+        activeTypeComputed === EVENT_VISUALIZATION ? (
+            <Tooltip
+                content={i18n.t(
+                    'Filters are not applied to line list dashboard items'
+                )}
+            >
+                <Tag negative>{i18n.t('Filters not applied')}</Tag>
+            </Tooltip>
+        ) : null
+
+    return (
+        <>
+            <ItemHeader
+                title={getVisualizationName(item)}
+                itemId={item.id}
+                actionButtons={actionButtons}
+                ref={headerRef}
+                dashboardMode={dashboardMode}
+                isShortened={item.shortened}
+                tags={tags}
+            />
+            <FatalErrorBoundary
+                message={i18n.t(
+                    'There was a problem loading this dashboard item'
+                )}
+                onFatalError={onFatalError}
+            >
+                <div
+                    className="dashboard-item-content"
+                    //ref={(ref) => (contentRef = ref)} // XXX
+                    ref={contentRef}
+                >
+                    {configLoaded && (
+                        <WindowDimensionsCtx.Consumer>
+                            {(dimensions) => (
+                                <Visualization
+                                    item={item}
+                                    visualization={visualization}
+                                    activeType={activeTypeComputed}
+                                    itemFilters={itemFilters}
+                                    availableHeight={getAvailableHeight(
+                                        dimensions
+                                    )}
+                                    availableWidth={getAvailableWidth()}
+                                    gridWidth={gridWidth}
+                                    dashboardMode={dashboardMode}
+                                    showNoFiltersOverlay={Boolean(
+                                        Object.keys(itemFilters).length &&
+                                            showNoFiltersOverlay
+                                    )}
+                                    onClickNoFiltersOverlay={
+                                        onClickNoFiltersOverlay
+                                    }
+                                />
+                            )}
+                        </WindowDimensionsCtx.Consumer>
+                    )}
+                </div>
+            </FatalErrorBoundary>
+            {isViewMode(dashboardMode) && showFooter ? (
+                <ItemFooter item={item} />
+            ) : null}
+        </>
+    )
+}
+
+Item.propTypes = {
+    dashboardMode: PropTypes.string,
+    gridWidth: PropTypes.number,
+    item: PropTypes.object,
+    settings: PropTypes.object,
+    onToggleItemExpanded: PropTypes.func,
+}
+
+Item.defaultProps = {
+    item: {},
+    onToggleItemExpanded: Function.prototype,
+}
+
+const ItemWithSettings = (props) => (
+    <SystemSettingsCtx.Consumer>
+        {({ systemSettings }) => <Item settings={systemSettings} {...props} />}
+    </SystemSettingsCtx.Consumer>
+)
+
+export default ItemWithSettings
