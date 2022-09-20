@@ -73,15 +73,13 @@ const IframePlugin = ({
 
     // TODO use different URL for iframe src based on item.type
     return (
-        <Suspense fallback={<div />}>
-            <div className={classes.wrapper}>
-                <iframe
-                    ref={iframeRef}
-                    src={getIframeSrc()}
-                    style={{ width: '100%', height: '100%', border: 'none' }}
-                ></iframe>
-            </div>
-        </Suspense>
+        <div className={classes.wrapper}>
+            <iframe
+                ref={iframeRef}
+                src={getIframeSrc()}
+                style={{ width: '100%', height: '100%', border: 'none' }}
+            ></iframe>
+        </div>
     )
 }
 
