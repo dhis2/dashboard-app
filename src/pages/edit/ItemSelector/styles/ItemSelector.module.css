@@ -1,4 +1,5 @@
 .menu {
+    overflow: auto;
     height: 50vh;
     width: 700px;
 }
