@@ -35,7 +35,7 @@ const ViewAsMenuItems = ({
 
     return (
         <>
-            {activeType !== CHART && activeType !== EVENT_CHART && (
+            {![CHART, EVENT_CHART].includes(activeType) && (
                 <MenuItem
                     tooltip={
                         notSupported
@@ -48,9 +48,7 @@ const ViewAsMenuItems = ({
                     icon={<IconVisualizationColumn16 />}
                 />
             )}
-            {activeType !== REPORT_TABLE &&
-                activeType !== EVENT_REPORT &&
-                activeType !== EVENT_VISUALIZATION && (
+            {![REPORT_TABLE, EVENT_REPORT, EVENT_VISUALIZATION].includes(activeType) && (
                     <MenuItem
                         tooltip={
                             notSupported
