@@ -1,7 +1,6 @@
 import { useOnlineStatus, useDataEngine, useAlert } from '@dhis2/app-runtime'
-import { useD2 } from '@dhis2/app-runtime-adapter-d2'
 import i18n from '@dhis2/d2-i18n'
-import TranslationDialog from '@dhis2/d2-ui-translation-dialog'
+import { TranslationDialog } from '@dhis2/analytics'
 import { Button, ButtonStrip } from '@dhis2/ui'
 import PropTypes from 'prop-types'
 import React, { useState } from 'react'
@@ -42,7 +41,6 @@ const deleteFailedMessage = i18n.t(
 )
 
 const EditBar = ({ dashboard, ...props }) => {
-    const { d2 } = useD2()
     const dataEngine = useDataEngine()
     const { online } = useOnlineStatus()
     const [translationDlgIsOpen, setTranslationDlgIsOpen] = useState(false)
@@ -159,23 +157,13 @@ const EditBar = ({ dashboard, ...props }) => {
     }
 
     const translationDialog = () =>
-        dashboard.id ? (
+        translationDlgIsOpen ? (
             <TranslationDialog
                 className="translation-dialog"
-                d2={d2}
-                open={translationDlgIsOpen}
-                onRequestClose={toggleTranslationDialog}
-                objectToTranslate={{
-                    ...dashboard,
-                    modelDefinition: { name: 'dashboard' },
-                }}
+                onClose={toggleTranslationDialog}
+                objectToTranslate={dashboard}
                 fieldsToTranslate={['name', 'description']}
-                onTranslationError={(err) =>
-                    console.log('translation update error', err)
-                }
                 onTranslationSaved={Function.prototype}
-                insertTheme={true}
-                isOnline={online}
             />
         ) : null
 
