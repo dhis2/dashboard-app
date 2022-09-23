@@ -1,4 +1,4 @@
-import OfflineTooltip from '@dhis2/analytics'
+import { OfflineTooltip } from '@dhis2/analytics'
 import { Button, Layer, Popper } from '@dhis2/ui'
 import PropTypes from 'prop-types'
 import React, { useRef } from 'react'

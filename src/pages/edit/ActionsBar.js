@@ -1,4 +1,4 @@
-import { TranslationDialog } from '@dhis2/analytics'
+import { OfflineTooltip, TranslationDialog } from '@dhis2/analytics'
 import { useOnlineStatus, useDataEngine, useAlert } from '@dhis2/app-runtime'
 import i18n from '@dhis2/d2-i18n'
 import { Button, ButtonStrip } from '@dhis2/ui'
@@ -17,7 +17,6 @@ import {
 import { acClearPrintDashboard } from '../../actions/printDashboard.js'
 import { acClearSelected } from '../../actions/selected.js'
 import ConfirmActionDialog from '../../components/ConfirmActionDialog.js'
-import OfflineTooltip from '../../components/OfflineTooltip.js'
 import {
     sGetEditDashboardRoot,
     sGetIsPrintPreviewView,
