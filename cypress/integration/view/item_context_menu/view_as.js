@@ -28,7 +28,13 @@ Then('the table dashboard item displays as a table', () => {
     getDashboardItem(tableItemUid)
         .find(tableSel, EXTENDED_TIMEOUT)
         .should('exist')
-        .and('be.visible')
+        .should('be.visible')
+
+    getDashboardItem(tableItemUid)
+        .find(tableSel, EXTENDED_TIMEOUT)
+        .invoke('css', 'height')
+        .then((str) => parseInt(str))
+        .should('be.gt', 0)
 })
 
 /*
