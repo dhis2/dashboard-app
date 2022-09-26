@@ -72,7 +72,7 @@ test('maximized DashboardsBar does not have a Show more/less button', () => {
         controlBar: { userRows: parseInt(MAX_ROW_COUNT) },
         selected: { id: 'rainbow123' },
     }
-    const { queryByTestId } = render(
+    const { queryByLabelText } = render(
         <Provider store={mockStore(store)}>
             <WindowDimensionsProvider>
                 <Router history={createMemoryHistory()}>
@@ -84,7 +84,7 @@ test('maximized DashboardsBar does not have a Show more/less button', () => {
             </WindowDimensionsProvider>
         </Provider>
     )
-    expect(queryByTestId('showmore-button')).toBeNull()
+    expect(queryByLabelText('Show more dashboards')).toBeNull()
 })
 
 test('renders a DashboardsBar with selected item', () => {
@@ -95,7 +95,7 @@ test('renders a DashboardsBar with selected item', () => {
         selected: { id: 'fluttershy123' },
     }
 
-    const { queryByTestId } = render(
+    const { queryAllByRole } = render(
         <WindowDimensionsProvider>
             <Router history={createMemoryHistory()}>
                 <Provider store={mockStore(store)}>
@@ -107,16 +107,19 @@ test('renders a DashboardsBar with selected item', () => {
             </Router>
         </WindowDimensionsProvider>
     )
-    expect(
-        within(queryByTestId('dashboard-chip-selected-starred')).queryByText(
-            'Fluttershy'
-        )
-    ).toBeTruthy()
-    expect(
-        within(queryByTestId('dashboard-chip-selected-starred')).queryByText(
-            'Rainbow Dash'
-        )
-    ).toBeNull()
+
+    const chips = queryAllByRole('link')
+
+    const fluttershyChip = chips.find((lnk) =>
+        within(lnk).queryByText('Fluttershy')
+    )
+
+    expect(fluttershyChip.firstChild.classList.contains('selected')).toBe(true)
+
+    const rainbowChip = chips.find((lnk) =>
+        within(lnk).queryByText('Rainbow Dash')
+    )
+    expect(rainbowChip.firstChild.classList.contains('selected')).toBe(false)
 })
 
 test('renders a DashboardsBar with no items', () => {
