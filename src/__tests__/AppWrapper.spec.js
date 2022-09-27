@@ -2,6 +2,10 @@ import React from 'react'
 import ReactDOM from 'react-dom'
 import AppWrapper from '../AppWrapper.js'
 
+jest.mock('@dhis2/analytics', () => ({
+     ...jest.requireActual('@dhis2/analytics'),
+     CachedDataQueryProvider: () => <div className="CachedDataQueryProvider" />
+}))
 jest.mock('@dhis2/app-runtime-adapter-d2', () => {
     return {
         D2Shim: ({ children }) => children({ d2: {} }),
