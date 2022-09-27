@@ -26,10 +26,12 @@ Then('the Period filter is applied to the dashboard', () => {
 
     // check the CHART
     cy.get(`${gridItemSel}.VISUALIZATION`)
-        .find(chartSubtitleSel, EXTENDED_TIMEOUT)
-        .scrollIntoView()
-        .contains(PERIOD, EXTENDED_TIMEOUT)
-        .should('be.visible')
+        .find(`${chartSubtitleSel} > title`, EXTENDED_TIMEOUT)
+        .invoke('text')
+        .then((text) => {
+            const commas = (text.match(/,/g) || []).length
+            expect(commas).to.equal(5) // a list of 6 months has 5 commas
+        })
 
     cy.get(innerScrollContainerSel).scrollTo('top')
     // check the MAP

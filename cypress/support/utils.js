@@ -40,3 +40,7 @@ export const goOnline = () => {
             })
         })
 }
+
+export const createDashboardTitle = (prefix) => {
+    return prefix + new Date().toUTCString().slice(-12, -4)
+}
