@@ -73,14 +73,14 @@ Feature: Errors while in view mode
         Then the "chart" is displayed correctly
 
     # FIXME - re-enable when dv plugin is fixed
-    # Scenario: Item visualization fails when filter applied and viewed as table [DHIS2-11303]
-    #     Given I open a dashboard with a chart that will fail
-    #     When I apply a "Diagnosis" filter of type "Burns"
-    #     Then an error message is displayed on the item
-    #     When I view as table
-    #     Then an error message is displayed on the item
-    #     When I remove the filter
-    #     Then the "table" is displayed correctly
+    Scenario: Item visualization fails when filter applied and viewed as table [DHIS2-11303]
+        Given I open a dashboard with a chart that will fail
+        When I apply a "Diagnosis" filter of type "Burns"
+        Then an error message is displayed on the item
+        When I view as table
+        Then an error message is displayed on the item
+        When I remove the filter
+        Then the "table" is displayed correctly
 
     Scenario: Item visualization fails when filter applied and viewed as table then viewed as chart [DHIS2-11303]
         Given I open a dashboard with a chart that will fail
