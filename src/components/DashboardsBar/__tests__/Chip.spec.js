@@ -12,9 +12,14 @@ jest.mock('@dhis2/ui', () => {
     return {
         __esModule: true,
         ...originalModule,
-        Chip: function Mock({ children, ...props }) {
+        Chip: function Mock({ children, icon, selected }) {
+            const componentProps = {
+                starred: icon ? 'yes' : 'no',
+                isselected: selected ? 'yes' : 'no',
+            }
+
             return (
-                <div className="ui-Chip" {...props}>
+                <div className="mock-ui-Chip" {...componentProps}>
                     {children}
                 </div>
             )
@@ -60,7 +65,7 @@ const defaultProps = {
     },
 }
 
-test('renders an unstarred chip for a non-cached dashboard', () => {
+test('renders an unstarred, unselected chip for a non-cached dashboard', () => {
     useCacheableSection.mockImplementation(() => mockNonOfflineDashboard)
     const { container } = render(
         <Router history={createMemoryHistory()}>
@@ -71,7 +76,7 @@ test('renders an unstarred chip for a non-cached dashboard', () => {
     expect(container).toMatchSnapshot()
 })
 
-test('renders an unstarred chip for cached dashboard', () => {
+test('renders an unstarred, unselected chip for cached dashboard', () => {
     useCacheableSection.mockImplementation(() => mockOfflineDashboard)
     const { container } = render(
         <Router history={createMemoryHistory()}>
@@ -82,7 +87,7 @@ test('renders an unstarred chip for cached dashboard', () => {
     expect(container).toMatchSnapshot()
 })
 
-test('renders a starred chip for a non-cached dashboard', () => {
+test('renders a starred, unselected chip for a non-cached dashboard', () => {
     useCacheableSection.mockImplementation(() => mockNonOfflineDashboard)
     const props = Object.assign({}, defaultProps, { starred: true })
     const { container } = render(
@@ -94,7 +99,7 @@ test('renders a starred chip for a non-cached dashboard', () => {
     expect(container).toMatchSnapshot()
 })
 
-test('renders a starred chip for a cached dashboard', () => {
+test('renders a starred, unselected chip for a cached dashboard', () => {
     useCacheableSection.mockImplementation(() => mockOfflineDashboard)
     const props = Object.assign({}, defaultProps, { starred: true })
     const { container } = render(
