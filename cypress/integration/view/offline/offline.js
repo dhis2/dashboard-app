@@ -14,8 +14,13 @@ import {
     dashboardTitleSel,
     dashboardChipSel,
     dashboardDescriptionSel,
-} from '../../../elements/viewDashboard'
-import { EXTENDED_TIMEOUT, goOnline, goOffline } from '../../../support/utils'
+} from '../../../elements/viewDashboard.js'
+import {
+    EXTENDED_TIMEOUT,
+    goOnline,
+    goOffline,
+    createDashboardTitle,
+} from '../../../support/utils.js'
 
 beforeEach(() => {
     goOnline()
@@ -29,9 +34,8 @@ const CACHED_DASHBOARD_ITEM_NAME = 'ANC: 1 and 3 coverage Yearly'
 const UNCACHED_DASHBOARD_ITEM_NAME = 'ANC: 1-3 trend lines last 12 months'
 const MAKE_AVAILABLE_OFFLINE_TEXT = 'Make available offline'
 
-const UNCACHED_DASHBOARD_TITLE =
-    'aa un' + new Date().toUTCString().slice(-12, -4)
-const CACHED_DASHBOARD_TITLE = 'aa ca' + new Date().toUTCString().slice(-12, -4)
+const UNCACHED_DASHBOARD_TITLE = createDashboardTitle('aa un')
+const CACHED_DASHBOARD_TITLE = createDashboardTitle('aa ca')
 
 const createDashboard = cacheState => {
     const cachedDashboard = cacheState === CACHED
