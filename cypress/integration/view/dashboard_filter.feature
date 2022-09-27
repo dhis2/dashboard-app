@@ -1,12 +1,11 @@
 Feature: Dashboard filter
 
-    # FIXME: needs adjustments in order to work
-    # Scenario: I add a Period filter
-    #     When I start a new dashboard
-    #     And I add a MAP and a CHART and save
-    #     Then the dashboard displays in view mode
-    #     When I add a "Period" filter
-    #     Then the Period filter is applied to the dashboard
+    Scenario: I add a Period filter
+        When I start a new dashboard
+        And I add a MAP and a CHART and save
+        Then the dashboard displays in view mode
+        When I add a "Period" filter
+        Then the Period filter is applied to the dashboard
 
     Scenario: I add a Organisation unit filter
         Given I open existing dashboard
