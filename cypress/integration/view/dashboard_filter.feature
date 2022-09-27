@@ -8,7 +8,6 @@ Feature: Dashboard filter
     #     When I add a "Period" filter
     #     Then the Period filter is applied to the dashboard
 
-    # FIXME: enable when bug https://dhis2.atlassian.net/browse/DHIS2-13816 is fixed
     Scenario: I add a Organisation unit filter
         Given I open existing dashboard
         Then the dashboard displays in view mode

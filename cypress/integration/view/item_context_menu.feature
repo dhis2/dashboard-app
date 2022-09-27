@@ -1,6 +1,5 @@
 Feature: Item context menu
 
-    # FIXME - re-enable when dv plugin is fixed
     @nonmutating
     Scenario: View chart as table
         Given I open the "Delivery" dashboard
