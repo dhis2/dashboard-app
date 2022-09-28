@@ -152,6 +152,7 @@ jobs:
                   cypress_dhis2_base_url: ${{ secrets.CYPRESS_DHIS2_BASE_URL_37 }}
                   cypress_dhis2_username: ${{ secrets.CYPRESS_DHIS2_USERNAME }}
                   cypress_dhis2_password: ${{ secrets.CYPRESS_DHIS2_PASSWORD }}
+                  GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
     publish:
         runs-on: ubuntu-latest
