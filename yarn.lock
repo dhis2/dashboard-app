@@ -2134,10 +2134,10 @@
     classnames "^2.3.1"
     prop-types "^15.7.2"
 
-"@dhis2/analytics@^24.0.4", "@dhis2/analytics@^24.0.6":
-  version "24.0.6"
-  resolved "https://registry.yarnpkg.com/@dhis2/analytics/-/analytics-24.0.6.tgz#a6d594bb2e3a7b22b2ff8a71ed28dc1f2c07c068"
-  integrity sha512-uctFEU8YPHfnU6Yr5LVa5f5wkowVyFPfv/PzHEwRDzEZqJHj75x61YVcUjiUAwnGsYp2DUe4Q07pltPcVUuEuA==
+"@dhis2/analytics@^24.0.9", "@dhis2/analytics@^24.1.1":
+  version "24.1.1"
+  resolved "https://registry.yarnpkg.com/@dhis2/analytics/-/analytics-24.1.1.tgz#dbfe4b06dd6416f58f7f91691e9cee27fd3124cb"
+  integrity sha512-qkEgkLS/bvGYfPddJJhfR6m9WbSUE4SezIZ4+hyJY2bBq9BG/F13me9T3bRSgkJWS7VnFmNm8duAE3gfvZIn5g==
   dependencies:
     "@dhis2/d2-ui-rich-text" "^7.4.0"
     classnames "^2.3.1"
@@ -2425,12 +2425,12 @@
     react-select "^2.0.0"
     rxjs "^5.5.7"
 
-"@dhis2/data-visualizer-plugin@^39.2.6":
-  version "39.2.6"
-  resolved "https://registry.yarnpkg.com/@dhis2/data-visualizer-plugin/-/data-visualizer-plugin-39.2.6.tgz#773f6957960946b3ce7f00a875fdf7baf0a1d684"
-  integrity sha512-IrwoasbP0mOY68O+jYAo8k4MFyrhlmETamoMDSFdWGY3EP8FOvNFgzqbo0ue5tSxhL3+CopocutRC1c0f1UGPA==
+"@dhis2/data-visualizer-plugin@^39.2.10":
+  version "39.2.10"
+  resolved "https://registry.yarnpkg.com/@dhis2/data-visualizer-plugin/-/data-visualizer-plugin-39.2.10.tgz#d5dbc1168de6c704317d16e0f78877c73be1512f"
+  integrity sha512-OpNHtnSU4cuyMBq0jM4s3zkFNEyZ/KklqACLTKdeBThntQioDA5cCuYxTz/n/sVrAo8LvhI9OsKfyWVNT+QrzA==
   dependencies:
-    "@dhis2/analytics" "^24.0.4"
+    "@dhis2/analytics" "^24.0.9"
     "@dhis2/app-runtime" "^3.4.4"
     "@dhis2/d2-i18n" "^1.1.0"
     "@dhis2/ui" "^8.4.11"
