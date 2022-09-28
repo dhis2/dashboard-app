@@ -19,7 +19,7 @@ When('I add a {string} filter', dimensionType => {
     // select an item in the modal
     if (dimensionType === 'Period') {
         cy.get(unselectedItemsSel).contains(PERIOD).dblclick()
-    } else if (dimensionType === 'Organisation unit') {
+    } else if (dimensionType === 'Organisation Unit') {
         cy.get(orgUnitTreeSel, EXTENDED_TIMEOUT)
             .find('[type="checkbox"]', EXTENDED_TIMEOUT)
             .check(OU_ID)
