@@ -1,3 +1,12 @@
+## [99.9.15](https://github.com/dhis2/dashboard-app/compare/v99.9.14...v99.9.15) (2022-09-28)
+
+
+### Bug Fixes
+
+* fix ItemSelector overflow issue DHIS2-13811 ([#2112](https://github.com/dhis2/dashboard-app/issues/2112)) ([45435b8](https://github.com/dhis2/dashboard-app/commit/45435b8dc71d934e70f0a8a426f1053f364565d8))
+* org unit filter dialog crash (DHIS2-13816) ([#2118](https://github.com/dhis2/dashboard-app/issues/2118)) ([c1ce958](https://github.com/dhis2/dashboard-app/commit/c1ce958d56cbd68ea6e30a7076bdb6a59a5fb153))
+* **translations:** sync translations from transifex (master) ([#2087](https://github.com/dhis2/dashboard-app/issues/2087)) ([af6d26e](https://github.com/dhis2/dashboard-app/commit/af6d26e0b63f57274203f5aa63b862920b9f1fde))
+
 ## [99.9.14](https://github.com/dhis2/dashboard-app/compare/v99.9.13...v99.9.14) (2022-09-14)
 
 
