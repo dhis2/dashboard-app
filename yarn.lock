@@ -2075,6 +2075,21 @@
     react-beautiful-dnd "^10.1.1"
     resize-observer-polyfill "^1.5.1"
 
+"@dhis2/analytics@^22.0.0":
+  version "22.0.1"
+  resolved "https://registry.yarnpkg.com/@dhis2/analytics/-/analytics-22.0.1.tgz#013f16e7486a99b0d7b16993779f76a89edfd6b5"
+  integrity sha512-eP6T5ionB7INQPFcyHuOXla1res1gIXSj4VOklprCttDReIEFmaWt2eAk+w6MuoT6oGrCZMXoCk8uad3fYur1w==
+  dependencies:
+    "@dhis2/d2-ui-translation-dialog" "^7.3.1"
+    classnames "^2.3.1"
+    d2-utilizr "^0.2.16"
+    d3-color "^1.2.3"
+    highcharts "^9.1.2"
+    lodash "^4.17.21"
+    mathjs "^9.4.2"
+    react-beautiful-dnd "^10.1.1"
+    resize-observer-polyfill "^1.5.1"
+
 "@dhis2/app-adapter@8.3.3":
   version "8.3.3"
   resolved "https://registry.yarnpkg.com/@dhis2/app-adapter/-/app-adapter-8.3.3.tgz#f3729bec60db014dfdd2fa6b74b5f42a0a46afe2"
