@@ -105,9 +105,7 @@ const FilterDialog = ({
             case DIMENSION_ID_ORGUNIT:
                 return (
                     <OrgUnitDimension
-                        roots={rootOrgUnits.map(
-                            (rootOrgUnit) => rootOrgUnit.id
-                        )}
+                        roots={rootOrgUnits.map(rootOrgUnit => rootOrgUnit.id)}
                         selected={selectedItems}
                         onSelect={onSelectItems}
                     />

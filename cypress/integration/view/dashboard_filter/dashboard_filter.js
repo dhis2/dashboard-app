@@ -28,7 +28,7 @@ Then('the Period filter is applied to the dashboard', () => {
     cy.get(`${gridItemSel}.VISUALIZATION`)
         .find(`${chartSubtitleSel} > title`, EXTENDED_TIMEOUT)
         .invoke('text')
-        .then((text) => {
+        .then(text => {
             const commas = (text.match(/,/g) || []).length
             expect(commas).to.equal(5) // a list of 6 months has 5 commas
         })
