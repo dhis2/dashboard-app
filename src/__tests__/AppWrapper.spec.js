@@ -2,6 +2,11 @@ import React from 'react'
 import ReactDOM from 'react-dom'
 import AppWrapper from '../AppWrapper'
 
+jest.mock('@dhis2/analytics', () => ({
+    ...jest.requireActual('@dhis2/analytics'),
+    CachedDataQueryProvider: () => <div className="CachedDataQueryProvider" />,
+}))
+
 jest.mock(
     '../components/App',
     () =>

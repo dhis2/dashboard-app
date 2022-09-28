@@ -13,15 +13,18 @@ import {
 import {
     dashboardChipSel,
     dashboardTitleSel,
-} from '../../../elements/viewDashboard'
-import { EXTENDED_TIMEOUT } from '../../../support/utils'
+} from '../../../elements/viewDashboard.js'
+import {
+    EXTENDED_TIMEOUT,
+    createDashboardTitle,
+} from '../../../support/utils.js'
 
 // the length of the root route of the app (after the slash): #/
 const ROOT_ROUTE_LENGTH = 0
 // the length of UIDs (after the slash): '#/nghVC4wtyzi'
 const UID_LENGTH = 11
 
-export const TEST_DASHBOARD_TITLE = 'aa' + new Date().toUTCString()
+export const TEST_DASHBOARD_TITLE = createDashboardTitle('aa')
 
 const ROUTE_EDIT = 'edit'
 const ROUTE_NEW = 'new'

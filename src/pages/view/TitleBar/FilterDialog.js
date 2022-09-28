@@ -13,8 +13,8 @@ import {
     BIWEEKLY,
     MONTHLY,
     BIMONTHLY,
+    useCachedDataQuery,
 } from '@dhis2/analytics'
-import { useD2 } from '@dhis2/app-runtime-adapter-d2'
 import i18n from '@dhis2/d2-i18n'
 import {
     Button,
@@ -43,30 +43,12 @@ const FilterDialog = ({
     onClose,
 }) => {
     const [filters, setFilters] = useState(initiallySelectedItems)
-    const { d2 } = useD2()
     const { userSettings } = useUserSettings()
     const { systemSettings } = useSystemSettings()
+    const { rootOrgUnits } = useCachedDataQuery()
 
     const onSelectItems = ({ dimensionId, items }) => {
         setFilters({ [dimensionId]: items })
-    }
-
-    const onDeselectItems = ({ dimensionId, itemIdsToRemove }) => {
-        const oldList = filters[dimensionId] || []
-        const newList = oldList.filter(
-            item => !itemIdsToRemove.includes(item.id)
-        )
-
-        setFilters({ ...filters, [dimensionId]: newList })
-    }
-
-    const onReorderItems = ({ dimensionId, itemIds }) => {
-        const oldList = filters[dimensionId] || []
-        const reorderedList = itemIds.map(id =>
-            oldList.find(item => item.id === id)
-        )
-
-        setFilters({ ...filters, [dimensionId]: reorderedList })
     }
 
     const saveFilter = () => {
@@ -106,13 +88,6 @@ const FilterDialog = ({
     }
 
     const renderDialogContent = () => {
-        const commonProps = {
-            d2,
-            onSelect: onSelectItems,
-            onDeselect: onDeselectItems,
-            onReorder: onReorderItems,
-        }
-
         const selectedItems = filters[dimension.id] || []
 
         switch (dimension.id) {
@@ -120,7 +95,7 @@ const FilterDialog = ({
                 return (
                     <PeriodDimension
                         selectedPeriods={selectedItems}
-                        onSelect={commonProps.onSelect}
+                        onSelect={onSelectItems}
                         excludedPeriodTypes={getExcludedPeriodTypes(
                             systemSettings
                         )}
@@ -130,11 +105,9 @@ const FilterDialog = ({
             case DIMENSION_ID_ORGUNIT:
                 return (
                     <OrgUnitDimension
-                        displayNameProperty={
-                            userSettings.keyAnalysisDisplayProperty
-                        }
-                        ouItems={selectedItems}
-                        {...commonProps}
+                        roots={rootOrgUnits.map(rootOrgUnit => rootOrgUnit.id)}
+                        selected={selectedItems}
+                        onSelect={onSelectItems}
                     />
                 )
             default:
@@ -142,7 +115,7 @@ const FilterDialog = ({
                     <DynamicDimension
                         selectedItems={selectedItems}
                         dimensionId={dimension.id}
-                        onSelect={commonProps.onSelect}
+                        onSelect={onSelectItems}
                         dimensionTitle={dimension.name}
                         displayNameProp={
                             userSettings.keyAnalysisDisplayProperty

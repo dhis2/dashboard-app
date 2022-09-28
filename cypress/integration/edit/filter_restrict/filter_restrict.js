@@ -8,9 +8,10 @@ import {
 import {
     dashboardTitleSel,
     clickViewActionButton,
-} from '../../../elements/viewDashboard'
+} from '../../../elements/viewDashboard.js'
+import { createDashboardTitle } from '../../../support/utils.js'
 
-const TEST_DASHBOARD_TITLE = `aaa-${new Date().toUTCString()}`
+const TEST_DASHBOARD_TITLE = createDashboardTitle('aaa')
 
 let dashboardId
 

@@ -4,10 +4,13 @@ import { confirmActionDialogSel } from '../../../elements/editDashboard'
 import {
     dashboardChipSel,
     dashboardTitleSel,
-} from '../../../elements/viewDashboard'
-import { EXTENDED_TIMEOUT } from '../../../support/utils'
+} from '../../../elements/viewDashboard.js'
+import {
+    EXTENDED_TIMEOUT,
+    createDashboardTitle,
+} from '../../../support/utils.js'
 
-const TEST_DASHBOARD_TITLE = 'a filter ' + new Date().toUTCString()
+const TEST_DASHBOARD_TITLE = createDashboardTitle('af')
 
 When('I add a MAP and a CHART and save', () => {
     //add the title
