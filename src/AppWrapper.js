@@ -1,3 +1,4 @@
+import { CachedDataQueryProvider } from '@dhis2/analytics'
 import { useDataEngine } from '@dhis2/app-runtime'
 import { D2Shim } from '@dhis2/app-runtime-adapter-d2'
 import React from 'react'
@@ -30,28 +31,48 @@ if (authorization) {
     d2Config.headers = { Authorization: authorization }
 }
 
+const query = {
+    rootOrgUnits: {
+        resource: 'organisationUnits',
+        params: {
+            fields: 'id,displayName,name',
+            userDataViewFallback: true,
+            paging: false,
+        },
+    },
+}
+
+const providerDataTransformation = ({ rootOrgUnits }) => ({
+    rootOrgUnits: rootOrgUnits.organisationUnits,
+})
+
 const AppWrapper = () => {
     const dataEngine = useDataEngine()
 
     return (
         <ReduxProvider store={configureStore(dataEngine)}>
-            <D2Shim d2Config={d2Config} i18nRoot="./i18n">
-                {({ d2 }) => {
-                    if (!d2) {
-                        // TODO: Handle errors in d2 initialization
-                        return null
-                    }
-                    return (
-                        <SystemSettingsProvider>
-                            <UserSettingsProvider>
-                                <WindowDimensionsProvider>
-                                    <App />
-                                </WindowDimensionsProvider>
-                            </UserSettingsProvider>
-                        </SystemSettingsProvider>
-                    )
-                }}
-            </D2Shim>
+            <CachedDataQueryProvider
+                query={query}
+                dataTransformation={providerDataTransformation}
+            >
+                <D2Shim d2Config={d2Config} i18nRoot="./i18n">
+                    {({ d2 }) => {
+                        if (!d2) {
+                            // TODO: Handle errors in d2 initialization
+                            return null
+                        }
+                        return (
+                            <SystemSettingsProvider>
+                                <UserSettingsProvider>
+                                    <WindowDimensionsProvider>
+                                        <App />
+                                    </WindowDimensionsProvider>
+                                </UserSettingsProvider>
+                            </SystemSettingsProvider>
+                        )
+                    }}
+                </D2Shim>
+            </CachedDataQueryProvider>
         </ReduxProvider>
     )
 }
