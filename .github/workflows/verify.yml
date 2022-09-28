@@ -143,15 +143,15 @@ jobs:
                   tag: ${{ github.event_name }}
               env:
                   CI: true
-                  CYPRESS_RECORD_KEY: ${{ secrets.CYPRESS_RECORD_KEY }}
                   COMMIT_INFO_MESSAGE: ${{ github.event.pull_request.title }}
                   SERVER_START_CMD: 'yarn cypress:start'
                   SERVER_URL: 'http://localhost:3000'
-                  cypress_dhis2_api_stub_mode: 'DISABLED'
                   REACT_APP_DHIS2_BASE_URL: ${{ secrets.CYPRESS_DHIS2_BASE_URL_37 }}
                   cypress_dhis2_base_url: ${{ secrets.CYPRESS_DHIS2_BASE_URL_37 }}
                   cypress_dhis2_username: ${{ secrets.CYPRESS_DHIS2_USERNAME }}
                   cypress_dhis2_password: ${{ secrets.CYPRESS_DHIS2_PASSWORD }}
+                  cypress_dhis2_api_stub_mode: 'DISABLED'
+                  CYPRESS_RECORD_KEY: ${{ secrets.CYPRESS_RECORD_KEY }}
                   GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
     publish:
