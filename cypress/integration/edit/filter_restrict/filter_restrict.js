@@ -9,8 +9,9 @@ import {
     dashboardTitleSel,
     clickViewActionButton,
 } from '../../../elements/viewDashboard.js'
+import { createDashboardTitle } from '../../../support/utils.js'
 
-const TEST_DASHBOARD_TITLE = `aaa-${new Date().toUTCString()}`
+const TEST_DASHBOARD_TITLE = createDashboardTitle('aaa')
 
 let dashboardId
 
@@ -74,17 +75,17 @@ Then('Filter Restrictions are not restricted', () => {
 })
 
 /*
-Scenario: I see Period and Organisation Unit if newly choosing to restrict dimensions
+Scenario: I see Period and Organisation unit if newly choosing to restrict dimensions
 */
 
 Then(
-    'Period and Organisation Unit are displayed as selected by default',
+    'Period and Organisation unit are displayed as selected by default',
     () => {
         cy.get('[data-test="dhis2-uicore-transfer-rightside"]')
             .contains('Period')
             .should('be.visible')
         cy.get('[data-test="dhis2-uicore-transfer-rightside"]')
-            .contains('Organisation Unit')
+            .contains('Organisation unit')
             .should('be.visible')
     }
 )
