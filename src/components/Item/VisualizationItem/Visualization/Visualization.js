@@ -63,8 +63,7 @@ const Visualization = ({
     const filterVersion = getFilterVersion(itemFilters)
 
     switch (activeType) {
-        case VISUALIZATION:
-        case CHART:
+        /*case CHART: {
         case REPORT_TABLE: {
             return (
                 <DataVisualizerPlugin
@@ -78,7 +77,10 @@ const Visualization = ({
                     dashboardMode={dashboardMode}
                 />
             )
-        }
+        }*/
+        case CHART:
+        case REPORT_TABLE:
+        case VISUALIZATION:
         case EVENT_VISUALIZATION: {
             // XXX 1. check for plugin overrides
             // 2. check for installed apps (use appKey and get the plugin launch URL)
