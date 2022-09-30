@@ -29,6 +29,8 @@ const IframePlugin = ({
             { window: iframeRef.current.contentWindow },
             () => ({
                 isVisualizationLoaded: true,
+                forDashboard: true,
+                userSettings,
                 nameProp: userSettings.displayProperty,
                 visualization,
                 onError,
@@ -36,7 +38,7 @@ const IframePlugin = ({
         )
 
         return () => listener.cancel()
-    }, [visualization, userSettings.displayProperty])
+    }, [visualization, userSettings])
 
     useEffect(() => {
         setError(false)
@@ -77,7 +79,12 @@ const IframePlugin = ({
             <iframe
                 ref={iframeRef}
                 src={getIframeSrc()}
-                style={{ width: '100%', height: '100%', border: 'none' }}
+                // preserve dimensions if provided
+                style={{
+                    width: style.width || '100%',
+                    height: style.height || '100%',
+                    border: 'none',
+                }}
             ></iframe>
         </div>
     )
