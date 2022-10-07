@@ -1,3 +1,10 @@
+# [99.10.0](https://github.com/dhis2/dashboard-app/compare/v99.9.15...v99.10.0) (2022-10-07)
+
+
+### Features
+
+* move PWA update notification to headerbar, display app debug info ([#2126](https://github.com/dhis2/dashboard-app/issues/2126)) ([df235ae](https://github.com/dhis2/dashboard-app/commit/df235ae0658dbe10860adbee5dfb58f5070c239a))
+
 ## [99.9.15](https://github.com/dhis2/dashboard-app/compare/v99.9.14...v99.9.15) (2022-09-28)
 
 
