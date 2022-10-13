@@ -26,10 +26,12 @@ Then('the Period filter is applied to the dashboard', () => {
 
     // check the CHART
     cy.get(`${gridItemSel}.VISUALIZATION`)
-        .find(chartSubtitleSel, EXTENDED_TIMEOUT)
-        .scrollIntoView()
-        .contains(PERIOD, EXTENDED_TIMEOUT)
-        .should('be.visible')
+        .find(`${chartSubtitleSel} > title`, EXTENDED_TIMEOUT)
+        .invoke('text')
+        .then((text) => {
+            const commas = (text.match(/,/g) || []).length
+            expect(commas).to.equal(5) // a list of 6 months has 5 commas
+        })
 
     cy.get(innerScrollContainerSel).scrollTo('top')
     // check the MAP
@@ -40,12 +42,12 @@ Then('the Period filter is applied to the dashboard', () => {
 })
 
 /*
-Scenario: I add an Organisation Unit filter
+Scenario: I add an Organisation unit filter
 */
 
-Then('the Organisation Unit filter is applied to the dashboard', () => {
+Then('the Organisation unit filter is applied to the dashboard', () => {
     cy.get(filterBadgeSel)
-        .contains(`Organisation Unit: ${OU}`)
+        .contains(`Organisation unit: ${OU}`)
         .should('be.visible')
 
     cy.get(innerScrollContainerSel).scrollTo('bottom')
