@@ -30,12 +30,29 @@ const IframePlugin = ({
     const [error, setError] = useState(false)
 
     // When this mounts, check if the dashboard is recording
-    const { recordingState } = useCacheableSection(dashboardId)
+    const { isCached, recordingState } = useCacheableSection(dashboardId)
     const [recordOnNextLoad, setRecordOnNextLoad] = useState(
         recordingState === 'recording'
     )
 
     const onError = () => setError(true)
+
+    useEffect(() => {
+        // Tell plugin to remove cached data if this dashboard has been removed
+        // from offline storage
+        if (!isCached) {
+            postRobot
+                .send(iframeRef.current.contentWindow, 'removeCachedData')
+                .catch((err) => {
+                    // catch error if iframe hasn't loaded yet
+                    const msg = 'No handler found for post message:'
+                    if (err.message.startsWith(msg)) {
+                        return
+                    }
+                    console.error(err)
+                })
+        }
+    }, [isCached])
 
     useEffect(() => {
         const listener = postRobot.on(
@@ -54,8 +71,9 @@ const IframePlugin = ({
                     // For caching: ---
                     // Add user & dashboard IDs to cache ID to avoid removing a cached
                     // plugin that might be used in another dashboard also
-                    // TODO: May also want user ID too in multi-user situations
+                    // TODO: May also want user ID too for multi-user situations
                     cacheId: `${dashboardId}-${item.id}`,
+                    isParentCached: isCached,
                     recordOnNextLoad: recordOnNextLoad,
                 }
 
@@ -70,7 +88,14 @@ const IframePlugin = ({
         )
 
         return () => listener.cancel()
-    }, [visualization, userSettings, dashboardId, item.id, recordOnNextLoad])
+    }, [
+        visualization,
+        userSettings,
+        dashboardId,
+        item.id,
+        isCached,
+        recordOnNextLoad,
+    ])
 
     useEffect(() => {
         setError(false)
