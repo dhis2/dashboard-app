@@ -2,14 +2,14 @@
 # Translators:
 # Viktor Varland <viktor@dhis2.org>, 2020
 # phil_dhis2, 2021
-# Hamza Assada <7amza.it@gmail.com>, 2021
+# Hamza Assada <7amza.it@gmail.com>, 2022
 # 
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
 "POT-Creation-Date: 2021-12-21T08:20:25.327Z\n"
 "PO-Revision-Date: 2019-06-25 12:37+0000\n"
-"Last-Translator: Hamza Assada <7amza.it@gmail.com>, 2021\n"
+"Last-Translator: Hamza Assada <7amza.it@gmail.com>, 2022\n"
 "Language-Team: Arabic (https://www.transifex.com/hisp-uio/teams/100509/ar/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -21,22 +21,22 @@ msgid "Untitled dashboard"
 msgstr "لوحة معلومات غير معنونة"
 
 msgid "Cannot create a dashboard while offline"
-msgstr ""
+msgstr "لا يمكن إنشاء لوحة معلومات في وضع عدم الاتصال"
 
 msgid "Create new dashboard"
-msgstr ""
+msgstr "إنشاء لوحة معلومات جديدة"
 
 msgid "Search for a dashboard"
 msgstr "البحث عن لوحة معلومات"
 
 msgid "Show fewer dashboards"
-msgstr ""
+msgstr "إظهار عدد أقل من لوحات المعلومات"
 
 msgid "Show more dashboards"
-msgstr ""
+msgstr "عرض المزيد من لوحات المعلومات"
 
 msgid "Remove this item"
-msgstr ""
+msgstr "أزل هذا العنصر"
 
 msgid "This item has been shortened to fit on one page"
 msgstr "تم اختصار هذا العنصر ليناسب صفحة واحدة"
@@ -51,10 +51,10 @@ msgid "See all messages"
 msgstr "رؤية كافة الرسائل"
 
 msgid "Item type \"{{type}}\" is not supported"
-msgstr ""
+msgstr "نوع العنصر \"{{type}}\" غير مدعوم"
 
 msgid "The item type is missing"
-msgstr ""
+msgstr "نوع العنصر مفقود"
 
 msgid "Filters applied"
 msgstr "تم تطبيق عوامل التصفية"
@@ -76,25 +76,25 @@ msgid "There was a problem loading this dashboard item"
 msgstr "حدثت مشكلة أثناء تحميل عنصر لوحة المعلومات هذا"
 
 msgid "Hide details and interpretations"
-msgstr ""
+msgstr "إخفاء التفاصيل والتفسيرات"
 
 msgid "Show details and interpretations"
-msgstr ""
+msgstr "إظهار التفاصيل والتفسيرات"
 
 msgid "Open in {{appName}} app"
 msgstr "إفتح في تطبيق {{appName}}"
 
 msgid "View fullscreen"
-msgstr ""
+msgstr "المشاهدة بحجم الشاشة"
 
 msgid "This map can't be displayed as a chart"
-msgstr ""
+msgstr "لا يمكن عرض هذه الخريطة كمخطط"
 
 msgid "View as Chart"
 msgstr "عرض كمخطط بياني"
 
 msgid "This map can't be displayed as a table"
-msgstr ""
+msgstr "لا يمكن عرض هذه الخريطة كجدول"
 
 msgid "View as Table"
 msgstr "عرض كجدول"
@@ -103,10 +103,10 @@ msgid "View as Map"
 msgstr "عرض كخريطة"
 
 msgid "There was a problem loading interpretations for this item"
-msgstr ""
+msgstr "حدثت مشكلة أثناء تحميل التفسيرات لهذا العنصر"
 
 msgid "Maps with Earth Engine layers cannot be displayed when offline"
-msgstr ""
+msgstr "لا يمكن عرض خرائط مع طبقات Earth Engine في حالة عدم الاتصال بالإنترنت"
 
 msgid "Unable to load the plugin for this item"
 msgstr "تعذر تحميل المكوّن الإضافي لهذا العنصر"
@@ -115,10 +115,10 @@ msgid "No data to display"
 msgstr "لا توجد بيانات للعرض"
 
 msgid "There was an error loading data for this item"
-msgstr ""
+msgstr "حدث خطأ أثناء تحميل البيانات لهذا العنصر"
 
 msgid "Open this item in {{appName}}"
-msgstr ""
+msgstr "افتح هذا العنصر في {{appName}}"
 
 msgid "Not available offline"
 msgstr "غير متوفر في وضع عدم الإتصال"
@@ -157,19 +157,23 @@ msgid ""
 "Failed to save dashboard. You might be offline or not have access to edit "
 "this dashboard."
 msgstr ""
+"فشل حفظ لوحة المعلومات. قد تكون غير متصل بالإنترنت أو ليس لديك حق الوصول "
+"لتعديل لوحة المعلومات هذه."
 
 msgid ""
 "Failed to save dashboard. This code is already being used on another "
 "dashboard."
-msgstr ""
+msgstr "فشل حفظ لوحة المعلومات. هذا الكود مستخدم على لوحة معلومات أخرى."
 
 msgid ""
 "Failed to delete dashboard. You might be offline or not have access to edit "
 "this dashboard."
 msgstr ""
+"فشل حذف لوحة المعلومات. قد تكون غير متصل بالإنترنت أو ليس لديك حق الوصول "
+"لتعديل لوحة المعلومات هذه."
 
 msgid "Cannot save this dashboard while offline"
-msgstr ""
+msgstr "لا يمكن حفظ لوحة المعلومات هذه بلا إنترنت"
 
 msgid "Save changes"
 msgstr "احفظ التغييرات"
@@ -181,13 +185,13 @@ msgid "Print preview"
 msgstr "معاينة قبل الطباعة"
 
 msgid "Filter settings"
-msgstr ""
+msgstr "إعدادت عامل التصفية"
 
 msgid "Translate"
 msgstr "ترجمة"
 
 msgid "Cannot delete this dashboard while offline"
-msgstr ""
+msgstr "لا يمكن حذف لوحة المعلومات هذه بلا إنترنت"
 
 msgid "Delete"
 msgstr "حذف"
@@ -220,32 +224,36 @@ msgid ""
 "This dashboard has unsaved changes. Are you sure you want to leave and "
 "discard these unsaved changes?"
 msgstr ""
+"تحتوي لوحة المعلومات هذه على تغييرات غير محفوظة. هل أنت متأكد أنك تريد ترك "
+"هذه التغييرات غير المحفوظة وتجاهلها؟"
 
 msgid "No, stay here"
 msgstr "لا ، ابق هنا"
 
 msgid "Yes, discard changes"
-msgstr ""
+msgstr "نعم ، تجاهل التغييرات"
 
 msgid "No access"
 msgstr "الوصول غير ممكن"
 
 msgid "Not supported"
-msgstr ""
+msgstr "غير مدعوم"
 
 msgid ""
 "Editing dashboards on small screens is not supported. Resize your screen to "
 "return to edit mode."
 msgstr ""
+"تعديل لوحات المعلومات على الشاشات الصغيرة غير مدعوم. قم بتغيير حجم شاشتك "
+"للعودة إلى وضع التحرير."
 
 msgid "Allow filtering by all dimensions"
-msgstr ""
+msgstr "السماح بالتصفية حسب جميع الأبعاد"
 
 msgid "Only allow filtering by selected dimensions"
-msgstr ""
+msgstr "السماح فقط بالتصفية حسب الأبعاد المحددة"
 
 msgid "Dashboard filter settings"
-msgstr ""
+msgstr "إعدادات عامل تصفية لوحة المعلومات"
 
 msgid ""
 "Dashboards can be filtered by dimensions to change\n"
@@ -253,12 +261,16 @@ msgid ""
 "                                         as filters. Alternatively, only selected dimensions can\n"
 "                                         be made available on a dashboard."
 msgstr ""
+"يمكن تصفية لوحات المعلومات حسب الأبعاد لتغيير\n"
+"                                         البيانات المعروضة. بشكل افتراضي ، جميع الأبعاد متاحة\n"
+"                                         كعوامل تصفية. بدلاً من ذلك ، يمكن فقط للأبعاد المحددة\n"
+"                                         أن تكون متاحة على لوحة المعلومات."
 
 msgid "Available Filters"
-msgstr ""
+msgstr "عوامل التصفية المتاحة"
 
 msgid "Selected Filters"
-msgstr ""
+msgstr "عوامل التصفية المختارة"
 
 msgid "Confirm"
 msgstr "تأكيد"
@@ -279,10 +291,10 @@ msgid "Search for items to add to this dashboard"
 msgstr "ابحث عن عناصر لإضافتها إلى لوحة المعلومات هذه"
 
 msgid "Search for visualizations, reports and more"
-msgstr ""
+msgstr "ابحث عن المخططات والتقارير والمزيد"
 
 msgid "Cannot search for dashboard items while offline"
-msgstr ""
+msgstr "لا يمكن البحث عن عناصر لوحة معلومات بلا اتصال بالإنترنت"
 
 msgid "Additional items"
 msgstr "عناصر إضافية"
@@ -297,41 +309,45 @@ msgid "Freeflow"
 msgstr ""
 
 msgid "Dashboard items can be placed anywhere, at any size."
-msgstr ""
+msgstr "يمكن وضع عناصر لوحة المعلومات في أي مكان وبأي حجم."
 
 msgid "Fixed columns"
-msgstr ""
+msgstr "أعمدة ثابتة"
 
 msgid ""
 "Dashboard items are automatically placed within fixed, horizontal columns. "
 "The number of columns can be adjusted."
 msgstr ""
+"يتم وضع عناصر لوحة المعلومات تلقائيًا داخل أعمدة أفقية ثابتة. يمكن تعديل عدد"
+" الأعمدة."
 
 msgid "Number of columns"
-msgstr ""
+msgstr "عدد الأعمدة"
 
 msgid "Gap size between columns (px)"
-msgstr ""
+msgstr "حجم الفجوة بين الأعمدة (بكسل)"
 
 msgid ""
 "Default height only applies to items added to a dashboard, this setting will"
 " not change existing items"
 msgstr ""
+"ينطبق الارتفاع الافتراضي فقط على العناصر المضافة إلى لوحة المعلومات، ولن "
+"يغير هذا الإعداد العناصر الموجودة"
 
 msgid "Default height for items added to dashboard (rows)"
-msgstr ""
+msgstr "الارتفاع الافتراضي للعناصر المضافة إلى لوحة المعلومات (الصفوف)"
 
 msgid "Save layout"
-msgstr ""
+msgstr "حفظ التخطيط"
 
 msgid "Dashboard title"
 msgstr "عنوان لوحة المعلومات"
 
 msgid "Dashboard code"
-msgstr ""
+msgstr "كود لوحة المعلومات"
 
 msgid "Code can't be longer than 50 characters"
-msgstr ""
+msgstr "لا يمكن أن يزيد الكود عن 50 حرفًا"
 
 msgid "Dashboard description"
 msgstr "وصف لوحة المعلومات"
@@ -341,24 +357,24 @@ msgstr "التخطيط"
 
 msgid "{{count}} columns"
 msgid_plural "{{count}} columns"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
-msgstr[3] ""
-msgstr[4] ""
-msgstr[5] ""
+msgstr[0] "{{عدد}} عمود"
+msgstr[1] "عمود {{عدد}}"
+msgstr[2] "{{عدد}} عمود"
+msgstr[3] "{{عدد}} عمود"
+msgstr[4] "{{عدد}} عمود"
+msgstr[5] "{{count}} عمود"
 
 msgid "Change layout"
-msgstr ""
+msgstr "غير الواجهة او التصميم"
 
 msgid "Add new items to"
-msgstr ""
+msgstr "أضف عناصر جديدة إلى"
 
 msgid "End of dashboard"
-msgstr ""
+msgstr "نهاية لوحة المعلومات"
 
 msgid "Start of dashboard"
-msgstr ""
+msgstr "بداية لوحة المعلومات"
 
 msgid "Print"
 msgstr "طباعة"
@@ -385,23 +401,27 @@ msgid ""
 "Use A4 landscape paper size, default margin settings and turn on background "
 "graphics in the browser print dialog"
 msgstr ""
+"استخدم حجم ورق أفقي A4 وإعدادات الهامش الافتراضية وقم بتشغيل رسومات الخلفية "
+"في مربع حوار طباعة المتصفح"
 
 msgid "Getting started"
 msgstr "الشروع في العمل"
 
 msgid "Search for and open saved dashboards from the top bar."
-msgstr ""
+msgstr "ابحث عن لوحات المعلومات المحفوظة وافتحها من الشريط العلوي."
 
 msgid ""
 "Click a dashboard chip to open it. Get back to this screen from the \"More\""
 " menu."
 msgstr ""
+"انقر فوق شريحة لوحة المعلومات لفتحها. ارجع إلى هذه الشاشة من قائمة "
+"\"المزيد\"."
 
 msgid "Create a new dashboard with the + button."
-msgstr ""
+msgstr "قم بإنشاء لوحة معلومات جديدة باستخدام الزر +."
 
 msgid "Your most viewed dashboards"
-msgstr ""
+msgstr "لوحات المعلومات الأكثر مشاهدة"
 
 msgid "No dashboards found. Use the + button to create a new dashboard."
 msgstr ""
@@ -420,39 +440,41 @@ msgstr[4] "تم اختيار {{count}}"
 msgstr[5] "تم اختيار {{count}}"
 
 msgid "Cannot remove filters while offline"
-msgstr ""
+msgstr "لا يمكن إزالة عوامل التصفية أثناء عدم الاتصال"
 
 msgid "Removing filters while offline"
-msgstr ""
+msgstr "إزالة عوامل التصفية في وضع عدم الاتصال"
 
 msgid ""
 "Removing this filter while offline will remove all other filters. Do you "
 "want to remove all filters on this dashboard?"
 msgstr ""
+"ستؤدي إزالة عامل التصفية هذا أثناء عدم الاتصال بالإنترنت إلى إزالة جميع "
+"عوامل التصفية الأخرى. هل تريد إزالة جميع عوامل التصفية من لوحة القيادة هذه؟"
 
 msgid "No, cancel"
 msgstr "لا، الغاء"
 
 msgid "Yes, remove filters"
-msgstr ""
+msgstr "نعم ، قم بإزالة عوامل التصفية"
 
 msgid "The dashboard couldn't be made available offline. Try again."
-msgstr ""
+msgstr "لا يمكن إتاحة لوحة المعلومات في وضع عدم الاتصال. حاول مرة أخرى."
 
 msgid "Failed to unstar the dashboard"
-msgstr ""
+msgstr "فشل إلغاء تمييز لوحة المعلومات بنجمة"
 
 msgid "Failed to star the dashboard"
-msgstr ""
+msgstr "فشل تمييز لوحة المعلومات بنجمة"
 
 msgid "Remove from offline storage"
-msgstr ""
+msgstr "إزالة من التخزين في وضع عدم الاتصال"
 
 msgid "Make available offline"
-msgstr ""
+msgstr "اجعلها متاحة بلا إنترنت"
 
 msgid "Sync offline data now"
-msgstr ""
+msgstr "مزامنة البيانات في وضع عدم الاتصال الآن"
 
 msgid "Unstar dashboard"
 msgstr "إلغاء التمييز بنجمة عن لوحة المعلومات"
@@ -470,7 +492,7 @@ msgid "One item per page"
 msgstr "عنصر واحد في كل صفحة"
 
 msgid "Close dashboard"
-msgstr ""
+msgstr "إغلاق لوحة المعلومات"
 
 msgid "More"
 msgstr "مزيد"
@@ -482,15 +504,17 @@ msgid "Share"
 msgstr "مشاركة"
 
 msgid "Clear dashboard filters?"
-msgstr ""
+msgstr "مسح عوامل تصفية لوحة المعلومات؟"
 
 msgid ""
 "A dashboard's filters can’t be saved offline. Do you want to remove the "
 "filters and make this dashboard available offline?"
 msgstr ""
+"لا يمكن حفظ عوامل تصفية لوحة معلومات في وضع عدم الاتصال. هل تريد إزالة عوامل"
+" التصفية وجعل لوحة المعلومات هذه متاحة في وضع عدم الاتصال؟"
 
 msgid "Yes, clear filters and sync"
-msgstr ""
+msgstr "نعم ، امسح عوامل التصفية وقم بالمزامنة"
 
 msgid "No description"
 msgstr "لا يوجد وصف"
@@ -499,31 +523,31 @@ msgid "Add filter"
 msgstr "إضافة عامل تصفية"
 
 msgid "Offline data last updated {{time}}"
-msgstr ""
+msgstr "آخر تحديث للبيانات بلا اتصال بالإنترنت {{time}}"
 
 msgid "Cannot unstar this dashboard while offline"
-msgstr ""
+msgstr "لا يمكن إلغاء نجمة لوحة المعلومات هذه بلا اتصال بالإنترنت"
 
 msgid "Cannot star this dashboard while offline"
-msgstr ""
+msgstr "لا يمكن تمييز لوحة المعلومات بنجمة في وضع عدم الاتصال"
 
 msgid "Loading dashboard – {{name}}"
 msgstr "تحميل لوحة المعلومات – {{name}}"
 
 msgid "Loading dashboard"
-msgstr ""
+msgstr "تحميل لوحة المعلومات"
 
 msgid "Offline"
 msgstr "غير متصل"
 
 msgid "This dashboard cannot be loaded while offline."
-msgstr ""
+msgstr "لا يمكن تحميل لوحة المعلومات هذه بلا إنترنت."
 
 msgid "Go to start page"
-msgstr ""
+msgstr "اذهب إلى صفحة البداية"
 
 msgid "Load dashboard failed"
-msgstr ""
+msgstr "فشل تحميل لوحة المعلومات"
 
 msgid "This dashboard could not be loaded. Please try again later."
-msgstr ""
+msgstr "لا يمكن تحميل لوحة المعلومات هذه. الرجاء معاودة المحاولة في وقت لاحق."
