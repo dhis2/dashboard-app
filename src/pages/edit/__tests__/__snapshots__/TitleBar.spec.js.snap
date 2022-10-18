@@ -66,7 +66,7 @@ exports[`TitleBar renders correctly when no name or description 1`] = `
             Freeflow
           </span>
           <span
-            class="span"
+            class="jsx-3661110597 tooltip"
           >
             <div
               class="ui-Button"
@@ -177,7 +177,7 @@ exports[`TitleBar renders correctly with name and description 1`] = `
             Freeflow
           </span>
           <span
-            class="span"
+            class="jsx-3661110597 tooltip"
           >
             <div
               class="ui-Button"
