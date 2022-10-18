@@ -35,7 +35,7 @@ exports[`renders disabled menu items when offline 1`] = `
         class="jsx-2002348738 label"
       >
         <span
-          class="span notAllowed"
+          class="jsx-3661110597 tooltip notAllowed"
         >
           View as Chart
         </span>
@@ -68,7 +68,7 @@ exports[`renders disabled menu items when offline 1`] = `
         class="jsx-2002348738 label"
       >
         <span
-          class="span notAllowed"
+          class="jsx-3661110597 tooltip notAllowed"
         >
           View as Table
         </span>
@@ -106,7 +106,7 @@ exports[`renders menu for active type CHART and type MAP 1`] = `
         class="jsx-2002348738 label"
       >
         <span
-          class="span"
+          class="jsx-3661110597 tooltip"
         >
           View as Table
         </span>
@@ -139,7 +139,7 @@ exports[`renders menu for active type CHART and type MAP 1`] = `
         class="jsx-2002348738 label"
       >
         <span
-          class="span"
+          class="jsx-3661110597 tooltip"
         >
           View as Map
         </span>
@@ -177,7 +177,7 @@ exports[`renders menu for active type CHART and type REPORT_TABLE 1`] = `
         class="jsx-2002348738 label"
       >
         <span
-          class="span"
+          class="jsx-3661110597 tooltip"
         >
           View as Table
         </span>
@@ -210,7 +210,7 @@ exports[`renders menu for active type CHART and type REPORT_TABLE 1`] = `
         class="jsx-2002348738 label"
       >
         <span
-          class="span"
+          class="jsx-3661110597 tooltip"
         >
           View as Map
         </span>
@@ -248,7 +248,7 @@ exports[`renders menu for active type EVENT_CHART and type EVENT_REPORT 1`] = `
         class="jsx-2002348738 label"
       >
         <span
-          class="span"
+          class="jsx-3661110597 tooltip"
         >
           View as Table
         </span>
@@ -293,7 +293,7 @@ exports[`renders menu for active type EVENT_REPORT and type EVENT_CHART 1`] = `
         class="jsx-2002348738 label"
       >
         <span
-          class="span"
+          class="jsx-3661110597 tooltip"
         >
           View as Chart
         </span>
@@ -338,7 +338,7 @@ exports[`renders menu for active type MAP and type CHART 1`] = `
         class="jsx-2002348738 label"
       >
         <span
-          class="span"
+          class="jsx-3661110597 tooltip"
         >
           View as Chart
         </span>
@@ -371,7 +371,7 @@ exports[`renders menu for active type MAP and type CHART 1`] = `
         class="jsx-2002348738 label"
       >
         <span
-          class="span"
+          class="jsx-3661110597 tooltip"
         >
           View as Table
         </span>
@@ -416,7 +416,7 @@ exports[`renders menu for active type MAP and type MAP without Thematic layer 1`
         class="jsx-2002348738 label"
       >
         <span
-          class="span notAllowed"
+          class="jsx-3661110597 tooltip notAllowed"
         >
           View as Chart
         </span>
@@ -449,7 +449,7 @@ exports[`renders menu for active type MAP and type MAP without Thematic layer 1`
         class="jsx-2002348738 label"
       >
         <span
-          class="span notAllowed"
+          class="jsx-3661110597 tooltip notAllowed"
         >
           View as Table
         </span>
@@ -494,7 +494,7 @@ exports[`renders menu for active type MAP and type MAP without Thematic layer wh
         class="jsx-2002348738 label"
       >
         <span
-          class="span notAllowed"
+          class="jsx-3661110597 tooltip notAllowed"
         >
           View as Chart
         </span>
@@ -527,7 +527,7 @@ exports[`renders menu for active type MAP and type MAP without Thematic layer wh
         class="jsx-2002348738 label"
       >
         <span
-          class="span notAllowed"
+          class="jsx-3661110597 tooltip notAllowed"
         >
           View as Table
         </span>
@@ -572,7 +572,7 @@ exports[`renders menu for active type REPORT_TABLE and type CHART 1`] = `
         class="jsx-2002348738 label"
       >
         <span
-          class="span"
+          class="jsx-3661110597 tooltip"
         >
           View as Chart
         </span>
@@ -605,7 +605,7 @@ exports[`renders menu for active type REPORT_TABLE and type CHART 1`] = `
         class="jsx-2002348738 label"
       >
         <span
-          class="span"
+          class="jsx-3661110597 tooltip"
         >
           View as Map
         </span>

@@ -1,3 +1,4 @@
+import { OfflineTooltip } from '@dhis2/analytics'
 import { useOnlineStatus } from '@dhis2/app-runtime'
 import i18n from '@dhis2/d2-i18n'
 import { InputField, TextAreaField, Radio, Button } from '@dhis2/ui'
@@ -12,7 +13,6 @@ import {
     acSetItemConfigInsertPosition,
     acSetDashboardCode,
 } from '../../actions/editDashboard.js'
-import OfflineTooltip from '../../components/OfflineTooltip.js'
 import { orObject } from '../../modules/util.js'
 import {
     sGetEditDashboardRoot,
