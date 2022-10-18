@@ -1,3 +1,10 @@
+## [99.10.2](https://github.com/dhis2/dashboard-app/compare/v99.10.1...v99.10.2) (2022-10-18)
+
+
+### Bug Fixes
+
+* use new TranslationDialog component ([#2111](https://github.com/dhis2/dashboard-app/issues/2111)) ([ce58d7f](https://github.com/dhis2/dashboard-app/commit/ce58d7fd76e906ae2ab9b815af1fcb5af300f84d))
+
 ## [99.10.1](https://github.com/dhis2/dashboard-app/compare/v99.10.0...v99.10.1) (2022-10-17)
 
 
