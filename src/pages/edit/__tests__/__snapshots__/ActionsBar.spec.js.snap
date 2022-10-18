@@ -125,9 +125,6 @@ exports[`renders Translate, Delete, and Discard buttons when delete access 1`] =
   <div
     class="mock-filter-settings-dialog"
   />
-  <div
-    class="mock-translation-dialog"
-  />
 </div>
 `;
 
@@ -208,9 +205,6 @@ exports[`renders the ActionsBar without Delete when no delete access 1`] = `
   </div>
   <div
     class="mock-filter-settings-dialog"
-  />
-  <div
-    class="mock-translation-dialog"
   />
 </div>
 `;

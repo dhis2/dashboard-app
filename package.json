@@ -5,7 +5,7 @@
     "private": true,
     "license": "BSD-3-Clause",
     "dependencies": {
-        "@dhis2/analytics": "^24.1.1",
+        "@dhis2/analytics": "^24.2.5",
         "@dhis2/app-runtime": "^3.4.4",
         "@dhis2/app-runtime-adapter-d2": "^1.1.0",
         "@dhis2/d2-i18n": "^1.1.0",
@@ -13,7 +13,6 @@
         "@dhis2/d2-ui-interpretations": "^7.4.0",
         "@dhis2/d2-ui-mentions-wrapper": "^7.3.3",
         "@dhis2/d2-ui-rich-text": "^7.3.3",
-        "@dhis2/d2-ui-translation-dialog": "^7.3.3",
         "@dhis2/data-visualizer-plugin": "^39.2.10",
         "@dhis2/ui": "^8.5.1",
         "classnames": "^2.3.1",
