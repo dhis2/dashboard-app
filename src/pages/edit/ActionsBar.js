@@ -39,6 +39,8 @@ const deleteFailedMessage = i18n.t(
     'Failed to delete dashboard. You might be offline or not have access to edit this dashboard.'
 )
 
+const fieldsToTranslate = ['name', 'description']
+
 const EditBar = ({ dashboard, ...props }) => {
     const dataEngine = useDataEngine()
     const { online } = useOnlineStatus()
@@ -161,7 +163,7 @@ const EditBar = ({ dashboard, ...props }) => {
                 className="translation-dialog"
                 onClose={toggleTranslationDialog}
                 objectToTranslate={dashboard}
-                fieldsToTranslate={['name', 'description']}
+                fieldsToTranslate={fieldsToTranslate}
                 onTranslationSaved={Function.prototype}
             />
         ) : null
