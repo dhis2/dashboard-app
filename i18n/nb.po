@@ -2,13 +2,14 @@
 # Translators:
 # Karoline Tufte Lien <karoline@dhis2.org>, 2021
 # Caroline Hesthagen Holen <caroline@devotta.no>, 2021
+# Jan Henrik Øverland, 2022
 # 
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
 "POT-Creation-Date: 2022-01-10T14:24:29.926Z\n"
 "PO-Revision-Date: 2019-09-01 20:38+0000\n"
-"Last-Translator: Caroline Hesthagen Holen <caroline@devotta.no>, 2021\n"
+"Last-Translator: Jan Henrik Øverland, 2022\n"
 "Language-Team: Norwegian Bokmål (https://www.transifex.com/hisp-uio/teams/100509/nb/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -152,10 +153,10 @@ msgid "See all messages"
 msgstr "Se alle meldinger"
 
 msgid "Item type \"{{type}}\" is not supported"
-msgstr ""
+msgstr "Elementtypen \"{{type}}\" støttes ikke"
 
 msgid "The item type is missing"
-msgstr ""
+msgstr "Elementtype mangler"
 
 msgid "Filters applied"
 msgstr "Filtre brukt"
@@ -194,13 +195,13 @@ msgid "View as Chart"
 msgstr "Vis som diagram"
 
 msgid "This map can't be displayed as a chart"
-msgstr ""
+msgstr "Dette kartet kan ikke vises som diagram"
 
 msgid "View as Table"
 msgstr "Vis som tabell"
 
 msgid "This map can't be displayed as a table"
-msgstr ""
+msgstr "Dette kartet kan ikke vises som tabell"
 
 msgid "View as Map"
 msgstr "Vis som kart"
