@@ -96,7 +96,7 @@ msgid "This map can't be displayed as a table"
 msgstr ""
 
 msgid "View as Table"
-msgstr ""
+msgstr "查看表格"
 
 msgid "View as Map"
 msgstr ""
