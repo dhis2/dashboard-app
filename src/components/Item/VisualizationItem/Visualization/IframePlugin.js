@@ -1,7 +1,7 @@
 //import { useCachedDataQuery } from '@dhis2/analytics'
 import postRobot from '@krakenjs/post-robot'
 import PropTypes from 'prop-types'
-import React, { Suspense, useRef, useCallback, useState, useEffect } from 'react'
+import React, { useRef, useCallback, useState, useEffect } from 'react'
 //import { itemTypeMap } from '../../../../modules/itemTypes.js'
 import { getPluginOverrides } from '../../../../modules/localStorage.js'
 import { useUserSettings } from '../../../UserSettingsProvider.js'
@@ -50,7 +50,7 @@ const IframePlugin = ({
         if (pluginOverrides && pluginOverrides[item.type]) {
             return pluginOverrides[item.type]
         }
-/*
+        /*
         const appKey = itemTypeMap[item.type].appKey
 
         if (appKey) {
