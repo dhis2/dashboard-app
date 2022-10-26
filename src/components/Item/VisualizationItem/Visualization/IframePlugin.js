@@ -2,7 +2,6 @@ import { useD2 } from '@dhis2/app-runtime-adapter-d2'
 import postRobot from '@krakenjs/post-robot'
 import PropTypes from 'prop-types'
 import React, {
-    Suspense,
     useRef,
     useCallback,
     useState,
