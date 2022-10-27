@@ -212,7 +212,7 @@ msgid "Cancel"
 msgstr "ຍົກເລີກ"
 
 msgid "Discard changes"
-msgstr ""
+msgstr "ລຶບການປ່ຽນແປງ"
 
 msgid ""
 "This dashboard has unsaved changes. Are you sure you want to leave and "
