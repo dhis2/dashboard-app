@@ -1,5 +1,5 @@
 import { OfflineTooltip } from '@dhis2/analytics'
-import { useDataEngine, useAlert, useOnlineStatus } from '@dhis2/app-runtime'
+import { useDataEngine, useAlert } from '@dhis2/app-runtime'
 import i18n from '@dhis2/d2-i18n'
 import {
     Button,
@@ -20,6 +20,7 @@ import ConfirmActionDialog from '../../../components/ConfirmActionDialog.js'
 import DropdownButton from '../../../components/DropdownButton/DropdownButton.js'
 import MenuItem from '../../../components/MenuItemWithTooltip.js'
 import { useCacheableSection } from '../../../modules/useCacheableSection.js'
+import { useOnlineStatus } from '../../../modules/useFakeOnlineStatus.js'
 import { orObject } from '../../../modules/util.js'
 import { sGetDashboardStarred } from '../../../reducers/dashboards.js'
 import { sGetNamedItemFilters } from '../../../reducers/itemFilters.js'

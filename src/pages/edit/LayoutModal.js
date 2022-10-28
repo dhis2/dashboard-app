@@ -1,5 +1,4 @@
 import { OfflineTooltip } from '@dhis2/analytics'
-import { useOnlineStatus } from '@dhis2/app-runtime'
 import i18n from '@dhis2/d2-i18n'
 import {
     Modal,
@@ -15,6 +14,7 @@ import cx from 'classnames'
 import PropTypes from 'prop-types'
 import React, { useEffect, useState } from 'react'
 import { GRID_COLUMNS } from '../../modules/gridUtil.js'
+import { useOnlineStatus } from '../../modules/useFakeOnlineStatus.js'
 import { LayoutFixedIcon } from './assets/LayoutFixed.js'
 import { LayoutFreeflowIcon } from './assets/LayoutFreeflow.js'
 import classes from './styles/LayoutModal.module.css'

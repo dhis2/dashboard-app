@@ -4,6 +4,7 @@ import React from 'react'
 import { Provider } from 'react-redux'
 import configureMockStore from 'redux-mock-store'
 import useDimensions from '../../../../modules/useDimensions.js'
+// import { useOnlineStatus } from '../../../../modules/useFakeOnlineStatus.js'
 import FilterSelector from '../FilterSelector.js'
 
 const mockStore = configureMockStore()

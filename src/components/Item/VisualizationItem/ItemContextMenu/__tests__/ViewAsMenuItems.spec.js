@@ -8,6 +8,7 @@ import {
     EVENT_REPORT,
     EVENT_CHART,
 } from '../../../../../modules/itemTypes.js'
+// import { useOnlineStatus } from '../../../../../modules/useFakeOnlineStatus.js'
 import ViewAsMenuItems from '../ViewAsMenuItems.js'
 
 jest.mock('@dhis2/app-runtime', () => ({

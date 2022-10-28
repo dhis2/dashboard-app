@@ -1,4 +1,3 @@
-import { useOnlineStatus } from '@dhis2/app-runtime'
 import { Chip as UiChip, colors, IconStarFilled24 } from '@dhis2/ui'
 import cx from 'classnames'
 import debounce from 'lodash/debounce.js'
@@ -7,6 +6,7 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import { apiPostDataStatistics } from '../../api/dataStatistics.js'
 import { useCacheableSection } from '../../modules/useCacheableSection.js'
+import { useOnlineStatus } from '../../modules/useFakeOnlineStatus.js'
 import { OfflineSaved } from './assets/icons.js'
 import classes from './styles/Chip.module.css'
 

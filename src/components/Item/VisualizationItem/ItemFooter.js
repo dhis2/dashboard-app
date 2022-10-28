@@ -1,10 +1,10 @@
-import { useOnlineStatus } from '@dhis2/app-runtime'
 import { useD2 } from '@dhis2/app-runtime-adapter-d2'
 import i18n from '@dhis2/d2-i18n'
 import InterpretationsComponent from '@dhis2/d2-ui-interpretations'
 import PropTypes from 'prop-types'
 import React from 'react'
 import { getVisualizationId } from '../../../modules/item.js'
+import { useOnlineStatus } from '../../../modules/useFakeOnlineStatus.js'
 import FatalErrorBoundary from './FatalErrorBoundary.js'
 import classes from './styles/ItemFooter.module.css'
 

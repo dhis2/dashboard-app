@@ -1,5 +1,4 @@
 import { DimensionsPanel } from '@dhis2/analytics'
-import { useOnlineStatus } from '@dhis2/app-runtime'
 import i18n from '@dhis2/d2-i18n'
 import { Card, colors, IconFilter24 } from '@dhis2/ui'
 import isEmpty from 'lodash/isEmpty.js'
@@ -12,6 +11,7 @@ import {
 } from '../../../actions/activeModalDimension.js'
 import DropdownButton from '../../../components/DropdownButton/DropdownButton.js'
 import useDimensions from '../../../modules/useDimensions.js'
+import { useOnlineStatus } from '../../../modules/useFakeOnlineStatus.js'
 import { sGetActiveModalDimension } from '../../../reducers/activeModalDimension.js'
 import { sGetItemFiltersRoot } from '../../../reducers/itemFilters.js'
 import FilterDialog from './FilterDialog.js'
