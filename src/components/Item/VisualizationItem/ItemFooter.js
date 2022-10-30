@@ -4,7 +4,7 @@ import InterpretationsComponent from '@dhis2/d2-ui-interpretations'
 import PropTypes from 'prop-types'
 import React from 'react'
 import { getVisualizationId } from '../../../modules/item.js'
-import { useOnlineStatus } from '../../../modules/useFakeOnlineStatus.js'
+import { useOnlineStatus } from '../../../online-status-fakes/useFakeOnlineStatus.js'
 import FatalErrorBoundary from './FatalErrorBoundary.js'
 import classes from './styles/ItemFooter.module.css'
 

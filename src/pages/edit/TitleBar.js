@@ -11,9 +11,9 @@ import {
     acSetItemConfigInsertPosition,
     acSetDashboardCode,
 } from '../../actions/editDashboard.js'
-import { OfflineTooltip } from '../../components/FakeOfflineTooltip.js'
-import { useOnlineStatus } from '../../modules/useFakeOnlineStatus.js'
 import { orObject } from '../../modules/util.js'
+import { OfflineTooltip } from '../../online-status-fakes/FakeOfflineTooltip.js'
+import { useOnlineStatus } from '../../online-status-fakes/useFakeOnlineStatus.js'
 import {
     sGetEditDashboardRoot,
     sGetItemConfigInsertPosition,

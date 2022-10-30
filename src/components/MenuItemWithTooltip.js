@@ -2,8 +2,8 @@ import i18n from '@dhis2/d2-i18n'
 import { MenuItem } from '@dhis2/ui'
 import PropTypes from 'prop-types'
 import React from 'react'
-import { useOnlineStatus } from '../modules/useFakeOnlineStatus.js'
-import { OfflineTooltip } from './FakeOfflineTooltip.js'
+import { OfflineTooltip } from '../online-status-fakes/FakeOfflineTooltip.js'
+import { useOnlineStatus } from '../online-status-fakes/useFakeOnlineStatus.js'
 
 const MenuItemWithTooltip = ({
     disabledWhenOffline,

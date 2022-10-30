@@ -6,7 +6,7 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import { apiPostDataStatistics } from '../../api/dataStatistics.js'
 import { useCacheableSection } from '../../modules/useCacheableSection.js'
-import { useOnlineStatus } from '../../modules/useFakeOnlineStatus.js'
+import { useOnlineStatus } from '../../online-status-fakes/useFakeOnlineStatus.js'
 import { OfflineSaved } from './assets/icons.js'
 import classes from './styles/Chip.module.css'
 

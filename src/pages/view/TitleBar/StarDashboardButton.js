@@ -2,7 +2,7 @@ import i18n from '@dhis2/d2-i18n'
 import { Tooltip, IconStar24, IconStarFilled24, colors } from '@dhis2/ui'
 import PropTypes from 'prop-types'
 import React from 'react'
-import { useOnlineStatus } from '../../../modules/useFakeOnlineStatus.js'
+import { useOnlineStatus } from '../../../online-status-fakes/useFakeOnlineStatus.js'
 import classes from './styles/StarDashboardButton.module.css'
 
 const StarDashboardButton = ({ starred, onClick }) => {

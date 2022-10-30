@@ -1,5 +1,4 @@
 import { OfflineTooltip as OriginalOfflineTooltip } from '@dhis2/analytics'
-import React from 'react'
 
 const FakeOfflineTooltip = ({ children }) => children
 

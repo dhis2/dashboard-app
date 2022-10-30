@@ -17,8 +17,8 @@ import {
 import { acClearPrintDashboard } from '../../actions/printDashboard.js'
 import { acClearSelected } from '../../actions/selected.js'
 import ConfirmActionDialog from '../../components/ConfirmActionDialog.js'
-import { OfflineTooltip } from '../../components/FakeOfflineTooltip.js'
-import { useOnlineStatus } from '../../modules/useFakeOnlineStatus.js'
+import { OfflineTooltip } from '../../online-status-fakes/FakeOfflineTooltip.js'
+import { useOnlineStatus } from '../../online-status-fakes/useFakeOnlineStatus.js'
 import {
     sGetEditDashboardRoot,
     sGetIsPrintPreviewView,

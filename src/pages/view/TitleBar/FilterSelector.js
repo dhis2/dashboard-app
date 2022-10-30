@@ -11,7 +11,7 @@ import {
 } from '../../../actions/activeModalDimension.js'
 import DropdownButton from '../../../components/DropdownButton/DropdownButton.js'
 import useDimensions from '../../../modules/useDimensions.js'
-import { useOnlineStatus } from '../../../modules/useFakeOnlineStatus.js'
+import { useOnlineStatus } from '../../../online-status-fakes/useFakeOnlineStatus.js'
 import { sGetActiveModalDimension } from '../../../reducers/activeModalDimension.js'
 import { sGetItemFiltersRoot } from '../../../reducers/itemFilters.js'
 import FilterDialog from './FilterDialog.js'

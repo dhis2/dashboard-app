@@ -3,7 +3,7 @@ import i18n from '@dhis2/d2-i18n'
 import PropTypes from 'prop-types'
 import React, { useEffect, useState } from 'react'
 import { apiGetDataStatistics } from '../../api/dataStatistics.js'
-import { useOnlineStatus } from '../../modules/useFakeOnlineStatus.js'
+import { useOnlineStatus } from '../../online-status-fakes/useFakeOnlineStatus.js'
 import DashboardLink from './DashboardLink.js'
 import styles from './styles/StartScreen.module.css'
 
