@@ -1,4 +1,3 @@
-import { OfflineTooltip } from '@dhis2/analytics'
 import i18n from '@dhis2/d2-i18n'
 import { InputField, TextAreaField, Radio, Button } from '@dhis2/ui'
 import PropTypes from 'prop-types'
@@ -12,6 +11,7 @@ import {
     acSetItemConfigInsertPosition,
     acSetDashboardCode,
 } from '../../actions/editDashboard.js'
+import { OfflineTooltip } from '../../components/FakeOfflineTooltip.js'
 import { useOnlineStatus } from '../../modules/useFakeOnlineStatus.js'
 import { orObject } from '../../modules/util.js'
 import {

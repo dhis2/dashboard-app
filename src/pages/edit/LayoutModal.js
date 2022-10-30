@@ -1,4 +1,3 @@
-import { OfflineTooltip } from '@dhis2/analytics'
 import i18n from '@dhis2/d2-i18n'
 import {
     Modal,
@@ -13,6 +12,7 @@ import {
 import cx from 'classnames'
 import PropTypes from 'prop-types'
 import React, { useEffect, useState } from 'react'
+import { OfflineTooltip } from '../../components/FakeOfflineTooltip.js'
 import { GRID_COLUMNS } from '../../modules/gridUtil.js'
 import { useOnlineStatus } from '../../modules/useFakeOnlineStatus.js'
 import { LayoutFixedIcon } from './assets/LayoutFixed.js'

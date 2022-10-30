@@ -1,4 +1,3 @@
-import { OfflineTooltip } from '@dhis2/analytics'
 import { useDataEngine, useAlert } from '@dhis2/app-runtime'
 import i18n from '@dhis2/d2-i18n'
 import {
@@ -18,6 +17,7 @@ import { acSetShowDescription } from '../../../actions/showDescription.js'
 import { apiPostShowDescription } from '../../../api/description.js'
 import ConfirmActionDialog from '../../../components/ConfirmActionDialog.js'
 import DropdownButton from '../../../components/DropdownButton/DropdownButton.js'
+import { OfflineTooltip } from '../../../components/FakeOfflineTooltip.js'
 import MenuItem from '../../../components/MenuItemWithTooltip.js'
 import { useCacheableSection } from '../../../modules/useCacheableSection.js'
 import { useOnlineStatus } from '../../../modules/useFakeOnlineStatus.js'
