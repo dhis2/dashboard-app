@@ -1,0 +1,47 @@
+diff --git a/node_modules/@dhis2/app-service-offline/build/cjs/lib/online-status.js b/node_modules/@dhis2/app-service-offline/build/cjs/lib/online-status.js
+index 200d4d0..c5114a4 100644
+--- a/node_modules/@dhis2/app-service-offline/build/cjs/lib/online-status.js
++++ b/node_modules/@dhis2/app-service-offline/build/cjs/lib/online-status.js
+@@ -30,6 +30,16 @@ const lastOnlineKey = 'dhis2.lastOnline'; // TODO: Add option to periodically pi
+  */
+ 
+ function useOnlineStatus(options = {}) {
++  /**
++   * This is intended for a hot-fix type release, where this just returns
++   * `online: true` so that offline local deployments get unblocked.
++   * See https://dhis2.atlassian.net/browse/DHIS2-12937
++   *
++   * In the future, this will be fixed by using a smarter connection
++   * status-detecting hook; see https://dhis2.atlassian.net/browse/LIBS-315
++   */
++  return { online: true, offline: false };
++
+   var _options$debounceDela;
+ 
+   // initialize state to `navigator.onLine` value
+diff --git a/node_modules/@dhis2/app-service-offline/build/es/lib/online-status.js b/node_modules/@dhis2/app-service-offline/build/es/lib/online-status.js
+index 21dd755..551503c 100644
+--- a/node_modules/@dhis2/app-service-offline/build/es/lib/online-status.js
++++ b/node_modules/@dhis2/app-service-offline/build/es/lib/online-status.js
+@@ -19,6 +19,16 @@ const lastOnlineKey = 'dhis2.lastOnline'; // TODO: Add option to periodically pi
+  */
+ 
+ export function useOnlineStatus(options = {}) {
++  /**
++   * This is intended for a hot-fix type release, where this just returns
++   * `online: true` so that offline local deployments get unblocked.
++   * See https://dhis2.atlassian.net/browse/DHIS2-12937
++   *
++   * In the future, this should be fixed by using a smarter connection
++   * status-detecting hook; see https://dhis2.atlassian.net/browse/LIBS-315
++   */
++  return { online: true, offline: false };
++  
+   var _options$debounceDela;
+ 
+   // initialize state to `navigator.onLine` value
+@@ -55,3 +65,4 @@ export function useOnlineStatus(options = {}) {
+     lastOnline: lastOnline ? new Date(lastOnline) : null
+   };
+ }
++
