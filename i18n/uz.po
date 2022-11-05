@@ -1,13 +1,13 @@
 # 
 # Translators:
-# Ibatov <ibatovk@who.int>, 2021
+# Ibatov <ibatovk@who.int>, 2022
 # 
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
 "POT-Creation-Date: 2021-12-21T08:20:25.327Z\n"
-"PO-Revision-Date: 2019-06-25 12:37+0000\n"
-"Last-Translator: Ibatov <ibatovk@who.int>, 2021\n"
+"PO-Revision-Date: 2022-10-15 22:30+0000\n"
+"Last-Translator: Ibatov <ibatovk@who.int>, 2022\n"
 "Language-Team: Uzbek (Cyrillic) (https://www.transifex.com/hisp-uio/teams/100509/uz@Cyrl/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -124,7 +124,7 @@ msgid "Not available offline"
 msgstr "Оффлайн режимда мавжуд эмас"
 
 msgid "Visualizations"
-msgstr "Визуализация"
+msgstr "Визуализациялар"
 
 msgid "Pivot tables"
 msgstr "Солиштирма жадваллар"
@@ -136,10 +136,10 @@ msgid "Maps"
 msgstr "Хариталар"
 
 msgid "Event reports"
-msgstr "Ҳодисалар ҳисоботи"
+msgstr "Ҳодиса/Тадбирлар ҳисоботи"
 
 msgid "Event charts"
-msgstr "Ҳодисалар диаграммаларда"
+msgstr "Ҳодиса/Тадбирлар диаграммаларда"
 
 msgid "Apps"
 msgstr "Илова"
@@ -271,7 +271,7 @@ msgid "Show fewer"
 msgstr "Камроқ кўрсатиш"
 
 msgid "Show more"
-msgstr "Кўпроқ кўрсатилсин"
+msgstr "Кўпроқ кўрсатиш"
 
 msgid "Insert"
 msgstr "Киритиш"
@@ -411,7 +411,7 @@ msgstr "Сўралган бошқарув панели топилмади"
 
 msgid "{{count}} selected"
 msgid_plural "{{count}} selected"
-msgstr[0] "{{жами}} танланган"
+msgstr[0] ""
 
 msgid "Cannot remove filters while offline"
 msgstr ""

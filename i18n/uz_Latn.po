@@ -1,13 +1,13 @@
 # 
 # Translators:
-# Yury Rogachev <yury@dhis2.org>, 2021
+# Yury Rogachev <yury@dhis2.org>, 2022
 # 
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
 "POT-Creation-Date: 2021-12-21T08:20:25.327Z\n"
-"PO-Revision-Date: 2019-06-25 12:37+0000\n"
-"Last-Translator: Yury Rogachev <yury@dhis2.org>, 2021\n"
+"PO-Revision-Date: 2022-10-15 22:30+0000\n"
+"Last-Translator: Yury Rogachev <yury@dhis2.org>, 2022\n"
 "Language-Team: Uzbek (Latin) (https://www.transifex.com/hisp-uio/teams/100509/uz@Latn/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -40,7 +40,7 @@ msgid "This item has been shortened to fit on one page"
 msgstr "Ushbu element bir sahifaga joylashtirish uchun moslashtirildi"
 
 msgid "Remove"
-msgstr "Olib tashlash"
+msgstr "Олиб ташлаш"
 
 msgid "Messages"
 msgstr "Xabarlar"
@@ -212,7 +212,7 @@ msgstr ""
 "oʼchirib tashlamoqchimisiz?"
 
 msgid "Cancel"
-msgstr "Bekor qilish"
+msgstr "Бекор қилиш"
 
 msgid "Discard changes"
 msgstr "Oʼzgartirishlar bekor qilinsin"
@@ -229,7 +229,7 @@ msgid "Yes, discard changes"
 msgstr ""
 
 msgid "No access"
-msgstr "Kirish huquqi mavjud emas"
+msgstr "Kirish taʼqiqlangan"
 
 msgid "Not supported"
 msgstr ""
@@ -271,7 +271,7 @@ msgid "Show fewer"
 msgstr "Kamroq koʼrsatish"
 
 msgid "Show more"
-msgstr "Koʼproq koʼrsatilsin"
+msgstr "Koʼproq koʼrsatish"
 
 msgid "Insert"
 msgstr "Kiritish"
@@ -473,7 +473,7 @@ msgid "Edit"
 msgstr "Tahrirlash"
 
 msgid "Share"
-msgstr "Ulashish"
+msgstr "Улашиш"
 
 msgid "Clear dashboard filters?"
 msgstr ""

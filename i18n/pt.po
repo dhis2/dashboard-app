@@ -1,19 +1,19 @@
 # 
 # Translators:
-# Viktor Varland <viktor@dhis2.org>, 2020
-# phil_dhis2, 2021
-# Sheila André <sandre@saudigitus.org>, 2021
-# Ge Joao <gsimango@saudigitus.org>, 2021
-# Fernando Jorge Bade, 2021
 # David Júnior <davidjr.mondlane@gmail.com>, 2022
+# phil_dhis2, 2022
 # Gabriela Rodriguez <grodriguezcoronado@gmail.com>, 2022
+# Ge Joao <gsimango@saudigitus.org>, 2022
+# Fernando Jorge Bade, 2022
+# Viktor Varland <viktor@dhis2.org>, 2022
+# Sheila André <sandre@saudigitus.org>, 2022
 # 
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
 "POT-Creation-Date: 2021-12-21T08:20:25.327Z\n"
-"PO-Revision-Date: 2019-06-25 12:37+0000\n"
-"Last-Translator: Gabriela Rodriguez <grodriguezcoronado@gmail.com>, 2022\n"
+"PO-Revision-Date: 2022-10-15 22:30+0000\n"
+"Last-Translator: Sheila André <sandre@saudigitus.org>, 2022\n"
 "Language-Team: Portuguese (https://www.transifex.com/hisp-uio/teams/100509/pt/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -25,13 +25,13 @@ msgid "Untitled dashboard"
 msgstr "Painel sem título"
 
 msgid "Cannot create a dashboard while offline"
-msgstr "Não é possível criar um painel enquanto estiver offline"
+msgstr "Não é possível criar um painel enquanto está offline"
 
 msgid "Create new dashboard"
 msgstr "Criar novo painel"
 
 msgid "Search for a dashboard"
-msgstr "Pesquisar um painel"
+msgstr "Pesquisar por um painel"
 
 msgid "Show fewer dashboards"
 msgstr "Mostrar menos painéis"
@@ -40,7 +40,7 @@ msgid "Show more dashboards"
 msgstr "Mostrar mais painéis"
 
 msgid "Remove this item"
-msgstr "Remover este item"
+msgstr ""
 
 msgid "This item has been shortened to fit on one page"
 msgstr "Este item foi reduzido para caber em uma página"
@@ -55,10 +55,10 @@ msgid "See all messages"
 msgstr "Ver todas as mensagens"
 
 msgid "Item type \"{{type}}\" is not supported"
-msgstr "O tipo de item \"{{type}}\" não é suportado"
+msgstr ""
 
 msgid "The item type is missing"
-msgstr "O tipo de item está ausente"
+msgstr ""
 
 msgid "Filters applied"
 msgstr "Filtros aplicados"
@@ -69,11 +69,11 @@ msgstr "Espaçador"
 msgid ""
 "Use a spacer to create empty vertical space between other dashboard items."
 msgstr ""
-"Use um espaçador para criar um espaço vertical vazio entre outros itens do "
+"Use um espaçador para criar espaço vertical vazio entre outros itens do "
 "painel."
 
 msgid "Text item"
-msgstr "Item de texto"
+msgstr "Item do texto"
 
 msgid "Add text here"
 msgstr "Adicione texto aqui"
@@ -82,58 +82,58 @@ msgid "There was a problem loading this dashboard item"
 msgstr "Ocorreu um problema ao carregar este item do painel"
 
 msgid "Hide details and interpretations"
-msgstr "Ocultar detalhes e interpretações"
+msgstr ""
 
 msgid "Show details and interpretations"
-msgstr "Mostrar detalhes e interpretações"
+msgstr ""
 
 msgid "Open in {{appName}} app"
 msgstr "Abrir no aplicativo {{appName}}"
 
 msgid "View fullscreen"
-msgstr "Ver em tela cheia"
+msgstr "Ver tela inteira"
 
 msgid "This map can't be displayed as a chart"
-msgstr "Este mapa não pode ser exibido como um gráfico"
+msgstr ""
 
 msgid "View as Chart"
 msgstr "Ver como gráfico"
 
 msgid "This map can't be displayed as a table"
-msgstr "Este mapa não pode ser exibido como uma tabela"
+msgstr ""
 
 msgid "View as Table"
-msgstr "Ver como Tabela"
+msgstr "Ver como tabela"
 
 msgid "View as Map"
 msgstr "Ver como mapa"
 
 msgid "There was a problem loading interpretations for this item"
-msgstr "Ocorreu um problema ao carregar as interpretações para este item"
+msgstr ""
 
 msgid "Maps with Earth Engine layers cannot be displayed when offline"
-msgstr "Mapas com camadas do Earth Engine não podem ser exibidos off-line"
+msgstr ""
 
 msgid "Unable to load the plugin for this item"
 msgstr "Não foi possível carregar o plug-in para este item"
 
 msgid "No data to display"
-msgstr "Nenhum dado para exibir"
+msgstr "Não há dados para exibir"
 
 msgid "There was an error loading data for this item"
-msgstr "Ocorreu um erro ao carregar os dados deste item"
+msgstr "Houve um erro de carregamento de dados para este item"
 
 msgid "Open this item in {{appName}}"
 msgstr "Abra este item em {{appName}}"
 
 msgid "Not available offline"
-msgstr "Não disponível off-line"
+msgstr "Não disponível offline"
 
 msgid "Visualizations"
 msgstr "Visualizações"
 
 msgid "Pivot tables"
-msgstr "Tabelas dinâmicas"
+msgstr "Tabelas Pivô"
 
 msgid "Charts"
 msgstr "Gráficos"
@@ -180,37 +180,37 @@ msgstr ""
 "acesso a editar este painel."
 
 msgid "Cannot save this dashboard while offline"
-msgstr "Não é possível salvar este painel enquanto estiver off-line"
+msgstr ""
 
 msgid "Save changes"
 msgstr "Salvar alterações"
 
 msgid "Exit print preview"
-msgstr "Sair da visualização de impressão"
+msgstr "Sair da visualização da impressão"
 
 msgid "Print preview"
 msgstr "Visualização de impressão"
 
 msgid "Filter settings"
-msgstr "Configurações de filtro"
+msgstr "Definições de filtro"
 
 msgid "Translate"
 msgstr "Traduzir"
 
 msgid "Cannot delete this dashboard while offline"
-msgstr "Não é possível excluir este painel enquanto estiver off-line"
+msgstr ""
 
 msgid "Delete"
-msgstr "Apagar"
+msgstr "Suprimir"
 
 msgid "Exit without saving"
-msgstr "Sair sem salvar"
+msgstr "Sair sem gravar"
 
 msgid "Go to dashboards"
-msgstr "Ir para painéis"
+msgstr "Ir para o painel"
 
 msgid "Delete dashboard"
-msgstr "Excluir painel"
+msgstr "Apagar painel"
 
 msgid ""
 "Deleting dashboard \"{{ dashboardName }}\" will remove it for all users. "
@@ -231,11 +231,11 @@ msgid ""
 "This dashboard has unsaved changes. Are you sure you want to leave and "
 "discard these unsaved changes?"
 msgstr ""
-"Este painel tem alterações não salvas. Tem certeza de que deseja sair e "
-"descartar essas alterações não salvas?"
+"Este painel tem alterações não salvas. Tem a certeza de que pretende sair e "
+"descartar estas alterações não salvas?"
 
 msgid "No, stay here"
-msgstr "Não, fique aqui"
+msgstr "Não, fique aqui."
 
 msgid "Yes, discard changes"
 msgstr "Sim, descartar alterações"
@@ -250,17 +250,15 @@ msgid ""
 "Editing dashboards on small screens is not supported. Resize your screen to "
 "return to edit mode."
 msgstr ""
-"A edição de painéis em telas pequenas não é suportada. Redimensione sua tela"
-" para retornar ao modo de edição."
 
 msgid "Allow filtering by all dimensions"
-msgstr "Permitir filtragem por todas as dimensões"
+msgstr ""
 
 msgid "Only allow filtering by selected dimensions"
-msgstr "Permitir filtragem apenas por dimensões selecionadas"
+msgstr ""
 
 msgid "Dashboard filter settings"
-msgstr "Configurações de filtro do painel"
+msgstr ""
 
 msgid ""
 "Dashboards can be filtered by dimensions to change\n"
@@ -268,16 +266,16 @@ msgid ""
 "                                         as filters. Alternatively, only selected dimensions can\n"
 "                                         be made available on a dashboard."
 msgstr ""
-"Os painéis podem ser filtrados por dimensões para alterar\n"
-"                                         os dados mostrados. Por padrão, todas as dimensões estão disponíveis\n"
-"                                         como filtros. Alternativamente, apenas as dimensões selecionadas podem\n"
-"                                         ser disponibilizado em um painel."
+"Os painéis  podem ser filtrados por dimensões para mudar\n"
+"os dados mostrados. Por padrão, todas as dimensões estão disponíveis\n"
+"como filtros. Em alternativa, apenas as dimensões selecionadas podem\n"
+"ser disponibilizado em um painéis"
 
 msgid "Available Filters"
-msgstr "Filtros disponíveis"
+msgstr ""
 
 msgid "Selected Filters"
-msgstr "Filtros selecionados"
+msgstr ""
 
 msgid "Confirm"
 msgstr "confirme"
@@ -295,13 +293,13 @@ msgid "Insert"
 msgstr "Inserir"
 
 msgid "Search for items to add to this dashboard"
-msgstr "Pesquise itens para adicionar a este painel"
+msgstr "Procurar itens para adicionar a este painel"
 
 msgid "Search for visualizations, reports and more"
-msgstr "Pesquise visualizações, relatórios e muito mais"
+msgstr ""
 
 msgid "Cannot search for dashboard items while offline"
-msgstr "Não é possível pesquisar itens do painel enquanto estiver offline"
+msgstr ""
 
 msgid "Additional items"
 msgstr "Itens adicionais"
@@ -310,83 +308,77 @@ msgid "Text box"
 msgstr "Caixa de texto"
 
 msgid "Dashboard layout"
-msgstr "Layout do painel"
+msgstr ""
 
 msgid "Freeflow"
-msgstr "Fluxo livre"
+msgstr ""
 
 msgid "Dashboard items can be placed anywhere, at any size."
 msgstr ""
-"Os itens do painel podem ser colocados em qualquer lugar, em qualquer "
-"tamanho."
 
 msgid "Fixed columns"
-msgstr "Colunas fixas"
+msgstr ""
 
 msgid ""
 "Dashboard items are automatically placed within fixed, horizontal columns. "
 "The number of columns can be adjusted."
 msgstr ""
-"Os itens do painel são colocados automaticamente em colunas horizontais "
-"fixas. O número de colunas pode ser ajustado."
 
 msgid "Number of columns"
-msgstr "Numero de colunas"
+msgstr ""
 
 msgid "Gap size between columns (px)"
-msgstr "Tamanho do intervalo entre as colunas (px)"
+msgstr ""
 
 msgid ""
 "Default height only applies to items added to a dashboard, this setting will"
 " not change existing items"
 msgstr ""
-"A altura padrão se aplica apenas a itens adicionados a um painel, essa "
-"configuração não altera os itens existentes"
 
 msgid "Default height for items added to dashboard (rows)"
-msgstr "Altura padrão para itens adicionados ao painel (linhas)"
+msgstr ""
 
 msgid "Save layout"
-msgstr "Salvar layout"
+msgstr ""
 
 msgid "Dashboard title"
 msgstr "Título do painel"
 
 msgid "Dashboard code"
-msgstr "Código do painel"
+msgstr ""
 
 msgid "Code can't be longer than 50 characters"
-msgstr "O código não pode ter mais de 50 caracteres"
+msgstr ""
 
 msgid "Dashboard description"
 msgstr "Descrição do painel"
 
 msgid "Layout"
-msgstr "Esquema"
+msgstr "Disposição"
 
 msgid "{{count}} columns"
 msgid_plural "{{count}} columns"
-msgstr[0] "{{count}} coluna"
-msgstr[1] "{{count}} colunas"
-msgstr[2] "{{count}} colunas"
+msgstr[0] ""
+msgstr[1] ""
+msgstr[2] ""
 
 msgid "Change layout"
-msgstr "Alterar layout"
+msgstr ""
 
 msgid "Add new items to"
-msgstr "Adicionar novos itens a"
+msgstr ""
 
 msgid "End of dashboard"
-msgstr "Fim do painel"
+msgstr ""
 
 msgid "Start of dashboard"
-msgstr "Início do painel"
+msgstr ""
 
 msgid "Print"
 msgstr "Imprimir"
 
 msgid "dashboard layout"
-msgstr "layout do painel"
+msgstr ""
 
 msgid "one item per page"
 msgstr "um item por página"
@@ -408,27 +400,23 @@ msgid ""
 "Use A4 landscape paper size, default margin settings and turn on background "
 "graphics in the browser print dialog"
 msgstr ""
-"Use o tamanho de papel A4 paisagem, configurações de margem padrão e ative "
-"os gráficos de fundo na caixa de diálogo de impressão do navegador"
 
 msgid "Getting started"
 msgstr "Começando"
 
 msgid "Search for and open saved dashboards from the top bar."
-msgstr "Pesquise e abra painéis salvos na barra superior."
+msgstr ""
 
 msgid ""
 "Click a dashboard chip to open it. Get back to this screen from the \"More\""
 " menu."
 msgstr ""
-"Clique em um chip do painel para abri-lo. Volte para esta tela a partir do "
-"menu \"Mais\"."
 
 msgid "Create a new dashboard with the + button."
-msgstr "Crie um novo painel com o botão +."
+msgstr ""
 
 msgid "Your most viewed dashboards"
-msgstr "Seus painéis mais vistos"
+msgstr ""
 
 msgid "No dashboards found. Use the + button to create a new dashboard."
 msgstr "Painel não encontrado. Use o botão + para criar um novo painel."
@@ -438,12 +426,12 @@ msgstr "Painel solicitado não encontrado"
 
 msgid "{{count}} selected"
 msgid_plural "{{count}} selected"
-msgstr[0] "{{count}} selecionado"
-msgstr[1] "{{count}} selecionado"
-msgstr[2] "{{count}} selecionado"
+msgstr[0] ""
+msgstr[1] ""
+msgstr[2] ""
 
 msgid "Cannot remove filters while offline"
-msgstr "Não é possível remover filtros enquanto estiver off-line"
+msgstr ""
 
 msgid "Removing filters while offline"
 msgstr "A remover filtros enquanto estiver offline"
@@ -452,38 +440,36 @@ msgid ""
 "Removing this filter while offline will remove all other filters. Do you "
 "want to remove all filters on this dashboard?"
 msgstr ""
-"A remoção deste filtro off-line removerá todos os outros filtros. Deseja "
-"remover todos os filtros deste painel?"
 
 msgid "No, cancel"
-msgstr "Não, cancelar"
+msgstr "Não cancele"
 
 msgid "Yes, remove filters"
-msgstr "Sim, remover filtros"
+msgstr ""
 
 msgid "The dashboard couldn't be made available offline. Try again."
-msgstr "O painel não pôde ser disponibilizado offline. Tente novamente."
+msgstr ""
 
 msgid "Failed to unstar the dashboard"
-msgstr "Falha ao remover a estrela do painel"
+msgstr ""
 
 msgid "Failed to star the dashboard"
-msgstr "Falha ao marcar com estrela o painel"
+msgstr ""
 
 msgid "Remove from offline storage"
-msgstr "Remover do armazenamento offline"
+msgstr ""
 
 msgid "Make available offline"
-msgstr "Disponibilizar off-line"
+msgstr ""
 
 msgid "Sync offline data now"
-msgstr "Sincronize dados offline agora"
+msgstr ""
 
 msgid "Unstar dashboard"
-msgstr "Remover estrela do painel"
+msgstr ""
 
 msgid "Star dashboard"
-msgstr "Painel estrela"
+msgstr ""
 
 msgid "Hide description"
 msgstr "Ocultar descrição"
@@ -495,7 +481,7 @@ msgid "One item per page"
 msgstr "Um item por página"
 
 msgid "Close dashboard"
-msgstr "Fechar painel"
+msgstr ""
 
 msgid "More"
 msgstr "Mais"
@@ -507,17 +493,15 @@ msgid "Share"
 msgstr "Partilha"
 
 msgid "Clear dashboard filters?"
-msgstr "Limpar filtros do painel?"
+msgstr ""
 
 msgid ""
 "A dashboard's filters can’t be saved offline. Do you want to remove the "
 "filters and make this dashboard available offline?"
 msgstr ""
-"Os filtros de um painel não podem ser salvos offline. Deseja remover os "
-"filtros e disponibilizar este painel offline?"
 
 msgid "Yes, clear filters and sync"
-msgstr "Sim, limpar filtros e sincronizar"
+msgstr ""
 
 msgid "No description"
 msgstr "Sem descrição"
@@ -526,18 +510,16 @@ msgid "Add filter"
 msgstr "Adicionar filtros"
 
 msgid "Offline data last updated {{time}}"
-msgstr "Dados offline atualizados pela última vez {{time}}"
+msgstr ""
 
 msgid "Cannot unstar this dashboard while offline"
 msgstr ""
-"Não é possível remover a estrela deste painel enquanto estiver off-line"
 
 msgid "Cannot star this dashboard while offline"
 msgstr ""
-"Não é possível marcar este painel com estrela enquanto estiver off-line"
 
 msgid "Loading dashboard – {{name}}"
-msgstr "Carregando painel– {{nome}}"
+msgstr "Carregando painel – {{nome}}"
 
 msgid "Loading dashboard"
 msgstr "A carregar painel"
@@ -546,14 +528,13 @@ msgid "Offline"
 msgstr "Desligado"
 
 msgid "This dashboard cannot be loaded while offline."
-msgstr "Este painel não pode ser carregado enquanto estiver offline."
+msgstr ""
 
 msgid "Go to start page"
-msgstr "Ir para a página inicial"
+msgstr ""
 
 msgid "Load dashboard failed"
-msgstr "Falha ao carregar o painel"
+msgstr ""
 
 msgid "This dashboard could not be loaded. Please try again later."
 msgstr ""
-"Este painel não pôde ser carregado. Por favor, tente novamente mais tarde."
