@@ -156,8 +156,8 @@ test('renders NoVisMessage when no visualization', () => {
     const store = {
         visualizations: {},
         selected: {
-            id: 'test-dashboard'
-        }
+            id: 'test-dashboard',
+        },
     }
     const { container } = render(
         <Provider store={mockStore(store)}>
