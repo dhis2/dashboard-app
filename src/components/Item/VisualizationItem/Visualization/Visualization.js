@@ -20,7 +20,6 @@ import {
 import { sGetSelected } from '../../../../reducers/selected.js'
 import { sGetVisualization } from '../../../../reducers/visualizations.js'
 import memoizeOne from '../memoizeOne.js'
-import DataVisualizerPlugin from './DataVisualizerPlugin.js'
 import getFilteredVisualization from './getFilteredVisualization.js'
 import getVisualizationConfig from './getVisualizationConfig.js'
 import IframePlugin from './IframePlugin.js'
@@ -65,29 +64,10 @@ const Visualization = ({
     const filterVersion = getFilterVersion(itemFilters)
 
     switch (activeType) {
-        /*case CHART: {
-        case REPORT_TABLE: {
-            return (
-                <DataVisualizerPlugin
-                    visualization={memoizedGetFilteredVisualization(
-                        visualizationConfig,
-                        itemFilters
-                    )}
-                    style={style}
-                    filterVersion={filterVersion}
-                    item={item}
-                    dashboardMode={dashboardMode}
-                />
-            )
-        }*/
         case CHART:
         case REPORT_TABLE:
         case VISUALIZATION:
         case EVENT_VISUALIZATION: {
-            // XXX 1. check for plugin overrides
-            // 2. check for installed apps (use appKey and get the plugin launch URL)
-            // 3. fallback, use
-            // XXX check for installed app first (use appKey and get the launch
             return (
                 <IframePlugin
                     visualization={memoizedGetFilteredVisualization(
