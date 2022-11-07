@@ -48,21 +48,21 @@ const ViewAsMenuItems = ({
                     icon={<IconVisualizationColumn16 />}
                 />
             )}
-            {![REPORT_TABLE, EVENT_REPORT, EVENT_VISUALIZATION].includes(activeType) && (
-                    <MenuItem
-                        tooltip={
-                            notSupported
-                                ? i18n.t(
-                                      "This map can't be displayed as a table"
-                                  )
-                                : null
-                        }
-                        label={i18n.t('View as Table')}
-                        onClick={onViewTable}
-                        disabled={notSupported}
-                        icon={<IconTable16 />}
-                    />
-                )}
+            {![REPORT_TABLE, EVENT_REPORT, EVENT_VISUALIZATION].includes(
+                activeType
+            ) && (
+                <MenuItem
+                    tooltip={
+                        notSupported
+                            ? i18n.t("This map can't be displayed as a table")
+                            : null
+                    }
+                    label={i18n.t('View as Table')}
+                    onClick={onViewTable}
+                    disabled={notSupported}
+                    icon={<IconTable16 />}
+                />
+            )}
             {hasMapView(type) && activeType !== MAP && (
                 <MenuItem
                     label={i18n.t('View as Map')}
