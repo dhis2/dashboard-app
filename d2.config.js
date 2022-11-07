@@ -8,10 +8,13 @@ const config = {
         enabled: true,
         caching: {
             patternsToOmit: [
-                'dashboards/[a-zA-Z0-9]*',
-                'visualizations',
-                'analytics',
-                'geoFeatures',
+                // Make these specific as possible --
+                // unspecific ones have caused errors on instances with
+                // 'analytics' in the name, for example
+                /\/api\/(\d+\/)?dashboards\/[a-zA-Z0-9]*/,
+                /\/api\/(\d+\/)?visualizations/,
+                /\/api\/(\d+\/)?analytics/,
+                /\/api\/(\d+\/)?geoFeatures/,
                 'cartodb-basemaps-a.global.ssl.fastly.net',
             ],
         },
