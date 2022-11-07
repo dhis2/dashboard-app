@@ -9,6 +9,7 @@ import React, {
 } from 'react'
 import { itemTypeMap } from '../../../../modules/itemTypes.js'
 import { getPluginOverrides } from '../../../../modules/localStorage.js'
+import { useCacheableSection } from '../../../../modules/useCacheableSection.js'
 import { useUserSettings } from '../../../UserSettingsProvider.js'
 import classes from './styles/DataVisualizerPlugin.module.css'
 import VisualizationErrorMessage from './VisualizationErrorMessage.js'
@@ -19,6 +20,7 @@ const IframePlugin = ({
     style,
     visualization,
     dashboardMode,
+    dashboardId,
 }) => {
     const { d2 } = useD2()
     // TODO replace d2 with useCachedDataQuery
@@ -27,25 +29,73 @@ const IframePlugin = ({
     const iframeRef = useRef()
     const [error, setError] = useState(false)
 
+    // When this mounts, check if the dashboard is recording
+    const { isCached, recordingState } = useCacheableSection(dashboardId)
+    const [recordOnNextLoad, setRecordOnNextLoad] = useState(
+        recordingState === 'recording'
+    )
+
     const onError = () => setError(true)
+
+    useEffect(() => {
+        // Tell plugin to remove cached data if this dashboard has been removed
+        // from offline storage
+        if (!isCached) {
+            postRobot
+                .send(iframeRef.current.contentWindow, 'removeCachedData')
+                .catch((err) => {
+                    // catch error if iframe hasn't loaded yet
+                    const msg = 'No handler found for post message:'
+                    if (err.message.startsWith(msg)) {
+                        return
+                    }
+                    console.error(err)
+                })
+        }
+    }, [isCached])
 
     useEffect(() => {
         const listener = postRobot.on(
             'getProps',
             // listen for messages coming only from the iframe rendered by this component
             { window: iframeRef.current.contentWindow },
-            () => ({
-                isVisualizationLoaded: true,
-                forDashboard: true,
-                userSettings,
-                nameProp: userSettings.displayProperty,
-                visualization,
-                onError,
-            })
+            () => {
+                const pluginProps = {
+                    isVisualizationLoaded: true,
+                    forDashboard: true,
+                    userSettings,
+                    nameProp: userSettings.displayProperty,
+                    visualization,
+                    onError,
+
+                    // For caching: ---
+                    // Add user & dashboard IDs to cache ID to avoid removing a cached
+                    // plugin that might be used in another dashboard also
+                    // TODO: May also want user ID too for multi-user situations
+                    cacheId: `${dashboardId}-${item.id}`,
+                    isParentCached: isCached,
+                    recordOnNextLoad: recordOnNextLoad,
+                }
+
+                if (recordOnNextLoad) {
+                    // Avoid recording unnecessarily,
+                    // e.g. if plugin re-requests props for some reason
+                    setRecordOnNextLoad(false)
+                }
+
+                return pluginProps
+            }
         )
 
         return () => listener.cancel()
-    }, [visualization, userSettings])
+    }, [
+        visualization,
+        userSettings,
+        dashboardId,
+        item.id,
+        isCached,
+        recordOnNextLoad,
+    ])
 
     useEffect(() => {
         setError(false)
@@ -100,6 +150,7 @@ const IframePlugin = ({
 }
 
 IframePlugin.propTypes = {
+    dashboardId: PropTypes.string,
     dashboardMode: PropTypes.string,
     filterVersion: PropTypes.string,
     item: PropTypes.object,
