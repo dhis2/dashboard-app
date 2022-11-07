@@ -57,7 +57,7 @@ exports[`renders a MapPlugin when activeType is MAP 1`] = `
 exports[`renders a VisualizationPlugin for CHART 1`] = `
 <div>
   <div
-    class="visualization-plugin"
+    class="iframe-plugin"
   />
 </div>
 `;
@@ -65,7 +65,7 @@ exports[`renders a VisualizationPlugin for CHART 1`] = `
 exports[`renders a VisualizationPlugin for REPORT_TABLE 1`] = `
 <div>
   <div
-    class="visualization-plugin"
+    class="iframe-plugin"
   />
 </div>
 `;
@@ -74,14 +74,6 @@ exports[`renders active type MAP rather than original type REPORT_TABLE 1`] = `
 <div>
   <div
     class="map-plugin"
-  />
-</div>
-`;
-
-exports[`renders active type REPORT_TABLE rather than original type MAP 1`] = `
-<div>
-  <div
-    class="visualization-plugin"
   />
 </div>
 `;
