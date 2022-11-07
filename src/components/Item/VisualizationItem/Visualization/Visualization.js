@@ -17,6 +17,7 @@ import {
     sGetItemFiltersRoot,
     DEFAULT_STATE_ITEM_FILTERS,
 } from '../../../../reducers/itemFilters.js'
+import { sGetSelected } from '../../../../reducers/selected.js'
 import { sGetVisualization } from '../../../../reducers/visualizations.js'
 import memoizeOne from '../memoizeOne.js'
 import DataVisualizerPlugin from './DataVisualizerPlugin.js'
@@ -36,6 +37,7 @@ const Visualization = ({
     availableHeight,
     availableWidth,
     dashboardMode,
+    dashboardId,
     ...rest
 }) => {
     const memoizedGetFilteredVisualization = memoizeOne(
@@ -96,6 +98,7 @@ const Visualization = ({
                     filterVersion={filterVersion}
                     item={item}
                     dashboardMode={dashboardMode}
+                    dashboardId={dashboardId}
                 />
             )
         }
@@ -139,6 +142,7 @@ Visualization.propTypes = {
     activeType: PropTypes.string,
     availableHeight: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
     availableWidth: PropTypes.number,
+    dashboardId: PropTypes.string,
     dashboardMode: PropTypes.string,
     item: PropTypes.object,
     itemFilters: PropTypes.object,
@@ -151,6 +155,7 @@ const mapStateToProps = (state, ownProps) => {
         : DEFAULT_STATE_ITEM_FILTERS
 
     return {
+        dashboardId: sGetSelected(state).id,
         itemFilters,
         visualization: sGetVisualization(
             state,
