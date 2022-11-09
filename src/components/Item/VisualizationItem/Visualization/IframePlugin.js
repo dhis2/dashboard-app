@@ -58,8 +58,7 @@ const IframePlugin = ({
                 const pluginProps = {
                     isVisualizationLoaded: true,
                     forDashboard: true,
-                    userSettings,
-                    nameProp: userSettings.displayProperty,
+                    displayProperty: userSettings.displayProperty,
                     visualization,
                     onError,
 
