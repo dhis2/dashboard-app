@@ -1,3 +1,10 @@
+## [99.10.4](https://github.com/dhis2/dashboard-app/compare/v99.10.3...v99.10.4) (2022-11-09)
+
+
+### Bug Fixes
+
+* bump ui dep with fix for cascade sharing ([#2146](https://github.com/dhis2/dashboard-app/issues/2146)) ([0168171](https://github.com/dhis2/dashboard-app/commit/016817144393d457c4c90b1790cfcb82df8f6f59))
+
 ## [99.10.3](https://github.com/dhis2/dashboard-app/compare/v99.10.2...v99.10.3) (2022-11-05)
 
 
