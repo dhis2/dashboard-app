@@ -112,7 +112,9 @@ const IframePlugin = ({
         if (appKey) {
             const appDetails = apps.find((app) => app.key === appKey)
 
-            return appDetails?.pluginLaunchUrl
+            if (appDetails?.pluginLaunchUrl) {
+                return appDetails.pluginLaunchUrl
+            }
         }
 
         setError(true)
