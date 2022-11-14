@@ -66,8 +66,7 @@ const Visualization = ({
     switch (activeType) {
         case CHART:
         case REPORT_TABLE:
-        case VISUALIZATION:
-        case EVENT_VISUALIZATION: {
+        case VISUALIZATION: {
             return (
                 <IframePlugin
                     visualization={memoizedGetFilteredVisualization(
@@ -76,6 +75,17 @@ const Visualization = ({
                     )}
                     style={style}
                     filterVersion={filterVersion}
+                    item={item}
+                    dashboardMode={dashboardMode}
+                    dashboardId={dashboardId}
+                />
+            )
+        }
+        case EVENT_VISUALIZATION: {
+            return (
+                <IframePlugin
+                    visualization={visualizationConfig}
+                    style={style}
                     item={item}
                     dashboardMode={dashboardMode}
                     dashboardId={dashboardId}
