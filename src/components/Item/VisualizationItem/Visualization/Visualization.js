@@ -82,18 +82,10 @@ const Visualization = ({
             )
         }
         case EVENT_VISUALIZATION: {
-            // XXX 1. check for plugin overrides
-            // 2. check for installed apps (use appKey and get the plugin launch URL)
-            // 3. fallback, use
-            // XXX check for installed app first (use appKey and get the launch
             return (
                 <IframePlugin
-                    visualization={memoizedGetFilteredVisualization(
-                        visualizationConfig,
-                        itemFilters
-                    )}
+                    visualization={visualizationConfig}
                     style={style}
-                    filterVersion={filterVersion}
                     item={item}
                     dashboardMode={dashboardMode}
                     dashboardId={dashboardId}
