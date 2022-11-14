@@ -33,10 +33,10 @@ const IframePlugin = ({
     useEffect(() => {
         // Tell plugin to remove cached data if this dashboard has been removed
         // from offline storage
-        if (!isCached) {
+        if (iframeRef?.current && !isCached) {
             postRobot
                 .send(iframeRef.current.contentWindow, 'removeCachedData')
-                .catch((err) => {
+                .catch(err => {
                     // catch error if iframe hasn't loaded yet
                     const msg = 'No handler found for post message:'
                     if (err.message.startsWith(msg)) {
@@ -48,38 +48,40 @@ const IframePlugin = ({
     }, [isCached])
 
     useEffect(() => {
-        const listener = postRobot.on(
-            'getProps',
-            // listen for messages coming only from the iframe rendered by this component
-            { window: iframeRef.current.contentWindow },
-            () => {
-                const pluginProps = {
-                    isVisualizationLoaded: true,
-                    forDashboard: true,
-                    displayProperty: userSettings.displayProperty,
-                    visualization,
-                    onError,
+        if (iframeRef?.current) {
+            const listener = postRobot.on(
+                'getProps',
+                // listen for messages coming only from the iframe rendered by this component
+                { window: iframeRef.current.contentWindow },
+                () => {
+                    const pluginProps = {
+                        isVisualizationLoaded: true,
+                        forDashboard: true,
+                        displayProperty: userSettings.displayProperty,
+                        visualization,
+                        onError,
 
-                    // For caching: ---
-                    // Add user & dashboard IDs to cache ID to avoid removing a cached
-                    // plugin that might be used in another dashboard also
-                    // TODO: May also want user ID too for multi-user situations
-                    cacheId: `${dashboardId}-${item.id}`,
-                    isParentCached: isCached,
-                    recordOnNextLoad: recordOnNextLoad,
+                        // For caching: ---
+                        // Add user & dashboard IDs to cache ID to avoid removing a cached
+                        // plugin that might be used in another dashboard also
+                        // TODO: May also want user ID too for multi-user situations
+                        cacheId: `${dashboardId}-${item.id}`,
+                        isParentCached: isCached,
+                        recordOnNextLoad: recordOnNextLoad,
+                    }
+
+                    if (recordOnNextLoad) {
+                        // Avoid recording unnecessarily,
+                        // e.g. if plugin re-requests props for some reason
+                        setRecordOnNextLoad(false)
+                    }
+
+                    return pluginProps
                 }
+            )
 
-                if (recordOnNextLoad) {
-                    // Avoid recording unnecessarily,
-                    // e.g. if plugin re-requests props for some reason
-                    setRecordOnNextLoad(false)
-                }
-
-                return pluginProps
-            }
-        )
-
-        return () => listener.cancel()
+            return () => listener.cancel()
+        }
     }, [
         visualization,
         userSettings,
@@ -108,7 +110,9 @@ const IframePlugin = ({
             return appDetails?.pluginLaunchUrl
         }
 */
-        return // XXX
+        setError(true)
+
+        return
     }, [item.type])
 
     if (error) {
@@ -122,19 +126,22 @@ const IframePlugin = ({
         )
     }
 
-    // TODO use different URL for iframe src based on item.type
+    const iframeSrc = getIframeSrc()
+
     return (
         <div className={classes.wrapper}>
-            <iframe
-                ref={iframeRef}
-                src={getIframeSrc()}
-                // preserve dimensions if provided
-                style={{
-                    width: style.width || '100%',
-                    height: style.height || '100%',
-                    border: 'none',
-                }}
-            ></iframe>
+            {iframeSrc ? (
+                <iframe
+                    ref={iframeRef}
+                    src={iframeSrc}
+                    // preserve dimensions if provided
+                    style={{
+                        width: style.width || '100%',
+                        height: style.height || '100%',
+                        border: 'none',
+                    }}
+                ></iframe>
+            ) : null}
         </div>
     )
 }
