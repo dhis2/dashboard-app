@@ -17,7 +17,7 @@ import {
     sGetItemFiltersRoot,
     DEFAULT_STATE_ITEM_FILTERS,
 } from '../../../../reducers/itemFilters.js'
-import { sGetSelected } from '../../../../reducers/selected.js'
+import { sGetSelectedId } from '../../../../reducers/selected.js'
 import { sGetVisualization } from '../../../../reducers/visualizations.js'
 import memoizeOne from '../memoizeOne.js'
 import getFilteredVisualization from './getFilteredVisualization.js'
@@ -145,7 +145,7 @@ const mapStateToProps = (state, ownProps) => {
         : DEFAULT_STATE_ITEM_FILTERS
 
     return {
-        dashboardId: sGetSelected(state).id,
+        dashboardId: sGetSelectedId(state),
         itemFilters,
         visualization: sGetVisualization(
             state,
