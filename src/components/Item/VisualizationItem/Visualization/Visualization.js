@@ -2,7 +2,7 @@ import i18n from '@dhis2/d2-i18n'
 import { Button, Cover, IconInfo24 } from '@dhis2/ui'
 import uniqueId from 'lodash/uniqueId.js'
 import PropTypes from 'prop-types'
-import React, { useState } from 'react'
+import React from 'react'
 import { connect } from 'react-redux'
 import { isEditMode } from '../../../../modules/dashboardModes.js'
 import { getVisualizationId } from '../../../../modules/item.js'
@@ -39,10 +39,10 @@ const Visualization = ({
     availableWidth,
     dashboardMode,
     dashboardId,
+    showNoFiltersOverlay,
+    onClickNoFiltersOverlay,
     ...rest
 }) => {
-    const [hideOverlay, setHideOverlay] = useState(false)
-
     const memoizedGetFilteredVisualization = memoizeOne(
         getFilteredVisualization
     )
@@ -87,7 +87,7 @@ const Visualization = ({
         case EVENT_VISUALIZATION: {
             return (
                 <>
-                    {Object.keys(itemFilters).length && !hideOverlay ? (
+                    {showNoFiltersOverlay ? (
                         <Cover>
                             <div
                                 style={{
@@ -104,7 +104,7 @@ const Visualization = ({
                                 {i18n.t(
                                     'Filters are not applied to line list dashboard items.'
                                 )}
-                                <Button onClick={() => setHideOverlay(true)}>
+                                <Button onClick={onClickNoFiltersOverlay}>
                                     {i18n.t('Show without filters')}
                                 </Button>
                             </div>
@@ -164,7 +164,9 @@ Visualization.propTypes = {
     dashboardMode: PropTypes.string,
     item: PropTypes.object,
     itemFilters: PropTypes.object,
+    showNoFiltersOverlay: PropTypes.bool,
     visualization: PropTypes.object,
+    onClickNoFiltersOverlay: PropTypes.func,
 }
 
 const mapStateToProps = (state, ownProps) => {
