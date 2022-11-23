@@ -43,6 +43,7 @@ class Item extends Component {
         showFooter: false,
         configLoaded: false,
         loadItemFailed: false,
+        showNoFiltersOverlay: this.props.item?.type === EVENT_VISUALIZATION,
     }
 
     constructor(props) {
@@ -176,7 +177,7 @@ class Item extends Component {
 
     render() {
         const { item, dashboardMode, itemFilters } = this.props
-        const { showFooter } = this.state
+        const { showFooter, showNoFiltersOverlay } = this.state
         const activeType = this.getActiveType()
 
         const actionButtons =
@@ -196,8 +197,9 @@ class Item extends Component {
             ) : null
 
         const tags =
-            Object.keys(itemFilters).length &&
             isViewMode(dashboardMode) &&
+            Object.keys(itemFilters).length &&
+            !showNoFiltersOverlay &&
             activeType === EVENT_VISUALIZATION ? (
                 <Tooltip
                     content={i18n.t(
@@ -244,6 +246,15 @@ class Item extends Component {
                                         availableWidth={this.getAvailableWidth()}
                                         gridWidth={this.props.gridWidth}
                                         dashboardMode={dashboardMode}
+                                        showNoFiltersOverlay={Boolean(
+                                            Object.keys(itemFilters).length &&
+                                                showNoFiltersOverlay
+                                        )}
+                                        onClickNoFiltersOverlay={() =>
+                                            this.setState({
+                                                showNoFiltersOverlay: false,
+                                            })
+                                        }
                                     />
                                 )}
                             </WindowDimensionsCtx.Consumer>
