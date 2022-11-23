@@ -1,7 +1,8 @@
 import i18n from '@dhis2/d2-i18n'
+import { Button, Cover, IconInfo24 } from '@dhis2/ui'
 import uniqueId from 'lodash/uniqueId.js'
 import PropTypes from 'prop-types'
-import React from 'react'
+import React, { useState } from 'react'
 import { connect } from 'react-redux'
 import { isEditMode } from '../../../../modules/dashboardModes.js'
 import { getVisualizationId } from '../../../../modules/item.js'
@@ -39,6 +40,8 @@ const Visualization = ({
     dashboardId,
     ...rest
 }) => {
+    const [hideOverlay, setHideOverlay] = useState(false)
+
     const memoizedGetFilteredVisualization = memoizeOne(
         getFilteredVisualization
     )
@@ -83,13 +86,38 @@ const Visualization = ({
         }
         case EVENT_VISUALIZATION: {
             return (
-                <IframePlugin
-                    visualization={visualizationConfig}
-                    style={style}
-                    item={item}
-                    dashboardMode={dashboardMode}
-                    dashboardId={dashboardId}
-                />
+                <>
+                    {Object.keys(itemFilters).length && !hideOverlay ? (
+                        <Cover>
+                            <div
+                                style={{
+                                    display: 'flex',
+                                    flexDirection: 'column',
+                                    alignItems: 'center',
+                                    justifyContent: 'center',
+                                    height: '100%',
+                                    width: '100%',
+                                    backgroundColor: 'rgba(255,255,255,0.92)',
+                                }}
+                            >
+                                <IconInfo24 />
+                                {i18n.t(
+                                    'Filters are not applied to line list dashboard items.'
+                                )}
+                                <Button onClick={() => setHideOverlay(true)}>
+                                    {i18n.t('Show without filters')}
+                                </Button>
+                            </div>
+                        </Cover>
+                    ) : null}
+                    <IframePlugin
+                        visualization={visualizationConfig}
+                        style={style}
+                        item={item}
+                        dashboardMode={dashboardMode}
+                        dashboardId={dashboardId}
+                    />
+                </>
             )
         }
         case MAP: {
