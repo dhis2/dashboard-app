@@ -1,4 +1,5 @@
 import i18n from '@dhis2/d2-i18n'
+import { Tag, Tooltip, IconWarningFilled16 } from '@dhis2/ui'
 import PropTypes from 'prop-types'
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
@@ -19,6 +20,7 @@ import {
 import {
     getDataStatisticsName,
     getItemTypeForVis,
+    EVENT_VISUALIZATION,
 } from '../../../modules/itemTypes.js'
 import { sGetIsEditing } from '../../../reducers/editDashboard.js'
 import { sGetItemActiveType } from '../../../reducers/itemActiveTypes.js'
@@ -196,6 +198,21 @@ class Item extends Component {
                 />
             ) : null
 
+        const tags =
+            Object.keys(itemFilters).length &&
+            isViewMode(dashboardMode) &&
+            activeType === EVENT_VISUALIZATION ? (
+                <Tooltip
+                    content={i18n.t(
+                        'Filters are not applied to line list dashboard items'
+                    )}
+                >
+                    <Tag negative icon={<IconWarningFilled16 />}>
+                        {i18n.t('Filters not applied')}
+                    </Tag>
+                </Tooltip>
+            ) : null
+
         return (
             <>
                 <ItemHeader
@@ -205,6 +222,7 @@ class Item extends Component {
                     ref={this.headerRef}
                     dashboardMode={dashboardMode}
                     isShortened={item.shortened}
+                    tags={tags}
                 />
                 <FatalErrorBoundary
                     message={i18n.t(
