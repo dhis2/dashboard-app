@@ -1,3 +1,10 @@
+## [99.10.6](https://github.com/dhis2/dashboard-app/compare/v99.10.5...v99.10.6) (2022-11-25)
+
+
+### Bug Fixes
+
+* **deps:** bump platform deps to 10.1.6 and 3.7.0 ([#2169](https://github.com/dhis2/dashboard-app/issues/2169)) ([b109d89](https://github.com/dhis2/dashboard-app/commit/b109d89b938775808afbc2f8c3617f7924bbb443))
+
 ## [99.10.5](https://github.com/dhis2/dashboard-app/compare/v99.10.4...v99.10.5) (2022-11-16)
 
 
