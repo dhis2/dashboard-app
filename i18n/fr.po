@@ -28,7 +28,7 @@ msgid "Untitled dashboard"
 msgstr "Tableau de bord sans titre"
 
 msgid "Cannot create a dashboard while offline"
-msgstr ""
+msgstr "Impossible de créer un tableau de bord en étant hors ligne"
 
 msgid "Create new dashboard"
 msgstr "Créer un nouveau tableau de bord"
@@ -58,10 +58,10 @@ msgid "See all messages"
 msgstr "Voir tous les messages"
 
 msgid "Item type \"{{type}}\" is not supported"
-msgstr ""
+msgstr "Type d'item \"{{type}}\" non pris en charge"
 
 msgid "The item type is missing"
-msgstr ""
+msgstr "Le type d'item est manquant"
 
 msgid "Filters applied"
 msgstr "Flitres appliqués"
@@ -86,10 +86,10 @@ msgstr ""
 "Un problème est survenu lors du chargement de cet objet du tableau de bord"
 
 msgid "Hide details and interpretations"
-msgstr ""
+msgstr "Masquer les détails et les interprétations"
 
 msgid "Show details and interpretations"
-msgstr ""
+msgstr "Afficher les détails et les interprétations"
 
 msgid "Open in {{appName}} app"
 msgstr "Ouvrir dans l'app {{appName}}"
@@ -119,6 +119,8 @@ msgstr ""
 
 msgid "Maps with Earth Engine layers cannot be displayed when offline"
 msgstr ""
+"Impossible d'afficher les cartes contenant des couches Earth Engine en mode "
+"hors ligne."
 
 msgid "Unable to load the plugin for this item"
 msgstr "Impossible de charger le plugin pour cet objet"
@@ -134,7 +136,7 @@ msgid "Open this item in {{appName}}"
 msgstr "Ouvrez cet élément dans {{NomApp}}"
 
 msgid "Not available offline"
-msgstr ""
+msgstr "Non disponible hors ligne"
 
 msgid "Visualizations"
 msgstr "Visualisations"
@@ -177,6 +179,8 @@ msgid ""
 "Failed to save dashboard. This code is already being used on another "
 "dashboard."
 msgstr ""
+"Échec de l'enregistrement du tableau de bord. Ce code est déjà utilisé sur "
+"un autre tableau de bord."
 
 msgid ""
 "Failed to delete dashboard. You might be offline or not have access to edit "
@@ -186,7 +190,7 @@ msgstr ""
 "ou n'avez pas accès pour modifier ce tableau de bord."
 
 msgid "Cannot save this dashboard while offline"
-msgstr ""
+msgstr "Impossible de sauvegarder ce tableau de bord en mode hors ligne"
 
 msgid "Save changes"
 msgstr "Enregistrer les modifications"
@@ -204,7 +208,7 @@ msgid "Translate"
 msgstr "Traduire"
 
 msgid "Cannot delete this dashboard while offline"
-msgstr ""
+msgstr "Impossible de supprimer ce tableau de bord en mode hors ligne"
 
 msgid "Delete"
 msgstr "Supprimer"
@@ -237,12 +241,14 @@ msgid ""
 "This dashboard has unsaved changes. Are you sure you want to leave and "
 "discard these unsaved changes?"
 msgstr ""
+"Ce tableau de bord contient des modifications non sauvegardées. Êtes-vous "
+"sûr de vouloir quitter et annuler ces modifications non sauvegardées ?"
 
 msgid "No, stay here"
 msgstr "Non, continuer ici"
 
 msgid "Yes, discard changes"
-msgstr ""
+msgstr "Oui, annuler les modifications"
 
 msgid "No access"
 msgstr "Pas d'accès"
@@ -342,19 +348,19 @@ msgid ""
 msgstr ""
 
 msgid "Default height for items added to dashboard (rows)"
-msgstr ""
+msgstr "Hauteur par défaut des éléments ajoutés au tableau de bord (rangées)"
 
 msgid "Save layout"
-msgstr ""
+msgstr "Sauvegarder la disposition"
 
 msgid "Dashboard title"
 msgstr "Titre du tableau de bord"
 
 msgid "Dashboard code"
-msgstr ""
+msgstr "Code du tableau de bord"
 
 msgid "Code can't be longer than 50 characters"
-msgstr ""
+msgstr "Le code ne doit pas dépasser 50 caractères"
 
 msgid "Dashboard description"
 msgstr "Description du tableau de bord"
@@ -420,10 +426,10 @@ msgid ""
 msgstr ""
 
 msgid "Create a new dashboard with the + button."
-msgstr ""
+msgstr "Créer un nouveau tableau de bord en cliquant sur le bouton +."
 
 msgid "Your most viewed dashboards"
-msgstr ""
+msgstr "Vos tableaux de bord les plus consultés"
 
 msgid "No dashboards found. Use the + button to create a new dashboard."
 msgstr ""
@@ -440,10 +446,10 @@ msgstr[1] "{{nombre}} choisi"
 msgstr[2] "{{nombre}} choisi"
 
 msgid "Cannot remove filters while offline"
-msgstr ""
+msgstr "Impossible de supprimer les filtres en mode hors ligne"
 
 msgid "Removing filters while offline"
-msgstr ""
+msgstr "Suppression des filtres en mode hors ligne"
 
 msgid ""
 "Removing this filter while offline will remove all other filters. Do you "
@@ -469,10 +475,10 @@ msgid "Remove from offline storage"
 msgstr ""
 
 msgid "Make available offline"
-msgstr ""
+msgstr "Rendre disponible hors ligne"
 
 msgid "Sync offline data now"
-msgstr ""
+msgstr "Synchroniser les données offline maintenant"
 
 msgid "Unstar dashboard"
 msgstr "Tableau de bord sans étoiles"
@@ -502,15 +508,18 @@ msgid "Share"
 msgstr "Partager"
 
 msgid "Clear dashboard filters?"
-msgstr ""
+msgstr "Supprimer les filtres du tableau de bord ?"
 
 msgid ""
 "A dashboard's filters can’t be saved offline. Do you want to remove the "
 "filters and make this dashboard available offline?"
 msgstr ""
+"Impossible de sauvegarder les filtres d'un tableau de bord en mode hors "
+"ligne. Voulez-vous supprimer les filtres et rendre ce tableau de bord "
+"disponible en mode hors ligne ?"
 
 msgid "Yes, clear filters and sync"
-msgstr ""
+msgstr "Oui, supprimer les filtres et synchroniser"
 
 msgid "No description"
 msgstr "Pas de description"
@@ -519,7 +528,7 @@ msgid "Add filter"
 msgstr "Ajouter le filtre"
 
 msgid "Offline data last updated {{time}}"
-msgstr ""
+msgstr "Dernière mise à jour des données hors ligne {{temps}}"
 
 msgid "Cannot unstar this dashboard while offline"
 msgstr ""
@@ -537,13 +546,14 @@ msgid "Offline"
 msgstr "Hors ligne"
 
 msgid "This dashboard cannot be loaded while offline."
-msgstr ""
+msgstr "Impossible de charger ce tableau de bord en mode hors ligne."
 
 msgid "Go to start page"
-msgstr ""
+msgstr "Aller à la page d'accueil"
 
 msgid "Load dashboard failed"
-msgstr ""
+msgstr "Échec du chargement du tableau de bord"
 
 msgid "This dashboard could not be loaded. Please try again later."
 msgstr ""
+"Ce tableau de bord n'a pas pu être chargé. Veuillez réessayer plus tard."
