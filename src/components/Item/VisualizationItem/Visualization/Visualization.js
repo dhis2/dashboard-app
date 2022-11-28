@@ -1,5 +1,5 @@
 import i18n from '@dhis2/d2-i18n'
-import { Button, Cover, IconInfo24 } from '@dhis2/ui'
+import { Button, Cover, IconInfo24, colors } from '@dhis2/ui'
 import uniqueId from 'lodash/uniqueId.js'
 import PropTypes from 'prop-types'
 import React from 'react'
@@ -28,6 +28,7 @@ import LegacyPlugin from './LegacyPlugin.js'
 import MapPlugin from './MapPlugin.js'
 import NoVisualizationMessage from './NoVisualizationMessage.js'
 import { pluginIsAvailable } from './plugin.js'
+import classes from './styles/Visualization.module.css'
 
 const Visualization = ({
     visualization,
@@ -89,22 +90,16 @@ const Visualization = ({
                 <>
                     {showNoFiltersOverlay ? (
                         <Cover>
-                            <div
-                                style={{
-                                    display: 'flex',
-                                    flexDirection: 'column',
-                                    alignItems: 'center',
-                                    justifyContent: 'center',
-                                    height: '100%',
-                                    width: '100%',
-                                    backgroundColor: 'rgba(255,255,255,0.92)',
-                                }}
-                            >
-                                <IconInfo24 />
+                            <div className={classes.noFiltersOverlay}>
+                                <IconInfo24 color={colors.grey500} />
                                 {i18n.t(
                                     'Filters are not applied to line list dashboard items.'
                                 )}
-                                <Button onClick={onClickNoFiltersOverlay}>
+                                <Button
+                                    secondary
+                                    small
+                                    onClick={onClickNoFiltersOverlay}
+                                >
                                     {i18n.t('Show without filters')}
                                 </Button>
                             </div>
