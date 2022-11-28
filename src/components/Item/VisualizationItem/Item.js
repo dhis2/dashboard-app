@@ -1,5 +1,5 @@
 import i18n from '@dhis2/d2-i18n'
-import { Tag, Tooltip, IconWarningFilled16 } from '@dhis2/ui'
+import { Tag, Tooltip } from '@dhis2/ui'
 import PropTypes from 'prop-types'
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
@@ -206,9 +206,7 @@ class Item extends Component {
                         'Filters are not applied to line list dashboard items'
                     )}
                 >
-                    <Tag negative icon={<IconWarningFilled16 />}>
-                        {i18n.t('Filters not applied')}
-                    </Tag>
+                    <Tag negative>{i18n.t('Filters not applied')}</Tag>
                 </Tooltip>
             ) : null
 
