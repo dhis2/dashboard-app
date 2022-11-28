@@ -5,8 +5,8 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1)\n"
-"POT-Creation-Date: 2022-09-13T08:03:54.897Z\n"
-"PO-Revision-Date: 2022-09-13T08:03:54.897Z\n"
+"POT-Creation-Date: 2022-11-28T09:38:01.153Z\n"
+"PO-Revision-Date: 2022-11-28T09:38:01.153Z\n"
 
 msgid "Untitled dashboard"
 msgstr "Untitled dashboard"
@@ -62,6 +62,12 @@ msgstr "Text item"
 msgid "Add text here"
 msgstr "Add text here"
 
+msgid "Filters are not applied to line list dashboard items"
+msgstr "Filters are not applied to line list dashboard items"
+
+msgid "Filters not applied"
+msgstr "Filters not applied"
+
 msgid "There was a problem loading this dashboard item"
 msgstr "There was a problem loading this dashboard item"
 
@@ -103,6 +109,12 @@ msgstr "Unable to load the plugin for this item"
 
 msgid "No data to display"
 msgstr "No data to display"
+
+msgid "Filters are not applied to line list dashboard items."
+msgstr "Filters are not applied to line list dashboard items."
+
+msgid "Show without filters"
+msgstr "Show without filters"
 
 msgid "There was an error loading data for this item"
 msgstr "There was an error loading data for this item"
