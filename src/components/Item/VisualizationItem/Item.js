@@ -184,7 +184,7 @@ class Item extends Component {
         const activeType = this.getActiveType()
 
         const actionButtons =
-            pluginIsAvailable(activeType || item.type) &&
+            pluginIsAvailable(activeType || item.type, this.props.d2) &&
             isViewMode(dashboardMode) ? (
                 <ItemContextMenu
                     item={item}
@@ -272,6 +272,7 @@ class Item extends Component {
 
 Item.propTypes = {
     activeType: PropTypes.string,
+    d2: PropTypes.object,
     dashboardMode: PropTypes.string,
     gridWidth: PropTypes.number,
     isEditing: PropTypes.bool,
