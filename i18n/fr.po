@@ -308,10 +308,11 @@ msgid "Search for items to add to this dashboard"
 msgstr "Rechercher des objets à ajouter à ce tableau de bord"
 
 msgid "Search for visualizations, reports and more"
-msgstr ""
+msgstr "Recherche de visualisations, de rapports et autres"
 
 msgid "Cannot search for dashboard items while offline"
 msgstr ""
+"Impossible de rechercher des éléments du tableau de bord en mode hors ligne"
 
 msgid "Additional items"
 msgstr "Objets additionnels"
@@ -323,29 +324,35 @@ msgid "Dashboard layout"
 msgstr "Mise en page du tableau de bord"
 
 msgid "Freeflow"
-msgstr ""
+msgstr "Freeflow"
 
 msgid "Dashboard items can be placed anywhere, at any size."
 msgstr ""
+"Les items du tableau de bord peuvent être placés n'importe où, quelle que "
+"soit leur taille."
 
 msgid "Fixed columns"
-msgstr ""
+msgstr "Colonnes fixes"
 
 msgid ""
 "Dashboard items are automatically placed within fixed, horizontal columns. "
 "The number of columns can be adjusted."
 msgstr ""
+"Les items du tableau de bord sont automatiquement placés dans des colonnes "
+"horizontales fixes. Le nombre de colonnes peut être ajusté."
 
 msgid "Number of columns"
-msgstr ""
+msgstr "Nombre de colonnes"
 
 msgid "Gap size between columns (px)"
-msgstr ""
+msgstr "Taille de l'espace entre les colonnes (px)"
 
 msgid ""
 "Default height only applies to items added to a dashboard, this setting will"
 " not change existing items"
 msgstr ""
+"La taille par défaut s'applique uniquement aux items ajoutés à un tableau de"
+" bord. Ce paramètre ne modifiera pas les items existants."
 
 msgid "Default height for items added to dashboard (rows)"
 msgstr "Hauteur par défaut des éléments ajoutés au tableau de bord (rangées)"
@@ -370,21 +377,21 @@ msgstr "Mise en page"
 
 msgid "{{count}} columns"
 msgid_plural "{{count}} columns"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
+msgstr[0] "{{count}} les aimes"
+msgstr[1] "{{count}} columns"
+msgstr[2] "{{nombre}} colonnes"
 
 msgid "Change layout"
-msgstr ""
+msgstr "Modifier la disposition"
 
 msgid "Add new items to"
-msgstr ""
+msgstr "Ajouter de nouveaux items à"
 
 msgid "End of dashboard"
-msgstr ""
+msgstr "Fin du tableau de bord"
 
 msgid "Start of dashboard"
-msgstr ""
+msgstr "Début du tableau de bord"
 
 msgid "Print"
 msgstr "Imprimer"
@@ -413,17 +420,24 @@ msgid ""
 "Use A4 landscape paper size, default margin settings and turn on background "
 "graphics in the browser print dialog"
 msgstr ""
+"Utilisez le format de papier A4 paysage, les paramètres de marge par défaut "
+"et activez les graphiques d'arrière-plan dans la boîte de dialogue "
+"d'impression du navigateur."
 
 msgid "Getting started"
-msgstr "Commencer"
+msgstr "Pour commencer"
 
 msgid "Search for and open saved dashboards from the top bar."
 msgstr ""
+"Recherchez et ouvrez les tableaux de bord enregistrés à partir de la barre "
+"supérieure."
 
 msgid ""
 "Click a dashboard chip to open it. Get back to this screen from the \"More\""
 " menu."
 msgstr ""
+"Cliquez sur une puce du tableau de bord pour l'ouvrir. Revenez à cet écran à"
+" partir du menu \"Plus\"."
 
 msgid "Create a new dashboard with the + button."
 msgstr "Créer un nouveau tableau de bord en cliquant sur le bouton +."
@@ -441,9 +455,9 @@ msgstr "Tableau de bord demandé introuvable"
 
 msgid "{{count}} selected"
 msgid_plural "{{count}} selected"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
+msgstr[0] "{{nombre}} sélectionnés"
+msgstr[1] "{{count}} selected"
+msgstr[2] "{{count}} selected"
 
 msgid "Cannot remove filters while offline"
 msgstr "Impossible de supprimer les filtres en mode hors ligne"
@@ -455,15 +469,20 @@ msgid ""
 "Removing this filter while offline will remove all other filters. Do you "
 "want to remove all filters on this dashboard?"
 msgstr ""
+"La suppression de ce filtre en mode hors ligne entraîne la suppression de "
+"tous les autres filtres. Voulez-vous supprimer tous les filtres de ce "
+"tableau de bord ?"
 
 msgid "No, cancel"
 msgstr "Non, annuler"
 
 msgid "Yes, remove filters"
-msgstr ""
+msgstr "Oui, supprimer les filtres"
 
 msgid "The dashboard couldn't be made available offline. Try again."
 msgstr ""
+"Impossible de rendre le tableau de bord disponible en mode hors ligne. "
+"Essayez à nouveau."
 
 msgid "Failed to unstar the dashboard"
 msgstr "Suppression des étoiles du tableau de bord échoué"
@@ -472,7 +491,7 @@ msgid "Failed to star the dashboard"
 msgstr "Ajout d'étoiles au tableau de bord échoué"
 
 msgid "Remove from offline storage"
-msgstr ""
+msgstr "Retirer du stockage hors-ligne"
 
 msgid "Make available offline"
 msgstr "Rendre disponible hors ligne"
@@ -496,7 +515,7 @@ msgid "One item per page"
 msgstr "Un élément par page"
 
 msgid "Close dashboard"
-msgstr ""
+msgstr "Fermer le tableau de bord"
 
 msgid "More"
 msgstr "Plus"
@@ -532,9 +551,10 @@ msgstr "Dernière mise à jour des données hors ligne {{temps}}"
 
 msgid "Cannot unstar this dashboard while offline"
 msgstr ""
+"Impossible de retirer l'étoile de ce tableau de bord en mode hors ligne"
 
 msgid "Cannot star this dashboard while offline"
-msgstr ""
+msgstr "Impossible de marquer ce tableau de bord en mode hors ligne"
 
 msgid "Loading dashboard – {{name}}"
 msgstr "Chargement du tableau de bord - {{nom}}"
