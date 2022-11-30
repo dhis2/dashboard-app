@@ -364,9 +364,9 @@ msgstr "Mise en page"
 
 msgid "{{count}} columns"
 msgid_plural "{{count}} columns"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
+msgstr[0] "s"
+msgstr[1] "{{count}} colonne"
+msgstr[2] "{{nombre}} colonnes"
 
 msgid "Change layout"
 msgstr "Modifier la disposition"
