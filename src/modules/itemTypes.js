@@ -128,7 +128,7 @@ export const itemTypeMap = {
         id: EVENT_VISUALIZATION,
         endPointName: 'eventVisualizations',
         propName: 'eventVisualization',
-        pluralTitle: i18n.t('Event visualizations'),
+        pluralTitle: i18n.t('Line lists'),
         domainType: DOMAIN_TYPE_TRACKER,
         isVisualizationType: true,
         // TODO change to the path for the bundled app
