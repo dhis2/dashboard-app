@@ -6,6 +6,7 @@ import React, { useRef, useCallback, useState, useEffect } from 'react'
 import { getPluginOverrides } from '../../../../modules/localStorage.js'
 import { useCacheableSection } from '../../../../modules/useCacheableSection.js'
 import { useUserSettings } from '../../../UserSettingsProvider.js'
+import MissingPluginMessage from './MissingPluginMessage.js'
 import classes from './styles/DataVisualizerPlugin.module.css'
 import VisualizationErrorMessage from './VisualizationErrorMessage.js'
 
@@ -20,7 +21,7 @@ const IframePlugin = ({
     const { userSettings } = useUserSettings()
     //const { apps } = useCachedDataQuery()
     const iframeRef = useRef()
-    const [error, setError] = useState(false)
+    const [error, setError] = useState(null)
 
     // When this mounts, check if the dashboard is recording
     const { isCached, recordingState } = useCacheableSection(dashboardId)
@@ -28,7 +29,7 @@ const IframePlugin = ({
         recordingState === 'recording'
     )
 
-    const onError = () => setError(true)
+    const onError = () => setError('plugin')
 
     useEffect(() => {
         // Tell plugin to remove cached data if this dashboard has been removed
@@ -92,7 +93,7 @@ const IframePlugin = ({
     ])
 
     useEffect(() => {
-        setError(false)
+        setError(null)
     }, [filterVersion, visualization.type])
 
     const getIframeSrc = useCallback(() => {
@@ -110,13 +111,20 @@ const IframePlugin = ({
             return appDetails?.pluginLaunchUrl
         }
 */
-        setError(true)
+        setError('missing-plugin')
 
         return
     }, [item.type])
 
     if (error) {
-        return (
+        return error === 'missing-plugin' ? (
+            <div style={style}>
+                <MissingPluginMessage
+                    item={item}
+                    dashboardMode={dashboardMode}
+                />
+            </div>
+        ) : (
             <div style={style}>
                 <VisualizationErrorMessage
                     item={item}
