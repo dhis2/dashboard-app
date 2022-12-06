@@ -101,6 +101,12 @@ msgstr "Maps with Earth Engine layers cannot be displayed when offline"
 msgid "Unable to load the plugin for this item"
 msgstr "Unable to load the plugin for this item"
 
+msgid "The plugin for rendering this item is not available"
+msgstr "The plugin for rendering this item is not available"
+
+msgid "Install the {{appName}} app from the App Hub"
+msgstr "Install the {{appName}} app from the App Hub"
+
 msgid "No data to display"
 msgstr "No data to display"
 
@@ -131,8 +137,8 @@ msgstr "Event reports"
 msgid "Event charts"
 msgstr "Event charts"
 
-msgid "Event visualizations"
-msgstr "Event visualizations"
+msgid "Line lists"
+msgstr "Line lists"
 
 msgid "Apps"
 msgstr "Apps"

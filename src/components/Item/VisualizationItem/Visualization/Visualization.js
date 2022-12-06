@@ -1,3 +1,4 @@
+import { useD2 } from '@dhis2/app-runtime-adapter-d2'
 import i18n from '@dhis2/d2-i18n'
 import { Button, Cover, IconInfo24, colors } from '@dhis2/ui'
 import uniqueId from 'lodash/uniqueId.js'
@@ -26,7 +27,7 @@ import getFilteredVisualization from './getFilteredVisualization.js'
 import getVisualizationConfig from './getVisualizationConfig.js'
 import IframePlugin from './IframePlugin.js'
 import LegacyPlugin from './LegacyPlugin.js'
-import MapPlugin from './MapPlugin.js'
+//import MapPlugin from './MapPlugin.js'
 import NoVisualizationMessage from './NoVisualizationMessage.js'
 import { pluginIsAvailable } from './plugin.js'
 import classes from './styles/Visualization.module.css'
@@ -44,6 +45,8 @@ const Visualization = ({
     onClickNoFiltersOverlay,
     ...rest
 }) => {
+    const { d2 } = useD2()
+
     const memoizedGetFilteredVisualization = memoizeOne(
         getFilteredVisualization
     )
@@ -130,7 +133,7 @@ const Visualization = ({
             )
         }
         default: {
-            return pluginIsAvailable(activeType || item.type) ? (
+            return pluginIsAvailable(activeType || item.type, d2) ? (
                 <LegacyPlugin
                     item={item}
                     activeType={activeType}

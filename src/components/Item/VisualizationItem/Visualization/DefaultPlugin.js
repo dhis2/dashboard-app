@@ -30,6 +30,7 @@ const DefaultPlugin = ({
         load(item, visualization, {
             credentials,
             activeType,
+            d2,
             options,
         })
 
@@ -56,6 +57,7 @@ const DefaultPlugin = ({
             load(item, visualization, {
                 credentials,
                 activeType,
+                d2,
                 options,
             })
         }
