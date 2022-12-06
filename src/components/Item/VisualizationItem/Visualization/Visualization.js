@@ -73,6 +73,7 @@ const Visualization = ({
     switch (activeType) {
         case CHART:
         case REPORT_TABLE:
+        case MAP:
         case VISUALIZATION: {
             return (
                 <IframePlugin
@@ -118,6 +119,7 @@ const Visualization = ({
                 </>
             )
         }
+        /*
         case MAP: {
             return (
                 <MapPlugin
@@ -131,7 +133,7 @@ const Visualization = ({
                     {...rest}
                 />
             )
-        }
+        }*/
         default: {
             return pluginIsAvailable(activeType || item.type, d2) ? (
                 <LegacyPlugin
