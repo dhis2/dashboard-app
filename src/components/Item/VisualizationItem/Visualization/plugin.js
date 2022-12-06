@@ -33,7 +33,9 @@ export const getPluginLaunchUrl = (type, d2) => {
     if (appKey) {
         const appDetails = apps.find((app) => app.key === appKey)
 
-        return appDetails?.pluginLaunchUrl
+        // TODO replace with the plugin url
+        // return appDetails?.pluginLaunchUrl
+        return appDetails?.launchUrl
     }
 }
 
@@ -81,8 +83,8 @@ export const pluginIsAvailable = (type, d2) =>
     Boolean(getPluginLaunchUrl(type, d2)) ||
     itemTypeToGlobalVariable[type]
 
-const loadPlugin = async (type, config, credentials) => {
-    if (!pluginIsAvailable(type)) {
+const loadPlugin = async (type, config, credentials, d2) => {
+    if (!pluginIsAvailable(type, d2)) {
         return
     }
 
@@ -104,7 +106,7 @@ const loadPlugin = async (type, config, credentials) => {
 export const load = async (
     item,
     visualization,
-    { credentials, activeType, options = {} }
+    { credentials, activeType, d2, options = {} }
 ) => {
     const config = {
         ...visualization,
@@ -113,7 +115,7 @@ export const load = async (
     }
 
     const type = activeType || item.type
-    await loadPlugin(type, config, credentials)
+    await loadPlugin(type, config, credentials, d2)
 }
 
 export const unmount = async (item, activeType) => {

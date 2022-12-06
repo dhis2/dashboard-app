@@ -1,4 +1,5 @@
 import { useOnlineStatus } from '@dhis2/app-runtime'
+import { useD2 } from '@dhis2/app-runtime-adapter-d2'
 import i18n from '@dhis2/d2-i18n'
 import PropTypes from 'prop-types'
 import React, { useState, useEffect } from 'react'
@@ -23,6 +24,7 @@ const MapPlugin = ({
     itemFilters,
     ...props
 }) => {
+    const { d2 } = useD2()
     const { offline } = useOnlineStatus()
     const [initialized, setInitialized] = useState(false)
 
@@ -89,7 +91,7 @@ const MapPlugin = ({
     }
 
     const vis = getVisualization()
-    return pluginIsAvailable(MAP) ? (
+    return pluginIsAvailable(MAP, d2) ? (
         <>
             <DefaultPlugin
                 options={{
