@@ -2,6 +2,11 @@ import { useD2 } from '@dhis2/app-runtime-adapter-d2'
 import postRobot from '@krakenjs/post-robot'
 import PropTypes from 'prop-types'
 import React, { useRef, useCallback, useState, useEffect } from 'react'
+import {
+    CHART,
+    REPORT_TABLE,
+    VISUALIZATION,
+} from '../../../../modules/itemTypes.js'
 import { getPluginOverrides } from '../../../../modules/localStorage.js'
 import { useCacheableSection } from '../../../../modules/useCacheableSection.js'
 import { useUserSettings } from '../../../UserSettingsProvider.js'
@@ -11,6 +16,7 @@ import classes from './styles/DataVisualizerPlugin.module.css'
 import VisualizationErrorMessage from './VisualizationErrorMessage.js'
 
 const IframePlugin = ({
+    activeType,
     filterVersion,
     item,
     style,
@@ -31,6 +37,22 @@ const IframePlugin = ({
     )
 
     const onError = () => setError('plugin')
+
+    const pluginProps = {
+        isVisualizationLoaded: true,
+        forDashboard: true,
+        displayProperty: userSettings.displayProperty,
+        visualization,
+        onError,
+
+        // For caching: ---
+        // Add user & dashboard IDs to cache ID to avoid removing a cached
+        // plugin that might be used in another dashboard also
+        // TODO: May also want user ID too for multi-user situations
+        cacheId: `${dashboardId}-${item.id}`,
+        isParentCached: isCached,
+        recordOnNextLoad: recordOnNextLoad,
+    }
 
     useEffect(() => {
         // Tell plugin to remove cached data if this dashboard has been removed
@@ -56,22 +78,6 @@ const IframePlugin = ({
                 // listen for messages coming only from the iframe rendered by this component
                 { window: iframeRef.current.contentWindow },
                 () => {
-                    const pluginProps = {
-                        isVisualizationLoaded: true,
-                        forDashboard: true,
-                        displayProperty: userSettings.displayProperty,
-                        visualization,
-                        onError,
-
-                        // For caching: ---
-                        // Add user & dashboard IDs to cache ID to avoid removing a cached
-                        // plugin that might be used in another dashboard also
-                        // TODO: May also want user ID too for multi-user situations
-                        cacheId: `${dashboardId}-${item.id}`,
-                        isParentCached: isCached,
-                        recordOnNextLoad: recordOnNextLoad,
-                    }
-
                     if (recordOnNextLoad) {
                         // Avoid recording unnecessarily,
                         // e.g. if plugin re-requests props for some reason
@@ -84,30 +90,37 @@ const IframePlugin = ({
 
             return () => listener.cancel()
         }
-    }, [
-        visualization,
-        userSettings,
-        dashboardId,
-        item.id,
-        isCached,
-        recordOnNextLoad,
-    ])
+    }, [pluginProps, recordOnNextLoad])
+
+    useEffect(() => {
+        if (iframeRef.current?.contentWindow) {
+            postRobot.send(
+                iframeRef.current.contentWindow,
+                'newProps',
+                pluginProps
+            )
+        }
+    }, [pluginProps])
 
     useEffect(() => {
         setError(null)
     }, [filterVersion, visualization.type])
 
     const getIframeSrc = useCallback(() => {
+        const pluginType = [CHART, REPORT_TABLE].includes(activeType)
+            ? VISUALIZATION
+            : activeType
+
         // 1. check if there is an override for the plugin
         const pluginOverrides = getPluginOverrides()
 
-        if (pluginOverrides && pluginOverrides[item.type]) {
-            return pluginOverrides[item.type]
+        if (pluginOverrides && pluginOverrides[pluginType]) {
+            return pluginOverrides[pluginType]
         }
 
-        // 2. check if there is an installed app for the item type
+        // 2. check if there is an installed app for the pluginType
         // and use its plugin launch URL
-        const pluginLaunchUrl = getPluginLaunchUrl(item.type, d2)
+        const pluginLaunchUrl = getPluginLaunchUrl(pluginType, d2)
 
         if (pluginLaunchUrl) {
             return pluginLaunchUrl
@@ -116,7 +129,7 @@ const IframePlugin = ({
         setError('missing-plugin')
 
         return
-    }, [item.type, d2])
+    }, [activeType, d2])
 
     if (error) {
         return error === 'missing-plugin' ? (
@@ -157,6 +170,7 @@ const IframePlugin = ({
 }
 
 IframePlugin.propTypes = {
+    activeType: PropTypes.string,
     dashboardId: PropTypes.string,
     dashboardMode: PropTypes.string,
     filterVersion: PropTypes.string,
