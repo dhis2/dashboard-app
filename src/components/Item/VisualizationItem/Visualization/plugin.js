@@ -83,7 +83,7 @@ export const pluginIsAvailable = (type, d2) =>
     Boolean(getPluginLaunchUrl(type, d2)) ||
     itemTypeToGlobalVariable[type]
 
-const loadPlugin = async (type, config, credentials, d2) => {
+const loadPlugin = async ({ type, config, credentials, d2 }) => {
     if (!pluginIsAvailable(type, d2)) {
         return
     }
@@ -115,7 +115,7 @@ export const load = async (
     }
 
     const type = activeType || item.type
-    await loadPlugin(type, config, credentials, d2)
+    await loadPlugin({ type, config, credentials, d2 })
 }
 
 export const unmount = async (item, activeType) => {
