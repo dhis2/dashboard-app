@@ -77,6 +77,7 @@ const Visualization = ({
         case VISUALIZATION: {
             return (
                 <IframePlugin
+                    activeType={activeType}
                     visualization={memoizedGetFilteredVisualization(
                         visualizationConfig,
                         itemFilters
@@ -110,6 +111,7 @@ const Visualization = ({
                         </Cover>
                     ) : null}
                     <IframePlugin
+                        activeType={activeType}
                         visualization={visualizationConfig}
                         style={style}
                         item={item}
