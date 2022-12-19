@@ -35,7 +35,7 @@ Then('the Period filter is applied to the dashboard', () => {
 
     cy.get(innerScrollContainerSel).scrollTo('top')
     // check the MAP
-    cy.get('.dhis2-map-legend-button', EXTENDED_TIMEOUT).trigger('mouseover')
+    cy.get('.dhis2-map-legend-button', { timeout: 85000 }).trigger('mouseover')
     cy.get('.dhis2-map-legend-period', EXTENDED_TIMEOUT)
         .contains(PERIOD)
         .should('be.visible')
@@ -74,7 +74,7 @@ Then('the Facility Type filter is applied to the dashboard', () => {
         .should('be.visible')
 
     cy.get(innerScrollContainerSel).scrollTo('top')
-    cy.get(mapLegendButtonSel, EXTENDED_TIMEOUT).trigger('mouseover')
+    cy.get(mapLegendButtonSel, { timeout: 85000 }).trigger('mouseover')
     cy.get(mapLegendContentSel, EXTENDED_TIMEOUT)
         .find('div')
         .contains(`Facility Type: ${FACILITY_TYPE}`)
