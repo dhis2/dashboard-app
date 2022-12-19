@@ -57,7 +57,7 @@ Given('I open existing dashboard', () => {
 Then('the dashboard displays in view mode', () => {
     // check for a map canvas and a highcharts element
     cy.get(chartSel, EXTENDED_TIMEOUT).should('be.visible')
-    cy.get(mapSel, { timeout: 25000 }).should('be.visible')
+    cy.get(mapSel, { timeout: 45000 }).should('be.visible')
 })
 
 When('I choose to delete dashboard', () => {
