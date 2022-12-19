@@ -35,6 +35,9 @@ Then('the Period filter is applied to the dashboard', () => {
 
     cy.get(innerScrollContainerSel).scrollTo('top')
     // check the MAP
+    // TODO - restore the normal EXTENDED_TIMEOUT when
+    // slow loading of this map has been fixes
+    // https://dhis2.atlassian.net/browse/DHIS2-14365
     cy.get('.dhis2-map-legend-button', { timeout: 85000 }).trigger('mouseover')
     cy.get('.dhis2-map-legend-period', EXTENDED_TIMEOUT)
         .contains(PERIOD)
@@ -74,6 +77,9 @@ Then('the Facility Type filter is applied to the dashboard', () => {
         .should('be.visible')
 
     cy.get(innerScrollContainerSel).scrollTo('top')
+    // TODO - restore the normal EXTENDED_TIMEOUT when
+    // slow loading of this map has been fixes
+    // https://dhis2.atlassian.net/browse/DHIS2-14365
     cy.get(mapLegendButtonSel, { timeout: 85000 }).trigger('mouseover')
     cy.get(mapLegendContentSel, EXTENDED_TIMEOUT)
         .find('div')
