@@ -54,10 +54,13 @@ Given('I open existing dashboard', () => {
         .click()
 })
 
+// TODO - restore the normal EXTENDED_TIMEOUT when
+// slow loading of this map has been fixes
+// https://dhis2.atlassian.net/browse/DHIS2-14365
 Then('the dashboard displays in view mode', () => {
     // check for a map canvas and a highcharts element
     cy.get(chartSel, EXTENDED_TIMEOUT).should('be.visible')
-    cy.get(mapSel, EXTENDED_TIMEOUT).should('be.visible')
+    cy.get(mapSel, { timeout: 85000 }).should('be.visible')
 })
 
 When('I choose to delete dashboard', () => {
