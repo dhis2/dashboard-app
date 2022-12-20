@@ -29,13 +29,17 @@ jest.mock('@dhis2/ui', () => {
 /* eslint-enable react/prop-types */
 
 /* eslint-disable react/prop-types */
-jest.mock(
-    '../../../components/OfflineTooltip.js',
-    () =>
-        function Mock({ children }) {
+jest.mock('@dhis2/analytics', () => {
+    const originalModule = jest.requireActual('@dhis2/analytics')
+
+    return {
+        __esModule: true,
+        ...originalModule,
+        OfflineTooltip: function Mock({ children }) {
             return <div className="OfflineTooltip">{children}</div>
-        }
-)
+        },
+    }
+})
 /* eslint-enable react/prop-types */
 
 jest.mock(
@@ -43,14 +47,6 @@ jest.mock(
     () =>
         function Mock() {
             return <div className="mock-filter-settings-dialog" />
-        }
-)
-
-jest.mock(
-    '@dhis2/d2-ui-translation-dialog',
-    () =>
-        function Mock() {
-            return <div className="mock-translation-dialog" />
         }
 )
 

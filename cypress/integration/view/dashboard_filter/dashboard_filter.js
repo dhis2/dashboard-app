@@ -26,26 +26,31 @@ Then('the Period filter is applied to the dashboard', () => {
 
     // check the CHART
     cy.get(`${gridItemSel}.VISUALIZATION`)
-        .find(chartSubtitleSel, EXTENDED_TIMEOUT)
-        .scrollIntoView()
-        .contains(PERIOD, EXTENDED_TIMEOUT)
-        .should('be.visible')
+        .find(`${chartSubtitleSel} > title`, EXTENDED_TIMEOUT)
+        .invoke('text')
+        .then((text) => {
+            const commas = (text.match(/,/g) || []).length
+            expect(commas).to.equal(5) // a list of 6 months has 5 commas
+        })
 
     cy.get(innerScrollContainerSel).scrollTo('top')
     // check the MAP
-    cy.get('.dhis2-map-legend-button', EXTENDED_TIMEOUT).trigger('mouseover')
+    // TODO - restore the normal EXTENDED_TIMEOUT when
+    // slow loading of this map has been fixes
+    // https://dhis2.atlassian.net/browse/DHIS2-14365
+    cy.get('.dhis2-map-legend-button', { timeout: 85000 }).trigger('mouseover')
     cy.get('.dhis2-map-legend-period', EXTENDED_TIMEOUT)
         .contains(PERIOD)
         .should('be.visible')
 })
 
 /*
-Scenario: I add an Organisation Unit filter
+Scenario: I add an Organisation unit filter
 */
 
-Then('the Organisation Unit filter is applied to the dashboard', () => {
+Then('the Organisation unit filter is applied to the dashboard', () => {
     cy.get(filterBadgeSel)
-        .contains(`Organisation Unit: ${OU}`)
+        .contains(`Organisation unit: ${OU}`)
         .should('be.visible')
 
     cy.get(innerScrollContainerSel).scrollTo('bottom')
@@ -72,7 +77,10 @@ Then('the Facility Type filter is applied to the dashboard', () => {
         .should('be.visible')
 
     cy.get(innerScrollContainerSel).scrollTo('top')
-    cy.get(mapLegendButtonSel, EXTENDED_TIMEOUT).trigger('mouseover')
+    // TODO - restore the normal EXTENDED_TIMEOUT when
+    // slow loading of this map has been fixes
+    // https://dhis2.atlassian.net/browse/DHIS2-14365
+    cy.get(mapLegendButtonSel, { timeout: 85000 }).trigger('mouseover')
     cy.get(mapLegendContentSel, EXTENDED_TIMEOUT)
         .find('div')
         .contains(`Facility Type: ${FACILITY_TYPE}`)

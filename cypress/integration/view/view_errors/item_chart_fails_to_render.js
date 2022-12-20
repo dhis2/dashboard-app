@@ -19,10 +19,12 @@ import {
     dashboardChipSel,
     dashboardTitleSel,
 } from '../../../elements/viewDashboard.js'
-import { EXTENDED_TIMEOUT } from '../../../support/utils.js'
+import {
+    EXTENDED_TIMEOUT,
+    createDashboardTitle,
+} from '../../../support/utils.js'
 
-const TEST_DASHBOARD_TITLE =
-    '0filterfail' + new Date().toUTCString().slice(-12, -4)
+export const TEST_DASHBOARD_TITLE = createDashboardTitle('0ff')
 
 // Scenario: Item visualization fails when filter applied [DHIS2-11303]
 
