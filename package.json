@@ -58,7 +58,7 @@
         "d2-manifest": "^1.0.0",
         "eslint-plugin-cypress": "^2.11.3",
         "immutability-helper": "^3.1.1",
-        "patch-package": "^6.4.7",
+        "patch-package": "^6.5.0",
         "postinstall-postinstall": "^2.1.0",
         "redux-mock-store": "^1.5.4"
     },
