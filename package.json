@@ -15,7 +15,7 @@
         "@dhis2/d2-ui-rich-text": "^7.3.3",
         "@dhis2/data-visualizer-plugin": "^39.2.10",
         "@dhis2/ui": "^8.6.2",
-        "classnames": "^2.3.1",
+        "classnames": "^2.3.2",
         "d2": "^31.10.0",
         "d2-utilizr": "^0.2.16",
         "i18next": "^20.3.5",
