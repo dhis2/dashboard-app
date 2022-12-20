@@ -1,3 +1,38 @@
+## [99.10.8](https://github.com/dhis2/dashboard-app/compare/v99.10.7...v99.10.8) (2022-12-20)
+
+
+### Bug Fixes
+
+* **translations:** sync translations from transifex (master) ([#2175](https://github.com/dhis2/dashboard-app/issues/2175)) ([f74a948](https://github.com/dhis2/dashboard-app/commit/f74a948ef033f9edbc5b2e1190f2a73027cc6fe1))
+
+## [99.10.7](https://github.com/dhis2/dashboard-app/compare/v99.10.6...v99.10.7) (2022-11-26)
+
+
+### Bug Fixes
+
+* **translations:** sync translations from transifex (master) ([224c631](https://github.com/dhis2/dashboard-app/commit/224c6317b5bffe79a050ddae6eaaebc4eff00522))
+
+## [99.10.6](https://github.com/dhis2/dashboard-app/compare/v99.10.5...v99.10.6) (2022-11-25)
+
+
+### Bug Fixes
+
+* **deps:** bump platform deps to 10.1.6 and 3.7.0 ([#2169](https://github.com/dhis2/dashboard-app/issues/2169)) ([b109d89](https://github.com/dhis2/dashboard-app/commit/b109d89b938775808afbc2f8c3617f7924bbb443))
+
+## [99.10.5](https://github.com/dhis2/dashboard-app/compare/v99.10.4...v99.10.5) (2022-11-16)
+
+
+### Bug Fixes
+
+* **translations:** sync translations from transifex (master) ([ce3ff79](https://github.com/dhis2/dashboard-app/commit/ce3ff795078ec0b709c9786aaa8974a47c3a7c4f))
+
+## [99.10.4](https://github.com/dhis2/dashboard-app/compare/v99.10.3...v99.10.4) (2022-11-09)
+
+
+### Bug Fixes
+
+* bump ui dep with fix for cascade sharing ([#2146](https://github.com/dhis2/dashboard-app/issues/2146)) ([0168171](https://github.com/dhis2/dashboard-app/commit/016817144393d457c4c90b1790cfcb82df8f6f59))
+
 ## [99.10.3](https://github.com/dhis2/dashboard-app/compare/v99.10.2...v99.10.3) (2022-11-05)
 
 
