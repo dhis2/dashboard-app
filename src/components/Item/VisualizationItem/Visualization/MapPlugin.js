@@ -1,14 +1,10 @@
 import { useOnlineStatus } from '@dhis2/app-runtime'
-import { useD2 } from '@dhis2/app-runtime-adapter-d2'
 import i18n from '@dhis2/d2-i18n'
 import PropTypes from 'prop-types'
-import React, { useState, useEffect } from 'react'
+import React, { useCallback } from 'react'
 import { MAP } from '../../../../modules/itemTypes.js'
-import getVisualizationContainerDomId from '../getVisualizationContainerDomId.js'
-import { isElementFullscreen } from '../isElementFullscreen.js'
-import DefaultPlugin from './DefaultPlugin.js'
+import IframePlugin from './IframePlugin.js'
 import NoVisualizationMessage from './NoVisualizationMessage.js'
-import { pluginIsAvailable, getPlugin, unmount } from './plugin.js'
 
 const mapViewIsThematicOrEvent = (mapView) =>
     mapView.layer.includes('thematic') || mapView.layer.includes('event')
@@ -16,46 +12,19 @@ const mapViewIsThematicOrEvent = (mapView) =>
 const mapViewIsEELayer = (mapView) => mapView.layer.includes('earthEngine')
 
 const MapPlugin = ({
-    visualization,
     applyFilters,
-    availableHeight,
-    availableWidth,
-    gridWidth,
+    item,
     itemFilters,
-    ...props
+    visualization,
+    ...pluginProps
 }) => {
-    const { d2 } = useD2()
     const { offline } = useOnlineStatus()
-    const [initialized, setInitialized] = useState(false)
 
-    useEffect(() => {
-        const resizeMap = async (id, isFullscreen) => {
-            const plugin = await getPlugin(MAP)
-            plugin?.resize &&
-                plugin.resize(getVisualizationContainerDomId(id), isFullscreen)
-        }
-
-        resizeMap(props.item.id, isElementFullscreen(props.item.id))
-    }, [availableHeight, availableWidth, gridWidth])
-
-    // The function returned from this effect is run when this component unmounts
-    useEffect(() => () => unmount(props.item, MAP), [])
-
-    useEffect(() => {
-        const setMapOfflineStatus = async (offlineStatus) => {
-            const plugin = await getPlugin(MAP)
-            plugin?.setOfflineStatus && plugin.setOfflineStatus(offlineStatus)
-        }
-
-        !offline && setInitialized(true)
-
-        setMapOfflineStatus(offline)
-    }, [offline])
-
-    const getVisualization = () => {
-        if (props.item.type === MAP) {
+    const getVisualization = useCallback(() => {
+        if (item.type === MAP) {
             // apply filters only to thematic and event layers
             // for maps AO
+
             const mapViews = visualization.mapViews.map((mapView) => {
                 if (mapViewIsThematicOrEvent(mapView)) {
                     return applyFilters(mapView, itemFilters)
@@ -71,16 +40,12 @@ const MapPlugin = ({
         } else {
             // this is the case of a non map AO passed to the maps plugin
             // due to a visualization type switch in dashboard item
-            // maps plugin takes care of converting the AO to a suitable format
+            // map plugin takes care of converting the AO to a suitable format
             return applyFilters(visualization, itemFilters)
         }
-    }
+    }, [visualization, item, applyFilters, itemFilters])
 
-    if (
-        offline &&
-        !initialized &&
-        visualization.mapViews?.find(mapViewIsEELayer)
-    ) {
+    if (offline && visualization.mapViews?.find(mapViewIsEELayer)) {
         return (
             <NoVisualizationMessage
                 message={i18n.t(
@@ -90,31 +55,17 @@ const MapPlugin = ({
         )
     }
 
-    const vis = getVisualization()
-    return pluginIsAvailable(MAP, d2) ? (
-        <>
-            <DefaultPlugin
-                options={{
-                    hideTitle: true,
-                }}
-                {...props}
-                visualization={vis}
-                mapViewCount={vis.mapViews?.length}
-            />
-        </>
-    ) : (
-        <NoVisualizationMessage
-            message={i18n.t('Unable to load the plugin for this item')}
+    return (
+        <IframePlugin
+            visualization={getVisualization()}
+            item={item}
+            {...pluginProps}
         />
     )
 }
 
 MapPlugin.propTypes = {
     applyFilters: PropTypes.func,
-    availableHeight: PropTypes.number,
-    availableWidth: PropTypes.number,
-    gridWidth: PropTypes.number,
-    isFullscreen: PropTypes.bool,
     item: PropTypes.object,
     itemFilters: PropTypes.object,
     visualization: PropTypes.object,

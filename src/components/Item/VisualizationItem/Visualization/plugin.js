@@ -12,19 +12,17 @@ import { loadExternalScript } from './loadExternalScript.js'
 
 //external plugins
 const itemTypeToGlobalVariable = {
-    [MAP]: 'mapPlugin',
     [EVENT_REPORT]: 'eventReportPlugin',
     [EVENT_CHART]: 'eventChartPlugin',
 }
 
 const itemTypeToScriptPath = {
-    [MAP]: '/dhis-web-maps/map.js',
     [EVENT_REPORT]: '/dhis-web-event-reports/eventreport.js',
     [EVENT_CHART]: '/dhis-web-event-visualizer/eventchart.js',
 }
 
 const hasIntegratedPlugin = (type) =>
-    [CHART, REPORT_TABLE, VISUALIZATION].includes(type)
+    [CHART, REPORT_TABLE, VISUALIZATION, MAP].includes(type)
 
 export const getPluginLaunchUrl = (type, d2) => {
     const apps = d2.system.installedApps
@@ -81,7 +79,7 @@ const fetchPlugin = async (type, baseUrl) => {
 export const pluginIsAvailable = (type, d2) =>
     hasIntegratedPlugin(type) ||
     Boolean(getPluginLaunchUrl(type, d2)) ||
-    itemTypeToGlobalVariable[type]
+    Boolean(itemTypeToGlobalVariable[type])
 
 const loadPlugin = async ({ type, config, credentials, d2 }) => {
     if (!pluginIsAvailable(type, d2)) {
