@@ -20,7 +20,7 @@
         "d2-utilizr": "^0.2.16",
         "i18next": "^20.3.5",
         "lodash": "^4.17.21",
-        "moment": "^2.29.1",
+        "moment": "^2.29.4",
         "react": "^16.14.0",
         "react-dom": "^16.13.1",
         "react-grid-layout": "1.2.2",
