@@ -13,7 +13,7 @@ exports[`ContentMenuItem has a LaunchLink when url is provided 1`] = `
         class="jsx-3508410433 icon"
       >
         <svg
-          color="#6e7a8a"
+          color="#6C7787"
           height="24"
           viewBox="0 0 24 24"
           width="24"
@@ -82,7 +82,7 @@ exports[`does not have LaunchLink if no url provided 1`] = `
         class="jsx-3508410433 icon"
       >
         <svg
-          color="#6e7a8a"
+          color="#6C7787"
           height="24"
           viewBox="0 0 24 24"
           width="24"
