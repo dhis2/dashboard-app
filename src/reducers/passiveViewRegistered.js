@@ -10,4 +10,4 @@ export default (state = false, action) => {
     }
 }
 
-export const sGetPassiveViewRegistered = state => state.passiveViewRegistered
+export const sGetPassiveViewRegistered = (state) => state.passiveViewRegistered

@@ -1,6 +1,6 @@
 import { When, Then } from 'cypress-cucumber-preprocessor/steps'
-import { clickViewActionButton } from '../../../elements/viewDashboard'
-import { getApiBaseUrl } from '../../../support/server/utils'
+import { clickViewActionButton } from '../../../elements/viewDashboard.js'
+import { getApiBaseUrl } from '../../../support/server/utils.js'
 
 const SHOW_DESC_RESP_CODE_SUCCESS = 201
 const SHOW_DESC_RESP_CODE_FAIL = 409
@@ -14,7 +14,7 @@ before(() => {
             'content-type': 'application/json',
         },
         body: 'false',
-    }).then(response =>
+    }).then((response) =>
         expect(response.status).to.equal(SHOW_DESC_RESP_CODE_SUCCESS)
     )
 })

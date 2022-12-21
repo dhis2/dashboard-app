@@ -2,22 +2,22 @@ import { DimensionsPanel } from '@dhis2/analytics'
 import { useOnlineStatus } from '@dhis2/app-runtime'
 import i18n from '@dhis2/d2-i18n'
 import { Card, colors, IconFilter24 } from '@dhis2/ui'
-import isEmpty from 'lodash/isEmpty'
+import isEmpty from 'lodash/isEmpty.js'
 import PropTypes from 'prop-types'
 import React, { useState } from 'react'
 import { connect } from 'react-redux'
 import {
     acClearActiveModalDimension,
     acSetActiveModalDimension,
-} from '../../../actions/activeModalDimension'
-import DropdownButton from '../../../components/DropdownButton/DropdownButton'
-import useDimensions from '../../../modules/useDimensions'
-import { sGetActiveModalDimension } from '../../../reducers/activeModalDimension'
-import { sGetItemFiltersRoot } from '../../../reducers/itemFilters'
-import FilterDialog from './FilterDialog'
+} from '../../../actions/activeModalDimension.js'
+import DropdownButton from '../../../components/DropdownButton/DropdownButton.js'
+import useDimensions from '../../../modules/useDimensions.js'
+import { sGetActiveModalDimension } from '../../../reducers/activeModalDimension.js'
+import { sGetItemFiltersRoot } from '../../../reducers/itemFilters.js'
+import FilterDialog from './FilterDialog.js'
 import classes from './styles/FilterSelector.module.css'
 
-const FilterSelector = props => {
+const FilterSelector = (props) => {
     const [filterDialogIsOpen, setFilterDialogIsOpen] = useState(false)
     const dimensions = useDimensions(filterDialogIsOpen)
     const { offline } = useOnlineStatus()
@@ -31,9 +31,9 @@ const FilterSelector = props => {
         props.clearActiveModalDimension()
     }
 
-    const selectDimension = id => {
+    const selectDimension = (id) => {
         props.setActiveModalDimension(
-            dimensions.find(dimension => dimension.id === id)
+            dimensions.find((dimension) => dimension.id === id)
         )
     }
 
@@ -41,7 +41,7 @@ const FilterSelector = props => {
         if (!props.restrictFilters) {
             return dimensions
         } else {
-            return dimensions.filter(d =>
+            return dimensions.filter((d) =>
                 [...props.allowedFilters].includes(d.id)
             )
         }
@@ -81,7 +81,7 @@ const FilterSelector = props => {
     )
 }
 
-const mapStateToProps = state => ({
+const mapStateToProps = (state) => ({
     dimension: sGetActiveModalDimension(state),
     initiallySelectedItems: sGetItemFiltersRoot(state),
 })

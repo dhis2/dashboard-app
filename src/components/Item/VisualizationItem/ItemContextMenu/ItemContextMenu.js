@@ -20,20 +20,20 @@ import {
 } from '@dhis2/ui'
 import PropTypes from 'prop-types'
 import React, { useState, createRef } from 'react'
-import { getVisualizationId } from '../../../../modules/item'
+import { getVisualizationId } from '../../../../modules/item.js'
 import {
     getAppName,
     itemTypeMap,
     getItemTypeForVis,
-} from '../../../../modules/itemTypes'
-import { isSmallScreen } from '../../../../modules/smallScreen'
-import MenuItem from '../../../MenuItemWithTooltip'
-import { useSystemSettings } from '../../../SystemSettingsProvider'
-import { useWindowDimensions } from '../../../WindowDimensionsProvider'
-import { isElementFullscreen } from '../isElementFullscreen'
-import ViewAsMenuItems from './ViewAsMenuItems'
+} from '../../../../modules/itemTypes.js'
+import { isSmallScreen } from '../../../../modules/smallScreen.js'
+import MenuItem from '../../../MenuItemWithTooltip.js'
+import { useSystemSettings } from '../../../SystemSettingsProvider.js'
+import { useWindowDimensions } from '../../../WindowDimensionsProvider.js'
+import { isElementFullscreen } from '../isElementFullscreen.js'
+import ViewAsMenuItems from './ViewAsMenuItems.js'
 
-const ItemContextMenu = props => {
+const ItemContextMenu = (props) => {
     const [menuIsOpen, setMenuIsOpen] = useState(false)
     const { width } = useWindowDimensions()
     const { baseUrl } = useConfig()
@@ -69,7 +69,7 @@ const ItemContextMenu = props => {
         closeMenu()
     }
 
-    const onActiveTypeChanged = type => {
+    const onActiveTypeChanged = (type) => {
         closeMenu()
         props.onSelectActiveType(type)
     }

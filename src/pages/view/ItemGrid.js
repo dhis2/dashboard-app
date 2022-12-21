@@ -4,12 +4,12 @@ import PropTypes from 'prop-types'
 import React, { useState, useEffect } from 'react'
 import { Responsive as ResponsiveReactGridLayout } from 'react-grid-layout'
 import { connect } from 'react-redux'
-import { Item } from '../../components/Item/Item'
-import NoContentMessage from '../../components/NoContentMessage'
-import ProgressiveLoadingContainer from '../../components/ProgressiveLoadingContainer'
-import { useWindowDimensions } from '../../components/WindowDimensionsProvider'
-import { VIEW } from '../../modules/dashboardModes'
-import { getGridItemDomElementClassName } from '../../modules/getGridItemDomElementClassName'
+import { Item } from '../../components/Item/Item.js'
+import NoContentMessage from '../../components/NoContentMessage.js'
+import ProgressiveLoadingContainer from '../../components/ProgressiveLoadingContainer.js'
+import { useWindowDimensions } from '../../components/WindowDimensionsProvider.js'
+import { VIEW } from '../../modules/dashboardModes.js'
+import { getGridItemDomElementClassName } from '../../modules/getGridItemDomElementClassName.js'
 import {
     GRID_ROW_HEIGHT_PX,
     SM_SCREEN_GRID_COLUMNS,
@@ -21,13 +21,13 @@ import {
     getSmallLayout,
     getGridWidth,
     getProportionalHeight,
-} from '../../modules/gridUtil'
-import { getBreakpoint, isSmallScreen } from '../../modules/smallScreen'
-import { useCacheableSection } from '../../modules/useCacheableSection'
+} from '../../modules/gridUtil.js'
+import { getBreakpoint, isSmallScreen } from '../../modules/smallScreen.js'
+import { useCacheableSection } from '../../modules/useCacheableSection.js'
 import {
     sGetSelectedId,
     sGetSelectedDashboardItems,
-} from '../../reducers/selected'
+} from '../../reducers/selected.js'
 import classes from './styles/ItemGrid.module.css'
 
 const EXPANDED_HEIGHT = 17
@@ -55,7 +55,7 @@ const ResponsiveItemGrid = ({ dashboardId, dashboardItems }) => {
         }
     }, [recordingState])
 
-    const onToggleItemExpanded = clickedId => {
+    const onToggleItemExpanded = (clickedId) => {
         const isExpanded =
             typeof expandedItems[clickedId] === 'boolean'
                 ? expandedItems[clickedId]
@@ -66,8 +66,8 @@ const ResponsiveItemGrid = ({ dashboardId, dashboardItems }) => {
         setExpandedItems(newExpandedItems)
     }
 
-    const getItemsWithAdjustedHeight = items =>
-        items.map(item => {
+    const getItemsWithAdjustedHeight = (items) =>
+        items.map((item) => {
             const expandedItem = expandedItems[item.id]
 
             if (expandedItem && expandedItem === true) {
@@ -83,7 +83,7 @@ const ResponsiveItemGrid = ({ dashboardId, dashboardItems }) => {
             return item
         })
 
-    const getItemComponent = item => {
+    const getItemComponent = (item) => {
         if (!layoutSm.length) {
             return <div key={item.i} />
         }
@@ -109,9 +109,10 @@ const ResponsiveItemGrid = ({ dashboardId, dashboardItems }) => {
         )
     }
 
-    const getItemComponents = items => items.map(item => getItemComponent(item))
+    const getItemComponents = (items) =>
+        items.map((item) => getItemComponent(item))
 
-    const onWidthChanged = containerWidth =>
+    const onWidthChanged = (containerWidth) =>
         setTimeout(() => setGridWidth(containerWidth), 200)
 
     if (!dashboardItems.length) {
@@ -154,7 +155,7 @@ ResponsiveItemGrid.propTypes = {
     dashboardItems: PropTypes.array,
 }
 
-const mapStateToProps = state => ({
+const mapStateToProps = (state) => ({
     dashboardItems: sGetSelectedDashboardItems(state),
     dashboardId: sGetSelectedId(state),
 })

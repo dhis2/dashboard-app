@@ -1,4 +1,4 @@
-import debounce from 'lodash/debounce'
+import debounce from 'lodash/debounce.js'
 import PropTypes from 'prop-types'
 import React, { createContext, useContext, useState, useEffect } from 'react'
 

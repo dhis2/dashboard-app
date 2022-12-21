@@ -1,6 +1,6 @@
 import { When, Then } from 'cypress-cucumber-preprocessor/steps'
-import { dashboards } from '../../../assets/backends/sierraLeone_236'
-import { clickViewActionButton } from '../../../elements/viewDashboard'
+import { dashboards } from '../../../assets/backends/sierraLeone_236.js'
+import { clickViewActionButton } from '../../../elements/viewDashboard.js'
 
 When('I click to preview the print one-item-per-page', () => {
     clickViewActionButton('More')
@@ -8,9 +8,9 @@ When('I click to preview the print one-item-per-page', () => {
     cy.get('[data-test="print-oipp-menu-item"]').click()
 })
 
-Then('the print one-item-per-page displays for {string} dashboard', title => {
+Then('the print one-item-per-page displays for {string} dashboard', (title) => {
     //check the url
-    cy.location().should(loc => {
+    cy.location().should((loc) => {
         expect(loc.hash).to.equal(`${dashboards[title].route}/printoipp`)
     })
 

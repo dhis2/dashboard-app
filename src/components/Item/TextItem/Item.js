@@ -7,16 +7,16 @@ import { Divider, TextArea, spacers } from '@dhis2/ui'
 import PropTypes from 'prop-types'
 import React from 'react'
 import { connect } from 'react-redux'
-import { acUpdateDashboardItem } from '../../../actions/editDashboard'
-import { isEditMode, PRINT_LAYOUT } from '../../../modules/dashboardModes'
-import { sGetEditDashboardItems } from '../../../reducers/editDashboard'
+import { acUpdateDashboardItem } from '../../../actions/editDashboard.js'
+import { isEditMode, PRINT_LAYOUT } from '../../../modules/dashboardModes.js'
+import { sGetEditDashboardItems } from '../../../reducers/editDashboard.js'
 import {
     sGetIsPrinting,
     sGetPrintDashboardItems,
-} from '../../../reducers/printDashboard'
-import { sGetSelectedDashboardItems } from '../../../reducers/selected'
-import ItemHeader from '../ItemHeader/ItemHeader'
-import PrintItemInfo from '../ItemHeader/PrintItemInfo'
+} from '../../../reducers/printDashboard.js'
+import { sGetSelectedDashboardItems } from '../../../reducers/selected.js'
+import ItemHeader from '../ItemHeader/ItemHeader.js'
+import PrintItemInfo from '../ItemHeader/PrintItemInfo.js'
 
 const style = {
     textDiv: {
@@ -38,10 +38,10 @@ const style = {
     },
 }
 
-const TextItem = props => {
+const TextItem = (props) => {
     const { item, dashboardMode, text, acUpdateDashboardItem } = props
 
-    const onChangeText = text => {
+    const onChangeText = (text) => {
         const updatedItem = {
             ...item,
             text,
@@ -70,7 +70,7 @@ const TextItem = props => {
                 <Divider margin={`0 0 ${spacers.dp4} 0`} />
                 <div className="dashboard-item-content">
                     <RichTextEditor
-                        onEdit={event => onChangeText(event.target.value)}
+                        onEdit={(event) => onChangeText(event.target.value)}
                     >
                         <TextArea
                             rows={30}
@@ -119,7 +119,7 @@ const mapStateToProps = (state, ownProps) => {
         items = sGetSelectedDashboardItems(state)
     }
 
-    const item = items.find(item => item.id === ownProps.item.id)
+    const item = items.find((item) => item.id === ownProps.item.id)
 
     return {
         text: item ? item.text : '',

@@ -6,7 +6,7 @@ export const dashboardsQuery = {
     },
 }
 
-export const apiFetchDashboards = async dataEngine => {
+export const apiFetchDashboards = async (dataEngine) => {
     try {
         const dashboardsData = await dataEngine.query({
             dashboards: dashboardsQuery,

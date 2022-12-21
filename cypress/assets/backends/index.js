@@ -1,1 +1,1 @@
-export { dashboards } from './sierraLeone_236'
+export { dashboards } from './sierraLeone_236.js'

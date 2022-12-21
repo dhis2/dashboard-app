@@ -1,3 +1,103 @@
+## [99.10.8](https://github.com/dhis2/dashboard-app/compare/v99.10.7...v99.10.8) (2022-12-20)
+
+
+### Bug Fixes
+
+* **translations:** sync translations from transifex (master) ([#2175](https://github.com/dhis2/dashboard-app/issues/2175)) ([f74a948](https://github.com/dhis2/dashboard-app/commit/f74a948ef033f9edbc5b2e1190f2a73027cc6fe1))
+
+## [99.10.7](https://github.com/dhis2/dashboard-app/compare/v99.10.6...v99.10.7) (2022-11-26)
+
+
+### Bug Fixes
+
+* **translations:** sync translations from transifex (master) ([224c631](https://github.com/dhis2/dashboard-app/commit/224c6317b5bffe79a050ddae6eaaebc4eff00522))
+
+## [99.10.6](https://github.com/dhis2/dashboard-app/compare/v99.10.5...v99.10.6) (2022-11-25)
+
+
+### Bug Fixes
+
+* **deps:** bump platform deps to 10.1.6 and 3.7.0 ([#2169](https://github.com/dhis2/dashboard-app/issues/2169)) ([b109d89](https://github.com/dhis2/dashboard-app/commit/b109d89b938775808afbc2f8c3617f7924bbb443))
+
+## [99.10.5](https://github.com/dhis2/dashboard-app/compare/v99.10.4...v99.10.5) (2022-11-16)
+
+
+### Bug Fixes
+
+* **translations:** sync translations from transifex (master) ([ce3ff79](https://github.com/dhis2/dashboard-app/commit/ce3ff795078ec0b709c9786aaa8974a47c3a7c4f))
+
+## [99.10.4](https://github.com/dhis2/dashboard-app/compare/v99.10.3...v99.10.4) (2022-11-09)
+
+
+### Bug Fixes
+
+* bump ui dep with fix for cascade sharing ([#2146](https://github.com/dhis2/dashboard-app/issues/2146)) ([0168171](https://github.com/dhis2/dashboard-app/commit/016817144393d457c4c90b1790cfcb82df8f6f59))
+
+## [99.10.3](https://github.com/dhis2/dashboard-app/compare/v99.10.2...v99.10.3) (2022-11-05)
+
+
+### Bug Fixes
+
+* **translations:** sync translations from transifex (master) ([80b297c](https://github.com/dhis2/dashboard-app/commit/80b297c00fba03df108ff33e25da6c2fce24279a))
+
+## [99.10.2](https://github.com/dhis2/dashboard-app/compare/v99.10.1...v99.10.2) (2022-10-18)
+
+
+### Bug Fixes
+
+* use new TranslationDialog component ([#2111](https://github.com/dhis2/dashboard-app/issues/2111)) ([ce58d7f](https://github.com/dhis2/dashboard-app/commit/ce58d7fd76e906ae2ab9b815af1fcb5af300f84d))
+
+## [99.10.1](https://github.com/dhis2/dashboard-app/compare/v99.10.0...v99.10.1) (2022-10-17)
+
+
+### Bug Fixes
+
+* **translations:** sync translations from transifex (master) ([#2129](https://github.com/dhis2/dashboard-app/issues/2129)) ([3bb30f1](https://github.com/dhis2/dashboard-app/commit/3bb30f1549ad922b785be5ad406cf2b77d84c1c2))
+
+# [99.10.0](https://github.com/dhis2/dashboard-app/compare/v99.9.15...v99.10.0) (2022-10-07)
+
+
+### Features
+
+* move PWA update notification to headerbar, display app debug info ([#2126](https://github.com/dhis2/dashboard-app/issues/2126)) ([df235ae](https://github.com/dhis2/dashboard-app/commit/df235ae0658dbe10860adbee5dfb58f5070c239a))
+
+## [99.9.15](https://github.com/dhis2/dashboard-app/compare/v99.9.14...v99.9.15) (2022-09-28)
+
+
+### Bug Fixes
+
+* fix ItemSelector overflow issue DHIS2-13811 ([#2112](https://github.com/dhis2/dashboard-app/issues/2112)) ([45435b8](https://github.com/dhis2/dashboard-app/commit/45435b8dc71d934e70f0a8a426f1053f364565d8))
+* org unit filter dialog crash (DHIS2-13816) ([#2118](https://github.com/dhis2/dashboard-app/issues/2118)) ([c1ce958](https://github.com/dhis2/dashboard-app/commit/c1ce958d56cbd68ea6e30a7076bdb6a59a5fb153))
+* **translations:** sync translations from transifex (master) ([#2087](https://github.com/dhis2/dashboard-app/issues/2087)) ([af6d26e](https://github.com/dhis2/dashboard-app/commit/af6d26e0b63f57274203f5aa63b862920b9f1fde))
+
+## [99.9.14](https://github.com/dhis2/dashboard-app/compare/v99.9.13...v99.9.14) (2022-09-14)
+
+
+### Bug Fixes
+
+* bump internal deps (DHIS2-13298) ([#2103](https://github.com/dhis2/dashboard-app/issues/2103)) ([9e0fdb2](https://github.com/dhis2/dashboard-app/commit/9e0fdb2bc4bd5119c8b653767b4a0fd51a224c9d))
+
+## [99.9.13](https://github.com/dhis2/dashboard-app/compare/v99.9.12...v99.9.13) (2022-06-20)
+
+
+### Bug Fixes
+
+* bump interpretations component for DHIS2-12617 ([#2098](https://github.com/dhis2/dashboard-app/issues/2098)) ([556accf](https://github.com/dhis2/dashboard-app/commit/556accfc0d05781ab82bea5748c82a0066b742e6))
+
+## [99.9.12](https://github.com/dhis2/dashboard-app/compare/v99.9.11...v99.9.12) (2022-05-24)
+
+
+### Bug Fixes
+
+* **translations:** sync translations from transifex (master) ([#2064](https://github.com/dhis2/dashboard-app/issues/2064)) ([583d729](https://github.com/dhis2/dashboard-app/commit/583d729854e0f5722eae9d67cacaa2b70c14b1f6))
+
+## [99.9.11](https://github.com/dhis2/dashboard-app/compare/v99.9.10...v99.9.11) (2022-05-16)
+
+
+### Bug Fixes
+
+* remove duplicate field ([#2082](https://github.com/dhis2/dashboard-app/issues/2082)) ([408762b](https://github.com/dhis2/dashboard-app/commit/408762b54bf1b7bb31ad2c2d23cef8cf86596c18))
+
 ## [99.9.10](https://github.com/dhis2/dashboard-app/compare/v99.9.9...v99.9.10) (2022-05-04)
 
 

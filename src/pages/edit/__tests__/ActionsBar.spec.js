@@ -3,27 +3,50 @@ import { render } from '@testing-library/react'
 import React from 'react'
 import { Provider } from 'react-redux'
 import configureMockStore from 'redux-mock-store'
-import { DEFAULT_STATE_EDIT_DASHBOARD } from '../../../reducers/editDashboard'
-import ActionsBar from '../ActionsBar'
+import { DEFAULT_STATE_EDIT_DASHBOARD } from '../../../reducers/editDashboard.js'
+import ActionsBar from '../ActionsBar.js'
 
 const mockStore = configureMockStore()
 
 jest.mock('@dhis2/app-runtime-adapter-d2')
 jest.mock('@dhis2/app-runtime')
 
+/* eslint-disable react/prop-types */
+jest.mock('@dhis2/ui', () => {
+    const originalModule = jest.requireActual('@dhis2/ui')
+
+    return {
+        __esModule: true,
+        ...originalModule,
+        ButtonStrip: function Mock({ children }) {
+            return <div className="ui-ButtonStrip">{children}</div>
+        },
+        Button: function Mock({ children }) {
+            return <div className="ui-Button">{children}</div>
+        },
+    }
+})
+/* eslint-enable react/prop-types */
+
+/* eslint-disable react/prop-types */
+jest.mock('@dhis2/analytics', () => {
+    const originalModule = jest.requireActual('@dhis2/analytics')
+
+    return {
+        __esModule: true,
+        ...originalModule,
+        OfflineTooltip: function Mock({ children }) {
+            return <div className="OfflineTooltip">{children}</div>
+        },
+    }
+})
+/* eslint-enable react/prop-types */
+
 jest.mock(
     '../FilterSettingsDialog',
     () =>
-        function MockFilterSettingsDialog() {
+        function Mock() {
             return <div className="mock-filter-settings-dialog" />
-        }
-)
-
-jest.mock(
-    '@dhis2/d2-ui-translation-dialog',
-    () =>
-        function MockTranslationDialog() {
-            return <div className="mock-translation-dialog" />
         }
 )
 

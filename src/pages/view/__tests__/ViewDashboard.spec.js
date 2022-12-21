@@ -1,12 +1,12 @@
 import { render } from '@testing-library/react'
 import React from 'react'
-import { act } from 'react-dom/test-utils'
+import { act } from 'react-dom/test-utils.js'
 import { Provider } from 'react-redux'
 import configureMockStore from 'redux-mock-store'
 import thunk from 'redux-thunk'
-import { apiPostDataStatistics } from '../../../api/dataStatistics'
-import { apiFetchDashboard } from '../../../api/fetchDashboard'
-import ViewDashboard from '../ViewDashboard'
+import { apiPostDataStatistics } from '../../../api/dataStatistics.js'
+import { apiFetchDashboard } from '../../../api/fetchDashboard.js'
+import ViewDashboard from '../ViewDashboard.js'
 
 jest.mock('@dhis2/app-runtime-adapter-d2', () => ({
     useD2: () => ({
@@ -63,7 +63,7 @@ jest.mock(
 
 jest.mock('../../../api/dataStatistics', () => ({
     apiPostDataStatistics: jest.fn(() => {
-        return new Promise(resolve => resolve(true))
+        return new Promise((resolve) => resolve(true))
     }),
 }))
 

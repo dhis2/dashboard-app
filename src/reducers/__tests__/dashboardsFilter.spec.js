@@ -3,7 +3,7 @@ import reducer, {
     SET_DASHBOARDS_FILTER,
     CLEAR_DASHBOARDS_FILTER,
     sGetDashboardsFilter,
-} from '../dashboardsFilter'
+} from '../dashboardsFilter.js'
 
 describe('dashboards filter reducer', () => {
     it('returns the default state when action type unrecognized', () => {

@@ -3,13 +3,13 @@ import cx from 'classnames'
 import PropTypes from 'prop-types'
 import React from 'react'
 import ReactGridLayout from 'react-grid-layout'
-import NoContentMessage from '../../components/NoContentMessage'
+import NoContentMessage from '../../components/NoContentMessage.js'
 import {
     GRID_ROW_HEIGHT_PX,
     GRID_COMPACT_TYPE,
     MARGIN_PX,
     GRID_COLUMNS,
-} from '../../modules/gridUtil'
+} from '../../modules/gridUtil.js'
 
 const PAGE_PADDING_PX = 24
 

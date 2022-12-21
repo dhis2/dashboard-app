@@ -1,8 +1,8 @@
-import { DEFAULT_STATE_CONTROLBAR_ROWS } from '../reducers/controlBar'
+import { DEFAULT_STATE_CONTROLBAR_ROWS } from '../reducers/controlBar.js'
 import {
     apiGetUserDataStoreValue,
     apiPostUserDataStoreValue,
-} from './userDataStore'
+} from './userDataStore.js'
 
 const KEY_CONTROLBAR_ROWS = 'controlBarRows'
 
@@ -12,5 +12,5 @@ export const apiGetControlBarRows = async () =>
         DEFAULT_STATE_CONTROLBAR_ROWS
     )
 
-export const apiPostControlBarRows = async value =>
+export const apiPostControlBarRows = async (value) =>
     await apiPostUserDataStoreValue(KEY_CONTROLBAR_ROWS, value)

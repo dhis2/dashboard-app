@@ -12,129 +12,28 @@ exports[`TitleBar renders correctly when no name or description 1`] = `
         class="inputFieldWrapper"
       >
         <div
-          class="jsx-1141087211 "
-          data-test="dashboard-title-input"
-        >
-          <label
-            class="jsx-2718078600 "
-            data-test="dashboard-title-input-label"
-            for="Dashboard title input"
-          >
-            <span
-              class="jsx-2718078600"
-            >
-              Dashboard title
-            </span>
-          </label>
-          <div
-            class="jsx-3111771310 "
-            data-test="dashboard-title-input-content"
-          >
-            <div
-              class="jsx-1220078726 "
-              data-test="dhis2-uicore-box"
-            >
-              <div
-                class="jsx-3353877153 jsx-2133963083 input"
-                data-test="dhis2-uicore-input"
-              >
-                <input
-                  class="jsx-3353877153 jsx-2133963083 dense"
-                  id="Dashboard title input"
-                  name="Dashboard title input"
-                  placeholder="Untitled dashboard"
-                  type="text"
-                  value=""
-                />
-                <div
-                  class="jsx-3353877153 jsx-2133963083 status-icon"
-                />
-              </div>
-            </div>
-          </div>
-        </div>
+          class="ui-InputField"
+          label="Dashboard title"
+          name="Dashboard title input"
+          placeholder="Untitled dashboard"
+          type="text"
+          value=""
+        />
         <div
-          class="jsx-1141087211 "
-          data-test="dashboard-code-input"
-        >
-          <label
-            class="jsx-2718078600 "
-            data-test="dashboard-code-input-label"
-            for="Dashboard code input"
-          >
-            <span
-              class="jsx-2718078600"
-            >
-              Dashboard code
-            </span>
-          </label>
-          <div
-            class="jsx-3111771310 "
-            data-test="dashboard-code-input-content"
-          >
-            <div
-              class="jsx-1220078726 "
-              data-test="dhis2-uicore-box"
-            >
-              <div
-                class="jsx-3353877153 jsx-2133963083 input"
-                data-test="dhis2-uicore-input"
-              >
-                <input
-                  class="jsx-3353877153 jsx-2133963083 dense"
-                  id="Dashboard code input"
-                  name="Dashboard code input"
-                  type="text"
-                  value=""
-                />
-                <div
-                  class="jsx-3353877153 jsx-2133963083 status-icon"
-                />
-              </div>
-            </div>
-          </div>
-        </div>
+          class="ui-InputField"
+          label="Dashboard code"
+          name="Dashboard code input"
+          type="text"
+          value=""
+        />
       </div>
       <div
-        class="jsx-1141087211 "
-        data-test="dashboard-description-input"
-      >
-        <label
-          class="jsx-2718078600 "
-          data-test="dashboard-description-input-label"
-          for="Dashboard description input"
-        >
-          <span
-            class="jsx-2718078600"
-          >
-            Dashboard description
-          </span>
-        </label>
-        <div
-          class="jsx-3111771310 "
-          data-test="dashboard-description-input-content"
-        >
-          <div
-            class="jsx-2954617683 "
-            data-test="dhis2-uicore-box"
-          >
-            <div
-              class="jsx-4150870461 jsx-2961587785 textarea"
-              data-test="dhis2-uicore-textarea"
-            >
-              <textarea
-                class="jsx-4150870461 jsx-2961587785 dense"
-                id="Dashboard description input"
-                name="Dashboard description input"
-                rows="6"
-              />
-              <div
-                class="jsx-4150870461 jsx-2961587785 status-icon"
-              />
-            </div>
-          </div>
-        </div>
-      </div>
+        class="ui-TextAreaField"
+        label="Dashboard description"
+        name="Dashboard description input"
+        rows="6"
+        value=""
+      />
     </div>
     <div
       class="searchContainer"
@@ -167,15 +66,13 @@ exports[`TitleBar renders correctly when no name or description 1`] = `
             Freeflow
           </span>
           <span
-            class="span"
+            class="jsx-3661110597 tooltip"
           >
-            <button
-              class="jsx-1937199209 small"
-              data-test="dhis2-uicore-button"
-              type="button"
+            <div
+              class="ui-Button"
             >
               Change layout
-            </button>
+            </div>
           </span>
         </div>
       </div>
@@ -190,91 +87,16 @@ exports[`TitleBar renders correctly when no name or description 1`] = `
         <div
           class="positionOptions"
         >
-          <label
-            class="jsx-869913229 dense"
-            data-test="dhis2-uicore-radio"
-          >
-            <input
-              checked=""
-              class="jsx-869913229"
-              name="END"
-              type="radio"
-              value=""
-            />
-            <div
-              class="jsx-869913229 icon dense"
-            >
-              <svg
-                class="jsx-1659897952 jsx-1631270792 checked"
-                viewBox="0 0 14 14"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <circle
-                  class="jsx-1659897952 jsx-1631270792 background"
-                  cx="7"
-                  cy="7"
-                  r="7"
-                />
-                <path
-                  class="jsx-1659897952 jsx-1631270792 outer unchecked"
-                  d="M7,14 C10.8659932,14 14,10.8659932 14,7 C14,3.13400675 10.8659932,0 7,0 C3.13400675,0 0,3.13400675 0,7 C0,10.8659932 3.13400675,14 7,14 Z M7,13 C3.6862915,13 1,10.3137085 1,7 C1,3.6862915 3.6862915,1 7,1 C10.3137085,1 13,3.6862915 13,7 C13,10.3137085 10.3137085,13 7,13 Z"
-                />
-                <path
-                  class="jsx-1659897952 jsx-1631270792 outer checked"
-                  d="M7,14 C10.8659932,14 14,10.8659932 14,7 C14,3.13400675 10.8659932,0 7,0 C3.13400675,0 0,3.13400675 0,7 C0,10.8659932 3.13400675,14 7,14 Z M7,12 C4.23857625,12 2,9.76142375 2,7 C2,4.23857625 4.23857625,2 7,2 C9.76142375,2 12,4.23857625 12,7 C12,9.76142375 9.76142375,12 7,12 Z"
-                />
-                <circle
-                  class="jsx-1659897952 jsx-1631270792 inner"
-                  cx="7"
-                  cy="7"
-                  r="3"
-                />
-              </svg>
-            </div>
-            End of dashboard
-          </label>
-          <label
-            class="jsx-869913229 dense"
-            data-test="dhis2-uicore-radio"
-          >
-            <input
-              class="jsx-869913229"
-              name="START"
-              type="radio"
-              value=""
-            />
-            <div
-              class="jsx-869913229 icon dense"
-            >
-              <svg
-                class="jsx-1659897952 jsx-1631270792 "
-                viewBox="0 0 14 14"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <circle
-                  class="jsx-1659897952 jsx-1631270792 background"
-                  cx="7"
-                  cy="7"
-                  r="7"
-                />
-                <path
-                  class="jsx-1659897952 jsx-1631270792 outer unchecked"
-                  d="M7,14 C10.8659932,14 14,10.8659932 14,7 C14,3.13400675 10.8659932,0 7,0 C3.13400675,0 0,3.13400675 0,7 C0,10.8659932 3.13400675,14 7,14 Z M7,13 C3.6862915,13 1,10.3137085 1,7 C1,3.6862915 3.6862915,1 7,1 C10.3137085,1 13,3.6862915 13,7 C13,10.3137085 10.3137085,13 7,13 Z"
-                />
-                <path
-                  class="jsx-1659897952 jsx-1631270792 outer checked"
-                  d="M7,14 C10.8659932,14 14,10.8659932 14,7 C14,3.13400675 10.8659932,0 7,0 C3.13400675,0 0,3.13400675 0,7 C0,10.8659932 3.13400675,14 7,14 Z M7,12 C4.23857625,12 2,9.76142375 2,7 C2,4.23857625 4.23857625,2 7,2 C9.76142375,2 12,4.23857625 12,7 C12,9.76142375 9.76142375,12 7,12 Z"
-                />
-                <circle
-                  class="jsx-1659897952 jsx-1631270792 inner"
-                  cx="7"
-                  cy="7"
-                  r="3"
-                />
-              </svg>
-            </div>
-            Start of dashboard
-          </label>
+          <div
+            class="ui-Radio"
+            label="End of dashboard"
+            name="END"
+          />
+          <div
+            class="ui-Radio"
+            label="Start of dashboard"
+            name="START"
+          />
         </div>
       </div>
       <div
@@ -301,131 +123,28 @@ exports[`TitleBar renders correctly with name and description 1`] = `
         class="inputFieldWrapper"
       >
         <div
-          class="jsx-1141087211 "
-          data-test="dashboard-title-input"
-        >
-          <label
-            class="jsx-2718078600 "
-            data-test="dashboard-title-input-label"
-            for="Dashboard title input"
-          >
-            <span
-              class="jsx-2718078600"
-            >
-              Dashboard title
-            </span>
-          </label>
-          <div
-            class="jsx-3111771310 "
-            data-test="dashboard-title-input-content"
-          >
-            <div
-              class="jsx-1220078726 "
-              data-test="dhis2-uicore-box"
-            >
-              <div
-                class="jsx-3353877153 jsx-2133963083 input"
-                data-test="dhis2-uicore-input"
-              >
-                <input
-                  class="jsx-3353877153 jsx-2133963083 dense"
-                  id="Dashboard title input"
-                  name="Dashboard title input"
-                  placeholder="Untitled dashboard"
-                  type="text"
-                  value="Rainbow Dash"
-                />
-                <div
-                  class="jsx-3353877153 jsx-2133963083 status-icon"
-                />
-              </div>
-            </div>
-          </div>
-        </div>
+          class="ui-InputField"
+          label="Dashboard title"
+          name="Dashboard title input"
+          placeholder="Untitled dashboard"
+          type="text"
+          value="Rainbow Dash"
+        />
         <div
-          class="jsx-1141087211 "
-          data-test="dashboard-code-input"
-        >
-          <label
-            class="jsx-2718078600 "
-            data-test="dashboard-code-input-label"
-            for="Dashboard code input"
-          >
-            <span
-              class="jsx-2718078600"
-            >
-              Dashboard code
-            </span>
-          </label>
-          <div
-            class="jsx-3111771310 "
-            data-test="dashboard-code-input-content"
-          >
-            <div
-              class="jsx-1220078726 "
-              data-test="dhis2-uicore-box"
-            >
-              <div
-                class="jsx-3353877153 jsx-2133963083 input"
-                data-test="dhis2-uicore-input"
-              >
-                <input
-                  class="jsx-3353877153 jsx-2133963083 dense"
-                  id="Dashboard code input"
-                  name="Dashboard code input"
-                  type="text"
-                  value=""
-                />
-                <div
-                  class="jsx-3353877153 jsx-2133963083 status-icon"
-                />
-              </div>
-            </div>
-          </div>
-        </div>
+          class="ui-InputField"
+          label="Dashboard code"
+          name="Dashboard code input"
+          type="text"
+          value=""
+        />
       </div>
       <div
-        class="jsx-1141087211 "
-        data-test="dashboard-description-input"
-      >
-        <label
-          class="jsx-2718078600 "
-          data-test="dashboard-description-input-label"
-          for="Dashboard description input"
-        >
-          <span
-            class="jsx-2718078600"
-          >
-            Dashboard description
-          </span>
-        </label>
-        <div
-          class="jsx-3111771310 "
-          data-test="dashboard-description-input-content"
-        >
-          <div
-            class="jsx-2954617683 "
-            data-test="dhis2-uicore-box"
-          >
-            <div
-              class="jsx-4150870461 jsx-2961587785 textarea"
-              data-test="dhis2-uicore-textarea"
-            >
-              <textarea
-                class="jsx-4150870461 jsx-2961587785 dense"
-                id="Dashboard description input"
-                name="Dashboard description input"
-                rows="6"
-              >
-                A very colorful pony
-              </textarea>
-              <div
-                class="jsx-4150870461 jsx-2961587785 status-icon"
-              />
-            </div>
-          </div>
-        </div>
-      </div>
+        class="ui-TextAreaField"
+        label="Dashboard description"
+        name="Dashboard description input"
+        rows="6"
+        value="A very colorful pony"
+      />
     </div>
     <div
       class="searchContainer"
@@ -458,15 +177,13 @@ exports[`TitleBar renders correctly with name and description 1`] = `
             Freeflow
           </span>
           <span
-            class="span"
+            class="jsx-3661110597 tooltip"
           >
-            <button
-              class="jsx-1937199209 small"
-              data-test="dhis2-uicore-button"
-              type="button"
+            <div
+              class="ui-Button"
             >
               Change layout
-            </button>
+            </div>
           </span>
         </div>
       </div>
@@ -481,91 +198,16 @@ exports[`TitleBar renders correctly with name and description 1`] = `
         <div
           class="positionOptions"
         >
-          <label
-            class="jsx-869913229 dense"
-            data-test="dhis2-uicore-radio"
-          >
-            <input
-              checked=""
-              class="jsx-869913229"
-              name="END"
-              type="radio"
-              value=""
-            />
-            <div
-              class="jsx-869913229 icon dense"
-            >
-              <svg
-                class="jsx-1659897952 jsx-1631270792 checked"
-                viewBox="0 0 14 14"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <circle
-                  class="jsx-1659897952 jsx-1631270792 background"
-                  cx="7"
-                  cy="7"
-                  r="7"
-                />
-                <path
-                  class="jsx-1659897952 jsx-1631270792 outer unchecked"
-                  d="M7,14 C10.8659932,14 14,10.8659932 14,7 C14,3.13400675 10.8659932,0 7,0 C3.13400675,0 0,3.13400675 0,7 C0,10.8659932 3.13400675,14 7,14 Z M7,13 C3.6862915,13 1,10.3137085 1,7 C1,3.6862915 3.6862915,1 7,1 C10.3137085,1 13,3.6862915 13,7 C13,10.3137085 10.3137085,13 7,13 Z"
-                />
-                <path
-                  class="jsx-1659897952 jsx-1631270792 outer checked"
-                  d="M7,14 C10.8659932,14 14,10.8659932 14,7 C14,3.13400675 10.8659932,0 7,0 C3.13400675,0 0,3.13400675 0,7 C0,10.8659932 3.13400675,14 7,14 Z M7,12 C4.23857625,12 2,9.76142375 2,7 C2,4.23857625 4.23857625,2 7,2 C9.76142375,2 12,4.23857625 12,7 C12,9.76142375 9.76142375,12 7,12 Z"
-                />
-                <circle
-                  class="jsx-1659897952 jsx-1631270792 inner"
-                  cx="7"
-                  cy="7"
-                  r="3"
-                />
-              </svg>
-            </div>
-            End of dashboard
-          </label>
-          <label
-            class="jsx-869913229 dense"
-            data-test="dhis2-uicore-radio"
-          >
-            <input
-              class="jsx-869913229"
-              name="START"
-              type="radio"
-              value=""
-            />
-            <div
-              class="jsx-869913229 icon dense"
-            >
-              <svg
-                class="jsx-1659897952 jsx-1631270792 "
-                viewBox="0 0 14 14"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <circle
-                  class="jsx-1659897952 jsx-1631270792 background"
-                  cx="7"
-                  cy="7"
-                  r="7"
-                />
-                <path
-                  class="jsx-1659897952 jsx-1631270792 outer unchecked"
-                  d="M7,14 C10.8659932,14 14,10.8659932 14,7 C14,3.13400675 10.8659932,0 7,0 C3.13400675,0 0,3.13400675 0,7 C0,10.8659932 3.13400675,14 7,14 Z M7,13 C3.6862915,13 1,10.3137085 1,7 C1,3.6862915 3.6862915,1 7,1 C10.3137085,1 13,3.6862915 13,7 C13,10.3137085 10.3137085,13 7,13 Z"
-                />
-                <path
-                  class="jsx-1659897952 jsx-1631270792 outer checked"
-                  d="M7,14 C10.8659932,14 14,10.8659932 14,7 C14,3.13400675 10.8659932,0 7,0 C3.13400675,0 0,3.13400675 0,7 C0,10.8659932 3.13400675,14 7,14 Z M7,12 C4.23857625,12 2,9.76142375 2,7 C2,4.23857625 4.23857625,2 7,2 C9.76142375,2 12,4.23857625 12,7 C12,9.76142375 9.76142375,12 7,12 Z"
-                />
-                <circle
-                  class="jsx-1659897952 jsx-1631270792 inner"
-                  cx="7"
-                  cy="7"
-                  r="3"
-                />
-              </svg>
-            </div>
-            Start of dashboard
-          </label>
+          <div
+            class="ui-Radio"
+            label="End of dashboard"
+            name="END"
+          />
+          <div
+            class="ui-Radio"
+            label="Start of dashboard"
+            name="START"
+          />
         </div>
       </div>
       <div

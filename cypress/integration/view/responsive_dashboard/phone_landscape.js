@@ -1,10 +1,10 @@
 import { When, Then } from 'cypress-cucumber-preprocessor/steps'
-import { actionsBarSel } from '../../../elements/editDashboard'
+import { actionsBarSel } from '../../../elements/editDashboard.js'
 import {
     dashboardsBarSel,
     outerScrollContainerSel,
-} from '../../../elements/viewDashboard'
-import { EXTENDED_TIMEOUT } from '../../../support/utils'
+} from '../../../elements/viewDashboard.js'
+import { EXTENDED_TIMEOUT } from '../../../support/utils.js'
 
 // Scenario: Dashboards bar scrolls away in phone landscape
 

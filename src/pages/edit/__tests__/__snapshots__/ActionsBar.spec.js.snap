@@ -10,68 +10,43 @@ exports[`renders Save and Discard buttons but not translation dialog when new da
       class="controls"
     >
       <div
-        class="jsx-71743532 start"
-        data-test="dhis2-uicore-buttonstrip"
+        class="ui-ButtonStrip"
       >
         <div
-          class="jsx-71743532 box"
+          class="OfflineTooltip"
         >
-          <span
-            class="span"
+          <div
+            class="ui-Button"
           >
-            <button
-              class="jsx-1937199209 primary small"
-              data-test="save-dashboard-button"
-              type="button"
-            >
-              Save changes
-            </button>
-          </span>
+            Save changes
+          </div>
         </div>
         <div
-          class="jsx-71743532 box"
+          class="OfflineTooltip"
         >
-          <span
-            class="span"
+          <div
+            class="ui-Button"
           >
-            <button
-              class="jsx-1937199209 small"
-              data-test="dhis2-uicore-button"
-              type="button"
-            >
-              Print preview
-            </button>
-          </span>
+            Print preview
+          </div>
         </div>
         <div
-          class="jsx-71743532 box"
+          class="OfflineTooltip"
         >
-          <span
-            class="span"
+          <div
+            class="ui-Button"
           >
-            <button
-              class="jsx-1937199209 small"
-              data-test="dhis2-uicore-button"
-              type="button"
-            >
-              Filter settings
-            </button>
-          </span>
+            Filter settings
+          </div>
         </div>
-        <div
-          class="jsx-71743532 box"
-        />
-        <div
-          class="jsx-71743532 box"
-        />
+        
+        
       </div>
-      <button
-        class="jsx-1937199209 secondary small"
-        data-test="dhis2-uicore-button"
-        type="button"
+      <div
+        class="ui-Button"
       >
         Exit without saving
-      </button>
+      </div>
     </div>
   </div>
   <div
@@ -92,99 +67,63 @@ exports[`renders Translate, Delete, and Discard buttons when delete access 1`] =
       class="controls"
     >
       <div
-        class="jsx-71743532 start"
-        data-test="dhis2-uicore-buttonstrip"
+        class="ui-ButtonStrip"
       >
         <div
-          class="jsx-71743532 box"
+          class="OfflineTooltip"
         >
-          <span
-            class="span"
+          <div
+            class="ui-Button"
           >
-            <button
-              class="jsx-1937199209 primary small"
-              data-test="save-dashboard-button"
-              type="button"
-            >
-              Save changes
-            </button>
-          </span>
+            Save changes
+          </div>
         </div>
         <div
-          class="jsx-71743532 box"
+          class="OfflineTooltip"
         >
-          <span
-            class="span"
+          <div
+            class="ui-Button"
           >
-            <button
-              class="jsx-1937199209 small"
-              data-test="dhis2-uicore-button"
-              type="button"
-            >
-              Print preview
-            </button>
-          </span>
+            Print preview
+          </div>
         </div>
         <div
-          class="jsx-71743532 box"
+          class="OfflineTooltip"
         >
-          <span
-            class="span"
+          <div
+            class="ui-Button"
           >
-            <button
-              class="jsx-1937199209 small"
-              data-test="dhis2-uicore-button"
-              type="button"
-            >
-              Filter settings
-            </button>
-          </span>
+            Filter settings
+          </div>
         </div>
         <div
-          class="jsx-71743532 box"
+          class="OfflineTooltip"
         >
-          <span
-            class="span"
+          <div
+            class="ui-Button"
           >
-            <button
-              class="jsx-1937199209 small"
-              data-test="dhis2-uicore-button"
-              type="button"
-            >
-              Translate
-            </button>
-          </span>
+            Translate
+          </div>
         </div>
         <div
-          class="jsx-71743532 box"
+          class="OfflineTooltip"
         >
-          <span
-            class="span"
+          <div
+            class="ui-Button"
           >
-            <button
-              class="jsx-1937199209 small"
-              data-test="delete-dashboard-button"
-              type="button"
-            >
-              Delete
-            </button>
-          </span>
+            Delete
+          </div>
         </div>
       </div>
-      <button
-        class="jsx-1937199209 secondary small"
-        data-test="dhis2-uicore-button"
-        type="button"
+      <div
+        class="ui-Button"
       >
         Exit without saving
-      </button>
+      </div>
     </div>
   </div>
   <div
     class="mock-filter-settings-dialog"
-  />
-  <div
-    class="mock-translation-dialog"
   />
 </div>
 `;
@@ -198,13 +137,11 @@ exports[`renders only the Go to Dashboards button when no update access 1`] = `
     <div
       class="controls"
     >
-      <button
-        class="jsx-1937199209 secondary small"
-        data-test="dhis2-uicore-button"
-        type="button"
+      <div
+        class="ui-Button"
       >
         Go to dashboards
-      </button>
+      </div>
     </div>
   </div>
 </div>
@@ -220,87 +157,54 @@ exports[`renders the ActionsBar without Delete when no delete access 1`] = `
       class="controls"
     >
       <div
-        class="jsx-71743532 start"
-        data-test="dhis2-uicore-buttonstrip"
+        class="ui-ButtonStrip"
       >
         <div
-          class="jsx-71743532 box"
+          class="OfflineTooltip"
         >
-          <span
-            class="span"
+          <div
+            class="ui-Button"
           >
-            <button
-              class="jsx-1937199209 primary small"
-              data-test="save-dashboard-button"
-              type="button"
-            >
-              Save changes
-            </button>
-          </span>
+            Save changes
+          </div>
         </div>
         <div
-          class="jsx-71743532 box"
+          class="OfflineTooltip"
         >
-          <span
-            class="span"
+          <div
+            class="ui-Button"
           >
-            <button
-              class="jsx-1937199209 small"
-              data-test="dhis2-uicore-button"
-              type="button"
-            >
-              Print preview
-            </button>
-          </span>
+            Print preview
+          </div>
         </div>
         <div
-          class="jsx-71743532 box"
+          class="OfflineTooltip"
         >
-          <span
-            class="span"
+          <div
+            class="ui-Button"
           >
-            <button
-              class="jsx-1937199209 small"
-              data-test="dhis2-uicore-button"
-              type="button"
-            >
-              Filter settings
-            </button>
-          </span>
+            Filter settings
+          </div>
         </div>
         <div
-          class="jsx-71743532 box"
+          class="OfflineTooltip"
         >
-          <span
-            class="span"
+          <div
+            class="ui-Button"
           >
-            <button
-              class="jsx-1937199209 small"
-              data-test="dhis2-uicore-button"
-              type="button"
-            >
-              Translate
-            </button>
-          </span>
+            Translate
+          </div>
         </div>
-        <div
-          class="jsx-71743532 box"
-        />
       </div>
-      <button
-        class="jsx-1937199209 secondary small"
-        data-test="dhis2-uicore-button"
-        type="button"
+      <div
+        class="ui-Button"
       >
         Exit without saving
-      </button>
+      </div>
     </div>
   </div>
   <div
     class="mock-filter-settings-dialog"
-  />
-  <div
-    class="mock-translation-dialog"
   />
 </div>
 `;

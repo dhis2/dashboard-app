@@ -1,12 +1,12 @@
 import { When, Then } from 'cypress-cucumber-preprocessor/steps'
-import { clickEditActionButton } from '../../../elements/editDashboard'
+import { clickEditActionButton } from '../../../elements/editDashboard.js'
 import {
     dashboardTitleSel,
     dashboardDescriptionSel,
     clickViewActionButton,
-} from '../../../elements/viewDashboard'
-import { getApiBaseUrl } from '../../../support/server/utils'
-import { EXTENDED_TIMEOUT } from '../../../support/utils'
+} from '../../../elements/viewDashboard.js'
+import { getApiBaseUrl } from '../../../support/server/utils.js'
+import { EXTENDED_TIMEOUT } from '../../../support/utils.js'
 
 let norwegianTitle = ''
 let norwegianDesc = ''
@@ -17,7 +17,7 @@ beforeEach(() => {
         'POST',
         `${getApiBaseUrl()}/api/userSettings/keyDbLocale`,
         'en'
-    ).then(response => {
+    ).then((response) => {
         expect(response.status).to.equal(200)
     })
 })
@@ -41,7 +41,7 @@ Then('Norwegian title and description are displayed', () => {
         'POST',
         `${getApiBaseUrl()}/api/userSettings/keyDbLocale`,
         'no'
-    ).then(response => {
+    ).then((response) => {
         expect(response.status).to.equal(200)
     })
 

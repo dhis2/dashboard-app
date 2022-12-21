@@ -4,28 +4,28 @@ import PropTypes from 'prop-types'
 import React, { useEffect } from 'react'
 import { connect } from 'react-redux'
 import { Redirect, HashRouter as Router, Route, Switch } from 'react-router-dom'
-import { acClearActiveModalDimension } from '../actions/activeModalDimension'
-import { tSetControlBarRows } from '../actions/controlBar'
-import { tFetchDashboards } from '../actions/dashboards'
-import { acClearDashboardsFilter } from '../actions/dashboardsFilter'
-import { acClearEditDashboard } from '../actions/editDashboard'
-import { acClearItemActiveTypes } from '../actions/itemActiveTypes'
-import { acClearItemFilters } from '../actions/itemFilters'
-import { acClearPrintDashboard } from '../actions/printDashboard'
-import { acSetSelected } from '../actions/selected'
-import { tSetShowDescription } from '../actions/showDescription'
-import { acClearVisualizations } from '../actions/visualizations'
-import { NewDashboard, EditDashboard } from '../pages/edit'
-import { PrintDashboard, PrintLayoutDashboard } from '../pages/print'
-import { LandingPage, ROUTE_START_PATH } from '../pages/start'
-import { ViewDashboard } from '../pages/view'
-import { useSystemSettings } from './SystemSettingsProvider'
+import { acClearActiveModalDimension } from '../actions/activeModalDimension.js'
+import { tSetControlBarRows } from '../actions/controlBar.js'
+import { tFetchDashboards } from '../actions/dashboards.js'
+import { acClearDashboardsFilter } from '../actions/dashboardsFilter.js'
+import { acClearEditDashboard } from '../actions/editDashboard.js'
+import { acClearItemActiveTypes } from '../actions/itemActiveTypes.js'
+import { acClearItemFilters } from '../actions/itemFilters.js'
+import { acClearPrintDashboard } from '../actions/printDashboard.js'
+import { acSetSelected } from '../actions/selected.js'
+import { tSetShowDescription } from '../actions/showDescription.js'
+import { acClearVisualizations } from '../actions/visualizations.js'
+import { NewDashboard, EditDashboard } from '../pages/edit/index.js'
+import { PrintDashboard, PrintLayoutDashboard } from '../pages/print/index.js'
+import { LandingPage, ROUTE_START_PATH } from '../pages/start/index.js'
+import { ViewDashboard } from '../pages/view/index.js'
+import { useSystemSettings } from './SystemSettingsProvider.js'
 import './styles/App.css'
 import 'react-grid-layout/css/styles.css'
 import 'react-resizable/css/styles.css'
 import './styles/ItemGrid.css'
 
-const App = props => {
+const App = (props) => {
     const { d2 } = useD2()
     const { systemSettings } = useSystemSettings()
 
@@ -54,7 +54,7 @@ const App = props => {
                         <Route
                             exact
                             path="/"
-                            render={props =>
+                            render={(props) =>
                                 systemSettings.startModuleEnableLightweight ? (
                                     <Redirect to={ROUTE_START_PATH} />
                                 ) : (
@@ -78,12 +78,12 @@ const App = props => {
                         <Route
                             exact
                             path="/new"
-                            render={props => <NewDashboard {...props} />}
+                            render={(props) => <NewDashboard {...props} />}
                         />
                         <Route
                             exact
                             path="/:dashboardId"
-                            render={props => (
+                            render={(props) => (
                                 <ViewDashboard
                                     {...props}
                                     username={d2.currentUser.username}
@@ -93,17 +93,17 @@ const App = props => {
                         <Route
                             exact
                             path="/:dashboardId/edit"
-                            render={props => <EditDashboard {...props} />}
+                            render={(props) => <EditDashboard {...props} />}
                         />
                         <Route
                             exact
                             path="/:dashboardId/printoipp"
-                            render={props => <PrintDashboard {...props} />}
+                            render={(props) => <PrintDashboard {...props} />}
                         />
                         <Route
                             exact
                             path="/:dashboardId/printlayout"
-                            render={props => (
+                            render={(props) => (
                                 <PrintLayoutDashboard {...props} />
                             )}
                         />
@@ -125,7 +125,7 @@ const mapDispatchToProps = {
     fetchDashboards: tFetchDashboards,
     setControlBarRows: tSetControlBarRows,
     setShowDescription: tSetShowDescription,
-    resetState: () => dispatch => {
+    resetState: () => (dispatch) => {
         dispatch(acSetSelected({}))
         dispatch(acClearDashboardsFilter())
         dispatch(acClearVisualizations())

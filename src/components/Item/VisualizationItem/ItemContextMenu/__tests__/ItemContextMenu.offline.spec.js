@@ -1,21 +1,21 @@
 import { fireEvent } from '@testing-library/dom'
 import { render, waitFor, screen } from '@testing-library/react'
 import React from 'react'
-import { getGridItemDomElementClassName } from '../../../../../modules/getGridItemDomElementClassName'
-import { useSystemSettings } from '../../../../SystemSettingsProvider'
-import WindowDimensionsProvider from '../../../../WindowDimensionsProvider'
-import ItemContextMenu from '../ItemContextMenu'
+import { getGridItemDomElementClassName } from '../../../../../modules/getGridItemDomElementClassName.js'
+import { useSystemSettings } from '../../../../SystemSettingsProvider.js'
+import WindowDimensionsProvider from '../../../../WindowDimensionsProvider.js'
+import ItemContextMenu from '../ItemContextMenu.js'
 
 jest.mock('../../../../SystemSettingsProvider', () => {
     return {
         __esModule: true,
-        default: jest.fn(children => <div>{children}</div>),
+        default: jest.fn((children) => <div>{children}</div>),
         useSystemSettings: jest.fn(),
     }
 })
 
 jest.mock('@dhis2/app-runtime', () => ({
-    useOnlineStatus: jest.fn(() => ({ offline: true })),
+    useOnlineStatus: jest.fn(() => ({ online: false, offline: true })),
     useConfig: jest.fn(() => ({ baseUrl: 'dhis2' })),
 }))
 
@@ -47,13 +47,20 @@ const defaultProps = {
 test('renders just the button when menu closed', () => {
     useSystemSettings.mockReturnValue(mockSystemSettingsDefault)
 
-    const { container } = render(
+    const { getByRole, queryByTestId, queryByText } = render(
         <WindowDimensionsProvider>
             <ItemContextMenu {...defaultProps} />
         </WindowDimensionsProvider>
     )
 
-    expect(container).toMatchSnapshot()
+    expect(getByRole('button')).toBeTruthy()
+    expect(queryByText('View as Map')).toBeNull()
+    expect(queryByText('View as Chart')).toBeNull()
+    expect(queryByText('View as Table')).toBeNull()
+    expect(queryByTestId('divider')).toBeNull()
+    expect(queryByText('Open in Data Visualizer app')).toBeNull()
+    expect(queryByText('Show details and interpretations')).toBeNull()
+    expect(queryByText('View fullscreen')).toBeNull()
 })
 
 test('renders exit fullscreen button', () => {
@@ -302,7 +309,7 @@ test('renders popover menu when interpretations displayed', async () => {
 })
 
 test('does not render "View as" options if settings do not allow', async () => {
-    useSystemSettings.mockImplementation(() => ({
+    useSystemSettings.mockReturnValue({
         systemSettings: Object.assign(
             {},
             mockSystemSettingsDefault.systemSettings,
@@ -310,7 +317,7 @@ test('does not render "View as" options if settings do not allow', async () => {
                 allowVisViewAs: false,
             }
         ),
-    }))
+    })
 
     const { getByRole, queryAllByText } = render(
         <WindowDimensionsProvider>

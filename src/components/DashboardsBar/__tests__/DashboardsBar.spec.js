@@ -1,15 +1,15 @@
-import { fireEvent } from '@testing-library/dom'
+import { within } from '@testing-library/dom'
 import { render } from '@testing-library/react'
 import { createMemoryHistory } from 'history'
 import React from 'react'
 import { Provider } from 'react-redux'
 import { Router } from 'react-router-dom'
 import configureMockStore from 'redux-mock-store'
-import WindowDimensionsProvider from '../../../components/WindowDimensionsProvider'
-import DashboardsBar, { MIN_ROW_COUNT, MAX_ROW_COUNT } from '../DashboardsBar'
-
-// TODO this spy is an implementation detail
-jest.spyOn(window, 'requestAnimationFrame').mockImplementation(cb => cb())
+import WindowDimensionsProvider from '../../../components/WindowDimensionsProvider.js'
+import DashboardsBar, {
+    MIN_ROW_COUNT,
+    MAX_ROW_COUNT,
+} from '../DashboardsBar.js'
 
 jest.mock('@dhis2/app-runtime-adapter-d2', () => ({
     useD2: () => ({
@@ -44,14 +44,14 @@ jest.mock('@dhis2/app-runtime', () => ({
     })),
 }))
 
-test('renders a DashboardsBar with minimum height', () => {
+test('minimized DashboardsBar has Show more/less button', () => {
     const store = {
         dashboards,
         dashboardsFilter: '',
         controlBar: { userRows: parseInt(MIN_ROW_COUNT) },
         selected: { id: 'rainbow123' },
     }
-    const { container } = render(
+    const { queryAllByRole, queryByLabelText } = render(
         <Provider store={mockStore(store)}>
             <WindowDimensionsProvider>
                 <Router history={createMemoryHistory()}>
@@ -60,71 +60,19 @@ test('renders a DashboardsBar with minimum height', () => {
             </WindowDimensionsProvider>
         </Provider>
     )
-    expect(container).toMatchSnapshot()
+    const links = queryAllByRole('link')
+    expect(links.length).toEqual(Object.keys(dashboards).length)
+    expect(queryByLabelText('Show more dashboards')).toBeTruthy()
 })
 
-test('small screen: renders a DashboardsBar with minimum height', () => {
-    global.innerWidth = 480
-    global.innerHeight = 400
-
-    const store = {
-        dashboards,
-        dashboardsFilter: '',
-        controlBar: { userRows: 3 },
-        selected: { id: 'rainbow123' },
-    }
-    const { container } = render(
-        <Provider store={mockStore(store)}>
-            <WindowDimensionsProvider>
-                <Router history={createMemoryHistory()}>
-                    <DashboardsBar />
-                </Router>
-            </WindowDimensionsProvider>
-        </Provider>
-    )
-    expect(container).toMatchSnapshot()
-    global.innerWidth = 800
-    global.innerHeight = 600
-})
-
-test('small screen: clicking "Show more" maximizes dashboards bar height', () => {
-    global.innerWidth = 480
-    global.innerHeight = 400
-    const store = {
-        dashboards,
-        dashboardsFilter: '',
-        controlBar: { userRows: 3 },
-        selected: { id: 'fluttershy123' },
-    }
-    const mockExpandedChanged = jest.fn()
-    const { getByLabelText, asFragment } = render(
-        <Provider store={mockStore(store)}>
-            <WindowDimensionsProvider>
-                <Router history={createMemoryHistory()}>
-                    <DashboardsBar
-                        expanded={false}
-                        onExpandedChanged={mockExpandedChanged}
-                    />
-                </Router>
-            </WindowDimensionsProvider>
-        </Provider>
-    )
-
-    fireEvent.click(getByLabelText('Show more dashboards'))
-    expect(asFragment()).toMatchSnapshot()
-    expect(mockExpandedChanged).toBeCalledWith(true)
-    global.innerWidth = 800
-    global.innerHeight = 600
-})
-
-test('renders a DashboardsBar with maximum height', () => {
+test('maximized DashboardsBar does not have a Show more/less button', () => {
     const store = {
         dashboards,
         dashboardsFilter: '',
         controlBar: { userRows: parseInt(MAX_ROW_COUNT) },
         selected: { id: 'rainbow123' },
     }
-    const { container } = render(
+    const { queryByLabelText } = render(
         <Provider store={mockStore(store)}>
             <WindowDimensionsProvider>
                 <Router history={createMemoryHistory()}>
@@ -136,7 +84,7 @@ test('renders a DashboardsBar with maximum height', () => {
             </WindowDimensionsProvider>
         </Provider>
     )
-    expect(container).toMatchSnapshot()
+    expect(queryByLabelText('Show more dashboards')).toBeNull()
 })
 
 test('renders a DashboardsBar with selected item', () => {
@@ -147,7 +95,7 @@ test('renders a DashboardsBar with selected item', () => {
         selected: { id: 'fluttershy123' },
     }
 
-    const { container } = render(
+    const { queryAllByRole } = render(
         <WindowDimensionsProvider>
             <Router history={createMemoryHistory()}>
                 <Provider store={mockStore(store)}>
@@ -159,7 +107,19 @@ test('renders a DashboardsBar with selected item', () => {
             </Router>
         </WindowDimensionsProvider>
     )
-    expect(container).toMatchSnapshot()
+
+    const chips = queryAllByRole('link')
+
+    const fluttershyChip = chips.find((lnk) =>
+        within(lnk).queryByText('Fluttershy')
+    )
+
+    expect(fluttershyChip.firstChild.classList.contains('selected')).toBe(true)
+
+    const rainbowChip = chips.find((lnk) =>
+        within(lnk).queryByText('Rainbow Dash')
+    )
+    expect(rainbowChip.firstChild.classList.contains('selected')).toBe(false)
 })
 
 test('renders a DashboardsBar with no items', () => {
@@ -170,7 +130,7 @@ test('renders a DashboardsBar with no items', () => {
         selected: { id: 'rainbow123' },
     }
 
-    const { container } = render(
+    const { queryByRole } = render(
         <Provider store={mockStore(store)}>
             <WindowDimensionsProvider>
                 <Router history={createMemoryHistory()}>
@@ -182,31 +142,5 @@ test('renders a DashboardsBar with no items', () => {
             </WindowDimensionsProvider>
         </Provider>
     )
-    expect(container).toMatchSnapshot()
-})
-
-test('clicking "Show more" maximizes dashboards bar height', () => {
-    const store = {
-        dashboards,
-        dashboardsFilter: '',
-        controlBar: { userRows: parseInt(MIN_ROW_COUNT) },
-        selected: { id: 'fluttershy123' },
-    }
-    const mockOnExpandedChanged = jest.fn()
-    const { getByLabelText, asFragment } = render(
-        <Provider store={mockStore(store)}>
-            <WindowDimensionsProvider>
-                <Router history={createMemoryHistory()}>
-                    <DashboardsBar
-                        expanded={false}
-                        onExpandedChanged={mockOnExpandedChanged}
-                    />
-                </Router>
-            </WindowDimensionsProvider>
-        </Provider>
-    )
-
-    fireEvent.click(getByLabelText('Show more dashboards'))
-    expect(mockOnExpandedChanged).toBeCalledWith(true)
-    expect(asFragment()).toMatchSnapshot()
+    expect(queryByRole('link')).toBeNull()
 })

@@ -1,3 +1,4 @@
+import { OfflineTooltip } from '@dhis2/analytics'
 import { useOnlineStatus } from '@dhis2/app-runtime'
 import i18n from '@dhis2/d2-i18n'
 import { InputField, TextAreaField, Radio, Button } from '@dhis2/ui'
@@ -11,18 +12,17 @@ import {
     tSetDashboardItems,
     acSetItemConfigInsertPosition,
     acSetDashboardCode,
-} from '../../actions/editDashboard'
-import OfflineTooltip from '../../components/OfflineTooltip'
-import { orObject } from '../../modules/util'
+} from '../../actions/editDashboard.js'
+import { orObject } from '../../modules/util.js'
 import {
     sGetEditDashboardRoot,
     sGetItemConfigInsertPosition,
     sGetLayoutColumns,
-} from '../../reducers/editDashboard'
-import { LayoutFixedIcon } from './assets/LayoutFixed'
-import { LayoutFreeflowIcon } from './assets/LayoutFreeflow'
-import ItemSelector from './ItemSelector/ItemSelector'
-import { LayoutModal } from './LayoutModal'
+} from '../../reducers/editDashboard.js'
+import { LayoutFixedIcon } from './assets/LayoutFixed.js'
+import { LayoutFreeflowIcon } from './assets/LayoutFreeflow.js'
+import ItemSelector from './ItemSelector/ItemSelector.js'
+import { LayoutModal } from './LayoutModal.js'
 import classes from './styles/TitleBar.module.css'
 
 const EditTitleBar = ({
@@ -131,7 +131,7 @@ const EditTitleBar = ({
                             dense
                             label={i18n.t('End of dashboard')}
                             name="END"
-                            onChange={value =>
+                            onChange={(value) =>
                                 value.checked &&
                                 onChangeInsertPosition(value.name)
                             }
@@ -141,7 +141,7 @@ const EditTitleBar = ({
                             dense
                             label={i18n.t('Start of dashboard')}
                             name="START"
-                            onChange={value =>
+                            onChange={(value) =>
                                 value.checked &&
                                 onChangeInsertPosition(value.name)
                             }
@@ -184,7 +184,7 @@ EditTitleBar.defaultProps = {
     insertPosition: 'END',
 }
 
-const mapStateToProps = state => {
+const mapStateToProps = (state) => {
     const selectedDashboard = orObject(sGetEditDashboardRoot(state))
 
     return {
@@ -201,10 +201,10 @@ const mapDispatchToProps = {
     onChangeTitle: acSetDashboardTitle,
     onChangeDescription: acSetDashboardDescription,
     onChangeInsertPosition: acSetItemConfigInsertPosition,
-    onSaveLayout: columns => dispatch => {
+    onSaveLayout: (columns) => (dispatch) => {
         dispatch(
             acSetLayoutColumns(
-                [...Array(columns).keys()].map(i => ({ index: i }))
+                [...Array(columns).keys()].map((i) => ({ index: i }))
             )
         )
         dispatch(tSetDashboardItems())

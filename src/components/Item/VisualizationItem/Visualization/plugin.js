@@ -5,9 +5,9 @@ import {
     MAP,
     EVENT_REPORT,
     EVENT_CHART,
-} from '../../../../modules/itemTypes'
-import getVisualizationContainerDomId from '../getVisualizationContainerDomId'
-import { loadExternalScript } from './loadExternalScript'
+} from '../../../../modules/itemTypes.js'
+import getVisualizationContainerDomId from '../getVisualizationContainerDomId.js'
+import { loadExternalScript } from './loadExternalScript.js'
 
 //external plugins
 const itemTypeToGlobalVariable = {
@@ -22,10 +22,10 @@ const itemTypeToScriptPath = {
     [EVENT_CHART]: '/dhis-web-event-visualizer/eventchart.js',
 }
 
-const hasIntegratedPlugin = type =>
+const hasIntegratedPlugin = (type) =>
     [CHART, REPORT_TABLE, VISUALIZATION].includes(type)
 
-export const getPlugin = async type => {
+export const getPlugin = async (type) => {
     if (hasIntegratedPlugin(type)) {
         return true
     }
@@ -64,7 +64,7 @@ const fetchPlugin = async (type, baseUrl) => {
     return await scriptsPromise
 }
 
-export const pluginIsAvailable = type =>
+export const pluginIsAvailable = (type) =>
     hasIntegratedPlugin(type) || itemTypeToGlobalVariable[type]
 
 const loadPlugin = async (type, config, credentials) => {

@@ -1,32 +1,30 @@
+import { OfflineTooltip, TranslationDialog } from '@dhis2/analytics'
 import { useOnlineStatus, useDataEngine, useAlert } from '@dhis2/app-runtime'
-import { useD2 } from '@dhis2/app-runtime-adapter-d2'
 import i18n from '@dhis2/d2-i18n'
-import TranslationDialog from '@dhis2/d2-ui-translation-dialog'
 import { Button, ButtonStrip } from '@dhis2/ui'
 import PropTypes from 'prop-types'
 import React, { useState } from 'react'
 import { connect } from 'react-redux'
 import { Redirect } from 'react-router-dom'
-import { tFetchDashboards } from '../../actions/dashboards'
+import { tFetchDashboards } from '../../actions/dashboards.js'
 import {
     tSaveDashboard,
     acClearEditDashboard,
     acSetPrintPreviewView,
     acClearPrintPreviewView,
     acSetFilterSettings,
-} from '../../actions/editDashboard'
-import { acClearPrintDashboard } from '../../actions/printDashboard'
-import { acClearSelected } from '../../actions/selected'
-import ConfirmActionDialog from '../../components/ConfirmActionDialog'
-import OfflineTooltip from '../../components/OfflineTooltip'
+} from '../../actions/editDashboard.js'
+import { acClearPrintDashboard } from '../../actions/printDashboard.js'
+import { acClearSelected } from '../../actions/selected.js'
+import ConfirmActionDialog from '../../components/ConfirmActionDialog.js'
 import {
     sGetEditDashboardRoot,
     sGetIsPrintPreviewView,
     sGetEditIsDirty,
     sGetLayoutColumns,
-} from '../../reducers/editDashboard'
-import { deleteDashboardMutation } from './deleteDashboardMutation'
-import FilterSettingsDialog from './FilterSettingsDialog'
+} from '../../reducers/editDashboard.js'
+import { deleteDashboardMutation } from './deleteDashboardMutation.js'
+import FilterSettingsDialog from './FilterSettingsDialog.js'
 import classes from './styles/ActionsBar.module.css'
 
 const saveFailedMessage = i18n.t(
@@ -41,8 +39,9 @@ const deleteFailedMessage = i18n.t(
     'Failed to delete dashboard. You might be offline or not have access to edit this dashboard.'
 )
 
+const fieldsToTranslate = ['name', 'description']
+
 const EditBar = ({ dashboard, ...props }) => {
-    const { d2 } = useD2()
     const dataEngine = useDataEngine()
     const { online } = useOnlineStatus()
     const [translationDlgIsOpen, setTranslationDlgIsOpen] = useState(false)
@@ -89,11 +88,11 @@ const EditBar = ({ dashboard, ...props }) => {
     const onSave = () => {
         props
             .saveDashboard()
-            .then(newId => {
+            .then((newId) => {
                 props.clearSelected()
                 setRedirectUrl(`/${newId}`)
             })
-            .catch(e => {
+            .catch((e) => {
                 if (
                     e.details.httpStatusCode === 409 &&
                     e.details.response?.errorReports?.at(0)?.errorCode ===
@@ -159,23 +158,13 @@ const EditBar = ({ dashboard, ...props }) => {
     }
 
     const translationDialog = () =>
-        dashboard.id ? (
+        translationDlgIsOpen ? (
             <TranslationDialog
                 className="translation-dialog"
-                d2={d2}
-                open={translationDlgIsOpen}
-                onRequestClose={toggleTranslationDialog}
-                objectToTranslate={{
-                    ...dashboard,
-                    modelDefinition: { name: 'dashboard' },
-                }}
-                fieldsToTranslate={['name', 'description']}
-                onTranslationError={err =>
-                    console.log('translation update error', err)
-                }
+                onClose={toggleTranslationDialog}
+                objectToTranslate={dashboard}
+                fieldsToTranslate={fieldsToTranslate}
                 onTranslationSaved={Function.prototype}
-                insertTheme={true}
-                isOnline={online}
             />
         ) : null
 
@@ -324,10 +313,10 @@ EditBar.propTypes = {
 }
 
 EditBar.defaultProps = {
-    columns: [...Array(5).keys()].map(i => ({ index: i })),
+    columns: [...Array(5).keys()].map((i) => ({ index: i })),
 }
 
-const mapStateToProps = state => ({
+const mapStateToProps = (state) => ({
     columns: sGetLayoutColumns(state),
     dashboard: sGetEditDashboardRoot(state),
     isPrintPreviewView: sGetIsPrintPreviewView(state),
@@ -335,15 +324,16 @@ const mapStateToProps = state => ({
 })
 
 const mapDispatchToProps = {
-    clearPrintDashboard: () => dispatch => dispatch(acClearPrintDashboard()),
-    clearPrintPreview: () => dispatch => dispatch(acClearPrintPreviewView()),
-    clearSelected: () => dispatch => dispatch(acClearSelected()),
-    saveDashboard: () => dispatch => dispatch(tSaveDashboard()).then(id => id),
-    fetchDashboards: () => dispatch => dispatch(tFetchDashboards()),
-    onDiscardChanges: () => dispatch => dispatch(acClearEditDashboard()),
-    setFilterSettings: value => dispatch =>
+    clearPrintDashboard: () => (dispatch) => dispatch(acClearPrintDashboard()),
+    clearPrintPreview: () => (dispatch) => dispatch(acClearPrintPreviewView()),
+    clearSelected: () => (dispatch) => dispatch(acClearSelected()),
+    saveDashboard: () => (dispatch) =>
+        dispatch(tSaveDashboard()).then((id) => id),
+    fetchDashboards: () => (dispatch) => dispatch(tFetchDashboards()),
+    onDiscardChanges: () => (dispatch) => dispatch(acClearEditDashboard()),
+    setFilterSettings: (value) => (dispatch) =>
         dispatch(acSetFilterSettings(value)),
-    showPrintPreview: () => dispatch => dispatch(acSetPrintPreviewView()),
+    showPrintPreview: () => (dispatch) => dispatch(acSetPrintPreviewView()),
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(EditBar)

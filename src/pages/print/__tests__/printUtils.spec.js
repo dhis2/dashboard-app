@@ -1,4 +1,4 @@
-import { getDomGridItemsSortedByYPos, getTransformYPx } from '../printUtils'
+import { getDomGridItemsSortedByYPos, getTransformYPx } from '../printUtils.js'
 
 describe('printUtils', () => {
     describe('getDomGridItemsSortedByYPos', () => {
@@ -157,7 +157,7 @@ describe('printUtils', () => {
             expect(result.length).toEqual(elements.length)
             const expectedPageBreakIndexes = [2, 5, 8, 11, 12, 13]
 
-            expectedPageBreakIndexes.forEach(i => {
+            expectedPageBreakIndexes.forEach((i) => {
                 expect(result[i].type).toEqual('PAGEBREAK')
             })
 
@@ -292,7 +292,7 @@ describe('printUtils', () => {
             expect(result.length).toEqual(elements.length)
             const expectedPageBreakIndexes = [2, 5, 8, 11, 12, 13]
 
-            expectedPageBreakIndexes.forEach(i => {
+            expectedPageBreakIndexes.forEach((i) => {
                 expect(result[i].type).toEqual('PAGEBREAK')
             })
 

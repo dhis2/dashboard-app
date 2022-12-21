@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types'
 import React, { useEffect } from 'react'
-import getVisualizationContainerDomId from '../getVisualizationContainerDomId'
-import DefaultPlugin from './DefaultPlugin'
+import getVisualizationContainerDomId from '../getVisualizationContainerDomId.js'
+import DefaultPlugin from './DefaultPlugin.js'
 
 const LegacyPlugin = ({
     availableHeight,

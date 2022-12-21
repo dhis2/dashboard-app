@@ -1,13 +1,20 @@
 import { Given, When, Then } from 'cypress-cucumber-preprocessor/steps'
-import { gridItemSel, chartSel, mapSel } from '../../../elements/dashboardItem'
-import { confirmActionDialogSel } from '../../../elements/editDashboard'
+import {
+    gridItemSel,
+    chartSel,
+    mapSel,
+} from '../../../elements/dashboardItem.js'
+import { confirmActionDialogSel } from '../../../elements/editDashboard.js'
 import {
     dashboardChipSel,
     dashboardTitleSel,
-} from '../../../elements/viewDashboard'
-import { EXTENDED_TIMEOUT } from '../../../support/utils'
+} from '../../../elements/viewDashboard.js'
+import {
+    EXTENDED_TIMEOUT,
+    createDashboardTitle,
+} from '../../../support/utils.js'
 
-const TEST_DASHBOARD_TITLE = 'a filter ' + new Date().toUTCString()
+const TEST_DASHBOARD_TITLE = createDashboardTitle('af')
 
 When('I add a MAP and a CHART and save', () => {
     //add the title
@@ -47,10 +54,13 @@ Given('I open existing dashboard', () => {
         .click()
 })
 
+// TODO - restore the normal EXTENDED_TIMEOUT when
+// slow loading of this map has been fixes
+// https://dhis2.atlassian.net/browse/DHIS2-14365
 Then('the dashboard displays in view mode', () => {
     // check for a map canvas and a highcharts element
     cy.get(chartSel, EXTENDED_TIMEOUT).should('be.visible')
-    cy.get(mapSel, EXTENDED_TIMEOUT).should('be.visible')
+    cy.get(mapSel, { timeout: 85000 }).should('be.visible')
 })
 
 When('I choose to delete dashboard', () => {

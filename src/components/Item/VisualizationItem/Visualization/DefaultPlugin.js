@@ -2,8 +2,8 @@ import { useConfig } from '@dhis2/app-runtime'
 import { useD2 } from '@dhis2/app-runtime-adapter-d2'
 import PropTypes from 'prop-types'
 import React, { useEffect, useRef } from 'react'
-import getVisualizationContainerDomId from '../getVisualizationContainerDomId'
-import { load, unmount } from './plugin'
+import getVisualizationContainerDomId from '../getVisualizationContainerDomId.js'
+import { load, unmount } from './plugin.js'
 
 const DefaultPlugin = ({
     item,

@@ -2,7 +2,7 @@ import reducer, {
     DEFAULT_STATE_ITEM_FILTERS,
     REMOVE_ITEM_FILTER,
     CLEAR_ITEM_FILTERS,
-} from '../itemFilters'
+} from '../itemFilters.js'
 
 const testKey = 'ou'
 const testValue = [{ id: 'ou1', name: 'OU test' }]

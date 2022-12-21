@@ -2,17 +2,17 @@ import i18n from '@dhis2/d2-i18n'
 import PropTypes from 'prop-types'
 import React from 'react'
 import { connect } from 'react-redux'
-import { sGetIsEditing } from '../../../reducers/editDashboard'
-import { sGetNamedItemFilters } from '../../../reducers/itemFilters'
+import { sGetIsEditing } from '../../../reducers/editDashboard.js'
+import { sGetNamedItemFilters } from '../../../reducers/itemFilters.js'
 import {
     sGetPrintDashboardName,
     sGetPrintDashboardDescription,
-} from '../../../reducers/printDashboard'
+} from '../../../reducers/printDashboard.js'
 import {
     sGetSelectedDisplayName,
     sGetSelectedDisplayDescription,
-} from '../../../reducers/selected'
-import { sGetShowDescription } from '../../../reducers/showDescription'
+} from '../../../reducers/selected.js'
+import { sGetShowDescription } from '../../../reducers/showDescription.js'
 import classes from './styles/Item.module.css'
 
 const PrintTitlePageItem = ({
@@ -24,7 +24,7 @@ const PrintTitlePageItem = ({
     const getItemFilterList = () => {
         const listItems = itemFilters.map(({ name, values }) => (
             <li className={classes.filterListItem} key={name}>
-                {name}: {values.map(val => val.name).join(', ')}
+                {name}: {values.map((val) => val.name).join(', ')}
             </li>
         ))
 
@@ -62,7 +62,7 @@ PrintTitlePageItem.defaultProps = {
     showDescription: false,
 }
 
-const mapStateToProps = state => {
+const mapStateToProps = (state) => {
     const isEditMode = sGetIsEditing(state)
 
     const name = isEditMode

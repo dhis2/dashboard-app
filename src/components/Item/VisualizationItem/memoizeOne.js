@@ -2,7 +2,7 @@
 // This is useful instead of lodash/memoize when we only need to memoize a single value
 // Inspiration: https://github.com/alexreardon/memoize-one
 
-const memoizeOne = fn => {
+const memoizeOne = (fn) => {
     let lastArgs = undefined
     let lastValue = undefined
 

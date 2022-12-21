@@ -17,11 +17,11 @@ Feature: Editing Filter Restrictions
         Then Filter Restrictions are not restricted
 
     @nonmutating
-    Scenario: I see Period and Organisation Unit if newly choosing to restrict dimensions
+    Scenario: I see Period and Organisation unit if newly choosing to restrict dimensions
         Given I open an existing dashboard with non-restricted Filter settings in edit mode
         And I click on Filter settings
         And I click to restrict Filter settings
-        Then Period and Organisation Unit are displayed as selected by default
+        Then Period and Organisation unit are displayed as selected by default
 
     @nonmutating
     Scenario: I change Filter Restrictions and the changes persist while editing Filter settings

@@ -2,7 +2,7 @@ import { When } from 'cypress-cucumber-preprocessor/steps'
 import {
     confirmActionDialogSel,
     clickEditActionButton,
-} from '../../../elements/editDashboard'
+} from '../../../elements/editDashboard.js'
 
 When('A 500 error is thrown when I delete the dashboard', () => {
     cy.intercept('DELETE', '/dashboards', { statusCode: 500 })

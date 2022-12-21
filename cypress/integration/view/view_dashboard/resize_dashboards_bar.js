@@ -2,8 +2,8 @@ import { When, Then } from 'cypress-cucumber-preprocessor/steps'
 import {
     dragHandleSel,
     dashboardsBarSel,
-} from '../../../elements/viewDashboard'
-import { EXTENDED_TIMEOUT } from '../../../support/utils'
+} from '../../../elements/viewDashboard.js'
+import { EXTENDED_TIMEOUT } from '../../../support/utils.js'
 
 // Scenario: I change the height of the control bar
 When('I drag to increase the height of the control bar', () => {

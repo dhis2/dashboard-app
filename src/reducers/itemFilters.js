@@ -1,5 +1,5 @@
 import { createSelector } from 'reselect'
-import { sGetDimensions } from './dimensions'
+import { sGetDimensions } from './dimensions.js'
 
 export const CLEAR_ITEM_FILTERS = 'CLEAR_ITEM_FILTERS'
 export const ADD_ITEM_FILTER = 'ADD_ITEM_FILTER'
@@ -32,7 +32,7 @@ export default (state = DEFAULT_STATE_ITEM_FILTERS, action) => {
 
 // selectors
 
-export const sGetItemFiltersRoot = state => state.itemFilters
+export const sGetItemFiltersRoot = (state) => state.itemFilters
 
 // simplify the filters structure to:
 // [{ id: 'pe', name: 'Period', values: [{ id: 2019: name: '2019' }, {id: 'LAST_MONTH', name: 'Last month' }]}, ...]
@@ -42,8 +42,8 @@ export const sGetNamedItemFilters = createSelector(
         Object.keys(filters).reduce((arr, id) => {
             arr.push({
                 id: id,
-                name: dimensions.find(dimension => dimension.id === id).name,
-                values: filters[id].map(value => ({
+                name: dimensions.find((dimension) => dimension.id === id).name,
+                values: filters[id].map((value) => ({
                     id: value.id,
                     name: value.displayName || value.name,
                 })),

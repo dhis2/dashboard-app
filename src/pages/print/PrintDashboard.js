@@ -1,6 +1,6 @@
 import { useDataEngine } from '@dhis2/app-runtime'
 import { Layer, CenteredContent, CircularLoader } from '@dhis2/ui'
-import sortBy from 'lodash/sortBy'
+import sortBy from 'lodash/sortBy.js'
 import PropTypes from 'prop-types'
 import React, { useState, useEffect } from 'react'
 import { connect } from 'react-redux'
@@ -10,18 +10,18 @@ import {
     acAddPrintDashboardItem,
     acRemovePrintDashboardItem,
     acUpdatePrintDashboardItem,
-} from '../../actions/printDashboard'
-import { apiFetchDashboard } from '../../api/fetchDashboard'
-import { VIEW } from '../../modules/dashboardModes'
+} from '../../actions/printDashboard.js'
+import { apiFetchDashboard } from '../../api/fetchDashboard.js'
+import { VIEW } from '../../modules/dashboardModes.js'
 import {
     MAX_ITEM_GRID_HEIGHT_OIPP,
     MAX_ITEM_GRID_WIDTH_OIPP,
-} from '../../modules/gridUtil'
-import { PAGEBREAK, PRINT_TITLE_PAGE, SPACER } from '../../modules/itemTypes'
-import { setHeaderbarVisible } from '../../modules/setHeaderbarVisible'
-import PrintActionsBar from './ActionsBar'
-import PrintInfo from './PrintInfo'
-import PrintItemGrid from './PrintItemGrid'
+} from '../../modules/gridUtil.js'
+import { PAGEBREAK, PRINT_TITLE_PAGE, SPACER } from '../../modules/itemTypes.js'
+import { setHeaderbarVisible } from '../../modules/setHeaderbarVisible.js'
+import PrintActionsBar from './ActionsBar.js'
+import PrintInfo from './PrintInfo.js'
+import PrintItemGrid from './PrintItemGrid.js'
 import classes from './styles/PrintDashboard.module.css'
 
 import './styles/print.css'
@@ -56,7 +56,7 @@ const PrintDashboard = ({
 
                 // remove spacers - don't want empty pages
                 let spacerCount = 0
-                sortedItems.forEach(item => {
+                sortedItems.forEach((item) => {
                     if (item.type === SPACER) {
                         spacerCount += 1
                         removeDashboardItem(item.id)
@@ -64,7 +64,7 @@ const PrintDashboard = ({
                 })
 
                 // Resize the items to the full page size
-                sortedItems.forEach(item => {
+                sortedItems.forEach((item) => {
                     updateDashboardItem(
                         Object.assign({}, item, {
                             w: MAX_ITEM_GRID_WIDTH_OIPP,

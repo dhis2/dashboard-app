@@ -1,6 +1,6 @@
 import { render } from '@testing-library/react'
 import React from 'react'
-import ContentMenuItem from '../ContentMenuItem'
+import ContentMenuItem from '../ContentMenuItem.js'
 
 test('ContentMenuItem has a LaunchLink when url is provided', () => {
     const props = {

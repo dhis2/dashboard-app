@@ -4,11 +4,11 @@ import { Divider, spacers } from '@dhis2/ui'
 import PropTypes from 'prop-types'
 import React from 'react'
 import { connect } from 'react-redux'
-import { isViewMode } from '../../../modules/dashboardModes'
-import { sGetMessagesRoot } from '../../../reducers/messages'
-import { useUserSettings } from '../../UserSettingsProvider'
-import ItemHeader from '../ItemHeader/ItemHeader'
-import { getFormattedDate } from './getFormattedDate'
+import { isViewMode } from '../../../modules/dashboardModes.js'
+import { sGetMessagesRoot } from '../../../reducers/messages.js'
+import { useUserSettings } from '../../UserSettingsProvider.js'
+import ItemHeader from '../ItemHeader/ItemHeader.js'
+import { getFormattedDate } from './getFormattedDate.js'
 import classes from './styles/Item.module.css'
 import './MessagesItem.css'
 
@@ -25,12 +25,12 @@ const MessagesItem = ({ messages, item, dashboardMode }) => {
     const { baseUrl } = useConfig()
     const { userSettings } = useUserSettings()
 
-    const getMessageHref = msg => {
+    const getMessageHref = (msg) => {
         const msgIdentifier = msg ? `#/${msg.messageType}/${msg.id}` : ''
         return `${baseUrl}/dhis-web-messaging/${msgIdentifier}`
     }
 
-    const getMessageSender = msg => {
+    const getMessageSender = (msg) => {
         const latestMsg = msg.messages.slice(-1)[0]
         return latestMsg.sender ? latestMsg.sender.displayName : ''
     }
@@ -38,7 +38,7 @@ const MessagesItem = ({ messages, item, dashboardMode }) => {
     const getMessageItems = () => {
         const modeClass = isViewMode(dashboardMode) ? 'view' : null
 
-        return messages.map(msg => {
+        return messages.map((msg) => {
             const redirectToMsg = () => {
                 if (isViewMode(dashboardMode)) {
                     document.location.href = getMessageHref(msg)
@@ -102,7 +102,7 @@ MessagesItem.propTypes = {
     messages: PropTypes.array,
 }
 
-const mapStateToProps = state => {
+const mapStateToProps = (state) => {
     return {
         messages: Object.values(sGetMessagesRoot(state)),
     }

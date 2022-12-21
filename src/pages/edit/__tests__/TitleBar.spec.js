@@ -2,17 +2,44 @@ import { render } from '@testing-library/react'
 import React from 'react'
 import { Provider } from 'react-redux'
 import configureMockStore from 'redux-mock-store'
-import TitleBar from '../TitleBar'
+import TitleBar from '../TitleBar.js'
 
 const mockStore = configureMockStore()
 
 jest.mock(
-    '../ItemSelector/ItemSelector',
+    '../ItemSelector/ItemSelector.js',
     () =>
         function MockItemSelector() {
             return <div className="item-selector" />
         }
 )
+
+/* eslint-disable react/prop-types, no-unused-vars*/
+jest.mock('@dhis2/ui', () => {
+    const originalModule = jest.requireActual('@dhis2/ui')
+    // InputField, TextAreaField, Radio,
+    return {
+        __esModule: true,
+        ...originalModule,
+        InputField: function Mock({ dense, dataTest, ...props }) {
+            return <div className="ui-InputField" {...props} />
+        },
+        Button: function Mock({ children }) {
+            return <div className="ui-Button">{children}</div>
+        },
+        TextAreaField: function Mock({ dense, dataTest, ...props }) {
+            return <div className="ui-TextAreaField" {...props} />
+        },
+        Radio: function Mock({ children, dense, ...props }) {
+            return (
+                <div className="ui-Radio" {...props}>
+                    {children}
+                </div>
+            )
+        },
+    }
+})
+/* eslint-enable react/prop-types, no-unused-vars */
 
 describe('TitleBar', () => {
     it('renders correctly with name and description', () => {

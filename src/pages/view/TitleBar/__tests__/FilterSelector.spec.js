@@ -3,14 +3,28 @@ import { render, screen } from '@testing-library/react'
 import React from 'react'
 import { Provider } from 'react-redux'
 import configureMockStore from 'redux-mock-store'
-import useDimensions from '../../../../modules/useDimensions'
-import FilterSelector from '../FilterSelector'
+import useDimensions from '../../../../modules/useDimensions.js'
+import FilterSelector from '../FilterSelector.js'
 
 const mockStore = configureMockStore()
 
 jest.mock('@dhis2/app-runtime', () => ({
     useOnlineStatus: jest.fn(() => ({ offline: false })),
 }))
+
+/* eslint-disable react/prop-types */
+jest.mock(
+    '../../../../components/DropdownButton/DropdownButton.js',
+    () =>
+        function Mock({ children, ...props }) {
+            return (
+                <button className="DropdownButton" type="button" {...props}>
+                    {children}
+                </button>
+            )
+        }
+)
+/* eslint-enable react/prop-types */
 
 jest.mock('../../../../modules/useDimensions', () => jest.fn())
 useDimensions.mockImplementation(() => ['Moomin', 'Snorkmaiden'])

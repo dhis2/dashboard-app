@@ -2,7 +2,7 @@ import reducer, {
     DEFAULT_STATE_VISUALIZATIONS,
     ADD_VISUALIZATION,
     CLEAR_VISUALIZATIONS,
-} from '../visualizations'
+} from '../visualizations.js'
 
 describe('visualizations reducer', () => {
     const visualization = {

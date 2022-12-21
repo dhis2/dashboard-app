@@ -4,12 +4,12 @@ import { MenuItem, Divider } from '@dhis2/ui'
 import PropTypes from 'prop-types'
 import React, { useState } from 'react'
 import { connect } from 'react-redux'
-import { tSetDashboardItems } from '../../../actions/editDashboard'
-import { getItemUrl, APP, VISUALIZATION } from '../../../modules/itemTypes'
-import { tAddListItemContent } from './actions'
-import ContentMenuItem from './ContentMenuItem'
-import HeaderMenuItem from './HeaderMenuItem'
-import { categorizedItems, listItemTypes } from './selectableItems'
+import { tSetDashboardItems } from '../../../actions/editDashboard.js'
+import { getItemUrl, APP, VISUALIZATION } from '../../../modules/itemTypes.js'
+import { tAddListItemContent } from './actions.js'
+import ContentMenuItem from './ContentMenuItem.js'
+import HeaderMenuItem from './HeaderMenuItem.js'
+import { categorizedItems, listItemTypes } from './selectableItems.js'
 import classes from './styles/CategorizedMenuGroup.module.css'
 
 const CategorizedMenuGroup = ({
@@ -24,7 +24,7 @@ const CategorizedMenuGroup = ({
     const { baseUrl } = useConfig()
     const [seeMore, setSeeMore] = useState(false)
 
-    const addItem = item => () => {
+    const addItem = (item) => () => {
         if (type === APP) {
             // acAddDashboardItem({ type, content: item.key })
             onAddItem({ type, content: item.key })
@@ -50,7 +50,7 @@ const CategorizedMenuGroup = ({
     return (
         <>
             <HeaderMenuItem title={title} />
-            {items.map(item => {
+            {items.map((item) => {
                 const itemUrl = getItemUrl(type, item, baseUrl)
                 return (
                     <ContentMenuItem
@@ -94,7 +94,7 @@ CategorizedMenuGroup.propTypes = {
 
 export default connect(null, {
     tAddListItemContent,
-    onAddItem: item => dispatch => {
+    onAddItem: (item) => (dispatch) => {
         dispatch(tSetDashboardItems(item))
     },
 })(CategorizedMenuGroup)

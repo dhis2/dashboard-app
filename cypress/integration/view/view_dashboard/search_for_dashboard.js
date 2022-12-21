@@ -1,12 +1,12 @@
 import { When, Then } from 'cypress-cucumber-preprocessor/steps'
-import { dashboards } from '../../../assets/backends/sierraLeone_236'
+import { dashboards } from '../../../assets/backends/sierraLeone_236.js'
 import {
     dashboardTitleSel,
     dashboardChipSel,
     dashboardSearchInputSel,
-} from '../../../elements/viewDashboard'
+} from '../../../elements/viewDashboard.js'
 
-When('I search for dashboards containing {string}', title => {
+When('I search for dashboards containing {string}', (title) => {
     cy.get(dashboardSearchInputSel).type(title)
 })
 
@@ -22,10 +22,10 @@ Then('no dashboards are choices', () => {
     cy.get(dashboardChipSel).should('not.exist')
 })
 
-Then('dashboards list restored and dashboard is still {string}', title => {
+Then('dashboards list restored and dashboard is still {string}', (title) => {
     cy.get(dashboardChipSel).should('be.visible').and('have.lengthOf.above', 0)
 
-    cy.location().should(loc => {
+    cy.location().should((loc) => {
         expect(loc.hash).to.equal(dashboards[title].route)
     })
 

@@ -1,9 +1,9 @@
-import memoizeOne from '../memoizeOne'
+import memoizeOne from '../memoizeOne.js'
 
 describe('memoizeOne', () => {
     it('Should return the same value when called twice with shallow-equal arguments', () => {
         const object = { a: 0, b: 0 }
-        const fn = x => x.a + x.b
+        const fn = (x) => x.a + x.b
         const memoizedFn = memoizeOne(fn)
 
         const val0 = memoizedFn(object)
@@ -16,7 +16,7 @@ describe('memoizeOne', () => {
 
     it('Should forget the first value when called thrice', () => {
         const object = { a: 0, b: 0 }
-        const memoizedFn = memoizeOne(x => x.a + x.b)
+        const memoizedFn = memoizeOne((x) => x.a + x.b)
 
         const val0 = memoizedFn(object)
         expect(val0).toBe(0)

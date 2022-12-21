@@ -1,8 +1,8 @@
-import { DEFAULT_STATE_SHOW_DESCRIPTION } from '../reducers/showDescription'
+import { DEFAULT_STATE_SHOW_DESCRIPTION } from '../reducers/showDescription.js'
 import {
     apiGetUserDataStoreValue,
     apiPostUserDataStoreValue,
-} from './userDataStore'
+} from './userDataStore.js'
 
 const KEY_SHOW_DESCRIPTION = 'showDescription'
 
@@ -12,5 +12,5 @@ export const apiGetShowDescription = async () =>
         DEFAULT_STATE_SHOW_DESCRIPTION
     )
 
-export const apiPostShowDescription = value =>
+export const apiPostShowDescription = (value) =>
     apiPostUserDataStoreValue(KEY_SHOW_DESCRIPTION, value)

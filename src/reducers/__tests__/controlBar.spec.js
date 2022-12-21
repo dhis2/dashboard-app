@@ -1,7 +1,7 @@
 import reducer, {
     SET_CONTROLBAR_USER_ROWS,
     DEFAULT_STATE_CONTROLBAR_ROWS,
-} from '../controlBar'
+} from '../controlBar.js'
 
 describe('controlbar reducer', () => {
     it('should return the default state', () => {

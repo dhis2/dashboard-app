@@ -1,11 +1,11 @@
 import {
     SET_DASHBOARDS_FILTER,
     CLEAR_DASHBOARDS_FILTER,
-} from '../reducers/dashboardsFilter'
+} from '../reducers/dashboardsFilter.js'
 
 // actions
 
-export const acSetDashboardsFilter = value => ({
+export const acSetDashboardsFilter = (value) => ({
     type: SET_DASHBOARDS_FILTER,
     value,
 })

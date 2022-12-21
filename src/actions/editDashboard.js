@@ -1,13 +1,13 @@
 import i18n from '@dhis2/d2-i18n'
-import { updateDashboard, postDashboard } from '../api/editDashboard'
+import { updateDashboard, postDashboard } from '../api/editDashboard.js'
 import {
     addToItemsEnd,
     addToItemsStart,
     getAutoItemShapes,
     getDashboardItem,
     updateItems,
-} from '../modules/gridUtil'
-import { convertUiItemsToBackend } from '../modules/uiBackendItemConverter'
+} from '../modules/gridUtil.js'
+import { convertUiItemsToBackend } from '../modules/uiBackendItemConverter.js'
 import {
     RECEIVED_EDIT_DASHBOARD,
     START_NEW_DASHBOARD,
@@ -29,12 +29,12 @@ import {
     sGetLayoutColumns,
     sGetItemConfigInsertPosition,
     RECEIVED_CODE,
-} from '../reducers/editDashboard'
-import { tFetchDashboards } from './dashboards'
+} from '../reducers/editDashboard.js'
+import { tFetchDashboards } from './dashboards.js'
 
 // actions
 
-export const acSetEditDashboard = dashboard => ({
+export const acSetEditDashboard = (dashboard) => ({
     type: RECEIVED_EDIT_DASHBOARD,
     value: dashboard,
 })
@@ -55,57 +55,57 @@ export const acClearPrintPreviewView = () => ({
     type: CLEAR_PRINT_PREVIEW_VIEW,
 })
 
-export const acSetDashboardTitle = value => ({
+export const acSetDashboardTitle = (value) => ({
     type: RECEIVED_TITLE,
     value,
 })
 
-export const acSetDashboardCode = value => ({
+export const acSetDashboardCode = (value) => ({
     type: RECEIVED_CODE,
     value,
 })
 
-export const acSetDashboardDescription = value => ({
+export const acSetDashboardDescription = (value) => ({
     type: RECEIVED_DESCRIPTION,
     value,
 })
 
-export const acUpdateDashboardItemShapes = value => ({
+export const acUpdateDashboardItemShapes = (value) => ({
     type: RECEIVED_DASHBOARD_ITEM_SHAPES,
     value,
 })
 
-export const acAddDashboardItem = item => ({
+export const acAddDashboardItem = (item) => ({
     type: ADD_DASHBOARD_ITEM,
     value: item,
 })
 
-export const acUpdateDashboardItem = item => ({
+export const acUpdateDashboardItem = (item) => ({
     type: UPDATE_DASHBOARD_ITEM,
     value: item,
 })
 
-export const acRemoveDashboardItem = value => ({
+export const acRemoveDashboardItem = (value) => ({
     type: REMOVE_DASHBOARD_ITEM,
     value,
 })
 
-export const acSetFilterSettings = value => ({
+export const acSetFilterSettings = (value) => ({
     type: RECEIVED_FILTER_SETTINGS,
     value,
 })
 
-export const acSetHideGrid = value => ({
+export const acSetHideGrid = (value) => ({
     type: RECEIVED_HIDE_GRID,
     value,
 })
 
-export const acSetLayoutColumns = value => ({
+export const acSetLayoutColumns = (value) => ({
     type: RECEIVED_LAYOUT_COLUMNS,
     value,
 })
 
-export const acSetItemConfigInsertPosition = value => ({
+export const acSetItemConfigInsertPosition = (value) => ({
     type: RECEIVED_ITEM_CONFIG_INSERT_POSITION,
     value,
 })
@@ -139,7 +139,7 @@ export const tSetDashboardItems =
             }
         } else {
             if (itemIdToRemove) {
-                items = items.filter(item => item.id !== itemIdToRemove)
+                items = items.filter((item) => item.id !== itemIdToRemove)
             }
 
             if (!itemToAdd) {

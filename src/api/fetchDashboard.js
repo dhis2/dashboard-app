@@ -1,12 +1,12 @@
-import arrayClean from 'd2-utilizr/lib/arrayClean'
-import { isViewMode } from '../modules/dashboardModes'
-import { getCustomDashboards } from '../modules/getCustomDashboards'
-import { withShape } from '../modules/gridUtil'
+import arrayClean from 'd2-utilizr/lib/arrayClean.js'
+import { isViewMode } from '../modules/dashboardModes.js'
+import { getCustomDashboards } from '../modules/getCustomDashboards.js'
+import { withShape } from '../modules/gridUtil.js'
 import {
     getIdNameFields,
     getListItemFields,
     getFavoritesFields,
-} from './metadata'
+} from './metadata.js'
 
 const getDashboardItemsFields = () =>
     arrayClean([
@@ -56,7 +56,6 @@ export const editDashboardQuery = {
             'code',
             'description',
             'created',
-            'favorite',
             'favorites',
             'lastUpdated',
             'href', // needed for d2-ui-translations-dialog

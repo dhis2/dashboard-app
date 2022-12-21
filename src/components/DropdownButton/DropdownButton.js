@@ -1,8 +1,8 @@
+import { OfflineTooltip } from '@dhis2/analytics'
 import { Button, Layer, Popper } from '@dhis2/ui'
 import PropTypes from 'prop-types'
 import React, { useRef } from 'react'
-import OfflineTooltip from '../OfflineTooltip'
-import { ArrowDown, ArrowUp } from './assets/Arrow'
+import { ArrowDown, ArrowUp } from './assets/Arrow.js'
 import styles from './DropdownButton.module.css'
 
 const DropdownButton = ({

@@ -1,7 +1,7 @@
 import { fireEvent } from '@testing-library/dom'
 import { render } from '@testing-library/react'
 import React from 'react'
-import ShowMoreButton from '../ShowMoreButton'
+import ShowMoreButton from '../ShowMoreButton.js'
 
 describe('ShowMoreButton', () => {
     it('renders correctly when at maxHeight', () => {

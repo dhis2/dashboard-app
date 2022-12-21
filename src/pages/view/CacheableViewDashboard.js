@@ -1,21 +1,21 @@
 import { CacheableSection } from '@dhis2/app-runtime'
 import { useD2 } from '@dhis2/app-runtime-adapter-d2'
 import i18n from '@dhis2/d2-i18n'
-import isEmpty from 'lodash/isEmpty'
+import isEmpty from 'lodash/isEmpty.js'
 import PropTypes from 'prop-types'
 import React, { useState } from 'react'
 import { connect } from 'react-redux'
-import DashboardsBar from '../../components/DashboardsBar/DashboardsBar'
-import LoadingMask from '../../components/LoadingMask'
-import NoContentMessage from '../../components/NoContentMessage'
-import getCacheableSectionId from '../../modules/getCacheableSectionId'
-import { getPreferredDashboardId } from '../../modules/localStorage'
+import DashboardsBar from '../../components/DashboardsBar/DashboardsBar.js'
+import LoadingMask from '../../components/LoadingMask.js'
+import NoContentMessage from '../../components/NoContentMessage.js'
+import getCacheableSectionId from '../../modules/getCacheableSectionId.js'
+import { getPreferredDashboardId } from '../../modules/localStorage.js'
 import {
     sDashboardsIsFetching,
     sGetDashboardById,
     sGetDashboardsSortedByStarred,
-} from '../../reducers/dashboards'
-import ViewDashboard from './ViewDashboard'
+} from '../../reducers/dashboards.js'
+import ViewDashboard from './ViewDashboard.js'
 
 const CacheableViewDashboard = ({
     id,
@@ -34,7 +34,7 @@ const CacheableViewDashboard = ({
             <>
                 <DashboardsBar
                     expanded={dashboardsBarExpanded}
-                    onExpandedChanged={expanded =>
+                    onExpandedChanged={(expanded) =>
                         setDashboardsBarExpanded(expanded)
                     }
                 />

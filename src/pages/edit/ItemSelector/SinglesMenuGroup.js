@@ -1,9 +1,9 @@
 import PropTypes from 'prop-types'
 import React from 'react'
 import { connect } from 'react-redux'
-import { tSetDashboardItems } from '../../../actions/editDashboard'
-import ContentMenuItem from './ContentMenuItem'
-import HeaderMenuItem from './HeaderMenuItem'
+import { tSetDashboardItems } from '../../../actions/editDashboard.js'
+import ContentMenuItem from './ContentMenuItem.js'
+import HeaderMenuItem from './HeaderMenuItem.js'
 
 const SinglesMenuGroup = ({ onAddItem, category }) => {
     const addToDashboard =
@@ -15,7 +15,7 @@ const SinglesMenuGroup = ({ onAddItem, category }) => {
     return (
         <>
             <HeaderMenuItem title={category.header} />
-            {category.items.map(item => (
+            {category.items.map((item) => (
                 <ContentMenuItem
                     key={item.type}
                     type={item.type}
@@ -33,7 +33,7 @@ SinglesMenuGroup.propTypes = {
 }
 
 export default connect(null, {
-    onAddItem: item => dispatch => {
+    onAddItem: (item) => (dispatch) => {
         dispatch(tSetDashboardItems(item))
     },
 })(SinglesMenuGroup)

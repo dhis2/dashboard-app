@@ -3,9 +3,29 @@ import { render } from '@testing-library/react'
 import React from 'react'
 import { Provider } from 'react-redux'
 import configureMockStore from 'redux-mock-store'
-import Item from '../Item'
+import Item from '../Item.js'
 
 jest.mock('@dhis2/app-runtime-adapter-d2')
+
+jest.mock('@dhis2/ui', () => {
+    const originalModule = jest.requireActual('@dhis2/ui')
+
+    return {
+        __esModule: true,
+        ...originalModule,
+        Divider: function Mock() {
+            return <div className="ui-Divider" />
+        },
+    }
+})
+
+jest.mock(
+    '../../ItemHeader/DeleteItemButton.js',
+    () =>
+        function Mock() {
+            return <div className="DeleteItemButton" />
+        }
+)
 
 const mockStore = configureMockStore()
 

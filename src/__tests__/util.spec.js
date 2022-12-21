@@ -1,4 +1,4 @@
-import { validateReducer } from '../modules/util'
+import { validateReducer } from '../modules/util.js'
 
 describe('util', () => {
     describe('validateReducer', () => {

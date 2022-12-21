@@ -1,4 +1,4 @@
-import reducer, { SET_SELECTED, DEFAULT_SELECTED_STATE } from '../selected'
+import reducer, { SET_SELECTED, DEFAULT_SELECTED_STATE } from '../selected.js'
 
 test('selected dashboard reducer', () => {
     const selected = {

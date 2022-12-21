@@ -1,5 +1,5 @@
 const plugins = require('@dhis2/cli-utils-cypress/plugins')
-const getCypressEnvVars = require('./getCypressEnvVars')
+const getCypressEnvVars = require('./getCypressEnvVars.js')
 
 module.exports = (on, config) => {
     on('before:browser:launch', (browser, launchOptions) => {

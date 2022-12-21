@@ -6,13 +6,14 @@
 # Carwoto Sa'an <carwoto@gmail.com>, 2021
 # Untoro Dwi Raharjo <untoro.dwi.raharjo@mail.ugm.ac.id>, 2021
 # Aprisa Chrysantina <aprisa.chrysantina@gmail.com>, 2021
+# Raja Fathurrahim, 2022
 # 
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
 "POT-Creation-Date: 2021-12-21T08:20:25.327Z\n"
 "PO-Revision-Date: 2019-06-25 12:37+0000\n"
-"Last-Translator: Aprisa Chrysantina <aprisa.chrysantina@gmail.com>, 2021\n"
+"Last-Translator: Raja Fathurrahim, 2022\n"
 "Language-Team: Indonesian (https://www.transifex.com/hisp-uio/teams/100509/id/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -24,10 +25,10 @@ msgid "Untitled dashboard"
 msgstr "Dasbor tanpa judul"
 
 msgid "Cannot create a dashboard while offline"
-msgstr ""
+msgstr "Tidak dapat membuat sebuah dasbor saat offline"
 
 msgid "Create new dashboard"
-msgstr ""
+msgstr "Membuat dasbor baru"
 
 msgid "Search for a dashboard"
 msgstr "Cari dashboard"
@@ -339,7 +340,7 @@ msgid "Default height for items added to dashboard (rows)"
 msgstr ""
 
 msgid "Save layout"
-msgstr ""
+msgstr "Simpan tata letak"
 
 msgid "Dashboard title"
 msgstr "Judul dashboard"
@@ -361,7 +362,7 @@ msgid_plural "{{count}} columns"
 msgstr[0] ""
 
 msgid "Change layout"
-msgstr ""
+msgstr "Ubah tata letak"
 
 msgid "Add new items to"
 msgstr ""
@@ -413,7 +414,7 @@ msgid "Create a new dashboard with the + button."
 msgstr ""
 
 msgid "Your most viewed dashboards"
-msgstr ""
+msgstr "dasbor yang paling sering anda lihat"
 
 msgid "No dashboards found. Use the + button to create a new dashboard."
 msgstr ""
@@ -427,10 +428,10 @@ msgid_plural "{{count}} selected"
 msgstr[0] "{{count}} terpilih"
 
 msgid "Cannot remove filters while offline"
-msgstr ""
+msgstr "Tidak dapat menghapus filter saat offline"
 
 msgid "Removing filters while offline"
-msgstr ""
+msgstr "Menghapus filter saat offline"
 
 msgid ""
 "Removing this filter while offline will remove all other filters. Do you "
@@ -441,7 +442,7 @@ msgid "No, cancel"
 msgstr "Tidak, batalkan"
 
 msgid "Yes, remove filters"
-msgstr ""
+msgstr "Ya, hapus filter"
 
 msgid "The dashboard couldn't be made available offline. Try again."
 msgstr ""
@@ -477,7 +478,7 @@ msgid "One item per page"
 msgstr "Satu item per halaman"
 
 msgid "Close dashboard"
-msgstr ""
+msgstr "Tutup dasbor"
 
 msgid "More"
 msgstr "Lagi"
@@ -521,16 +522,16 @@ msgid "Loading dashboard"
 msgstr "Memuat dasbor"
 
 msgid "Offline"
-msgstr ""
+msgstr "Offline"
 
 msgid "This dashboard cannot be loaded while offline."
-msgstr ""
+msgstr "Dasbor ini tidak dapat dimuat saat sedang offline"
 
 msgid "Go to start page"
-msgstr ""
+msgstr "Pergi ke halaman awal"
 
 msgid "Load dashboard failed"
-msgstr ""
+msgstr "Gagal memuat dasbor"
 
 msgid "This dashboard could not be loaded. Please try again later."
-msgstr ""
+msgstr "Dasbor ini tidak bisa dimuat. Harap coba lagi nanti"

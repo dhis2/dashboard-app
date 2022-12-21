@@ -12,7 +12,7 @@ import {
 } from '@dhis2/ui'
 import PropTypes from 'prop-types'
 import React, { useState } from 'react'
-import useDimensions from '../../modules/useDimensions'
+import useDimensions from '../../modules/useDimensions.js'
 import classes from './styles/FilterSettingsDialog.module.css'
 
 const RadioOptions = ({
@@ -26,7 +26,7 @@ const RadioOptions = ({
                 checked={!filtersSelectable}
                 label={i18n.t('Allow filtering by all dimensions')}
                 name="radio-allow-filtering-on-all"
-                onChange={payload => {
+                onChange={(payload) => {
                     return updateFilterDimensionRestrictability(
                         payload.value === 'true'
                     )
@@ -40,7 +40,7 @@ const RadioOptions = ({
                 checked={filtersSelectable}
                 label={i18n.t('Only allow filtering by selected dimensions')}
                 name="radio-restrict-filtering"
-                onChange={payload => {
+                onChange={(payload) => {
                     return updateFilterDimensionRestrictability(
                         payload.value === 'true'
                     )
@@ -67,10 +67,10 @@ const FilterSettingsDialog = ({
     const [filtersSelectable, setFiltersSelectable] = useState(restrictFilters)
     const dimensions = useDimensions(open)
 
-    const updateFilterDimensionRestrictability = val => {
+    const updateFilterDimensionRestrictability = (val) => {
         if (val) {
             const otherItems = selected.filter(
-                i => i !== DIMENSION_ID_ORGUNIT && i !== DIMENSION_ID_PERIOD
+                (i) => i !== DIMENSION_ID_ORGUNIT && i !== DIMENSION_ID_PERIOD
             )
             updateSelectedFilters([
                 DIMENSION_ID_PERIOD,
@@ -81,16 +81,16 @@ const FilterSettingsDialog = ({
         setFiltersSelectable(val)
     }
 
-    const updateSelectedFilters = sItems => {
+    const updateSelectedFilters = (sItems) => {
         // ensure that orgUnit, period appear before other items
         const periodItem = [
-            ...new Set(sItems.filter(i => i === DIMENSION_ID_PERIOD)),
+            ...new Set(sItems.filter((i) => i === DIMENSION_ID_PERIOD)),
         ]
         const orgUnitItem = [
-            ...new Set(sItems.filter(i => i === DIMENSION_ID_ORGUNIT)),
+            ...new Set(sItems.filter((i) => i === DIMENSION_ID_ORGUNIT)),
         ]
         const otherItems = sItems.filter(
-            i => i !== DIMENSION_ID_ORGUNIT && i !== DIMENSION_ID_PERIOD
+            (i) => i !== DIMENSION_ID_ORGUNIT && i !== DIMENSION_ID_PERIOD
         )
         return setSelected([...periodItem, ...orgUnitItem, ...otherItems])
     }
@@ -135,12 +135,12 @@ const FilterSettingsDialog = ({
                                     </div>
                                 }
                                 maxSelections={Infinity}
-                                onChange={payload => {
+                                onChange={(payload) => {
                                     return updateSelectedFilters(
                                         payload.selected
                                     )
                                 }}
-                                options={dimensions.map(d => {
+                                options={dimensions.map((d) => {
                                     return { label: d.name, value: d.id }
                                 })}
                                 optionsWidth="350px"

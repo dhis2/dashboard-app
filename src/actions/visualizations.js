@@ -1,9 +1,9 @@
 import {
     ADD_VISUALIZATION,
     CLEAR_VISUALIZATIONS,
-} from '../reducers/visualizations'
+} from '../reducers/visualizations.js'
 
-export const acAddVisualization = value => ({
+export const acAddVisualization = (value) => ({
     type: ADD_VISUALIZATION,
     value,
 })
