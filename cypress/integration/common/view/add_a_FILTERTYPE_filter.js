@@ -1,6 +1,7 @@
 import { When } from 'cypress-cucumber-preprocessor/steps'
 import {
     unselectedItemsSel,
+    selectedItemsSel,
     filterDimensionsPanelSel,
     orgUnitTreeSel,
 } from '../../../elements/dashboardFilter.js'
@@ -19,12 +20,14 @@ When('I add a {string} filter', (dimensionType) => {
     // select an item in the modal
     if (dimensionType === 'Period') {
         cy.get(unselectedItemsSel).contains(PERIOD).dblclick()
+        cy.get(selectedItemsSel).contains(PERIOD)
     } else if (dimensionType === 'Organisation unit') {
         cy.get(orgUnitTreeSel, EXTENDED_TIMEOUT)
             .find('[type="checkbox"]', EXTENDED_TIMEOUT)
             .check(OU_ID)
     } else {
         cy.get(unselectedItemsSel).contains(FACILITY_TYPE).dblclick()
+        selectedItemsSel, cy.get(selectedItemsSel).contains(FACILITY_TYPE)
     }
 
     // confirm to apply the filter
