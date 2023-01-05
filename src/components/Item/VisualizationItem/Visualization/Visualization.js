@@ -86,6 +86,7 @@ const Visualization = ({
             dashboardMode,
             dashboardId,
             itemId: item.id,
+            itemType: item.type,
         }),
         [
             activeType,
@@ -94,6 +95,7 @@ const Visualization = ({
             filteredVisualization,
             filterVersion,
             item.id,
+            item.type,
             originalType,
             style,
             visualizationConfig,

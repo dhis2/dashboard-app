@@ -18,12 +18,12 @@ import VisualizationErrorMessage from './VisualizationErrorMessage.js'
 const IframePlugin = ({
     activeType,
     filterVersion,
-    //    item,
     style,
     visualization,
     dashboardMode,
     dashboardId,
     itemId,
+    itemType,
 }) => {
     const { d2 } = useD2()
 
@@ -146,14 +146,15 @@ const IframePlugin = ({
         return error === 'missing-plugin' ? (
             <div style={style}>
                 <MissingPluginMessage
-                    //item={item}
+                    itemType={itemType}
                     dashboardMode={dashboardMode}
                 />
             </div>
         ) : (
             <div style={style}>
                 <VisualizationErrorMessage
-                    //item={item}
+                    itemType={itemType}
+                    visualizationId={visualization.id}
                     dashboardMode={dashboardMode}
                 />
             </div>
@@ -186,6 +187,7 @@ IframePlugin.propTypes = {
     dashboardMode: PropTypes.string,
     filterVersion: PropTypes.string,
     itemId: PropTypes.string,
+    itemType: PropTypes.string,
     style: PropTypes.object,
     visualization: PropTypes.object,
 }
