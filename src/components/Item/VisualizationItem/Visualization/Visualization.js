@@ -13,7 +13,6 @@ import {
     MAP,
     CHART,
     REPORT_TABLE,
-    getItemTypeForVis,
 } from '../../../../modules/itemTypes.js'
 import {
     sGetItemFiltersRoot,
@@ -21,7 +20,6 @@ import {
 } from '../../../../reducers/itemFilters.js'
 import { sGetSelectedId } from '../../../../reducers/selected.js'
 import { sGetVisualization } from '../../../../reducers/visualizations.js'
-import memoizeOne from '../memoizeOne.js'
 import getFilteredVisualization from './getFilteredVisualization.js'
 import getVisualizationConfig from './getVisualizationConfig.js'
 import IframePlugin from './IframePlugin.js'
@@ -40,18 +38,20 @@ const Visualization = ({
     availableWidth,
     dashboardMode,
     dashboardId,
+    originalType,
     showNoFiltersOverlay,
     onClickNoFiltersOverlay,
     ...rest
 }) => {
     const { d2 } = useD2()
 
-    const memoizedGetFilteredVisualization = memoizeOne(
-        getFilteredVisualization
-    )
-    const memoizedGetVisualizationConfig = memoizeOne(getVisualizationConfig)
-
-    const getFilterVersion = memoizeOne(() => uniqueId())
+    // NOTE:
+    // The following is all memoized because the IframePlugin (and potentially others)
+    // are wrapped in React.memo() to avoid unnecessary re-renders
+    // The main problem here was `item` which changes height when the interpretations panel is toggled
+    // causing all the chain of components to re-render.
+    // The only dependency using `item` is `item.id` which doesn't change so the memoized plugin props
+    // should also always be the same regardless of the `item` details.
 
     const style = useMemo(
         () => ({
@@ -61,22 +61,26 @@ const Visualization = ({
         [availableHeight, availableWidth]
     )
 
-    const visualizationConfig = memoizedGetVisualizationConfig(
-        visualization,
-        getItemTypeForVis(item),
-        activeType
+    const visualizationConfig = useMemo(
+        () => getVisualizationConfig(visualization, originalType, activeType),
+        [visualization, activeType, originalType]
     )
 
-    const filteredVisualization = memoizedGetFilteredVisualization(
-        visualizationConfig,
-        itemFilters
+    const filteredVisualization = useMemo(
+        () => getFilteredVisualization(visualizationConfig, itemFilters),
+        [visualizationConfig, itemFilters]
     )
-    const filterVersion = getFilterVersion(itemFilters)
+
+    const filterVersion = useMemo(() => uniqueId(), [])
 
     const iFramePluginProps = useMemo(
         () => ({
+            originalType,
             activeType,
-            visualization: filteredVisualization,
+            visualization:
+                activeType === EVENT_VISUALIZATION
+                    ? visualizationConfig
+                    : filteredVisualization,
             style,
             filterVersion,
             dashboardMode,
@@ -85,12 +89,14 @@ const Visualization = ({
         }),
         [
             activeType,
-            style,
-            filteredVisualization,
-            filterVersion,
             dashboardMode,
             dashboardId,
+            filteredVisualization,
+            filterVersion,
             item.id,
+            originalType,
+            style,
+            visualizationConfig,
         ]
     )
 
@@ -103,21 +109,7 @@ const Visualization = ({
         case REPORT_TABLE:
         case MAP:
         case VISUALIZATION: {
-            return (
-                <IframePlugin
-                    {...iFramePluginProps}
-                    /*activeType={activeType}
-                    visualization={memoizedGetFilteredVisualization(
-                        visualizationConfig,
-                        itemFilters
-                    )}
-                    style={style}
-                    filterVersion={filterVersion}
-                    dashboardMode={dashboardMode}
-                    dashboardId={dashboardId}
-                    itemId={item.id}*/
-                />
-            )
+            return <IframePlugin {...iFramePluginProps} />
         }
         case EVENT_VISUALIZATION: {
             return (
@@ -139,14 +131,7 @@ const Visualization = ({
                             </div>
                         </Cover>
                     ) : null}
-                    <IframePlugin
-                        activeType={activeType}
-                        visualization={visualizationConfig}
-                        style={style}
-                        dashboardMode={dashboardMode}
-                        dashboardId={dashboardId}
-                        itemId={item.id}
-                    />
+                    <IframePlugin {...iFramePluginProps} />
                 </>
             )
         }
@@ -158,7 +143,7 @@ const Visualization = ({
                     activeType={activeType}
                     visualization={visualizationConfig}
                     itemFilters={itemFilters}
-                    applyFilters={memoizedGetFilteredVisualization}
+                    applyFilters={filteredVisualization}
                     filterVersion={filterVersion}
                     style={style}
                     {...rest}
@@ -170,10 +155,7 @@ const Visualization = ({
                 <LegacyPlugin
                     item={item}
                     activeType={activeType}
-                    visualization={memoizedGetFilteredVisualization(
-                        visualizationConfig,
-                        itemFilters
-                    )}
+                    visualization={filteredVisualization}
                     filterVersion={filterVersion}
                     style={style}
                     {...rest}
@@ -195,6 +177,7 @@ Visualization.propTypes = {
     dashboardMode: PropTypes.string,
     item: PropTypes.object,
     itemFilters: PropTypes.object,
+    originalType: PropTypes.string,
     showNoFiltersOverlay: PropTypes.bool,
     visualization: PropTypes.object,
     onClickNoFiltersOverlay: PropTypes.func,

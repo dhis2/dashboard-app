@@ -184,6 +184,7 @@ class Item extends Component {
     render() {
         const { item, dashboardMode, itemFilters } = this.props
         const { showFooter, showNoFiltersOverlay } = this.state
+        const originalType = getItemTypeForVis(item)
         const activeType = this.getActiveType()
 
         const actionButtons =
@@ -242,6 +243,7 @@ class Item extends Component {
                                 {(dimensions) => (
                                     <Visualization
                                         item={item}
+                                        originalType={originalType}
                                         activeType={activeType}
                                         itemFilters={itemFilters}
                                         availableHeight={this.getAvailableHeight(

@@ -185,9 +185,13 @@ IframePlugin.propTypes = {
     dashboardId: PropTypes.string,
     dashboardMode: PropTypes.string,
     filterVersion: PropTypes.string,
-    //item: PropTypes.object,
+    itemId: PropTypes.string,
     style: PropTypes.object,
     visualization: PropTypes.object,
 }
+
+// Memoize the whole component to avoid re-rendering when the parent component re-renders.
+// This happens when the interpretations panel is toggled because the `item` prop changes (height)
+// causing the `Item` component to re-render.
 
 export default React.memo(IframePlugin)
