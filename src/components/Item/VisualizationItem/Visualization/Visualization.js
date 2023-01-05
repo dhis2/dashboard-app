@@ -3,7 +3,7 @@ import i18n from '@dhis2/d2-i18n'
 import { Button, Cover, IconInfo24, colors } from '@dhis2/ui'
 import uniqueId from 'lodash/uniqueId.js'
 import PropTypes from 'prop-types'
-import React from 'react'
+import React, { useMemo } from 'react'
 import { connect } from 'react-redux'
 import { isEditMode } from '../../../../modules/dashboardModes.js'
 import { getVisualizationId } from '../../../../modules/item.js'
@@ -53,14 +53,13 @@ const Visualization = ({
 
     const getFilterVersion = memoizeOne(() => uniqueId())
 
-    if (!visualization) {
-        return <NoVisualizationMessage message={i18n.t('No data to display')} />
-    }
-
-    const style = { height: availableHeight }
-    if (availableWidth) {
-        style.width = availableWidth
-    }
+    const style = useMemo(
+        () => ({
+            height: availableHeight,
+            width: availableWidth || undefined,
+        }),
+        [availableHeight, availableWidth]
+    )
 
     const visualizationConfig = memoizedGetVisualizationConfig(
         visualization,
@@ -68,7 +67,36 @@ const Visualization = ({
         activeType
     )
 
+    const filteredVisualization = memoizedGetFilteredVisualization(
+        visualizationConfig,
+        itemFilters
+    )
     const filterVersion = getFilterVersion(itemFilters)
+
+    const iFramePluginProps = useMemo(
+        () => ({
+            activeType,
+            visualization: filteredVisualization,
+            style,
+            filterVersion,
+            dashboardMode,
+            dashboardId,
+            itemId: item.id,
+        }),
+        [
+            activeType,
+            style,
+            filteredVisualization,
+            filterVersion,
+            dashboardMode,
+            dashboardId,
+            item.id,
+        ]
+    )
+
+    if (!visualization) {
+        return <NoVisualizationMessage message={i18n.t('No data to display')} />
+    }
 
     switch (activeType) {
         case CHART:
@@ -77,16 +105,17 @@ const Visualization = ({
         case VISUALIZATION: {
             return (
                 <IframePlugin
-                    activeType={activeType}
+                    {...iFramePluginProps}
+                    /*activeType={activeType}
                     visualization={memoizedGetFilteredVisualization(
                         visualizationConfig,
                         itemFilters
                     )}
                     style={style}
                     filterVersion={filterVersion}
-                    item={item}
                     dashboardMode={dashboardMode}
                     dashboardId={dashboardId}
+                    itemId={item.id}*/
                 />
             )
         }
@@ -114,9 +143,9 @@ const Visualization = ({
                         activeType={activeType}
                         visualization={visualizationConfig}
                         style={style}
-                        item={item}
                         dashboardMode={dashboardMode}
                         dashboardId={dashboardId}
+                        itemId={item.id}
                     />
                 </>
             )

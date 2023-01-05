@@ -108,6 +108,9 @@ class Item extends Component {
         return !!(el?.requestFullscreen || el?.webkitRequestFullscreen)
     }
 
+    onClickNoFiltersOverlay = () =>
+        this.setState({ showNoFiltersOverlay: false })
+
     onToggleFullscreen = () => {
         if (!isElementFullscreen(this.props.item.id)) {
             const el = getGridItemElement(this.props.item.id)
@@ -251,10 +254,8 @@ class Item extends Component {
                                             Object.keys(itemFilters).length &&
                                                 showNoFiltersOverlay
                                         )}
-                                        onClickNoFiltersOverlay={() =>
-                                            this.setState({
-                                                showNoFiltersOverlay: false,
-                                            })
+                                        onClickNoFiltersOverlay={
+                                            this.onClickNoFiltersOverlay
                                         }
                                     />
                                 )}
