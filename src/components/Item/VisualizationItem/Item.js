@@ -243,6 +243,7 @@ class Item extends Component {
                                 {(dimensions) => (
                                     <Visualization
                                         item={item}
+                                        visualization={this.props.visualization}
                                         originalType={originalType}
                                         activeType={activeType}
                                         itemFilters={itemFilters}

@@ -4,9 +4,7 @@ import { Button, Cover, IconInfo24, colors } from '@dhis2/ui'
 import uniqueId from 'lodash/uniqueId.js'
 import PropTypes from 'prop-types'
 import React, { useMemo } from 'react'
-import { connect } from 'react-redux'
-import { isEditMode } from '../../../../modules/dashboardModes.js'
-import { getVisualizationId } from '../../../../modules/item.js'
+import { useSelector } from 'react-redux'
 import {
     VISUALIZATION,
     EVENT_VISUALIZATION,
@@ -14,12 +12,7 @@ import {
     CHART,
     REPORT_TABLE,
 } from '../../../../modules/itemTypes.js'
-import {
-    sGetItemFiltersRoot,
-    DEFAULT_STATE_ITEM_FILTERS,
-} from '../../../../reducers/itemFilters.js'
 import { sGetSelectedId } from '../../../../reducers/selected.js'
-import { sGetVisualization } from '../../../../reducers/visualizations.js'
 import getFilteredVisualization from './getFilteredVisualization.js'
 import getVisualizationConfig from './getVisualizationConfig.js'
 import IframePlugin from './IframePlugin.js'
@@ -37,13 +30,13 @@ const Visualization = ({
     availableHeight,
     availableWidth,
     dashboardMode,
-    dashboardId,
     originalType,
     showNoFiltersOverlay,
     onClickNoFiltersOverlay,
     ...rest
 }) => {
     const { d2 } = useD2()
+    const dashboardId = useSelector(sGetSelectedId)
 
     // NOTE:
     // The following is all memoized because the IframePlugin (and potentially others)
@@ -175,7 +168,6 @@ Visualization.propTypes = {
     activeType: PropTypes.string,
     availableHeight: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
     availableWidth: PropTypes.number,
-    dashboardId: PropTypes.string,
     dashboardMode: PropTypes.string,
     item: PropTypes.object,
     itemFilters: PropTypes.object,
@@ -185,19 +177,4 @@ Visualization.propTypes = {
     onClickNoFiltersOverlay: PropTypes.func,
 }
 
-const mapStateToProps = (state, ownProps) => {
-    const itemFilters = !isEditMode(ownProps.dashboardMode)
-        ? sGetItemFiltersRoot(state)
-        : DEFAULT_STATE_ITEM_FILTERS
-
-    return {
-        dashboardId: sGetSelectedId(state),
-        itemFilters,
-        visualization: sGetVisualization(
-            state,
-            getVisualizationId(ownProps.item)
-        ),
-    }
-}
-
-export default connect(mapStateToProps)(Visualization)
+export default Visualization
