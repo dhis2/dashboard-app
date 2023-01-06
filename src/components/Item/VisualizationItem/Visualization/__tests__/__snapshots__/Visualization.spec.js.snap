@@ -32,25 +32,91 @@ exports[`renders NoVisMessage when no visualization 1`] = `
 
 exports[`renders a DefaultPlugin when activeType is EVENT_CHART 1`] = `
 <div>
-  <div
-    class="default-plugin"
-  />
+  <p
+    class="container"
+  >
+    <span
+      class="icon"
+    >
+      <svg
+        color="#d5dde5"
+        height="24"
+        viewBox="0 0 24 24"
+        width="24"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M12.847 2.794l.056.102 8.416 17.674a1 1 0 01-.786 1.423l-.117.007H3.584a1 1 0 01-.947-1.322l.044-.108 8.416-17.674a1 1 0 011.75-.102zM12 5.65L5.167 19.999h13.665zM12 17a1 1 0 110 2 1 1 0 010-2zm1-7v6h-2v-6z"
+          fill="currentColor"
+        />
+      </svg>
+    </span>
+    <span
+      class="message"
+    >
+      No data to display
+    </span>
+  </p>
 </div>
 `;
 
 exports[`renders a DefaultPlugin when activeType is EVENT_REPORT 1`] = `
 <div>
-  <div
-    class="default-plugin"
-  />
+  <p
+    class="container"
+  >
+    <span
+      class="icon"
+    >
+      <svg
+        color="#d5dde5"
+        height="24"
+        viewBox="0 0 24 24"
+        width="24"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M12.847 2.794l.056.102 8.416 17.674a1 1 0 01-.786 1.423l-.117.007H3.584a1 1 0 01-.947-1.322l.044-.108 8.416-17.674a1 1 0 011.75-.102zM12 5.65L5.167 19.999h13.665zM12 17a1 1 0 110 2 1 1 0 010-2zm1-7v6h-2v-6z"
+          fill="currentColor"
+        />
+      </svg>
+    </span>
+    <span
+      class="message"
+    >
+      No data to display
+    </span>
+  </p>
 </div>
 `;
 
 exports[`renders a MapPlugin when activeType is MAP 1`] = `
 <div>
-  <div
-    class="map-plugin"
-  />
+  <p
+    class="container"
+  >
+    <span
+      class="icon"
+    >
+      <svg
+        color="#d5dde5"
+        height="24"
+        viewBox="0 0 24 24"
+        width="24"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M12.847 2.794l.056.102 8.416 17.674a1 1 0 01-.786 1.423l-.117.007H3.584a1 1 0 01-.947-1.322l.044-.108 8.416-17.674a1 1 0 011.75-.102zM12 5.65L5.167 19.999h13.665zM12 17a1 1 0 110 2 1 1 0 010-2zm1-7v6h-2v-6z"
+          fill="currentColor"
+        />
+      </svg>
+    </span>
+    <span
+      class="message"
+    >
+      No data to display
+    </span>
+  </p>
 </div>
 `;
 
@@ -72,9 +138,31 @@ exports[`renders a VisualizationPlugin for REPORT_TABLE 1`] = `
 
 exports[`renders active type MAP rather than original type REPORT_TABLE 1`] = `
 <div>
-  <div
-    class="map-plugin"
-  />
+  <p
+    class="container"
+  >
+    <span
+      class="icon"
+    >
+      <svg
+        color="#d5dde5"
+        height="24"
+        viewBox="0 0 24 24"
+        width="24"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M12.847 2.794l.056.102 8.416 17.674a1 1 0 01-.786 1.423l-.117.007H3.584a1 1 0 01-.947-1.322l.044-.108 8.416-17.674a1 1 0 011.75-.102zM12 5.65L5.167 19.999h13.665zM12 17a1 1 0 110 2 1 1 0 010-2zm1-7v6h-2v-6z"
+          fill="currentColor"
+        />
+      </svg>
+    </span>
+    <span
+      class="message"
+    >
+      No data to display
+    </span>
+  </p>
 </div>
 `;
 

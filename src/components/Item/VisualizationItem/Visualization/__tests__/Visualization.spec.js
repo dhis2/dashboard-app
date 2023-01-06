@@ -4,6 +4,16 @@ import { Provider } from 'react-redux'
 import configureMockStore from 'redux-mock-store'
 import Visualization from '../Visualization.js'
 
+jest.mock('@dhis2/app-runtime-adapter-d2', () => {
+    return {
+        useD2: jest.fn(() => ({
+            d2: {
+                currentUser: { username: 'rainbowDash' },
+                system: { installedApps: {} },
+            },
+        })),
+    }
+})
 jest.mock(
     '../DataVisualizerPlugin',
     () =>
@@ -162,6 +172,10 @@ test('renders a DefaultPlugin when activeType is EVENT_REPORT', () => {
 test('renders NoVisMessage when no visualization', () => {
     const store = {
         visualizations: {},
+        itemFilters: {},
+        selected: {
+            id: 'test-dashboard',
+        },
     }
     const { container } = render(
         <Provider store={mockStore(store)}>
