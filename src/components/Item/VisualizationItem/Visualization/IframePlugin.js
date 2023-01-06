@@ -1,7 +1,7 @@
 import { useD2 } from '@dhis2/app-runtime-adapter-d2'
 import postRobot from '@krakenjs/post-robot'
 import PropTypes from 'prop-types'
-import React, { useRef, useCallback, useState, useEffect } from 'react'
+import React, { useCallback, useEffect, useMemo, useRef, useState } from 'react'
 import {
     CHART,
     REPORT_TABLE,
@@ -18,11 +18,12 @@ import VisualizationErrorMessage from './VisualizationErrorMessage.js'
 const IframePlugin = ({
     activeType,
     filterVersion,
-    item,
     style,
     visualization,
     dashboardMode,
     dashboardId,
+    itemId,
+    itemType,
 }) => {
     const { d2 } = useD2()
 
@@ -38,21 +39,31 @@ const IframePlugin = ({
 
     const onError = () => setError('plugin')
 
-    const pluginProps = {
-        isVisualizationLoaded: true,
-        forDashboard: true,
-        displayProperty: userSettings.displayProperty,
-        visualization,
-        onError,
+    const pluginProps = useMemo(
+        () => ({
+            isVisualizationLoaded: true,
+            forDashboard: true,
+            displayProperty: userSettings.displayProperty,
+            visualization,
+            onError,
 
-        // For caching: ---
-        // Add user & dashboard IDs to cache ID to avoid removing a cached
-        // plugin that might be used in another dashboard also
-        // TODO: May also want user ID too for multi-user situations
-        cacheId: `${dashboardId}-${item.id}`,
-        isParentCached: isCached,
-        recordOnNextLoad: recordOnNextLoad,
-    }
+            // For caching: ---
+            // Add user & dashboard IDs to cache ID to avoid removing a cached
+            // plugin that might be used in another dashboard also
+            // TODO: May also want user ID too for multi-user situations
+            cacheId: `${dashboardId}-${itemId}`,
+            isParentCached: isCached,
+            recordOnNextLoad: recordOnNextLoad,
+        }),
+        [
+            userSettings,
+            visualization,
+            dashboardId,
+            itemId,
+            isCached,
+            recordOnNextLoad,
+        ]
+    )
 
     useEffect(() => {
         // Tell plugin to remove cached data if this dashboard has been removed
@@ -90,7 +101,7 @@ const IframePlugin = ({
 
             return () => listener.cancel()
         }
-    }, [pluginProps, recordOnNextLoad])
+    }, [recordOnNextLoad, pluginProps])
 
     useEffect(() => {
         if (iframeRef.current?.contentWindow) {
@@ -135,14 +146,15 @@ const IframePlugin = ({
         return error === 'missing-plugin' ? (
             <div style={style}>
                 <MissingPluginMessage
-                    item={item}
+                    itemType={itemType}
                     dashboardMode={dashboardMode}
                 />
             </div>
         ) : (
             <div style={style}>
                 <VisualizationErrorMessage
-                    item={item}
+                    itemType={itemType}
+                    visualizationId={visualization.id}
                     dashboardMode={dashboardMode}
                 />
             </div>
@@ -174,9 +186,14 @@ IframePlugin.propTypes = {
     dashboardId: PropTypes.string,
     dashboardMode: PropTypes.string,
     filterVersion: PropTypes.string,
-    item: PropTypes.object,
+    itemId: PropTypes.string,
+    itemType: PropTypes.string,
     style: PropTypes.object,
     visualization: PropTypes.object,
 }
 
-export default IframePlugin
+// Memoize the whole component to avoid re-rendering when the parent component re-renders.
+// This happens when the interpretations panel is toggled because the `item` prop changes (height)
+// causing the `Item` component to re-render.
+
+export default React.memo(IframePlugin)
