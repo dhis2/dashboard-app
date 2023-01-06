@@ -105,6 +105,9 @@ class Item extends Component {
         return !!(el?.requestFullscreen || el?.webkitRequestFullscreen)
     }
 
+    onClickNoFiltersOverlay = () =>
+        this.setState({ showNoFiltersOverlay: false })
+
     onToggleFullscreen = () => {
         if (!isElementFullscreen(this.props.item.id)) {
             const el = getGridItemElement(this.props.item.id)
@@ -178,6 +181,7 @@ class Item extends Component {
     render() {
         const { item, dashboardMode, itemFilters } = this.props
         const { showFooter, showNoFiltersOverlay } = this.state
+        const originalType = getItemTypeForVis(item)
         const activeType = this.getActiveType()
 
         const actionButtons =
@@ -236,6 +240,8 @@ class Item extends Component {
                                 {dimensions => (
                                     <Visualization
                                         item={item}
+                                        visualization={this.props.visualization}
+                                        originalType={originalType}
                                         activeType={activeType}
                                         itemFilters={itemFilters}
                                         availableHeight={this.getAvailableHeight(
@@ -248,10 +254,8 @@ class Item extends Component {
                                             Object.keys(itemFilters).length &&
                                                 showNoFiltersOverlay
                                         )}
-                                        onClickNoFiltersOverlay={() =>
-                                            this.setState({
-                                                showNoFiltersOverlay: false,
-                                            })
+                                        onClickNoFiltersOverlay={
+                                            this.onClickNoFiltersOverlay
                                         }
                                     />
                                 )}

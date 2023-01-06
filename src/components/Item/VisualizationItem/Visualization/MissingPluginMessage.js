@@ -6,7 +6,7 @@ import { isPrintMode } from '../../../../modules/dashboardModes.js'
 import { getAppName } from '../../../../modules/itemTypes.js'
 import classes from './styles/VisualizationErrorMessage.module.css'
 
-const MissingPluginMessage = ({ item, dashboardMode }) => {
+const MissingPluginMessage = ({ itemType, dashboardMode }) => {
     return (
         <Center>
             <p className={classes.errorMessage}>
@@ -23,7 +23,7 @@ const MissingPluginMessage = ({ item, dashboardMode }) => {
                         {i18n.t(
                             'Install the {{appName}} app from the App Hub',
                             {
-                                appName: getAppName(item.type),
+                                appName: getAppName(itemType),
                             }
                         )}
                     </a>
@@ -35,7 +35,7 @@ const MissingPluginMessage = ({ item, dashboardMode }) => {
 
 MissingPluginMessage.propTypes = {
     dashboardMode: PropTypes.string,
-    item: PropTypes.object,
+    itemType: PropTypes.string,
 }
 
 export default MissingPluginMessage
