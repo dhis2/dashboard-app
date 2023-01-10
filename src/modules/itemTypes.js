@@ -69,6 +69,7 @@ export const itemTypeMap = {
         isVisualizationType: true,
         appUrl: (id) => `dhis-web-data-visualizer/#/${id}`,
         appName: 'Data Visualizer',
+        appKey: 'data-visualizer',
         defaultItemCount: 10,
     },
     [REPORT_TABLE]: {
