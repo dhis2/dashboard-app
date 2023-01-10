@@ -33,9 +33,7 @@ export const getPluginLaunchUrl = (type, d2) => {
     if (appKey) {
         const appDetails = apps.find((app) => app.key === appKey)
 
-        // TODO replace with the plugin url
-        // return appDetails?.pluginLaunchUrl
-        return appDetails?.launchUrl
+        return appDetails?.pluginLaunchUrl
     }
 }
 
