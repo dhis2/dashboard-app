@@ -26,22 +26,27 @@ When('I add a MAP and a CHART and save', () => {
         .find('input')
         .type('Inpatient', { force: true })
 
-    // //chart
+    //chart
     cy.get(
         '[data-test="menu-item-Inpatient: BMI this year by districts"]'
     ).click()
 
+    cy.get('[data-test="dhis2-uicore-layer"]').click('topLeft')
+
+    cy.get('[data-test="item-search"]').click()
+    cy.get('[data-test="item-search"]')
+        .find('input')
+        .type('ipt 2', { force: true })
+
     //map
-    cy.get(
-        '[data-test="menu-item-Inpatient: BMI at facility level this year"]'
-    ).click()
+    cy.get('[data-test="menu-item-ANC: IPT 2 Coverage this year"]').click()
 
     cy.get('[data-test="dhis2-uicore-layer"]').click('topLeft')
 
     //move things so the dashboard is more compact
     cy.get(`${gridItemSel}.MAP`)
         .trigger('mousedown')
-        .trigger('mousemove', { clientX: 600 })
+        .trigger('mousemove', { clientX: 650 })
         .trigger('mouseup')
 
     //save
@@ -54,10 +59,12 @@ Given('I open existing dashboard', () => {
         .click()
 })
 
+// Some map visualization load very slowly:
+// https://dhis2.atlassian.net/browse/DHIS2-14365
 Then('the dashboard displays in view mode', () => {
     // check for a map canvas and a highcharts element
     cy.get(chartSel, EXTENDED_TIMEOUT).should('be.visible')
-    cy.get(mapSel, { timeout: 85000 }).should('be.visible')
+    cy.get(mapSel, EXTENDED_TIMEOUT).should('be.visible')
 })
 
 When('I choose to delete dashboard', () => {
