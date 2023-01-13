@@ -1,3 +1,10 @@
+## [99.10.9](https://github.com/dhis2/dashboard-app/compare/v99.10.8...v99.10.9) (2023-01-13)
+
+
+### Bug Fixes
+
+* use new endpoint for dashboard item search DHIS2-12236 ([#2204](https://github.com/dhis2/dashboard-app/issues/2204)) ([a85c226](https://github.com/dhis2/dashboard-app/commit/a85c22642a19610fbeb3cd3fd30329d7802532dd))
+
 ## [99.10.8](https://github.com/dhis2/dashboard-app/compare/v99.10.7...v99.10.8) (2022-12-20)
 
 
