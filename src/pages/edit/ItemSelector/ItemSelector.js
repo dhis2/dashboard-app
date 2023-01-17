@@ -1,31 +1,44 @@
-import { useDataEngine } from '@dhis2/app-runtime'
+import { useDataQuery } from '@dhis2/app-runtime'
 import { Popover, FlyoutMenu } from '@dhis2/ui'
 import React, { useState, useEffect, createRef } from 'react'
 import { itemTypeMap, getDefaultItemCount } from '../../../modules/itemTypes.js'
 import useDebounce from '../../../modules/useDebounce.js'
 import CategorizedMenuGroup from './CategorizedMenuGroup.js'
-import { getDashboardsQQuery } from './dashboardsQQuery.js'
 import ItemSearchField from './ItemSearchField.js'
 import { singleItems, categorizedItems } from './selectableItems.js'
 import SinglesMenuGroup from './SinglesMenuGroup.js'
 import classes from './styles/ItemSelector.module.css'
+
+const dashboardSearchQuery = {
+    items: {
+        resource: 'dashboards/search',
+        params: ({ searchTerm = '', count = 11, maxItems = [] }) => ({
+            q: searchTerm,
+            count,
+            max: maxItems,
+        }),
+    },
+}
 
 const ItemSelector = () => {
     const [isOpen, setIsOpen] = useState(false)
     const [filter, setFilter] = useState('')
     const [items, setItems] = useState(null)
     const [maxOptions, setMaxOptions] = useState(new Set())
-    const dataEngine = useDataEngine()
     const debouncedFilterText = useDebounce(filter, 350)
 
-    useEffect(() => {
-        const query = getDashboardsQQuery(
-            debouncedFilterText,
-            Array.from(maxOptions)
-        )
+    const { data, refetch } = useDataQuery(dashboardSearchQuery, {
+        lazy: true,
+    })
 
-        dataEngine.query({ items: query }).then((res) => setItems(res.items))
-    }, [debouncedFilterText, maxOptions])
+    useEffect(() => data?.items && setItems(data.items), [data])
+
+    useEffect(() => {
+        refetch({
+            searchTerm: debouncedFilterText,
+            maxItems: Array.from(maxOptions),
+        })
+    }, [debouncedFilterText, maxOptions, refetch])
 
     const closeMenu = () => {
         setIsOpen(false)
