@@ -1,8 +1,8 @@
 .bar {
     position: sticky;
-    top: var(--spacers-dp12);
+    top: var(--spacers-dp8);
     z-index: 7;
-    margin-top: var(--spacers-dp8);
+    margin-top: var(--spacers-dp4);
     display: flex;
     justify-content: center;
     flex-wrap: wrap;

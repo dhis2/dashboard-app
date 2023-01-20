@@ -5,7 +5,8 @@
 .container {
     position: relative;
     background-color: var(--colors-white);
-    box-shadow: rgba(0, 0, 0, 0.2) 0 0 6px 3px;
+    border-bottom: 1px solid var(--colors-grey400);
+    box-shadow: 0 2px 6px rgba(33, 41, 52, 0.1);
     overflow: hidden;
     box-sizing: border-box;
     flex: none;
