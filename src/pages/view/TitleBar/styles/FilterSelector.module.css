@@ -1,3 +1,8 @@
+.buttonContainer {
+    display: flex;
+    align-items: center;
+}
+
 @media only screen and (max-width: 480px) {
     .buttonContainer {
         display: none;

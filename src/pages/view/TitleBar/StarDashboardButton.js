@@ -40,11 +40,12 @@ const StarDashboardButton = ({ starred, onClick }) => {
         >
             <Tooltip content={tooltipContent}>
                 <span
+                    className={classes.starIcon}
                     data-test={
                         starred ? 'dashboard-starred' : 'dashboard-unstarred'
                     }
                 >
-                    <StarIcon color={colors.grey600} />
+                    <StarIcon />
                 </span>
             </Tooltip>
         </button>

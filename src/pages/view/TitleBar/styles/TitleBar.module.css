@@ -4,23 +4,15 @@
 
 .titleBar {
     display: flex;
-    align-items: flex-start;
+    align-items: center;
+    justify-content: space-between;
     position: relative;
 }
 
 .title {
     position: relative;
-    font-size: 21px;
+    font-size: 20px;
     font-weight: 500;
-    color: var(--colors-black);
-    min-width: 50px;
-    cursor: default;
+    color: var(--colors-grey900);
     user-select: text;
-    top: 7px;
-}
-
-@media only screen and (max-width: 480px) {
-    .title {
-        top: 3px;
-    }
 }

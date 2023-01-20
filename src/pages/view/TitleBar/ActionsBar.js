@@ -211,7 +211,8 @@ const ViewActions = ({
     const getMoreButton = (className, useSmall) => (
         <DropdownButton
             className={className}
-            small={useSmall}
+            small
+            secondary
             open={useSmall ? moreOptionsSmallIsOpen : moreOptionsIsOpen}
             disabledWhenOffline={false}
             onClick={() => toggleMoreOptions(useSmall)}
@@ -233,6 +234,8 @@ const ViewActions = ({
                     {userAccess.update ? (
                         <OfflineTooltip>
                             <Button
+                                small
+                                secondary
                                 disabled={offline}
                                 className={classes.editButton}
                                 onClick={() => setRedirectUrl(`${id}/edit`)}
@@ -244,6 +247,8 @@ const ViewActions = ({
                     {userAccess.manage ? (
                         <OfflineTooltip>
                             <Button
+                                small
+                                secondary
                                 disabled={offline}
                                 className={classes.shareButton}
                                 onClick={onToggleSharingDialog}

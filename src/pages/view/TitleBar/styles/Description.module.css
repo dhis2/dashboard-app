@@ -3,11 +3,11 @@
 }
 
 .noDesc {
-    color: #888;
+    color: var(--colors-grey600);
 }
 
 .descContainer {
     font-size: 14px;
-    padding-top: 5px;
-    padding-bottom: 5px;
+    line-height: 19px;
+    padding: var(--spacers-dp4) 0 0 0;
 }
