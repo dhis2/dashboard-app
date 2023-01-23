@@ -1,9 +1,9 @@
 .container {
     background-color: var(--colors-grey200);
-    padding-left: var(--spacers-dp16);
-    padding-right: var(--spacers-dp16);
+    /* padding-left: var(--spacers-dp16); */
+    /* padding-right: var(--spacers-dp16); */
     padding-bottom: var(--spacers-dp24);
-    overflow: auto;
+    /* overflow: auto; */
 }
 
 @media only screen and (max-height: 480px) {

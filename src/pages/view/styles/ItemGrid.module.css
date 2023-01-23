@@ -1,3 +1,4 @@
 .grid {
-    margin-top: var(--spacers-dp12);
+    margin-top: var(--spacers-dp8);
+    padding: 0 var(--spacers-dp16);
 }

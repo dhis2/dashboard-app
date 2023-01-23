@@ -26,6 +26,7 @@ import { sGetNamedItemFilters } from '../../../reducers/itemFilters.js'
 import { sGetSelected } from '../../../reducers/selected.js'
 import { sGetShowDescription } from '../../../reducers/showDescription.js'
 import { ROUTE_START_PATH } from '../../start/index.js'
+import FilterBar from '../FilterBar/FilterBar.js'
 import { apiStarDashboard } from './apiStarDashboard.js'
 import FilterSelector from './FilterSelector.js'
 import StarDashboardButton from './StarDashboardButton.js'
@@ -226,6 +227,7 @@ const ViewActions = ({
     return (
         <>
             <div className={classes.actions}>
+                <FilterBar />
                 <StarDashboardButton
                     starred={starred}
                     onClick={onToggleStarredDashboard}

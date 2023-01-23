@@ -6,21 +6,21 @@
     position: relative;
     background-color: var(--colors-white);
     border-bottom: 1px solid var(--colors-grey400);
-    box-shadow: 0 2px 6px rgba(33, 41, 52, 0.1);
+    box-shadow: 0 -2px 4px rgba(33, 41, 52, 0.02) inset;
     overflow: hidden;
     box-sizing: border-box;
     flex: none;
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
+    justify-content: space-between;
     height: var(--user-rows-height);
     width: 100%;
     z-index: 1;
+    padding: var(--spacers-dp8);
 }
 
 .content {
-    padding: 10px 6px 0 6px;
     overflow: hidden;
-    margin-bottom: 21px; /* to make space for the show more button */
 }
 
 .expanded .content {

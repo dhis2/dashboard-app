@@ -1,32 +1,50 @@
 .container {
-    text-align: center;
-    flex: none;
-    height: 21px;
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 100%;
+    display: flex;
+    align-items: center;
+    width: 32px;
+    height: 40px;
+    flex-shrink: 0;
 }
 
 .showMore {
     cursor: pointer;
     border: none;
-    background-color: transparent;
+    border-radius: 3px;
+    background: transparent;
     padding: 0px;
     width: 100%;
-    height: 21px;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.showMore svg {
+    color: var(--colors-grey600);
 }
 
 .showMore:hover {
     background: var(--colors-grey200);
     transition: background 0.2s 0.1s;
 }
+.showMore:hover svg {
+    color: var(--colors-grey800);
+}
+
 .showMore:active {
     background: var(--colors-grey300);
     transition: none;
 }
+.showMore:active svg {
+    color: var(--colors-grey900);
+}
 
+/*focus-visible backwards compatibility for safari: https://css-tricks.com/platform-news-using-focus-visible-bbcs-new-typeface-declarative-shadow-doms-a11y-and-placeholders/*/
 .showMore:focus {
+    outline: 3px solid var(--theme-focus);
+    outline-offset: -3px;
+}
+.showMore:focus:not(:focus-visible) {
     outline: none;
 }
 

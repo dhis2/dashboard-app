@@ -1,7 +1,7 @@
 :root {
     /* control bar variables */
     --user-rows-count: 1;
-    --controlbar-padding: 31px;
+    --controlbar-padding: 16px;
     --row-height: 40px;
     --min-rows-height: calc(
         var(--controlbar-padding) + (1 * var(--row-height))
@@ -36,7 +36,7 @@ body {
 }
 
 .app-shell-app {
-    overflow: hidden !important;
+    /* overflow: hidden !important; */
     display: flex;
     flex-direction: column;
 }

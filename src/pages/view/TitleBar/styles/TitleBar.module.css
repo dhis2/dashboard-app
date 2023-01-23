@@ -1,5 +1,11 @@
 .container {
-    margin-top: var(--spacers-dp12);
+    /* margin-top: var(--spacers-dp12); */
+    background: var(--colors-white);
+    border-bottom: 1px solid var(--colors-grey300);
+    padding: var(--spacers-dp12) var(--spacers-dp16) var(--spacers-dp8);
+    position: sticky;
+    top: 0;
+    z-index: 10;
 }
 
 .titleBar {
@@ -11,7 +17,7 @@
 
 .title {
     position: relative;
-    font-size: 20px;
+    font-size: 18px;
     font-weight: 500;
     color: var(--colors-grey900);
     user-select: text;
