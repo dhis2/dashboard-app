@@ -24,16 +24,30 @@ const itemTypeToScriptPath = {
 }
 
 const hasIntegratedPlugin = (type) =>
+    // TODO add MAP here when its new plugin is available
     [CHART, REPORT_TABLE, VISUALIZATION].includes(type)
 
 export const getPluginLaunchUrl = (type, d2) => {
+    // 1. lookup in api/apps for the "manually installed" app, this can be a new version for a core (bundled) app
+    // 2. fallback to default hardcoded path for the core (bundled) apps
+    const baseUrl = d2.system.configuration.api.baseUrl
     const apps = d2.system.installedApps
     const appKey = itemTypeMap[type].appKey
 
-    if (appKey) {
-        const appDetails = apps.find((app) => app.key === appKey)
+    const appDetails = appKey && apps.find((app) => app.key === appKey)
 
-        return appDetails?.pluginLaunchUrl
+    if (appDetails) {
+        return appDetails.pluginLaunchUrl
+    }
+
+    if (hasIntegratedPlugin(type)) {
+        switch (type) {
+            case CHART:
+            case REPORT_TABLE:
+            case VISUALIZATION: {
+                return `${baseUrl}/dhis-web-data-visualizer/plugin.html`
+            }
+        }
     }
 }
 
