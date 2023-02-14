@@ -17,7 +17,7 @@ import getFilteredVisualization from './getFilteredVisualization.js'
 import getVisualizationConfig from './getVisualizationConfig.js'
 import IframePlugin from './IframePlugin.js'
 import LegacyPlugin from './LegacyPlugin.js'
-//import MapPlugin from './MapPlugin.js'
+import MapPlugin from './MapPlugin.js'
 import NoVisualizationMessage from './NoVisualizationMessage.js'
 import { pluginIsAvailable } from './plugin.js'
 import classes from './styles/Visualization.module.css'
@@ -102,7 +102,6 @@ const Visualization = ({
     switch (activeType) {
         case CHART:
         case REPORT_TABLE:
-        case MAP:
         case VISUALIZATION: {
             return <IframePlugin {...iFramePluginProps} />
         }
@@ -130,7 +129,7 @@ const Visualization = ({
                 </>
             )
         }
-        /*
+
         case MAP: {
             return (
                 <MapPlugin
@@ -140,11 +139,13 @@ const Visualization = ({
                     itemFilters={itemFilters}
                     applyFilters={filteredVisualization}
                     filterVersion={filterVersion}
+                    dashboardMode={dashboardMode}
+                    dashboardId={dashboardId}
                     style={style}
                     {...rest}
                 />
             )
-        }*/
+        }
         default: {
             return pluginIsAvailable(activeType || item.type, d2) ? (
                 <LegacyPlugin
