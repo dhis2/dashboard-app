@@ -12,7 +12,7 @@ import { useCacheableSection } from '../../../../modules/useCacheableSection.js'
 import { useUserSettings } from '../../../UserSettingsProvider.js'
 import MissingPluginMessage from './MissingPluginMessage.js'
 import { getPluginLaunchUrl } from './plugin.js'
-import classes from './styles/DataVisualizerPlugin.module.css'
+import classes from './styles/IframePlugin.module.css'
 import VisualizationErrorMessage from './VisualizationErrorMessage.js'
 
 const IframePlugin = ({
