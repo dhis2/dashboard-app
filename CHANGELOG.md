@@ -1,3 +1,10 @@
+## [99.10.10](https://github.com/dhis2/dashboard-app/compare/v99.10.9...v99.10.10) (2023-02-28)
+
+
+### Bug Fixes
+
+* translate user profile [DHIS2-14132] ([#2226](https://github.com/dhis2/dashboard-app/issues/2226)) ([783ce2f](https://github.com/dhis2/dashboard-app/commit/783ce2fef4e0180b3b8907fef525b9b6b0d50342))
+
 ## [99.10.9](https://github.com/dhis2/dashboard-app/compare/v99.10.8...v99.10.9) (2023-01-13)
 
 
