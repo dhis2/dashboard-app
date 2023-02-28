@@ -3,14 +3,14 @@
 exports[`renders SingleMenuGroup 1`] = `
 <div>
   <li
-    class="jsx-3508410433 item disabled dense"
+    class="jsx-2002348738 item disabled dense"
     data-test="dhis2-uicore-menuitem"
   >
     <a
-      class="jsx-3508410433"
+      class="jsx-2002348738"
     >
       <span
-        class="jsx-3508410433 label"
+        class="jsx-2002348738 label"
       >
         <span
           style="color: rgb(64, 75, 90); font-weight: 600;"
@@ -21,14 +21,14 @@ exports[`renders SingleMenuGroup 1`] = `
     </a>
   </li>
   <li
-    class="jsx-3508410433 "
+    class="jsx-2002348738 "
     data-test="menu-item-Rainbow Dash"
   >
     <a
-      class="jsx-3508410433"
+      class="jsx-2002348738"
     >
       <span
-        class="jsx-3508410433 icon"
+        class="jsx-2002348738 icon"
       >
         <svg
           color="#6C7787"
@@ -44,7 +44,7 @@ exports[`renders SingleMenuGroup 1`] = `
         </svg>
       </span>
       <span
-        class="jsx-3508410433 label"
+        class="jsx-2002348738 label"
       >
         <div
           class="menuItem"
@@ -66,14 +66,14 @@ exports[`renders SingleMenuGroup 1`] = `
     </a>
   </li>
   <li
-    class="jsx-3508410433 "
+    class="jsx-2002348738 "
     data-test="menu-item-Twilight"
   >
     <a
-      class="jsx-3508410433"
+      class="jsx-2002348738"
     >
       <span
-        class="jsx-3508410433 icon"
+        class="jsx-2002348738 icon"
       >
         <svg
           color="#6C7787"
@@ -89,7 +89,7 @@ exports[`renders SingleMenuGroup 1`] = `
         </svg>
       </span>
       <span
-        class="jsx-3508410433 label"
+        class="jsx-2002348738 label"
       >
         <div
           class="menuItem"
