@@ -1,6 +1,31 @@
-const getFilteredVisualization = (visualization, filters) => {
+import { MAP } from '../../../../modules/itemTypes.js'
+
+const mapViewIsThematicOrEvent = (mapView) =>
+    mapView.layer.includes('thematic') || mapView.layer.includes('event')
+
+const getFilteredMap = (visualization, filters) => {
+    // apply filters only to thematic and event layers
+    const mapViews = visualization.mapViews.map((mapView) => {
+        if (mapViewIsThematicOrEvent(mapView)) {
+            return getFilteredVisualization(mapView, filters)
+        }
+
+        return mapView
+    })
+
+    return {
+        ...visualization,
+        mapViews,
+    }
+}
+
+const getFilteredVisualization = (visualization, filters, originalType) => {
     if (!Object.keys(filters).length) {
         return visualization
+    }
+
+    if (originalType === MAP) {
+        return getFilteredMap(visualization, filters)
     }
 
     // deep clone objects in filters to avoid changing the visualization in the Redux store
