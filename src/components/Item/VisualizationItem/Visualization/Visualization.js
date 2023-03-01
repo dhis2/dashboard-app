@@ -3,7 +3,7 @@ import i18n from '@dhis2/d2-i18n'
 import { Button, Cover, IconInfo24, colors } from '@dhis2/ui'
 import uniqueId from 'lodash/uniqueId.js'
 import PropTypes from 'prop-types'
-import React, { useMemo } from 'react'
+import React, { useMemo, useCallback } from 'react'
 import { useSelector } from 'react-redux'
 import {
     VISUALIZATION,
@@ -59,7 +59,7 @@ const Visualization = ({
         [visualization, activeType, originalType]
     )
 
-    const filteredVisualization = useMemo(
+    const getCbFilteredVisualization = useCallback(
         () => getFilteredVisualization(visualizationConfig, itemFilters),
         [visualizationConfig, itemFilters]
     )
@@ -70,10 +70,6 @@ const Visualization = ({
         () => ({
             originalType,
             activeType,
-            visualization:
-                activeType === EVENT_VISUALIZATION
-                    ? visualizationConfig
-                    : filteredVisualization,
             style,
             filterVersion,
             dashboardMode,
@@ -85,13 +81,11 @@ const Visualization = ({
             activeType,
             dashboardMode,
             dashboardId,
-            filteredVisualization,
             filterVersion,
             item.id,
             item.type,
             originalType,
             style,
-            visualizationConfig,
         ]
     )
 
@@ -103,7 +97,12 @@ const Visualization = ({
         case CHART:
         case REPORT_TABLE:
         case VISUALIZATION: {
-            return <IframePlugin {...iFramePluginProps} />
+            return (
+                <IframePlugin
+                    visualization={getCbFilteredVisualization()}
+                    {...iFramePluginProps}
+                />
+            )
         }
         case EVENT_VISUALIZATION: {
             return (
@@ -125,7 +124,10 @@ const Visualization = ({
                             </div>
                         </Cover>
                     ) : null}
-                    <IframePlugin {...iFramePluginProps} />
+                    <IframePlugin
+                        visualization={visualizationConfig}
+                        {...iFramePluginProps}
+                    />
                 </>
             )
         }
@@ -133,16 +135,9 @@ const Visualization = ({
         case MAP: {
             return (
                 <MapPlugin
-                    item={item}
-                    activeType={activeType}
                     visualization={visualizationConfig}
                     itemFilters={itemFilters}
-                    applyFilters={filteredVisualization}
-                    filterVersion={filterVersion}
-                    dashboardMode={dashboardMode}
-                    dashboardId={dashboardId}
-                    style={style}
-                    {...rest}
+                    {...iFramePluginProps}
                 />
             )
         }
