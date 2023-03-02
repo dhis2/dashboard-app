@@ -14,13 +14,6 @@ jest.mock('@dhis2/app-runtime-adapter-d2', () => {
         })),
     }
 })
-jest.mock(
-    '../DataVisualizerPlugin',
-    () =>
-        function MockVisualizationPlugin() {
-            return <div className="visualization-plugin" />
-        }
-)
 
 jest.mock(
     '../MapPlugin',
