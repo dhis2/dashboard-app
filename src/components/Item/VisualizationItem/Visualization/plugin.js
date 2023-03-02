@@ -30,7 +30,7 @@ const hasIntegratedPlugin = (type) =>
 export const getPluginLaunchUrl = (type, d2) => {
     // 1. lookup in api/apps for the "manually installed" app, this can be a new version for a core (bundled) app
     // 2. fallback to default hardcoded path for the core (bundled) apps
-    const baseUrl = d2.system.configuration.api.baseUrl
+    const baseUrl = d2.system.systemInfo.instanceBaseUrl
     const apps = d2.system.installedApps
     const appKey = itemTypeMap[type].appKey
 
