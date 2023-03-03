@@ -1,4 +1,5 @@
 import {
+    itemTypeMap,
     REPORT_TABLE,
     CHART,
     VISUALIZATION,
@@ -11,19 +12,44 @@ import { loadExternalScript } from './loadExternalScript.js'
 
 //external plugins
 const itemTypeToGlobalVariable = {
-    [MAP]: 'mapPlugin',
     [EVENT_REPORT]: 'eventReportPlugin',
     [EVENT_CHART]: 'eventChartPlugin',
 }
 
 const itemTypeToScriptPath = {
-    [MAP]: '/dhis-web-maps/map.js',
     [EVENT_REPORT]: '/dhis-web-event-reports/eventreport.js',
     [EVENT_CHART]: '/dhis-web-event-visualizer/eventchart.js',
 }
 
 const hasIntegratedPlugin = (type) =>
-    [CHART, REPORT_TABLE, VISUALIZATION].includes(type)
+    [CHART, REPORT_TABLE, VISUALIZATION, MAP].includes(type)
+
+export const getPluginLaunchUrl = (type, d2) => {
+    // 1. lookup in api/apps for the "manually installed" app, this can be a new version for a core (bundled) app
+    // 2. fallback to default hardcoded path for the core (bundled) apps
+    const baseUrl = d2.system.systemInfo.instanceBaseUrl
+    const apps = d2.system.installedApps
+    const appKey = itemTypeMap[type].appKey
+
+    const appDetails = appKey && apps.find((app) => app.key === appKey)
+
+    if (appDetails) {
+        return appDetails.pluginLaunchUrl
+    }
+
+    if (hasIntegratedPlugin(type)) {
+        switch (type) {
+            case CHART:
+            case REPORT_TABLE:
+            case VISUALIZATION: {
+                return `${baseUrl}/dhis-web-data-visualizer/plugin.html`
+            }
+            case MAP: {
+                return `${baseUrl}/dhis-web-maps/plugin.html`
+            }
+        }
+    }
+}
 
 export const getPlugin = async (type) => {
     if (hasIntegratedPlugin(type)) {
@@ -64,11 +90,13 @@ const fetchPlugin = async (type, baseUrl) => {
     return await scriptsPromise
 }
 
-export const pluginIsAvailable = (type) =>
-    hasIntegratedPlugin(type) || itemTypeToGlobalVariable[type]
+export const pluginIsAvailable = (type, d2) =>
+    hasIntegratedPlugin(type) ||
+    Boolean(getPluginLaunchUrl(type, d2)) ||
+    Boolean(itemTypeToGlobalVariable[type])
 
-const loadPlugin = async (type, config, credentials) => {
-    if (!pluginIsAvailable(type)) {
+const loadPlugin = async ({ type, config, credentials, d2 }) => {
+    if (!pluginIsAvailable(type, d2)) {
         return
     }
 
@@ -90,7 +118,7 @@ const loadPlugin = async (type, config, credentials) => {
 export const load = async (
     item,
     visualization,
-    { credentials, activeType, options = {} }
+    { credentials, activeType, d2, options = {} }
 ) => {
     const config = {
         ...visualization,
@@ -99,7 +127,7 @@ export const load = async (
     }
 
     const type = activeType || item.type
-    await loadPlugin(type, config, credentials)
+    await loadPlugin({ type, config, credentials, d2 })
 }
 
 export const unmount = async (item, activeType) => {
