@@ -2167,12 +2167,12 @@
     react-beautiful-dnd "^10.1.1"
     resize-observer-polyfill "^1.5.1"
 
-"@dhis2/app-adapter@10.2.3":
-  version "10.2.3"
-  resolved "https://registry.yarnpkg.com/@dhis2/app-adapter/-/app-adapter-10.2.3.tgz#15753bb665be92d1058c36f8f060ff65ddedf5c8"
-  integrity sha512-Qk73M8yJJ2vWhbO0elAhXJrk/P9gk5jBYSQ/2BNukdJv6QwdNJu6WWRqkE9qCgnE5AR6pXXjv5DkT6lf/4phQg==
+"@dhis2/app-adapter@10.3.0":
+  version "10.3.0"
+  resolved "https://registry.yarnpkg.com/@dhis2/app-adapter/-/app-adapter-10.3.0.tgz#ba95c4a7ce7644d32edf71021e4a3b41ac44b1e8"
+  integrity sha512-6qZEja4HagRSc/R+z8N6ACF6pTXxuwCjo/jz+VYkktgHqbYlNiuR6IayzmXnCbomQG/fB61mvOuuG4Q08krN6w==
   dependencies:
-    "@dhis2/pwa" "10.2.3"
+    "@dhis2/pwa" "10.3.0"
     moment "^2.24.0"
 
 "@dhis2/app-runtime-adapter-d2@^1.1.0":
@@ -2182,7 +2182,7 @@
   dependencies:
     prop-types "^15.7.2"
 
-"@dhis2/app-runtime@^3.4.4", "@dhis2/app-runtime@^3.6.1":
+"@dhis2/app-runtime@^3.4.4":
   version "3.7.0"
   resolved "https://registry.yarnpkg.com/@dhis2/app-runtime/-/app-runtime-3.7.0.tgz#be738255ae95aaf597f9f59d1a56566b1a035dae"
   integrity sha512-lKHgjaVVnCC5xxThckTVS0EH5mQlrSOdM8bC/7BSz5r9ztgLXJGUgxbnOvVbh95S/zFS9eyDvIls1HGum/MHTQ==
@@ -2250,15 +2250,15 @@
   dependencies:
     lodash "^4.17.21"
 
-"@dhis2/app-shell@10.2.3":
-  version "10.2.3"
-  resolved "https://registry.yarnpkg.com/@dhis2/app-shell/-/app-shell-10.2.3.tgz#b2b9907b8c3fa22de26ba739ccfcdd85929c0345"
-  integrity sha512-hvFOFz6YtGLGYyHrcGxYAz9XdT19EH//dIBnqhCQIBv/d7q5uqQ8yue3XaUq1wOi2JQKsVH3mhRjruetlBkdAg==
+"@dhis2/app-shell@10.3.0":
+  version "10.3.0"
+  resolved "https://registry.yarnpkg.com/@dhis2/app-shell/-/app-shell-10.3.0.tgz#67351afe3dbb83a1ba5778ce722c64f6d3c4f9c6"
+  integrity sha512-wkl2j8JaWe2M1Gwnp3Kz1lTyiSix4bMEPKBtqLwOMVIJ3b5hy7RpASBSlrvj11MdCCcIW9Crn0UfpMa842mHyA==
   dependencies:
-    "@dhis2/app-adapter" "10.2.3"
-    "@dhis2/app-runtime" "^3.6.1"
+    "@dhis2/app-adapter" "10.3.0"
+    "@dhis2/app-runtime" "^3.9.0"
     "@dhis2/d2-i18n" "^1.1.1"
-    "@dhis2/pwa" "10.2.3"
+    "@dhis2/pwa" "10.3.0"
     "@dhis2/ui" "^8.6.2"
     classnames "^2.2.6"
     moment "^2.29.1"
@@ -2271,10 +2271,10 @@
     typeface-roboto "^0.0.75"
     typescript "^3.6.3"
 
-"@dhis2/cli-app-scripts@^10.2.3":
-  version "10.2.3"
-  resolved "https://registry.yarnpkg.com/@dhis2/cli-app-scripts/-/cli-app-scripts-10.2.3.tgz#be4a91cfddaa7ffc7c65404433b21f9b0b254cce"
-  integrity sha512-jjNAjJlUJVhThyjWb6hl2gOYba6i+Rqxbehsk85feeTSgwQQtDW7klX0Xi9X/I60xA8gyDnU6xJRZqE3y+rsFw==
+"@dhis2/cli-app-scripts@^10.3.0":
+  version "10.3.0"
+  resolved "https://registry.yarnpkg.com/@dhis2/cli-app-scripts/-/cli-app-scripts-10.3.0.tgz#f544b2e2fe25e1a63d58734c9c1fba11684e0e75"
+  integrity sha512-zka66VUN8jrEymNDcaFnbTp4C7doDMUDSake4TmK6AUKNy/NiHNtuGgvCc2dqaECxTjh+CgcC+T6r4FdT7P78g==
   dependencies:
     "@babel/core" "^7.6.2"
     "@babel/plugin-proposal-class-properties" "^7.8.3"
@@ -2283,7 +2283,7 @@
     "@babel/preset-env" "^7.14.7"
     "@babel/preset-react" "^7.0.0"
     "@babel/preset-typescript" "^7.6.0"
-    "@dhis2/app-shell" "10.2.3"
+    "@dhis2/app-shell" "10.3.0"
     "@dhis2/cli-helpers-engine" "^3.2.0"
     "@jest/core" "^27.0.6"
     "@pmmmwh/react-refresh-webpack-plugin" "^0.5.4"
@@ -2491,10 +2491,10 @@
   resolved "https://registry.yarnpkg.com/@dhis2/prop-types/-/prop-types-3.1.2.tgz#65b8ad2da8cd2f72bc8b951049a6c9d1b97af3e9"
   integrity sha512-eM0jjLOWvtXWqSFp5YC4DHFpkP8Y1D2eUwGV7MBWjni+o27oesVan+oT7WHeOeLdlAd4acRJrnaaAyB4Ck1wGQ==
 
-"@dhis2/pwa@10.2.3":
-  version "10.2.3"
-  resolved "https://registry.yarnpkg.com/@dhis2/pwa/-/pwa-10.2.3.tgz#679ddad035053ed216398cd8f27c6f21eecb287d"
-  integrity sha512-0ylXklRLnDEJr+7EJ8lzTbRntxiRWN+Rdu8C0w+8TgXQD6Axx0hHfjt6EW6hwtVEEZckakKVw867aQCf5HwDsg==
+"@dhis2/pwa@10.3.0":
+  version "10.3.0"
+  resolved "https://registry.yarnpkg.com/@dhis2/pwa/-/pwa-10.3.0.tgz#c033415761f1db1ed5e1794a6813ba45d062bf76"
+  integrity sha512-40Tj5xag94IIrQw8mGUjCueTyG7Xe/vOXz1gsR9Nm9/8RyMJ2hjd7C/D6Gy4WJHFTI0qippnSjBopsyL+lt4Og==
   dependencies:
     idb "^6.0.0"
     workbox-core "^6.1.5"
