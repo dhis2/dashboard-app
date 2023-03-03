@@ -13,7 +13,7 @@ const configureStore = (dataEngine) => {
         !window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ &&
         process.env.NODE_ENV !== 'production'
     ) {
-        middleware.push(createLogger())
+        // middleware.push(createLogger())
     }
 
     return createStore(

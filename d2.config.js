@@ -1,7 +1,7 @@
 const config = {
     type: 'app',
     name: 'dashboard',
-    title: 'Dashboard',
+    title: 'Dashboard with UserGuiding',
     coreApp: true,
 
     pwa: {
