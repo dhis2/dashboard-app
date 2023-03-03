@@ -30,7 +30,9 @@ jest.mock('../../../../modules/useDimensions', () => jest.fn())
 useDimensions.mockImplementation(() => ['Moomin', 'Snorkmaiden'])
 
 test('is disabled when offline', () => {
-    useDhis2ConnectionStatus.mockImplementationOnce(jest.fn(() => ({ isDisconnected: true })))
+    useDhis2ConnectionStatus.mockImplementationOnce(
+        jest.fn(() => ({ isDisconnected: true }))
+    )
 
     const store = { activeModalDimension: {}, itemFilters: {} }
 
