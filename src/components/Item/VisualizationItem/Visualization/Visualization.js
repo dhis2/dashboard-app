@@ -17,7 +17,7 @@ import getFilteredVisualization from './getFilteredVisualization.js'
 import getVisualizationConfig from './getVisualizationConfig.js'
 import IframePlugin from './IframePlugin.js'
 import LegacyPlugin from './LegacyPlugin.js'
-//import MapPlugin from './MapPlugin.js'
+import MapPlugin from './MapPlugin.js'
 import NoVisualizationMessage from './NoVisualizationMessage.js'
 import { pluginIsAvailable } from './plugin.js'
 import classes from './styles/Visualization.module.css'
@@ -60,8 +60,13 @@ const Visualization = ({
     )
 
     const filteredVisualization = useMemo(
-        () => getFilteredVisualization(visualizationConfig, itemFilters),
-        [visualizationConfig, itemFilters]
+        () =>
+            getFilteredVisualization(
+                visualizationConfig,
+                itemFilters,
+                originalType
+            ),
+        [visualizationConfig, itemFilters, originalType]
     )
 
     const filterVersion = useMemo(() => uniqueId(), [])
@@ -70,10 +75,6 @@ const Visualization = ({
         () => ({
             originalType,
             activeType,
-            visualization:
-                activeType === EVENT_VISUALIZATION
-                    ? visualizationConfig
-                    : filteredVisualization,
             style,
             filterVersion,
             dashboardMode,
@@ -82,16 +83,14 @@ const Visualization = ({
             itemType: item.type,
         }),
         [
+            originalType,
             activeType,
+            style,
+            filterVersion,
             dashboardMode,
             dashboardId,
-            filteredVisualization,
-            filterVersion,
             item.id,
             item.type,
-            originalType,
-            style,
-            visualizationConfig,
         ]
     )
 
@@ -102,9 +101,13 @@ const Visualization = ({
     switch (activeType) {
         case CHART:
         case REPORT_TABLE:
-        case MAP:
         case VISUALIZATION: {
-            return <IframePlugin {...iFramePluginProps} />
+            return (
+                <IframePlugin
+                    visualization={filteredVisualization}
+                    {...iFramePluginProps}
+                />
+            )
         }
         case EVENT_VISUALIZATION: {
             return (
@@ -126,25 +129,23 @@ const Visualization = ({
                             </div>
                         </Cover>
                     ) : null}
-                    <IframePlugin {...iFramePluginProps} />
+                    <IframePlugin
+                        visualization={visualizationConfig}
+                        {...iFramePluginProps}
+                    />
                 </>
             )
         }
-        /*
+
         case MAP: {
             return (
                 <MapPlugin
-                    item={item}
-                    activeType={activeType}
-                    visualization={visualizationConfig}
-                    itemFilters={itemFilters}
-                    applyFilters={filteredVisualization}
-                    filterVersion={filterVersion}
-                    style={style}
-                    {...rest}
+                    visualization={filteredVisualization}
+                    {...iFramePluginProps}
                 />
             )
-        }*/
+        }
+
         default: {
             return pluginIsAvailable(activeType || item.type, d2) ? (
                 <LegacyPlugin
