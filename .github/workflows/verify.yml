@@ -207,6 +207,6 @@ jobs:
               uses: slackapi/slack-github-action@v1.23.0
               with:
                   channel-id: ${{ secrets.SLACK_CHANNEL_ID }}
-                  slack-message: ':small_red_triangle_down: Dashboard-app build failed <https://github.com/dhis2/dashboard-app/actions/workflows/verify.yml?query=branch%3Amaster|failed>'
+                  slack-message: ':small_red_triangle_down: Dashboard-app build <https://github.com/dhis2/dashboard-app/actions/workflows/verify.yml?query=branch%3Amaster|failed>'
               env:
                   SLACK_BOT_TOKEN: ${{ secrets.SLACK_BOT_TOKEN }}
