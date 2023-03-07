@@ -197,7 +197,6 @@ jobs:
         runs-on: ubuntu-latest
         needs: [build, lint, test, e2e, publish, release]
         if: |
-            always() &&
             github.event.repository.default_branch &&
             contains(needs.*.result, 'failure')
 
