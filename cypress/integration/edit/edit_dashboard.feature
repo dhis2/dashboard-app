@@ -65,12 +65,12 @@ Feature: Creating, editing and deleting dashboard
         When I click to hide the description
         Then the dashboard description is not displayed
 
-    #    @nonmutating
-    #    Scenario: I move an item on a dashboard
-    #        Given I open existing dashboard
-    #        When I choose to edit dashboard
-    #        And the chart item is displayed
-    #        Then no analytics requests are made when item is moved
+    @nonmutating
+    Scenario: I move an item on a dashboard
+        Given I open existing dashboard
+        When I choose to edit dashboard
+        And the chart item is displayed
+        Then no analytics requests are made when item is moved
 
     # @mutating
     # Scenario: I add translations to a dashboard and save dashboard
