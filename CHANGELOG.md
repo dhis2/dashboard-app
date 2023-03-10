@@ -1,3 +1,10 @@
+## [99.10.12](https://github.com/dhis2/dashboard-app/compare/v99.10.11...v99.10.12) (2023-03-10)
+
+
+### Bug Fixes
+
+* remove old i18n properties files ([#2237](https://github.com/dhis2/dashboard-app/issues/2237)) ([c5ad8ef](https://github.com/dhis2/dashboard-app/commit/c5ad8ef07e14be0305e4b06d526f2629d56642fa))
+
 ## [99.10.11](https://github.com/dhis2/dashboard-app/compare/v99.10.10...v99.10.11) (2023-03-07)
 
 
