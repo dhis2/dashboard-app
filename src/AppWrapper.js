@@ -56,7 +56,7 @@ const AppWrapper = () => {
                 query={query}
                 dataTransformation={providerDataTransformation}
             >
-                <D2Shim d2Config={d2Config} i18nRoot="./i18n">
+                <D2Shim d2Config={d2Config}>
                     {({ d2 }) => {
                         if (!d2) {
                             // TODO: Handle errors in d2 initialization
