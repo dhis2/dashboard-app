@@ -1,5 +1,5 @@
 import { useDataQuery } from '@dhis2/app-runtime'
-import { Popover, FlyoutMenu } from '@dhis2/ui'
+import { Layer, Popper, FlyoutMenu } from '@dhis2/ui'
 import React, { useState, useEffect, createRef } from 'react'
 import { itemTypeMap, getDefaultItemCount } from '../../../modules/itemTypes.js'
 import useDebounce from '../../../modules/useDebounce.js'
@@ -107,23 +107,19 @@ const ItemSelector = () => {
                 />
             </span>
             {isOpen && (
-                <Popover
-                    reference={inputRef}
-                    placement="bottom-start"
-                    onClickOutside={closeMenu}
-                    arrow={false}
-                    maxWidth={700}
-                >
-                    <div className={classes.popover}>
-                        <FlyoutMenu
-                            className={classes.menu}
-                            dataTest="item-menu"
-                            maxWidth="700px"
-                        >
-                            {getMenuGroups()}
-                        </FlyoutMenu>
-                    </div>
-                </Popover>
+                <Layer onClick={closeMenu}>
+                    <Popper reference={inputRef} placement="bottom-start">
+                        <div className={classes.popover}>
+                            <FlyoutMenu
+                                className={classes.menu}
+                                dataTest="item-menu"
+                                maxWidth="700px"
+                            >
+                                {getMenuGroups()}
+                            </FlyoutMenu>
+                        </div>
+                    </Popper>
+                </Layer>
             )}
         </>
     )

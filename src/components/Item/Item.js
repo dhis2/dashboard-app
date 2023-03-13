@@ -1,3 +1,4 @@
+import { useD2 } from '@dhis2/app-runtime-adapter-d2'
 import PropTypes from 'prop-types'
 import React from 'react'
 import {
@@ -8,6 +9,7 @@ import {
     MAP,
     EVENT_CHART,
     EVENT_REPORT,
+    EVENT_VISUALIZATION,
     MESSAGES,
     REPORTS,
     RESOURCES,
@@ -35,6 +37,7 @@ const getGridItem = (type) => {
         case MAP:
         case EVENT_CHART:
         case EVENT_REPORT:
+        case EVENT_VISUALIZATION:
             return VisualizationItem
         case MESSAGES:
             return MessagesItem
@@ -58,9 +61,11 @@ const getGridItem = (type) => {
 }
 
 export const Item = (props) => {
+    const { d2 } = useD2()
+
     const GridItem = getGridItem(props.item.type)
 
-    return <GridItem {...props} />
+    return <GridItem d2={d2} {...props} />
 }
 
 Item.propTypes = {
