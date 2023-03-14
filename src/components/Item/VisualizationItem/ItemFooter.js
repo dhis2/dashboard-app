@@ -1,4 +1,4 @@
-import { useOnlineStatus } from '@dhis2/app-runtime'
+import { useDhis2ConnectionStatus } from '@dhis2/app-runtime'
 import { useD2 } from '@dhis2/app-runtime-adapter-d2'
 import i18n from '@dhis2/d2-i18n'
 import InterpretationsComponent from '@dhis2/d2-ui-interpretations'
@@ -10,7 +10,7 @@ import classes from './styles/ItemFooter.module.css'
 
 const ItemFooter = (props) => {
     const { d2 } = useD2()
-    const { offline } = useOnlineStatus()
+    const { isDisconnected: offline } = useDhis2ConnectionStatus()
 
     return (
         <div className={classes.itemFooter} data-test="dashboarditem-footer">
