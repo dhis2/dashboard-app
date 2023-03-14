@@ -1,3 +1,10 @@
+## [99.10.14](https://github.com/dhis2/dashboard-app/compare/v99.10.13...v99.10.14) (2023-03-14)
+
+
+### Bug Fixes
+
+* local offline handling [DHIS2-12937] ([#2230](https://github.com/dhis2/dashboard-app/issues/2230)) ([25ebc58](https://github.com/dhis2/dashboard-app/commit/25ebc5853f5d3aaaf64d16fe1789321f32dbed38))
+
 ## [99.10.13](https://github.com/dhis2/dashboard-app/compare/v99.10.12...v99.10.13) (2023-03-14)
 
 
