@@ -1,3 +1,10 @@
+## [99.10.13](https://github.com/dhis2/dashboard-app/compare/v99.10.12...v99.10.13) (2023-03-14)
+
+
+### Bug Fixes
+
+* use baseUrl from useConfig hook to avoid undefined value ([#2242](https://github.com/dhis2/dashboard-app/issues/2242)) ([99f308e](https://github.com/dhis2/dashboard-app/commit/99f308e6061bccefc0834ce597360458ac81f602))
+
 ## [99.10.12](https://github.com/dhis2/dashboard-app/compare/v99.10.11...v99.10.12) (2023-03-10)
 
 
