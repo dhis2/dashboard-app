@@ -1,3 +1,10 @@
+## [99.10.15](https://github.com/dhis2/dashboard-app/compare/v99.10.14...v99.10.15) (2023-03-14)
+
+
+### Bug Fixes
+
+* update dependencies ([#2238](https://github.com/dhis2/dashboard-app/issues/2238)) ([4854d04](https://github.com/dhis2/dashboard-app/commit/4854d04f87e5db8a670a57f85a98c081c6faf835))
+
 ## [99.10.14](https://github.com/dhis2/dashboard-app/compare/v99.10.13...v99.10.14) (2023-03-14)
 
 
