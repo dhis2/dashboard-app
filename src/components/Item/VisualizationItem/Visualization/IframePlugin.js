@@ -1,3 +1,4 @@
+import { useConfig } from '@dhis2/app-runtime'
 import { useD2 } from '@dhis2/app-runtime-adapter-d2'
 import postRobot from '@krakenjs/post-robot'
 import PropTypes from 'prop-types'
@@ -26,6 +27,7 @@ const IframePlugin = ({
     itemType,
 }) => {
     const { d2 } = useD2()
+    const { baseUrl } = useConfig()
 
     const { userSettings } = useUserSettings()
     const iframeRef = useRef()
@@ -133,7 +135,7 @@ const IframePlugin = ({
 
         // 2. check if there is an installed app for the pluginType
         // and use its plugin launch URL
-        const pluginLaunchUrl = getPluginLaunchUrl(pluginType, d2)
+        const pluginLaunchUrl = getPluginLaunchUrl(pluginType, d2, baseUrl)
 
         if (pluginLaunchUrl) {
             return pluginLaunchUrl
@@ -142,7 +144,7 @@ const IframePlugin = ({
         setError('missing-plugin')
 
         return
-    }, [activeType, d2])
+    }, [activeType, d2, baseUrl])
 
     if (error) {
         return error === 'missing-plugin' ? (

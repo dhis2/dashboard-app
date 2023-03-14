@@ -24,10 +24,9 @@ const itemTypeToScriptPath = {
 const hasIntegratedPlugin = (type) =>
     [CHART, REPORT_TABLE, VISUALIZATION, MAP].includes(type)
 
-export const getPluginLaunchUrl = (type, d2) => {
+export const getPluginLaunchUrl = (type, d2, baseUrl) => {
     // 1. lookup in api/apps for the "manually installed" app, this can be a new version for a core (bundled) app
     // 2. fallback to default hardcoded path for the core (bundled) apps
-    const baseUrl = d2.system.systemInfo.instanceBaseUrl
     const apps = d2.system.installedApps
     const appKey = itemTypeMap[type].appKey
 
