@@ -1,3 +1,11 @@
+## [99.10.17](https://github.com/dhis2/dashboard-app/compare/v99.10.16...v99.10.17) (2023-03-15)
+
+
+### Bug Fixes
+
+* close TranslationDialog after saving a translation ([#2245](https://github.com/dhis2/dashboard-app/issues/2245)) ([295acb3](https://github.com/dhis2/dashboard-app/commit/295acb3789c7eb9658bceed490fb9d5152c97fa3))
+* unwanted re-rendering of dashboard items ([#2247](https://github.com/dhis2/dashboard-app/issues/2247)) ([b02714a](https://github.com/dhis2/dashboard-app/commit/b02714aca3a805821ad9a33d9d67c27381751ef4))
+
 ## [99.10.16](https://github.com/dhis2/dashboard-app/compare/v99.10.15...v99.10.16) (2023-03-15)
 
 
