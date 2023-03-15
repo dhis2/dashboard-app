@@ -7,7 +7,7 @@ import NoVisualizationMessage from './NoVisualizationMessage.js'
 
 const mapViewIsEELayer = (mapView) => mapView.layer.includes('earthEngine')
 
-const MapPlugin = ({ visualization, style, ...pluginProps }) => {
+const MapPlugin = ({ visualization, ...pluginProps }) => {
     const { isDisconnected: offline } = useDhis2ConnectionStatus()
 
     if (offline && visualization.mapViews?.find(mapViewIsEELayer)) {
@@ -20,17 +20,10 @@ const MapPlugin = ({ visualization, style, ...pluginProps }) => {
         )
     }
 
-    return (
-        <IframePlugin
-            visualization={visualization}
-            style={style}
-            {...pluginProps}
-        />
-    )
+    return <IframePlugin visualization={visualization} {...pluginProps} />
 }
 
 MapPlugin.propTypes = {
-    style: PropTypes.object,
     visualization: PropTypes.object,
 }
 
