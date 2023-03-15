@@ -165,10 +165,10 @@ const EditBar = ({ dashboard, ...props }) => {
         translationDlgIsOpen ? (
             <TranslationDialog
                 className="translation-dialog"
-                onClose={toggleTranslationDialog}
                 objectToTranslate={dashboard}
                 fieldsToTranslate={fieldsToTranslate}
-                onTranslationSaved={Function.prototype}
+                onClose={toggleTranslationDialog}
+                onTranslationSaved={toggleTranslationDialog}
             />
         ) : null
 
