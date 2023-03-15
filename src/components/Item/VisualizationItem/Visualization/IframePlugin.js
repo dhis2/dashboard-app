@@ -47,7 +47,6 @@ const IframePlugin = ({
             forDashboard: true,
             displayProperty: userSettings.displayProperty,
             visualization,
-            style,
             onError,
 
             // For caching: ---
@@ -65,7 +64,6 @@ const IframePlugin = ({
             itemId,
             isCached,
             recordOnNextLoad,
-            style,
         ]
     )
 
