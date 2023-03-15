@@ -1,3 +1,10 @@
+## [99.10.16](https://github.com/dhis2/dashboard-app/compare/v99.10.15...v99.10.16) (2023-03-15)
+
+
+### Bug Fixes
+
+* crash when filtering a map that is being viewed as chart ([#2246](https://github.com/dhis2/dashboard-app/issues/2246)) ([d1cf7b8](https://github.com/dhis2/dashboard-app/commit/d1cf7b8207f05187a5293bb7946932b5be71c8fc))
+
 ## [99.10.15](https://github.com/dhis2/dashboard-app/compare/v99.10.14...v99.10.15) (2023-03-14)
 
 
