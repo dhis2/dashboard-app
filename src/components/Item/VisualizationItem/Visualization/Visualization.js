@@ -54,20 +54,16 @@ const Visualization = ({
         [availableHeight, availableWidth]
     )
 
-    const visualizationConfig = useMemo(
-        () => getVisualizationConfig(visualization, originalType, activeType),
-        [visualization, activeType, originalType]
-    )
+    const visualizationConfig = useMemo(() => {
+        if (originalType === EVENT_VISUALIZATION) {
+            return visualization
+        }
 
-    const filteredVisualization = useMemo(
-        () =>
-            getFilteredVisualization(
-                visualizationConfig,
-                itemFilters,
-                originalType
-            ),
-        [visualizationConfig, itemFilters, originalType]
-    )
+        return getFilteredVisualization(
+            getVisualizationConfig(visualization, originalType, activeType),
+            itemFilters
+        )
+    }, [visualization, activeType, originalType, itemFilters])
 
     const filterVersion = useMemo(() => uniqueId(), [])
 
@@ -104,7 +100,7 @@ const Visualization = ({
         case VISUALIZATION: {
             return (
                 <IframePlugin
-                    visualization={filteredVisualization}
+                    visualization={visualizationConfig}
                     {...iFramePluginProps}
                 />
             )
@@ -136,22 +132,20 @@ const Visualization = ({
                 </>
             )
         }
-
         case MAP: {
             return (
                 <MapPlugin
-                    visualization={filteredVisualization}
+                    visualization={visualizationConfig}
                     {...iFramePluginProps}
                 />
             )
         }
-
         default: {
             return pluginIsAvailable(activeType || item.type, d2) ? (
                 <LegacyPlugin
                     item={item}
                     activeType={activeType}
-                    visualization={filteredVisualization}
+                    visualization={visualizationConfig}
                     filterVersion={filterVersion}
                     style={style}
                     {...rest}
