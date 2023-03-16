@@ -1,3 +1,10 @@
+## [99.10.18](https://github.com/dhis2/dashboard-app/compare/v99.10.17...v99.10.18) (2023-03-16)
+
+
+### Bug Fixes
+
+* avoid sending props twice when using View as and plugin changes ([#2248](https://github.com/dhis2/dashboard-app/issues/2248)) ([be17d00](https://github.com/dhis2/dashboard-app/commit/be17d00694a35097dc3d6826a8c2fa5d9e4e7bc1))
+
 ## [99.10.17](https://github.com/dhis2/dashboard-app/compare/v99.10.16...v99.10.17) (2023-03-15)
 
 
