@@ -1,3 +1,10 @@
+## [99.10.20](https://github.com/dhis2/dashboard-app/compare/v99.10.19...v99.10.20) (2023-03-17)
+
+
+### Bug Fixes
+
+* list LL items after Maps and before ER/EV ([#2253](https://github.com/dhis2/dashboard-app/issues/2253)) ([7426e54](https://github.com/dhis2/dashboard-app/commit/7426e543f57667fc21e66c9c11b7e6b347e7dc77))
+
 ## [99.10.19](https://github.com/dhis2/dashboard-app/compare/v99.10.18...v99.10.19) (2023-03-17)
 
 
