@@ -5,8 +5,8 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1)\n"
-"POT-Creation-Date: 2023-03-19T13:34:33.553Z\n"
-"PO-Revision-Date: 2023-03-19T13:34:33.553Z\n"
+"POT-Creation-Date: 2023-03-19T15:27:59.188Z\n"
+"PO-Revision-Date: 2023-03-19T15:27:59.188Z\n"
 
 msgid "Untitled dashboard"
 msgstr "Untitled dashboard"
@@ -110,14 +110,11 @@ msgstr "Install the {{appName}} app from the App Hub"
 msgid "No data to display"
 msgstr "No data to display"
 
-msgid "Filters are not applied to line list dashboard items."
-msgstr "Filters are not applied to line list dashboard items."
-
 msgid "Show without filters"
 msgstr "Show without filters"
 
-msgid "Maps with Earth Engine layers cannot be displayed when offline."
-msgstr "Maps with Earth Engine layers cannot be displayed when offline."
+msgid "Maps with Earth Engine layers cannot be displayed when offline"
+msgstr "Maps with Earth Engine layers cannot be displayed when offline"
 
 msgid "Unable to load the plugin for this item"
 msgstr "Unable to load the plugin for this item"
