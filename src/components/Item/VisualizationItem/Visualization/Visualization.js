@@ -1,14 +1,7 @@
 import { useDhis2ConnectionStatus } from '@dhis2/app-runtime'
 import { useD2 } from '@dhis2/app-runtime-adapter-d2'
 import i18n from '@dhis2/d2-i18n'
-import {
-    Button,
-    Cover,
-    Center,
-    IconInfo24,
-    IconWarning24,
-    colors,
-} from '@dhis2/ui'
+import { Button, Cover, IconInfo24, IconWarning24, colors } from '@dhis2/ui'
 import uniqueId from 'lodash/uniqueId.js'
 import PropTypes from 'prop-types'
 import React, { useMemo } from 'react'
