@@ -29,6 +29,7 @@ const Visualization = ({
     itemFilters,
     availableHeight,
     availableWidth,
+    gridWidth,
     dashboardMode,
     originalType,
     showNoFiltersOverlay,
@@ -148,6 +149,7 @@ const Visualization = ({
                     visualization={visualizationConfig}
                     filterVersion={filterVersion}
                     style={style}
+                    gridWidth={gridWidth}
                     {...rest}
                 />
             ) : (
@@ -164,6 +166,7 @@ Visualization.propTypes = {
     availableHeight: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
     availableWidth: PropTypes.number,
     dashboardMode: PropTypes.string,
+    gridWidth: PropTypes.number,
     item: PropTypes.object,
     itemFilters: PropTypes.object,
     originalType: PropTypes.string,
