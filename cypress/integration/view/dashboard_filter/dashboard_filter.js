@@ -3,13 +3,13 @@ import {
     filterBadgeSel,
     dimensionsModalSel,
 } from '../../../elements/dashboardFilter.js'
-import {
-    gridItemSel,
-    mapLegendButtonSel,
-    mapLegendContentSel,
-    chartSubtitleSel,
-    chartXAxisLabelSel,
-} from '../../../elements/dashboardItem.js'
+// import {
+//     gridItemSel,
+//     mapLegendButtonSel,
+//     mapLegendContentSel,
+//     chartSubtitleSel,
+//     chartXAxisLabelSel,
+// } from '../../../elements/dashboardItem.js'
 import { innerScrollContainerSel } from '../../../elements/viewDashboard.js'
 import { EXTENDED_TIMEOUT } from '../../../support/utils.js'
 

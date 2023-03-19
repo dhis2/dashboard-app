@@ -1,8 +1,8 @@
 import { Given, When, Then } from 'cypress-cucumber-preprocessor/steps'
 import {
     gridItemSel,
-    chartSel,
-    mapSel,
+    // chartSel,
+    // mapSel,
 } from '../../../elements/dashboardItem.js'
 import { confirmActionDialogSel } from '../../../elements/editDashboard.js'
 import {
