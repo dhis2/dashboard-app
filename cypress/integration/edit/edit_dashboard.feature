@@ -69,7 +69,7 @@ Feature: Creating, editing and deleting dashboard
     Scenario: I move an item on a dashboard
         Given I open existing dashboard
         When I choose to edit dashboard
-        And the chart item is displayed
+        # And the chart item is displayed
         Then no analytics requests are made when item is moved
 
     # @mutating

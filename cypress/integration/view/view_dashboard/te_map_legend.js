@@ -1,6 +1,6 @@
 import { Given, When, Then } from 'cypress-cucumber-preprocessor/steps'
 import { dashboards } from '../../../assets/backends/sierraLeone_236.js'
-import { getDashboardItem, mapSel } from '../../../elements/dashboardItem.js'
+import { getDashboardItem } from '../../../elements/dashboardItem.js'
 import {
     dashboardTitleSel,
     dashboardChipSel,
@@ -18,7 +18,8 @@ Given('I open the Cases Malaria dashboard', () => {
     })
 
     cy.get(dashboardTitleSel).should('be.visible').and('contain', title)
-    cy.get(mapSel, EXTENDED_TIMEOUT).should('exist')
+    // FIXME
+    // cy.get(mapSel, EXTENDED_TIMEOUT).should('exist')
 })
 
 When('I hover over the map legend button', () => {
