@@ -69,6 +69,7 @@ Then('the wide screen edit view is shown', () => {
     cy.get('button').contains('Save changes').should('be.visible')
     cy.get('button').contains('Exit without saving').should('be.visible')
 
+    cy.get(titleInputSel).scrollIntoView()
     cy.get(titleInputSel).should('be.visible')
     cy.get('.react-grid-layout').should('be.visible')
 })
