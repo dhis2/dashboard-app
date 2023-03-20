@@ -1,3 +1,10 @@
+## [99.10.21](https://github.com/dhis2/dashboard-app/compare/v99.10.20...v99.10.21) (2023-03-20)
+
+
+### Bug Fixes
+
+* consolidate legacy and default plugin and fix resizing ([#2254](https://github.com/dhis2/dashboard-app/issues/2254)) ([d4e3c03](https://github.com/dhis2/dashboard-app/commit/d4e3c035206750a66c97271943a814ac128dcd24))
+
 ## [99.10.20](https://github.com/dhis2/dashboard-app/compare/v99.10.19...v99.10.20) (2023-03-17)
 
 

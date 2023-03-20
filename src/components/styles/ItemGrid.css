@@ -65,6 +65,10 @@
     overflow: auto;
 }
 
+.EVENT_REPORT .dashboard-item-content {
+    position: relative;
+}
+
 .CHART .dashboard-item-content,
 .VISUALIZATION .dashboard-item-content,
 .MAP .dashboard-item-content,
@@ -75,7 +79,6 @@
 }
 
 .react-grid-item.edit .dashboard-item-content,
-.react-grid-item.EVENT_VISUALIZATION .dashboard-item-content,
 .react-grid-item.RESOURCES .dashboard-item-content,
 .react-grid-item.TEXT .dashboard-item-content,
 .react-grid-item.MESSAGES .dashboard-item-content,
