@@ -34,7 +34,7 @@ Then('the small screen view is shown', () => {
 })
 
 When('I restore the wide screen', () => {
-    cy.viewport(900, 800)
+    cy.viewport(950, 800)
     // to account for debounced window resize
     cy.wait(1000) // eslint-disable-line cypress/no-unnecessary-waiting
 })
