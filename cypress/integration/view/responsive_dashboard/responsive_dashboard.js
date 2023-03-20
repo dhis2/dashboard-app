@@ -74,7 +74,6 @@ Then('the wide screen edit view is shown', () => {
 })
 
 Then('my changes are still there', () => {
-    cy.get(titleInputSel).scrollIntoView()
     //title or item changes
     var re = new RegExp(TEST_DASHBOARD_TITLE, 'g')
     cy.get(`${titleInputSel} input`).should(($input) => {
