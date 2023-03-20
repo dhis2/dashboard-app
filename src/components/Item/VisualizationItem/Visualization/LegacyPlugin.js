@@ -1,17 +1,28 @@
+import { useConfig } from '@dhis2/app-runtime'
+import { useD2 } from '@dhis2/app-runtime-adapter-d2'
 import PropTypes from 'prop-types'
-import React, { useEffect } from 'react'
+import React, { useEffect, useRef } from 'react'
 import getVisualizationContainerDomId from '../getVisualizationContainerDomId.js'
-import DefaultPlugin from './DefaultPlugin.js'
+import { load, unmount } from './plugin.js'
 
 const LegacyPlugin = ({
-    availableHeight,
-    availableWidth,
+    item,
+    activeType,
+    filterVersion,
+    visualization,
+    options,
+    style,
     gridWidth,
-    ...props
 }) => {
+    const { d2 } = useD2()
+    const { baseUrl } = useConfig()
+    const prevItem = useRef()
+    const prevActiveType = useRef()
+    const prevFilterVersion = useRef()
+
     useEffect(() => {
         const el = document.querySelector(
-            `#${getVisualizationContainerDomId(props.item.id)}`
+            `#${getVisualizationContainerDomId(item.id)}`
         )
         if (typeof el?.setViewportSize === 'function') {
             setTimeout(
@@ -20,18 +31,52 @@ const LegacyPlugin = ({
                 10
             )
         }
-    }, [availableHeight, availableWidth, gridWidth])
+    }, [style, gridWidth, item.id])
 
-    return <DefaultPlugin {...props} />
+    useEffect(() => {
+        if (
+            !prevItem.current ||
+            (prevItem.current === item &&
+                (prevActiveType.current !== activeType ||
+                    prevFilterVersion.current !== filterVersion))
+        ) {
+            // Initial load, or active type or filter has changed
+            load(item, visualization, {
+                credentials: {
+                    baseUrl,
+                    auth: d2.Api.getApi().defaultHeaders.Authorization,
+                },
+                activeType,
+                d2,
+                options,
+            })
+        }
+
+        prevItem.current = item
+        prevActiveType.current = activeType
+        prevFilterVersion.current = filterVersion
+
+        return () => unmount(item, item.type || activeType)
+    }, [item, visualization, activeType, filterVersion, baseUrl, options, d2])
+
+    return <div id={getVisualizationContainerDomId(item.id)} style={style} />
 }
 
 LegacyPlugin.propTypes = {
     activeType: PropTypes.string,
-    availableHeight: PropTypes.number,
-    availableWidth: PropTypes.number,
+    filterVersion: PropTypes.string,
     gridWidth: PropTypes.number,
-    isFullscreen: PropTypes.bool,
     item: PropTypes.object,
+    options: PropTypes.object,
+    style: PropTypes.object,
+    visualization: PropTypes.object,
+}
+
+LegacyPlugin.defaultProps = {
+    style: {},
+    item: {},
+    options: {},
+    visualization: {},
 }
 
 export default LegacyPlugin
