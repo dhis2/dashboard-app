@@ -1,7 +1,7 @@
 import { When, Then } from 'cypress-cucumber-preprocessor/steps'
 import { dimensionsModalSel } from '../../../elements/dashboardFilter.js'
 // import { chartSel } from '../../../elements/dashboardItem.js'
-import { titleInputSel } from '../../../elements/editDashboard.js'
+import { titleInputSel, itemMenuSel } from '../../../elements/editDashboard.js'
 import {
     dashboardTitleSel,
     newButtonSel,
@@ -48,6 +48,13 @@ Then('the wide screen view is shown', () => {
 
     cy.get('button').not('.small').contains('More').should('be.visible')
     cy.get('button.small').contains('More').should('not.be.visible')
+})
+
+When('I close the item selector', () => {
+    //close modal
+    cy.get('[data-test="dhis2-uicore-layer"]').click('topLeft')
+
+    cy.get(itemMenuSel).should('not.exist')
 })
 
 Then('the small screen edit view is shown', () => {
