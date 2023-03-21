@@ -23,7 +23,7 @@ describe('Dashboard filtering', () => {
     // Then the dashboard displays in view mode
     // When I add a "Period" filter
     //         Then the Period filter is applied to the dashboard
-    test('I add a period filter', () => {
+    it('I add a period filter', () => {
         cy.get(newButtonSel, EXTENDED_TIMEOUT).click()
         addMapAndChart()
         dashboardDisplaysInViewMode()
@@ -35,7 +35,7 @@ describe('Dashboard filtering', () => {
     // Then the dashboard displays in view mode
     // When I add a "Organisation unit" filter
     // Then the Organisation unit filter is applied to the dashboard
-    test('I add an Organisation unt filter', () => {
+    it('I add an Organisation unt filter', () => {
         openCreatedDashboard()
         dashboardDisplaysInViewMode()
         addFilter('Organisation unit')
@@ -46,7 +46,7 @@ describe('Dashboard filtering', () => {
     // Then the dashboard displays in view mode
     // When I add a "Facility Type" filter
     // Then the Facility Type filter is applied to the dashboard
-    test('I add a Facility Type filter', () => {
+    it('I add a Facility Type filter', () => {
         openCreatedDashboard()
         dashboardDisplaysInViewMode()
         assertFacilityFilterApplied()
@@ -56,7 +56,7 @@ describe('Dashboard filtering', () => {
     // When I add a Period filter
     // And I click on the Period filter badge
     // Then the filter modal is opened
-    test('I can access the dimensions modal from the filter badge', () => {
+    it('I can access the dimensions modal from the filter badge', () => {
         openCreatedDashboard()
         addFilter('Period')
         clickFilterBadge('Period')
@@ -68,7 +68,7 @@ describe('Dashboard filtering', () => {
     // And I choose to delete dashboard
     // When I confirm delete
     // Then different dashboard displays in view mode
-    test('I delete a dashboard', () => {
+    it('I delete a dashboard', () => {
         openCreatedDashboard()
         openDashboardEditMode()
         cy.get('[data-test="delete-dashboard-button"]').click()
