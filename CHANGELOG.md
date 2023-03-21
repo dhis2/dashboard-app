@@ -1,3 +1,10 @@
+## [99.10.22](https://github.com/dhis2/dashboard-app/compare/v99.10.21...v99.10.22) (2023-03-21)
+
+
+### Bug Fixes
+
+* enable cypress tests in github workflow ([#2255](https://github.com/dhis2/dashboard-app/issues/2255)) ([4670a0c](https://github.com/dhis2/dashboard-app/commit/4670a0c771e3dc78f9cacbc501be345ed9525e49))
+
 ## [99.10.21](https://github.com/dhis2/dashboard-app/compare/v99.10.20...v99.10.21) (2023-03-20)
 
 
