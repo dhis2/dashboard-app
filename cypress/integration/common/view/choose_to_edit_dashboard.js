@@ -1,4 +1,3 @@
-import { When, Then } from 'cypress-cucumber-preprocessor/steps'
 import { titleInputSel } from '../../../elements/editDashboard.js'
 import { titleBarSel } from '../../../elements/viewDashboard.js'
 import { EXTENDED_TIMEOUT } from '../../../support/utils.js'
@@ -18,15 +17,16 @@ const confirmEditMode = () => {
     })
 }
 
-When('I choose to edit dashboard', () => {
+// When('I choose to edit dashboard', () => {
+export const openDashboardEditMode = () => {
     cy.get(titleBarSel, EXTENDED_TIMEOUT)
         .find('button')
         .contains('Edit', EXTENDED_TIMEOUT)
         .click()
 
     confirmEditMode()
-})
+}
 
-Then('the dashboard displays in edit mode', () => {
-    confirmEditMode()
-})
+// Then('the dashboard displays in edit mode', () => {
+//     confirmEditMode()
+// })

@@ -1,10 +1,9 @@
-import { Given, When, Then } from 'cypress-cucumber-preprocessor/steps'
 import {
     gridItemSel,
     // chartSel,
     // mapSel,
 } from '../../../elements/dashboardItem.js'
-import { confirmActionDialogSel } from '../../../elements/editDashboard.js'
+
 import {
     dashboardChipSel,
     dashboardTitleSel,
@@ -16,7 +15,8 @@ import {
 
 const TEST_DASHBOARD_TITLE = createDashboardTitle('af')
 
-When('I add a MAP and a CHART and save', () => {
+// When('I add a MAP and a CHART and save', () => {
+export const addMapAndChart = () => {
     //add the title
     cy.get('[data-test="dashboard-title-input"]').type(TEST_DASHBOARD_TITLE)
 
@@ -51,17 +51,19 @@ When('I add a MAP and a CHART and save', () => {
 
     //save
     cy.get('button').contains('Save changes', EXTENDED_TIMEOUT).click()
-})
+}
 
-Given('I open existing dashboard', () => {
+// Given('I open existing dashboard', () => {
+export const openCreatedDashboard = () => {
     cy.get(dashboardChipSel, EXTENDED_TIMEOUT)
         .contains(TEST_DASHBOARD_TITLE)
         .click()
-})
+}
 
 // Some map visualization load very slowly:
 // https://dhis2.atlassian.net/browse/DHIS2-14365
-Then('the dashboard displays in view mode', () => {
+// Then('the dashboard displays in view mode', () => {
+export const dashboardDisplaysInViewMode = () => {
     cy.get(dashboardTitleSel)
         .should('be.visible')
         .and('contain', TEST_DASHBOARD_TITLE)
@@ -69,18 +71,11 @@ Then('the dashboard displays in view mode', () => {
     // FIXME
     // cy.get(chartSel, EXTENDED_TIMEOUT).should('be.visible')
     // cy.get(mapSel, EXTENDED_TIMEOUT).should('be.visible')
-})
+}
 
-When('I choose to delete dashboard', () => {
-    cy.get('[data-test="delete-dashboard-button"]').click()
-})
-
-When('I confirm delete', () => {
-    cy.get(confirmActionDialogSel).find('button').contains('Delete').click()
-})
-
-Then('different dashboard displays in view mode', () => {
+// Then('different dashboard displays in view mode', () => {
+export const differentDashboardDisplayed = () => {
     cy.get(dashboardTitleSel)
         .should('be.visible')
         .and('not.contain', TEST_DASHBOARD_TITLE)
-})
+}

@@ -1,4 +1,3 @@
-import { When } from 'cypress-cucumber-preprocessor/steps'
 import {
     unselectedItemsSel,
     filterDimensionsPanelSel,
@@ -10,7 +9,8 @@ const PERIOD = 'Last 6 months'
 const OU_ID = 'ImspTQPwCqd' //Sierra Leone
 const FACILITY_TYPE = 'Clinic'
 
-When('I add a {string} filter', (dimensionType) => {
+// When('I add a {string} filter', (dimensionType) => {
+export const addFilter = (dimensionType) => {
     cy.contains('Add filter').click()
 
     // open the dimensions modal
@@ -29,4 +29,4 @@ When('I add a {string} filter', (dimensionType) => {
 
     // confirm to apply the filter
     cy.get('button').contains('Confirm').click()
-})
+}

@@ -1,6 +1,6 @@
-import { When } from 'cypress-cucumber-preprocessor/steps'
 import { filterBadgeSel } from '../../../elements/dashboardFilter.js'
 
-When('I click on the {string} filter badge', (filterName) => {
+// When('I click on the {string} filter badge', (filterName) => {
+export const clickFilterBadge = (filterName) => {
     cy.get(filterBadgeSel).find('span:visible').contains(filterName).click()
-})
+}
