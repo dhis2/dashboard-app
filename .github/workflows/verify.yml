@@ -108,6 +108,9 @@ jobs:
         runs-on: ubuntu-latest
         needs: install
         if: "!contains(github.event.head_commit.message, '[skip ci]')"
+        container:
+            image: cypress/browsers:node16.17.0-chrome106
+            options: --user 1001
 
         strategy:
             matrix:
@@ -115,9 +118,9 @@ jobs:
 
         steps:
             - name: Checkout
-              uses: actions/checkout@v2
+              uses: actions/checkout@v3
 
-            - uses: actions/setup-node@v1
+            - uses: actions/setup-node@v3
               with:
                   node-version: 14.x
 
@@ -131,13 +134,14 @@ jobs:
               run: yarn cypress install
 
             - name: End-to-End tests
-              uses: cypress-io/github-action@v2
+              uses: cypress-io/github-action@v5
               with:
                   record: true
                   parallel: true
                   start: ${{ env.SERVER_START_CMD }}
                   wait-on: ${{ env.SERVER_URL }}
                   wait-on-timeout: 300
+                  browser: chrome
                   cache-key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
                   group: 'e2e'
                   tag: ${{ github.event_name }}
