@@ -1,4 +1,4 @@
-import { useOnlineStatus } from '@dhis2/app-runtime'
+import { useDhis2ConnectionStatus } from '@dhis2/app-runtime'
 import i18n from '@dhis2/d2-i18n'
 import { AlertStack, AlertBar } from '@dhis2/ui'
 import cx from 'classnames'
@@ -34,7 +34,7 @@ const ViewDashboard = (props) => {
     const [loadingMessage, setLoadingMessage] = useState(null)
     const [loaded, setLoaded] = useState(false)
     const [loadFailed, setLoadFailed] = useState(false)
-    const { online } = useOnlineStatus()
+    const { isConnected: online } = useDhis2ConnectionStatus()
     const { isCached } = useCacheableSection(props.requestedId)
 
     useEffect(() => {
