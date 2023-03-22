@@ -1,4 +1,4 @@
-import { useOnlineStatus } from '@dhis2/app-runtime'
+import { useDhis2ConnectionStatus } from '@dhis2/app-runtime'
 import i18n from '@dhis2/d2-i18n'
 import PropTypes from 'prop-types'
 import React from 'react'
@@ -7,8 +7,8 @@ import NoVisualizationMessage from './NoVisualizationMessage.js'
 
 const mapViewIsEELayer = (mapView) => mapView.layer.includes('earthEngine')
 
-const MapPlugin = ({ visualization, style, ...pluginProps }) => {
-    const { offline } = useOnlineStatus()
+const MapPlugin = ({ visualization, ...pluginProps }) => {
+    const { isDisconnected: offline } = useDhis2ConnectionStatus()
 
     if (offline && visualization.mapViews?.find(mapViewIsEELayer)) {
         return (
@@ -20,17 +20,10 @@ const MapPlugin = ({ visualization, style, ...pluginProps }) => {
         )
     }
 
-    return (
-        <IframePlugin
-            visualization={visualization}
-            style={style}
-            {...pluginProps}
-        />
-    )
+    return <IframePlugin visualization={visualization} {...pluginProps} />
 }
 
 MapPlugin.propTypes = {
-    style: PropTypes.object,
     visualization: PropTypes.object,
 }
 
