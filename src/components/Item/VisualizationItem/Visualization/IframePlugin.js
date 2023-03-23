@@ -35,6 +35,7 @@ const IframePlugin = ({
 
     // When this mounts, check if the dashboard is recording
     const { isCached, recordingState } = useCacheableSection(dashboardId)
+    const [communicationReceived, setCommunicationReceived] = useState(false)
     const [recordOnNextLoad, setRecordOnNextLoad] = useState(
         recordingState === 'recording'
     )
@@ -47,7 +48,6 @@ const IframePlugin = ({
             forDashboard: true,
             displayProperty: userSettings.displayProperty,
             visualization,
-            style,
             onError,
 
             // For caching: ---
@@ -65,7 +65,6 @@ const IframePlugin = ({
             itemId,
             isCached,
             recordOnNextLoad,
-            style,
         ]
     )
 
@@ -88,34 +87,37 @@ const IframePlugin = ({
 
     useEffect(() => {
         if (iframeRef?.current) {
-            const listener = postRobot.on(
-                'getProps',
-                // listen for messages coming only from the iframe rendered by this component
-                { window: iframeRef.current.contentWindow },
-                () => {
-                    if (recordOnNextLoad) {
-                        // Avoid recording unnecessarily,
-                        // e.g. if plugin re-requests props for some reason
-                        setRecordOnNextLoad(false)
+            // if iframe has not sent initial request, set up a listener
+            if (!communicationReceived) {
+                const listener = postRobot.on(
+                    'getProps',
+                    // listen for messages coming only from the iframe rendered by this component
+                    { window: iframeRef.current.contentWindow },
+                    () => {
+                        setCommunicationReceived(true)
+
+                        if (recordOnNextLoad) {
+                            // Avoid recording unnecessarily,
+                            // e.g. if plugin re-requests props for some reason
+                            setRecordOnNextLoad(false)
+                        }
+
+                        return pluginProps
                     }
+                )
 
-                    return pluginProps
-                }
-            )
-
-            return () => listener.cancel()
+                return () => listener.cancel()
+            }
         }
-    }, [recordOnNextLoad, pluginProps])
 
-    useEffect(() => {
-        if (iframeRef.current?.contentWindow) {
+        if (communicationReceived && iframeRef.current?.contentWindow) {
             postRobot.send(
                 iframeRef.current.contentWindow,
                 'newProps',
                 pluginProps
             )
         }
-    }, [pluginProps])
+    }, [communicationReceived, recordOnNextLoad, pluginProps])
 
     useEffect(() => {
         setError(null)
