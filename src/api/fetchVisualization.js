@@ -1,6 +1,10 @@
 import { getInstance } from 'd2'
 import { getVisualizationId } from '../modules/item.js'
-import { getEndPointName, MAP } from '../modules/itemTypes.js'
+import {
+    getEndPointName,
+    MAP,
+    EVENT_VISUALIZATION,
+} from '../modules/itemTypes.js'
 import { getMapFields, getFavoriteFields } from './metadata.js'
 
 export const apiFetchVisualization = async (item) => {
@@ -11,6 +15,7 @@ export const apiFetchVisualization = async (item) => {
             : getFavoriteFields({
                   withDimensions: true,
                   withOptions: true,
+                  withRepetition: item.type === EVENT_VISUALIZATION,
               })
 
     const d2 = await getInstance()
