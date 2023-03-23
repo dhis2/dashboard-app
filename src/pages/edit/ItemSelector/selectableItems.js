@@ -41,9 +41,9 @@ export const singleItems = [
 export const categorizedItems = [
     VISUALIZATION,
     MAP,
+    EVENT_VISUALIZATION,
     EVENT_REPORT,
     EVENT_CHART,
-    EVENT_VISUALIZATION,
     REPORTS,
     RESOURCES,
     APP,
