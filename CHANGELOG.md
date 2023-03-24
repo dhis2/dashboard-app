@@ -1,3 +1,11 @@
+## [99.10.23](https://github.com/dhis2/dashboard-app/compare/v99.10.22...v99.10.23) (2023-03-24)
+
+
+### Bug Fixes
+
+* fetch repetition data for LL to show in plugin ([#2271](https://github.com/dhis2/dashboard-app/issues/2271)) ([25378ce](https://github.com/dhis2/dashboard-app/commit/25378ce65effdf6e0670f95a927d97aa7164643a))
+* fix props handling when switching Map <-> DV plugins ([#2272](https://github.com/dhis2/dashboard-app/issues/2272)) ([7a06ab9](https://github.com/dhis2/dashboard-app/commit/7a06ab9fc96edbd6b0b773250657824b84f3f7f9))
+
 ## [99.10.22](https://github.com/dhis2/dashboard-app/compare/v99.10.21...v99.10.22) (2023-03-21)
 
 
