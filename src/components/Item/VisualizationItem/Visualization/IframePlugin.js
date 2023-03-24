@@ -39,7 +39,6 @@ const IframePlugin = ({
         recordingState === 'recording'
     )
 
-    const communicationReceivedRef = useRef(false)
     const prevPluginRef = useRef()
 
     const onError = () => setError('plugin')
@@ -113,41 +112,28 @@ const IframePlugin = ({
     }, [isCached])
 
     useEffect(() => {
-        console.log('in useEffect', iframeSrc, prevPluginRef.current) //communicationReceivedRef.current)
         if (iframeRef?.current) {
             // if iframe has not sent initial request, set up a listener
             if (iframeSrc !== prevPluginRef.current) {
-                //communicationReceivedRef.current) {
                 prevPluginRef.current = iframeSrc
 
-                console.log('setup getProps listener')
                 const listener = postRobot.on(
                     'getProps',
                     // listen for messages coming only from the iframe rendered by this component
                     { window: iframeRef.current.contentWindow },
                     () => {
-                        //       setCommunicationReceived(true)
-                        //communicationReceivedRef.current = true
-                        console.log('getProps: communication received')
-
                         if (recordOnNextLoad) {
                             // Avoid recording unnecessarily,
                             // e.g. if plugin re-requests props for some reason
                             setRecordOnNextLoad(false)
                         }
 
-                        console.log('getProps: return props:', pluginProps)
                         return pluginProps
                     }
                 )
 
-                return () => {
-                    console.log('teardown')
-                    //communicationReceivedRef.current = false
-                    listener.cancel()
-                }
+                return () => listener.cancel()
             } else {
-                console.log('send newProps', pluginProps)
                 postRobot.send(
                     iframeRef.current.contentWindow,
                     'newProps',
@@ -180,7 +166,6 @@ const IframePlugin = ({
         )
     }
 
-    console.log('before return')
     return (
         <div className={classes.wrapper}>
             {iframeSrc ? (
