@@ -1,6 +1,9 @@
 import PropTypes from 'prop-types'
 import React from 'react'
 
+// Exception made for this file -- jsx should normally not be used in apps
+/* eslint react/no-unknown-property: ['error', { ignore: ['jsx'] }] */
+
 export function ArrowDown({ className }) {
     return (
         <svg
