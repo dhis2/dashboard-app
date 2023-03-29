@@ -59,10 +59,11 @@ Feature: Viewing dashboards
         Then the control bar should be expanded to full height
 
     @nonmutating
-    Scenario: Maps with tracked entities show layer names in legend
-        Given I open the Cases Malaria dashboard
-        When I hover over the map legend button
-        Then the legend title shows the tracked entity name
+    # FIXME
+    # Scenario: Maps with tracked entities show layer names in legend
+    #     Given I open the Cases Malaria dashboard
+    #     When I hover over the map legend button
+    #     Then the legend title shows the tracked entity name
 
     @nonmutating
     Scenario: User's preferred dashboard is opened

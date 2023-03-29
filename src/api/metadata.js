@@ -14,29 +14,36 @@ export const getItemFields = () => [
 ]
 
 // Dimension
-export const getDimensionFields = ({ withItems }) =>
+export const getDimensionFields = ({ withItems, withRepetition }) =>
     arrayClean([
         'dimension',
         'legendSet[id]',
         'filter',
         'programStage',
         withItems ? `items[${getItemFields().join(',')}]` : ``,
+        withRepetition ? 'repetition' : '',
     ])
 
 // Axis
-export const getAxesFields = ({ withItems }) => [
-    `columns[${getDimensionFields({ withItems }).join(',')}]`,
-    `rows[${getDimensionFields({ withItems }).join(',')}]`,
-    `filters[${getDimensionFields({ withItems }).join(',')}]`,
+export const getAxesFields = ({ withItems, withRepetition }) => [
+    `columns[${getDimensionFields({ withItems, withRepetition }).join(',')}]`,
+    `rows[${getDimensionFields({ withItems, withRepetition }).join(',')}]`,
+    `filters[${getDimensionFields({ withItems, withRepetition }).join(',')}]`,
 ]
 
 // Favorite
-export const getFavoriteFields = ({ withDimensions, withOptions }) => {
+export const getFavoriteFields = ({
+    withDimensions,
+    withOptions,
+    withRepetition,
+}) => {
     return arrayClean([
         `${getIdNameFields({ rename: true }).join(',')}`,
         'type',
         'displayDescription~rename(description)',
-        withDimensions ? `${getAxesFields({ withItems: true }).join(',')}` : ``,
+        withDimensions
+            ? `${getAxesFields({ withItems: true, withRepetition }).join(',')}`
+            : ``,
         withOptions
             ? [
                   '*',
@@ -73,6 +80,9 @@ export const getFavoritesFields = () => [
     `map[${getFavoriteFields({ withDimensions: false }).join(',')}]`,
     `eventReport[${getFavoriteFields({ withDimensions: false }).join(',')}]`,
     `eventChart[${getFavoriteFields({ withDimensions: false }).join(',')}]`,
+    `eventVisualization[${getFavoriteFields({ withDimensions: false }).join(
+        ','
+    )}]`,
 ]
 
 // List item

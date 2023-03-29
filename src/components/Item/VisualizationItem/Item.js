@@ -1,4 +1,5 @@
 import i18n from '@dhis2/d2-i18n'
+import { Tag, Tooltip } from '@dhis2/ui'
 import PropTypes from 'prop-types'
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
@@ -19,6 +20,7 @@ import {
 import {
     getDataStatisticsName,
     getItemTypeForVis,
+    EVENT_VISUALIZATION,
 } from '../../../modules/itemTypes.js'
 import { sGetIsEditing } from '../../../reducers/editDashboard.js'
 import { sGetItemActiveType } from '../../../reducers/itemActiveTypes.js'
@@ -44,6 +46,7 @@ class Item extends Component {
         showFooter: false,
         configLoaded: false,
         loadItemFailed: false,
+        showNoFiltersOverlay: this.props.item?.type === EVENT_VISUALIZATION,
     }
 
     constructor(props) {
@@ -104,6 +107,9 @@ class Item extends Component {
         const el = getGridItemElement(this.props.item.id)
         return !!(el?.requestFullscreen || el?.webkitRequestFullscreen)
     }
+
+    onClickNoFiltersOverlay = () =>
+        this.setState({ showNoFiltersOverlay: false })
 
     onToggleFullscreen = () => {
         if (!isElementFullscreen(this.props.item.id)) {
@@ -177,11 +183,12 @@ class Item extends Component {
 
     render() {
         const { item, dashboardMode, itemFilters } = this.props
-        const { showFooter } = this.state
+        const { showFooter, showNoFiltersOverlay } = this.state
+        const originalType = getItemTypeForVis(item)
         const activeType = this.getActiveType()
 
         const actionButtons =
-            pluginIsAvailable(activeType || item.type) &&
+            pluginIsAvailable(activeType || item.type, this.props.d2) &&
             isViewMode(dashboardMode) ? (
                 <ItemContextMenu
                     item={item}
@@ -196,6 +203,20 @@ class Item extends Component {
                 />
             ) : null
 
+        const tags =
+            isViewMode(dashboardMode) &&
+            Object.keys(itemFilters).length &&
+            !showNoFiltersOverlay &&
+            activeType === EVENT_VISUALIZATION ? (
+                <Tooltip
+                    content={i18n.t(
+                        'Filters are not applied to line list dashboard items'
+                    )}
+                >
+                    <Tag negative>{i18n.t('Filters not applied')}</Tag>
+                </Tooltip>
+            ) : null
+
         return (
             <>
                 <ItemHeader
@@ -205,6 +226,7 @@ class Item extends Component {
                     ref={this.headerRef}
                     dashboardMode={dashboardMode}
                     isShortened={item.shortened}
+                    tags={tags}
                 />
                 <FatalErrorBoundary
                     message={i18n.t(
@@ -221,6 +243,8 @@ class Item extends Component {
                                 {(dimensions) => (
                                     <Visualization
                                         item={item}
+                                        visualization={this.props.visualization}
+                                        originalType={originalType}
                                         activeType={activeType}
                                         itemFilters={itemFilters}
                                         availableHeight={this.getAvailableHeight(
@@ -229,6 +253,13 @@ class Item extends Component {
                                         availableWidth={this.getAvailableWidth()}
                                         gridWidth={this.props.gridWidth}
                                         dashboardMode={dashboardMode}
+                                        showNoFiltersOverlay={Boolean(
+                                            Object.keys(itemFilters).length &&
+                                                showNoFiltersOverlay
+                                        )}
+                                        onClickNoFiltersOverlay={
+                                            this.onClickNoFiltersOverlay
+                                        }
                                     />
                                 )}
                             </WindowDimensionsCtx.Consumer>
@@ -245,6 +276,7 @@ class Item extends Component {
 
 Item.propTypes = {
     activeType: PropTypes.string,
+    d2: PropTypes.object,
     dashboardMode: PropTypes.string,
     gridWidth: PropTypes.number,
     isEditing: PropTypes.bool,

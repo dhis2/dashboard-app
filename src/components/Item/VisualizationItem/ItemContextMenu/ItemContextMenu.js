@@ -25,6 +25,7 @@ import {
     getAppName,
     itemTypeMap,
     getItemTypeForVis,
+    EVENT_VISUALIZATION,
 } from '../../../../modules/itemTypes.js'
 import { isSmallScreen } from '../../../../modules/smallScreen.js'
 import MenuItem from '../../../MenuItemWithTooltip.js'
@@ -85,6 +86,7 @@ const ItemContextMenu = (props) => {
         allowVisViewAs &&
         !isSingleValue(type) &&
         !isYearOverYear(type) &&
+        item.type !== EVENT_VISUALIZATION &&
         type !== VIS_TYPE_GAUGE &&
         type !== VIS_TYPE_PIE
 

@@ -13,10 +13,13 @@
     align-self: center;
 }
 
-.itemActionsWrap {
-    margin-left: auto;
+.itemHeaderRightWrap {
+    display: flex;
     flex-shrink: 0;
+    align-items: center;
+    margin-left: auto;
 }
+
 .itemActionsWrap button {
     margin-left: var(--spacers-dp8);
 }

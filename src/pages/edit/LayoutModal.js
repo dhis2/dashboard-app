@@ -1,5 +1,5 @@
 import { OfflineTooltip } from '@dhis2/analytics'
-import { useOnlineStatus } from '@dhis2/app-runtime'
+import { useDhis2ConnectionStatus } from '@dhis2/app-runtime'
 import i18n from '@dhis2/d2-i18n'
 import {
     Modal,
@@ -27,7 +27,7 @@ const getColsSaveValue = (value) =>
     value === '' ? DEFAULT_COLUMNS : parseInt(value, 10)
 
 export const LayoutModal = ({ columns, onSaveLayout, onClose }) => {
-    const { offline } = useOnlineStatus()
+    const { isDisconnected: offline } = useDhis2ConnectionStatus()
     const [cols, setCols] = useState(columns)
 
     useEffect(() => setCols(columns), [])
