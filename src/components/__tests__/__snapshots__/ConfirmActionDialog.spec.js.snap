@@ -6,13 +6,13 @@ exports[`ConfirmActionDialog renders confirm delete dialog 1`] = `
 <div>
   <div>
     <h1
-      class="jsx-3701517325 title"
+      class="jsx-2954721103 title"
       data-test="dhis2-uicore-modaltitle"
     >
       Delete dashboard
     </h1>
     <div
-      class="jsx-659511263 "
+      class="jsx-3719215021 "
       data-test="dhis2-uicore-modalcontent"
     >
       <span
@@ -22,18 +22,18 @@ exports[`ConfirmActionDialog renders confirm delete dialog 1`] = `
       </span>
     </div>
     <div
-      class="jsx-752323619"
+      class="jsx-1992272135"
       data-test="dhis2-uicore-modalactions"
     >
       <div
-        class="jsx-71743532 start"
+        class="jsx-1994200789 start"
         data-test="dhis2-uicore-buttonstrip"
       >
         <div
-          class="jsx-71743532 box"
+          class="jsx-1994200789 box"
         >
           <button
-            class="jsx-1937199209 secondary"
+            class="jsx-441677069 secondary"
             data-test="dhis2-uicore-button"
             type="button"
           >
@@ -41,10 +41,10 @@ exports[`ConfirmActionDialog renders confirm delete dialog 1`] = `
           </button>
         </div>
         <div
-          class="jsx-71743532 box"
+          class="jsx-1994200789 box"
         >
           <button
-            class="jsx-1937199209 destructive"
+            class="jsx-441677069 destructive"
             data-test="dhis2-uicore-button"
             type="button"
           >
@@ -61,13 +61,13 @@ exports[`ConfirmActionDialog renders discard changes dialog 1`] = `
 <div>
   <div>
     <h1
-      class="jsx-3701517325 title"
+      class="jsx-2954721103 title"
       data-test="dhis2-uicore-modaltitle"
     >
       Discard changes
     </h1>
     <div
-      class="jsx-659511263 "
+      class="jsx-3719215021 "
       data-test="dhis2-uicore-modalcontent"
     >
       <span
@@ -77,18 +77,18 @@ exports[`ConfirmActionDialog renders discard changes dialog 1`] = `
       </span>
     </div>
     <div
-      class="jsx-752323619"
+      class="jsx-1992272135"
       data-test="dhis2-uicore-modalactions"
     >
       <div
-        class="jsx-71743532 start"
+        class="jsx-1994200789 start"
         data-test="dhis2-uicore-buttonstrip"
       >
         <div
-          class="jsx-71743532 box"
+          class="jsx-1994200789 box"
         >
           <button
-            class="jsx-1937199209 secondary"
+            class="jsx-441677069 secondary"
             data-test="dhis2-uicore-button"
             type="button"
           >
@@ -96,10 +96,10 @@ exports[`ConfirmActionDialog renders discard changes dialog 1`] = `
           </button>
         </div>
         <div
-          class="jsx-71743532 box"
+          class="jsx-1994200789 box"
         >
           <button
-            class="jsx-1937199209 destructive"
+            class="jsx-441677069 destructive"
             data-test="dhis2-uicore-button"
             type="button"
           >

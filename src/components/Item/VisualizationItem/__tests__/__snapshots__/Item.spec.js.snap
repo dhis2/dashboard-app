@@ -14,16 +14,16 @@ exports[`Visualization/Item renders edit mode 1`] = `
       class="itemActionsWrap"
     >
       <span
-        class="jsx-611321200"
+        class="jsx-237564060"
         data-test="dhis2-uicore-tooltip-reference"
       >
         <button
-          class="jsx-1937199209 secondary small icon-only"
+          class="jsx-441677069 secondary small icon-only"
           data-test="delete-item-button"
           type="button"
         >
           <span
-            class="jsx-1937199209 button-icon"
+            class="jsx-441677069 button-icon"
           >
             <svg
               color="#c62828"
