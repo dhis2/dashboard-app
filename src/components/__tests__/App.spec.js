@@ -10,7 +10,10 @@ import { useSystemSettings } from '../SystemSettingsProvider.js'
 
 jest.mock('@dhis2/analytics')
 jest.mock('@dhis2/app-runtime', () => ({
-    useOnlineStatus: jest.fn(() => ({ online: true, offline: false })),
+    useDhis2ConnectionStatus: jest.fn(() => ({
+        isConnected: true,
+        isDisconnected: false,
+    })),
     useDataEngine: jest.fn(() => ({ query: Function.prototype })),
     useCacheableSection: jest.fn,
 }))

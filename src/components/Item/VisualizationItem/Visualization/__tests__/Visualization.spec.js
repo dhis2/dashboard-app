@@ -16,17 +16,10 @@ jest.mock('@dhis2/app-runtime-adapter-d2', () => {
 })
 
 jest.mock(
-    '../MapPlugin',
+    '../LegacyPlugin',
     () =>
-        function MockMapPlugin() {
-            return <div className="map-plugin" />
-        }
-)
-jest.mock(
-    '../DefaultPlugin',
-    () =>
-        function MockDefaultPlugin() {
-            return <div className="default-plugin" />
+        function MockLegacyPlugin() {
+            return <div className="legacy-plugin" />
         }
 )
 

@@ -1,4 +1,4 @@
-.noFiltersOverlay {
+.messageContent {
     display: flex;
     flex-direction: column;
     gap: var(--spacers-dp8);
@@ -8,5 +8,7 @@
     width: 100%;
     background-color: rgba(255, 255, 255, 0.92);
     font-size: 13px;
+    font-stretch: normal;
     color: var(--colors-grey900);
+    text-align: center;
 }

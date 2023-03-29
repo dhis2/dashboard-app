@@ -1,3 +1,4 @@
+import { useConfig } from '@dhis2/app-runtime'
 import { useD2 } from '@dhis2/app-runtime-adapter-d2'
 import postRobot from '@krakenjs/post-robot'
 import PropTypes from 'prop-types'
@@ -26,6 +27,7 @@ const IframePlugin = ({
     itemType,
 }) => {
     const { d2 } = useD2()
+    const { baseUrl } = useConfig()
 
     const { userSettings } = useUserSettings()
     const iframeRef = useRef()
@@ -37,6 +39,8 @@ const IframePlugin = ({
         recordingState === 'recording'
     )
 
+    const prevPluginRef = useRef()
+
     const onError = () => setError('plugin')
 
     const pluginProps = useMemo(
@@ -45,7 +49,6 @@ const IframePlugin = ({
             forDashboard: true,
             displayProperty: userSettings.displayProperty,
             visualization,
-            style,
             onError,
 
             // For caching: ---
@@ -54,7 +57,7 @@ const IframePlugin = ({
             // TODO: May also want user ID too for multi-user situations
             cacheId: `${dashboardId}-${itemId}`,
             isParentCached: isCached,
-            recordOnNextLoad: recordOnNextLoad,
+            recordOnNextLoad,
         }),
         [
             userSettings,
@@ -63,9 +66,33 @@ const IframePlugin = ({
             itemId,
             isCached,
             recordOnNextLoad,
-            style,
         ]
     )
+
+    const getIframeSrc = useCallback(() => {
+        const pluginType = [CHART, REPORT_TABLE].includes(activeType)
+            ? VISUALIZATION
+            : activeType
+
+        // 1. check if there is an override for the plugin
+        const pluginOverrides = getPluginOverrides()
+
+        if (pluginOverrides && pluginOverrides[pluginType]) {
+            return pluginOverrides[pluginType]
+        }
+
+        // 2. check if there is an installed app for the pluginType
+        // and use its plugin launch URL
+        const pluginLaunchUrl = getPluginLaunchUrl(pluginType, d2, baseUrl)
+
+        if (pluginLaunchUrl) {
+            return pluginLaunchUrl
+        }
+
+        setError('missing-plugin')
+    }, [activeType, d2, baseUrl])
+
+    const iframeSrc = getIframeSrc()
 
     useEffect(() => {
         // Tell plugin to remove cached data if this dashboard has been removed
@@ -86,63 +113,39 @@ const IframePlugin = ({
 
     useEffect(() => {
         if (iframeRef?.current) {
-            const listener = postRobot.on(
-                'getProps',
-                // listen for messages coming only from the iframe rendered by this component
-                { window: iframeRef.current.contentWindow },
-                () => {
-                    if (recordOnNextLoad) {
-                        // Avoid recording unnecessarily,
-                        // e.g. if plugin re-requests props for some reason
-                        setRecordOnNextLoad(false)
+            // if iframe has not sent initial request, set up a listener
+            if (iframeSrc !== prevPluginRef.current) {
+                prevPluginRef.current = iframeSrc
+
+                const listener = postRobot.on(
+                    'getProps',
+                    // listen for messages coming only from the iframe rendered by this component
+                    { window: iframeRef.current.contentWindow },
+                    () => {
+                        if (recordOnNextLoad) {
+                            // Avoid recording unnecessarily,
+                            // e.g. if plugin re-requests props for some reason
+                            setRecordOnNextLoad(false)
+                        }
+
+                        return pluginProps
                     }
+                )
 
-                    return pluginProps
-                }
-            )
-
-            return () => listener.cancel()
+                return () => listener.cancel()
+            } else {
+                postRobot.send(
+                    iframeRef.current.contentWindow,
+                    'newProps',
+                    pluginProps
+                )
+            }
         }
-    }, [recordOnNextLoad, pluginProps])
-
-    useEffect(() => {
-        if (iframeRef.current?.contentWindow) {
-            postRobot.send(
-                iframeRef.current.contentWindow,
-                'newProps',
-                pluginProps
-            )
-        }
-    }, [pluginProps])
+    }, [recordOnNextLoad, pluginProps, iframeSrc])
 
     useEffect(() => {
         setError(null)
     }, [filterVersion, visualization.type])
-
-    const getIframeSrc = useCallback(() => {
-        const pluginType = [CHART, REPORT_TABLE].includes(activeType)
-            ? VISUALIZATION
-            : activeType
-
-        // 1. check if there is an override for the plugin
-        const pluginOverrides = getPluginOverrides()
-
-        if (pluginOverrides && pluginOverrides[pluginType]) {
-            return pluginOverrides[pluginType]
-        }
-
-        // 2. check if there is an installed app for the pluginType
-        // and use its plugin launch URL
-        const pluginLaunchUrl = getPluginLaunchUrl(pluginType, d2)
-
-        if (pluginLaunchUrl) {
-            return pluginLaunchUrl
-        }
-
-        setError('missing-plugin')
-
-        return
-    }, [activeType, d2])
 
     if (error) {
         return error === 'missing-plugin' ? (
@@ -162,8 +165,6 @@ const IframePlugin = ({
             </div>
         )
     }
-
-    const iframeSrc = getIframeSrc()
 
     return (
         <div className={classes.wrapper}>
