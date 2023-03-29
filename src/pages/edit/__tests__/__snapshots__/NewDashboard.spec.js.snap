@@ -37,11 +37,11 @@ exports[`NewDashboard renders dashboard 1`] = `
           class="noticeContainer"
         >
           <div
-            class="jsx-3561221191 root warning"
+            class="jsx-412875598 root warning"
             data-test="dhis2-uicore-noticebox"
           >
             <div
-              class="jsx-3231412310"
+              class="jsx-2007275262"
               data-test="dhis2-uicore-noticebox-icon"
             >
               <svg
@@ -58,19 +58,24 @@ exports[`NewDashboard renders dashboard 1`] = `
               </svg>
             </div>
             <div
-              class="jsx-3561221191"
+              class="jsx-412875598"
             >
-              <h6
-                class="jsx-1234954849"
-                data-test="dhis2-uicore-noticebox-title"
-              >
-                Not supported
-              </h6>
               <div
-                class="jsx-3638294246"
-                data-test="dhis2-uicore-noticebox-message"
+                class="jsx-757150877"
+                data-test="dhis2-uicore-noticebox-content"
               >
-                Editing dashboards on small screens is not supported. Resize your screen to return to edit mode.
+                <h6
+                  class="jsx-3811082470"
+                  data-test="dhis2-uicore-noticebox-content-title"
+                >
+                  Not supported
+                </h6>
+                <div
+                  class="jsx-3090436613"
+                  data-test="dhis2-uicore-noticebox-content-message"
+                >
+                  Editing dashboards on small screens is not supported. Resize your screen to return to edit mode.
+                </div>
               </div>
             </div>
           </div>
@@ -110,11 +115,11 @@ exports[`NewDashboard renders print preview 1`] = `
           class="noticeContainer"
         >
           <div
-            class="jsx-3561221191 root warning"
+            class="jsx-412875598 root warning"
             data-test="dhis2-uicore-noticebox"
           >
             <div
-              class="jsx-3231412310"
+              class="jsx-2007275262"
               data-test="dhis2-uicore-noticebox-icon"
             >
               <svg
@@ -131,19 +136,24 @@ exports[`NewDashboard renders print preview 1`] = `
               </svg>
             </div>
             <div
-              class="jsx-3561221191"
+              class="jsx-412875598"
             >
-              <h6
-                class="jsx-1234954849"
-                data-test="dhis2-uicore-noticebox-title"
-              >
-                Not supported
-              </h6>
               <div
-                class="jsx-3638294246"
-                data-test="dhis2-uicore-noticebox-message"
+                class="jsx-757150877"
+                data-test="dhis2-uicore-noticebox-content"
               >
-                Editing dashboards on small screens is not supported. Resize your screen to return to edit mode.
+                <h6
+                  class="jsx-3811082470"
+                  data-test="dhis2-uicore-noticebox-content-title"
+                >
+                  Not supported
+                </h6>
+                <div
+                  class="jsx-3090436613"
+                  data-test="dhis2-uicore-noticebox-content-message"
+                >
+                  Editing dashboards on small screens is not supported. Resize your screen to return to edit mode.
+                </div>
               </div>
             </div>
           </div>

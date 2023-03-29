@@ -16,7 +16,7 @@ exports[`renders a starred chip for a cached dashboard 1`] = `
         data-test="dhis2-uicore-chip-icon"
       >
         <svg
-          color="#6e7a8a"
+          color="#6C7787"
           height="24"
           viewBox="0 0 24 24"
           width="24"
@@ -71,7 +71,7 @@ exports[`renders a starred chip for a non-cached dashboard 1`] = `
         data-test="dhis2-uicore-chip-icon"
       >
         <svg
-          color="#6e7a8a"
+          color="#6C7787"
           height="24"
           viewBox="0 0 24 24"
           width="24"

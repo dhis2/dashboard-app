@@ -30,40 +30,40 @@ exports[`renders correctly when filters are not restricted 1`] = `
           class="radioButton"
         >
           <label
-            class="jsx-2076513581 dense"
+            class="jsx-3878022568 dense"
             data-test="dhis2-uicore-radio"
           >
             <input
               checked=""
-              class="jsx-2076513581"
+              class="jsx-3878022568"
               name="radio-allow-filtering-on-all"
               type="radio"
               value="false"
             />
             <div
-              class="jsx-2076513581 icon dense"
+              class="jsx-3878022568 icon dense"
             >
               <svg
-                class="jsx-1659897952 jsx-1631270792 checked"
+                class="jsx-1659897952 jsx-1120332023 checked"
                 viewBox="0 0 14 14"
                 xmlns="http://www.w3.org/2000/svg"
               >
                 <circle
-                  class="jsx-1659897952 jsx-1631270792 background"
+                  class="jsx-1659897952 jsx-1120332023 background"
                   cx="7"
                   cy="7"
                   r="7"
                 />
                 <path
-                  class="jsx-1659897952 jsx-1631270792 outer unchecked"
+                  class="jsx-1659897952 jsx-1120332023 outer unchecked"
                   d="M7,14 C10.8659932,14 14,10.8659932 14,7 C14,3.13400675 10.8659932,0 7,0 C3.13400675,0 0,3.13400675 0,7 C0,10.8659932 3.13400675,14 7,14 Z M7,13 C3.6862915,13 1,10.3137085 1,7 C1,3.6862915 3.6862915,1 7,1 C10.3137085,1 13,3.6862915 13,7 C13,10.3137085 10.3137085,13 7,13 Z"
                 />
                 <path
-                  class="jsx-1659897952 jsx-1631270792 outer checked"
+                  class="jsx-1659897952 jsx-1120332023 outer checked"
                   d="M7,14 C10.8659932,14 14,10.8659932 14,7 C14,3.13400675 10.8659932,0 7,0 C3.13400675,0 0,3.13400675 0,7 C0,10.8659932 3.13400675,14 7,14 Z M7,12 C4.23857625,12 2,9.76142375 2,7 C2,4.23857625 4.23857625,2 7,2 C9.76142375,2 12,4.23857625 12,7 C12,9.76142375 9.76142375,12 7,12 Z"
                 />
                 <circle
-                  class="jsx-1659897952 jsx-1631270792 inner"
+                  class="jsx-1659897952 jsx-1120332023 inner"
                   cx="7"
                   cy="7"
                   r="3"
@@ -77,39 +77,39 @@ exports[`renders correctly when filters are not restricted 1`] = `
           class="radioButton"
         >
           <label
-            class="jsx-2076513581 dense"
+            class="jsx-3878022568 dense"
             data-test="dhis2-uicore-radio"
           >
             <input
-              class="jsx-2076513581"
+              class="jsx-3878022568"
               name="radio-restrict-filtering"
               type="radio"
               value="true"
             />
             <div
-              class="jsx-2076513581 icon dense"
+              class="jsx-3878022568 icon dense"
             >
               <svg
-                class="jsx-1659897952 jsx-1631270792 "
+                class="jsx-1659897952 jsx-1120332023 "
                 viewBox="0 0 14 14"
                 xmlns="http://www.w3.org/2000/svg"
               >
                 <circle
-                  class="jsx-1659897952 jsx-1631270792 background"
+                  class="jsx-1659897952 jsx-1120332023 background"
                   cx="7"
                   cy="7"
                   r="7"
                 />
                 <path
-                  class="jsx-1659897952 jsx-1631270792 outer unchecked"
+                  class="jsx-1659897952 jsx-1120332023 outer unchecked"
                   d="M7,14 C10.8659932,14 14,10.8659932 14,7 C14,3.13400675 10.8659932,0 7,0 C3.13400675,0 0,3.13400675 0,7 C0,10.8659932 3.13400675,14 7,14 Z M7,13 C3.6862915,13 1,10.3137085 1,7 C1,3.6862915 3.6862915,1 7,1 C10.3137085,1 13,3.6862915 13,7 C13,10.3137085 10.3137085,13 7,13 Z"
                 />
                 <path
-                  class="jsx-1659897952 jsx-1631270792 outer checked"
+                  class="jsx-1659897952 jsx-1120332023 outer checked"
                   d="M7,14 C10.8659932,14 14,10.8659932 14,7 C14,3.13400675 10.8659932,0 7,0 C3.13400675,0 0,3.13400675 0,7 C0,10.8659932 3.13400675,14 7,14 Z M7,12 C4.23857625,12 2,9.76142375 2,7 C2,4.23857625 4.23857625,2 7,2 C9.76142375,2 12,4.23857625 12,7 C12,9.76142375 9.76142375,12 7,12 Z"
                 />
                 <circle
-                  class="jsx-1659897952 jsx-1631270792 inner"
+                  class="jsx-1659897952 jsx-1120332023 inner"
                   cx="7"
                   cy="7"
                   r="3"
@@ -187,39 +187,39 @@ exports[`renders correctly when filters are restricted 1`] = `
           class="radioButton"
         >
           <label
-            class="jsx-2076513581 dense"
+            class="jsx-3878022568 dense"
             data-test="dhis2-uicore-radio"
           >
             <input
-              class="jsx-2076513581"
+              class="jsx-3878022568"
               name="radio-allow-filtering-on-all"
               type="radio"
               value="false"
             />
             <div
-              class="jsx-2076513581 icon dense"
+              class="jsx-3878022568 icon dense"
             >
               <svg
-                class="jsx-1659897952 jsx-1631270792 "
+                class="jsx-1659897952 jsx-1120332023 "
                 viewBox="0 0 14 14"
                 xmlns="http://www.w3.org/2000/svg"
               >
                 <circle
-                  class="jsx-1659897952 jsx-1631270792 background"
+                  class="jsx-1659897952 jsx-1120332023 background"
                   cx="7"
                   cy="7"
                   r="7"
                 />
                 <path
-                  class="jsx-1659897952 jsx-1631270792 outer unchecked"
+                  class="jsx-1659897952 jsx-1120332023 outer unchecked"
                   d="M7,14 C10.8659932,14 14,10.8659932 14,7 C14,3.13400675 10.8659932,0 7,0 C3.13400675,0 0,3.13400675 0,7 C0,10.8659932 3.13400675,14 7,14 Z M7,13 C3.6862915,13 1,10.3137085 1,7 C1,3.6862915 3.6862915,1 7,1 C10.3137085,1 13,3.6862915 13,7 C13,10.3137085 10.3137085,13 7,13 Z"
                 />
                 <path
-                  class="jsx-1659897952 jsx-1631270792 outer checked"
+                  class="jsx-1659897952 jsx-1120332023 outer checked"
                   d="M7,14 C10.8659932,14 14,10.8659932 14,7 C14,3.13400675 10.8659932,0 7,0 C3.13400675,0 0,3.13400675 0,7 C0,10.8659932 3.13400675,14 7,14 Z M7,12 C4.23857625,12 2,9.76142375 2,7 C2,4.23857625 4.23857625,2 7,2 C9.76142375,2 12,4.23857625 12,7 C12,9.76142375 9.76142375,12 7,12 Z"
                 />
                 <circle
-                  class="jsx-1659897952 jsx-1631270792 inner"
+                  class="jsx-1659897952 jsx-1120332023 inner"
                   cx="7"
                   cy="7"
                   r="3"
@@ -233,40 +233,40 @@ exports[`renders correctly when filters are restricted 1`] = `
           class="radioButton"
         >
           <label
-            class="jsx-2076513581 dense"
+            class="jsx-3878022568 dense"
             data-test="dhis2-uicore-radio"
           >
             <input
               checked=""
-              class="jsx-2076513581"
+              class="jsx-3878022568"
               name="radio-restrict-filtering"
               type="radio"
               value="true"
             />
             <div
-              class="jsx-2076513581 icon dense"
+              class="jsx-3878022568 icon dense"
             >
               <svg
-                class="jsx-1659897952 jsx-1631270792 checked"
+                class="jsx-1659897952 jsx-1120332023 checked"
                 viewBox="0 0 14 14"
                 xmlns="http://www.w3.org/2000/svg"
               >
                 <circle
-                  class="jsx-1659897952 jsx-1631270792 background"
+                  class="jsx-1659897952 jsx-1120332023 background"
                   cx="7"
                   cy="7"
                   r="7"
                 />
                 <path
-                  class="jsx-1659897952 jsx-1631270792 outer unchecked"
+                  class="jsx-1659897952 jsx-1120332023 outer unchecked"
                   d="M7,14 C10.8659932,14 14,10.8659932 14,7 C14,3.13400675 10.8659932,0 7,0 C3.13400675,0 0,3.13400675 0,7 C0,10.8659932 3.13400675,14 7,14 Z M7,13 C3.6862915,13 1,10.3137085 1,7 C1,3.6862915 3.6862915,1 7,1 C10.3137085,1 13,3.6862915 13,7 C13,10.3137085 10.3137085,13 7,13 Z"
                 />
                 <path
-                  class="jsx-1659897952 jsx-1631270792 outer checked"
+                  class="jsx-1659897952 jsx-1120332023 outer checked"
                   d="M7,14 C10.8659932,14 14,10.8659932 14,7 C14,3.13400675 10.8659932,0 7,0 C3.13400675,0 0,3.13400675 0,7 C0,10.8659932 3.13400675,14 7,14 Z M7,12 C4.23857625,12 2,9.76142375 2,7 C2,4.23857625 4.23857625,2 7,2 C9.76142375,2 12,4.23857625 12,7 C12,9.76142375 9.76142375,12 7,12 Z"
                 />
                 <circle
-                  class="jsx-1659897952 jsx-1631270792 inner"
+                  class="jsx-1659897952 jsx-1120332023 inner"
                   cx="7"
                   cy="7"
                   r="3"
