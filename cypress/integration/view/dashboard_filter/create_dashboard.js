@@ -1,8 +1,8 @@
 import { Given, When, Then } from 'cypress-cucumber-preprocessor/steps'
 import {
     gridItemSel,
-    // chartSel,
-    // mapSel,
+    chartSel,
+    mapSel,
 } from '../../../elements/dashboardItem.js'
 import { confirmActionDialogSel } from '../../../elements/editDashboard.js'
 import {
@@ -62,13 +62,9 @@ Given('I open existing dashboard', () => {
 // Some map visualization load very slowly:
 // https://dhis2.atlassian.net/browse/DHIS2-14365
 Then('the dashboard displays in view mode', () => {
-    cy.get(dashboardTitleSel)
-        .should('be.visible')
-        .and('contain', TEST_DASHBOARD_TITLE)
     // check for a map canvas and a highcharts element
-    // FIXME
-    // cy.get(chartSel, EXTENDED_TIMEOUT).should('be.visible')
-    // cy.get(mapSel, EXTENDED_TIMEOUT).should('be.visible')
+    cy.get(chartSel, EXTENDED_TIMEOUT).should('be.visible')
+    cy.get(mapSel, EXTENDED_TIMEOUT).should('be.visible')
 })
 
 When('I choose to delete dashboard', () => {

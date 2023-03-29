@@ -1,7 +1,7 @@
 import { When, Then } from 'cypress-cucumber-preprocessor/steps'
 import { dimensionsModalSel } from '../../../elements/dashboardFilter.js'
-// import { chartSel } from '../../../elements/dashboardItem.js'
-import { titleInputSel, itemMenuSel } from '../../../elements/editDashboard.js'
+import { chartSel } from '../../../elements/dashboardItem.js'
+import { titleInputSel } from '../../../elements/editDashboard.js'
 import {
     dashboardTitleSel,
     newButtonSel,
@@ -34,7 +34,7 @@ Then('the small screen view is shown', () => {
 })
 
 When('I restore the wide screen', () => {
-    cy.viewport(950, 800)
+    cy.viewport(900, 800)
     // to account for debounced window resize
     cy.wait(1000) // eslint-disable-line cypress/no-unnecessary-waiting
 })
@@ -48,13 +48,6 @@ Then('the wide screen view is shown', () => {
 
     cy.get('button').not('.small').contains('More').should('be.visible')
     cy.get('button.small').contains('More').should('not.be.visible')
-})
-
-When('I close the item selector', () => {
-    //close modal
-    cy.get('[data-test="dhis2-uicore-layer"]').click('topLeft')
-
-    cy.get(itemMenuSel).should('not.exist')
 })
 
 Then('the small screen edit view is shown', () => {
@@ -76,13 +69,11 @@ Then('the wide screen edit view is shown', () => {
     cy.get('button').contains('Save changes').should('be.visible')
     cy.get('button').contains('Exit without saving').should('be.visible')
 
-    cy.get(titleInputSel).scrollIntoView()
     cy.get(titleInputSel).should('be.visible')
     cy.get('.react-grid-layout').should('be.visible')
 })
 
 Then('my changes are still there', () => {
-    cy.get(titleInputSel).scrollIntoView()
     //title or item changes
     var re = new RegExp(TEST_DASHBOARD_TITLE, 'g')
     cy.get(`${titleInputSel} input`).should(($input) => {
@@ -107,8 +98,7 @@ Then('the {string} dashboard displays in default view mode', (title) => {
     })
 
     cy.get(dashboardTitleSel).should('be.visible').and('contain', title)
-    // FIXME
-    // cy.get(chartSel, EXTENDED_TIMEOUT).should('be.visible')
+    cy.get(chartSel, EXTENDED_TIMEOUT).should('be.visible')
 })
 
 // Scenario: I change the url to 'edit' while in small screen

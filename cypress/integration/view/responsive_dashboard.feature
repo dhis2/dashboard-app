@@ -14,7 +14,6 @@ Feature: Small screen dashboard
         When I choose to edit dashboard
         And dashboard title is changed
         And dashboard items are added
-        And I close the item selector
         When I go to small screen
         Then the small screen edit view is shown
         When I restore the wide screen
@@ -26,7 +25,6 @@ Feature: Small screen dashboard
         Given I start a new dashboard
         And dashboard title is changed
         And dashboard items are added
-        And I close the item selector
         When I go to small screen
         Then the small screen edit view is shown
         When I restore the wide screen

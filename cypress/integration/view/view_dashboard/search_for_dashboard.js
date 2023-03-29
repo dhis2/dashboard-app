@@ -30,6 +30,5 @@ Then('dashboards list restored and dashboard is still {string}', (title) => {
     })
 
     cy.get(dashboardTitleSel).should('be.visible').and('contain', title)
-    // FIXME
-    // cy.get('.highcharts-background').should('exist')
+    cy.get('.highcharts-background').should('exist')
 })
