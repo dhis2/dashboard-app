@@ -196,6 +196,7 @@ report-failure-to-slack:
         runs-on: ubuntu-latest
         needs: [build, lint, test, e2e, publish, release]
         if: |
+            always() &&
             github.ref == 'refs/heads/master' &&
             contains(needs.*.result, 'failure')
 
