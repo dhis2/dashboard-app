@@ -35,10 +35,11 @@ const IframePlugin = ({
 
     // When this mounts, check if the dashboard is recording
     const { isCached, recordingState } = useCacheableSection(dashboardId)
-    const [communicationReceived, setCommunicationReceived] = useState(false)
     const [recordOnNextLoad, setRecordOnNextLoad] = useState(
         recordingState === 'recording'
     )
+
+    const prevPluginRef = useRef()
 
     const onError = () => setError('plugin')
 
@@ -56,7 +57,7 @@ const IframePlugin = ({
             // TODO: May also want user ID too for multi-user situations
             cacheId: `${dashboardId}-${itemId}`,
             isParentCached: isCached,
-            recordOnNextLoad: recordOnNextLoad,
+            recordOnNextLoad,
         }),
         [
             userSettings,
@@ -67,61 +68,6 @@ const IframePlugin = ({
             recordOnNextLoad,
         ]
     )
-
-    useEffect(() => {
-        // Tell plugin to remove cached data if this dashboard has been removed
-        // from offline storage
-        if (iframeRef?.current && !isCached) {
-            postRobot
-                .send(iframeRef.current.contentWindow, 'removeCachedData')
-                .catch((err) => {
-                    // catch error if iframe hasn't loaded yet
-                    const msg = 'No handler found for post message:'
-                    if (err.message.startsWith(msg)) {
-                        return
-                    }
-                    console.error(err)
-                })
-        }
-    }, [isCached])
-
-    useEffect(() => {
-        if (iframeRef?.current) {
-            // if iframe has not sent initial request, set up a listener
-            if (!communicationReceived) {
-                const listener = postRobot.on(
-                    'getProps',
-                    // listen for messages coming only from the iframe rendered by this component
-                    { window: iframeRef.current.contentWindow },
-                    () => {
-                        setCommunicationReceived(true)
-
-                        if (recordOnNextLoad) {
-                            // Avoid recording unnecessarily,
-                            // e.g. if plugin re-requests props for some reason
-                            setRecordOnNextLoad(false)
-                        }
-
-                        return pluginProps
-                    }
-                )
-
-                return () => listener.cancel()
-            }
-        }
-
-        if (communicationReceived && iframeRef.current?.contentWindow) {
-            postRobot.send(
-                iframeRef.current.contentWindow,
-                'newProps',
-                pluginProps
-            )
-        }
-    }, [communicationReceived, recordOnNextLoad, pluginProps])
-
-    useEffect(() => {
-        setError(null)
-    }, [filterVersion, visualization.type])
 
     const getIframeSrc = useCallback(() => {
         const pluginType = [CHART, REPORT_TABLE].includes(activeType)
@@ -144,9 +90,62 @@ const IframePlugin = ({
         }
 
         setError('missing-plugin')
-
-        return
     }, [activeType, d2, baseUrl])
+
+    const iframeSrc = getIframeSrc()
+
+    useEffect(() => {
+        // Tell plugin to remove cached data if this dashboard has been removed
+        // from offline storage
+        if (iframeRef?.current && !isCached) {
+            postRobot
+                .send(iframeRef.current.contentWindow, 'removeCachedData')
+                .catch((err) => {
+                    // catch error if iframe hasn't loaded yet
+                    const msg = 'No handler found for post message:'
+                    if (err.message.startsWith(msg)) {
+                        return
+                    }
+                    console.error(err)
+                })
+        }
+    }, [isCached])
+
+    useEffect(() => {
+        if (iframeRef?.current) {
+            // if iframe has not sent initial request, set up a listener
+            if (iframeSrc !== prevPluginRef.current) {
+                prevPluginRef.current = iframeSrc
+
+                const listener = postRobot.on(
+                    'getProps',
+                    // listen for messages coming only from the iframe rendered by this component
+                    { window: iframeRef.current.contentWindow },
+                    () => {
+                        if (recordOnNextLoad) {
+                            // Avoid recording unnecessarily,
+                            // e.g. if plugin re-requests props for some reason
+                            setRecordOnNextLoad(false)
+                        }
+
+                        return pluginProps
+                    }
+                )
+
+                return () => listener.cancel()
+            } else {
+                postRobot.send(
+                    iframeRef.current.contentWindow,
+                    'newProps',
+                    pluginProps
+                )
+            }
+        }
+    }, [recordOnNextLoad, pluginProps, iframeSrc])
+
+    useEffect(() => {
+        setError(null)
+    }, [filterVersion, visualization.type])
 
     if (error) {
         return error === 'missing-plugin' ? (
@@ -166,8 +165,6 @@ const IframePlugin = ({
             </div>
         )
     }
-
-    const iframeSrc = getIframeSrc()
 
     return (
         <div className={classes.wrapper}>

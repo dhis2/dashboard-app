@@ -1,3 +1,39 @@
+## [99.10.23](https://github.com/dhis2/dashboard-app/compare/v99.10.22...v99.10.23) (2023-03-24)
+
+
+### Bug Fixes
+
+* fetch repetition data for LL to show in plugin ([#2271](https://github.com/dhis2/dashboard-app/issues/2271)) ([25378ce](https://github.com/dhis2/dashboard-app/commit/25378ce65effdf6e0670f95a927d97aa7164643a))
+* fix props handling when switching Map <-> DV plugins ([#2272](https://github.com/dhis2/dashboard-app/issues/2272)) ([7a06ab9](https://github.com/dhis2/dashboard-app/commit/7a06ab9fc96edbd6b0b773250657824b84f3f7f9))
+
+## [99.10.22](https://github.com/dhis2/dashboard-app/compare/v99.10.21...v99.10.22) (2023-03-21)
+
+
+### Bug Fixes
+
+* enable cypress tests in github workflow ([#2255](https://github.com/dhis2/dashboard-app/issues/2255)) ([4670a0c](https://github.com/dhis2/dashboard-app/commit/4670a0c771e3dc78f9cacbc501be345ed9525e49))
+
+## [99.10.21](https://github.com/dhis2/dashboard-app/compare/v99.10.20...v99.10.21) (2023-03-20)
+
+
+### Bug Fixes
+
+* consolidate legacy and default plugin and fix resizing ([#2254](https://github.com/dhis2/dashboard-app/issues/2254)) ([d4e3c03](https://github.com/dhis2/dashboard-app/commit/d4e3c035206750a66c97271943a814ac128dcd24))
+
+## [99.10.20](https://github.com/dhis2/dashboard-app/compare/v99.10.19...v99.10.20) (2023-03-17)
+
+
+### Bug Fixes
+
+* list LL items after Maps and before ER/EV ([#2253](https://github.com/dhis2/dashboard-app/issues/2253)) ([7426e54](https://github.com/dhis2/dashboard-app/commit/7426e543f57667fc21e66c9c11b7e6b347e7dc77))
+
+## [99.10.19](https://github.com/dhis2/dashboard-app/compare/v99.10.18...v99.10.19) (2023-03-17)
+
+
+### Bug Fixes
+
+* update cli-app-scripts for HeaderBar fixes ([#2250](https://github.com/dhis2/dashboard-app/issues/2250)) ([2513010](https://github.com/dhis2/dashboard-app/commit/2513010098d3bfd90a585bdb856447f3a5f289bf))
+
 ## [99.10.18](https://github.com/dhis2/dashboard-app/compare/v99.10.17...v99.10.18) (2023-03-16)
 
 
