@@ -21,7 +21,6 @@ describe('getVisualizationConfig', () => {
         const actualResult = getVisualizationConfig(visualization, MAP, MAP)
         const expectedResult = {
             ...visualization,
-            id: undefined,
         }
 
         expect(actualResult).toEqual(expectedResult)
