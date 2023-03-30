@@ -43,11 +43,14 @@
         "validate-push": "CI=true yarn test",
         "postinstall": "patch-package",
         "cypress:start": "BROWSER=none yarn start",
-        "cy:open-live": "yarn cypress open --env networkMode=live",
-        "cy:run-live": "cypress_dhis2_api_stub_mode=DISABLED d2-utils-cypress run --appStart 'yarn cypress:start'",
-        "cy:open-stub": "cypress_dhis2_api_stub_mode=STUB d2-utils-cypress open --appStart 'yarn cypress:start'",
-        "cy:run-stub": "cypress_dhis2_api_stub_mode=STUB d2-utils-cypress run --tags '@nonmutating' --appStart 'yarn cypress:start' --record",
-        "cy:capture": "cypress_dhis2_api_stub_mode=CAPTURE yarn d2-utils-cypress run --appStart 'yarn cypress:start'"
+        "cypress:open:live": "yarn cypress open --env networkMode=live",
+        "cypress:run:live": "yarn cypress run --env networkMode=live",
+        "cypress:run:capture": "yarn cypress run --env networkMode=capture",
+        "cypress:run:stub": "yarn cypress run --env networkMode=stub",
+        "cypress:prepare": "start-server-and-test 'yarn cypress:start' http://localhost:3000",
+        "cypress:live": "yarn cypress:prepare 'yarn cypress:open:live'",
+        "cypress:capture": "yarn cypress:prepare 'yarn cypress:run:capture'",
+        "cypress:stub": "yarn cypress:prepare 'yarn cypress:run:stub'"
     },
     "devDependencies": {
         "@badeball/cypress-cucumber-preprocessor": "^16.0.0",

@@ -1,12 +1,15 @@
-import { enableAutoLogin } from '@dhis2/cypress-commands'
-import { enableNetworkShim } from './server/index.js'
-import { getDefaultMode, isStubMode } from './server/utils.js'
+import { enableAutoLogin, enableNetworkShim, isStubMode, networkModes } from '@dhis2/cypress-commands'
+
+const getDefaultMode = () => {
+  return networkModes.STUB
+}
 
 enableNetworkShim()
 
 if (!isStubMode(getDefaultMode())) {
     // log in if using a live backend
-    enableAutoLogin()
+    // High timeout as the app can take some time to load
+    enableAutoLogin(undefined, { timeout: 20000 })
 }
 
 const resizeObserverLoopErrRe = /^[^(ResizeObserver loop limit exceeded)]/
