@@ -65,7 +65,8 @@
         "immutability-helper": "^3.1.1",
         "patch-package": "^7",
         "postinstall-postinstall": "^2.1.0",
-        "redux-mock-store": "^1.5.4"
+        "redux-mock-store": "^1.5.4",
+        "start-server-and-test": "^2.0.0"
     },
     "jest": {
         "moduleNameMapper": {
