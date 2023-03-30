@@ -1,10 +1,12 @@
 const {
     networkShim,
     chromeAllowXSiteCookies,
+    cucumberPreprocessor,
 } = require('@dhis2/cypress-plugins')
 const { defineConfig } = require('cypress')
 
 async function setupNodeEvents(on, config) {
+    await cucumberPreprocessor(on, config)
     networkShim(on, config)
     chromeAllowXSiteCookies(on, config)
     return config
