@@ -10,14 +10,14 @@ import { TEST_DASHBOARD_TITLE } from './edit_dashboard.js'
 
 // Scenario: I star the dashboard
 When('I click to star the dashboard', () => {
-    cy.intercept('POST', `/favorite`).as('starDashboard')
+    cy.intercept('POST', '**/favorite').as('starDashboard')
 
     cy.get(starSel).click()
     cy.wait('@starDashboard').its('response.statusCode').should('eq', 200)
 })
 
 When('I click to unstar the dashboard', () => {
-    cy.intercept('DELETE', `/favorite`).as('unstarDashboard')
+    cy.intercept('DELETE', '**/favorite').as('unstarDashboard')
 
     cy.get(starSel).click()
     cy.wait('@unstarDashboard').its('response.statusCode').should('eq', 200)

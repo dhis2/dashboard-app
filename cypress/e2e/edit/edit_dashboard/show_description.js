@@ -20,7 +20,7 @@ before(() => {
 })
 
 When('I click to show description', () => {
-    cy.intercept('PUT', 'userDataStore/dashboard/showDescription').as(
+    cy.intercept('PUT', '**/userDataStore/dashboard/showDescription').as(
         'toggleDescription'
     )
 
@@ -43,7 +43,7 @@ When('I click to hide the description', () => {
 
 // Error scenario
 When('clicking to show description fails', () => {
-    cy.intercept('PUT', 'userDataStore/dashboard/showDescription', {
+    cy.intercept('PUT', '**/userDataStore/dashboard/showDescription', {
         statusCode: SHOW_DESC_RESP_CODE_FAIL,
     }).as('showDescriptionFails')
 
