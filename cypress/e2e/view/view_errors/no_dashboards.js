@@ -4,7 +4,7 @@ import { EXTENDED_TIMEOUT } from '../../../support/utils.js'
 
 // Scenario: There are no dashboards
 Given('I open an app with no dashboards', () => {
-    cy.intercept('/dashboards', { dashboards: [] })
+    cy.intercept('**/dashboards?*', { body: { dashboards: [] } })
     cy.visit('/', EXTENDED_TIMEOUT)
 })
 

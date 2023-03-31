@@ -9,7 +9,7 @@ import {
 
 When('clicking to star {string} dashboard fails', (title) => {
     cy.log('url', `dashboards/${dashboards[title].id}/favorite`)
-    cy.intercept('POST', `dashboards/${dashboards[title].id}/favorite`, {
+    cy.intercept('POST', `**/dashboards/${dashboards[title].id}/favorite`, {
         statusCode: 409,
     }).as('starDashboardFail')
 
