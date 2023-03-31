@@ -16,7 +16,7 @@ before(() => {
 })
 
 When('clicking to show description fails', () => {
-    cy.intercept('PUT', 'userDataStore/dashboard/showDescription', {
+    cy.intercept('PUT', '**/userDataStore/dashboard/showDescription', {
         statusCode: 409,
     }).as('showDescriptionFails')
 
