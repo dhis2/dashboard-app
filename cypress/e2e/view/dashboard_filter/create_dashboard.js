@@ -1,8 +1,8 @@
 import { Given, When, Then } from '@badeball/cypress-cucumber-preprocessor'
 import {
     gridItemSel,
-    // chartSel,
-    // mapSel,
+    chartSel,
+    mapSel,
 } from '../../../elements/dashboardItem.js'
 import { confirmActionDialogSel } from '../../../elements/editDashboard.js'
 import {
@@ -65,10 +65,16 @@ Then('the dashboard displays in view mode', () => {
     cy.get(dashboardTitleSel)
         .should('be.visible')
         .and('contain', TEST_DASHBOARD_TITLE)
-    // check for a map canvas and a highcharts element
-    // FIXME
-    // cy.get(chartSel, EXTENDED_TIMEOUT).should('be.visible')
-    // cy.get(mapSel, EXTENDED_TIMEOUT).should('be.visible')
+
+    cy.get(`${gridItemSel}.VISUALIZATION`)
+        .getIframeBody()
+        .find(chartSel, EXTENDED_TIMEOUT)
+        .should('be.visible')
+
+    //    cy.get(`${gridItemSel}.MAP`)
+    //        .getIframeBody()
+    //        .find(mapSel, EXTENDED_TIMEOUT)
+    //        .should('be.visible')
 })
 
 When('I choose to delete dashboard', () => {
