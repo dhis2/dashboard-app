@@ -1,6 +1,6 @@
 import { Given } from '@badeball/cypress-cucumber-preprocessor'
 import { dashboards } from '../../../assets/backends/index.js'
-// import { chartSel } from '../../../elements/dashboardItem.js'
+import { gridItemSel, chartSel } from '../../../elements/dashboardItem.js'
 import {
     dashboardTitleSel,
     dashboardChipSel,
@@ -15,7 +15,10 @@ Given('I open the {string} dashboard', (title) => {
     })
 
     cy.get(dashboardTitleSel).should('be.visible').and('contain', title)
-    // FIXME
-    // cy.get(chartSel, EXTENDED_TIMEOUT).should('exist')
-    cy.wait(3000) // eslint-disable-line cypress/no-unnecessary-waiting
+
+    cy.get(`${gridItemSel}.VISUALIZATION`)
+        .first()
+        .getIframeBody()
+        .find(chartSel, EXTENDED_TIMEOUT)
+        .should('exist')
 })
