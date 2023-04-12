@@ -1,6 +1,10 @@
 import { Given, When, Then } from '@badeball/cypress-cucumber-preprocessor'
 import { dashboards } from '../../../assets/backends/sierraLeone_236.js'
-import { getDashboardItem } from '../../../elements/dashboardItem.js'
+import {
+    getDashboardItem,
+    gridItemSel,
+    mapSel,
+} from '../../../elements/dashboardItem.js'
 import {
     dashboardTitleSel,
     dashboardChipSel,
@@ -18,18 +22,25 @@ Given('I open the Cases Malaria dashboard', () => {
     })
 
     cy.get(dashboardTitleSel).should('be.visible').and('contain', title)
-    // FIXME
-    // cy.get(mapSel, EXTENDED_TIMEOUT).should('exist')
+
+    cy.get(`${gridItemSel}.MAP`)
+        .first()
+        .getIframeBody()
+        .find(mapSel, EXTENDED_TIMEOUT)
+        .should('exist')
 })
 
 When('I hover over the map legend button', () => {
     getDashboardItem(mapItemUid)
+        .getIframeBody()
         .find('.dhis2-map-legend-button', EXTENDED_TIMEOUT)
         .trigger('mouseover')
 })
 
 Then('the legend title shows the tracked entity name', () => {
-    cy.get('.dhis2-map-legend-title')
+    getDashboardItem(mapItemUid)
+        .getIframeBody()
+        .find('.dhis2-map-legend-title')
         .contains('Malaria case registration')
         .should('be.visible')
 })

@@ -5,8 +5,9 @@ import {
     filterBadgeSel,
 } from '../../../elements/dashboardFilter.js'
 import {
-    // chartSel,
-    // tableSel,
+    gridItemSel,
+    chartSel,
+    tableSel,
     itemMenuButtonSel,
 } from '../../../elements/dashboardItem.js'
 import {
@@ -59,15 +60,22 @@ When(
 )
 
 Then('an error message is displayed on the item', () => {
-    // FIXME
-    // cy.contains('There was an error loading data for this item').should(
-    //     'be.visible'
-    // )
+    cy.get(`${gridItemSel}.VISUALIZATION`)
+        .first()
+        .contains('There was an error loading data for this item')
+        .should('be.visible')
 
-    cy.contains('Open this item in Data Visualizer').should('be.visible')
+    cy.get(`${gridItemSel}.VISUALIZATION`)
+        .first()
+        .contains('Open this item in Data Visualizer')
+        .should('be.visible')
 
     // FIXME
-    // cy.get(chartSel).should('not.exist')
+    //    cy.get(`${gridItemSel}.VISUALIZATION`)
+    //        .first()
+    //        .getIframeBody()
+    //        .find(chartSel)
+    //        .should('not.exist')
 })
 
 Then('an error message not including a link is displayed on the item', () => {
@@ -78,8 +86,10 @@ Then('an error message not including a link is displayed on the item', () => {
 
     cy.contains('Open this item in Data Visualizer').should('not.exist')
 
-    // FIXME
-    // cy.get(chartSel).should('not.exist')
+    cy.get(`${gridItemSel}.VISUALIZATION`)
+        .first()
+        .find('iframe')
+        .should('not.exist')
 })
 
 When('I view as chart', () => {
@@ -101,13 +111,21 @@ When('I remove the filter', () => {
     cy.wait(4000) // eslint-disable-line cypress/no-unnecessary-waiting
 })
 
-// Then('the {string} is displayed correctly', (visType) => {
-//     if (visType === 'chart') {
-//         cy.get(chartSel, EXTENDED_TIMEOUT).should('be.visible')
-//     } else if (visType === 'table') {
-//         cy.get(tableSel, EXTENDED_TIMEOUT).should('be.visible')
-//     }
-// })
+Then('the {string} is displayed correctly', (visType) => {
+    if (visType === 'chart') {
+        cy.get(`${gridItemSel}.VISUALIZATION`)
+            .first()
+            .getIframeBody()
+            .find(chartSel)
+            .should('be.visible')
+    } else if (visType === 'table') {
+        cy.get(`${gridItemSel}.VISUALIZATION`)
+            .first()
+            .getIframeBody()
+            .find(tableSel)
+            .should('be.visible')
+    }
+})
 
 Then('I delete the dashboard', () => {
     //now cleanup
