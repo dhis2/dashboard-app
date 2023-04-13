@@ -115,13 +115,13 @@ const IframePlugin = ({
         // 1. check if there is an override for the plugin
         const pluginOverrides = getPluginOverrides()
 
-        if (pluginOverrides && pluginOverrides[item.type]) {
-            return pluginOverrides[item.type]
+        if (pluginOverrides && pluginOverrides[itemType]) {
+            return pluginOverrides[itemType]
         }
 
         // 2. check if there is an installed app for the item type
         // and use its plugin launch URL
-        const pluginLaunchUrl = getPluginLaunchUrl(item.type, d2)
+        const pluginLaunchUrl = getPluginLaunchUrl(itemType, d2)
 
         if (pluginLaunchUrl) {
             return pluginLaunchUrl
@@ -130,7 +130,7 @@ const IframePlugin = ({
         setError('missing-plugin')
 
         return
-    }, [item.type, d2])
+    }, [itemType, d2])
 
     if (error) {
         return error === 'missing-plugin' ? (
