@@ -11,11 +11,15 @@ exports[`Visualization/Item renders edit mode 1`] = `
       Fancy Chart
     </p>
     <div
-      class="itemActionsWrap"
+      class="itemHeaderRightWrap"
     >
       <div
-        class="DeleteItemButton"
-      />
+        class="itemActionsWrap"
+      >
+        <div
+          class="DeleteItemButton"
+        />
+      </div>
     </div>
   </div>
   <div
@@ -42,8 +46,12 @@ exports[`Visualization/Item renders view mode 1`] = `
       Fancy Chart
     </p>
     <div
-      class="itemActionsWrap"
-    />
+      class="itemHeaderRightWrap"
+    >
+      <div
+        class="itemActionsWrap"
+      />
+    </div>
   </div>
   <div
     class="dashboard-item-content"
