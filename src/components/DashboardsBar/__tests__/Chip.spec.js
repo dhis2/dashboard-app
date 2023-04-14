@@ -29,7 +29,7 @@ jest.mock('@dhis2/ui', () => {
 /* eslint-enable react/prop-types */
 
 jest.mock('@dhis2/app-runtime', () => ({
-    useOnlineStatus: () => ({ online: true }),
+    useDhis2ConnectionStatus: () => ({ isConnected: true }),
     useCacheableSection: jest.fn(),
 }))
 

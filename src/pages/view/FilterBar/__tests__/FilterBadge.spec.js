@@ -20,7 +20,7 @@ jest.mock('@dhis2/app-runtime-adapter-d2', () => ({
 }))
 
 jest.mock('@dhis2/app-runtime', () => ({
-    useOnlineStatus: () => ({ online: true }),
+    useDhis2ConnectionStatus: () => ({ isConnected: true }),
     useCacheableSection: jest.fn(() => ({
         isCached: false,
         recordingState: 'default',
