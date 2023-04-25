@@ -26,6 +26,9 @@ const IframePlugin = ({
     itemId,
     itemType,
 }) => {
+    // TODO: Access plugin installation status
+    // TODO: Access 'first plugins of their type' for this dashboard
+
     const { d2 } = useD2()
     const { baseUrl } = useConfig()
 
@@ -151,6 +154,8 @@ const IframePlugin = ({
                     window: iframeRef.current.contentWindow,
                 },
                 (event) => {
+                    // TODO: Update plugin installation status for this type
+
                     console.log(
                         'got installationStatus message; data:',
                         event.data
@@ -184,6 +189,12 @@ const IframePlugin = ({
             </div>
         )
     }
+
+    // TODO: if installationStatus === 'UNKNOWN' or 'INSTALLING':
+    // render iframe if this is the first plugin of its type on this dashboard.
+    // otherwise, render a loading spinner
+
+    // TODO: if installationStatus === 'READY' or null, load iframe normally
 
     return (
         <div className={classes.wrapper}>
