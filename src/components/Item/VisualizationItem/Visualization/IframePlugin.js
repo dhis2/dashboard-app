@@ -144,6 +144,25 @@ const IframePlugin = ({
     }, [recordOnNextLoad, pluginProps, iframeSrc])
 
     useEffect(() => {
+        if (iframeRef?.current) {
+            const listener = postRobot.on(
+                'installationStatus',
+                {
+                    window: iframeRef.current.contentWindow,
+                },
+                (event) => {
+                    console.log(
+                        'got installationStatus message; data:',
+                        event.data
+                    )
+                }
+            )
+
+            return () => listener.cancel()
+        }
+    }, [])
+
+    useEffect(() => {
         setError(null)
     }, [filterVersion, visualization.type])
 
