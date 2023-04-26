@@ -1,8 +1,11 @@
 import { useConfig } from '@dhis2/app-runtime'
 import { useD2 } from '@dhis2/app-runtime-adapter-d2'
+import { Layer, CenteredContent, CircularLoader } from '@dhis2/ui'
 import postRobot from '@krakenjs/post-robot'
 import PropTypes from 'prop-types'
 import React, { useCallback, useEffect, useMemo, useRef, useState } from 'react'
+import { useDispatch, useSelector } from 'react-redux'
+import { acAddIframePluginStatus } from '../../../../actions/iframePluginStatus.js'
 import {
     CHART,
     REPORT_TABLE,
@@ -10,6 +13,11 @@ import {
 } from '../../../../modules/itemTypes.js'
 import { getPluginOverrides } from '../../../../modules/localStorage.js'
 import { useCacheableSection } from '../../../../modules/useCacheableSection.js'
+import {
+    INSTALLATION_STATUS_INSTALLING,
+    INSTALLATION_STATUS_UNKNOWN,
+    sGetIframePluginStatus,
+} from '../../../../reducers/iframePluginStatus.js'
 import { useUserSettings } from '../../../UserSettingsProvider.js'
 import MissingPluginMessage from './MissingPluginMessage.js'
 import { getPluginLaunchUrl } from './plugin.js'
@@ -26,8 +34,8 @@ const IframePlugin = ({
     itemId,
     itemType,
 }) => {
-    // TODO: Access plugin installation status
-    // TODO: Access 'first plugins of their type' for this dashboard
+    const dispatch = useDispatch()
+    const iframePluginStatus = useSelector(sGetIframePluginStatus)
 
     const { d2 } = useD2()
     const { baseUrl } = useConfig()
@@ -45,6 +53,10 @@ const IframePlugin = ({
     const prevPluginRef = useRef()
 
     const onError = () => setError('plugin')
+
+    const pluginType = [CHART, REPORT_TABLE].includes(activeType)
+        ? VISUALIZATION
+        : activeType
 
     const pluginProps = useMemo(
         () => ({
@@ -73,10 +85,6 @@ const IframePlugin = ({
     )
 
     const getIframeSrc = useCallback(() => {
-        const pluginType = [CHART, REPORT_TABLE].includes(activeType)
-            ? VISUALIZATION
-            : activeType
-
         // 1. check if there is an override for the plugin
         const pluginOverrides = getPluginOverrides()
 
@@ -93,7 +101,7 @@ const IframePlugin = ({
         }
 
         setError('missing-plugin')
-    }, [activeType, d2, baseUrl])
+    }, [d2, baseUrl, pluginType])
 
     const iframeSrc = getIframeSrc()
 
@@ -154,18 +162,25 @@ const IframePlugin = ({
                     window: iframeRef.current.contentWindow,
                 },
                 (event) => {
-                    // TODO: Update plugin installation status for this type
-
-                    console.log(
-                        'got installationStatus message; data:',
-                        event.data
-                    )
+                    if (
+                        iframePluginStatus[pluginType].firstId === null ||
+                        iframePluginStatus[pluginType].firstId ===
+                            visualization.id
+                    ) {
+                        dispatch(
+                            acAddIframePluginStatus({
+                                pluginType,
+                                firstId: visualization.id,
+                                status: event.data.installationStatus,
+                            })
+                        )
+                    }
                 }
             )
 
             return () => listener.cancel()
         }
-    }, [])
+    }, [pluginType, dispatch, visualization, iframePluginStatus])
 
     useEffect(() => {
         setError(null)
@@ -190,11 +205,20 @@ const IframePlugin = ({
         )
     }
 
-    // TODO: if installationStatus === 'UNKNOWN' or 'INSTALLING':
-    // render iframe if this is the first plugin of its type on this dashboard.
-    // otherwise, render a loading spinner
-
-    // TODO: if installationStatus === 'READY' or null, load iframe normally
+    if (
+        [INSTALLATION_STATUS_INSTALLING, INSTALLATION_STATUS_UNKNOWN].includes(
+            iframePluginStatus[pluginType]
+        ) &&
+        iframePluginStatus[pluginType].firstId !== visualization.id
+    ) {
+        return (
+            <Layer>
+                <CenteredContent>
+                    <CircularLoader />
+                </CenteredContent>
+            </Layer>
+        )
+    }
 
     return (
         <div className={classes.wrapper}>
