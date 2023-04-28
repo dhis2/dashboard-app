@@ -218,11 +218,9 @@ const IframePlugin = ({
         !isFirstOfType
     ) {
         return (
-            <Layer>
-                <CenteredContent>
-                    <CircularLoader />
-                </CenteredContent>
-            </Layer>
+            <CenteredContent>
+                <CircularLoader />
+            </CenteredContent>
         )
     }
 
