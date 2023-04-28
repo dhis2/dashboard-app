@@ -82,6 +82,7 @@ const Visualization = ({
             dashboardId,
             itemId: item.id,
             itemType: item.type,
+            isFirstOfType: Boolean(item.firstOfType),
         }),
         [
             originalType,
@@ -92,6 +93,7 @@ const Visualization = ({
             dashboardId,
             item.id,
             item.type,
+            item.firstOfType,
         ]
     )
 

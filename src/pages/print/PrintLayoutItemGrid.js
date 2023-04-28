@@ -6,6 +6,7 @@ import { connect } from 'react-redux'
 import { acUpdatePrintDashboardLayout } from '../../actions/printDashboard.js'
 import { Item } from '../../components/Item/Item.js'
 import { PRINT_LAYOUT } from '../../modules/dashboardModes.js'
+import { getFirstOfTypes } from '../../modules/getFirstOfType.js'
 import { getGridItemDomElementClassName } from '../../modules/getGridItemDomElementClassName.js'
 import { hasShape } from '../../modules/gridUtil.js'
 import { PAGEBREAK } from '../../modules/itemTypes.js'
@@ -57,8 +58,16 @@ class PrintLayoutItemGrid extends Component {
         )
     }
 
-    getItemComponents = (items) =>
-        items.map((item) => this.getItemComponent(item))
+    getItemComponents = (items) => {
+        const firstOfTypes = getFirstOfTypes(items)
+        items.forEach((item) => {
+            if (firstOfTypes.includes(item.id)) {
+                item.firstOfType = true
+            }
+        })
+
+        return items.map((item) => this.getItemComponent(item))
+    }
 
     hideExtraPageBreaks() {
         const sortedElements = getDomGridItemsSortedByYPos(

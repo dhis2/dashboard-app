@@ -11,15 +11,9 @@ export const INSTALLATION_STATUS_INSTALLING = 'INSTALLING'
 export const INSTALLATION_STATUS_UNKNOWN = 'UNKNOWN'
 
 export const DEFAULT_STATE_IFRAME_PLUGIN_STATUS = {
-    [MAP]: { firstId: null, status: INSTALLATION_STATUS_UNKNOWN },
-    [EVENT_VISUALIZATION]: {
-        firstId: null,
-        status: INSTALLATION_STATUS_UNKNOWN,
-    },
-    [VISUALIZATION]: {
-        firstId: null,
-        status: INSTALLATION_STATUS_UNKNOWN,
-    },
+    [MAP]: INSTALLATION_STATUS_UNKNOWN,
+    [EVENT_VISUALIZATION]: INSTALLATION_STATUS_UNKNOWN,
+    [VISUALIZATION]: INSTALLATION_STATUS_UNKNOWN,
 }
 
 export default (
@@ -30,10 +24,7 @@ export default (
         case ADD_IFRAME_PLUGIN_STATUS: {
             return {
                 ...state,
-                [value.pluginType]: {
-                    firstId: value.firstId,
-                    status: value.status,
-                },
+                [value.pluginType]: value.status,
             }
         }
         default:

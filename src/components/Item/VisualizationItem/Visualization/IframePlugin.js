@@ -15,6 +15,7 @@ import { getPluginOverrides } from '../../../../modules/localStorage.js'
 import { useCacheableSection } from '../../../../modules/useCacheableSection.js'
 import {
     INSTALLATION_STATUS_INSTALLING,
+    INSTALLATION_STATUS_READY,
     INSTALLATION_STATUS_UNKNOWN,
     sGetIframePluginStatus,
 } from '../../../../reducers/iframePluginStatus.js'
@@ -33,6 +34,7 @@ const IframePlugin = ({
     dashboardId,
     itemId,
     itemType,
+    isFirstOfType,
 }) => {
     const dispatch = useDispatch()
     const iframePluginStatus = useSelector(sGetIframePluginStatus)
@@ -57,6 +59,7 @@ const IframePlugin = ({
     const pluginType = [CHART, REPORT_TABLE].includes(activeType)
         ? VISUALIZATION
         : activeType
+    const installationStatus = iframePluginStatus[pluginType]
 
     const pluginProps = useMemo(
         () => ({
@@ -123,7 +126,10 @@ const IframePlugin = ({
     }, [isCached])
 
     useEffect(() => {
-        if (iframeRef?.current) {
+        if (
+            iframeRef?.current &&
+            (installationStatus === INSTALLATION_STATUS_READY || isFirstOfType)
+        ) {
             // if iframe has not sent initial request, set up a listener
             if (iframeSrc !== prevPluginRef.current) {
                 prevPluginRef.current = iframeSrc
@@ -138,7 +144,6 @@ const IframePlugin = ({
                             // e.g. if plugin re-requests props for some reason
                             setRecordOnNextLoad(false)
                         }
-
                         return pluginProps
                     }
                 )
@@ -152,7 +157,13 @@ const IframePlugin = ({
                 )
             }
         }
-    }, [recordOnNextLoad, pluginProps, iframeSrc])
+    }, [
+        recordOnNextLoad,
+        pluginProps,
+        iframeSrc,
+        installationStatus,
+        isFirstOfType,
+    ])
 
     useEffect(() => {
         if (iframeRef?.current) {
@@ -162,15 +173,10 @@ const IframePlugin = ({
                     window: iframeRef.current.contentWindow,
                 },
                 (event) => {
-                    if (
-                        iframePluginStatus[pluginType].firstId === null ||
-                        iframePluginStatus[pluginType].firstId ===
-                            visualization.id
-                    ) {
+                    if (isFirstOfType) {
                         dispatch(
                             acAddIframePluginStatus({
                                 pluginType,
-                                firstId: visualization.id,
                                 status: event.data.installationStatus,
                             })
                         )
@@ -180,7 +186,7 @@ const IframePlugin = ({
 
             return () => listener.cancel()
         }
-    }, [pluginType, dispatch, visualization, iframePluginStatus])
+    }, [pluginType, dispatch, visualization, iframePluginStatus, isFirstOfType])
 
     useEffect(() => {
         setError(null)
@@ -209,7 +215,7 @@ const IframePlugin = ({
         [INSTALLATION_STATUS_INSTALLING, INSTALLATION_STATUS_UNKNOWN].includes(
             iframePluginStatus[pluginType]
         ) &&
-        iframePluginStatus[pluginType].firstId !== visualization.id
+        !isFirstOfType
     ) {
         return (
             <Layer>
@@ -243,6 +249,7 @@ IframePlugin.propTypes = {
     dashboardId: PropTypes.string,
     dashboardMode: PropTypes.string,
     filterVersion: PropTypes.string,
+    isFirstOfType: PropTypes.bool,
     itemId: PropTypes.string,
     itemType: PropTypes.string,
     style: PropTypes.object,
