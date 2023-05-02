@@ -192,7 +192,7 @@ jobs:
             - name: Publish release to GitHub
               run: npx @dhis2/cli-utils release
 
-report-failure-to-slack:
+    report-failure-to-slack:
         runs-on: ubuntu-latest
         needs: [build, lint, test, e2e, publish, release]
         if: |
