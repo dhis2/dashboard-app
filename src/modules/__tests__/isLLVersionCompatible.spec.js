@@ -1,15 +1,17 @@
 import { isLLVersionCompatible } from '../isLLVersionCompatible.js'
 
+const testcases = [
+    ['100.6.1', true],
+    ['100.5.9', false],
+    ['100.6.0', true],
+    ['101.0.0', true],
+    ['100.0.9', false],
+]
+
 describe('isLLVersionCompatible', () => {
-    test('returns true if version greater than minLLVersion', () => {
-        expect(isLLVersionCompatible('100.6.1')).toBe(true)
-    })
-
-    test('returns false if version less than minLLVersion', () => {
-        expect(isLLVersionCompatible('100.5.9')).toBe(false)
-    })
-
-    test('returns true if version is same as minLLVersion', () => {
-        expect(isLLVersionCompatible('100.6.0')).toBe(true)
+    testcases.forEach(([version, expected]) => {
+        test(`returns ${expected} for ${version}`, () => {
+            expect(isLLVersionCompatible(version)).toBe(expected)
+        })
     })
 })
