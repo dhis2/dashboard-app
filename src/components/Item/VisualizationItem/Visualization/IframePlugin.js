@@ -1,6 +1,6 @@
 import { useConfig } from '@dhis2/app-runtime'
 import { useD2 } from '@dhis2/app-runtime-adapter-d2'
-import { Layer, CenteredContent, CircularLoader } from '@dhis2/ui'
+import { CenteredContent, CircularLoader } from '@dhis2/ui'
 import postRobot from '@krakenjs/post-robot'
 import PropTypes from 'prop-types'
 import React, { useCallback, useEffect, useMemo, useRef, useState } from 'react'
