@@ -60,13 +60,13 @@ class PrintLayoutItemGrid extends Component {
 
     getItemComponents = (items) => {
         const firstOfTypes = getFirstOfTypes(items)
-        items.forEach((item) => {
+
+        return items.map((item) => {
             if (firstOfTypes.includes(item.id)) {
                 item.firstOfType = true
             }
+            return this.getItemComponent(item)
         })
-
-        return items.map((item) => this.getItemComponent(item))
     }
 
     hideExtraPageBreaks() {
