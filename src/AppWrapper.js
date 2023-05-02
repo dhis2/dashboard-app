@@ -41,10 +41,17 @@ const query = {
             paging: false,
         },
     },
+    lineListingApp: {
+        resource: 'apps',
+        params: {
+            key: 'line-listing',
+        },
+    },
 }
 
-const providerDataTransformation = ({ rootOrgUnits }) => ({
+const providerDataTransformation = ({ rootOrgUnits, lineListingApp }) => ({
     rootOrgUnits: rootOrgUnits.organisationUnits,
+    lineListingAppVersion: lineListingApp[0]?.version,
 })
 
 const AppWrapper = () => {
