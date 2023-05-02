@@ -10,6 +10,7 @@ import NoContentMessage from '../../components/NoContentMessage.js'
 import ProgressiveLoadingContainer from '../../components/ProgressiveLoadingContainer.js'
 import { useWindowDimensions } from '../../components/WindowDimensionsProvider.js'
 import { EDIT } from '../../modules/dashboardModes.js'
+import { getFirstOfTypes } from '../../modules/getFirstOfType.js'
 import { getGridItemDomElementClassName } from '../../modules/getGridItemDomElementClassName.js'
 import {
     GRID_ROW_HEIGHT_PX,
@@ -38,6 +39,7 @@ const EditItemGrid = ({
 }) => {
     const [gridWidth, setGridWidth] = useState({ width: 0 })
     const { width } = useWindowDimensions()
+    const firstOfTypes = getFirstOfTypes(dashboardItems)
 
     const onLayoutChange = (newLayout) => {
         acUpdateDashboardItemShapes(newLayout)
@@ -46,23 +48,28 @@ const EditItemGrid = ({
     const onWidthChanged = (containerWidth) =>
         setTimeout(() => setGridWidth({ width: containerWidth }), 200)
 
-    const getItemComponent = (item) => (
-        <ProgressiveLoadingContainer
-            key={item.i}
-            className={cx(
-                item.type,
-                'edit',
-                getGridItemDomElementClassName(item.id)
-            )}
-            itemId={item.id}
-        >
-            <Item
-                item={item}
-                gridWidth={gridWidth.width}
-                dashboardMode={EDIT}
-            />
-        </ProgressiveLoadingContainer>
-    )
+    const getItemComponent = (item) => {
+        if (firstOfTypes.includes(item.id)) {
+            item.firstOfType = true
+        }
+        return (
+            <ProgressiveLoadingContainer
+                key={item.i}
+                className={cx(
+                    item.type,
+                    'edit',
+                    getGridItemDomElementClassName(item.id)
+                )}
+                itemId={item.id}
+            >
+                <Item
+                    item={item}
+                    gridWidth={gridWidth.width}
+                    dashboardMode={EDIT}
+                />
+            </ProgressiveLoadingContainer>
+        )
+    }
 
     const getItemComponents = (items) =>
         items.map((item) => getItemComponent(item))
