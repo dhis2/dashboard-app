@@ -41,18 +41,18 @@ const query = {
             paging: false,
         },
     },
-    lineListingApp: {
+    apps: {
         resource: 'apps',
-        params: {
-            key: 'line-listing',
-        },
     },
 }
 
-const providerDataTransformation = ({ rootOrgUnits, lineListingApp }) => ({
-    rootOrgUnits: rootOrgUnits.organisationUnits,
-    lineListingAppVersion: lineListingApp[0]?.version,
-})
+const providerDataTransformation = ({ rootOrgUnits, apps }) => {
+    const lineListingApp = apps.find((app) => app.key === 'line-listing') || {}
+    return {
+        rootOrgUnits: rootOrgUnits.organisationUnits,
+        lineListingAppVersion: lineListingApp.version || '0.0.0',
+    }
+}
 
 const AppWrapper = () => {
     const dataEngine = useDataEngine()
