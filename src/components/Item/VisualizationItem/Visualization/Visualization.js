@@ -1,3 +1,4 @@
+import { useCachedDataQuery } from '@dhis2/analytics'
 import { useDhis2ConnectionStatus } from '@dhis2/app-runtime'
 import { useD2 } from '@dhis2/app-runtime-adapter-d2'
 import i18n from '@dhis2/d2-i18n'
@@ -6,6 +7,10 @@ import uniqueId from 'lodash/uniqueId.js'
 import PropTypes from 'prop-types'
 import React, { useMemo } from 'react'
 import { useSelector } from 'react-redux'
+import {
+    isLLVersionCompatible,
+    minLLVersion,
+} from '../../../../modules/isLLVersionCompatible.js'
 import {
     VISUALIZATION,
     EVENT_VISUALIZATION,
@@ -18,7 +23,6 @@ import getFilteredVisualization from './getFilteredVisualization.js'
 import getVisualizationConfig from './getVisualizationConfig.js'
 import IframePlugin from './IframePlugin.js'
 import LegacyPlugin from './LegacyPlugin.js'
-import NoVisualizationMessage from './NoVisualizationMessage.js'
 import { pluginIsAvailable } from './plugin.js'
 import classes from './styles/Visualization.module.css'
 
@@ -42,6 +46,7 @@ const Visualization = ({
     const { d2 } = useD2()
     const dashboardId = useSelector(sGetSelectedId)
     const { isDisconnected: offline } = useDhis2ConnectionStatus()
+    const { lineListingAppVersion } = useCachedDataQuery()
 
     // NOTE:
     // The following is all memoized because the IframePlugin (and potentially others)
@@ -98,7 +103,36 @@ const Visualization = ({
     )
 
     if (!visualization) {
-        return <NoVisualizationMessage message={i18n.t('No data to display')} />
+        return (
+            <div style={style}>
+                <Cover>
+                    <div className={classes.messageContent}>
+                        <IconWarning24 color={colors.grey500} />
+                        {i18n.t('No data to display')}
+                    </div>
+                </Cover>
+            </div>
+        )
+    }
+
+    if (
+        activeType === EVENT_VISUALIZATION &&
+        !isLLVersionCompatible(lineListingAppVersion)
+    ) {
+        return (
+            <div style={style}>
+                <Cover>
+                    <div className={classes.messageContent}>
+                        <IconWarning24 color={colors.grey500} />
+                        {i18n.t(
+                            `Upgrade to Line Listing version ${minLLVersion.join(
+                                '.'
+                            )} or higher in order to display this item.`
+                        )}
+                    </div>
+                </Cover>
+            </div>
+        )
     }
 
     switch (activeType) {
