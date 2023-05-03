@@ -125,7 +125,7 @@ const Visualization = ({
                     <div className={classes.messageContent}>
                         <IconWarning24 color={colors.grey500} />
                         {i18n.t(
-                            `Upgrade to Line Listing version ${minLLVersion.join(
+                            `Install Line Listing app version ${minLLVersion.join(
                                 '.'
                             )} or higher in order to display this item.`
                         )}
