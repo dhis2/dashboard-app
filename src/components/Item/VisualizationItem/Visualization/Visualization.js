@@ -1,10 +1,16 @@
+import { useCachedDataQuery } from '@dhis2/analytics'
+import { useDhis2ConnectionStatus } from '@dhis2/app-runtime'
 import { useD2 } from '@dhis2/app-runtime-adapter-d2'
 import i18n from '@dhis2/d2-i18n'
-import { Button, Cover, IconInfo24, colors } from '@dhis2/ui'
+import { Button, Cover, IconInfo24, IconWarning24, colors } from '@dhis2/ui'
 import uniqueId from 'lodash/uniqueId.js'
 import PropTypes from 'prop-types'
 import React, { useMemo } from 'react'
 import { useSelector } from 'react-redux'
+import {
+    isLLVersionCompatible,
+    minLLVersion,
+} from '../../../../modules/isLLVersionCompatible.js'
 import {
     VISUALIZATION,
     EVENT_VISUALIZATION,
@@ -17,10 +23,11 @@ import getFilteredVisualization from './getFilteredVisualization.js'
 import getVisualizationConfig from './getVisualizationConfig.js'
 import IframePlugin from './IframePlugin.js'
 import LegacyPlugin from './LegacyPlugin.js'
-import MapPlugin from './MapPlugin.js'
-import NoVisualizationMessage from './NoVisualizationMessage.js'
 import { pluginIsAvailable } from './plugin.js'
 import classes from './styles/Visualization.module.css'
+
+const mapHasEELayer = (visualization) =>
+    visualization.mapViews?.find((mv) => mv.layer.includes('earthEngine'))
 
 const Visualization = ({
     visualization,
@@ -29,6 +36,7 @@ const Visualization = ({
     itemFilters,
     availableHeight,
     availableWidth,
+    gridWidth,
     dashboardMode,
     originalType,
     showNoFiltersOverlay,
@@ -37,6 +45,8 @@ const Visualization = ({
 }) => {
     const { d2 } = useD2()
     const dashboardId = useSelector(sGetSelectedId)
+    const { isDisconnected: offline } = useDhis2ConnectionStatus()
+    const { lineListingAppVersion } = useCachedDataQuery()
 
     // NOTE:
     // The following is all memoized because the IframePlugin (and potentially others)
@@ -77,6 +87,7 @@ const Visualization = ({
             dashboardId,
             itemId: item.id,
             itemType: item.type,
+            isFirstOfType: Boolean(item.firstOfType),
         }),
         [
             originalType,
@@ -87,11 +98,41 @@ const Visualization = ({
             dashboardId,
             item.id,
             item.type,
+            item.firstOfType,
         ]
     )
 
     if (!visualization) {
-        return <NoVisualizationMessage message={i18n.t('No data to display')} />
+        return (
+            <div style={style}>
+                <Cover>
+                    <div className={classes.messageContent}>
+                        <IconWarning24 color={colors.grey500} />
+                        {i18n.t('No data to display')}
+                    </div>
+                </Cover>
+            </div>
+        )
+    }
+
+    if (
+        activeType === EVENT_VISUALIZATION &&
+        !isLLVersionCompatible(lineListingAppVersion)
+    ) {
+        return (
+            <div style={style}>
+                <Cover>
+                    <div className={classes.messageContent}>
+                        <IconWarning24 color={colors.grey500} />
+                        {i18n.t(
+                            `Install Line Listing app version ${minLLVersion.join(
+                                '.'
+                            )} or higher in order to display this item.`
+                        )}
+                    </div>
+                </Cover>
+            </div>
+        )
     }
 
     switch (activeType) {
@@ -109,21 +150,23 @@ const Visualization = ({
             return (
                 <>
                     {showNoFiltersOverlay ? (
-                        <Cover>
-                            <div className={classes.noFiltersOverlay}>
-                                <IconInfo24 color={colors.grey500} />
-                                {i18n.t(
-                                    'Filters are not applied to line list dashboard items.'
-                                )}
-                                <Button
-                                    secondary
-                                    small
-                                    onClick={onClickNoFiltersOverlay}
-                                >
-                                    {i18n.t('Show without filters')}
-                                </Button>
-                            </div>
-                        </Cover>
+                        <div style={style}>
+                            <Cover>
+                                <div className={classes.messageContent}>
+                                    <IconInfo24 color={colors.grey500} />
+                                    {i18n.t(
+                                        'Filters are not applied to line list dashboard items'
+                                    )}
+                                    <Button
+                                        secondary
+                                        small
+                                        onClick={onClickNoFiltersOverlay}
+                                    >
+                                        {i18n.t('Show without filters')}
+                                    </Button>
+                                </div>
+                            </Cover>
+                        </div>
                     ) : null}
                     <IframePlugin
                         visualization={visualizationConfig}
@@ -133,26 +176,49 @@ const Visualization = ({
             )
         }
         case MAP: {
-            return (
-                <MapPlugin
+            return offline && mapHasEELayer(visualizationConfig) ? (
+                <div style={style}>
+                    <Cover>
+                        <div className={classes.messageContent}>
+                            <IconInfo24 color={colors.grey500} />
+                            <span>
+                                {i18n.t(
+                                    'Maps with Earth Engine layers cannot be displayed when offline'
+                                )}
+                            </span>
+                        </div>
+                    </Cover>
+                </div>
+            ) : (
+                <IframePlugin
                     visualization={visualizationConfig}
                     {...iFramePluginProps}
                 />
             )
         }
         default: {
-            return pluginIsAvailable(activeType || item.type, d2) ? (
+            return !pluginIsAvailable(activeType || item.type, d2) ? (
+                <div style={style}>
+                    <Cover>
+                        <div className={classes.messageContent}>
+                            <IconWarning24 color={colors.grey500} />
+                            <span>
+                                {i18n.t(
+                                    'Unable to load the plugin for this item'
+                                )}
+                            </span>
+                        </div>
+                    </Cover>
+                </div>
+            ) : (
                 <LegacyPlugin
                     item={item}
                     activeType={activeType}
                     visualization={visualizationConfig}
                     filterVersion={filterVersion}
                     style={style}
+                    gridWidth={gridWidth}
                     {...rest}
-                />
-            ) : (
-                <NoVisualizationMessage
-                    message={i18n.t('Unable to load the plugin for this item')}
                 />
             )
         }
@@ -164,6 +230,7 @@ Visualization.propTypes = {
     availableHeight: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
     availableWidth: PropTypes.number,
     dashboardMode: PropTypes.string,
+    gridWidth: PropTypes.number,
     item: PropTypes.object,
     itemFilters: PropTypes.object,
     originalType: PropTypes.string,

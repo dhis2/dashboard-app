@@ -5,8 +5,8 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1)\n"
-"POT-Creation-Date: 2023-02-14T12:38:49.529Z\n"
-"PO-Revision-Date: 2023-02-14T12:38:49.529Z\n"
+"POT-Creation-Date: 2023-05-03T11:08:21.315Z\n"
+"PO-Revision-Date: 2023-05-03T11:08:21.315Z\n"
 
 msgid "Untitled dashboard"
 msgstr "Untitled dashboard"
@@ -101,15 +101,6 @@ msgstr "View as Map"
 msgid "There was a problem loading interpretations for this item"
 msgstr "There was a problem loading interpretations for this item"
 
-msgid "Maps with Earth Engine layers cannot be displayed when offline"
-msgstr "Maps with Earth Engine layers cannot be displayed when offline"
-
-msgid "The plugin for rendering this item is not available"
-msgstr "The plugin for rendering this item is not available"
-
-msgid "Install the {{appName}} app from the App Hub"
-msgstr "Install the {{appName}} app from the App Hub"
-
 msgid "The plugin for rendering this item is not available"
 msgstr "The plugin for rendering this item is not available"
 
@@ -119,11 +110,20 @@ msgstr "Install the {{appName}} app from the App Hub"
 msgid "No data to display"
 msgstr "No data to display"
 
-msgid "Filters are not applied to line list dashboard items."
-msgstr "Filters are not applied to line list dashboard items."
+msgid ""
+"Install Line Listing app version ${minLLVersion.join(\n"
+"                                '.'\n"
+"                            )} or higher in order to display this item."
+msgstr ""
+"Install Line Listing app version ${minLLVersion.join(\n"
+"                                '.'\n"
+"                            )} or higher in order to display this item."
 
 msgid "Show without filters"
 msgstr "Show without filters"
+
+msgid "Maps with Earth Engine layers cannot be displayed when offline"
+msgstr "Maps with Earth Engine layers cannot be displayed when offline"
 
 msgid "Unable to load the plugin for this item"
 msgstr "Unable to load the plugin for this item"
