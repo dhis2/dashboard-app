@@ -218,9 +218,16 @@ const IframePlugin = ({
         !isFirstOfType
     ) {
         return (
-            <CenteredContent>
-                <CircularLoader />
-            </CenteredContent>
+            <div
+                style={{
+                    width: style.width || '100%',
+                    height: style.height || '100%',
+                }}
+            >
+                <CenteredContent>
+                    <CircularLoader />
+                </CenteredContent>
+            </div>
         )
     }
 
