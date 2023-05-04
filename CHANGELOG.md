@@ -1,3 +1,15 @@
+# [99.11.0](https://github.com/dhis2/dashboard-app/compare/v99.10.23...v99.11.0) (2023-05-04)
+
+
+### Bug Fixes
+
+* bump d2-ui-interpretations and related components for BETA-42 ([#2286](https://github.com/dhis2/dashboard-app/issues/2286)) ([c817d73](https://github.com/dhis2/dashboard-app/commit/c817d73187809af3e91f3b92149f7d44e075576e))
+
+
+### Features
+
+* **iframe-plugin:** wait to load plugins from cache to save network [DHIS2-15097] ([#2285](https://github.com/dhis2/dashboard-app/issues/2285)) ([a7368b1](https://github.com/dhis2/dashboard-app/commit/a7368b16b20118a815fdaab01c5239b286f5add5))
+
 ## [99.10.23](https://github.com/dhis2/dashboard-app/compare/v99.10.22...v99.10.23) (2023-03-24)
 
 
