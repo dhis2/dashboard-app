@@ -53,3 +53,5 @@ export function ArrowUp({ className }) {
 ArrowUp.propTypes = {
     className: PropTypes.string,
 }
+
+/* eslint-enable react/no-unknown-property */
