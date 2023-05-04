@@ -49,7 +49,6 @@ export function ArrowUp({ className }) {
         </svg>
     )
 }
-
 ArrowUp.propTypes = {
     className: PropTypes.string,
 }
