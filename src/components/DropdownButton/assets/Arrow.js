@@ -49,7 +49,7 @@ export function ArrowUp({ className }) {
         </svg>
     )
 }
-/* eslint-enable react/no-unknown-property */
+
 ArrowUp.propTypes = {
     className: PropTypes.string,
 }
