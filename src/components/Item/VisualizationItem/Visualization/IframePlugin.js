@@ -1,8 +1,11 @@
 import { useConfig } from '@dhis2/app-runtime'
 import { useD2 } from '@dhis2/app-runtime-adapter-d2'
+import { CenteredContent, CircularLoader } from '@dhis2/ui'
 import postRobot from '@krakenjs/post-robot'
 import PropTypes from 'prop-types'
 import React, { useCallback, useEffect, useMemo, useRef, useState } from 'react'
+import { useDispatch, useSelector } from 'react-redux'
+import { acAddIframePluginStatus } from '../../../../actions/iframePluginStatus.js'
 import {
     CHART,
     REPORT_TABLE,
@@ -10,6 +13,12 @@ import {
 } from '../../../../modules/itemTypes.js'
 import { getPluginOverrides } from '../../../../modules/localStorage.js'
 import { useCacheableSection } from '../../../../modules/useCacheableSection.js'
+import {
+    INSTALLATION_STATUS_INSTALLING,
+    INSTALLATION_STATUS_READY,
+    INSTALLATION_STATUS_UNKNOWN,
+    sGetIframePluginStatus,
+} from '../../../../reducers/iframePluginStatus.js'
 import { useUserSettings } from '../../../UserSettingsProvider.js'
 import MissingPluginMessage from './MissingPluginMessage.js'
 import { getPluginLaunchUrl } from './plugin.js'
@@ -25,7 +34,11 @@ const IframePlugin = ({
     dashboardId,
     itemId,
     itemType,
+    isFirstOfType,
 }) => {
+    const dispatch = useDispatch()
+    const iframePluginStatus = useSelector(sGetIframePluginStatus)
+
     const { d2 } = useD2()
     const { baseUrl } = useConfig()
 
@@ -42,6 +55,11 @@ const IframePlugin = ({
     const prevPluginRef = useRef()
 
     const onError = () => setError('plugin')
+
+    const pluginType = [CHART, REPORT_TABLE].includes(activeType)
+        ? VISUALIZATION
+        : activeType
+    const installationStatus = iframePluginStatus[pluginType]
 
     const pluginProps = useMemo(
         () => ({
@@ -70,10 +88,6 @@ const IframePlugin = ({
     )
 
     const getIframeSrc = useCallback(() => {
-        const pluginType = [CHART, REPORT_TABLE].includes(activeType)
-            ? VISUALIZATION
-            : activeType
-
         // 1. check if there is an override for the plugin
         const pluginOverrides = getPluginOverrides()
 
@@ -90,7 +104,7 @@ const IframePlugin = ({
         }
 
         setError('missing-plugin')
-    }, [activeType, d2, baseUrl])
+    }, [d2, baseUrl, pluginType])
 
     const iframeSrc = getIframeSrc()
 
@@ -112,7 +126,10 @@ const IframePlugin = ({
     }, [isCached])
 
     useEffect(() => {
-        if (iframeRef?.current) {
+        if (
+            iframeRef?.current &&
+            (installationStatus === INSTALLATION_STATUS_READY || isFirstOfType)
+        ) {
             // if iframe has not sent initial request, set up a listener
             if (iframeSrc !== prevPluginRef.current) {
                 prevPluginRef.current = iframeSrc
@@ -127,7 +144,6 @@ const IframePlugin = ({
                             // e.g. if plugin re-requests props for some reason
                             setRecordOnNextLoad(false)
                         }
-
                         return pluginProps
                     }
                 )
@@ -141,7 +157,36 @@ const IframePlugin = ({
                 )
             }
         }
-    }, [recordOnNextLoad, pluginProps, iframeSrc])
+    }, [
+        recordOnNextLoad,
+        pluginProps,
+        iframeSrc,
+        installationStatus,
+        isFirstOfType,
+    ])
+
+    useEffect(() => {
+        if (iframeRef?.current) {
+            const listener = postRobot.on(
+                'installationStatus',
+                {
+                    window: iframeRef.current.contentWindow,
+                },
+                (event) => {
+                    if (isFirstOfType) {
+                        dispatch(
+                            acAddIframePluginStatus({
+                                pluginType,
+                                status: event.data.installationStatus,
+                            })
+                        )
+                    }
+                }
+            )
+
+            return () => listener.cancel()
+        }
+    }, [pluginType, dispatch, visualization, iframePluginStatus, isFirstOfType])
 
     useEffect(() => {
         setError(null)
@@ -163,6 +208,19 @@ const IframePlugin = ({
                     dashboardMode={dashboardMode}
                 />
             </div>
+        )
+    }
+
+    if (
+        [INSTALLATION_STATUS_INSTALLING, INSTALLATION_STATUS_UNKNOWN].includes(
+            iframePluginStatus[pluginType]
+        ) &&
+        !isFirstOfType
+    ) {
+        return (
+            <CenteredContent>
+                <CircularLoader />
+            </CenteredContent>
         )
     }
 
@@ -189,6 +247,7 @@ IframePlugin.propTypes = {
     dashboardId: PropTypes.string,
     dashboardMode: PropTypes.string,
     filterVersion: PropTypes.string,
+    isFirstOfType: PropTypes.bool,
     itemId: PropTypes.string,
     itemType: PropTypes.string,
     style: PropTypes.object,

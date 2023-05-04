@@ -5,6 +5,7 @@ import dashboards from './dashboards.js'
 import dashboardsFilter from './dashboardsFilter.js'
 import dimensions from './dimensions.js'
 import editDashboard from './editDashboard.js'
+import iframePluginStatus from './iframePluginStatus.js'
 import itemActiveTypes from './itemActiveTypes.js'
 import itemFilters from './itemFilters.js'
 import messages from './messages.js'
@@ -29,4 +30,5 @@ export default combineReducers({
     passiveViewRegistered,
     showDescription,
     itemActiveTypes,
+    iframePluginStatus,
 })
