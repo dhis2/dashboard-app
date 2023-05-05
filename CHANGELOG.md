@@ -1,3 +1,10 @@
+## [99.11.2](https://github.com/dhis2/dashboard-app/compare/v99.11.1...v99.11.2) (2023-05-05)
+
+
+### Bug Fixes
+
+* bump cli-app-scripts to 10.3.8 for LIBS-499 fix ([#2297](https://github.com/dhis2/dashboard-app/issues/2297)) ([45e22d6](https://github.com/dhis2/dashboard-app/commit/45e22d6300dce8430ca9bb8f74db52f2cfc6d100))
+
 ## [99.11.1](https://github.com/dhis2/dashboard-app/compare/v99.11.0...v99.11.1) (2023-05-05)
 
 
