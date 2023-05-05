@@ -1,3 +1,10 @@
+## [99.11.1](https://github.com/dhis2/dashboard-app/compare/v99.11.0...v99.11.1) (2023-05-05)
+
+
+### Bug Fixes
+
+* disable LL items if the plugin version does not support installationStatus message ([#2293](https://github.com/dhis2/dashboard-app/issues/2293)) ([69c90a1](https://github.com/dhis2/dashboard-app/commit/69c90a171709c385b0dd2e40b89c6b18ca36e1cc))
+
 # [99.11.0](https://github.com/dhis2/dashboard-app/compare/v99.10.23...v99.11.0) (2023-05-04)
 
 
