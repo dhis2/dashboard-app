@@ -17,6 +17,7 @@ import {
     INSTALLATION_STATUS_INSTALLING,
     INSTALLATION_STATUS_READY,
     INSTALLATION_STATUS_UNKNOWN,
+    INSTALLATION_STATUS_WILL_NOT_INSTALL,
     sGetIframePluginStatus,
 } from '../../../../reducers/iframePluginStatus.js'
 import { useUserSettings } from '../../../UserSettingsProvider.js'
@@ -128,7 +129,9 @@ const IframePlugin = ({
     useEffect(() => {
         if (
             iframeRef?.current &&
-            (installationStatus === INSTALLATION_STATUS_READY || isFirstOfType)
+            (installationStatus === INSTALLATION_STATUS_READY ||
+                installationStatus === INSTALLATION_STATUS_WILL_NOT_INSTALL ||
+                isFirstOfType)
         ) {
             // if iframe has not sent initial request, set up a listener
             if (iframeSrc !== prevPluginRef.current) {
