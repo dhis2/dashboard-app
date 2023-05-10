@@ -1,10 +1,15 @@
+import { useCachedDataQuery } from '@dhis2/analytics'
 import { useD2 } from '@dhis2/app-runtime-adapter-d2'
 import i18n from '@dhis2/d2-i18n'
-import { Button, Cover, IconInfo24, colors } from '@dhis2/ui'
+import { Button, Cover, IconInfo24, IconWarning24, colors } from '@dhis2/ui'
 import uniqueId from 'lodash/uniqueId.js'
 import PropTypes from 'prop-types'
 import React, { useMemo } from 'react'
 import { useSelector } from 'react-redux'
+import {
+    isLLVersionCompatible,
+    minLLVersion,
+} from '../../../../modules/isLLVersionCompatible.js'
 import {
     VISUALIZATION,
     EVENT_VISUALIZATION,
@@ -38,6 +43,7 @@ const Visualization = ({
 }) => {
     const { d2 } = useD2()
     const dashboardId = useSelector(sGetSelectedId)
+    const { lineListingAppVersion } = useCachedDataQuery()
 
     // NOTE:
     // The following is all memoized because the IframePlugin (and potentially others)
@@ -81,6 +87,7 @@ const Visualization = ({
             dashboardId,
             itemId: item.id,
             itemType: item.type,
+            isFirstOfType: Boolean(item.firstOfType),
         }),
         [
             activeType,
@@ -90,6 +97,7 @@ const Visualization = ({
             filterVersion,
             item.id,
             item.type,
+            item.firstOfType,
             originalType,
             style,
             visualizationConfig,
@@ -98,6 +106,26 @@ const Visualization = ({
 
     if (!visualization) {
         return <NoVisualizationMessage message={i18n.t('No data to display')} />
+    }
+
+    if (
+        activeType === EVENT_VISUALIZATION &&
+        !isLLVersionCompatible(lineListingAppVersion)
+    ) {
+        return (
+            <div style={style}>
+                <Cover>
+                    <div className={classes.messageContent}>
+                        <IconWarning24 color={colors.grey500} />
+                        {i18n.t(
+                            `Install Line Listing app version ${minLLVersion.join(
+                                '.'
+                            )} or higher in order to display this item.`
+                        )}
+                    </div>
+                </Cover>
+            </div>
+        )
     }
 
     switch (activeType) {
