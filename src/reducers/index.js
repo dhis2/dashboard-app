@@ -1,18 +1,19 @@
 import { combineReducers } from 'redux'
-import activeModalDimension from './activeModalDimension'
-import controlBar from './controlBar'
-import dashboards from './dashboards'
-import dashboardsFilter from './dashboardsFilter'
-import dimensions from './dimensions'
-import editDashboard from './editDashboard'
-import itemActiveTypes from './itemActiveTypes'
-import itemFilters from './itemFilters'
-import messages from './messages'
-import passiveViewRegistered from './passiveViewRegistered'
-import printDashboard from './printDashboard'
-import selected from './selected'
-import showDescription from './showDescription'
-import visualizations from './visualizations'
+import activeModalDimension from './activeModalDimension.js'
+import controlBar from './controlBar.js'
+import dashboards from './dashboards.js'
+import dashboardsFilter from './dashboardsFilter.js'
+import dimensions from './dimensions.js'
+import editDashboard from './editDashboard.js'
+import iframePluginStatus from './iframePluginStatus.js'
+import itemActiveTypes from './itemActiveTypes.js'
+import itemFilters from './itemFilters.js'
+import messages from './messages.js'
+import passiveViewRegistered from './passiveViewRegistered.js'
+import printDashboard from './printDashboard.js'
+import selected from './selected.js'
+import showDescription from './showDescription.js'
+import visualizations from './visualizations.js'
 
 export default combineReducers({
     dashboards,
@@ -29,4 +30,5 @@ export default combineReducers({
     passiveViewRegistered,
     showDescription,
     itemActiveTypes,
+    iframePluginStatus,
 })
