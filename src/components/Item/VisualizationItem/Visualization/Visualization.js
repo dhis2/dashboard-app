@@ -145,7 +145,7 @@ const Visualization = ({
                 <>
                     {showNoFiltersOverlay ? (
                         <Cover>
-                            <div className={classes.noFiltersOverlay}>
+                            <div className={classes.messageContent}>
                                 <IconInfo24 color={colors.grey500} />
                                 {i18n.t(
                                     'Filters are not applied to line list dashboard items.'
