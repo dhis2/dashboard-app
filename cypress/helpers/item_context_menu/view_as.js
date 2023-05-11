@@ -1,9 +1,9 @@
 import { dashboards } from '../../assets/backends/index.js'
 import {
-    chartSel,
-    mapSel,
-    tableSel,
-    clickMenuButton,
+    chartClass,
+    mapClass,
+    tableClass,
+    clickItemMenuButton,
     getDashboardItem,
 } from '../../elements/dashboardItem.js'
 import { EXTENDED_TIMEOUT } from '../../support/utils.js'
@@ -12,73 +12,65 @@ import { EXTENDED_TIMEOUT } from '../../support/utils.js'
 const chartItemUid = dashboards.Delivery.items.chart.itemUid
 const tableItemUid = dashboards.Delivery.items.table.itemUid
 
-/*
-Background
-*/
-
-Then('the chart dashboard item displays as a chart', () => {
+// Then('the chart dashboard item displays as a chart', () => {
+export const chartItemDisplaysAsChart = () => {
     getDashboardItem(chartItemUid)
         .getIframeBody()
-        .find(chartSel, EXTENDED_TIMEOUT)
+        .find(chartClass, EXTENDED_TIMEOUT)
         .should('exist')
         .and('be.visible')
-})
+}
 
-Then('the table dashboard item displays as a table', () => {
+// Then('the table dashboard item displays as a table', () => {
+export const tableItemDisplaysAsTable = () => {
     getDashboardItem(tableItemUid)
         .getIframeBody()
-        .find(tableSel, EXTENDED_TIMEOUT)
+        .find(tableClass, EXTENDED_TIMEOUT)
         .should('exist')
         .and('be.visible')
-})
+}
 
-/*
-Scenario: View chart as table
-*/
-
-When('I click View As Table on a chart dashboard item', () => {
-    clickMenuButton(chartItemUid)
+// When('I click View As Table on a chart dashboard item', () => {
+export const clickViewAsTableOnChartItem = () => {
+    clickItemMenuButton(chartItemUid)
     cy.contains('View as Table').click()
-})
+}
 
-Then('the chart dashboard item displays as a table', () => {
+// Then('the chart dashboard item displays as a table', () => {
+export const chartItemDisplaysAsTable = () => {
     getDashboardItem(chartItemUid)
         .getIframeBody()
-        .find(tableSel, EXTENDED_TIMEOUT)
+        .find(tableClass, EXTENDED_TIMEOUT)
         .should('exist')
         .and('be.visible')
-})
+}
 
-/*
-Scenario: View chart as map
-*/
-
-When('I click View As Map on a chart dashboard item', () => {
-    clickMenuButton(chartItemUid)
+// When('I click View As Map on a chart dashboard item', () => {
+export const clickViewAsMapOnChartItem = () => {
+    clickItemMenuButton(chartItemUid)
     cy.contains('View as Map').click()
-})
+}
 
-Then('the chart dashboard item displays as a map', () => {
+// Then('the chart dashboard item displays as a map', () => {
+export const chartItemDisplaysAsMap = () => {
     getDashboardItem(chartItemUid)
         .getIframeBody()
-        .find(mapSel, EXTENDED_TIMEOUT)
+        .find(mapClass, EXTENDED_TIMEOUT)
         .should('exist')
         .and('be.visible')
-})
+}
 
-/*
-Scenario: View table as chart
-*/
-
-When('I click View As Chart on a table dashboard item', () => {
-    clickMenuButton(tableItemUid)
+// When('I click View As Chart on a table dashboard item', () => {
+export const clickViewAsChartOnTableItem = () => {
+    clickItemMenuButton(tableItemUid)
     cy.contains('View as Chart').click()
-})
+}
 
-Then('the table dashboard item displays as a chart', () => {
+// Then('the table dashboard item displays as a chart', () => {
+export const tableItemDisplaysAsChart = () => {
     getDashboardItem(tableItemUid)
         .getIframeBody()
-        .find(chartSel, EXTENDED_TIMEOUT)
+        .find(chartClass, EXTENDED_TIMEOUT)
         .should('exist')
         .and('be.visible')
-})
+}

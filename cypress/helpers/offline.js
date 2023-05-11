@@ -38,14 +38,14 @@ const CACHED_DASHBOARD_TITLE = createDashboardTitle('aa ca')
 
 const createDashboard = (cacheState) => {
     const cachedDashboard = cacheState === CACHED
-    cy.get(newButtonSel, EXTENDED_TIMEOUT).click()
-    cy.get(titleInputSel, EXTENDED_TIMEOUT).should('be.visible')
+    cy.getBySel(newButtonSel, EXTENDED_TIMEOUT).click()
+    cy.getBySel(titleInputSel, EXTENDED_TIMEOUT).should('be.visible')
 
     const title = cachedDashboard
         ? CACHED_DASHBOARD_TITLE
         : UNCACHED_DASHBOARD_TITLE
 
-    cy.get(titleInputSel, EXTENDED_TIMEOUT).type(title)
+    cy.getBySel(titleInputSel, EXTENDED_TIMEOUT).type(title)
     cy.get('[data-test="item-search"]').click()
     if (cachedDashboard) {
         cy.get(`[data-test="menu-item-${CACHED_DASHBOARD_ITEM_NAME}"]`).click()
@@ -57,16 +57,16 @@ const createDashboard = (cacheState) => {
 
     closeMenu()
     clickEditActionButton('Save changes')
-    cy.get(dashboardTitleSel, EXTENDED_TIMEOUT).should('be.visible')
+    cy.getBySel(dashboardTitleSel, EXTENDED_TIMEOUT).should('be.visible')
 }
 
 export const openDashboard = (title) => {
-    cy.get(dashboardChipSel, EXTENDED_TIMEOUT).contains(title).click()
+    cy.getBySel(dashboardChipSel, EXTENDED_TIMEOUT).contains(title).click()
     checkDashboardIsVisible(title)
 }
 
 const checkDashboardIsVisible = (title) => {
-    cy.get(dashboardTitleSel).contains(title).should('be.visible')
+    cy.getBySel(dashboardTitleSel).contains(title).should('be.visible')
 }
 
 const openAndCacheDashboard = (title) => {
@@ -80,7 +80,7 @@ const openAndCacheDashboard = (title) => {
 
 const enterEditMode = () => {
     clickViewActionButton('Edit')
-    cy.get(titleInputSel, EXTENDED_TIMEOUT).should('be.visible')
+    cy.getBySel(titleInputSel, EXTENDED_TIMEOUT).should('be.visible')
 }
 
 const checkCorrectMoreOptions = (cacheState) => {
@@ -129,7 +129,7 @@ const deleteDashboard = (dashboardTitle) => {
     enterEditMode()
     clickEditActionButton('Delete')
     cy.get(confirmActionDialogSel).find('button').contains('Delete').click()
-    cy.get(dashboardTitleSel).should('be.visible')
+    cy.getBySel(dashboardTitleSel).should('be.visible')
 }
 
 // Given('I create two dashboards', () => {
@@ -149,7 +149,7 @@ export const checkCachedDashboard = () => {
     // cy.contains(OFFLINE_DATA_LAST_UPDATED_TEXT).should('be.visible')
 
     // check that the chip has the icon
-    cy.get(dashboardChipSel)
+    cy.getBySel(dashboardChipSel)
         .contains(CACHED_DASHBOARD_TITLE)
         .siblings('svg')
         .its('length')
@@ -163,7 +163,7 @@ export const checkUncachedDashboard = () => {
     openDashboard(UNCACHED_DASHBOARD_TITLE)
     cy.contains(OFFLINE_DATA_LAST_UPDATED_TEXT).should('not.exist')
 
-    // cy.get(dashboardChipSel)
+    // cy.getBySel(dashboardChipSel)
     //     .contains(CACHED_DASHBOARD_TITLE)
     //     .siblings('svg')
     //     .first()
@@ -205,7 +205,7 @@ export const turnOnConnectivity = () => {
 //     'all actions for {string} dashboard requiring connectivity are disabled',
 export const checkConnectivityDisabled = (cacheState) => {
     // new button
-    cy.get(newButtonSel).should('be.disabled')
+    cy.getBySel(newButtonSel).should('be.disabled')
     // edit, sharing, starring, filtering, all options under more
     getViewActionButton('Edit').should('be.disabled')
     getViewActionButton('Share').should('be.disabled')
@@ -275,7 +275,7 @@ export const clickToOpenUncachedDashboard = () => {
 
 // When('I click to open an uncached dashboard when offline', () => {
 export const clickToOpenUncachedDashboardWhenOffline = () => {
-    cy.get(dashboardChipSel, EXTENDED_TIMEOUT)
+    cy.getBySel(dashboardChipSel, EXTENDED_TIMEOUT)
         .contains(UNCACHED_DASHBOARD_TITLE)
         .click()
 }
@@ -309,7 +309,7 @@ export const openUncachedDashboardInEditMode = () => {
 
 // Then('the dashboard is not available and offline message is displayed', () => {
 export const dashboardNotAvail = () => {
-    cy.get(dashboardTitleSel).should('not.exist')
+    cy.getBySel(dashboardTitleSel).should('not.exist')
 
     cy.contains('This dashboard cannot be loaded while offline').should(
         'be.visible'

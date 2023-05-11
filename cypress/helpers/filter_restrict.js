@@ -24,7 +24,7 @@ export const expectFilterSettingsToBeUnrestricted = (title) => {
 
     clickEditActionButton('Save changes')
 
-    cy.get(dashboardTitleSel).should('be.visible').and('contain', title)
+    cy.getBySel(dashboardTitleSel).should('be.visible').and('contain', title)
 
     // FIXME
     // cy.location().should((loc) => {
@@ -107,5 +107,7 @@ export const deleteDashboard = () => {
 }
 
 export const expectDifferentDashboardToDisplay = (title) => {
-    cy.get(dashboardTitleSel).should('be.visible').and('not.contain', title)
+    cy.getBySel(dashboardTitleSel)
+        .should('be.visible')
+        .and('not.contain', title)
 }

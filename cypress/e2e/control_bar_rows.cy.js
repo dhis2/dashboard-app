@@ -3,11 +3,23 @@
 //     dashboardsBarContainerSel,
 //     showMoreLessSel,
 // } from '../elements/viewDashboard.js'
-import { openSLDashboard } from '../helpers/open_the_SL_dashboard.js'
+import { openDashboard } from '../helpers/edit_dashboard.js'
 import { getApiBaseUrl, EXTENDED_TIMEOUT } from '../support/utils.js'
 
 // const MIN_DASHBOARDS_BAR_HEIGHT = 71
 // const MAX_DASHBOARDS_BAR_HEIGHT = 431
+
+// export const expectControlBarToBeAtCollapsedHeight = () => {
+//     cy.get(dashboardsBarContainerSel, EXTENDED_TIMEOUT)
+//         .invoke('height')
+//         .should('eq', MIN_DASHBOARDS_BAR_HEIGHT)
+// }
+
+// export const expectControlBarToBeExpandedToFullHeight = () => {
+//     cy.get(dashboardsBarContainerSel, EXTENDED_TIMEOUT)
+//         .invoke('height')
+//         .should('eq', MAX_DASHBOARDS_BAR_HEIGHT)
+// }
 
 describe.skip('Control bar rows', () => {
     beforeEach(() => {
@@ -21,16 +33,14 @@ describe.skip('Control bar rows', () => {
         }).then((response) => expect(response.status).to.equal(201))
     })
 
-    // Scenario: I expand the control bar
     it('expands the control bar', () => {
         cy.visit('/', EXTENDED_TIMEOUT)
-        openSLDashboard('Delivery')
+        openDashboard('Delivery')
         // Then the control bar should be at collapsed height
         // When I toggle show more dashboards
         // Then the control bar should be expanded to full height
     })
 
-    // Scenario: I expand the control bar when dashboard not found
     it('expands the control bar when dashboard not found', () => {
         cy.visit('/', EXTENDED_TIMEOUT)
         // Given I type an invalid dashboard id in the browser url

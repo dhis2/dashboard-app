@@ -3,8 +3,10 @@ import { dashboardTitleSel } from '../elements/viewDashboard.js'
 import {
     addDashboardTitle,
     saveDashboard,
-    openExistingDashboard,
+    openDashboard,
+    startNewDashboard,
     chooseToEditDashboard,
+    expectDashboardDisplaysInEditMode,
     // expectDashboardToBeSaved,
     expectConfirmDeleteDialogToBeDisplayed,
     expectDashboardToDisplayInViewMode,
@@ -16,15 +18,12 @@ import {
     addDashboardItems,
     expectDashboardToBeDeletedAndFirstStarredDashboardDisplayed,
 } from '../helpers/edit_dashboard.js'
-import { clickExitWithoutSaving } from '../helpers/helpers.js'
-import { expectDashboardDisplaysInEditMode } from '../helpers/helpers2.js'
 import {
     starDashboard,
     unstarDashboard,
     expectDashboardToBeStarred,
     expectDashboardToNotBeStarred,
 } from '../helpers/star_dashboard.js'
-import { startNewDashboard } from '../helpers/start_new_dashboard.js'
 import { EXTENDED_TIMEOUT, createDashboardTitle } from '../support/utils.js'
 
 const TEST_DASHBOARD_TITLE = createDashboardTitle('af')
@@ -37,29 +36,29 @@ describe('Edit dashboard', () => {
         addDashboardItems()
         saveDashboard()
         expectDashboardToDisplayInViewMode(TEST_DASHBOARD_TITLE)
-        cy.get(dashboardTitleSel).should('have.text', TEST_DASHBOARD_TITLE)
+        cy.getBySel(dashboardTitleSel).should('have.text', TEST_DASHBOARD_TITLE)
     })
 
     it('exits without saving', () => {
         cy.visit('/', EXTENDED_TIMEOUT)
-        openExistingDashboard(TEST_DASHBOARD_TITLE)
+        openDashboard(TEST_DASHBOARD_TITLE)
         chooseToEditDashboard()
-        clickExitWithoutSaving()
+        clickEditActionButton('Exit without saving')
         expectDashboardToDisplayInViewMode(TEST_DASHBOARD_TITLE)
     })
 
     it('exits without saving when name changed', () => {
         cy.visit('/', EXTENDED_TIMEOUT)
-        openExistingDashboard(TEST_DASHBOARD_TITLE)
+        openDashboard(TEST_DASHBOARD_TITLE)
         chooseToEditDashboard()
         addDashboardTitle('xyz')
-        clickExitWithoutSaving()
+        clickEditActionButton('Exit without saving')
         expectDashboardToDisplayInViewMode(TEST_DASHBOARD_TITLE)
     })
 
     it('stars the dashboard', () => {
         cy.visit('/', EXTENDED_TIMEOUT)
-        openExistingDashboard(TEST_DASHBOARD_TITLE)
+        openDashboard(TEST_DASHBOARD_TITLE)
         expectDashboardToNotBeStarred(TEST_DASHBOARD_TITLE)
         starDashboard()
         expectDashboardToBeStarred(TEST_DASHBOARD_TITLE)
@@ -70,7 +69,7 @@ describe('Edit dashboard', () => {
     // FIXME
     it.skip('toggles show description', () => {
         cy.visit('/', EXTENDED_TIMEOUT)
-        openExistingDashboard(TEST_DASHBOARD_TITLE)
+        openDashboard(TEST_DASHBOARD_TITLE)
         // expectDashboardDescriptionNotToBeDisplayed()
         // showDashboardDescription()
         // expectDashboardDescriptionToBeDisplayed()
@@ -81,7 +80,7 @@ describe('Edit dashboard', () => {
     // FIXME
     it.skip('moves an item on a dashboard', () => {
         cy.visit('/', EXTENDED_TIMEOUT)
-        openExistingDashboard(TEST_DASHBOARD_TITLE)
+        openDashboard(TEST_DASHBOARD_TITLE)
         chooseToEditDashboard()
         // FIXME
         // expectChartItemToBeDisplayed()
@@ -91,7 +90,7 @@ describe('Edit dashboard', () => {
     // FIXME
     it.skip('changes sharing settings of a dashboard', () => {
         cy.visit('/', EXTENDED_TIMEOUT)
-        openExistingDashboard(TEST_DASHBOARD_TITLE)
+        openDashboard(TEST_DASHBOARD_TITLE)
         //     When I change sharing settings
         //     And I choose to edit dashboard
         //     And dashboard is saved
@@ -100,7 +99,7 @@ describe('Edit dashboard', () => {
 
     it('saves a starred dashboard', () => {
         cy.visit('/', EXTENDED_TIMEOUT)
-        openExistingDashboard(TEST_DASHBOARD_TITLE)
+        openDashboard(TEST_DASHBOARD_TITLE)
         expectDashboardToNotBeStarred(TEST_DASHBOARD_TITLE)
         starDashboard()
         expectDashboardToBeStarred(TEST_DASHBOARD_TITLE)
@@ -114,7 +113,7 @@ describe('Edit dashboard', () => {
 
     it('cancels a delete dashboard action', () => {
         cy.visit('/', EXTENDED_TIMEOUT)
-        openExistingDashboard(TEST_DASHBOARD_TITLE)
+        openDashboard(TEST_DASHBOARD_TITLE)
         chooseToEditDashboard()
         clickEditActionButton('Delete')
         expectConfirmDeleteDialogToBeDisplayed(TEST_DASHBOARD_TITLE)
@@ -124,7 +123,7 @@ describe('Edit dashboard', () => {
 
     it('deletes a dashboard', () => {
         cy.visit('/', EXTENDED_TIMEOUT)
-        openExistingDashboard(TEST_DASHBOARD_TITLE)
+        openDashboard(TEST_DASHBOARD_TITLE)
         chooseToEditDashboard()
         clickEditActionButton('Delete')
         expectConfirmDeleteDialogToBeDisplayed(TEST_DASHBOARD_TITLE)

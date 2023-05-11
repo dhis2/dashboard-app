@@ -3,16 +3,15 @@ import {
     confirmActionDialogSel,
 } from '../elements/editDashboard.js'
 import {
+    openDashboard,
+    startNewDashboard,
     chooseToEditDashboard,
     addDashboardTitle,
     addDashboardItems,
     saveDashboard,
-    openExistingDashboard,
     expectDashboardToDisplayInViewMode,
+    expectDashboardDisplaysInEditMode,
 } from '../helpers/edit_dashboard.js'
-import { expectDashboardDisplaysInEditMode } from '../helpers/helpers2.js'
-import { openSLDashboard } from '../helpers/open_the_SL_dashboard.js'
-import { startNewDashboard } from '../helpers/start_new_dashboard.js'
 import { EXTENDED_TIMEOUT, createDashboardTitle } from '../support/utils.js'
 
 const TEST_DASHBOARD_TITLE = createDashboardTitle('af')
@@ -25,10 +24,10 @@ describe('Edit errors', () => {
         addDashboardItems()
         saveDashboard()
         expectDashboardToDisplayInViewMode(TEST_DASHBOARD_TITLE)
-        // And the saved dashboard should be displayed
 
-        openExistingDashboard(TEST_DASHBOARD_TITLE)
+        openDashboard(TEST_DASHBOARD_TITLE)
         chooseToEditDashboard()
+
         // I save dashboard that I don't have access to save
         cy.intercept('PUT', '**/dashboards/*', { statusCode: 409 })
         clickEditActionButton('Save changes')
@@ -37,7 +36,7 @@ describe('Edit errors', () => {
 
     it('A 500 error is thrown when I save the dashboard', () => {
         cy.visit('/', EXTENDED_TIMEOUT).log(Cypress.env('dhis2BaseUrl'))
-        openSLDashboard('Delivery')
+        openDashboard('Delivery')
         chooseToEditDashboard()
         // A 500 error is thrown when I save the dashboard
         cy.intercept('PUT', '**/dashboards/*', { statusCode: 500 })
@@ -53,7 +52,7 @@ describe('Edit errors', () => {
 
     it('A 500 error is thrown when I delete the dashboard', () => {
         cy.visit('/', EXTENDED_TIMEOUT).log(Cypress.env('dhis2BaseUrl'))
-        openSLDashboard('Delivery')
+        openDashboard('Delivery')
         chooseToEditDashboard()
 
         // And A 500 error is thrown when I delete the dashboard

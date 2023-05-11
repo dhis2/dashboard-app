@@ -1,7 +1,7 @@
 import {
-    gridItemSel,
-    chartSel,
-    chartSubtitleSel,
+    gridItemClass,
+    chartClass,
+    chartSubtitleClass,
 } from '../elements/dashboardItem.js'
 import {
     confirmActionDialogSel,
@@ -12,6 +12,7 @@ import {
     dashboardChipSel,
     dashboardTitleSel,
     titleBarSel,
+    newButtonSel,
 } from '../elements/viewDashboard.js'
 import { EXTENDED_TIMEOUT } from '../support/utils.js'
 
@@ -36,19 +37,23 @@ const getRouteFromHash = (hash) => {
     return hash.slice(lastSlashIdx + 1)
 }
 
+const expectViewRoute = (lochash) => {
+    const route = getRouteFromHash(lochash)
+    expect(nonViewRoutes).not.to.include(route)
+    expect([ROOT_ROUTE_LENGTH, UID_LENGTH]).to.include(route.length)
+}
+
 export const addDashboardTitle = (title) => {
-    cy.get(titleInputSel).type(title)
+    cy.getBySel(titleInputSel).type(title)
 }
 
 export const addDashboardItems = () => {
-    cy.get('[data-test="item-search"]').click()
-    cy.get('[data-test="menu-item-ANC: 1 and 3 coverage Yearly"]')
-        .click()
-        .closePopper()
+    cy.getBySel('item-search').click()
+    cy.getBySel('menu-item-ANC: 1 and 3 coverage Yearly').click().closePopper()
 }
 
 export const continueEditing = () => {
-    cy.get(confirmActionDialogSel)
+    cy.getBySel(confirmActionDialogSel)
         .find('button')
         .contains('No, stay here')
         .click()
@@ -58,77 +63,81 @@ export const saveDashboard = () => {
     clickEditActionButton('Save changes')
 }
 
-export const expectDashboardToDisplayInViewMode = (title) => {
-    cy.location().should((loc) => {
-        const currentRoute = getRouteFromHash(loc.hash)
+export const openDashboard = (title) => {
+    cy.getBySel(dashboardChipSel, EXTENDED_TIMEOUT).contains(title).click()
 
-        expect(nonViewRoutes).not.to.include(currentRoute)
-        expect([ROOT_ROUTE_LENGTH, UID_LENGTH]).to.include(currentRoute.length)
-    })
+    cy.location().should((loc) => expectViewRoute(loc.hash))
+    cy.getBySel(dashboardTitleSel).should('be.visible').and('contain', title)
 
-    // FIXME - from the old create_dashboard.js file
-    // cy.get(`${gridItemSel}.VISUALIZATION`)
+    // FIXME - confirm existing vis (pass a second arg to fn)
+    // cy.get(`${gridItemClass}.VISUALIZATION`, EXTENDED_TIMEOUT)
+    //     .first()
     //     .getIframeBody()
-    //     .find(chartSel, EXTENDED_TIMEOUT)
+    //     .find(chartClass, EXTENDED_TIMEOUT)
+    //     .should('exist')
+}
+
+export const startNewDashboard = () => {
+    cy.getBySel(newButtonSel, EXTENDED_TIMEOUT).click()
+}
+
+export const expectDifferentDashboardToDisplayInViewMode = (title) => {
+    cy.location().should((loc) => expectViewRoute(loc.hash))
+    cy.getBySel(dashboardTitleSel)
+        .should('be.visible')
+        .and('not.contain', title)
+}
+
+export const expectDashboardToDisplayInViewMode = (title) => {
+    cy.location().should((loc) => expectViewRoute(loc.hash))
+
+    // FIXME
+    // cy.get(`${gridItemClass}.VISUALIZATION`)
+    //     .getIframeBody()
+    //     .find(chartClass, EXTENDED_TIMEOUT)
     //     .should('be.visible')
 
     // Some map visualization load very slowly:
     // https://dhis2.atlassian.net/browse/DHIS2-14365
-    //    cy.get(`${gridItemSel}.MAP`)
+    //    cy.get(`${gridItemClass}.MAP`)
     //        .getIframeBody()
-    //        .find(mapSel, EXTENDED_TIMEOUT)
+    //        .find(mapClass, EXTENDED_TIMEOUT)
     //        .should('be.visible')
 
-    cy.get(dashboardTitleSel).should('be.visible').and('contain', title)
+    cy.getBySel(dashboardTitleSel).should('be.visible').and('contain', title)
 }
 
 export const chooseToEditDashboard = () => {
-    cy.get(titleBarSel, EXTENDED_TIMEOUT)
+    cy.getBySel(titleBarSel, EXTENDED_TIMEOUT)
         .find('button')
         .contains('Edit', EXTENDED_TIMEOUT)
         .click()
 
-    cy.get(titleInputSel).should('exist')
+    expectDashboardDisplaysInEditMode()
+}
+
+export const expectDashboardDisplaysInEditMode = () => {
+    cy.getBySel(titleInputSel).should('be.visible')
 
     cy.location().should((loc) => {
         expect(getRouteFromHash(loc.hash)).to.eq(ROUTE_EDIT)
     })
 }
 
-export const expectDifferentDashboardToDisplayInViewMode = (title) => {
-    cy.location().should((loc) => {
-        const currentRoute = getRouteFromHash(loc.hash)
-
-        expect(nonViewRoutes).not.to.include(currentRoute)
-        expect([ROOT_ROUTE_LENGTH, UID_LENGTH]).to.include(currentRoute.length)
-    })
-    cy.get(dashboardTitleSel).should('be.visible').and('not.contain', title)
-}
-
-export const openExistingDashboard = (title) => {
-    cy.get(dashboardChipSel, EXTENDED_TIMEOUT).contains(title).click()
-
-    cy.location().should((loc) => {
-        const currentRoute = getRouteFromHash(loc.hash)
-
-        expect(nonViewRoutes).not.to.include(currentRoute)
-        expect([ROOT_ROUTE_LENGTH, UID_LENGTH]).to.include(currentRoute.length)
-    })
-    cy.get(dashboardTitleSel).should('be.visible').and('contain', title)
-}
-
 export const confirmCancelDelete = () => {
-    cy.get(confirmActionDialogSel)
+    cy.getBySel(confirmActionDialogSel)
         .find('button')
         .contains('No, stay here')
         .click()
 }
 
 export const cancelDelete = () => {
-    cy.get(confirmActionDialogSel).find('button').contains('Cancel').click()
+    cy.getBySel(confirmActionDialogSel)
+        .find('button')
+        .contains('Cancel')
+        .click()
 }
 
-// Then('the confirm delete dialog is displayed', () => {
 export const expectConfirmDeleteDialogToBeDisplayed = (title) => {
     cy.contains(
         `Deleting dashboard "${title}" will remove it for all users`
@@ -136,22 +145,24 @@ export const expectConfirmDeleteDialogToBeDisplayed = (title) => {
 }
 
 export const confirmDelete = () => {
-    cy.get(confirmActionDialogSel).find('button').contains('Delete').click()
+    cy.getBySel(confirmActionDialogSel)
+        .find('button')
+        .contains('Delete')
+        .click()
 }
 
 export const expectDashboardToBeDeletedAndFirstStarredDashboardDisplayed = (
     title
 ) => {
-    cy.get(dashboardChipSel).contains(title).should('not.exist')
-
-    cy.get(dashboardTitleSel).should('exist').should('not.be.empty')
+    cy.getBySel(dashboardChipSel).contains(title).should('not.exist')
+    cy.getBySel(dashboardTitleSel).should('exist').should('not.be.empty')
 }
 
 export const expectChartItemToBeDisplayed = () => {
-    cy.get(`${gridItemSel}.VISUALIZATION`)
+    cy.get(`${gridItemClass}.VISUALIZATION`)
         .first()
         .getIframeBody()
-        .find(chartSel, EXTENDED_TIMEOUT)
+        .find(chartClass, EXTENDED_TIMEOUT)
         .should('exist')
 }
 
@@ -166,22 +177,24 @@ export const expectNoAnalyticsRequestsToBeMadeWhenItemIsMoved = () => {
         })
     })
 
-    cy.get(gridItemSel)
+    cy.get(gridItemClass)
         .first()
         .trigger('mousedown')
         .trigger('mousemove', { clientX: 400 })
         .trigger('mouseup')
 
-    cy.get(gridItemSel)
+    cy.get(gridItemClass)
         .first()
         .getIframeBody()
-        .find(chartSubtitleSel, EXTENDED_TIMEOUT)
+        .find(chartSubtitleClass, EXTENDED_TIMEOUT)
         .contains(WRONG_SUBTITLE)
         .should('not.exist')
 }
 
 export const expectDifferentDashboardDisplaysInViewMode = (title) => {
-    cy.get(dashboardTitleSel).should('be.visible').and('not.contain', title)
+    cy.getBySel(dashboardTitleSel)
+        .should('be.visible')
+        .and('not.contain', title)
 }
 
 // export const addMapAndChartThenSave = (title) => {
@@ -210,7 +223,7 @@ export const expectDifferentDashboardDisplaysInViewMode = (title) => {
 //         .closePopper()
 
 //     //move things so the dashboard is more compact
-//     cy.get(`${gridItemSel}.MAP`)
+//     cy.get(`${gridItemClass}.MAP`)
 //         .trigger('mousedown')
 //         .trigger('mousemove', { clientX: 650 })
 //         .trigger('mouseup')

@@ -29,5 +29,5 @@ export const expectDashboardNotStarred = (title) => {
     cy.get(dashboardUnstarredSel).should('be.visible')
     cy.get(dashboardStarredSel).should('not.exist')
 
-    cy.get(dashboardChipSel).contains(title).siblings().should('not.exist')
+    cy.getBySel(dashboardChipSel).contains(title).siblings().should('not.exist')
 }

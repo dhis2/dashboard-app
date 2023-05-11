@@ -1,10 +1,9 @@
-export const filterBadgeSel = '[data-test="dashboard-filter-badge"]'
+export const filterBadgeSel = 'dashboard-filter-badge'
 
-export const filterDimensionsPanelSel = '[data-test="dashboard-filter-popover"]'
+export const filterDimensionsPanelSel = 'dashboard-filter-popover'
 
-export const unselectedItemsSel =
-    '[data-test*="dimension-transfer-sourceoptions"]'
+export const unselectedItemsSel = 'dimension-transfer-sourceoptions'
 
-export const orgUnitTreeSel = '[data-test="org-unit-tree"]'
+export const orgUnitTreeSel = 'org-unit-tree'
 
-export const dimensionsModalSel = '[data-test="dimension-modal"]'
+export const dimensionsModalSel = 'dimension-modal'

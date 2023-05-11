@@ -1,12 +1,12 @@
 import { dashboards } from '../../assets/backends/index.js'
-import { clickMenuButton } from '../../elements/dashboardItem.js'
+import { clickItemMenuButton } from '../../elements/dashboardItem.js'
 
 // these tests being run on the "Delivery" dashboard
 const chartItemUid = dashboards.Delivery.items.chart.itemUid
 const chartItemVisUrl = `dhis-web-data-visualizer/#/${dashboards.Delivery.items.chart.visUid}`
 
 export const openChartInDataVisualizerApp = () => {
-    clickMenuButton(chartItemUid)
+    clickItemMenuButton(chartItemUid)
 
     cy.contains('Open in Data Visualizer app')
         .should('have.attr', 'href')

@@ -2,21 +2,21 @@ import { dashboards } from '../assets/backends/index.js'
 import {
     getDashboardItem,
     itemMenuButtonSel,
-    clickMenuButton,
+    clickItemMenuButton,
     itemDetailsSel,
 } from '../elements/dashboardItem.js'
+import { openDashboard } from '../helpers/edit_dashboard.js'
 import {
     openChartInDataVisualizerApp,
     expectChartToBeOpenedInDataVisualizerApp,
 } from '../helpers/item_context_menu/open_in_app.js'
-import { openSLDashboard } from '../helpers/open_the_SL_dashboard.js'
 import { EXTENDED_TIMEOUT } from '../support/utils.js'
 
 describe('Item context menu', () => {
     // FIXME
     it.skip('displays chart as table', () => {
         cy.visit('/', EXTENDED_TIMEOUT).log(Cypress.env('dhis2BaseUrl'))
-        openSLDashboard('Delivery')
+        openDashboard('Delivery')
         // And the chart dashboard item displays as a chart
         // And the table dashboard item displays as a table
         // When I click View As Table on a chart dashboard item
@@ -26,7 +26,7 @@ describe('Item context menu', () => {
     // FIXME
     it.skip('displays chart as map', () => {
         cy.visit('/', EXTENDED_TIMEOUT).log(Cypress.env('dhis2BaseUrl'))
-        openSLDashboard('Delivery')
+        openDashboard('Delivery')
         // And the chart dashboard item displays as a chart
         // And the table dashboard item displays as a table
         // When I click View As Map on a chart dashboard item
@@ -36,7 +36,7 @@ describe('Item context menu', () => {
     // FIXME
     it.skip('displays table as chart', () => {
         cy.visit('/', EXTENDED_TIMEOUT).log(Cypress.env('dhis2BaseUrl'))
-        openSLDashboard('Delivery')
+        openDashboard('Delivery')
         // And the chart dashboard item displays as a chart
         // And the table dashboard item displays as a table
         // When I click View As Chart on a table dashboard item
@@ -45,7 +45,7 @@ describe('Item context menu', () => {
 
     it('opens chart in Data Visualizer app', () => {
         cy.visit('/', EXTENDED_TIMEOUT).log(Cypress.env('dhis2BaseUrl'))
-        openSLDashboard('Delivery')
+        openDashboard('Delivery')
         openChartInDataVisualizerApp()
         expectChartToBeOpenedInDataVisualizerApp()
     })
@@ -53,9 +53,9 @@ describe('Item context menu', () => {
     // FIXME
     it.skip('opens the interpretations panel', () => {
         cy.visit('/', EXTENDED_TIMEOUT).log(Cypress.env('dhis2BaseUrl'))
-        openSLDashboard('Delivery')
+        openDashboard('Delivery')
 
-        clickMenuButton(dashboards.Delivery.items.chart.itemUid)
+        clickItemMenuButton(dashboards.Delivery.items.chart.itemUid)
         cy.contains('Show details and interpretations').click()
 
         // the interpretations panel is displayed
@@ -74,7 +74,7 @@ describe('Item context menu', () => {
 
     it('text item does not have a context menu', () => {
         cy.visit('/', EXTENDED_TIMEOUT).log(Cypress.env('dhis2BaseUrl'))
-        openSLDashboard('Antenatal Care')
+        openDashboard('Antenatal Care')
 
         // the text item does not have a context menu
         getDashboardItem(dashboards['Antenatal Care'].items.text.itemUid)
@@ -84,10 +84,10 @@ describe('Item context menu', () => {
 
     it('chart item has a fullscreen option', () => {
         cy.visit('/', EXTENDED_TIMEOUT).log(Cypress.env('dhis2BaseUrl'))
-        openSLDashboard('Antenatal Care')
+        openDashboard('Antenatal Care')
 
         // chart item has fullscreen option
-        clickMenuButton(dashboards['Antenatal Care'].items.chart.itemUid)
+        clickItemMenuButton(dashboards['Antenatal Care'].items.chart.itemUid)
         cy.contains('View fullscreen').should('be.visible')
     })
 })

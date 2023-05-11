@@ -17,5 +17,5 @@ Given('I open the {string} dashboard with shapes removed', (title) => {
             res.send({ body: res.body })
         })
     })
-    cy.get(dashboardChipSel, EXTENDED_TIMEOUT).contains(title).click()
+    cy.getBySel(dashboardChipSel, EXTENDED_TIMEOUT).contains(title).click()
 })

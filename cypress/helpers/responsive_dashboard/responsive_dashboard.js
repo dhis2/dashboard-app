@@ -1,25 +1,17 @@
 import { dimensionsModalSel } from '../../elements/dashboardFilter.js'
-import { gridItemSel, chartSel } from '../../elements/dashboardItem.js'
 import { titleInputSel } from '../../elements/editDashboard.js'
-import {
-    dashboardTitleSel,
-    newButtonSel,
-} from '../../elements/viewDashboard.js'
+import { newButtonSel } from '../../elements/viewDashboard.js'
 import { EXTENDED_TIMEOUT } from '../../support/utils.js'
 
-const TEST_DASHBOARD_TITLE = 'TEST_DASHBOARD_TITLE'
-
-// When('I go to small screen', () => {
 export const goToSmallScreen = () => {
     cy.viewport(460, 600)
     // to account for debounced window resize
     cy.wait(1000) // eslint-disable-line cypress/no-unnecessary-waiting
 }
 
-// Then('the small screen view is shown', () => {
 export const expectSmallScreenView = () => {
     //controlbar - no search dashboard field
-    cy.get(newButtonSel).should('not.be.visible')
+    cy.getBySel(newButtonSel).should('not.be.visible')
 
     //titlebar - only the More button and the title
     cy.get('button').contains('Edit').should('not.be.visible')
@@ -30,16 +22,14 @@ export const expectSmallScreenView = () => {
     cy.get('button').not('.small').contains('More').should('not.be.visible')
 }
 
-// When('I restore the wide screen', () => {
 export const restoreWideScreen = () => {
     cy.viewport(950, 800)
     // to account for debounced window resize
     cy.wait(1000) // eslint-disable-line cypress/no-unnecessary-waiting
 }
 
-// Then('the wide screen view is shown', () => {
 export const expectWideScreenView = () => {
-    cy.get(newButtonSel).should('be.visible')
+    cy.getBySel(newButtonSel).should('be.visible')
 
     cy.get('button').contains('Edit').should('be.visible')
     cy.get('button').contains('Share').should('be.visible')
@@ -49,7 +39,6 @@ export const expectWideScreenView = () => {
     cy.get('button.small').contains('More').should('not.be.visible')
 }
 
-// Then('the small screen edit view is shown', () => {
 export const expectSmallScreenEditView = () => {
     //no controlbar
     cy.contains('Save changes').should('not.be.visible')
@@ -60,34 +49,33 @@ export const expectSmallScreenEditView = () => {
         'be.visible'
     )
     // no title or item grid
-    cy.get(titleInputSel).should('not.be.visible')
+    cy.getBySel(titleInputSel).should('not.be.visible')
     cy.get('.react-grid-layout').should('not.be.visible')
 }
 
-// Then('the wide screen edit view is shown', () => {
 export const expectWideScreenEditView = () => {
     //controlbar
     cy.get('button').contains('Save changes').should('be.visible')
     cy.get('button').contains('Exit without saving').should('be.visible')
 
-    cy.get(titleInputSel).scrollIntoView()
-    cy.get(titleInputSel).should('be.visible')
+    cy.getBySel(titleInputSel).scrollIntoView()
+    cy.getBySel(titleInputSel).should('be.visible')
     cy.get('.react-grid-layout').should('be.visible')
 }
 
-// Then('my changes are still there', () => {
 export const expectChangesAreStillThere = (changes) => {
-    cy.get(titleInputSel).scrollIntoView()
+    cy.getBySel(titleInputSel).scrollIntoView()
     //title or item changes
     var re = new RegExp(changes, 'g')
-    cy.get(`${titleInputSel} input`).should(($input) => {
-        const val = $input.val()
+    cy.getBySel(titleInputSel)
+        .find('input')
+        .should(($input) => {
+            const val = $input.val()
 
-        expect(val).to.match(re)
-    })
+            expect(val).to.match(re)
+        })
 }
 
-// When('I change url to new', () => {
 export const changeUrlToNew = () => {
     const url = `${Cypress.config().baseUrl}/#/new`
     cy.window().then((win) => {
@@ -96,22 +84,20 @@ export const changeUrlToNew = () => {
     })
 }
 
-// Then('the {string} dashboard displays in default view mode', (title) => {
-export const expectDashboardDisplaysInDefaultViewMode = (title) => {
-    cy.location().should((loc) => {
-        expect(loc.hash).to.equal('#/')
-    })
+// export const expectDashboardDisplaysInDefaultViewMode = (title) => {
+//     cy.location().should((loc) => {
+//         expect(loc.hash).to.equal('#/')
+//     })
 
-    cy.get(dashboardTitleSel).should('be.visible').and('contain', title)
+//     cy.getBySel(dashboardTitleSel).should('be.visible').and('contain', title)
 
-    cy.get(`${gridItemSel}.VISUALIZATION`)
-        .first()
-        .getIframeBody()
-        .find(chartSel, EXTENDED_TIMEOUT)
-        .should('be.visible')
-}
+//     cy.get(`${gridItemClass}.VISUALIZATION`)
+//         .first()
+//         .getIframeBody()
+//         .find(chartClass, EXTENDED_TIMEOUT)
+//         .should('be.visible')
+// }
 
-// When('I change url to edit', () => {
 export const changeUrlToEdit = () => {
     cy.location().then((loc) => {
         const url = `${loc.href}/edit`
@@ -122,7 +108,6 @@ export const changeUrlToEdit = () => {
     })
 }
 
-// Then('the filter modal is not opened', () => {
 export const expectFilterModalIsNotOpened = () => {
-    cy.get(dimensionsModalSel, EXTENDED_TIMEOUT).should('not.exist')
+    cy.getBySel(dimensionsModalSel, EXTENDED_TIMEOUT).should('not.exist')
 }

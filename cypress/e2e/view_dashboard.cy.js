@@ -1,24 +1,30 @@
 import { dashboards } from '../assets/backends/sierraLeone_236.js'
 import {
     getDashboardItem,
-    gridItemSel,
-    // mapSel,
+    // gridItemClass,
+    // mapClass,
 } from '../elements/dashboardItem.js'
 import {
-    // showMoreLessSel,
     dashboardTitleSel,
     dashboardChipSel,
     dashboardSearchInputSel,
 } from '../elements/viewDashboard.js'
-import { exitPrintLayout } from '../helpers/exit_print_layout.js'
-import { openPrintLayout } from '../helpers/open_print_layout.js'
-import { openSLDashboard } from '../helpers/open_the_SL_dashboard.js'
-import { openPrintOipp, printOippIsDisplayed } from '../helpers/print.js'
-import { printLayoutIsDisplayed } from '../helpers/print_layout_displays.js'
-import { expectSLDashboardToDisplayInViewMode } from '../helpers/SL_dashboard_displays_in_view_mode.js'
+import {
+    openDashboard,
+    expectDashboardToDisplayInViewMode,
+} from '../helpers/edit_dashboard.js'
+import {
+    exitPrintMode,
+    openPrintLayout,
+    openPrintOipp,
+    printOippIsDisplayed,
+    printLayoutIsDisplayed,
+} from '../helpers/print.js'
 import { EXTENDED_TIMEOUT } from '../support/utils.js'
 
 // const toggleShowMoreDashboards = () => cy.get(showMoreLessSel).click()
+
+const DELIVERY_DASHBOARD_TITLE = 'Delivery'
 
 const openDashboardRootUrl = () => {
     cy.visit('/', EXTENDED_TIMEOUT)
@@ -27,8 +33,8 @@ const openDashboardRootUrl = () => {
         expect(loc.hash).to.equal('#/')
     })
 
-    cy.get(dashboardTitleSel).should('be.visible')
-    cy.get(dashboardChipSel, EXTENDED_TIMEOUT).should('be.visible')
+    cy.getBySel(dashboardTitleSel).should('be.visible')
+    cy.getBySel(dashboardChipSel, EXTENDED_TIMEOUT).should('be.visible')
 }
 
 const searchForDashboard = (searchText) =>
@@ -37,30 +43,30 @@ const searchForDashboard = (searchText) =>
 describe('View dashboard', () => {
     it('switches between dashboards', () => {
         cy.visit('/', EXTENDED_TIMEOUT).log(Cypress.env('dhis2BaseUrl'))
-        openSLDashboard('Delivery')
-        openSLDashboard('Immunization')
+        openDashboard(DELIVERY_DASHBOARD_TITLE)
+        openDashboard('Immunization')
     })
 
     it('searches for a dashboard', () => {
         cy.visit('/', EXTENDED_TIMEOUT).log(Cypress.env('dhis2BaseUrl'))
-        openSLDashboard('Antenatal Care')
+        openDashboard('Antenatal Care')
         searchForDashboard('Immun')
         // Immunization and Immunization data dashboards are choices
-        cy.get(dashboardChipSel).should('be.visible').and('have.length', 2)
+        cy.getBySel(dashboardChipSel).should('be.visible').and('have.length', 2)
         cy.get(dashboardSearchInputSel).type('{enter}')
-        expectSLDashboardToDisplayInViewMode('Immunization')
+        expectDashboardToDisplayInViewMode('Immunization')
     })
 
     it('searches for a dashboard with nonmatching search text', () => {
         cy.visit('/', EXTENDED_TIMEOUT).log(Cypress.env('dhis2BaseUrl'))
         const title = 'Antenatal Care'
-        openSLDashboard(title)
+        openDashboard(title)
         searchForDashboard('Noexist')
-        cy.get(dashboardChipSel).should('not.exist')
+        cy.getBySel(dashboardChipSel).should('not.exist')
         cy.get(dashboardSearchInputSel).type('{enter}')
 
         // Then dashboards list restored and dashboard is still "Antenatal Care"
-        cy.get(dashboardChipSel)
+        cy.getBySel(dashboardChipSel)
             .should('be.visible')
             .and('have.lengthOf.above', 0)
 
@@ -68,10 +74,12 @@ describe('View dashboard', () => {
             expect(loc.hash).to.equal(dashboards[title].route)
         })
 
-        cy.get(dashboardTitleSel).should('be.visible').and('contain', title)
+        cy.getBySel(dashboardTitleSel)
+            .should('be.visible')
+            .and('contain', title)
 
         // FIXME
-        // cy.get(`${gridItemSel}.VISUALIZATION`)
+        // cy.get(`${gridItemClass}.VISUALIZATION`)
         //     .first()
         //     .getIframeBody()
         //     .find('.highcharts-background')
@@ -80,25 +88,25 @@ describe('View dashboard', () => {
 
     it('views the print layout preview', () => {
         cy.visit('/', EXTENDED_TIMEOUT)
-        openSLDashboard('Delivery')
+        openDashboard(DELIVERY_DASHBOARD_TITLE)
         openPrintLayout()
-        printLayoutIsDisplayed('Delivery')
-        exitPrintLayout()
-        expectSLDashboardToDisplayInViewMode('Delivery')
+        printLayoutIsDisplayed(DELIVERY_DASHBOARD_TITLE)
+        exitPrintMode()
+        expectDashboardToDisplayInViewMode(DELIVERY_DASHBOARD_TITLE)
     })
 
     it('views the print one-item-per-page preview', () => {
         cy.visit('/', EXTENDED_TIMEOUT)
-        openSLDashboard('Delivery')
+        openDashboard(DELIVERY_DASHBOARD_TITLE)
         openPrintOipp()
-        printOippIsDisplayed('Delivery')
-        exitPrintLayout()
-        expectSLDashboardToDisplayInViewMode('Delivery')
+        printOippIsDisplayed(DELIVERY_DASHBOARD_TITLE)
+        exitPrintMode()
+        expectDashboardToDisplayInViewMode(DELIVERY_DASHBOARD_TITLE)
     })
 
     it('views a dashboard with items lacking shape', () => {
         cy.visit('/', EXTENDED_TIMEOUT)
-        const title = 'Delivery'
+        const title = DELIVERY_DASHBOARD_TITLE
         const regex = new RegExp(`dashboards/${dashboards[title].id}`, 'g')
         cy.intercept(regex, (req) => {
             req.reply((res) => {
@@ -112,14 +120,14 @@ describe('View dashboard', () => {
                 res.send({ body: res.body })
             })
         })
-        cy.get(dashboardChipSel, EXTENDED_TIMEOUT).contains(title).click()
+        cy.getBySel(dashboardChipSel, EXTENDED_TIMEOUT).contains(title).click()
 
-        expectSLDashboardToDisplayInViewMode('Delivery')
+        expectDashboardToDisplayInViewMode(DELIVERY_DASHBOARD_TITLE)
     })
 
     it('shows layer names in legend', () => {
         cy.visit('/', EXTENDED_TIMEOUT)
-        openSLDashboard('Cases Malaria')
+        openDashboard('Cases Malaria')
 
         // hover over the map legend button
         const mapItemUid = dashboards['Cases Malaria'].items.map.itemUid
@@ -138,16 +146,16 @@ describe('View dashboard', () => {
 
     it("opens the user's preferred dashboard", () => {
         cy.visit('/', EXTENDED_TIMEOUT)
-        openSLDashboard('Antenatal Care')
+        openDashboard('Antenatal Care')
         openDashboardRootUrl()
-        openSLDashboard('Delivery')
+        openDashboard(DELIVERY_DASHBOARD_TITLE)
         openDashboardRootUrl()
     })
 
     // FIXME: flaky test
     it.skip('changes the height of the control bar', () => {
         cy.visit('/', EXTENDED_TIMEOUT)
-        openSLDashboard('Delivery')
+        openDashboard(DELIVERY_DASHBOARD_TITLE)
         // When I drag to increase the height of the control bar
         // Then the control bar height should be updated
     })
@@ -155,7 +163,7 @@ describe('View dashboard', () => {
     // FIXME: flaky test
     it.skip('changes the height of an expanded control bar', () => {
         cy.visit('/', EXTENDED_TIMEOUT)
-        openSLDashboard('Delivery')
+        openDashboard(DELIVERY_DASHBOARD_TITLE)
         // When I toggle show more dashboards
         // And I drag to decrease the height of the control bar
         // Then the control bar height should be updated
