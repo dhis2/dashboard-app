@@ -27,9 +27,7 @@ export const createDashboard = (title, items) => {
             .find('input')
             .type(itemName, { force: true })
 
-        cy.get(`[data-test="menu-item-${itemName}"]`).click()
-
-        cy.get('[data-test="dhis2-uicore-layer"]').click('topLeft')
+        cy.get(`[data-test="menu-item-${itemName}"]`).click().closePopper()
     })
 
     cy.get('button').contains('Save changes', EXTENDED_TIMEOUT).click()
