@@ -23,6 +23,6 @@ module.exports = defineConfig({
         // You may want to clean this up later by importing these.
         setupNodeEvents,
         baseUrl: 'http://localhost:3000',
-        specPattern: 'cypress/e2e/**/*.feature',
+        specPattern: 'cypress/e2e/**/*.cy.js',
     },
 })

@@ -1,21 +1,8 @@
-import {
-    enableAutoLogin,
-    enableNetworkShim,
-    isStubMode,
-    networkModes,
-} from '@dhis2/cypress-commands'
+import { enableAutoLogin } from '@dhis2/cypress-commands'
 
-const getDefaultMode = () => {
-    return networkModes.STUB
-}
+import './commands.js'
 
-enableNetworkShim()
-
-if (!isStubMode(getDefaultMode())) {
-    // log in if using a live backend
-    // High timeout as the app can take some time to load
-    enableAutoLogin(undefined, { timeout: 20000 })
-}
+enableAutoLogin(undefined, { timeout: 20000 })
 
 const resizeObserverLoopErrRe = /^[^(ResizeObserver loop limit exceeded)]/
 Cypress.on('uncaught:exception', (err) => {
@@ -35,7 +22,7 @@ Cypress.Commands.add(
     (subject, iframeSelector = 'iframe') => {
         cy.wrap(subject)
             .find(iframeSelector)
-            .then({ timeout: 30000 }, async ($iframe) => {
+            .then({ timeout: 45000 }, async ($iframe) => {
                 if ($iframe.length !== 1) {
                     console.error('more than 1 iframe', $iframe.length)
                     throw new Error(
