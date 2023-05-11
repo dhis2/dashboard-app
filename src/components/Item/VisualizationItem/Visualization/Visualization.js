@@ -171,7 +171,7 @@ const Visualization = ({
                     activeType={activeType}
                     visualization={visualizationConfig}
                     itemFilters={itemFilters}
-                    applyFilters={filteredVisualization}
+                    applyFilters={getFilteredVisualization}
                     filterVersion={filterVersion}
                     style={style}
                     {...rest}
