@@ -3,38 +3,38 @@ import { EXTENDED_TIMEOUT } from '../support/utils.js'
 /** Selectors **/
 
 // Dashboards bar
-export const dashboardChipSel = '[data-test="dashboard-chip"]'
-export const newButtonSel = '[data-test="new-button"]'
-export const chipStarSel = '[data-test="dhis2-uicore-chip-icon"]'
+export const dashboardChipSel = 'dashboard-chip'
+export const newButtonSel = 'new-button'
+export const chipStarSel = 'dhis2-uicore-chip-icon'
 export const dashboardSearchInputSel =
     'input:visible[placeholder="Search for a dashboard"]'
-export const showMoreLessSel = '[data-test="showmore-button"]'
-export const dragHandleSel = '[data-test="controlbar-drag-handle"]'
-export const dashboardsBarSel = '[data-test="dashboards-bar"]'
+export const showMoreLessSel = 'showmore-button'
+export const dragHandleSel = 'controlbar-drag-handle'
+export const dashboardsBarSel = 'dashboards-bar'
 
 // Active dashboard
-export const dashboardTitleSel = '[data-test="view-dashboard-title"]'
-export const dashboardsBarContainerSel = '[data-test="dashboardsbar-container"]'
-export const dashboardDescriptionSel = '[data-test="dashboard-description"]'
-export const starSel = '[data-test="button-star-dashboard"]'
-export const dashboardStarredSel = '[data-test="dashboard-starred"]'
-export const dashboardUnstarredSel = '[data-test="dashboard-unstarred"]'
-export const titleBarSel = '[data-test="title-bar"]'
+export const dashboardTitleSel = 'view-dashboard-title'
+export const dashboardsBarContainerSel = 'dashboardsbar-container'
+export const dashboardDescriptionSel = 'dashboard-description'
+export const starSel = 'button-star-dashboard'
+export const dashboardStarredSel = 'dashboard-starred'
+export const dashboardUnstarredSel = 'dashboard-unstarred'
+export const titleBarSel = 'title-bar'
 
-export const outerScrollContainerSel = '[data-test="outer-scroll-container"]'
-export const innerScrollContainerSel = '[data-test="inner-scroll-container"]'
+export const outerScrollContainerSel = 'outer-scroll-container'
+export const innerScrollContainerSel = 'inner-scroll-container'
 
 /** Functions **/
 
 export const getViewActionButton = (action) =>
     cy
-        .get(titleBarSel, EXTENDED_TIMEOUT)
+        .getBySel(titleBarSel, EXTENDED_TIMEOUT)
         .find('button')
         .contains(action, EXTENDED_TIMEOUT)
 
 export const clickViewActionButton = (action) =>
     cy
-        .get(titleBarSel, EXTENDED_TIMEOUT)
+        .getBySel(titleBarSel, EXTENDED_TIMEOUT)
         .find('button')
         .contains(action, EXTENDED_TIMEOUT)
         .click()

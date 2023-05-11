@@ -1,17 +1,18 @@
+import { dimensionsModalSel } from '../elements/dashboardFilter.js'
+import { addFilter } from '../helpers/add_filter.js'
 import { clickOnFilterBadge } from '../helpers/click_on_the_FILTERTYPE_filter_badge.js'
 import {
+    startNewDashboard,
+    openDashboard,
     addDashboardItems,
     addDashboardTitle,
     chooseToEditDashboard,
+    expectDashboardToDisplayInViewMode,
 } from '../helpers/edit_dashboard.js'
-import { addFilter } from '../helpers/helpers.js'
-import { openSLDashboard } from '../helpers/open_the_SL_dashboard.js'
 import {
     goToPhoneLandscape,
     scrollDown,
     scrollToTop,
-    expectDashboardsBarNotVisible,
-    expectDashboardsBarVisible,
     expectEditControlBarNotVisible,
     expectEditControlBarVisible,
 } from '../helpers/responsive_dashboard/phone_landscape.js'
@@ -22,20 +23,15 @@ import {
     expectWideScreenEditView,
     restoreWideScreen,
     expectWideScreenView,
-    expectFilterModalIsNotOpened,
     expectChangesAreStillThere,
-    changeUrlToNew,
     changeUrlToEdit,
-    expectDashboardDisplaysInDefaultViewMode,
 } from '../helpers/responsive_dashboard/responsive_dashboard.js'
-import { expectSLDashboardToDisplayInViewMode } from '../helpers/SL_dashboard_displays_in_view_mode.js'
-import { startNewDashboard } from '../helpers/start_new_dashboard.js'
 import { EXTENDED_TIMEOUT } from '../support/utils.js'
 
 describe('Responsive dashboard', () => {
     it('views a dashboard', () => {
         cy.visit('/', EXTENDED_TIMEOUT)
-        openSLDashboard('Delivery')
+        openDashboard('Delivery')
         goToSmallScreen()
         expectSmallScreenView()
         restoreWideScreen()
@@ -44,7 +40,7 @@ describe('Responsive dashboard', () => {
 
     it('edits an existing dashboard', () => {
         cy.visit('/', EXTENDED_TIMEOUT)
-        openSLDashboard('Delivery')
+        openDashboard('Delivery')
         chooseToEditDashboard()
         addDashboardTitle('xyz')
         addDashboardItems()
@@ -60,8 +56,7 @@ describe('Responsive dashboard', () => {
         startNewDashboard()
         addDashboardTitle('xyz')
         addDashboardItems()
-        goToSma
-        llScreen()
+        goToSmallScreen()
         expectSmallScreenEditView()
         restoreWideScreen()
         expectWideScreenEditView()
@@ -69,45 +64,47 @@ describe('Responsive dashboard', () => {
     })
 
     // FIXME
-    it.skip('changes the url to new while in small screen', () => {
-        cy.visit('/', EXTENDED_TIMEOUT)
-        openSLDashboard('Delivery')
-        goToSmallScreen()
-        changeUrlToNew()
-        expectDashboardDisplaysInDefaultViewMode('Delivery')
-    })
+    // it.skip('changes the url to new while in small screen', () => {
+    //     cy.visit('/', EXTENDED_TIMEOUT)
+    //     openDashboard('Delivery')
+    //     goToSmallScreen()
+    //     changeUrlToNew()
+    //     expectDashboardDisplaysInDefaultViewMode('Delivery')
+    // })
 
     it('changes the url to edit while in small screen', () => {
         cy.visit('/', EXTENDED_TIMEOUT)
-        openSLDashboard('Delivery')
+        openDashboard('Delivery')
         goToSmallScreen()
         changeUrlToEdit()
-        expectSLDashboardToDisplayInViewMode('Delivery')
+        expectDashboardToDisplayInViewMode('Delivery')
     })
 
     it('cannot edit dashboard filter while in small screen', () => {
         cy.visit('/', EXTENDED_TIMEOUT)
-        openSLDashboard('Delivery')
+        openDashboard('Delivery')
         addFilter('Period')
         goToSmallScreen()
         clickOnFilterBadge('Period')
-        expectFilterModalIsNotOpened()
+
+        // filter modal is not opened
+        cy.getBySel(dimensionsModalSel, EXTENDED_TIMEOUT).should('not.exist')
     })
 
     // FIXME
-    it.skip('Dashboards bar scrolls away in phone landscape', () => {
-        cy.visit('/', EXTENDED_TIMEOUT)
-        openSLDashboard('Delivery')
-        goToPhoneLandscape()
-        scrollDown()
-        expectDashboardsBarNotVisible()
-        scrollToTop()
-        expectDashboardsBarVisible()
-    })
+    // it.skip('Dashboards bar scrolls away in phone landscape', () => {
+    //     cy.visit('/', EXTENDED_TIMEOUT)
+    //     openDashboard('Delivery')
+    //     goToPhoneLandscape()
+    //     scrollDown()
+    //     expectDashboardsBarNotVisible()
+    //     scrollToTop()
+    //     expectDashboardsBarVisible()
+    // })
 
     it('Edit bar scrolls away in phone landscape', () => {
         cy.visit('/', EXTENDED_TIMEOUT)
-        openSLDashboard('Delivery')
+        openDashboard('Delivery')
         chooseToEditDashboard()
         goToPhoneLandscape()
         scrollDown()

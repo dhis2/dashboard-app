@@ -37,8 +37,8 @@ const interceptDashboardRequest = () => {
 
 export const openDashboardWithItemsMissingAType = (title) => {
     interceptDashboardRequest()
-    cy.get(dashboardChipSel, EXTENDED_TIMEOUT).contains(title).click()
-    cy.get(dashboardTitleSel).should('be.visible').and('contain', title)
+    cy.getBySel(dashboardChipSel, EXTENDED_TIMEOUT).contains(title).click()
+    cy.getBySel(dashboardTitleSel).should('be.visible').and('contain', title)
 }
 
 export const itemsMissingTypeAreDisplayedWithAWarning = () => {

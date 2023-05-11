@@ -5,15 +5,14 @@ import {
     clickViewActionButton,
 } from '../elements/viewDashboard.js'
 import {
+    startNewDashboard,
     addDashboardTitle,
     addDashboardItems,
     saveDashboard,
-    openExistingDashboard,
+    openDashboard,
     chooseToEditDashboard,
     expectDashboardToDisplayInViewMode,
 } from '../helpers/edit_dashboard.js'
-import { clickExitWithoutSaving } from '../helpers/helpers.js'
-import { startNewDashboard } from '../helpers/start_new_dashboard.js'
 import {
     EXTENDED_TIMEOUT,
     createDashboardTitle,
@@ -64,7 +63,7 @@ export const expectNorwegianTitleAndDescriptionToBeDisplayed = () => {
     // reload the dashboard
     cy.visit('/')
 
-    cy.get(dashboardTitleSel, EXTENDED_TIMEOUT)
+    cy.getBySel(dashboardTitleSel, EXTENDED_TIMEOUT)
         .should('be.visible')
         .and('contain', norwegianTitle)
 
@@ -92,7 +91,7 @@ describe.skip('Translate title and description', () => {
 
     it('adds translations to a dashboard and save dashboard', () => {
         cy.visit('/', EXTENDED_TIMEOUT)
-        openExistingDashboard(TEST_DASHBOARD_TITLE)
+        openDashboard(TEST_DASHBOARD_TITLE)
         chooseToEditDashboard()
         //     And I add translations for dashboard name and description
         //     And dashboard is saved
@@ -102,10 +101,14 @@ describe.skip('Translate title and description', () => {
     // FIXME
     it('adds translations to a dashboard and discard dashboard changes', () => {
         cy.visit('/', EXTENDED_TIMEOUT)
-        openExistingDashboard(TEST_DASHBOARD_TITLE)
+        openDashboard(TEST_DASHBOARD_TITLE)
         chooseToEditDashboard()
         //     And I add translations for dashboard name and description
-        clickExitWithoutSaving()
+        clickEditActionButton('Exit without saving')
         //     Then Norwegian title and description are displayed
+    })
+
+    it('deletes the dashboard', () => {
+        // FIXME
     })
 })

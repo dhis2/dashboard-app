@@ -1,4 +1,6 @@
+import { clickEditActionButton } from '../elements/editDashboard.js'
 import {
+    startNewDashboard,
     chooseToEditDashboard,
     addDashboardTitle,
     addDashboardItems,
@@ -24,8 +26,6 @@ import {
     // expectFilterSettingsToBeUnrestricted,
     visitDashboardInEditMode,
 } from '../helpers/filter_restrict.js'
-import { clickExitWithoutSaving } from '../helpers/helpers.js'
-import { startNewDashboard } from '../helpers/start_new_dashboard.js'
 import { EXTENDED_TIMEOUT, createDashboardTitle } from '../support/utils.js'
 
 const TEST_DASHBOARD_TITLE = createDashboardTitle('af')
@@ -90,7 +90,7 @@ describe('Editing Filter Restrictions', () => {
         clickToRestrictFilterSettings()
         addFacilityOwnershipToSelectedFilters()
         clickConfirm()
-        clickExitWithoutSaving()
+        clickEditActionButton('Exit without saving')
         expectDashboardToDisplayInViewMode(TEST_DASHBOARD_TITLE)
         chooseToEditDashboard(TEST_DASHBOARD_TITLE)
         clickFilterSettings()
