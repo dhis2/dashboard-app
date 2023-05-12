@@ -1,7 +1,7 @@
-import { dimensionsModalSel } from '../../elements/dashboardFilter.js'
-import { titleInputSel } from '../../elements/editDashboard.js'
-import { newButtonSel } from '../../elements/viewDashboard.js'
-import { EXTENDED_TIMEOUT } from '../../support/utils.js'
+import { dimensionsModalSel } from '../elements/dashboardFilter.js'
+import { titleInputSel } from '../elements/editDashboard.js'
+import { newButtonSel } from '../elements/viewDashboard.js'
+import { EXTENDED_TIMEOUT } from '../support/utils.js'
 
 export const goToSmallScreen = () => {
     cy.viewport(460, 600)

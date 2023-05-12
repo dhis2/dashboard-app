@@ -15,7 +15,7 @@ import {
     scrollToTop,
     expectEditControlBarNotVisible,
     expectEditControlBarVisible,
-} from '../helpers/responsive_dashboard/phone_landscape.js'
+} from '../helpers/phone_landscape.js'
 import {
     goToSmallScreen,
     expectSmallScreenView,
@@ -25,7 +25,7 @@ import {
     expectWideScreenView,
     expectChangesAreStillThere,
     changeUrlToEdit,
-} from '../helpers/responsive_dashboard/responsive_dashboard.js'
+} from '../helpers/responsive_dashboard.js'
 import { EXTENDED_TIMEOUT } from '../support/utils.js'
 
 describe('Responsive dashboard', () => {
