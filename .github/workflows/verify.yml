@@ -131,7 +131,7 @@ jobs:
               run: yarn cypress install
 
             - name: End-to-End tests
-              uses: cypress-io/github-action@v2
+              uses: cypress-io/github-action@v5
               with:
                   record: true
                   parallel: true
