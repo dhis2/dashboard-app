@@ -1,7 +1,9 @@
 import { dashboards } from '../assets/backends/sierraLeone_236.js'
 import {
     getDashboardItem,
-    // gridItemClass,
+    mapLegendButtonClass,
+    mapLegendTitleClass,
+    gridItemClass,
     // mapClass,
 } from '../elements/dashboardItem.js'
 import {
@@ -20,6 +22,11 @@ import {
     printOippIsDisplayed,
     printLayoutIsDisplayed,
 } from '../helpers/print.js'
+import {
+    resizeDashboardsBarDown,
+    resizeDashboardsBarUp,
+    expectDashboardsBarHeightToBeUpdated,
+} from '../helpers/resize_dashboards_bar.js'
 import { EXTENDED_TIMEOUT } from '../support/utils.js'
 
 // const toggleShowMoreDashboards = () => cy.get(showMoreLessSel).click()
@@ -79,11 +86,11 @@ describe('View dashboard', () => {
             .and('contain', title)
 
         // FIXME
-        // cy.get(`${gridItemClass}.VISUALIZATION`)
-        //     .first()
-        //     .getIframeBody()
-        //     .find('.highcharts-background')
-        //     .should('exist')
+        cy.get(`${gridItemClass}.VISUALIZATION`)
+            .first()
+            .getIframeBody()
+            .find('.highcharts-background')
+            .should('exist')
     })
 
     it('views the print layout preview', () => {
@@ -129,17 +136,18 @@ describe('View dashboard', () => {
         cy.visit('/', EXTENDED_TIMEOUT)
         openDashboard('Cases Malaria')
 
+        // FIXME
         // hover over the map legend button
         const mapItemUid = dashboards['Cases Malaria'].items.map.itemUid
         getDashboardItem(mapItemUid)
             .getIframeBody()
-            .find('.dhis2-map-legend-button', EXTENDED_TIMEOUT)
+            .find(mapLegendButtonClass, EXTENDED_TIMEOUT)
             .trigger('mouseover')
 
         // the legend title shows the tracked entity name
         getDashboardItem(mapItemUid)
             .getIframeBody()
-            .find('.dhis2-map-legend-title')
+            .find(mapLegendTitleClass)
             .contains('Malaria case registration')
             .should('be.visible')
     })
@@ -156,8 +164,8 @@ describe('View dashboard', () => {
     it.skip('changes the height of the control bar', () => {
         cy.visit('/', EXTENDED_TIMEOUT)
         openDashboard(DELIVERY_DASHBOARD_TITLE)
-        // When I drag to increase the height of the control bar
-        // Then the control bar height should be updated
+        resizeDashboardsBarUp()
+        expectDashboardsBarHeightToBeUpdated()
     })
 
     // FIXME: flaky test
@@ -165,7 +173,7 @@ describe('View dashboard', () => {
         cy.visit('/', EXTENDED_TIMEOUT)
         openDashboard(DELIVERY_DASHBOARD_TITLE)
         // When I toggle show more dashboards
-        // And I drag to decrease the height of the control bar
-        // Then the control bar height should be updated
+        resizeDashboardsBarDown()
+        expectDashboardsBarHeightToBeUpdated()
     })
 })

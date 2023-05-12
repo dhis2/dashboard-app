@@ -120,7 +120,6 @@ describe('Editing Filter Restrictions', () => {
         expectDashboardToDisplayInViewMode(TEST_DASHBOARD_TITLE)
     })
 
-    // This test must be last
     it('deletes the dashboard', () => {
         visitDashboardInEditMode(dashboardId)
         deleteDashboard()

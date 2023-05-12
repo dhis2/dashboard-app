@@ -1,4 +1,5 @@
 import {
+    mapClass,
     gridItemClass,
     chartClass,
     chartSubtitleClass,
@@ -70,11 +71,11 @@ export const openDashboard = (title) => {
     cy.getBySel(dashboardTitleSel).should('be.visible').and('contain', title)
 
     // FIXME - confirm existing vis (pass a second arg to fn)
-    // cy.get(`${gridItemClass}.VISUALIZATION`, EXTENDED_TIMEOUT)
-    //     .first()
-    //     .getIframeBody()
-    //     .find(chartClass, EXTENDED_TIMEOUT)
-    //     .should('exist')
+    cy.get(`${gridItemClass}.VISUALIZATION`, EXTENDED_TIMEOUT)
+        .first()
+        .getIframeBody()
+        .find(chartClass, EXTENDED_TIMEOUT)
+        .should('exist')
 }
 
 export const startNewDashboard = () => {
@@ -92,17 +93,17 @@ export const expectDashboardToDisplayInViewMode = (title) => {
     cy.location().should((loc) => expectViewRoute(loc.hash))
 
     // FIXME
-    // cy.get(`${gridItemClass}.VISUALIZATION`)
-    //     .getIframeBody()
-    //     .find(chartClass, EXTENDED_TIMEOUT)
-    //     .should('be.visible')
+    cy.get(`${gridItemClass}.VISUALIZATION`)
+        .getIframeBody()
+        .find(chartClass, EXTENDED_TIMEOUT)
+        .should('be.visible')
 
     // Some map visualization load very slowly:
     // https://dhis2.atlassian.net/browse/DHIS2-14365
-    //    cy.get(`${gridItemClass}.MAP`)
-    //        .getIframeBody()
-    //        .find(mapClass, EXTENDED_TIMEOUT)
-    //        .should('be.visible')
+    cy.get(`${gridItemClass}.MAP`)
+        .getIframeBody()
+        .find(mapClass, EXTENDED_TIMEOUT)
+        .should('be.visible')
 
     cy.getBySel(dashboardTitleSel).should('be.visible').and('contain', title)
 }

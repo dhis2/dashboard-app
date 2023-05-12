@@ -43,7 +43,7 @@ describe('Edit errors', () => {
         clickEditActionButton('Save changes')
 
         // Then I remain in edit mode and error message is displayed
-        cy.get('[data-test="dhis2-uicore-alertbar"]')
+        cy.getBySel('dhis2-uicore-alertbar')
             .should('be.visible')
             .should('have.class', 'critical')
 
@@ -58,7 +58,10 @@ describe('Edit errors', () => {
         // And A 500 error is thrown when I delete the dashboard
         cy.intercept('DELETE', '**/dashboards/*', { statusCode: 500 })
         clickEditActionButton('Delete')
-        cy.get(confirmActionDialogSel).find('button').contains('Delete').click()
+        cy.getBySel(confirmActionDialogSel)
+            .find('button')
+            .contains('Delete')
+            .click()
 
         // Then I remain in edit mode and error message is displayed
         cy.get('[data-test="dhis2-uicore-alertbar"]')

@@ -1,6 +1,6 @@
 import { dimensionsModalSel } from '../elements/dashboardFilter.js'
 import { addFilter } from '../helpers/add_filter.js'
-import { clickOnFilterBadge } from '../helpers/click_on_the_FILTERTYPE_filter_badge.js'
+import { clickOnFilterBadge } from '../helpers/dashboard_filter.js'
 import {
     startNewDashboard,
     openDashboard,

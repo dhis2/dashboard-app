@@ -1,11 +1,11 @@
-import { When, Then } from '@badeball/cypress-cucumber-preprocessor'
-import { getSharingDialogUserSearch } from '../../../elements/sharingDialog.js'
-import { dashboardTitleSel } from '../../../elements/viewDashboard.js'
-import { EXTENDED_TIMEOUT } from '../../../support/utils.js'
+import { getSharingDialogUserSearch } from '../elements/sharingDialog.js'
+import { dashboardTitleSel } from '../elements/viewDashboard.js'
+import { EXTENDED_TIMEOUT } from '../support/utils.js'
 
 const USER_NAME = 'Kevin Boateng'
 
-When('I change sharing settings', () => {
+// When('I change sharing settings', () => {
+export const changeSharingSettings = () => {
     cy.get('button').contains('Share', EXTENDED_TIMEOUT).click()
 
     //confirm that Boateng is not currently listed
@@ -17,9 +17,10 @@ When('I change sharing settings', () => {
     cy.get('div').contains(USER_NAME).should('be.visible')
 
     cy.get('button').contains('close', { matchCase: false }).click()
-})
+}
 
-Then('the new sharing settings should be preserved', () => {
+// Then('the new sharing settings should be preserved', () => {
+export const newSharingSettingsArePreserved = () => {
     cy.visit('/')
     cy.getBySel(dashboardTitleSel, EXTENDED_TIMEOUT).should('be.visible')
     cy.get('button').contains('Share', EXTENDED_TIMEOUT).should('be.visible')
@@ -27,4 +28,4 @@ Then('the new sharing settings should be preserved', () => {
 
     cy.get('hr').should('have.length', 4)
     cy.get('div').contains(USER_NAME, EXTENDED_TIMEOUT).should('be.visible')
-})
+}

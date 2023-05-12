@@ -1,12 +1,7 @@
-import { When, Then } from '@badeball/cypress-cucumber-preprocessor'
-import {
-    dragHandleSel,
-    dashboardsBarSel,
-} from '../../../elements/viewDashboard.js'
-import { EXTENDED_TIMEOUT } from '../../../support/utils.js'
+import { dragHandleSel, dashboardsBarSel } from '../elements/viewDashboard.js'
+import { EXTENDED_TIMEOUT } from '../support/utils.js'
 
-// Scenario: I change the height of the control bar
-When('I drag to increase the height of the control bar', () => {
+export const resizeDashboardsBarUp = () => {
     cy.intercept('PUT', '**/userDataStore/dashboard/controlBarRows').as(
         'putRows'
     )
@@ -16,9 +11,9 @@ When('I drag to increase the height of the control bar', () => {
         .trigger('mouseup')
 
     cy.wait('@putRows').its('response.statusCode').should('eq', 201)
-})
+}
 
-Then('the control bar height should be updated', () => {
+export const expectDashboardsBarHeightToBeUpdated = () => {
     cy.visit('/')
     cy.get(dashboardsBarSel, EXTENDED_TIMEOUT)
         .invoke('height')
@@ -30,9 +25,9 @@ Then('the control bar height should be updated', () => {
         .trigger('mousemove', { clientY: 71 })
         .trigger('mouseup')
     cy.wait('@putRows').its('response.statusCode').should('eq', 201)
-})
+}
 
-When('I drag to decrease the height of the control bar', () => {
+export const resizeDashboardsBarDown = () => {
     cy.intercept('PUT', '**/userDataStore/dashboard/controlBarRows').as(
         'putRows'
     )
@@ -42,4 +37,4 @@ When('I drag to decrease the height of the control bar', () => {
         .trigger('mouseup')
 
     cy.wait('@putRows').its('response.statusCode').should('eq', 201)
-})
+}

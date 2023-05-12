@@ -40,11 +40,11 @@ export const errorMessageIsDisplayedOnItem = () => {
         .should('be.visible')
 
     // FIXME
-    //    cy.get(`${gridItemClass}.VISUALIZATION`)
-    //        .first()
-    //        .getIframeBody()
-    //        .find(chartClass)
-    //        .should('not.exist')
+    cy.get(`${gridItemClass}.VISUALIZATION`)
+        .first()
+        .getIframeBody()
+        .find(chartClass)
+        .should('not.exist')
 }
 
 export const errorMessageNotIncludingLinkIsDisplayedOnItem = () => {

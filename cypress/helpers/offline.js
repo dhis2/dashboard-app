@@ -1,11 +1,11 @@
-import { itemMenuButtonSel } from '../../elements/dashboardItem.js'
+import { itemMenuButtonSel } from '../elements/dashboardItem.js'
 import {
     titleInputSel,
     confirmActionDialogSel,
     clickEditActionButton,
     itemSearchSel,
-} from '../../elements/editDashboard.js'
-import { getSharingDialogUserSearch } from '../../elements/sharingDialog.js'
+} from '../elements/editDashboard.js'
+import { getSharingDialogUserSearch } from '../elements/sharingDialog.js'
 import {
     newButtonSel,
     getViewActionButton,
@@ -13,13 +13,13 @@ import {
     dashboardTitleSel,
     dashboardChipSel,
     dashboardDescriptionSel,
-} from '../../elements/viewDashboard.js'
+} from '../elements/viewDashboard.js'
 import {
     EXTENDED_TIMEOUT,
     goOnline,
     goOffline,
     createDashboardTitle,
-} from '../../support/utils.js'
+} from '../support/utils.js'
 
 beforeEach(() => {
     goOnline()
@@ -46,7 +46,7 @@ const createDashboard = (cacheState) => {
         : UNCACHED_DASHBOARD_TITLE
 
     cy.getBySel(titleInputSel, EXTENDED_TIMEOUT).type(title)
-    cy.get('[data-test="item-search"]').click()
+    cy.getBySel('item-search').click()
     if (cachedDashboard) {
         cy.get(`[data-test="menu-item-${CACHED_DASHBOARD_ITEM_NAME}"]`).click()
     } else {
@@ -121,29 +121,29 @@ const checkCorrectMoreOptionsEnabledState = (online, cacheState) => {
 }
 
 const closeMenu = () => {
-    cy.get('[data-test="dhis2-uicore-layer"]').click('topLeft')
+    cy.getBySel('dhis2-uicore-layer').click('topLeft')
 }
 
 const deleteDashboard = (dashboardTitle) => {
     openDashboard(dashboardTitle)
     enterEditMode()
     clickEditActionButton('Delete')
-    cy.get(confirmActionDialogSel).find('button').contains('Delete').click()
+    cy.getBySel(confirmActionDialogSel)
+        .find('button')
+        .contains('Delete')
+        .click()
     cy.getBySel(dashboardTitleSel).should('be.visible')
 }
 
-// Given('I create two dashboards', () => {
 export const createTwoDashboards = () => {
     createDashboard(UNCACHED)
     createDashboard(CACHED)
 }
 
-// When('I cache one of the dashboards', () => {
 export const cacheOneDashboard = () => {
     openAndCacheDashboard(CACHED_DASHBOARD_TITLE)
 }
 
-// Then('the cached dashboard has a Last Updated time and chip icon', () => {
 export const checkCachedDashboard = () => {
     // openDashboard(CACHED_DASHBOARD_TITLE)
     // cy.contains(OFFLINE_DATA_LAST_UPDATED_TEXT).should('be.visible')
@@ -156,13 +156,11 @@ export const checkCachedDashboard = () => {
         .should('eq', 1)
 }
 
-// Then(
-//     'the uncached dashboard does not have a Last Updated time and no chip icon',
-//     () => {
 export const checkUncachedDashboard = () => {
     openDashboard(UNCACHED_DASHBOARD_TITLE)
     cy.contains(OFFLINE_DATA_LAST_UPDATED_TEXT).should('not.exist')
 
+    // FIXME
     // cy.getBySel(dashboardChipSel)
     //     .contains(CACHED_DASHBOARD_TITLE)
     //     .siblings('svg')
@@ -170,7 +168,6 @@ export const checkUncachedDashboard = () => {
     //     .should('not.exist')
 }
 
-// Given('I open an uncached dashboard', () => {
 export const openUncachedDashboard = () => {
     openDashboard(UNCACHED_DASHBOARD_TITLE)
     cy.contains(OFFLINE_DATA_LAST_UPDATED_TEXT).should('not.exist')
@@ -179,30 +176,26 @@ export const openUncachedDashboard = () => {
     closeMenu()
 }
 
-// When('connectivity is turned off', () => {
 export const turnOffConnectivity = () => {
     goOffline()
-    cy.get('[data-test="headerbar-online-status"]')
+    cy.getBySel('headerbar-online-status')
         .contains('Offline')
         .should('be.visible')
-    cy.get('[data-test="headerbar-online-status"]')
+    cy.getBySel('headerbar-online-status')
         .contains('Online')
         .should('not.exist')
 }
 
-// When('connectivity is turned on', () => {
 export const turnOnConnectivity = () => {
     goOnline()
-    cy.get('[data-test="headerbar-online-status"]')
+    cy.getBySel('headerbar-online-status')
         .contains('Online')
         .should('be.visible')
-    cy.get('[data-test="headerbar-online-status"]')
+    cy.getBySel('headerbar-online-status')
         .contains('Offline')
         .should('not.exist')
 }
 
-// Then(
-//     'all actions for {string} dashboard requiring connectivity are disabled',
 export const checkConnectivityDisabled = (cacheState) => {
     // new button
     cy.getBySel(newButtonSel).should('be.disabled')
@@ -215,7 +208,7 @@ export const checkConnectivityDisabled = (cacheState) => {
     checkCorrectMoreOptionsEnabledState(false, cacheState)
 
     // item context menu (everything except view fullscreen)
-    cy.get(itemMenuButtonSel, EXTENDED_TIMEOUT).click()
+    cy.getBySel(itemMenuButtonSel, EXTENDED_TIMEOUT).click()
 
     cy.contains('li', 'View as').should('have.class', 'disabled')
     cy.contains('li', 'Open in Data Visualizer app').should(
@@ -229,7 +222,6 @@ export const checkConnectivityDisabled = (cacheState) => {
     cy.contains('li', 'View fullscreen').should('not.have.class', 'disabled')
 }
 
-// Then('all edit actions requiring connectivity are disabled', () => {
 export const checkEditActionsDisabled = () => {
     cy.contains('Save changes').should('be.disabled')
     cy.contains('Print preview').should('be.disabled')
@@ -239,10 +231,9 @@ export const checkEditActionsDisabled = () => {
     cy.contains('Exit without saving').should('not.be.disabled')
 
     cy.contains('Change layout').should('be.disabled')
-    cy.get(itemSearchSel).find('input').should('have.class', 'disabled')
+    cy.getBySel(itemSearchSel).find('input').should('have.class', 'disabled')
 }
 
-// Then('all edit actions requiring connectivity are enabled', () => {
 export const checkEditActionsEnabled = () => {
     cy.contains('Save changes').should('be.enabled')
     cy.contains('Print preview').should('be.enabled')
@@ -252,35 +243,32 @@ export const checkEditActionsEnabled = () => {
     cy.contains('Exit without saving').should('be.enabled')
 
     cy.contains('Change layout').should('be.enabled')
-    cy.get(itemSearchSel).find('input').should('not.have.class', 'disabled')
+    cy.getBySel(itemSearchSel)
+        .find('input')
+        .should('not.have.class', 'disabled')
 }
 
-// Given('I open and cache a dashboard', () => {
 export const openAndCacheDashboard2 = () => {
     openAndCacheDashboard(CACHED_DASHBOARD_TITLE)
 }
 
-// Then('the cached dashboard options are available', () => {
 export const checkCachedDashboardOptions = () => {
     checkCorrectMoreOptions(CACHED)
     closeMenu()
 }
 
-// When('I click to open an uncached dashboard', () => {
 export const clickToOpenUncachedDashboard = () => {
     openDashboard(UNCACHED_DASHBOARD_TITLE)
 
     cy.contains(OFFLINE_DATA_LAST_UPDATED_TEXT).should('not.exist')
 }
 
-// When('I click to open an uncached dashboard when offline', () => {
 export const clickToOpenUncachedDashboardWhenOffline = () => {
     cy.getBySel(dashboardChipSel, EXTENDED_TIMEOUT)
         .contains(UNCACHED_DASHBOARD_TITLE)
         .click()
 }
 
-// When('I click to open a cached dashboard when offline', () => {
 export const clickToOpenCachedDashboardWhenOffline = () => {
     openDashboard(CACHED_DASHBOARD_TITLE)
 }
@@ -301,13 +289,11 @@ export const checkUncachedDashboard2 = () => {
     cy.contains(UNCACHED_DASHBOARD_ITEM_NAME).should('be.visible')
 }
 
-// Given('I open an uncached dashboard in edit mode', () => {
 export const openUncachedDashboardInEditMode = () => {
     openDashboard(UNCACHED_DASHBOARD_TITLE)
     enterEditMode()
 }
 
-// Then('the dashboard is not available and offline message is displayed', () => {
 export const dashboardNotAvail = () => {
     cy.getBySel(dashboardTitleSel).should('not.exist')
 
@@ -316,13 +302,11 @@ export const dashboardNotAvail = () => {
     )
 }
 
-// Given('I open a cached dashboard in edit mode', () => {
 export const openCachedDashboardInEditMode = () => {
     openAndCacheDashboard(CACHED_DASHBOARD_TITLE)
     enterEditMode()
 }
 
-// When('I open sharing settings', () => {
 export const openSharingSettings = () => {
     clickViewActionButton('Share')
     cy.get('h2').contains(CACHED_DASHBOARD_TITLE).should('be.visible')
@@ -334,48 +318,38 @@ export const expectSharingDisabled = () => {
     // TODO - implement once the new sharing dialog is merged
 }
 
-// When('I open the interpretations panel', () => {
 export const openInterpretationsPanel = () => {
-    cy.get(itemMenuButtonSel, EXTENDED_TIMEOUT).click()
+    cy.getBySel(itemMenuButtonSel, EXTENDED_TIMEOUT).click()
     cy.contains('Show details and interpretations').click()
     cy.get('[placeholder="Write an interpretation"]')
         .scrollIntoView()
         .should('be.visible')
 }
 
-// Then('it is not possible to interact with interpretations', () => {
 export const expectInterpretationsDisabled = () => {
     cy.contains('Not available offline').should('be.visible')
 
+    // FIXME
     // cy.get('[placeholder="Write an interpretation"]')
     //     .scrollIntoView()
     //     .should('not.be.visible')
 }
 
-// Given('I delete the cached and uncached dashboard', () => {
 export const deleteCachedAndUncachedDashboard = () => {
     deleteDashboard(UNCACHED_DASHBOARD_TITLE)
     deleteDashboard(CACHED_DASHBOARD_TITLE)
 }
 
-// When('I choose Show Description', () => {
-export const showDashboardDescription = () => {
-    clickViewActionButton('More')
-    cy.contains('Show description').click()
-}
-
 // Then('the description is shown along with a warning', () => {
 export const checkDashboardDescriptionWarning = () => {
-    cy.get(dashboardDescriptionSel).should('be.visible')
+    cy.getBySel(dashboardDescriptionSel).should('be.visible')
 }
 
-// When('I click to Remove from offline storage', () => {
 export const removeFromOfflineStorage = () => {
     clickViewActionButton('More')
     cy.contains('Remove from offline storage').click()
 }
 
-// Then('the dashboard is not cached', () => {
 export const checkDashboardNotCached = () => {
     cy.contains(OFFLINE_DATA_LAST_UPDATED_TEXT).should('not.exist')
 }
