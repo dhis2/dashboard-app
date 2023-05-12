@@ -18,6 +18,7 @@ const d2Config = {
         'report',
         'eventChart',
         'eventReport',
+        'eventVisualization',
         'dashboard',
         'organisationUnit',
         'userGroup',
