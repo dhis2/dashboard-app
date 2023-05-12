@@ -9,7 +9,7 @@ import { openDashboard } from '../helpers/edit_dashboard.js'
 import {
     openChartInDataVisualizerApp,
     expectChartToBeOpenedInDataVisualizerApp,
-} from '../helpers/item_context_menu/open_in_app.js'
+} from '../helpers/open_in_app.js'
 import { EXTENDED_TIMEOUT } from '../support/utils.js'
 
 describe('Item context menu', () => {
