@@ -41,11 +41,18 @@ const query = {
             paging: false,
         },
     },
+    apps: {
+        resource: 'apps',
+    },
 }
 
-const providerDataTransformation = ({ rootOrgUnits }) => ({
-    rootOrgUnits: rootOrgUnits.organisationUnits,
-})
+const providerDataTransformation = ({ rootOrgUnits, apps }) => {
+    const lineListingApp = apps.find((app) => app.key === 'line-listing') || {}
+    return {
+        rootOrgUnits: rootOrgUnits.organisationUnits,
+        lineListingAppVersion: lineListingApp.version || '0.0.0',
+    }
+}
 
 const AppWrapper = () => {
     const dataEngine = useDataEngine()
