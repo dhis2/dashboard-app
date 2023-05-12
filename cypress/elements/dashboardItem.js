@@ -12,6 +12,7 @@ export const itemMenuButtonSel = 'dashboarditem-menu-button'
 
 export const mapLegendButtonClass = '.dhis2-map-legend-button'
 export const mapLegendContentClass = '.dhis2-map-legend-content'
+export const mapLegendTitleClass = '.dhis2-map-legend-title'
 
 export const getDashboardItem = (itemUid) =>
     cy.getBySel(`dashboarditem-${itemUid}`, EXTENDED_TIMEOUT)

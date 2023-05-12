@@ -41,21 +41,21 @@ export const clickToRestrictFilterSettings = () => {
 }
 
 export const clickAwayWithoutConfirming = () => {
-    cy.get('[data-test=dhis2-uicore-layer]').click('topLeft')
+    cy.getBySel('dhis2-uicore-layer').click('topLeft')
 }
 
 export const expectPeriodAndOrgUnitToBeSelectedByDefault = () => {
-    cy.get('[data-test="dhis2-uicore-transfer-rightside"]')
+    cy.getBySel('dhis2-uicore-transfer-rightside')
         .contains('Period')
         .should('be.visible')
-    cy.get('[data-test="dhis2-uicore-transfer-rightside"]')
+    cy.getBySel('dhis2-uicore-transfer-rightside')
         .contains('Organisation unit')
         .should('be.visible')
 }
 
 export const addFacilityOwnershipToSelectedFilters = () => {
     cy.get('div').contains('Facility Ownership').click()
-    cy.get('[data-test="dhis2-uicore-transfer-actions-addindividual"]').click()
+    cy.getBySel('dhis2-uicore-transfer-actions-addindividual').click()
 }
 
 export const clickToAllowAllFilters = () => {
@@ -66,7 +66,7 @@ export const expectFilterRestrictionsToBeRestricted = () => {
     cy.contains('Only allow filtering by selected dimensions')
         .find('input')
         .should('be.checked')
-    cy.get('[data-test="dhis2-uicore-transfer-rightside"]')
+    cy.getBySel('dhis2-uicore-transfer-rightside')
         .contains('Facility Ownership')
         .should('be.visible')
 }
@@ -76,7 +76,7 @@ export const clickConfirm = () => {
 }
 
 export const removeAllFiltersFromSelectedFilters = () => {
-    cy.get('[data-test="dhis2-uicore-transfer-actions-removeall"]').click()
+    cy.getBySel('dhis2-uicore-transfer-actions-removeall').click()
 }
 
 export const clickAddFilter = () => {
@@ -84,13 +84,13 @@ export const clickAddFilter = () => {
 }
 
 export const expectFacilityOwnershipToBeOnlyDimension = () => {
-    cy.get(filterDimensionsPanelSel)
+    cy.getBySel(filterDimensionsPanelSel)
         .contains('Facility Ownership')
         .should('be.visible')
-    cy.get(filterDimensionsPanelSel)
+    cy.getBySel(filterDimensionsPanelSel)
         .contains('MAIN DIMENSIONS', { matchCase: false })
         .should('not.exist')
-    cy.get(filterDimensionsPanelSel)
+    cy.getBySel(filterDimensionsPanelSel)
         .contains('YOUR DIMENSIONS', { matchCase: false })
         .next('ul')
         .find('li')
@@ -103,7 +103,10 @@ export const expectAddFilterButtonToBeInvisible = () => {
 
 export const deleteDashboard = () => {
     clickEditActionButton('Delete')
-    cy.get(confirmActionDialogSel).find('button').contains('Delete').click()
+    cy.getBySel(confirmActionDialogSel)
+        .find('button')
+        .contains('Delete')
+        .click()
 }
 
 export const expectDifferentDashboardToDisplay = (title) => {

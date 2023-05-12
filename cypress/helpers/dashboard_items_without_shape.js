@@ -1,9 +1,9 @@
-import { Given } from '@badeball/cypress-cucumber-preprocessor'
-import { dashboards } from '../../../assets/backends/index.js'
-import { dashboardChipSel } from '../../../elements/viewDashboard.js'
-import { EXTENDED_TIMEOUT } from '../../../support/utils.js'
+import { dashboards } from '../assets/backends/index.js'
+import { dashboardChipSel } from '../elements/viewDashboard.js'
+import { EXTENDED_TIMEOUT } from '../support/utils.js'
 
-Given('I open the {string} dashboard with shapes removed', (title) => {
+// TODO - not currently in use
+export const openDashboardWithoutShapes = (title) => {
     const regex = new RegExp(`dashboards/${dashboards[title].id}`, 'g')
     cy.intercept(regex, (req) => {
         req.reply((res) => {
@@ -18,4 +18,4 @@ Given('I open the {string} dashboard with shapes removed', (title) => {
         })
     })
     cy.getBySel(dashboardChipSel, EXTENDED_TIMEOUT).contains(title).click()
-})
+}

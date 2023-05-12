@@ -16,7 +16,9 @@ export const addFilter = (dimensionType, filterName) => {
 
     // select an item in the modal
     if (dimensionType === 'Period') {
-        cy.getBySelLike(unselectedItemsSel).contains(filterName).dblclick()
+        cy.get('[data-test*="dimension-transfer-sourceoptions"]')
+            .contains(filterName)
+            .dblclick()
     } else if (dimensionType === 'Organisation unit') {
         cy.getBySel(orgUnitTreeSel, EXTENDED_TIMEOUT)
             .find('[type="checkbox"]', EXTENDED_TIMEOUT)

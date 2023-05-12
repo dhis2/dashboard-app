@@ -21,6 +21,7 @@ import { getApiBaseUrl, EXTENDED_TIMEOUT } from '../support/utils.js'
 //         .should('eq', MAX_DASHBOARDS_BAR_HEIGHT)
 // }
 
+// FIXME
 describe.skip('Control bar rows', () => {
     beforeEach(() => {
         cy.request({

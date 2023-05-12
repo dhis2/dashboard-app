@@ -12,12 +12,12 @@ export const starDashboardFails = (title) => {
         statusCode: 409,
     }).as('starDashboardFail')
 
-    cy.get(starSel).click()
+    cy.getBySel(starSel).click()
     cy.wait('@starDashboardFail').its('response.statusCode').should('eq', 409)
 }
 
 export const expectDashboardNotStarredWarning = () => {
-    cy.get('[data-test="dhis2-uicore-alertbar"]')
+    cy.getBySel('dhis2-uicore-alertbar')
         .should('be.visible')
         .should('have.class', 'warning')
 
@@ -26,8 +26,8 @@ export const expectDashboardNotStarredWarning = () => {
 
 export const expectDashboardNotStarred = (title) => {
     // check for the unfilled star next to the title
-    cy.get(dashboardUnstarredSel).should('be.visible')
-    cy.get(dashboardStarredSel).should('not.exist')
+    cy.getBySel(dashboardUnstarredSel).should('be.visible')
+    cy.getBySel(dashboardStarredSel).should('not.exist')
 
     cy.getBySel(dashboardChipSel).contains(title).siblings().should('not.exist')
 }
