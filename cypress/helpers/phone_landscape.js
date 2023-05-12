@@ -1,9 +1,9 @@
-import { actionsBarSel } from '../../elements/editDashboard.js'
+import { actionsBarSel } from '../elements/editDashboard.js'
 import {
     dashboardsBarSel,
     outerScrollContainerSel,
-} from '../../elements/viewDashboard.js'
-import { EXTENDED_TIMEOUT } from '../../support/utils.js'
+} from '../elements/viewDashboard.js'
+import { EXTENDED_TIMEOUT } from '../support/utils.js'
 
 export const goToPhoneLandscape = () => {
     cy.viewport(600, 480)
