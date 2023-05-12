@@ -132,7 +132,7 @@ export const itemTypeMap = {
         domainType: DOMAIN_TYPE_TRACKER,
         isVisualizationType: true,
         // TODO change to the path for the bundled app
-        appUrl: (id) => `api/apps/line-listing/index.html#/${id}`,
+        appUrl: id => `api/apps/line-listing/index.html#/${id}`,
         appName: 'Line Listing',
         appKey: 'line-listing',
     },

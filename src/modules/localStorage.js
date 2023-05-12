@@ -6,4 +6,6 @@ export const storePreferredDashboardId = (username, dashboardId) => {
 }
 
 export const getPluginOverrides = () =>
-    process.env.NODE_ENV !== 'production' && JSON.parse(localStorage.getItem('dhis2.dashboard.pluginOverrides')) || undefined
+    (process.env.NODE_ENV !== 'production' &&
+        JSON.parse(localStorage.getItem('dhis2.dashboard.pluginOverrides'))) ||
+    undefined

@@ -28,4 +28,4 @@ export default (
 
 // selectors
 
-export const sGetIframePluginStatus = (state) => state.iframePluginStatus
+export const sGetIframePluginStatus = state => state.iframePluginStatus

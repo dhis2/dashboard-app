@@ -47,7 +47,7 @@ const query = {
 }
 
 const providerDataTransformation = ({ rootOrgUnits, apps }) => {
-    const lineListingApp = apps.find((app) => app.key === 'line-listing') || {}
+    const lineListingApp = apps.find(app => app.key === 'line-listing') || {}
     return {
         rootOrgUnits: rootOrgUnits.organisationUnits,
         lineListingAppVersion: lineListingApp.version || '0.0.0',
