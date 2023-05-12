@@ -48,7 +48,6 @@
         "cy:open": "yarn cy:prepare 'yarn cypress open'"
     },
     "devDependencies": {
-        "@badeball/cypress-cucumber-preprocessor": "^16.0.0",
         "@dhis2/cli-app-scripts": "^10.3.8",
         "@dhis2/cli-style": "^10.5.1",
         "@dhis2/cypress-commands": "^9.0.2",
