@@ -133,7 +133,6 @@ export const itemTypeMap = {
         isVisualizationType: true,
         // TODO change to the path for the bundled app
         appUrl: id => `api/apps/line-listing/index.html#/${id}`,
-        pluginUrl: () => `api/apps/line-listing/plugin.html`,
         appName: 'Line Listing',
         appKey: 'line-listing',
     },

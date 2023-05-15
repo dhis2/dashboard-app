@@ -51,6 +51,7 @@ const providerDataTransformation = ({ rootOrgUnits, apps }) => {
     return {
         rootOrgUnits: rootOrgUnits.organisationUnits,
         lineListingAppVersion: lineListingApp.version || '0.0.0',
+        apps,
     }
 }
 

@@ -1,10 +1,11 @@
-//import { useD2 } from '@dhis2/app-runtime-adapter-d2'
+import { useCachedDataQuery } from '@dhis2/analytics'
 import { CenteredContent, CircularLoader } from '@dhis2/ui'
 import postRobot from '@krakenjs/post-robot'
 import PropTypes from 'prop-types'
 import React, { useCallback, useEffect, useMemo, useRef, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { acAddIframePluginStatus } from '../../../../actions/iframePluginStatus.js'
+import { itemTypeMap } from '../../../../modules/itemTypes.js'
 import { getPluginOverrides } from '../../../../modules/localStorage.js'
 import { useCacheableSection } from '../../../../modules/useCacheableSection.js'
 import {
@@ -31,8 +32,8 @@ const IframePlugin = ({
 }) => {
     const dispatch = useDispatch()
     const iframePluginStatus = useSelector(sGetIframePluginStatus)
-    //    const { d2 } = useD2()
 
+    const { apps } = useCachedDataQuery()
     const { userSettings } = useUserSettings()
     const iframeRef = useRef()
     const [error, setError] = useState(null)
@@ -82,15 +83,15 @@ const IframePlugin = ({
             return pluginOverrides[itemType]
         }
 
-        const appKey = itemTypeMap[item.type].appKey
+        const appKey = itemTypeMap[itemType].appKey
 
         // 2. check if there is an installed app for the item type
         // and use its plugin launch URL
         if (appKey) {
             const appDetails = apps.find(app => app.key === appKey)
 
-            if (appDetails.launchUrl) {
-                return itemTypeMap[item.type].pluginUrl()
+            if (appDetails.baseUrl) {
+                return `${appDetails.baseUrl}/plugin.html`
             }
         }
 
