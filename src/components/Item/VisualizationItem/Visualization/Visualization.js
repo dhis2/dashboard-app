@@ -150,7 +150,7 @@ const Visualization = ({
             return (
                 <>
                     {showNoFiltersOverlay ? (
-                        <Cover>
+                        <ComponentCover>
                             <div className={classes.messageContent}>
                                 <IconInfo24 color={colors.grey500} />
                                 {i18n.t(
@@ -164,7 +164,7 @@ const Visualization = ({
                                     {i18n.t('Show without filters')}
                                 </Button>
                             </div>
-                        </Cover>
+                        </ComponentCover>
                     ) : null}
                     <IframePlugin {...iFramePluginProps} />
                 </>
