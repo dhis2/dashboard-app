@@ -116,9 +116,9 @@ jobs:
                   SERVER_URL: 'http://localhost:3000'
                   cypress_dhis2_api_stub_mode: 'DISABLED'
                   REACT_APP_DHIS2_BASE_URL: ${{ secrets.CYPRESS_DHIS2_BASE_URL_40 }}
-                  cypress_dhis2_base_url: ${{ secrets.CYPRESS_DHIS2_BASE_URL_40}}
-                  cypress_dhis2_username: ${{ secrets.CYPRESS_DHIS2_USERNAME }}
-                  cypress_dhis2_password: ${{ secrets.CYPRESS_DHIS2_PASSWORD }}
+                  CYPRESS_dhis2BaseUrl: ${{ secrets.CYPRESS_DHIS2_BASE_URL_40}}
+                  CYPRESS_dhis2Username: ${{ secrets.CYPRESS_DHIS2_USERNAME }}
+                  CYPRESS_dhis2Password: ${{ secrets.CYPRESS_DHIS2_PASSWORD }}
                   GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
     release:
