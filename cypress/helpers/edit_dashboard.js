@@ -93,10 +93,10 @@ export const expectDashboardToDisplayInViewMode = (title) => {
     cy.location().should((loc) => expectViewRoute(loc.hash))
 
     // FIXME
-    // cy.get(`${gridItemClass}.VISUALIZATION`)
-    //     .getIframeBody()
-    //     .find(chartClass, EXTENDED_TIMEOUT)
-    //     .should('be.visible')
+    cy.get(`${gridItemClass}.VISUALIZATION`)
+        .getIframeBody()
+        .find(chartClass, EXTENDED_TIMEOUT)
+        .should('be.visible')
 
     // Some map visualization load very slowly:
     // https://dhis2.atlassian.net/browse/DHIS2-14365
