@@ -77,7 +77,7 @@ export const expectFacilityTypeFilterToBeApplied = () => {
     // FIXME
     cy.get(`${gridItemClass}.VISUALIZATION`)
         .getIframeBody()
-        .findBySel(chartSubtitleClass, EXTENDED_TIMEOUT)
+        .find(chartSubtitleClass, EXTENDED_TIMEOUT)
         .scrollIntoView()
         .contains(FACILITY_TYPE, EXTENDED_TIMEOUT)
         .should('be.visible')
