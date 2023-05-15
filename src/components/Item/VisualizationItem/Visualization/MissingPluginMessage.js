@@ -1,5 +1,5 @@
 import i18n from '@dhis2/d2-i18n'
-import { Center } from '@dhis2/ui'
+import { CenteredContent } from '@dhis2/ui'
 import PropTypes from 'prop-types'
 import React from 'react'
 import { isPrintMode } from '../../../../modules/dashboardModes.js'
@@ -8,7 +8,7 @@ import classes from './styles/VisualizationErrorMessage.module.css'
 
 const MissingPluginMessage = ({ itemType, dashboardMode }) => {
     return (
-        <Center>
+        <CenteredContent>
             <p className={classes.errorMessage}>
                 {i18n.t('The plugin for rendering this item is not available')}
             </p>
@@ -29,7 +29,7 @@ const MissingPluginMessage = ({ itemType, dashboardMode }) => {
                     </a>
                 </p>
             ) : null}
-        </Center>
+        </CenteredContent>
     )
 }
 

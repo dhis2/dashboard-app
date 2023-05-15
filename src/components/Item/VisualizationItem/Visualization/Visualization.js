@@ -1,6 +1,12 @@
 import { useCachedDataQuery } from '@dhis2/analytics'
 import i18n from '@dhis2/d2-i18n'
-import { Button, Cover, IconInfo24, IconWarning24, colors } from '@dhis2/ui'
+import {
+    Button,
+    ComponentCover,
+    IconInfo24,
+    IconWarning24,
+    colors,
+} from '@dhis2/ui'
 import uniqueId from 'lodash/uniqueId.js'
 import PropTypes from 'prop-types'
 import React, { useMemo } from 'react'
@@ -112,7 +118,7 @@ const Visualization = ({
     ) {
         return (
             <div style={style}>
-                <Cover>
+                <ComponentCover>
                     <div className={classes.messageContent}>
                         <IconWarning24 color={colors.grey500} />
                         {i18n.t(
@@ -121,7 +127,7 @@ const Visualization = ({
                             )} or higher in order to display this item.`
                         )}
                     </div>
-                </Cover>
+                </ComponentCover>
             </div>
         )
     }
