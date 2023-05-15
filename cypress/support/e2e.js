@@ -21,7 +21,7 @@ Cypress.Commands.add(
     { prevSubject: 'element' },
     (subject, iframeSelector = 'iframe') => {
         cy.wrap(subject)
-            .find(iframeSelector)
+            .find(iframeSelector, { timeout: 45000 })
             .then({ timeout: 45000 }, async ($iframe) => {
                 if ($iframe.length !== 1) {
                     console.error('more than 1 iframe', $iframe.length)
