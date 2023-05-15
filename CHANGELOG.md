@@ -1,3 +1,10 @@
+## [99.11.3](https://github.com/dhis2/dashboard-app/compare/v99.11.2...v99.11.3) (2023-05-15)
+
+
+### Bug Fixes
+
+* handle "will not install" plugin condition ([#2300](https://github.com/dhis2/dashboard-app/issues/2300)) ([d7954a7](https://github.com/dhis2/dashboard-app/commit/d7954a7b2bc61240d469306685ecab7682729f20))
+
 ## [99.11.2](https://github.com/dhis2/dashboard-app/compare/v99.11.1...v99.11.2) (2023-05-05)
 
 
