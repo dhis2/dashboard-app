@@ -93,11 +93,6 @@ export const openDashboard = (title, itemTypes = ['VISUALIZATION']) => {
 
     if (itemTypes.includes('VISUALIZATION')) {
         expectChartItemToBeDisplayed()
-        // cy.get(`${gridItemClass}.VISUALIZATION`, EXTENDED_TIMEOUT)
-        //     .first()
-        //     .getIframeBody()
-        //     .find(chartClass, EXTENDED_TIMEOUT)
-        //     .should('exist')
     }
 }
 
@@ -133,7 +128,9 @@ export const expectChartItemToBeDisplayed = () => {
         .first()
         .getIframeBody()
         .find(chartClass, EXTENDED_TIMEOUT)
-        .should('be.visible')
+        .as('chart')
+
+    cy.get('@chart').should('be.visible')
 }
 
 const expectMapItemToBeDisplayed = () => {
@@ -143,7 +140,9 @@ const expectMapItemToBeDisplayed = () => {
         .first()
         .getIframeBody()
         .find(mapClass, EXTENDED_TIMEOUT)
-        .should('be.visible')
+        .as('map')
+
+    cy.get('@map').should('be.visible')
 }
 
 export const chooseToEditDashboard = () => {

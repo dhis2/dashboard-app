@@ -1,4 +1,4 @@
-export const EXTENDED_TIMEOUT = { timeout: 45000 }
+export const EXTENDED_TIMEOUT = { timeout: 42000 }
 
 export const getApiBaseUrl = () => {
     const baseUrl = Cypress.env('dhis2BaseUrl') || ''
