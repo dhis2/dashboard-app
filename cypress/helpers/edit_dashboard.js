@@ -127,22 +127,21 @@ export const expectChartItemToBeDisplayed = () => {
     cy.get(`${gridItemClass}.VISUALIZATION`, EXTENDED_TIMEOUT)
         .first()
         .getIframeBody()
-        .find(chartClass, { timeout: 38000 })
-        .as('chart')
+        .as('iframeBody')
 
-    cy.get('@chart').should('be.visible')
+    cy.get('@iframeBody')
+        .find(chartClass, { timeout: 38000 })
+        .should('be.visible')
 }
 
 const expectMapItemToBeDisplayed = () => {
     // Some map visualization load very slowly:
     // https://dhis2.atlassian.net/browse/DHIS2-14365
-    cy.get(`${gridItemClass}.MAP`)
-        .first()
-        .getIframeBody()
-        .find(mapClass, { timeout: 55333 })
-        .as('map')
+    cy.get(`${gridItemClass}.MAP`).first().getIframeBody().as('iframeBody')
 
-    cy.get('@map').should('be.visible')
+    cy.get('@iframeBody')
+        .find(mapClass, { timeout: 55333 })
+        .should('be.visible')
 }
 
 export const chooseToEditDashboard = () => {
