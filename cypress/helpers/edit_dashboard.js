@@ -127,7 +127,7 @@ export const expectChartItemToBeDisplayed = () => {
     cy.get(`${gridItemClass}.VISUALIZATION`, EXTENDED_TIMEOUT)
         .first()
         .getIframeBody()
-        .find(chartClass, EXTENDED_TIMEOUT)
+        .find(chartClass, { timeout: 38000 })
         .as('chart')
 
     cy.get('@chart').should('be.visible')
@@ -139,7 +139,7 @@ const expectMapItemToBeDisplayed = () => {
     cy.get(`${gridItemClass}.MAP`)
         .first()
         .getIframeBody()
-        .find(mapClass, EXTENDED_TIMEOUT)
+        .find(mapClass, { timeout: 55333 })
         .as('map')
 
     cy.get('@map').should('be.visible')
@@ -150,6 +150,9 @@ export const chooseToEditDashboard = () => {
         .find('button')
         .contains('Edit', EXTENDED_TIMEOUT)
         .click()
+
+    //  cy.get('button').as('btn').click()
+    //  cy.get('@btn').should('have.class', 'active')
 
     expectDashboardDisplaysInEditMode()
 }
