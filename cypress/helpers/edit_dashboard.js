@@ -48,9 +48,30 @@ export const addDashboardTitle = (title) => {
     cy.getBySel(titleInputSel).type(title)
 }
 
-export const addDashboardItems = () => {
-    cy.getBySel('item-search').click()
-    cy.getBySel('menu-item-ANC: 1 and 3 coverage Yearly').click().closePopper()
+export const addDashboardItems = (itemTypes = ['VISUALIZATION', 'MAP']) => {
+    if (itemTypes.includes('VISUALIZATION')) {
+        cy.getBySel('item-search').click()
+        cy.getBySel('menu-item-ANC: 1 and 3 coverage Yearly')
+            .click()
+            .closePopper()
+    }
+
+    if (itemTypes.includes('MAP')) {
+        cy.getBySel('item-search').click()
+        cy.getBySel(
+            'menu-item-ANC: 1st visit coverage (%) by district last year'
+        )
+            .click()
+            .closePopper()
+
+        if (itemTypes.includes('VISUALIZATION')) {
+            //move things so the dashboard is more compact
+            cy.get(`${gridItemClass}.MAP`)
+                .trigger('mousedown')
+                .trigger('mousemove', { clientX: 650 })
+                .trigger('mouseup')
+        }
+    }
 }
 
 export const continueEditing = () => {
@@ -64,18 +85,20 @@ export const saveDashboard = () => {
     clickEditActionButton('Save changes')
 }
 
-export const openDashboard = (title) => {
+export const openDashboard = (title, itemTypes = ['VISUALIZATION']) => {
     cy.getBySel(dashboardChipSel, EXTENDED_TIMEOUT).contains(title).click()
 
     cy.location().should((loc) => expectViewRoute(loc.hash))
     cy.getBySel(dashboardTitleSel).should('be.visible').and('contain', title)
 
-    // FIXME - confirm existing vis (pass a second arg to fn)
-    cy.get(`${gridItemClass}.VISUALIZATION`, EXTENDED_TIMEOUT)
-        .first()
-        .getIframeBody()
-        .find(chartClass, EXTENDED_TIMEOUT)
-        .should('exist')
+    if (itemTypes.includes('VISUALIZATION')) {
+        expectChartItemToBeDisplayed()
+        // cy.get(`${gridItemClass}.VISUALIZATION`, EXTENDED_TIMEOUT)
+        //     .first()
+        //     .getIframeBody()
+        //     .find(chartClass, EXTENDED_TIMEOUT)
+        //     .should('exist')
+    }
 }
 
 export const startNewDashboard = () => {
@@ -89,23 +112,38 @@ export const expectDifferentDashboardToDisplayInViewMode = (title) => {
         .and('not.contain', title)
 }
 
-export const expectDashboardToDisplayInViewMode = (title) => {
+export const expectDashboardToDisplayInViewMode = (title, itemTypes = []) => {
     cy.location().should((loc) => expectViewRoute(loc.hash))
 
-    // FIXME
-    cy.get(`${gridItemClass}.VISUALIZATION`)
+    if (itemTypes.includes('VISUALIZATION')) {
+        expectChartItemToBeDisplayed()
+    }
+
+    if (itemTypes.includes('MAP')) {
+        expectMapItemToBeDisplayed()
+    }
+
+    // FIXME which of these is better?
+    cy.getBySel(dashboardTitleSel).should('have.text', title)
+    cy.getBySel(dashboardTitleSel).should('be.visible').and('contain', title)
+}
+
+export const expectChartItemToBeDisplayed = () => {
+    cy.get(`${gridItemClass}.VISUALIZATION`, EXTENDED_TIMEOUT)
+        .first()
         .getIframeBody()
         .find(chartClass, EXTENDED_TIMEOUT)
         .should('be.visible')
+}
 
+const expectMapItemToBeDisplayed = () => {
     // Some map visualization load very slowly:
     // https://dhis2.atlassian.net/browse/DHIS2-14365
     cy.get(`${gridItemClass}.MAP`)
+        .first()
         .getIframeBody()
         .find(mapClass, EXTENDED_TIMEOUT)
         .should('be.visible')
-
-    cy.getBySel(dashboardTitleSel).should('be.visible').and('contain', title)
 }
 
 export const chooseToEditDashboard = () => {
@@ -159,14 +197,6 @@ export const expectDashboardToBeDeletedAndFirstStarredDashboardDisplayed = (
     cy.getBySel(dashboardTitleSel).should('exist').should('not.be.empty')
 }
 
-export const expectChartItemToBeDisplayed = () => {
-    cy.get(`${gridItemClass}.VISUALIZATION`)
-        .first()
-        .getIframeBody()
-        .find(chartClass, EXTENDED_TIMEOUT)
-        .should('exist')
-}
-
 export const expectNoAnalyticsRequestsToBeMadeWhenItemIsMoved = () => {
     const WRONG_SUBTITLE = 'WRONG_SUBTITLE'
     cy.intercept(/analytics\.json(\S)*skipMeta=false/, (req) => {
@@ -197,38 +227,3 @@ export const expectDifferentDashboardDisplaysInViewMode = (title) => {
         .should('be.visible')
         .and('not.contain', title)
 }
-
-// export const addMapAndChartThenSave = (title) => {
-//     //add the title
-//     cy.get('[data-test="dashboard-title-input"]').type(title)
-
-//     // add items
-//     cy.get('[data-test="item-search"]').click()
-//     cy.get('[data-test="item-search"]')
-//         .find('input')
-//         .type('Inpatient', { force: true })
-
-//     //chart
-//     cy.get('[data-test="menu-item-Inpatient: BMI this year by districts"]')
-//         .click()
-//         .closePopper()
-
-//     cy.get('[data-test="item-search"]').click()
-//     cy.get('[data-test="item-search"]')
-//         .find('input')
-//         .type('ipt 2', { force: true })
-
-//     //map
-//     cy.get('[data-test="menu-item-ANC: IPT 2 Coverage this year"]')
-//         .click()
-//         .closePopper()
-
-//     //move things so the dashboard is more compact
-//     cy.get(`${gridItemClass}.MAP`)
-//         .trigger('mousedown')
-//         .trigger('mousemove', { clientX: 650 })
-//         .trigger('mouseup')
-
-//     //save
-//     cy.get('button').contains('Save changes', EXTENDED_TIMEOUT).click()
-// }

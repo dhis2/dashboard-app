@@ -43,7 +43,7 @@ describe('Responsive dashboard', () => {
         openDashboard('Delivery')
         chooseToEditDashboard()
         addDashboardTitle('xyz')
-        addDashboardItems()
+        addDashboardItems(['VISUALIZATION'])
         goToSmallScreen()
         expectSmallScreenEditView()
         restoreWideScreen()
@@ -83,7 +83,7 @@ describe('Responsive dashboard', () => {
     it('cannot edit dashboard filter while in small screen', () => {
         cy.visit('/', EXTENDED_TIMEOUT)
         openDashboard('Delivery')
-        addFilter('Period')
+        addFilter('Period', 'Last 6 months')
         goToSmallScreen()
         clickOnFilterBadge('Period')
 

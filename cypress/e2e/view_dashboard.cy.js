@@ -56,7 +56,7 @@ describe('View dashboard', () => {
 
     it('searches for a dashboard', () => {
         cy.visit('/', EXTENDED_TIMEOUT).log(Cypress.env('dhis2BaseUrl'))
-        openDashboard('Antenatal Care')
+        openDashboard(DELIVERY_DASHBOARD_TITLE)
         searchForDashboard('Immun')
         // Immunization and Immunization data dashboards are choices
         cy.getBySel(dashboardChipSel).should('be.visible').and('have.length', 2)
@@ -66,7 +66,7 @@ describe('View dashboard', () => {
 
     it('searches for a dashboard with nonmatching search text', () => {
         cy.visit('/', EXTENDED_TIMEOUT).log(Cypress.env('dhis2BaseUrl'))
-        const title = 'Antenatal Care'
+        const title = DELIVERY_DASHBOARD_TITLE
         openDashboard(title)
         searchForDashboard('Noexist')
         cy.getBySel(dashboardChipSel).should('not.exist')
@@ -85,7 +85,6 @@ describe('View dashboard', () => {
             .should('be.visible')
             .and('contain', title)
 
-        // FIXME
         cy.get(`${gridItemClass}.VISUALIZATION`)
             .first()
             .getIframeBody()
@@ -134,11 +133,10 @@ describe('View dashboard', () => {
 
     it('shows layer names in legend', () => {
         cy.visit('/', EXTENDED_TIMEOUT)
-        openDashboard('Cases Malaria')
+        openDashboard('Delivery')
 
-        // FIXME
         // hover over the map legend button
-        const mapItemUid = dashboards['Cases Malaria'].items.map.itemUid
+        const mapItemUid = dashboards['Delivery'].items.map.itemUid
         getDashboardItem(mapItemUid)
             .getIframeBody()
             .find(mapLegendButtonClass, EXTENDED_TIMEOUT)
@@ -148,13 +146,13 @@ describe('View dashboard', () => {
         getDashboardItem(mapItemUid)
             .getIframeBody()
             .find(mapLegendTitleClass)
-            .contains('Malaria case registration')
+            .contains('PHU delivery rate')
             .should('be.visible')
     })
 
     it("opens the user's preferred dashboard", () => {
         cy.visit('/', EXTENDED_TIMEOUT)
-        openDashboard('Antenatal Care')
+        openDashboard('Antenatal Care', [])
         openDashboardRootUrl()
         openDashboard(DELIVERY_DASHBOARD_TITLE)
         openDashboardRootUrl()

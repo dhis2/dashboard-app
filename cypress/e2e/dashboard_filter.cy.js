@@ -68,7 +68,6 @@ describe('Dashboard filter', () => {
     it('adds an organisation unit filter', () => {
         cy.visit('/', EXTENDED_TIMEOUT)
         openDashboard(TEST_DASHBOARD_TITLE)
-        expectDashboardToDisplayInViewMode(TEST_DASHBOARD_TITLE)
         addFilter('Organisation unit', SIERRA_LEONE_OU_ID)
         expectOrganisationUnitFilterToBeApplied()
     })
@@ -76,7 +75,6 @@ describe('Dashboard filter', () => {
     it('adds a facility type filter', () => {
         cy.visit('/', EXTENDED_TIMEOUT)
         openDashboard(TEST_DASHBOARD_TITLE)
-        expectDashboardToDisplayInViewMode(TEST_DASHBOARD_TITLE)
         addFilter('Facility Type', FACILITY_TYPE_CLINIC)
         expectFacilityTypeFilterToBeApplied()
     })
@@ -84,7 +82,6 @@ describe('Dashboard filter', () => {
     it('opens the dimensions modal from the filter badge', () => {
         cy.visit('/', EXTENDED_TIMEOUT)
         openDashboard(TEST_DASHBOARD_TITLE)
-        expectDashboardToDisplayInViewMode(TEST_DASHBOARD_TITLE)
         addFilter('Period', LAST_6_MONTHS)
         clickOnFilterBadge('Period')
         cy.getBySel(dimensionsModalSel, EXTENDED_TIMEOUT).should('be.visible')
