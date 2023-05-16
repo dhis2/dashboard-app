@@ -74,7 +74,7 @@ describe('Item context menu', () => {
 
     it('text item does not have a context menu', () => {
         cy.visit('/', EXTENDED_TIMEOUT).log(Cypress.env('dhis2BaseUrl'))
-        openDashboard('Antenatal Care')
+        openDashboard('Antenatal Care', [])
 
         // the text item does not have a context menu
         getDashboardItem(dashboards['Antenatal Care'].items.text.itemUid)
@@ -84,10 +84,10 @@ describe('Item context menu', () => {
 
     it('chart item has a fullscreen option', () => {
         cy.visit('/', EXTENDED_TIMEOUT).log(Cypress.env('dhis2BaseUrl'))
-        openDashboard('Antenatal Care')
+        openDashboard('Delivery')
 
         // chart item has fullscreen option
-        clickItemMenuButton(dashboards['Antenatal Care'].items.chart.itemUid)
+        clickItemMenuButton(dashboards['Delivery'].items.chart.itemUid)
         cy.contains('View fullscreen').should('be.visible')
     })
 })

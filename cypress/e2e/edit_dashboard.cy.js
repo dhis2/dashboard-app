@@ -1,5 +1,4 @@
 import { clickEditActionButton } from '../elements/editDashboard.js'
-import { dashboardTitleSel } from '../elements/viewDashboard.js'
 import {
     addDashboardTitle,
     saveDashboard,
@@ -13,7 +12,7 @@ import {
     cancelDelete,
     confirmDelete,
     expectDifferentDashboardToDisplayInViewMode,
-    // expectChartItemToBeDisplayed,
+    expectChartItemToBeDisplayed,
     // expectNoAnalyticsRequestsToBeMadeWhenItemIsMoved,
     addDashboardItems,
     expectDashboardToBeDeletedAndFirstStarredDashboardDisplayed,
@@ -36,7 +35,6 @@ describe('Edit dashboard', () => {
         addDashboardItems()
         saveDashboard()
         expectDashboardToDisplayInViewMode(TEST_DASHBOARD_TITLE)
-        cy.getBySel(dashboardTitleSel).should('have.text', TEST_DASHBOARD_TITLE)
     })
 
     it('exits without saving', () => {
@@ -83,7 +81,7 @@ describe('Edit dashboard', () => {
         openDashboard(TEST_DASHBOARD_TITLE)
         chooseToEditDashboard()
         // FIXME
-        // expectChartItemToBeDisplayed()
+        expectChartItemToBeDisplayed()
         // expectNoAnalyticsRequestsToBeMadeWhenItemIsMoved()
     })
 

@@ -26,7 +26,6 @@ export const expectPeriodFilterToBeApplied = () => {
         .should('be.visible')
 
     // check the CHART
-    // FIXME
     cy.get(`${gridItemClass}.VISUALIZATION`)
         .getIframeBody()
         .find(`${chartSubtitleClass} > title`, EXTENDED_TIMEOUT)
@@ -41,7 +40,6 @@ export const expectPeriodFilterToBeApplied = () => {
     // TODO - restore the normal EXTENDED_TIMEOUT when
     // slow loading of this map has been fixes
     // https://dhis2.atlassian.net/browse/DHIS2-14365
-    // FIXME
     cy.get(`${gridItemClass}.MAP`)
         .getIframeBody()
         .find(mapLegendButtonClass, { timeout: 85000 })
@@ -59,7 +57,6 @@ export const expectOrganisationUnitFilterToBeApplied = () => {
         .should('be.visible')
 
     cy.getBySel(innerScrollContainerSel).scrollTo('bottom')
-    // FIXME
     cy.get(`${gridItemClass}.VISUALIZATION`)
         .getIframeBody()
         .find(chartXAxisLabelClass, EXTENDED_TIMEOUT)
@@ -74,7 +71,6 @@ export const expectFacilityTypeFilterToBeApplied = () => {
         .should('be.visible')
 
     cy.getBySel(innerScrollContainerSel).scrollTo('top')
-    // FIXME
     cy.get(`${gridItemClass}.VISUALIZATION`)
         .getIframeBody()
         .find(chartSubtitleClass, EXTENDED_TIMEOUT)

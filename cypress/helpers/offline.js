@@ -36,6 +36,7 @@ const MAKE_AVAILABLE_OFFLINE_TEXT = 'Make available offline'
 const UNCACHED_DASHBOARD_TITLE = createDashboardTitle('aa un')
 const CACHED_DASHBOARD_TITLE = createDashboardTitle('aa ca')
 
+// TODO - use the function in edit_dashboard instead
 const createDashboard = (cacheState) => {
     const cachedDashboard = cacheState === CACHED
     cy.getBySel(newButtonSel, EXTENDED_TIMEOUT).click()
@@ -60,11 +61,13 @@ const createDashboard = (cacheState) => {
     cy.getBySel(dashboardTitleSel, EXTENDED_TIMEOUT).should('be.visible')
 }
 
+// TODO - use the function in edit_dashboard instead
 export const openDashboard = (title) => {
     cy.getBySel(dashboardChipSel, EXTENDED_TIMEOUT).contains(title).click()
     checkDashboardIsVisible(title)
 }
 
+// TODO - use the function in edit_dashboard instead
 const checkDashboardIsVisible = (title) => {
     cy.getBySel(dashboardTitleSel).contains(title).should('be.visible')
 }

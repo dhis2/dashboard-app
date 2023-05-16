@@ -39,7 +39,6 @@ export const errorMessageIsDisplayedOnItem = () => {
         .contains('Open this item in Data Visualizer')
         .should('be.visible')
 
-    // FIXME
     cy.get(`${gridItemClass}.VISUALIZATION`)
         .first()
         .getIframeBody()
