@@ -18,6 +18,7 @@ import {
     REPORT_TABLE,
 } from '../../../../modules/itemTypes.js'
 import { sGetSelectedId } from '../../../../reducers/selected.js'
+import memoizeOne from '../memoizeOne.js'
 import DataVisualizerPlugin from './DataVisualizerPlugin.js'
 import getFilteredVisualization from './getFilteredVisualization.js'
 import getVisualizationConfig from './getVisualizationConfig.js'
@@ -71,7 +72,9 @@ const Visualization = ({
         [visualizationConfig, itemFilters]
     )
 
-    const filterVersion = useMemo(() => uniqueId(), [])
+    const getFilterVersion = memoizeOne(() => uniqueId())
+
+    const filterVersion = getFilterVersion(itemFilters)
 
     const iFramePluginProps = useMemo(
         () => ({
