@@ -1,8 +1,23 @@
-const getFilteredVisualization = (visualization, filters) => {
-    if (!Object.keys(filters).length) {
-        return visualization
-    }
+const mapViewIsThematicOrEvent = (mapView) =>
+    mapView.layer.includes('thematic') || mapView.layer.includes('event')
 
+const getFilteredMap = (visualization, filters) => {
+    // apply filters only to thematic and event layers
+    const mapViews = visualization.mapViews.map((mapView) => {
+        if (mapViewIsThematicOrEvent(mapView)) {
+            return getFilteredNonMap(mapView, filters)
+        }
+
+        return mapView
+    })
+
+    return {
+        ...visualization,
+        mapViews,
+    }
+}
+
+const getFilteredNonMap = (visualization, filters) => {
     // deep clone objects in filters to avoid changing the visualization in the Redux store
     const visRows = visualization.rows.map(obj => ({ ...obj }))
     const visColumns = visualization.columns.map(obj => ({ ...obj }))
@@ -37,6 +52,18 @@ const getFilteredVisualization = (visualization, filters) => {
         columns: visColumns,
         filters: visFilters,
     }
+}
+
+const getFilteredVisualization = (visualization, filters) => {
+    if (!Object.keys(filters).length) {
+        return visualization
+    }
+
+    if (visualization.mapViews) {
+        return getFilteredMap(visualization, filters)
+    }
+
+    return getFilteredNonMap(visualization, filters)
 }
 
 export default getFilteredVisualization
