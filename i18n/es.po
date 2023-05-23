@@ -4,17 +4,18 @@
 # phil_dhis2, 2022
 # Gabriela Rodriguez <grodriguezcoronado@gmail.com>, 2022
 # Alison Andrade <aandrade@ippfwhr.org>, 2022
-# Prabhjot Singh, 2022
 # Viktor Varland <viktor@dhis2.org>, 2022
 # Sergio Valenzuela <sergio.valenzuela@ehas.org>, 2022
+# Marta Vila <marta@dhis2.org>, 2023
+# Prabhjot Singh, 2023
 # 
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
 "POT-Creation-Date: 2021-12-21T08:20:25.327Z\n"
 "PO-Revision-Date: 2022-10-15 22:30+0000\n"
-"Last-Translator: Sergio Valenzuela <sergio.valenzuela@ehas.org>, 2022\n"
-"Language-Team: Spanish (https://www.transifex.com/hisp-uio/teams/100509/es/)\n"
+"Last-Translator: Prabhjot Singh, 2023\n"
+"Language-Team: Spanish (https://app.transifex.com/hisp-uio/teams/100509/es/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -25,10 +26,10 @@ msgid "Untitled dashboard"
 msgstr "Tablero sin nombre"
 
 msgid "Cannot create a dashboard while offline"
-msgstr ""
+msgstr "No se pueden crear dashboard sin cconexion a internet"
 
 msgid "Create new dashboard"
-msgstr ""
+msgstr "Crear nuevo tablero"
 
 msgid "Search for a dashboard"
 msgstr "Buscar un tablero"
@@ -114,6 +115,7 @@ msgstr "Hubo un problema al cargar las interpretaciones de este elemento."
 
 msgid "Maps with Earth Engine layers cannot be displayed when offline"
 msgstr ""
+"Mapas con capas del Earth Engine no se pueden mostrar sin conexón a internet"
 
 msgid "Unable to load the plugin for this item"
 msgstr "Incapaz de cargar el complemento para este elemento"
@@ -128,7 +130,7 @@ msgid "Open this item in {{appName}}"
 msgstr "Abra este elemento en {{appName}}"
 
 msgid "Not available offline"
-msgstr ""
+msgstr "No disponible sin conexión a internet"
 
 msgid "Visualizations"
 msgstr "Visualizaciones"
@@ -171,6 +173,8 @@ msgid ""
 "Failed to save dashboard. This code is already being used on another "
 "dashboard."
 msgstr ""
+"No se pudo guardar el tablero. El código ya se está utilizando en otro "
+"tablero."
 
 msgid ""
 "Failed to delete dashboard. You might be offline or not have access to edit "
@@ -180,7 +184,7 @@ msgstr ""
 "no tenga acceso para editar este tablero de mando."
 
 msgid "Cannot save this dashboard while offline"
-msgstr ""
+msgstr "No se puede guardar sin conexión a internet"
 
 msgid "Save changes"
 msgstr "Guardar cambios"
@@ -198,7 +202,7 @@ msgid "Translate"
 msgstr "Traducir"
 
 msgid "Cannot delete this dashboard while offline"
-msgstr ""
+msgstr "No se puede borrar este tablero sin conexión a internet"
 
 msgid "Delete"
 msgstr "Eliminar"
@@ -298,10 +302,10 @@ msgid "Search for items to add to this dashboard"
 msgstr "Buscar objetos para añadir en este tablero"
 
 msgid "Search for visualizations, reports and more"
-msgstr ""
+msgstr "Buscar visualizaciones, informes y mas "
 
 msgid "Cannot search for dashboard items while offline"
-msgstr ""
+msgstr "No se pueden buscar elementos de tableros sin conexión a internet"
 
 msgid "Additional items"
 msgstr "Objetos adicionales"
@@ -429,9 +433,9 @@ msgstr "No se ha encontrado el tablero buscado"
 
 msgid "{{count}} selected"
 msgid_plural "{{count}} selected"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
+msgstr[0] "{{count}} seleccionado"
+msgstr[1] "{{count}} seleccionado"
+msgstr[2] "{{count}} seleccionado"
 
 msgid "Cannot remove filters while offline"
 msgstr ""
