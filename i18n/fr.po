@@ -1,6 +1,6 @@
 # 
 # Translators:
-# Matthieu Pinard <matthieu@pinard.no>, 2021
+# Matthieu Pinard <matthieu@dhis2.org>, 2021
 # phil_dhis2, 2021
 # a270031086f2a0d3514bc0cb507b48f6, 2021
 # Edem Kossi <ekossi@hispwca.org>, 2021
@@ -9,15 +9,15 @@
 # Yayra Gomado <ygomado@hispwca.org>, 2021
 # Alice Aké <aliceal@ifi.uio.no>, 2021
 # Gabriela Rodriguez <grodriguezcoronado@gmail.com>, 2021
-# Yao Selom SAKA (HISP WCA) <ysaka@hispwca.org>, 2022
+# Yao Selom SAKA (HISP WCA) <ysaka@hispwca.org>, 2023
 # 
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
 "POT-Creation-Date: 2021-10-28T06:43:54.981Z\n"
 "PO-Revision-Date: 2021-09-03 23:41+0000\n"
-"Last-Translator: Yao Selom SAKA (HISP WCA) <ysaka@hispwca.org>, 2022\n"
-"Language-Team: French (https://www.transifex.com/hisp-uio/teams/100509/fr/)\n"
+"Last-Translator: Yao Selom SAKA (HISP WCA) <ysaka@hispwca.org>, 2023\n"
+"Language-Team: French (https://app.transifex.com/hisp-uio/teams/100509/fr/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -442,9 +442,9 @@ msgstr "Tableau de bord demandé introuvable"
 
 msgid "{{count}} selected"
 msgid_plural "{{count}} selected"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
+msgstr[0] "{{count}} selected"
+msgstr[1] "{{nombre}} sélectionnés"
+msgstr[2] "{{nombre}} sélectionnés"
 
 msgid "Cannot remove filters while offline"
 msgstr "Impossible de supprimer les filtres en mode hors ligne"
