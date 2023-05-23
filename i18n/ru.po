@@ -1,16 +1,16 @@
 # 
 # Translators:
-# Ulanbek Abakirov <ulans@mail.ru>, 2021
-# phil_dhis2, 2021
-# Viktor Varland <viktor@dhis2.org>, 2021
+# Ulanbek Abakirov <ulans@mail.ru>, 2023
+# Viktor Varland <viktor@dhis2.org>, 2023
+# phil_dhis2, 2023
 # 
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2021-12-21T08:20:25.327Z\n"
-"PO-Revision-Date: 2019-06-25 12:37+0000\n"
-"Last-Translator: Viktor Varland <viktor@dhis2.org>, 2021\n"
-"Language-Team: Russian (https://www.transifex.com/hisp-uio/teams/100509/ru/)\n"
+"POT-Creation-Date: 2023-03-19T15:27:59.188Z\n"
+"PO-Revision-Date: 2023-05-22 18:14+0000\n"
+"Last-Translator: phil_dhis2, 2023\n"
+"Language-Team: Russian (https://app.transifex.com/hisp-uio/teams/100509/ru/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -42,7 +42,7 @@ msgid "This item has been shortened to fit on one page"
 msgstr ""
 
 msgid "Remove"
-msgstr "Удалить"
+msgstr "Убрать"
 
 msgid "Messages"
 msgstr "Сообщения"
@@ -73,6 +73,12 @@ msgstr "Текстовый элемент"
 
 msgid "Add text here"
 msgstr "Добавить текст сюда"
+
+msgid "Filters are not applied to line list dashboard items"
+msgstr ""
+
+msgid "Filters not applied"
+msgstr ""
 
 msgid "There was a problem loading this dashboard item"
 msgstr ""
@@ -107,14 +113,23 @@ msgstr ""
 msgid "There was a problem loading interpretations for this item"
 msgstr ""
 
+msgid "The plugin for rendering this item is not available"
+msgstr ""
+
+msgid "Install the {{appName}} app from the App Hub"
+msgstr ""
+
+msgid "No data to display"
+msgstr ""
+
+msgid "Show without filters"
+msgstr ""
+
 msgid "Maps with Earth Engine layers cannot be displayed when offline"
 msgstr ""
 
 msgid "Unable to load the plugin for this item"
 msgstr "Невозможно загрузить плагин для этого элемента"
-
-msgid "No data to display"
-msgstr ""
 
 msgid "There was an error loading data for this item"
 msgstr ""
@@ -142,6 +157,9 @@ msgstr "Отчеты по событиям"
 
 msgid "Event charts"
 msgstr "Диаграммы событий"
+
+msgid "Line lists"
+msgstr ""
 
 msgid "Apps"
 msgstr "Приложения"
@@ -210,7 +228,7 @@ msgid ""
 msgstr ""
 
 msgid "Cancel"
-msgstr "Отменить"
+msgstr "Отмена"
 
 msgid "Discard changes"
 msgstr ""

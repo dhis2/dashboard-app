@@ -1,15 +1,15 @@
 # 
 # Translators:
-# 晓东 林 <13981924470@126.com>, 2021
-# easylin <lin_xd@126.com>, 2022
+# 晓东 林 <13981924470@126.com>, 2023
+# easylin <lin_xd@126.com>, 2023
 # 
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2021-12-21T08:20:25.327Z\n"
-"PO-Revision-Date: 2019-06-25 12:37+0000\n"
-"Last-Translator: easylin <lin_xd@126.com>, 2022\n"
-"Language-Team: Chinese (China) (https://www.transifex.com/hisp-uio/teams/100509/zh_CN/)\n"
+"POT-Creation-Date: 2023-03-19T15:27:59.188Z\n"
+"PO-Revision-Date: 2023-05-22 18:14+0000\n"
+"Last-Translator: easylin <lin_xd@126.com>, 2023\n"
+"Language-Team: Chinese (China) (https://app.transifex.com/hisp-uio/teams/100509/zh_CN/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -71,6 +71,12 @@ msgstr "文本条目"
 msgid "Add text here"
 msgstr "添加文本到这里"
 
+msgid "Filters are not applied to line list dashboard items"
+msgstr ""
+
+msgid "Filters not applied"
+msgstr ""
+
 msgid "There was a problem loading this dashboard item"
 msgstr ""
 
@@ -104,14 +110,23 @@ msgstr ""
 msgid "There was a problem loading interpretations for this item"
 msgstr ""
 
+msgid "The plugin for rendering this item is not available"
+msgstr ""
+
+msgid "Install the {{appName}} app from the App Hub"
+msgstr ""
+
+msgid "No data to display"
+msgstr "没有数据可显示"
+
+msgid "Show without filters"
+msgstr ""
+
 msgid "Maps with Earth Engine layers cannot be displayed when offline"
 msgstr ""
 
 msgid "Unable to load the plugin for this item"
 msgstr "不能该条目的插件"
-
-msgid "No data to display"
-msgstr "没有数据可显示"
 
 msgid "There was an error loading data for this item"
 msgstr ""
@@ -140,11 +155,14 @@ msgstr "事件报表"
 msgid "Event charts"
 msgstr "事件图表"
 
+msgid "Line lists"
+msgstr ""
+
 msgid "Apps"
-msgstr "应用"
+msgstr "Apps"
 
 msgid "Reports"
-msgstr "报表"
+msgstr "报表管理"
 
 msgid "Resources"
 msgstr "资源"
@@ -171,7 +189,7 @@ msgid "Cannot save this dashboard while offline"
 msgstr ""
 
 msgid "Save changes"
-msgstr "保存更改"
+msgstr "保存修改"
 
 msgid "Exit print preview"
 msgstr ""
@@ -402,7 +420,7 @@ msgstr "请求的仪表盘条目没有找到"
 
 msgid "{{count}} selected"
 msgid_plural "{{count}} selected"
-msgstr[0] ""
+msgstr[0] "{{count}} 个已经选择"
 
 msgid "Cannot remove filters while offline"
 msgstr ""
@@ -461,10 +479,10 @@ msgid "More"
 msgstr "更多"
 
 msgid "Edit"
-msgstr "编辑<br>"
+msgstr "编辑"
 
 msgid "Share"
-msgstr "共享"
+msgstr "分享"
 
 msgid "Clear dashboard filters?"
 msgstr ""

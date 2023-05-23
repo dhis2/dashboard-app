@@ -1,14 +1,14 @@
 # 
 # Translators:
-# Yury Rogachev <yury@dhis2.org>, 2021
+# Yury Rogachev <yury@dhis2.org>, 2023
 # 
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2021-12-21T08:20:25.327Z\n"
-"PO-Revision-Date: 2019-06-25 12:37+0000\n"
-"Last-Translator: Yury Rogachev <yury@dhis2.org>, 2021\n"
-"Language-Team: Uzbek (Latin) (https://www.transifex.com/hisp-uio/teams/100509/uz@Latn/)\n"
+"POT-Creation-Date: 2023-03-19T15:27:59.188Z\n"
+"PO-Revision-Date: 2023-05-22 18:14+0000\n"
+"Last-Translator: Yury Rogachev <yury@dhis2.org>, 2023\n"
+"Language-Team: Uzbek (Latin) (https://app.transifex.com/hisp-uio/teams/100509/uz@Latn/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -40,7 +40,7 @@ msgid "This item has been shortened to fit on one page"
 msgstr "Ushbu element bir sahifaga joylashtirish uchun moslashtirildi"
 
 msgid "Remove"
-msgstr "Olib tashlash"
+msgstr "Олиб ташлаш"
 
 msgid "Messages"
 msgstr "Xabarlar"
@@ -71,6 +71,12 @@ msgstr "Matn elementi"
 
 msgid "Add text here"
 msgstr "Matnni shu yerga qoʼshing"
+
+msgid "Filters are not applied to line list dashboard items"
+msgstr ""
+
+msgid "Filters not applied"
+msgstr ""
 
 msgid "There was a problem loading this dashboard item"
 msgstr "Ushbu panel elementlari yuklanishida muaamoga duch kelindi"
@@ -105,14 +111,23 @@ msgstr "Xarita sifatida koʼrish"
 msgid "There was a problem loading interpretations for this item"
 msgstr ""
 
+msgid "The plugin for rendering this item is not available"
+msgstr ""
+
+msgid "Install the {{appName}} app from the App Hub"
+msgstr ""
+
+msgid "No data to display"
+msgstr "Maʼlumot ekranga chiqarilmadi"
+
+msgid "Show without filters"
+msgstr ""
+
 msgid "Maps with Earth Engine layers cannot be displayed when offline"
 msgstr ""
 
 msgid "Unable to load the plugin for this item"
 msgstr "Ushbu element uchun plagin yuklanmadi"
-
-msgid "No data to display"
-msgstr "Maʼlumot ekranga chiqarilmadi"
 
 msgid "There was an error loading data for this item"
 msgstr ""
@@ -140,6 +155,9 @@ msgstr "Hodisalar hisoboti"
 
 msgid "Event charts"
 msgstr "Hodisalar diagrammalarda"
+
+msgid "Line lists"
+msgstr ""
 
 msgid "Apps"
 msgstr "Ilova"
@@ -212,7 +230,7 @@ msgstr ""
 "oʼchirib tashlamoqchimisiz?"
 
 msgid "Cancel"
-msgstr "Bekor qilish"
+msgstr "Бекор қилиш"
 
 msgid "Discard changes"
 msgstr "Oʼzgartirishlar bekor qilinsin"
@@ -229,7 +247,7 @@ msgid "Yes, discard changes"
 msgstr ""
 
 msgid "No access"
-msgstr "Kirish huquqi mavjud emas"
+msgstr "Kirish taʼqiqlangan"
 
 msgid "Not supported"
 msgstr ""
@@ -271,7 +289,7 @@ msgid "Show fewer"
 msgstr "Kamroq koʼrsatish"
 
 msgid "Show more"
-msgstr "Koʼproq koʼrsatilsin"
+msgstr "Koʼproq koʼrsatish"
 
 msgid "Insert"
 msgstr "Kiritish"
@@ -473,7 +491,7 @@ msgid "Edit"
 msgstr "Tahrirlash"
 
 msgid "Share"
-msgstr "Ulashish"
+msgstr "Улашиш"
 
 msgid "Clear dashboard filters?"
 msgstr ""
