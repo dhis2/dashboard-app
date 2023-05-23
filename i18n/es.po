@@ -7,14 +7,15 @@
 # Gabriela Rodriguez <grodriguezcoronado@gmail.com>, 2021
 # Alison Andrade <aandrade@ippfwhr.org>, 2021
 # Prabhjot Singh, 2021
+# Marta Vila <marta@dhis2.org>, 2023
 # 
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
 "POT-Creation-Date: 2021-10-28T06:43:54.981Z\n"
 "PO-Revision-Date: 2021-09-03 23:41+0000\n"
-"Last-Translator: Prabhjot Singh, 2021\n"
-"Language-Team: Spanish (https://www.transifex.com/hisp-uio/teams/100509/es/)\n"
+"Last-Translator: Marta Vila <marta@dhis2.org>, 2023\n"
+"Language-Team: Spanish (https://app.transifex.com/hisp-uio/teams/100509/es/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -25,10 +26,10 @@ msgid "Untitled dashboard"
 msgstr "Tablero sin nombre"
 
 msgid "Cannot create a dashboard while offline"
-msgstr ""
+msgstr "No se pueden crear dashboard sin cconexion a internet"
 
 msgid "Create new dashboard"
-msgstr ""
+msgstr "Crear nuevo tablero"
 
 msgid "Search for a dashboard"
 msgstr "Buscar un tablero"
@@ -114,6 +115,7 @@ msgstr "Hubo un problema al cargar las interpretaciones de este elemento."
 
 msgid "Maps with Earth Engine layers cannot be displayed when offline"
 msgstr ""
+"Mapas con capas del Earth Engine no se pueden mostrar sin conexón a internet"
 
 msgid "Unable to load the plugin for this item"
 msgstr "Incapaz de cargar el complemento para este elemento"
@@ -128,7 +130,7 @@ msgid "Open this item in {{appName}}"
 msgstr "Abra este elemento en {{appName}}"
 
 msgid "Not available offline"
-msgstr ""
+msgstr "No disponible sin conexión a internet"
 
 msgid "Visualizations"
 msgstr "Visualizaciones"
@@ -175,7 +177,7 @@ msgstr ""
 "no tenga acceso para editar este tablero de mando."
 
 msgid "Cannot save this dashboard while offline"
-msgstr ""
+msgstr "No se puede guardar sin conexión a internet"
 
 msgid "Save changes"
 msgstr "Guardar cambios"
@@ -193,7 +195,7 @@ msgid "Translate"
 msgstr "Traducir"
 
 msgid "Cannot delete this dashboard while offline"
-msgstr ""
+msgstr "No se puede borrar este tablero sin conexión a internet"
 
 msgid "Delete"
 msgstr "Eliminar"
@@ -293,10 +295,10 @@ msgid "Search for items to add to this dashboard"
 msgstr "Buscar objetos para añadir en este tablero"
 
 msgid "Search for visualizations, reports and more"
-msgstr ""
+msgstr "Buscar visualizaciones, informes y mas "
 
 msgid "Cannot search for dashboard items while offline"
-msgstr ""
+msgstr "No se pueden buscar elementos de tableros sin conexión a internet"
 
 msgid "Additional items"
 msgstr "Objetos adicionales"
