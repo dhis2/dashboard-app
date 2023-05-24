@@ -1,4 +1,5 @@
 import {
+    itemTypeMap,
     REPORT_TABLE,
     CHART,
     VISUALIZATION,
@@ -24,6 +25,17 @@ const itemTypeToScriptPath = {
 
 const hasIntegratedPlugin = (type) =>
     [CHART, REPORT_TABLE, VISUALIZATION].includes(type)
+
+export const getPluginLaunchUrl = (type, d2) => {
+    const apps = d2.system.installedApps
+    const appKey = itemTypeMap[type].appKey
+
+    if (appKey) {
+        const appDetails = apps.find((app) => app.key === appKey)
+
+        return appDetails?.pluginLaunchUrl
+    }
+}
 
 export const getPlugin = async (type) => {
     if (hasIntegratedPlugin(type)) {
@@ -64,11 +76,13 @@ const fetchPlugin = async (type, baseUrl) => {
     return await scriptsPromise
 }
 
-export const pluginIsAvailable = (type) =>
-    hasIntegratedPlugin(type) || itemTypeToGlobalVariable[type]
+export const pluginIsAvailable = (type, d2) =>
+    hasIntegratedPlugin(type) ||
+    Boolean(getPluginLaunchUrl(type, d2)) ||
+    itemTypeToGlobalVariable[type]
 
-const loadPlugin = async (type, config, credentials) => {
-    if (!pluginIsAvailable(type)) {
+const loadPlugin = async ({ type, config, credentials, d2 }) => {
+    if (!pluginIsAvailable(type, d2)) {
         return
     }
 
@@ -90,7 +104,7 @@ const loadPlugin = async (type, config, credentials) => {
 export const load = async (
     item,
     visualization,
-    { credentials, activeType, options = {} }
+    { credentials, activeType, d2, options = {} }
 ) => {
     const config = {
         ...visualization,
@@ -99,7 +113,7 @@ export const load = async (
     }
 
     const type = activeType || item.type
-    await loadPlugin(type, config, credentials)
+    await loadPlugin({ type, config, credentials, d2 })
 }
 
 export const unmount = async (item, activeType) => {

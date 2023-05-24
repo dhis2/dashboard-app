@@ -1,4 +1,5 @@
 import { useOnlineStatus } from '@dhis2/app-runtime'
+import { useD2 } from '@dhis2/app-runtime-adapter-d2'
 import i18n from '@dhis2/d2-i18n'
 import PropTypes from 'prop-types'
 import React, { useState, useEffect } from 'react'
@@ -8,9 +9,6 @@ import { isElementFullscreen } from '../isElementFullscreen.js'
 import DefaultPlugin from './DefaultPlugin.js'
 import NoVisualizationMessage from './NoVisualizationMessage.js'
 import { pluginIsAvailable, getPlugin, unmount } from './plugin.js'
-
-const mapViewIsThematicOrEvent = (mapView) =>
-    mapView.layer.includes('thematic') || mapView.layer.includes('event')
 
 const mapViewIsEELayer = (mapView) => mapView.layer.includes('earthEngine')
 
@@ -23,6 +21,7 @@ const MapPlugin = ({
     itemFilters,
     ...props
 }) => {
+    const { d2 } = useD2()
     const { offline } = useOnlineStatus()
     const [initialized, setInitialized] = useState(false)
 
@@ -50,30 +49,6 @@ const MapPlugin = ({
         setMapOfflineStatus(offline)
     }, [offline])
 
-    const getVisualization = () => {
-        if (props.item.type === MAP) {
-            // apply filters only to thematic and event layers
-            // for maps AO
-            const mapViews = visualization.mapViews.map((mapView) => {
-                if (mapViewIsThematicOrEvent(mapView)) {
-                    return applyFilters(mapView, itemFilters)
-                }
-
-                return mapView
-            })
-
-            return {
-                ...visualization,
-                mapViews,
-            }
-        } else {
-            // this is the case of a non map AO passed to the maps plugin
-            // due to a visualization type switch in dashboard item
-            // maps plugin takes care of converting the AO to a suitable format
-            return applyFilters(visualization, itemFilters)
-        }
-    }
-
     if (
         offline &&
         !initialized &&
@@ -88,8 +63,9 @@ const MapPlugin = ({
         )
     }
 
-    const vis = getVisualization()
-    return pluginIsAvailable(MAP) ? (
+    const vis = applyFilters(visualization, itemFilters)
+
+    return pluginIsAvailable(MAP, d2) ? (
         <>
             <DefaultPlugin
                 options={{

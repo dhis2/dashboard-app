@@ -1,7 +1,6 @@
+import { OfflineTooltip, TranslationDialog } from '@dhis2/analytics'
 import { useOnlineStatus, useDataEngine, useAlert } from '@dhis2/app-runtime'
-import { useD2 } from '@dhis2/app-runtime-adapter-d2'
 import i18n from '@dhis2/d2-i18n'
-import TranslationDialog from '@dhis2/d2-ui-translation-dialog'
 import { Button, ButtonStrip } from '@dhis2/ui'
 import PropTypes from 'prop-types'
 import React, { useState } from 'react'
@@ -18,7 +17,6 @@ import {
 import { acClearPrintDashboard } from '../../actions/printDashboard.js'
 import { acClearSelected } from '../../actions/selected.js'
 import ConfirmActionDialog from '../../components/ConfirmActionDialog.js'
-import OfflineTooltip from '../../components/OfflineTooltip.js'
 import {
     sGetEditDashboardRoot,
     sGetIsPrintPreviewView,
@@ -41,8 +39,9 @@ const deleteFailedMessage = i18n.t(
     'Failed to delete dashboard. You might be offline or not have access to edit this dashboard.'
 )
 
+const fieldsToTranslate = ['name', 'description']
+
 const EditBar = ({ dashboard, ...props }) => {
-    const { d2 } = useD2()
     const dataEngine = useDataEngine()
     const { online } = useOnlineStatus()
     const [translationDlgIsOpen, setTranslationDlgIsOpen] = useState(false)
@@ -159,23 +158,13 @@ const EditBar = ({ dashboard, ...props }) => {
     }
 
     const translationDialog = () =>
-        dashboard.id ? (
+        translationDlgIsOpen ? (
             <TranslationDialog
                 className="translation-dialog"
-                d2={d2}
-                open={translationDlgIsOpen}
-                onRequestClose={toggleTranslationDialog}
-                objectToTranslate={{
-                    ...dashboard,
-                    modelDefinition: { name: 'dashboard' },
-                }}
-                fieldsToTranslate={['name', 'description']}
-                onTranslationError={(err) =>
-                    console.log('translation update error', err)
-                }
+                onClose={toggleTranslationDialog}
+                objectToTranslate={dashboard}
+                fieldsToTranslate={fieldsToTranslate}
                 onTranslationSaved={Function.prototype}
-                insertTheme={true}
-                isOnline={online}
             />
         ) : null
 

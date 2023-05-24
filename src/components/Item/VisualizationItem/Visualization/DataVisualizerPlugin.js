@@ -37,7 +37,8 @@ const DataVisualizerPlugin = ({
         return (
             <div style={style}>
                 <VisualizationErrorMessage
-                    item={item}
+                    itemType={item.type}
+                    visualizationId={visualization.id}
                     dashboardMode={dashboardMode}
                 />
             </div>
