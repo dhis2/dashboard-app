@@ -9,7 +9,7 @@ import DefaultPlugin from './DefaultPlugin'
 import NoVisualizationMessage from './NoVisualizationMessage'
 import { pluginIsAvailable, getPlugin, unmount } from './plugin'
 
-const mapViewIsEELayer = (mapView) => mapView.layer.includes('earthEngine')
+const mapViewIsEELayer = mapView => mapView.layer.includes('earthEngine')
 
 const MapPlugin = ({
     visualization,

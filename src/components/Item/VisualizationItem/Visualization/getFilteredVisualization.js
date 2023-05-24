@@ -1,9 +1,9 @@
-const mapViewIsThematicOrEvent = (mapView) =>
+const mapViewIsThematicOrEvent = mapView =>
     mapView.layer.includes('thematic') || mapView.layer.includes('event')
 
 const getFilteredMap = (visualization, filters) => {
     // apply filters only to thematic and event layers
-    const mapViews = visualization.mapViews.map((mapView) => {
+    const mapViews = visualization.mapViews.map(mapView => {
         if (mapViewIsThematicOrEvent(mapView)) {
             return getFilteredNonMap(mapView, filters)
         }
