@@ -34,16 +34,16 @@ msgid "Show more dashboards"
 msgstr ""
 
 msgid "Remove this item"
-msgstr ""
+msgstr "මෙම අයිතමය ඉවත්කරන්න"
 
 msgid "This item has been shortened to fit on one page"
 msgstr ""
 
 msgid "Remove"
-msgstr "ඉවත් කරන්"
+msgstr "ඉවත් කරන්න"
 
 msgid "Messages"
-msgstr ""
+msgstr "පණිවිඩ"
 
 msgid "See all messages"
 msgstr "සියලු පණිවිඩ බලන්න"
@@ -52,7 +52,7 @@ msgid "Item type \"{{type}}\" is not supported"
 msgstr "අයිතම වර්ගය \"{{type}}\" සඳහා සහාය නොදක්වයි"
 
 msgid "The item type is missing"
-msgstr ""
+msgstr "අයිතම වර්ගය සොයාගත නොහැක"
 
 msgid "Filters applied"
 msgstr ""
@@ -65,7 +65,7 @@ msgid ""
 msgstr ""
 
 msgid "Text item"
-msgstr ""
+msgstr "පද අයිතමය"
 
 msgid "Add text here"
 msgstr "මෙතැන පද යොදන්න"
@@ -83,7 +83,7 @@ msgid "Hide details and interpretations"
 msgstr "විස්තර සහ අර්ථ නිරූපණයන් සඟවන්න"
 
 msgid "Show details and interpretations"
-msgstr ""
+msgstr "විස්තර සහ අර්ථ නිරූපණයන් පෙන්වන්න"
 
 msgid "Open in {{appName}} app"
 msgstr ""
@@ -92,10 +92,10 @@ msgid "View fullscreen"
 msgstr ""
 
 msgid "This map can't be displayed as a chart"
-msgstr ""
+msgstr "මෙම සිතියම ප්‍රස්තාරයක් ලෙස දැක්විය නොහැක"
 
 msgid "View as Chart"
-msgstr ""
+msgstr "ප්‍රස්තාරයක් ලෙස නරඹන්න"
 
 msgid "This map can't be displayed as a table"
 msgstr "මෙම සිතියම වගුවක් ලෙස පෙන්විය නොහැක"
@@ -161,7 +161,7 @@ msgid "Apps"
 msgstr ""
 
 msgid "Reports"
-msgstr ""
+msgstr "වාර්තා"
 
 msgid "Resources"
 msgstr ""
@@ -227,7 +227,7 @@ msgid "Cancel"
 msgstr ""
 
 msgid "Discard changes"
-msgstr ""
+msgstr "වෙනස් කිරීම් ඉවතලන්න"
 
 msgid ""
 "This dashboard has unsaved changes. Are you sure you want to leave and "
@@ -376,7 +376,7 @@ msgid "dashboard layout"
 msgstr ""
 
 msgid "one item per page"
-msgstr ""
+msgstr "පිටුවට අයිතමය බැගින්"
 
 msgid "Print Preview"
 msgstr ""
@@ -468,7 +468,7 @@ msgid "Hide description"
 msgstr ""
 
 msgid "Show description"
-msgstr ""
+msgstr "විස්තරය පෙන්වන්න"
 
 msgid "One item per page"
 msgstr ""
@@ -477,10 +477,10 @@ msgid "Close dashboard"
 msgstr ""
 
 msgid "More"
-msgstr ""
+msgstr "තව"
 
 msgid "Edit"
-msgstr ""
+msgstr "වෙනස් කරන්න"
 
 msgid "Share"
 msgstr ""
@@ -497,7 +497,7 @@ msgid "Yes, clear filters and sync"
 msgstr ""
 
 msgid "No description"
-msgstr ""
+msgstr "විස්තරයක් නැත"
 
 msgid "Add filter"
 msgstr ""
@@ -524,7 +524,7 @@ msgid "This dashboard cannot be loaded while offline."
 msgstr ""
 
 msgid "Go to start page"
-msgstr ""
+msgstr "මුල් පිටුවට යන්න"
 
 msgid "Load dashboard failed"
 msgstr ""
