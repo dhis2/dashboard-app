@@ -5,7 +5,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2021-12-21T08:20:25.327Z\n"
+"POT-Creation-Date: 2023-05-10T12:25:45.620Z\n"
 "PO-Revision-Date: 2022-10-15 22:30+0000\n"
 "Last-Translator: Malinda Wijeratne, 2023\n"
 "Language-Team: Sinhala (https://app.transifex.com/hisp-uio/teams/100509/si/)\n"
@@ -52,7 +52,7 @@ msgid "Item type \"{{type}}\" is not supported"
 msgstr "අයිතම වර්ගය \"{{type}}\" සඳහා සහාය නොදක්වයි"
 
 msgid "The item type is missing"
-msgstr ""
+msgstr "අයිතම වර්ගය සොයාගත නොහැක"
 
 msgid "Filters applied"
 msgstr ""
@@ -70,6 +70,12 @@ msgstr "පද අයිතම"
 msgid "Add text here"
 msgstr "මෙතැන පද යොදන්න"
 
+msgid "Filters are not applied to line list dashboard items"
+msgstr ""
+
+msgid "Filters not applied"
+msgstr ""
+
 msgid "There was a problem loading this dashboard item"
 msgstr ""
 
@@ -86,7 +92,7 @@ msgid "View fullscreen"
 msgstr ""
 
 msgid "This map can't be displayed as a chart"
-msgstr "මෙම සිතියම ප්‍රස්තාරයක් ලෙස පෙන්විය නොහැක"
+msgstr "මෙම සිතියම ප්‍රස්තාරයක් ලෙස දැක්විය නොහැක"
 
 msgid "View as Chart"
 msgstr "ප්‍රස්තාරයක් ලෙස නරඹන්න"
@@ -109,8 +115,26 @@ msgstr ""
 msgid "Unable to load the plugin for this item"
 msgstr ""
 
+msgid "The plugin for rendering this item is not available"
+msgstr ""
+
+msgid "Install the {{appName}} app from the App Hub"
+msgstr ""
+
 msgid "No data to display"
 msgstr "පෙන්වීමට දත්ත නොමැත"
+
+msgid ""
+"Install Line Listing app version ${minLLVersion.join(\n"
+"                                '.'\n"
+"                            )} or higher in order to display this item."
+msgstr ""
+
+msgid "Filters are not applied to line list dashboard items."
+msgstr ""
+
+msgid "Show without filters"
+msgstr ""
 
 msgid "There was an error loading data for this item"
 msgstr "ඇති වූ ගැටලුවක් හේතුවෙන් මෙම අයිතමය සඳහා  දත්ත පූරණ කළ නොහැක"
@@ -139,11 +163,14 @@ msgstr "සිද්ධි වාර්ථා"
 msgid "Event charts"
 msgstr ""
 
+msgid "Line lists"
+msgstr ""
+
 msgid "Apps"
 msgstr ""
 
 msgid "Reports"
-msgstr ""
+msgstr "වාර්තා"
 
 msgid "Resources"
 msgstr ""
@@ -209,7 +236,7 @@ msgid "Cancel"
 msgstr ""
 
 msgid "Discard changes"
-msgstr ""
+msgstr "වෙනස් කිරීම් ඉවතලන්න"
 
 msgid ""
 "This dashboard has unsaved changes. Are you sure you want to leave and "
@@ -358,7 +385,7 @@ msgid "dashboard layout"
 msgstr ""
 
 msgid "one item per page"
-msgstr ""
+msgstr "පිටුවට අයිතමය බැගින්"
 
 msgid "Print Preview"
 msgstr ""
@@ -450,7 +477,7 @@ msgid "Hide description"
 msgstr ""
 
 msgid "Show description"
-msgstr ""
+msgstr "විස්තරය පෙන්වන්න"
 
 msgid "One item per page"
 msgstr ""
@@ -459,10 +486,10 @@ msgid "Close dashboard"
 msgstr ""
 
 msgid "More"
-msgstr ""
+msgstr "තව"
 
 msgid "Edit"
-msgstr ""
+msgstr "වෙනස් කරන්න"
 
 msgid "Share"
 msgstr ""
@@ -479,7 +506,7 @@ msgid "Yes, clear filters and sync"
 msgstr ""
 
 msgid "No description"
-msgstr ""
+msgstr "විස්තරයක් නැත"
 
 msgid "Add filter"
 msgstr ""
@@ -506,7 +533,7 @@ msgid "This dashboard cannot be loaded while offline."
 msgstr ""
 
 msgid "Go to start page"
-msgstr ""
+msgstr "මුල් පිටුවට යන්න"
 
 msgid "Load dashboard failed"
 msgstr ""
