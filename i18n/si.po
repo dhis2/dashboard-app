@@ -104,7 +104,7 @@ msgstr[0] ""
 msgstr[1] ""
 
 msgid "Remove"
-msgstr "ඉවත් කරන්"
+msgstr "ඉවත් කරන්න"
 
 msgid "Delete item"
 msgstr ""
