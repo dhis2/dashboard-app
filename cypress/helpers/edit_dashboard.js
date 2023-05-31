@@ -129,9 +129,9 @@ export const expectChartItemToBeDisplayed = () => {
         .getIframeBody()
         .as('iframeBody')
 
-    cy.get('@iframeBody')
-        .find(chartClass, { timeout: 38000 })
-        .should('be.visible')
+    cy.get('@iframeBody').find(chartClass, { timeout: 38000 }).as('thechart')
+
+    cy.get('@thechart').should('be.visible')
 }
 
 const expectMapItemToBeDisplayed = () => {
