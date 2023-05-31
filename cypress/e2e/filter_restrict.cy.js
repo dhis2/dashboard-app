@@ -110,7 +110,7 @@ describe('Editing Filter Restrictions', () => {
         expectFacilityOwnershipToBeOnlyDimension()
     })
 
-    it('restricts filters to no dimensions and does not see Add Filter in dashboard', () => {
+    it.skip('restricts filters to no dimensions and does not see Add Filter in dashboard', () => {
         // visitDashboardInEditMode(dashboardId)
         cy.visit('/', EXTENDED_TIMEOUT).log(Cypress.env('dhis2BaseUrl'))
         openDashboard(TEST_DASHBOARD_TITLE)

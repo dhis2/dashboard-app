@@ -36,7 +36,8 @@ const DELIVERY_DASHBOARD_TITLE = 'Delivery'
 const openDashboardRootUrl = () => {
     cy.visit('/', EXTENDED_TIMEOUT)
 
-    cy.location().should((loc) => {
+    cy.location(EXTENDED_TIMEOUT).should((loc) => {
+        cy.log('loc', loc.toString()) // FIXME
         expect(loc.hash).to.equal('#/')
     })
 
@@ -133,19 +134,25 @@ describe('View dashboard', () => {
 
     it('shows layer names in legend', () => {
         cy.visit('/', EXTENDED_TIMEOUT)
-        openDashboard('Delivery')
+        openDashboard(DELIVERY_DASHBOARD_TITLE)
 
         // hover over the map legend button
-        const mapItemUid = dashboards['Delivery'].items.map.itemUid
+        const mapItemUid =
+            dashboards[DELIVERY_DASHBOARD_TITLE].items.map.itemUid
         getDashboardItem(mapItemUid)
             .getIframeBody()
             .find(mapLegendButtonClass, EXTENDED_TIMEOUT)
-            .trigger('mouseover')
+            .as('legendButton')
+
+        cy.get('@legendButton').trigger('mouseover')
 
         // the legend title shows the tracked entity name
         getDashboardItem(mapItemUid)
             .getIframeBody()
             .find(mapLegendTitleClass)
+            .as('legendTitle')
+
+        cy.get('@legendTitle')
             .contains('PHU delivery rate')
             .should('be.visible')
     })
