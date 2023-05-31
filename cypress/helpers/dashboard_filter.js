@@ -4,13 +4,11 @@ import {
     mapLegendButtonClass,
     mapLegendContentClass,
     chartSubtitleClass,
-    chartXAxisLabelClass,
 } from '../elements/dashboardItem.js'
 import { innerScrollContainerSel } from '../elements/viewDashboard.js'
 import { EXTENDED_TIMEOUT } from '../support/utils.js'
 
 const PERIOD = 'Last 6 months'
-const OU = 'Sierra Leone'
 const FACILITY_TYPE = 'Clinic'
 
 export const clickOnFilterBadge = (filterName) => {
@@ -48,23 +46,6 @@ export const expectPeriodFilterToBeApplied = () => {
         .getIframeBody()
         .find(mapLegendContentClass, EXTENDED_TIMEOUT)
         .contains(PERIOD)
-        .should('be.visible')
-}
-
-export const expectOrganisationUnitFilterToBeApplied = () => {
-    cy.getBySel(filterBadgeSel)
-        .contains(`Organisation unit: ${OU}`)
-        .should('be.visible')
-
-    cy.getBySel(innerScrollContainerSel).scrollTo('bottom')
-    cy.get(`${gridItemClass}.VISUALIZATION`)
-        .getIframeBody()
-        .find(chartXAxisLabelClass, EXTENDED_TIMEOUT)
-        .as('chartlabel')
-
-    cy.get('@chartlabel')
-        .scrollIntoView()
-        .contains(OU, EXTENDED_TIMEOUT)
         .should('be.visible')
 }
 

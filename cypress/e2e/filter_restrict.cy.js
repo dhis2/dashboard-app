@@ -6,6 +6,7 @@ import {
     addDashboardItems,
     saveDashboard,
     expectDashboardToDisplayInViewMode,
+    openDashboard,
 } from '../helpers/edit_dashboard.js'
 import {
     clickConfirm,
@@ -110,7 +111,10 @@ describe('Editing Filter Restrictions', () => {
     })
 
     it('restricts filters to no dimensions and does not see Add Filter in dashboard', () => {
-        visitDashboardInEditMode(dashboardId)
+        // visitDashboardInEditMode(dashboardId)
+        cy.visit('/', EXTENDED_TIMEOUT).log(Cypress.env('dhis2BaseUrl'))
+        openDashboard(TEST_DASHBOARD_TITLE)
+        chooseToEditDashboard(TEST_DASHBOARD_TITLE)
         clickFilterSettings()
         clickToRestrictFilterSettings()
         removeAllFiltersFromSelectedFilters()

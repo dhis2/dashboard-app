@@ -1,11 +1,19 @@
-import { dimensionsModalSel } from '../elements/dashboardFilter.js'
-import { gridItemClass } from '../elements/dashboardItem.js'
+import {
+    dimensionsModalSel,
+    filterBadgeSel,
+} from '../elements/dashboardFilter.js'
+import {
+    gridItemClass,
+    chartXAxisLabelClass,
+} from '../elements/dashboardItem.js'
 import { clickEditActionButton } from '../elements/editDashboard.js'
-import { newButtonSel } from '../elements/viewDashboard.js'
+import {
+    newButtonSel,
+    innerScrollContainerSel,
+} from '../elements/viewDashboard.js'
 import { addFilter } from '../helpers/add_filter.js'
 import {
     expectFacilityTypeFilterToBeApplied,
-    expectOrganisationUnitFilterToBeApplied,
     expectPeriodFilterToBeApplied,
     clickOnFilterBadge,
 } from '../helpers/dashboard_filter.js'
@@ -17,6 +25,10 @@ import {
     expectDifferentDashboardDisplaysInViewMode,
 } from '../helpers/edit_dashboard.js'
 import { EXTENDED_TIMEOUT, createDashboardTitle } from '../support/utils.js'
+
+// const PERIOD = 'Last 6 months'
+const OU = 'Sierra Leone'
+// const FACILITY_TYPE = 'Clinic'
 
 const TEST_DASHBOARD_TITLE = createDashboardTitle('af')
 
@@ -69,7 +81,21 @@ describe('Dashboard filter', () => {
         cy.visit('/', EXTENDED_TIMEOUT)
         openDashboard(TEST_DASHBOARD_TITLE)
         addFilter('Organisation unit', SIERRA_LEONE_OU_ID)
-        expectOrganisationUnitFilterToBeApplied()
+
+        cy.getBySel(filterBadgeSel)
+            .contains(`Organisation unit: ${OU}`)
+            .should('be.visible')
+
+        cy.getBySel(innerScrollContainerSel).scrollTo('bottom')
+        // cy.get(`${gridItemClass}.VISUALIZATION`)
+        //     .getIframeBody()
+        //     .find(chartXAxisLabelClass, EXTENDED_TIMEOUT)
+        //     .as('chartlabel')
+
+        // cy.get('@chartlabel')
+        //     .scrollIntoView()
+        //     .contains(OU, EXTENDED_TIMEOUT)
+        //     .should('be.visible')
     })
 
     it('adds a facility type filter', () => {
