@@ -1,20 +1,19 @@
 # 
 # Translators:
-# easylin <lin_xd@126.com>, 2022
-# 晓东 林 <13981924470@126.com>, 2023
+# Malinda Wijeratne, 2023
 # 
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
 "POT-Creation-Date: 2023-05-03T11:08:21.315Z\n"
 "PO-Revision-Date: 2019-06-25 12:37+0000\n"
-"Last-Translator: 晓东 林 <13981924470@126.com>, 2023\n"
-"Language-Team: Chinese (China) (https://app.transifex.com/hisp-uio/teams/100509/zh_CN/)\n"
+"Last-Translator: Malinda Wijeratne, 2023\n"
+"Language-Team: Sinhala (https://app.transifex.com/hisp-uio/teams/100509/si/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: zh_CN\n"
-"Plural-Forms: nplurals=1; plural=0;\n"
+"Language: si\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 msgid "Untitled dashboard"
 msgstr ""
@@ -26,7 +25,7 @@ msgid "Create new dashboard"
 msgstr ""
 
 msgid "Search for a dashboard"
-msgstr "搜索仪表盘"
+msgstr ""
 
 msgid "Show fewer dashboards"
 msgstr ""
@@ -35,41 +34,41 @@ msgid "Show more dashboards"
 msgstr ""
 
 msgid "Remove this item"
-msgstr ""
+msgstr "මෙම අයිතමය ඉවත්කරන්න"
 
 msgid "This item has been shortened to fit on one page"
 msgstr ""
 
 msgid "Remove"
-msgstr "移除"
+msgstr "ඉවත් කරන්න"
 
 msgid "Messages"
-msgstr "消息"
+msgstr "පණිවිඩ"
 
 msgid "See all messages"
-msgstr "发送所有消息"
+msgstr "සියලු පණිවිඩ බලන්න"
 
 msgid "Item type \"{{type}}\" is not supported"
-msgstr ""
+msgstr "අයිතම වර්ගය \"{{type}}\" සඳහා සහාය නොදක්වයි"
 
 msgid "The item type is missing"
-msgstr ""
+msgstr "අයිතම වර්ගය සොයාගත නොහැක"
 
 msgid "Filters applied"
 msgstr ""
 
 msgid "Spacer"
-msgstr "空分割栏"
+msgstr ""
 
 msgid ""
 "Use a spacer to create empty vertical space between other dashboard items."
-msgstr "使用空白在条目间创建垂直分割栏"
+msgstr ""
 
 msgid "Text item"
-msgstr "文本条目"
+msgstr "පද අයිතමය"
 
 msgid "Add text here"
-msgstr "添加文本到这里"
+msgstr "මෙතැන පද යොදන්න"
 
 msgid "Filters are not applied to line list dashboard items"
 msgstr ""
@@ -81,10 +80,10 @@ msgid "There was a problem loading this dashboard item"
 msgstr ""
 
 msgid "Hide details and interpretations"
-msgstr ""
+msgstr "විස්තර සහ අර්ථ නිරූපණයන් සඟවන්න"
 
 msgid "Show details and interpretations"
-msgstr ""
+msgstr "විස්තර සහ අර්ථ නිරූපණයන් පෙන්වන්න"
 
 msgid "Open in {{appName}} app"
 msgstr ""
@@ -93,22 +92,22 @@ msgid "View fullscreen"
 msgstr ""
 
 msgid "This map can't be displayed as a chart"
-msgstr ""
+msgstr "මෙම සිතියම ප්‍රස්තාරයක් ලෙස දැක්විය නොහැක"
 
 msgid "View as Chart"
-msgstr ""
+msgstr "ප්‍රස්තාරයක් ලෙස නරඹන්න"
 
 msgid "This map can't be displayed as a table"
-msgstr ""
+msgstr "මෙම සිතියම වගුවක් ලෙස පෙන්විය නොහැක"
 
 msgid "View as Table"
-msgstr "查看表格"
+msgstr "වගුවක් ලෙස නරඹන්න"
 
 msgid "View as Map"
-msgstr ""
+msgstr "සිතියමක් ලෙස නරඹන්න"
 
 msgid "There was a problem loading interpretations for this item"
-msgstr ""
+msgstr "අර්ථ නිරූපණයන් පූරණයේ ගැටලුවක් තිබේ"
 
 msgid "The plugin for rendering this item is not available"
 msgstr ""
@@ -117,7 +116,7 @@ msgid "Install the {{appName}} app from the App Hub"
 msgstr ""
 
 msgid "No data to display"
-msgstr "没有数据可显示"
+msgstr "පෙන්වීමට දත්ත නොමැත"
 
 msgid ""
 "Install Line Listing app version ${minLLVersion.join(\n"
@@ -132,49 +131,49 @@ msgid "Maps with Earth Engine layers cannot be displayed when offline"
 msgstr ""
 
 msgid "Unable to load the plugin for this item"
-msgstr "不能该条目的插件"
+msgstr ""
 
 msgid "There was an error loading data for this item"
-msgstr ""
+msgstr "ඇති වූ ගැටලුවක් හේතුවෙන් මෙම අයිතමය සඳහා  දත්ත පූරණ කළ නොහැක"
 
 msgid "Open this item in {{appName}}"
-msgstr ""
+msgstr "මෙම අයිතමය {{appName}} තුළ විවෘත කරන්න"
 
 msgid "Not available offline"
-msgstr ""
+msgstr "මාර්ග අපගතව නොතිබේ"
 
 msgid "Visualizations"
 msgstr ""
 
 msgid "Pivot tables"
-msgstr "透视表"
+msgstr ""
 
 msgid "Charts"
-msgstr "图表"
+msgstr "ප්‍රස්ථාර"
 
 msgid "Maps"
-msgstr "地图"
+msgstr "සිතිය"
 
 msgid "Event reports"
-msgstr "事件报表"
+msgstr "සිද්ධි වාර්ථා"
 
 msgid "Event charts"
-msgstr "事件图表"
+msgstr ""
 
 msgid "Line lists"
 msgstr ""
 
 msgid "Apps"
-msgstr "应用"
+msgstr ""
 
 msgid "Reports"
-msgstr "报表"
+msgstr "වාර්තා"
 
 msgid "Resources"
-msgstr "资源"
+msgstr ""
 
 msgid "Users"
-msgstr "用户"
+msgstr "පරිශීලකයන්"
 
 msgid ""
 "Failed to save dashboard. You might be offline or not have access to edit "
@@ -195,7 +194,7 @@ msgid "Cannot save this dashboard while offline"
 msgstr ""
 
 msgid "Save changes"
-msgstr "保存更改"
+msgstr "වෙනස් කිරීම් සුරකින්න"
 
 msgid "Exit print preview"
 msgstr ""
@@ -207,19 +206,19 @@ msgid "Filter settings"
 msgstr ""
 
 msgid "Translate"
-msgstr "翻译"
+msgstr "පරිවර්තනය කරන්න"
 
 msgid "Cannot delete this dashboard while offline"
 msgstr ""
 
 msgid "Delete"
-msgstr "删除"
+msgstr "ඉවත් කරන්න"
 
 msgid "Exit without saving"
-msgstr "不保存退出"
+msgstr ""
 
 msgid "Go to dashboards"
-msgstr "进到仪表盘"
+msgstr ""
 
 msgid "Delete dashboard"
 msgstr ""
@@ -231,10 +230,10 @@ msgid ""
 msgstr ""
 
 msgid "Cancel"
-msgstr "取消"
+msgstr ""
 
 msgid "Discard changes"
-msgstr ""
+msgstr "වෙනස් කිරීම් ඉවතලන්න"
 
 msgid ""
 "This dashboard has unsaved changes. Are you sure you want to leave and "
@@ -242,13 +241,13 @@ msgid ""
 msgstr ""
 
 msgid "No, stay here"
-msgstr "不，待在这里"
+msgstr "නැත. මෙතන රැඳෙන්"
 
 msgid "Yes, discard changes"
-msgstr ""
+msgstr "ඔව්. වෙනස්කිරීම් ඉවතලන්න"
 
 msgid "No access"
-msgstr "不能访问"
+msgstr "පිවිසිය නොහැක"
 
 msgid "Not supported"
 msgstr ""
@@ -281,22 +280,22 @@ msgid "Selected Filters"
 msgstr ""
 
 msgid "Confirm"
-msgstr "确认"
+msgstr "තහවුරු කරන්න"
 
 msgid "There are no items on this dashboard"
-msgstr "该仪表盘没有条目"
-
-msgid "Show fewer"
 msgstr ""
 
+msgid "Show fewer"
+msgstr "අඩුවෙන් පෙන්වන්න"
+
 msgid "Show more"
-msgstr "更多"
+msgstr "වැඩියෙන් පෙන්වන්න"
 
 msgid "Insert"
-msgstr "插入"
+msgstr "ඇතුල් කරන්න"
 
 msgid "Search for items to add to this dashboard"
-msgstr "搜索条目添加到仪表盘"
+msgstr ""
 
 msgid "Search for visualizations, reports and more"
 msgstr ""
@@ -308,7 +307,7 @@ msgid "Additional items"
 msgstr ""
 
 msgid "Text box"
-msgstr "文本框"
+msgstr ""
 
 msgid "Dashboard layout"
 msgstr ""
@@ -328,7 +327,7 @@ msgid ""
 msgstr ""
 
 msgid "Number of columns"
-msgstr ""
+msgstr "තීරු ගණන"
 
 msgid "Gap size between columns (px)"
 msgstr ""
@@ -362,6 +361,7 @@ msgstr ""
 msgid "{{count}} columns"
 msgid_plural "{{count}} columns"
 msgstr[0] ""
+msgstr[1] ""
 
 msgid "Change layout"
 msgstr ""
@@ -376,13 +376,13 @@ msgid "Start of dashboard"
 msgstr ""
 
 msgid "Print"
-msgstr "打印"
+msgstr "මුද්‍රණය කරන්න"
 
 msgid "dashboard layout"
 msgstr ""
 
 msgid "one item per page"
-msgstr ""
+msgstr "පිටුවට අයිතමය බැගින්"
 
 msgid "Print Preview"
 msgstr ""
@@ -402,7 +402,7 @@ msgid ""
 msgstr ""
 
 msgid "Getting started"
-msgstr "开始"
+msgstr ""
 
 msgid "Search for and open saved dashboards from the top bar."
 msgstr ""
@@ -419,14 +419,15 @@ msgid "Your most viewed dashboards"
 msgstr ""
 
 msgid "No dashboards found. Use the + button to create a new dashboard."
-msgstr "没有找到仪表盘条目，使用+ 按钮创建新的仪表盘条目。"
+msgstr ""
 
 msgid "Requested dashboard not found"
-msgstr "请求的仪表盘条目没有找到"
+msgstr ""
 
 msgid "{{count}} selected"
 msgid_plural "{{count}} selected"
-msgstr[0] "{{count}} 个已经选择"
+msgstr[0] ""
+msgstr[1] ""
 
 msgid "Cannot remove filters while offline"
 msgstr ""
@@ -440,7 +441,7 @@ msgid ""
 msgstr ""
 
 msgid "No, cancel"
-msgstr "不，取消"
+msgstr ""
 
 msgid "Yes, remove filters"
 msgstr ""
@@ -473,7 +474,7 @@ msgid "Hide description"
 msgstr ""
 
 msgid "Show description"
-msgstr ""
+msgstr "විස්තරය පෙන්වන්න"
 
 msgid "One item per page"
 msgstr ""
@@ -482,13 +483,13 @@ msgid "Close dashboard"
 msgstr ""
 
 msgid "More"
-msgstr "更多"
+msgstr "තව"
 
 msgid "Edit"
-msgstr "编辑<br>"
+msgstr "වෙනස් කරන්න"
 
 msgid "Share"
-msgstr "共享"
+msgstr ""
 
 msgid "Clear dashboard filters?"
 msgstr ""
@@ -502,10 +503,10 @@ msgid "Yes, clear filters and sync"
 msgstr ""
 
 msgid "No description"
-msgstr "没有描述"
+msgstr "විස්තරයක් නැත"
 
 msgid "Add filter"
-msgstr "添加过滤器"
+msgstr ""
 
 msgid "Offline data last updated {{time}}"
 msgstr ""
@@ -523,13 +524,13 @@ msgid "Loading dashboard"
 msgstr ""
 
 msgid "Offline"
-msgstr "离线"
+msgstr ""
 
 msgid "This dashboard cannot be loaded while offline."
 msgstr ""
 
 msgid "Go to start page"
-msgstr ""
+msgstr "මුල් පිටුවට යන්න"
 
 msgid "Load dashboard failed"
 msgstr ""
