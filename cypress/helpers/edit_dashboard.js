@@ -139,9 +139,9 @@ const expectMapItemToBeDisplayed = () => {
     // https://dhis2.atlassian.net/browse/DHIS2-14365
     cy.get(`${gridItemClass}.MAP`).first().getIframeBody().as('iframeBody')
 
-    cy.get('@iframeBody')
-        .find(mapClass, { timeout: 55333 })
-        .should('be.visible')
+    cy.get('@iframeBody').find(mapClass, { timeout: 55333 }).as('themap')
+
+    cy.get('@themap').should('be.visible')
 }
 
 export const chooseToEditDashboard = () => {
@@ -149,9 +149,6 @@ export const chooseToEditDashboard = () => {
         .find('button')
         .contains('Edit', EXTENDED_TIMEOUT)
         .click()
-
-    //  cy.get('button').as('btn').click()
-    //  cy.get('@btn').should('have.class', 'active')
 
     expectDashboardDisplaysInEditMode()
 }

@@ -43,7 +43,9 @@ export const errorMessageIsDisplayedOnItem = () => {
         .first()
         .getIframeBody()
         .find(chartClass)
-        .should('not.exist')
+        .as('thechart')
+
+    cy.get('@thechart').should('not.exist')
 }
 
 export const errorMessageNotIncludingLinkIsDisplayedOnItem = () => {
@@ -73,12 +75,16 @@ export const visIsDisplayedCorrectly = (visType) => {
             .first()
             .getIframeBody()
             .find(chartClass)
-            .should('be.visible')
+            .as('thechart')
+
+        cy.get('@thechart').should('be.visible')
     } else if (visType === 'table') {
         cy.get(`${gridItemClass}.VISUALIZATION`)
             .first()
             .getIframeBody()
             .find(tableClass)
-            .should('be.visible')
+            .as('thetable')
+
+        cy.get('@thetable').should('be.visible')
     }
 }

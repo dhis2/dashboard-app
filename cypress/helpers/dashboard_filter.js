@@ -60,6 +60,9 @@ export const expectOrganisationUnitFilterToBeApplied = () => {
     cy.get(`${gridItemClass}.VISUALIZATION`)
         .getIframeBody()
         .find(chartXAxisLabelClass, EXTENDED_TIMEOUT)
+        .as('chartlabel')
+
+    cy.get('@chartlabel')
         .scrollIntoView()
         .contains(OU, EXTENDED_TIMEOUT)
         .should('be.visible')
@@ -74,6 +77,9 @@ export const expectFacilityTypeFilterToBeApplied = () => {
     cy.get(`${gridItemClass}.VISUALIZATION`)
         .getIframeBody()
         .find(chartSubtitleClass, EXTENDED_TIMEOUT)
+        .as('chartsubtitle')
+
+    cy.get('@chartsubtitle')
         .scrollIntoView()
         .contains(FACILITY_TYPE, EXTENDED_TIMEOUT)
         .should('be.visible')
