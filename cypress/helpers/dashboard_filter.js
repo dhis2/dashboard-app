@@ -25,6 +25,9 @@ export const expectPeriodFilterToBeApplied = () => {
     cy.get(`${gridItemClass}.VISUALIZATION`)
         .getIframeBody()
         .find(`${chartSubtitleClass} > title`, EXTENDED_TIMEOUT)
+        .as('chartsubtitle')
+
+    cy.get('@chartsubtitle')
         .invoke('text')
         .then((text) => {
             const commas = (text.match(/,/g) || []).length
@@ -39,12 +42,16 @@ export const expectPeriodFilterToBeApplied = () => {
     cy.get(`${gridItemClass}.MAP`)
         .getIframeBody()
         .find(mapLegendButtonClass, { timeout: 85000 })
-        .trigger('mouseover')
+        .as('mapLegendButton')
+
+    cy.get('@mapLegendButton').trigger('mouseover')
+
     cy.get(`${gridItemClass}.MAP`)
         .getIframeBody()
         .find(mapLegendContentClass, EXTENDED_TIMEOUT)
-        .contains(PERIOD)
-        .should('be.visible')
+        .as('mapLegendContent')
+
+    cy.get('@mapLegendContent').contains(PERIOD).should('be.visible')
 }
 
 export const expectFacilityTypeFilterToBeApplied = () => {
@@ -70,10 +77,15 @@ export const expectFacilityTypeFilterToBeApplied = () => {
     cy.get(`${gridItemClass}.MAP`)
         .getIframeBody()
         .find(mapLegendButtonClass, { timeout: 85000 })
-        .trigger('mouseover')
+        .as('mapLegendButton')
+
+    cy.get('@mapLegendButton').trigger('mouseover')
     cy.get(`${gridItemClass}.MAP`)
         .getIframeBody()
         .find(mapLegendContentClass, EXTENDED_TIMEOUT)
+        .as('mapLegendContent')
+
+    cy.get('@mapLegendContent')
         .find('div')
         .contains(`Facility Type: ${FACILITY_TYPE}`)
         .should('be.visible')
