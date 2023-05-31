@@ -90,7 +90,9 @@ describe('View dashboard', () => {
             .first()
             .getIframeBody()
             .find('.highcharts-background')
-            .should('exist')
+            .as('chartBackground')
+
+        cy.get('@chartBackground').should('exist')
     })
 
     it('views the print layout preview', () => {
