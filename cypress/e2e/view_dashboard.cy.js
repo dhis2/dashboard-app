@@ -89,6 +89,9 @@ describe('View dashboard', () => {
         cy.get(`${gridItemClass}.VISUALIZATION`)
             .first()
             .getIframeBody()
+            .as('iframebody')
+
+        cy.get('@iframebody')
             .find('.highcharts-background')
             .as('chartBackground')
 
