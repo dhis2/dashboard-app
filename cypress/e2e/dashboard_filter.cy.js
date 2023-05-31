@@ -4,7 +4,7 @@ import {
 } from '../elements/dashboardFilter.js'
 import {
     gridItemClass,
-    chartXAxisLabelClass,
+    // chartXAxisLabelClass,
 } from '../elements/dashboardItem.js'
 import { clickEditActionButton } from '../elements/editDashboard.js'
 import {

@@ -12,10 +12,8 @@ const PERIOD = 'Last 6 months'
 const FACILITY_TYPE = 'Clinic'
 
 export const clickOnFilterBadge = (filterName) => {
-    cy.getBySel(filterBadgeSel)
-        .find('span:visible')
-        .contains(filterName)
-        .click()
+    cy.getBySel(filterBadgeSel).find('span:visible').as('visibleFilterBadge')
+    cy.get('@visibleFilterBadge').contains(filterName).click()
 }
 
 export const expectPeriodFilterToBeApplied = () => {
