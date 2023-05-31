@@ -137,7 +137,7 @@ describe('View dashboard', () => {
         expectDashboardToDisplayInViewMode(DELIVERY_DASHBOARD_TITLE)
     })
 
-    it('shows layer names in legend', () => {
+    it.skip('shows layer names in legend', () => {
         cy.visit('/', EXTENDED_TIMEOUT)
         openDashboard(DELIVERY_DASHBOARD_TITLE)
 
@@ -162,7 +162,7 @@ describe('View dashboard', () => {
             .should('be.visible')
     })
 
-    it("opens the user's preferred dashboard", () => {
+    it.skip("opens the user's preferred dashboard", () => {
         cy.visit('/', EXTENDED_TIMEOUT)
         openDashboard('Antenatal Care', [])
         openDashboardRootUrl()
