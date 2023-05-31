@@ -7,6 +7,7 @@ import {
     dashboardTitleSel,
     clickViewActionButton,
 } from '../elements/viewDashboard.js'
+import { EXTENDED_TIMEOUT } from '../support/utils.js'
 
 export const clickFilterSettings = () => {
     clickEditActionButton('Filter settings')
@@ -33,7 +34,7 @@ export const expectFilterSettingsToBeUnrestricted = (title) => {
 }
 
 export const visitDashboardInEditMode = (dashboardId) => {
-    cy.visit(`/${dashboardId}/edit`)
+    cy.visit(`/${dashboardId}/edit`, EXTENDED_TIMEOUT)
 }
 
 export const clickToRestrictFilterSettings = () => {

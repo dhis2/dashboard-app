@@ -37,7 +37,7 @@ const openDashboardRootUrl = () => {
     cy.visit('/', EXTENDED_TIMEOUT)
 
     cy.location(EXTENDED_TIMEOUT).should((loc) => {
-        cy.log('loc', loc.toString()) // FIXME
+        // cy.log('loc', loc.toString()) // FIXME
         expect(loc.hash).to.equal('#/')
     })
 
