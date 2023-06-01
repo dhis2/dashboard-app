@@ -1,5 +1,6 @@
 import { render } from '@testing-library/react'
 import React from 'react'
+import { act } from 'react-dom/test-utils.js'
 import { Provider } from 'react-redux'
 import configureMockStore from 'redux-mock-store'
 import thunk from 'redux-thunk'
@@ -8,13 +9,34 @@ import App from '../App'
 import { useSystemSettings } from '../SystemSettingsProvider'
 
 jest.mock('@dhis2/analytics')
+jest.mock('@dhis2/app-runtime', () => ({
+    useOnlineStatus: jest.fn(() => ({ online: true, offline: false })),
+    useDataEngine: jest.fn(() => ({ query: Function.prototype })),
+    useCacheableSection: jest.fn,
+}))
 
 jest.mock('../../api/fetchAllDashboards', () => {
     return {
-        apiFetchDashboards: jest.fn(() => ({
-            id: 'rainbowdash',
-            displayName: 'Rainbow Dash',
-            starred: true,
+        apiFetchDashboards: jest.fn(() => [
+            {
+                id: 'rainbowdash',
+                displayName: 'Rainbow Dash',
+                starred: true,
+            },
+        ]),
+    }
+})
+
+jest.mock('../../api/dataStatistics', () => {
+    return {
+        apiGetDataStatistics: jest.fn(() => ({
+            dashboard: [
+                {
+                    id: 'rainbowdash',
+                    name: 'Rainbow Dash name',
+                    starred: true,
+                },
+            ],
         })),
     }
 })
@@ -88,7 +110,8 @@ jest.mock('../../pages/print', () => {
     }
 })
 
-const middlewares = [thunk]
+const dataEngine = {}
+const middlewares = [thunk.withExtraArgument(dataEngine)]
 const mockStore = configureMockStore(middlewares)
 
 test('renders the app with a dashboard', () => {
@@ -108,7 +131,8 @@ test('renders the app with a dashboard', () => {
     jest.clearAllMocks()
 })
 
-test('renders the app with the start page', () => {
+test('renders the app with the start page', async () => {
+    const promise = Promise.resolve()
     useSystemSettings.mockReturnValue({
         systemSettings: { startModuleEnableLightweight: true },
     })
@@ -120,6 +144,7 @@ test('renders the app with the start page', () => {
             </Provider>
         </>
     )
+    await act(() => promise)
     expect(container).toMatchSnapshot()
     expect(apiFetchDashboards).toHaveBeenCalledTimes(1)
     jest.clearAllMocks()
