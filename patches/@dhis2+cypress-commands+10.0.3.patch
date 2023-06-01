@@ -1,0 +1,245 @@
+diff --git a/node_modules/@dhis2/cypress-commands/build/cjs/commands/index.js b/node_modules/@dhis2/cypress-commands/build/cjs/commands/index.js
+index 7caa4b9..c011a30 100644
+--- a/node_modules/@dhis2/cypress-commands/build/cjs/commands/index.js
++++ b/node_modules/@dhis2/cypress-commands/build/cjs/commands/index.js
+@@ -7,7 +7,3 @@ require("./fillInLoginForm.js");
+ require("./findWithDataTest.js");
+ 
+ require("./getWithDataTest.js");
+\ No newline at end of file
+-
+-require("./loginByApi.js");
+-
+-require("./validateUserIsLoggedIn.js");
+\ No newline at end of file
+diff --git a/node_modules/@dhis2/cypress-commands/build/cjs/commands/loginByApi.js b/node_modules/@dhis2/cypress-commands/build/cjs/commands/loginByApi.js
+deleted file mode 100644
+index c1df1bc..0000000
+--- a/node_modules/@dhis2/cypress-commands/build/cjs/commands/loginByApi.js
++++ /dev/null
+@@ -1,23 +0,0 @@
+-"use strict";
+-
+-Cypress.Commands.add('loginByApi', _ref => {
+-  let {
+-    username,
+-    password,
+-    baseUrl
+-  } = _ref;
+-  // Login via API
+-  cy.request({
+-    url: "".concat(baseUrl, "/dhis-web-commons-security/login.action"),
+-    method: 'POST',
+-    form: true,
+-    followRedirect: true,
+-    body: {
+-      j_username: username,
+-      j_password: password,
+-      '2fa_code': ''
+-    }
+-  }); // Set base url for the app platform
+-
+-  window.localStorage.setItem('DHIS2_BASE_URL', baseUrl);
+-});
+\ No newline at end of file
+diff --git a/node_modules/@dhis2/cypress-commands/build/cjs/commands/validateUserIsLoggedIn.js b/node_modules/@dhis2/cypress-commands/build/cjs/commands/validateUserIsLoggedIn.js
+deleted file mode 100644
+index 284de27..0000000
+--- a/node_modules/@dhis2/cypress-commands/build/cjs/commands/validateUserIsLoggedIn.js
++++ /dev/null
+@@ -1,12 +0,0 @@
+-"use strict";
+-
+-Cypress.Commands.add('validateUserIsLoggedIn', _ref => {
+-  let {
+-    baseUrl,
+-    username
+-  } = _ref;
+-  cy.request("".concat(baseUrl, "/api/me")).then(response => {
+-    expect(response.status).to.eq(200);
+-    expect(response.body.username).to.eq(username);
+-  });
+-});
+\ No newline at end of file
+diff --git a/node_modules/@dhis2/cypress-commands/build/cjs/setups/enableAutoLogin/enableAutoLogin.js b/node_modules/@dhis2/cypress-commands/build/cjs/setups/enableAutoLogin/enableAutoLogin.js
+index 8a6327e..2369a2b 100644
+--- a/node_modules/@dhis2/cypress-commands/build/cjs/setups/enableAutoLogin/enableAutoLogin.js
++++ b/node_modules/@dhis2/cypress-commands/build/cjs/setups/enableAutoLogin/enableAutoLogin.js
+@@ -13,34 +13,37 @@ const enableAutoLogin = function () {
+     password: _password,
+     baseUrl: _baseUrl
+   } = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
++  let {
++    timeout
++  } = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
+ 
+   if ((0, _index.isStubMode)()) {
+     return;
+   }
+ 
+-  const username = _username || Cypress.env('dhis2Username');
++  const name = _username || Cypress.env('dhis2Username');
+ 
+   const password = _password || Cypress.env('dhis2Password');
+ 
+-  const baseUrl = _baseUrl || Cypress.env('dhis2BaseUrl');
++  const server = _baseUrl || Cypress.env('dhis2BaseUrl');
+ 
+   const createSession = () => cy.session('user', () => {
+-    // Not using the login form to log in as that's the
+-    // recommendation by cypress:
+-    // * https://docs.cypress.io/guides/end-to-end-testing/testing-your-app#Fully-test-the-login-flow----but-only-once
+-    // * https://docs.cypress.io/api/commands/session#Multiple-login-commands
+-    cy.loginByApi({
+-      username,
++    cy.visit('/');
++    cy.fillInLoginForm({
++      name,
+       password,
+-      baseUrl
++      server
+     });
++    cy.get('#dhis2-app-root > *', {
++      timeout
++    }).should('exist');
+   }, {
+     cacheAcrossSpecs: true,
+     validate: () => {
+-      cy.validateUserIsLoggedIn({
+-        baseUrl,
+-        username
+-      });
++      cy.visit('/');
++      cy.get('h1:contains("Please sign in")', {
++        timeout
++      }).should('not.exist');
+     }
+   });
+ 
+diff --git a/node_modules/@dhis2/cypress-commands/build/es/commands/index.js b/node_modules/@dhis2/cypress-commands/build/es/commands/index.js
+index 16674a3..851f29e 100644
+--- a/node_modules/@dhis2/cypress-commands/build/es/commands/index.js
++++ b/node_modules/@dhis2/cypress-commands/build/es/commands/index.js
+@@ -2,5 +2,3 @@ import './all.js';
+ import './fillInLoginForm.js';
+ import './findWithDataTest.js';
+ import './getWithDataTest.js';
+\ No newline at end of file
+-import './loginByApi.js';
+-import './validateUserIsLoggedIn.js';
+\ No newline at end of file
+diff --git a/node_modules/@dhis2/cypress-commands/build/es/commands/loginByApi.js b/node_modules/@dhis2/cypress-commands/build/es/commands/loginByApi.js
+deleted file mode 100644
+index 6702ff6..0000000
+--- a/node_modules/@dhis2/cypress-commands/build/es/commands/loginByApi.js
++++ /dev/null
+@@ -1,21 +0,0 @@
+-Cypress.Commands.add('loginByApi', _ref => {
+-  let {
+-    username,
+-    password,
+-    baseUrl
+-  } = _ref;
+-  // Login via API
+-  cy.request({
+-    url: "".concat(baseUrl, "/dhis-web-commons-security/login.action"),
+-    method: 'POST',
+-    form: true,
+-    followRedirect: true,
+-    body: {
+-      j_username: username,
+-      j_password: password,
+-      '2fa_code': ''
+-    }
+-  }); // Set base url for the app platform
+-
+-  window.localStorage.setItem('DHIS2_BASE_URL', baseUrl);
+-});
+\ No newline at end of file
+diff --git a/node_modules/@dhis2/cypress-commands/build/es/commands/validateUserIsLoggedIn.js b/node_modules/@dhis2/cypress-commands/build/es/commands/validateUserIsLoggedIn.js
+deleted file mode 100644
+index ab355d2..0000000
+--- a/node_modules/@dhis2/cypress-commands/build/es/commands/validateUserIsLoggedIn.js
++++ /dev/null
+@@ -1,10 +0,0 @@
+-Cypress.Commands.add('validateUserIsLoggedIn', _ref => {
+-  let {
+-    baseUrl,
+-    username
+-  } = _ref;
+-  cy.request("".concat(baseUrl, "/api/me")).then(response => {
+-    expect(response.status).to.eq(200);
+-    expect(response.body.username).to.eq(username);
+-  });
+-});
+\ No newline at end of file
+diff --git a/node_modules/@dhis2/cypress-commands/build/es/index.js b/node_modules/@dhis2/cypress-commands/build/es/index.js
+index 47c98ea..c76c666 100644
+--- a/node_modules/@dhis2/cypress-commands/build/es/index.js
++++ b/node_modules/@dhis2/cypress-commands/build/es/index.js
+@@ -1,4 +1,4 @@
+-import './commands/index.js'; // will automatically register the commands
+-
++// will automatically create the commands
++import './commands/index.js';
+ export * from './helper/index.js';
+ export * from './setups/index.js';
+\ No newline at end of file
+diff --git a/node_modules/@dhis2/cypress-commands/build/es/setups/enableAutoLogin/enableAutoLogin.js b/node_modules/@dhis2/cypress-commands/build/es/setups/enableAutoLogin/enableAutoLogin.js
+index de58a91..8665eba 100644
+--- a/node_modules/@dhis2/cypress-commands/build/es/setups/enableAutoLogin/enableAutoLogin.js
++++ b/node_modules/@dhis2/cypress-commands/build/es/setups/enableAutoLogin/enableAutoLogin.js
+@@ -5,34 +5,40 @@ export const enableAutoLogin = function () {
+     password: _password,
+     baseUrl: _baseUrl
+   } = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
++  let {
++    timeout
++  } = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
+ 
+   if (isStubMode()) {
+     return;
+   }
+ 
+-  const username = _username || Cypress.env('dhis2Username');
++  const name = _username || Cypress.env('dhis2Username');
+ 
+   const password = _password || Cypress.env('dhis2Password');
+ 
+-  const baseUrl = _baseUrl || Cypress.env('dhis2BaseUrl');
++  const server = _baseUrl || Cypress.env('dhis2BaseUrl');
+ 
+   const createSession = () => cy.session('user', () => {
+-    // Not using the login form to log in as that's the
+-    // recommendation by cypress:
+-    // * https://docs.cypress.io/guides/end-to-end-testing/testing-your-app#Fully-test-the-login-flow----but-only-once
+-    // * https://docs.cypress.io/api/commands/session#Multiple-login-commands
+-    cy.loginByApi({
+-      username,
++    cy.visit('/');
++    cy.log('username', name);
++    cy.log('password', password);
++    cy.log('server', server);
++    cy.fillInLoginForm({
++      name,
+       password,
+-      baseUrl
++      server
+     });
++    cy.get('#dhis2-app-root > *', {
++      timeout
++    }).should('exist');
+   }, {
+     cacheAcrossSpecs: true,
+     validate: () => {
+-      cy.validateUserIsLoggedIn({
+-        baseUrl,
+-        username
+-      });
++      cy.visit('/');
++      cy.get('h1:contains("Please sign in")', {
++        timeout
++      }).should('not.exist');
+     }
+   });
+ 
