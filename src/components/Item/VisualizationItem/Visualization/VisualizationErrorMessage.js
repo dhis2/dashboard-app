@@ -3,9 +3,8 @@ import i18n from '@dhis2/d2-i18n'
 import { colors } from '@dhis2/ui'
 import PropTypes from 'prop-types'
 import React from 'react'
-import { isPrintMode } from '../../../../modules/dashboardModes'
-import { getVisualizationId } from '../../../../modules/item'
-import { getAppName, itemTypeMap } from '../../../../modules/itemTypes'
+import { isPrintMode } from '../../../../modules/dashboardModes.js'
+import { getAppName, itemTypeMap } from '../../../../modules/itemTypes.js'
 import classes from './styles/VisualizationErrorMessage.module.css'
 
 const getErrorIcon = () => (
@@ -23,11 +22,15 @@ const getErrorIcon = () => (
     </svg>
 )
 
-const VisualizationErrorMessage = ({ item, dashboardMode }) => {
+const VisualizationErrorMessage = ({
+    itemType,
+    dashboardMode,
+    visualizationId,
+}) => {
     const { baseUrl } = useConfig()
 
-    const visHref = `${baseUrl}/${itemTypeMap[item.type].appUrl(
-        getVisualizationId(item)
+    const visHref = `${baseUrl}/${itemTypeMap[itemType].appUrl(
+        visualizationId
     )}`
 
     return (
@@ -45,7 +48,7 @@ const VisualizationErrorMessage = ({ item, dashboardMode }) => {
                         href={visHref}
                     >
                         {i18n.t('Open this item in {{appName}}', {
-                            appName: getAppName(item.type),
+                            appName: getAppName(itemType),
                         })}
                     </a>
                 </p>
@@ -56,7 +59,8 @@ const VisualizationErrorMessage = ({ item, dashboardMode }) => {
 
 VisualizationErrorMessage.propTypes = {
     dashboardMode: PropTypes.string,
-    item: PropTypes.object,
+    itemType: PropTypes.string,
+    visualizationId: PropTypes.string,
 }
 
 export default VisualizationErrorMessage

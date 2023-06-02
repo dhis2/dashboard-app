@@ -53,7 +53,9 @@ jest.mock('@dhis2/app-runtime-adapter-d2', () => {
     return {
         useD2: jest.fn(() => ({
             d2: {
-                currentUser: { username: 'rainbowDash' },
+                currentUser: {
+                    username: 'rainbowDash',
+                },
             },
         })),
     }

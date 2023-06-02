@@ -25,13 +25,14 @@ import {
     getAppName,
     itemTypeMap,
     getItemTypeForVis,
-} from '../../../../modules/itemTypes'
-import { isSmallScreen } from '../../../../modules/smallScreen'
-import MenuItem from '../../../MenuItemWithTooltip'
-import { useSystemSettings } from '../../../SystemSettingsProvider'
-import { useWindowDimensions } from '../../../WindowDimensionsProvider'
-import { isElementFullscreen } from '../isElementFullscreen'
-import ViewAsMenuItems from './ViewAsMenuItems'
+    EVENT_VISUALIZATION,
+} from '../../../../modules/itemTypes.js'
+import { isSmallScreen } from '../../../../modules/smallScreen.js'
+import MenuItem from '../../../MenuItemWithTooltip.js'
+import { useSystemSettings } from '../../../SystemSettingsProvider.js'
+import { useWindowDimensions } from '../../../WindowDimensionsProvider.js'
+import { isElementFullscreen } from '../isElementFullscreen.js'
+import ViewAsMenuItems from './ViewAsMenuItems.js'
 
 const ItemContextMenu = props => {
     const [menuIsOpen, setMenuIsOpen] = useState(false)
@@ -85,6 +86,7 @@ const ItemContextMenu = props => {
         allowVisViewAs &&
         !isSingleValue(type) &&
         !isYearOverYear(type) &&
+        item.type !== EVENT_VISUALIZATION &&
         type !== VIS_TYPE_GAUGE &&
         type !== VIS_TYPE_PIE
 

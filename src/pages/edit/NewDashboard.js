@@ -2,22 +2,24 @@ import i18n from '@dhis2/d2-i18n'
 import cx from 'classnames'
 import PropTypes from 'prop-types'
 import React, { useState, useEffect } from 'react'
-import { connect } from 'react-redux'
+import { connect, useDispatch } from 'react-redux'
 import { Redirect } from 'react-router-dom'
-import { acSetEditNewDashboard } from '../../actions/editDashboard'
-import DashboardContainer from '../../components/DashboardContainer'
-import Notice from '../../components/Notice'
-import { useWindowDimensions } from '../../components/WindowDimensionsProvider'
-import { setHeaderbarVisible } from '../../modules/setHeaderbarVisible'
-import { isSmallScreen } from '../../modules/smallScreen'
-import { sGetIsPrintPreviewView } from '../../reducers/editDashboard'
-import LayoutPrintPreview from '../print/PrintLayoutDashboard'
-import ActionsBar from './ActionsBar'
-import ItemGrid from './ItemGrid'
+import { acSetEditNewDashboard } from '../../actions/editDashboard.js'
+import { acClearSelected } from '../../actions/selected.js'
+import DashboardContainer from '../../components/DashboardContainer.js'
+import Notice from '../../components/Notice.js'
+import { useWindowDimensions } from '../../components/WindowDimensionsProvider.js'
+import { setHeaderbarVisible } from '../../modules/setHeaderbarVisible.js'
+import { isSmallScreen } from '../../modules/smallScreen.js'
+import { sGetIsPrintPreviewView } from '../../reducers/editDashboard.js'
+import LayoutPrintPreview from '../print/PrintLayoutDashboard.js'
+import ActionsBar from './ActionsBar.js'
+import ItemGrid from './ItemGrid.js'
 import classes from './styles/NewDashboard.module.css'
 import TitleBar from './TitleBar'
 
 const NewDashboard = props => {
+    const dispatch = useDispatch()
     const { width } = useWindowDimensions()
     const [redirectUrl, setRedirectUrl] = useState(null)
 
@@ -27,7 +29,9 @@ const NewDashboard = props => {
             return
         }
         setHeaderbarVisible(true)
-        props.setNewDashboard()
+
+        dispatch(acSetEditNewDashboard())
+        dispatch(acClearSelected())
     }, [])
 
     if (redirectUrl) {
@@ -63,13 +67,10 @@ const NewDashboard = props => {
 
 NewDashboard.propTypes = {
     isPrintPreviewView: PropTypes.bool,
-    setNewDashboard: PropTypes.func,
 }
 
 const mapStateToProps = state => ({
     isPrintPreviewView: sGetIsPrintPreviewView(state),
 })
 
-export default connect(mapStateToProps, {
-    setNewDashboard: acSetEditNewDashboard,
-})(NewDashboard)
+export default connect(mapStateToProps)(NewDashboard)

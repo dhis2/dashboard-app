@@ -4,12 +4,13 @@ import PropTypes from 'prop-types'
 import React, { useState, useEffect } from 'react'
 import { Responsive as ResponsiveReactGridLayout } from 'react-grid-layout'
 import { connect } from 'react-redux'
-import { Item } from '../../components/Item/Item'
-import NoContentMessage from '../../components/NoContentMessage'
-import ProgressiveLoadingContainer from '../../components/ProgressiveLoadingContainer'
-import { useWindowDimensions } from '../../components/WindowDimensionsProvider'
-import { VIEW } from '../../modules/dashboardModes'
-import { getGridItemDomElementClassName } from '../../modules/getGridItemDomElementClassName'
+import { Item } from '../../components/Item/Item.js'
+import NoContentMessage from '../../components/NoContentMessage.js'
+import ProgressiveLoadingContainer from '../../components/ProgressiveLoadingContainer.js'
+import { useWindowDimensions } from '../../components/WindowDimensionsProvider.js'
+import { VIEW } from '../../modules/dashboardModes.js'
+import { getFirstOfTypes } from '../../modules/getFirstOfType.js'
+import { getGridItemDomElementClassName } from '../../modules/getGridItemDomElementClassName.js'
 import {
     GRID_ROW_HEIGHT_PX,
     SM_SCREEN_GRID_COLUMNS,
@@ -41,6 +42,7 @@ const ResponsiveItemGrid = ({ dashboardId, dashboardItems }) => {
     const [gridWidth, setGridWidth] = useState(0)
     const [forceLoad, setForceLoad] = useState(false)
     const { recordingState } = useCacheableSection(dashboardId)
+    const firstOfTypes = getFirstOfTypes(dashboardItems)
 
     useEffect(() => {
         setLayoutSm(
@@ -86,6 +88,10 @@ const ResponsiveItemGrid = ({ dashboardId, dashboardItems }) => {
     const getItemComponent = item => {
         if (!layoutSm.length) {
             return <div key={item.i} />
+        }
+
+        if (firstOfTypes.includes(item.id)) {
+            item.firstOfType = true
         }
 
         return (

@@ -4,6 +4,16 @@ import { Provider } from 'react-redux'
 import configureMockStore from 'redux-mock-store'
 import Visualization from '../Visualization'
 
+jest.mock('@dhis2/app-runtime-adapter-d2', () => {
+    return {
+        useD2: jest.fn(() => ({
+            d2: {
+                currentUser: { username: 'rainbowDash' },
+                system: { installedApps: {} },
+            },
+        })),
+    }
+})
 jest.mock(
     '../DataVisualizerPlugin',
     () =>
@@ -31,6 +41,9 @@ const mockStore = configureMockStore()
 const DEFAULT_STORE_WITH_ONE_ITEM = {
     visualizations: { rainbowVis: { rows: [], columns: [], filters: [] } },
     itemFilters: {},
+    selected: {
+        id: 'test-dashboard',
+    },
 }
 
 test('renders a MapPlugin when activeType is MAP', () => {
@@ -42,6 +55,10 @@ test('renders a MapPlugin when activeType is MAP', () => {
                     type: 'MAP',
                     map: { id: 'rainbowVis' },
                 }}
+                visualization={
+                    DEFAULT_STORE_WITH_ONE_ITEM.visualizations.rainbowVis
+                }
+                originalType="MAP"
                 activeType="MAP"
                 itemFilters={{}}
                 availableHeight={500}
@@ -60,6 +77,10 @@ test('renders a VisualizationPlugin for CHART', () => {
                     type: 'VISUALIZATION',
                     visualization: { id: 'rainbowVis', type: 'BAR' },
                 }}
+                visualization={
+                    DEFAULT_STORE_WITH_ONE_ITEM.visualizations.rainbowVis
+                }
+                originalType="CHART"
                 activeType="CHART"
                 itemFilters={{}}
                 availableHeight={500}
@@ -78,6 +99,10 @@ test('renders a VisualizationPlugin for REPORT_TABLE', () => {
                     type: 'VISUALIZATION',
                     visualization: { id: 'rainbowVis', type: 'PIVOT_TABLE' },
                 }}
+                visualization={
+                    DEFAULT_STORE_WITH_ONE_ITEM.visualizations.rainbowVis
+                }
+                originalType="REPORT_TABLE"
                 activeType="REPORT_TABLE"
                 itemFilters={{}}
                 availableHeight={500}
@@ -96,6 +121,10 @@ test('renders active type MAP rather than original type REPORT_TABLE', () => {
                     type: 'VISUALIZATION',
                     visualization: { id: 'rainbowVis', type: 'PIVOT_TABLE' },
                 }}
+                visualization={
+                    DEFAULT_STORE_WITH_ONE_ITEM.visualizations.rainbowVis
+                }
+                originalType="REPORT_TABLE"
                 activeType="MAP"
                 itemFilters={{}}
                 availableHeight={500}
@@ -114,6 +143,10 @@ test('renders active type REPORT_TABLE rather than original type MAP', () => {
                     type: 'MAP',
                     map: { id: 'rainbowVis' },
                 }}
+                visualization={
+                    DEFAULT_STORE_WITH_ONE_ITEM.visualizations.rainbowVis
+                }
+                originalType="MAP"
                 activeType="REPORT_TABLE"
                 itemFilters={{}}
                 availableHeight={500}
@@ -132,6 +165,10 @@ test('renders a DefaultPlugin when activeType is EVENT_CHART', () => {
                     type: 'EVENT_CHART',
                     eventChart: { id: 'rainbowVis' },
                 }}
+                visualization={
+                    DEFAULT_STORE_WITH_ONE_ITEM.visualizations.rainbowVis
+                }
+                originalType="EVENT_CHART"
                 activeType="EVENT_CHART"
                 itemFilters={{}}
                 availableHeight={500}
@@ -150,6 +187,10 @@ test('renders a DefaultPlugin when activeType is EVENT_REPORT', () => {
                     type: 'EVENT_REPORT',
                     eventReport: { id: 'rainbowVis' },
                 }}
+                visualization={
+                    DEFAULT_STORE_WITH_ONE_ITEM.visualizations.rainbowVis
+                }
+                originalType="EVENT_REPORT"
                 activeType="EVENT_REPORT"
                 itemFilters={{}}
                 availableHeight={500}
@@ -162,6 +203,10 @@ test('renders a DefaultPlugin when activeType is EVENT_REPORT', () => {
 test('renders NoVisMessage when no visualization', () => {
     const store = {
         visualizations: {},
+        itemFilters: {},
+        selected: {
+            id: 'test-dashboard',
+        },
     }
     const { container } = render(
         <Provider store={mockStore(store)}>
@@ -171,6 +216,7 @@ test('renders NoVisMessage when no visualization', () => {
                     type: 'VISUALIZATION',
                     visualization: { type: 'BAR' },
                 }}
+                originalType="CHART"
                 activeType="CHART"
                 itemFilters={{}}
                 availableHeight={500}

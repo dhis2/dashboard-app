@@ -9,9 +9,6 @@ import DefaultPlugin from './DefaultPlugin'
 import NoVisualizationMessage from './NoVisualizationMessage'
 import { pluginIsAvailable, getPlugin, unmount } from './plugin'
 
-const mapViewIsThematicOrEvent = mapView =>
-    mapView.layer.includes('thematic') || mapView.layer.includes('event')
-
 const mapViewIsEELayer = mapView => mapView.layer.includes('earthEngine')
 
 const MapPlugin = ({
@@ -50,30 +47,6 @@ const MapPlugin = ({
         setMapOfflineStatus(offline)
     }, [offline])
 
-    const getVisualization = () => {
-        if (props.item.type === MAP) {
-            // apply filters only to thematic and event layers
-            // for maps AO
-            const mapViews = visualization.mapViews.map(mapView => {
-                if (mapViewIsThematicOrEvent(mapView)) {
-                    return applyFilters(mapView, itemFilters)
-                }
-
-                return mapView
-            })
-
-            return {
-                ...visualization,
-                mapViews,
-            }
-        } else {
-            // this is the case of a non map AO passed to the maps plugin
-            // due to a visualization type switch in dashboard item
-            // maps plugin takes care of converting the AO to a suitable format
-            return applyFilters(visualization, itemFilters)
-        }
-    }
-
     if (
         offline &&
         !initialized &&
@@ -88,7 +61,8 @@ const MapPlugin = ({
         )
     }
 
-    const vis = getVisualization()
+    const vis = applyFilters(visualization, itemFilters)
+
     return pluginIsAvailable(MAP) ? (
         <>
             <DefaultPlugin

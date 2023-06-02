@@ -11,35 +11,39 @@ exports[`Visualization/Item renders edit mode 1`] = `
       Fancy Chart
     </p>
     <div
-      class="itemActionsWrap"
+      class="itemHeaderRightWrap"
     >
-      <span
-        class="jsx-237564060"
-        data-test="dhis2-uicore-tooltip-reference"
+      <div
+        class="itemActionsWrap"
       >
-        <button
-          class="jsx-441677069 secondary small icon-only"
-          data-test="delete-item-button"
-          type="button"
+        <span
+          class="jsx-237564060"
+          data-test="dhis2-uicore-tooltip-reference"
         >
-          <span
-            class="jsx-441677069 button-icon"
+          <button
+            class="jsx-441677069 secondary small icon-only"
+            data-test="delete-item-button"
+            type="button"
           >
-            <svg
-              color="#c62828"
-              height="24"
-              viewBox="0 0 24 24"
-              width="24"
-              xmlns="http://www.w3.org/2000/svg"
+            <span
+              class="jsx-441677069 button-icon"
             >
-              <path
-                d="M20 5a1 1 0 010 2h-1v13a2 2 0 01-2 2H7a2 2 0 01-2-2V7H4a1 1 0 110-2zm-3 2H7v13h10zm-6 2v8h-1V9zm3 0v8h-1V9zm1-7v2H9V2z"
-                fill="currentColor"
-              />
-            </svg>
-          </span>
-        </button>
-      </span>
+              <svg
+                color="#c62828"
+                height="24"
+                viewBox="0 0 24 24"
+                width="24"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M20 5a1 1 0 010 2h-1v13a2 2 0 01-2 2H7a2 2 0 01-2-2V7H4a1 1 0 110-2zm-3 2H7v13h10zm-6 2v8h-1V9zm3 0v8h-1V9zm1-7v2H9V2z"
+                  fill="currentColor"
+                />
+              </svg>
+            </span>
+          </button>
+        </span>
+      </div>
     </div>
   </div>
   <div
@@ -66,8 +70,12 @@ exports[`Visualization/Item renders view mode 1`] = `
       Fancy Chart
     </p>
     <div
-      class="itemActionsWrap"
-    />
+      class="itemHeaderRightWrap"
+    >
+      <div
+        class="itemActionsWrap"
+      />
+    </div>
   </div>
   <div
     class="dashboard-item-content"
