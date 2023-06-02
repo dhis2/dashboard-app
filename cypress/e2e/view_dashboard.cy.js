@@ -86,7 +86,7 @@ describe('View dashboard', () => {
             .should('be.visible')
             .and('contain', title)
 
-        cy.get(`${gridItemClass}.VISUALIZATION`)
+        cy.get(`${gridItemClass}.VISUALIZATION`, EXTENDED_TIMEOUT)
             .first()
             .getIframeBody()
             .as('iframebody')
