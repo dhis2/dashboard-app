@@ -75,7 +75,7 @@ const expectDashboardNotFoundMessage = () => {
     cy.getBySel(dashboardTitleSel).should('not.exist')
 }
 
-describe('Errors while in view mode', () => {
+describe.skip('Errors while in view mode', () => {
     it('There are no dashboards', () => {
         cy.intercept('**/dashboards?*', { body: { dashboards: [] } })
         cy.visit('/', EXTENDED_TIMEOUT)

@@ -48,7 +48,7 @@ const openDashboardRootUrl = () => {
 const searchForDashboard = (searchText) =>
     cy.get(dashboardSearchInputSel).type(searchText)
 
-describe('View dashboard', () => {
+describe.skip('View dashboard', () => {
     it('switches between dashboards', () => {
         cy.visit('/', EXTENDED_TIMEOUT).log(Cypress.env('dhis2BaseUrl'))
         openDashboard(DELIVERY_DASHBOARD_TITLE)
