@@ -186,17 +186,18 @@ index 47c98ea..c76c666 100644
  export * from './setups/index.js';
 \ No newline at end of file
 diff --git a/node_modules/@dhis2/cypress-commands/build/es/setups/enableAutoLogin/enableAutoLogin.js b/node_modules/@dhis2/cypress-commands/build/es/setups/enableAutoLogin/enableAutoLogin.js
-index de58a91..8665eba 100644
+index de58a91..3bee6fd 100644
 --- a/node_modules/@dhis2/cypress-commands/build/es/setups/enableAutoLogin/enableAutoLogin.js
 +++ b/node_modules/@dhis2/cypress-commands/build/es/setups/enableAutoLogin/enableAutoLogin.js
-@@ -5,34 +5,40 @@ export const enableAutoLogin = function () {
+@@ -5,34 +5,41 @@ export const enableAutoLogin = function () {
      password: _password,
      baseUrl: _baseUrl
    } = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
 +  let {
-+    timeout
++    timeout,
++    runname = 'user'
 +  } = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
- 
+   
    if (isStubMode()) {
      return;
    }
@@ -209,13 +210,14 @@ index de58a91..8665eba 100644
 -  const baseUrl = _baseUrl || Cypress.env('dhis2BaseUrl');
 +  const server = _baseUrl || Cypress.env('dhis2BaseUrl');
  
-   const createSession = () => cy.session('user', () => {
+-  const createSession = () => cy.session('user', () => {
 -    // Not using the login form to log in as that's the
 -    // recommendation by cypress:
 -    // * https://docs.cypress.io/guides/end-to-end-testing/testing-your-app#Fully-test-the-login-flow----but-only-once
 -    // * https://docs.cypress.io/api/commands/session#Multiple-login-commands
 -    cy.loginByApi({
 -      username,
++  const createSession = () => cy.session(runname, () => {
 +    cy.visit('/');
 +    cy.log('username', name);
 +    cy.log('password', password);

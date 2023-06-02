@@ -2,7 +2,9 @@ import { enableAutoLogin } from '@dhis2/cypress-commands'
 
 import './commands.js'
 
-enableAutoLogin(undefined, { timeout: 20000 })
+const runname = 'dboard' + new Date().toUTCString().slice(-12, -4)
+
+enableAutoLogin(undefined, { timeout: 20000, runname })
 
 const resizeObserverLoopErrRe = /^[^(ResizeObserver loop limit exceeded)]/
 Cypress.on('uncaught:exception', (err) => {
