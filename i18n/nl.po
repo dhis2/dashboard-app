@@ -18,80 +18,82 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 msgid "Untitled dashboard"
-msgstr ""
+msgstr "Naamloos dashboard"
 
 msgid "Cannot create a dashboard while offline"
-msgstr ""
+msgstr "Kan geen dashboard maken terwijl u offline bent"
 
 msgid "Create new dashboard"
-msgstr ""
+msgstr "Nieuw dashboard maken"
 
 msgid "Search for a dashboard"
-msgstr ""
+msgstr "Zoek een dashboard"
 
 msgid "Show fewer dashboards"
-msgstr ""
+msgstr "Toon minder dashboards"
 
 msgid "Show more dashboards"
-msgstr ""
+msgstr "Toon meer dashboards"
 
 msgid "Remove this item"
-msgstr ""
+msgstr "Verwijder dit item"
 
 msgid "This item has been shortened to fit on one page"
-msgstr ""
+msgstr "Dit item is ingekort om op één pagina te passen"
 
 msgid "Remove"
 msgstr "Verwijderen"
 
 msgid "Messages"
-msgstr ""
+msgstr "Berichten"
 
 msgid "See all messages"
-msgstr ""
+msgstr "Bekijk alle berichten"
 
 msgid "Item type \"{{type}}\" is not supported"
-msgstr ""
+msgstr "Itemtype \"{{type}}\" wordt niet ondersteund"
 
 msgid "The item type is missing"
-msgstr ""
+msgstr "Het artikeltype ontbreekt"
 
 msgid "Filters applied"
-msgstr ""
+msgstr "Filters toegepast"
 
 msgid "Spacer"
-msgstr ""
+msgstr "Afstandshouder"
 
 msgid ""
 "Use a spacer to create empty vertical space between other dashboard items."
 msgstr ""
+"Gebruik een afstandshouder om lege verticale ruimte tussen andere "
+"dashboarditems te creëren."
 
 msgid "Text item"
-msgstr ""
+msgstr "Tekst item"
 
 msgid "Add text here"
-msgstr ""
+msgstr "Voeg hier tekst toe"
 
 msgid "Filters are not applied to line list dashboard items"
-msgstr ""
+msgstr "Filters worden niet toegepast op dashboarditems van de regellijst"
 
 msgid "Filters not applied"
-msgstr ""
+msgstr "Filters niet toegepast"
 
 msgid "There was a problem loading this dashboard item"
-msgstr ""
+msgstr "Er is een probleem opgetreden bij het laden van dit dashboarditem"
 
 msgid "Hide details and interpretations"
-msgstr ""
+msgstr "Details en interpretaties verbergen"
 
 msgid "Show details and interpretations"
-msgstr ""
+msgstr "Toon details en interpretaties"
 
 msgid "Open in {{appName}} app"
-msgstr ""
+msgstr "Openen in {{appName}}-app"
 
 msgid "View fullscreen"
-msgstr ""
+msgstr "Bekijk volledig scherm"
 
 msgid "This map can't be displayed as a chart"
 msgstr ""
@@ -100,55 +102,59 @@ msgid "View as Chart"
 msgstr ""
 
 msgid "This map can't be displayed as a table"
-msgstr ""
+msgstr "Deze kaart kan niet als tabel worden weergegeven"
 
 msgid "View as Table"
 msgstr "Bekijk als tabel"
 
 msgid "View as Map"
-msgstr ""
+msgstr "Bekijk als kaart"
 
 msgid "There was a problem loading interpretations for this item"
 msgstr ""
+"Er is een probleem opgetreden bij het laden van interpretaties voor dit item"
 
 msgid "The plugin for rendering this item is not available"
-msgstr ""
+msgstr "De plug-in voor het weergeven van dit item is niet beschikbaar"
 
 msgid "Install the {{appName}} app from the App Hub"
-msgstr ""
+msgstr "Installeer de {{appName}}-app vanuit de App Hub"
 
 msgid "No data to display"
-msgstr ""
+msgstr "geen gegevens om weer te geven"
 
 msgid ""
 "Install Line Listing app version ${minLLVersion.join(\n"
 "                                '.'\n"
 "                            )} or higher in order to display this item."
 msgstr ""
+"Installeer Line Listing-app versie ${minLLVersion.join(\n"
+"                                '.'\n"
+"                            )} of hoger om dit item weer te geven."
 
 msgid "Show without filters"
-msgstr ""
+msgstr "Toon zonder filters"
 
 msgid "Maps with Earth Engine layers cannot be displayed when offline"
-msgstr ""
+msgstr "Kaarten met Earth Engine-lagen kunnen offline niet worden weergegeven"
 
 msgid "Unable to load the plugin for this item"
-msgstr ""
+msgstr "Kan de plug-in voor dit item niet laden"
 
 msgid "There was an error loading data for this item"
-msgstr ""
+msgstr "Er is een fout opgetreden bij het laden van gegevens voor dit item"
 
 msgid "Open this item in {{appName}}"
-msgstr ""
+msgstr "Open dit item in {{appName}}"
 
 msgid "Not available offline"
 msgstr "Niet beschikbaar offline"
 
 msgid "Visualizations"
-msgstr ""
+msgstr "visualisaties"
 
 msgid "Pivot tables"
-msgstr ""
+msgstr "Draaitabellen"
 
 msgid "Charts"
 msgstr ""
@@ -157,7 +163,7 @@ msgid "Maps"
 msgstr "Kaarten"
 
 msgid "Event reports"
-msgstr ""
+msgstr "Gebeurtenissen rapporten"
 
 msgid "Event charts"
 msgstr ""
@@ -166,70 +172,79 @@ msgid "Line lists"
 msgstr ""
 
 msgid "Apps"
-msgstr ""
+msgstr "Apps"
 
 msgid "Reports"
-msgstr ""
+msgstr "rapporten"
 
 msgid "Resources"
-msgstr ""
+msgstr "Bronnen"
 
 msgid "Users"
-msgstr ""
+msgstr "Gebruikers"
 
 msgid ""
 "Failed to save dashboard. You might be offline or not have access to edit "
 "this dashboard."
 msgstr ""
+"Kan dashboard niet opslaan. Mogelijk bent u offline of heeft u geen toegang "
+"om dit dashboard te bewerken."
 
 msgid ""
 "Failed to save dashboard. This code is already being used on another "
 "dashboard."
 msgstr ""
+"Kan dashboard niet opslaan. Deze code wordt al gebruikt op een ander "
+"dashboard."
 
 msgid ""
 "Failed to delete dashboard. You might be offline or not have access to edit "
 "this dashboard."
 msgstr ""
+"Kan dashboard niet verwijderen. Mogelijk bent u offline of heeft u geen "
+"toegang om dit dashboard te bewerken."
 
 msgid "Cannot save this dashboard while offline"
-msgstr ""
+msgstr "Kan dit dashboard niet offline opslaan"
 
 msgid "Save changes"
-msgstr ""
+msgstr "Wijzigingen opslaan"
 
 msgid "Exit print preview"
-msgstr ""
+msgstr "Afdrukvoorbeeld afsluiten"
 
 msgid "Print preview"
-msgstr ""
+msgstr "Afdrukvoorbeeld"
 
 msgid "Filter settings"
-msgstr ""
+msgstr "Filter instellingen"
 
 msgid "Translate"
 msgstr "Vertaal"
 
 msgid "Cannot delete this dashboard while offline"
-msgstr ""
+msgstr "Kan dit dashboard niet offline verwijderen"
 
 msgid "Delete"
 msgstr "Verwijderen"
 
 msgid "Exit without saving"
-msgstr ""
+msgstr "Afsluiten zonder op te slaan"
 
 msgid "Go to dashboards"
-msgstr ""
+msgstr "Ga naar dashboards"
 
 msgid "Delete dashboard"
-msgstr ""
+msgstr "Dashboard verwijderen"
 
 msgid ""
 "Deleting dashboard \"{{ dashboardName }}\" will remove it for all users. "
 "This action cannot be undone. Are you sure you want to permanently delete "
 "this dashboard?"
 msgstr ""
+"Als u dashboard \"{{ dashboardName }}\" verwijdert, wordt het voor alle "
+"gebruikers verwijderd. Deze actie kan niet ongedaan gemaakt worden. Weet u "
+"zeker dat u dit dashboard definitief wilt verwijderen?"
 
 msgid "Cancel"
 msgstr "Annuleer"
