@@ -4,6 +4,8 @@ const config = {
     title: 'Dashboard',
     coreApp: true,
 
+    minDHIS2Version: '2.40',
+
     pwa: {
         enabled: true,
         caching: {
