@@ -30,8 +30,10 @@ When('I add translations for dashboard name and description', () => {
     clickEditActionButton('Translate')
     cy.contains('Select locale').click()
     cy.contains('Select locale').type('Norwegian{enter}')
-    cy.get('[placeholder="Name"]').clear().type(norwegianTitle)
-    cy.get('[placeholder="Description"]').clear().type(norwegianDesc)
+    cy.get('[placeholder="Name"]').clear()
+    cy.get('[placeholder="Name"]').type(norwegianTitle)
+    cy.get('[placeholder="Description"]').clear()
+    cy.get('[placeholder="Description"]').type(norwegianDesc)
     cy.get('button').contains('Save', EXTENDED_TIMEOUT).click()
 })
 

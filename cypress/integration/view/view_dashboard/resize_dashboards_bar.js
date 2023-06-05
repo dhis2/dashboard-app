@@ -8,6 +8,7 @@ import { EXTENDED_TIMEOUT } from '../../../support/utils.js'
 // Scenario: I change the height of the control bar
 When('I drag to increase the height of the control bar', () => {
     cy.intercept('PUT', '/userDataStore/dashboard/controlBarRows').as('putRows')
+    // eslint-disable-next-line cypress/unsafe-to-chain-command
     cy.get(dragHandleSel, EXTENDED_TIMEOUT)
         .trigger('mousedown')
         .trigger('mousemove', { clientY: 300 })
@@ -23,6 +24,7 @@ Then('the control bar height should be updated', () => {
         .should('eq', 231)
 
     // restore the original height
+    // eslint-disable-next-line cypress/unsafe-to-chain-command
     cy.get(dragHandleSel)
         .trigger('mousedown')
         .trigger('mousemove', { clientY: 71 })
@@ -32,6 +34,7 @@ Then('the control bar height should be updated', () => {
 
 When('I drag to decrease the height of the control bar', () => {
     cy.intercept('PUT', '/userDataStore/dashboard/controlBarRows').as('putRows')
+    // eslint-disable-next-line cypress/unsafe-to-chain-command
     cy.get(dragHandleSel, EXTENDED_TIMEOUT)
         .trigger('mousedown')
         .trigger('mousemove', { clientY: 300 })

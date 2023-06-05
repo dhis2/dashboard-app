@@ -335,6 +335,7 @@ Then('it is not possible to change sharing settings', () => {
 When('I open the interpretations panel', () => {
     cy.get(itemMenuButtonSel, EXTENDED_TIMEOUT).click()
     cy.contains('Show details and interpretations').click()
+    // eslint-disable-next-line cypress/unsafe-to-chain-command
     cy.get('[placeholder="Write an interpretation"]')
         .scrollIntoView()
         .should('be.visible')
