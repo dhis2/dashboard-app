@@ -44,6 +44,7 @@ When('I add a MAP and a CHART and save', () => {
     cy.get('[data-test="dhis2-uicore-layer"]').click('topLeft')
 
     //move things so the dashboard is more compact
+    // eslint-disable-next-line cypress/unsafe-to-chain-command
     cy.get(`${gridItemSel}.MAP`)
         .trigger('mousedown')
         .trigger('mousemove', { clientX: 650 })

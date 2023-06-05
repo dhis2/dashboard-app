@@ -71,6 +71,7 @@ Then('an error message is displayed on the item', () => {
 })
 
 Then('an error message not including a link is displayed on the item', () => {
+    // eslint-disable-next-line cypress/unsafe-to-chain-command
     cy.contains('There was an error loading data for this item')
         .scrollIntoView()
         .should('be.visible')
@@ -93,6 +94,7 @@ When('I view as table', () => {
 
 When('I remove the filter', () => {
     cy.wait(4000) // eslint-disable-line cypress/no-unnecessary-waiting
+    // eslint-disable-next-line cypress/unsafe-to-chain-command
     cy.get(filterBadgeSel).scrollIntoView().contains('Remove').click()
 
     cy.get(filterBadgeSel).should('not.exist')
