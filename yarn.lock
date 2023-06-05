@@ -4987,11 +4987,6 @@ boolbase@^1.0.0, boolbase@~1.0.0:
   resolved "https://registry.yarnpkg.com/boolbase/-/boolbase-1.0.0.tgz#68dff5fbe60c51eb37725ea9e3ed310dcc1e776e"
   integrity sha1-aN/1++YMUes3cl6p4+0xDcwed24=
 
-boolean-parser@0.0.2:
-  version "0.0.2"
-  resolved "https://registry.yarnpkg.com/boolean-parser/-/boolean-parser-0.0.2.tgz#58721f1172e65fd132d6e6debbd00053deaffa12"
-  integrity sha512-e06Mqk6t7DOXaEo3s+RATvv7ZNt5brRQ2os4NUHVkVCzUD0Z7Gw4AL4AFA/gT3WaLhrobmGvRVh1/UuJiY3sKg==
-
 bowser@^1.7.3:
   version "1.9.4"
   resolved "https://registry.yarnpkg.com/bowser/-/bowser-1.9.4.tgz#890c58a2813a9d3243704334fa81b96a5c150c9a"
@@ -6598,15 +6593,6 @@ cypress-cucumber-preprocessor@^2.0.1:
     glob "^7.1.2"
     js-string-escape "^1.0.1"
     minimist "^1.2.0"
-    through "^2.3.8"
-
-cypress-tags@^1.1.2:
-  version "1.1.2"
-  resolved "https://registry.yarnpkg.com/cypress-tags/-/cypress-tags-1.1.2.tgz#f0aeb29685b0906bba2eca69e7349943cbbd1eba"
-  integrity sha512-5aCGrhmDRQuXfRHJRFy66gBmMvBpsY1+ez5JD/cyjCYjvOVlJ7ED+kovUEdi+9pyDsbFJkQl0HjS6N3ERyb7Ig==
-  dependencies:
-    "@cypress/browserify-preprocessor" "^3.0.1"
-    boolean-parser "0.0.2"
     through "^2.3.8"
 
 cypress@^6.0.1:
