@@ -3,10 +3,10 @@ import React from 'react'
 import FilterSettingsDialog from '../FilterSettingsDialog.js'
 
 jest.mock('@dhis2/app-runtime', () => ({
-    useOnlineStatus: () => ({ online: true }),
+    useDhis2ConnectionStatus: () => ({ isConnected: true }),
 }))
 
-/* eslint-disable react/prop-types */
+/* eslint-disable react/prop-types, react/no-unknown-property */
 jest.mock('@dhis2/ui', () => {
     const originalModule = jest.requireActual('@dhis2/ui')
 
@@ -50,7 +50,7 @@ jest.mock('@dhis2/ui', () => {
         },
     }
 })
-/* eslint-enable react/prop-types */
+/* eslint-enable react/prop-types, react/no-unknown-property */
 
 jest.mock('../../../modules/useDimensions', () => ({
     __esModule: true,

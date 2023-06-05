@@ -18,6 +18,7 @@ const d2Config = {
         'report',
         'eventChart',
         'eventReport',
+        'eventVisualization',
         'dashboard',
         'organisationUnit',
         'userGroup',
@@ -40,11 +41,18 @@ const query = {
             paging: false,
         },
     },
+    apps: {
+        resource: 'apps',
+    },
 }
 
-const providerDataTransformation = ({ rootOrgUnits }) => ({
-    rootOrgUnits: rootOrgUnits.organisationUnits,
-})
+const providerDataTransformation = ({ rootOrgUnits, apps }) => {
+    const lineListingApp = apps.find((app) => app.key === 'line-listing') || {}
+    return {
+        rootOrgUnits: rootOrgUnits.organisationUnits,
+        lineListingAppVersion: lineListingApp.version || '0.0.0',
+    }
+}
 
 const AppWrapper = () => {
     const dataEngine = useDataEngine()
@@ -55,7 +63,7 @@ const AppWrapper = () => {
                 query={query}
                 dataTransformation={providerDataTransformation}
             >
-                <D2Shim d2Config={d2Config} i18nRoot="./i18n">
+                <D2Shim d2Config={d2Config}>
                     {({ d2 }) => {
                         if (!d2) {
                             // TODO: Handle errors in d2 initialization

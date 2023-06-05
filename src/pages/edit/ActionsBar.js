@@ -1,5 +1,9 @@
 import { OfflineTooltip, TranslationDialog } from '@dhis2/analytics'
-import { useOnlineStatus, useDataEngine, useAlert } from '@dhis2/app-runtime'
+import {
+    useDhis2ConnectionStatus,
+    useDataEngine,
+    useAlert,
+} from '@dhis2/app-runtime'
 import i18n from '@dhis2/d2-i18n'
 import { Button, ButtonStrip } from '@dhis2/ui'
 import PropTypes from 'prop-types'
@@ -43,7 +47,7 @@ const fieldsToTranslate = ['name', 'description']
 
 const EditBar = ({ dashboard, ...props }) => {
     const dataEngine = useDataEngine()
-    const { online } = useOnlineStatus()
+    const { isConnected: online } = useDhis2ConnectionStatus()
     const [translationDlgIsOpen, setTranslationDlgIsOpen] = useState(false)
     const [filterSettingsDlgIsOpen, setFilterSettingsDlgIsOpen] =
         useState(false)
@@ -161,10 +165,10 @@ const EditBar = ({ dashboard, ...props }) => {
         translationDlgIsOpen ? (
             <TranslationDialog
                 className="translation-dialog"
-                onClose={toggleTranslationDialog}
                 objectToTranslate={dashboard}
                 fieldsToTranslate={fieldsToTranslate}
-                onTranslationSaved={Function.prototype}
+                onClose={toggleTranslationDialog}
+                onTranslationSaved={toggleTranslationDialog}
             />
         ) : null
 

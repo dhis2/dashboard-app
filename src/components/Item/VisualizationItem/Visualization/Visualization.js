@@ -1,120 +1,226 @@
+import { useCachedDataQuery } from '@dhis2/analytics'
+import { useDhis2ConnectionStatus } from '@dhis2/app-runtime'
+import { useD2 } from '@dhis2/app-runtime-adapter-d2'
 import i18n from '@dhis2/d2-i18n'
+import { Button, Cover, IconInfo24, IconWarning24, colors } from '@dhis2/ui'
 import uniqueId from 'lodash/uniqueId.js'
 import PropTypes from 'prop-types'
-import React from 'react'
-import { connect } from 'react-redux'
-import { isEditMode } from '../../../../modules/dashboardModes.js'
-import { getVisualizationId } from '../../../../modules/item.js'
+import React, { useMemo } from 'react'
+import { useSelector } from 'react-redux'
+import {
+    isLLVersionCompatible,
+    minLLVersion,
+} from '../../../../modules/isLLVersionCompatible.js'
 import {
     VISUALIZATION,
+    EVENT_VISUALIZATION,
     MAP,
     CHART,
     REPORT_TABLE,
-    getItemTypeForVis,
 } from '../../../../modules/itemTypes.js'
-import {
-    sGetItemFiltersRoot,
-    DEFAULT_STATE_ITEM_FILTERS,
-} from '../../../../reducers/itemFilters.js'
-import { sGetVisualization } from '../../../../reducers/visualizations.js'
-import memoizeOne from '../memoizeOne.js'
-import DataVisualizerPlugin from './DataVisualizerPlugin.js'
+import { sGetSelectedId } from '../../../../reducers/selected.js'
 import getFilteredVisualization from './getFilteredVisualization.js'
 import getVisualizationConfig from './getVisualizationConfig.js'
+import IframePlugin from './IframePlugin.js'
 import LegacyPlugin from './LegacyPlugin.js'
-import MapPlugin from './MapPlugin.js'
-import NoVisualizationMessage from './NoVisualizationMessage.js'
 import { pluginIsAvailable } from './plugin.js'
+import classes from './styles/Visualization.module.css'
 
-class Visualization extends React.Component {
-    constructor(props) {
-        super(props)
+const mapHasEELayer = (visualization) =>
+    visualization.mapViews?.find((mv) => mv.layer.includes('earthEngine'))
 
-        this.memoizedGetFilteredVisualization = memoizeOne(
-            getFilteredVisualization
+const Visualization = ({
+    visualization,
+    activeType,
+    item,
+    itemFilters,
+    availableHeight,
+    availableWidth,
+    gridWidth,
+    dashboardMode,
+    originalType,
+    showNoFiltersOverlay,
+    onClickNoFiltersOverlay,
+    ...rest
+}) => {
+    const { d2 } = useD2()
+    const dashboardId = useSelector(sGetSelectedId)
+    const { isDisconnected: offline } = useDhis2ConnectionStatus()
+    const { lineListingAppVersion } = useCachedDataQuery()
+
+    // NOTE:
+    // The following is all memoized because the IframePlugin (and potentially others)
+    // are wrapped in React.memo() to avoid unnecessary re-renders
+    // The main problem here was `item` which changes height when the interpretations panel is toggled
+    // causing all the chain of components to re-render.
+    // The only dependency using `item` is `item.id` which doesn't change so the memoized plugin props
+    // should also always be the same regardless of the `item` details.
+
+    const style = useMemo(
+        () => ({
+            height: availableHeight,
+            width: availableWidth || undefined,
+        }),
+        [availableHeight, availableWidth]
+    )
+
+    const visualizationConfig = useMemo(() => {
+        if (originalType === EVENT_VISUALIZATION) {
+            return visualization
+        }
+
+        return getFilteredVisualization(
+            getVisualizationConfig(visualization, originalType, activeType),
+            itemFilters
         )
-        this.memoizedGetVisualizationConfig = memoizeOne(getVisualizationConfig)
+    }, [visualization, activeType, originalType, itemFilters])
 
-        this.getFilterVersion = memoizeOne(() => uniqueId())
+    const filterVersion = useMemo(() => uniqueId(), [])
+
+    const iFramePluginProps = useMemo(
+        () => ({
+            originalType,
+            activeType,
+            style,
+            filterVersion,
+            dashboardMode,
+            dashboardId,
+            itemId: item.id,
+            itemType: item.type,
+            isFirstOfType: Boolean(item.firstOfType),
+        }),
+        [
+            originalType,
+            activeType,
+            style,
+            filterVersion,
+            dashboardMode,
+            dashboardId,
+            item.id,
+            item.type,
+            item.firstOfType,
+        ]
+    )
+
+    if (!visualization) {
+        return (
+            <div style={style}>
+                <Cover>
+                    <div className={classes.messageContent}>
+                        <IconWarning24 color={colors.grey500} />
+                        {i18n.t('No data to display')}
+                    </div>
+                </Cover>
+            </div>
+        )
     }
 
-    render() {
-        const { visualization, activeType, item, itemFilters, ...rest } =
-            this.props
+    if (
+        activeType === EVENT_VISUALIZATION &&
+        !isLLVersionCompatible(lineListingAppVersion)
+    ) {
+        return (
+            <div style={style}>
+                <Cover>
+                    <div className={classes.messageContent}>
+                        <IconWarning24 color={colors.grey500} />
+                        {i18n.t(
+                            `Install Line Listing app version ${minLLVersion.join(
+                                '.'
+                            )} or higher in order to display this item.`
+                        )}
+                    </div>
+                </Cover>
+            </div>
+        )
+    }
 
-        if (!visualization) {
+    switch (activeType) {
+        case CHART:
+        case REPORT_TABLE:
+        case VISUALIZATION: {
             return (
-                <NoVisualizationMessage
-                    message={i18n.t('No data to display')}
+                <IframePlugin
+                    visualization={visualizationConfig}
+                    {...iFramePluginProps}
                 />
             )
         }
-
-        const style = { height: this.props.availableHeight }
-        if (this.props.availableWidth) {
-            style.width = this.props.availableWidth
-        }
-
-        const visualizationConfig = this.memoizedGetVisualizationConfig(
-            visualization,
-            getItemTypeForVis(item),
-            activeType
-        )
-
-        const filterVersion = this.getFilterVersion(itemFilters)
-
-        switch (activeType) {
-            case VISUALIZATION:
-            case CHART:
-            case REPORT_TABLE: {
-                return (
-                    <DataVisualizerPlugin
-                        visualization={this.memoizedGetFilteredVisualization(
-                            visualizationConfig,
-                            itemFilters
-                        )}
-                        style={style}
-                        filterVersion={filterVersion}
-                        item={item}
-                        dashboardMode={this.props.dashboardMode}
-                    />
-                )
-            }
-            case MAP: {
-                return (
-                    <MapPlugin
-                        item={item}
-                        activeType={activeType}
+        case EVENT_VISUALIZATION: {
+            return (
+                <>
+                    {showNoFiltersOverlay ? (
+                        <div style={style}>
+                            <Cover>
+                                <div className={classes.messageContent}>
+                                    <IconInfo24 color={colors.grey500} />
+                                    {i18n.t(
+                                        'Filters are not applied to line list dashboard items'
+                                    )}
+                                    <Button
+                                        secondary
+                                        small
+                                        onClick={onClickNoFiltersOverlay}
+                                    >
+                                        {i18n.t('Show without filters')}
+                                    </Button>
+                                </div>
+                            </Cover>
+                        </div>
+                    ) : null}
+                    <IframePlugin
                         visualization={visualizationConfig}
-                        itemFilters={itemFilters}
-                        applyFilters={this.memoizedGetFilteredVisualization}
-                        filterVersion={filterVersion}
-                        style={style}
-                        {...rest}
+                        {...iFramePluginProps}
                     />
-                )
-            }
-            default: {
-                return pluginIsAvailable(activeType || item.type) ? (
-                    <LegacyPlugin
-                        item={item}
-                        activeType={activeType}
-                        visualization={this.memoizedGetFilteredVisualization(
-                            visualizationConfig,
-                            itemFilters
-                        )}
-                        filterVersion={filterVersion}
-                        style={style}
-                        {...rest}
-                    />
-                ) : (
-                    <NoVisualizationMessage
-                        message={i18n.t(
-                            'Unable to load the plugin for this item'
-                        )}
-                    />
-                )
-            }
+                </>
+            )
+        }
+        case MAP: {
+            return offline && mapHasEELayer(visualizationConfig) ? (
+                <div style={style}>
+                    <Cover>
+                        <div className={classes.messageContent}>
+                            <IconInfo24 color={colors.grey500} />
+                            <span>
+                                {i18n.t(
+                                    'Maps with Earth Engine layers cannot be displayed when offline'
+                                )}
+                            </span>
+                        </div>
+                    </Cover>
+                </div>
+            ) : (
+                <IframePlugin
+                    visualization={visualizationConfig}
+                    {...iFramePluginProps}
+                />
+            )
+        }
+        default: {
+            return !pluginIsAvailable(activeType || item.type, d2) ? (
+                <div style={style}>
+                    <Cover>
+                        <div className={classes.messageContent}>
+                            <IconWarning24 color={colors.grey500} />
+                            <span>
+                                {i18n.t(
+                                    'Unable to load the plugin for this item'
+                                )}
+                            </span>
+                        </div>
+                    </Cover>
+                </div>
+            ) : (
+                <LegacyPlugin
+                    item={item}
+                    activeType={activeType}
+                    visualization={visualizationConfig}
+                    filterVersion={filterVersion}
+                    style={style}
+                    gridWidth={gridWidth}
+                    {...rest}
+                />
+            )
         }
     }
 }
@@ -124,23 +230,13 @@ Visualization.propTypes = {
     availableHeight: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
     availableWidth: PropTypes.number,
     dashboardMode: PropTypes.string,
+    gridWidth: PropTypes.number,
     item: PropTypes.object,
     itemFilters: PropTypes.object,
+    originalType: PropTypes.string,
+    showNoFiltersOverlay: PropTypes.bool,
     visualization: PropTypes.object,
+    onClickNoFiltersOverlay: PropTypes.func,
 }
 
-const mapStateToProps = (state, ownProps) => {
-    const itemFilters = !isEditMode(ownProps.dashboardMode)
-        ? sGetItemFiltersRoot(state)
-        : DEFAULT_STATE_ITEM_FILTERS
-
-    return {
-        itemFilters,
-        visualization: sGetVisualization(
-            state,
-            getVisualizationId(ownProps.item)
-        ),
-    }
-}
-
-export default connect(mapStateToProps)(Visualization)
+export default Visualization
