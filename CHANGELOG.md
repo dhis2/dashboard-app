@@ -1,3 +1,11 @@
+## [99.11.7](https://github.com/dhis2/dashboard-app/compare/v99.11.6...v99.11.7) (2023-06-05)
+
+
+### Bug Fixes
+
+* **deps:** platform deps for login redirect and connection status fixes [DHIS2-15317] ([#2316](https://github.com/dhis2/dashboard-app/issues/2316)) ([aae6301](https://github.com/dhis2/dashboard-app/commit/aae630102ebd8cd45c01059ac247f772d538efdc))
+* **translations:** sync translations from transifex (master) ([69d675d](https://github.com/dhis2/dashboard-app/commit/69d675df97e9947b9f0287d59ef2d05c70be6ea4))
+
 ## [99.11.6](https://github.com/dhis2/dashboard-app/compare/v99.11.5...v99.11.6) (2023-05-28)
 
 
