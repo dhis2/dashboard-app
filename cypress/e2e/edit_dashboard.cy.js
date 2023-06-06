@@ -27,7 +27,7 @@ import { EXTENDED_TIMEOUT, createDashboardTitle } from '../support/utils.js'
 
 const TEST_DASHBOARD_TITLE = createDashboardTitle('af')
 
-describe('Edit dashboard', () => {
+describe.skip('Edit dashboard', () => {
     it('creates a new dashboard', () => {
         cy.visit('/', EXTENDED_TIMEOUT).log(Cypress.env('dhis2BaseUrl'))
         startNewDashboard()

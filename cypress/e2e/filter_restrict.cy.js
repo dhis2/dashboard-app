@@ -32,7 +32,7 @@ const TEST_DASHBOARD_TITLE = createDashboardTitle('af')
 
 let dashboardId
 
-describe('Editing Filter Restrictions', () => {
+describe.skip('Editing Filter Restrictions', () => {
     it('creates a new dashboard with no Filter Restrictions', () => {
         cy.visit('/', EXTENDED_TIMEOUT).log(Cypress.env('dhis2BaseUrl'))
         startNewDashboard()

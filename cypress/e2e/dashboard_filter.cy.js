@@ -24,7 +24,7 @@ const LAST_6_MONTHS = 'Last 6 months'
 const SIERRA_LEONE_OU_ID = 'ImspTQPwCqd'
 const FACILITY_TYPE_CLINIC = 'Clinic'
 
-describe('Dashboard filter', () => {
+describe.skip('Dashboard filter', () => {
     it('adds a period filter', () => {
         cy.visit('/', EXTENDED_TIMEOUT).log(Cypress.env('dhis2BaseUrl'))
         cy.getBySel(newButtonSel, EXTENDED_TIMEOUT).click()

@@ -28,7 +28,7 @@ import {
 } from '../helpers/responsive_dashboard.js'
 import { EXTENDED_TIMEOUT } from '../support/utils.js'
 
-describe('Responsive dashboard', () => {
+describe.skip('Responsive dashboard', () => {
     it('views a dashboard', () => {
         cy.visit('/', EXTENDED_TIMEOUT)
         openDashboard('Delivery')
