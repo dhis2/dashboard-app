@@ -8,13 +8,14 @@
 # Sergio Valenzuela <sergio.valenzuela@ehas.org>, 2023
 # phil_dhis2, 2023
 # Prabhjot Singh, 2023
+# Janeth Cruz, 2023
 # 
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
 "POT-Creation-Date: 2023-03-19T15:27:59.188Z\n"
 "PO-Revision-Date: 2023-05-22 18:14+0000\n"
-"Last-Translator: Prabhjot Singh, 2023\n"
+"Last-Translator: Janeth Cruz, 2023\n"
 "Language-Team: Spanish (https://app.transifex.com/hisp-uio/teams/100509/es/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -340,37 +341,43 @@ msgstr ""
 
 msgid "Dashboard items can be placed anywhere, at any size."
 msgstr ""
+"Los elementos del tablero se pueden colocar en cualquier lugar y a cualquier"
+" tamaño."
 
 msgid "Fixed columns"
-msgstr ""
+msgstr "Columnas fijas"
 
 msgid ""
 "Dashboard items are automatically placed within fixed, horizontal columns. "
 "The number of columns can be adjusted."
 msgstr ""
+"Los elementos del tablero se colocan automáticamente dentro de columnas "
+"horizontales fijas. El número de columnas puede ajustarse."
 
 msgid "Number of columns"
-msgstr ""
+msgstr "Número de columnas"
 
 msgid "Gap size between columns (px)"
-msgstr ""
+msgstr "Tamaño del espacio entre columnas (px)"
 
 msgid ""
 "Default height only applies to items added to a dashboard, this setting will"
 " not change existing items"
 msgstr ""
+"La altura predeterminada solo se aplica a los elementos agregados a un "
+"tablero, esta configuración no cambiará los elementos existentes"
 
 msgid "Default height for items added to dashboard (rows)"
-msgstr ""
+msgstr "Altura predeterminada para elementos agregados al tablero (filas)"
 
 msgid "Save layout"
-msgstr ""
+msgstr "Guardar diseño"
 
 msgid "Dashboard title"
 msgstr "Título del tablero"
 
 msgid "Dashboard code"
-msgstr ""
+msgstr "Código del tablero"
 
 msgid "Code can't be longer than 50 characters"
 msgstr ""
@@ -388,16 +395,16 @@ msgstr[1] ""
 msgstr[2] ""
 
 msgid "Change layout"
-msgstr ""
+msgstr "Cambiar diseño"
 
 msgid "Add new items to"
-msgstr ""
+msgstr "Añadir nuevos elementos a"
 
 msgid "End of dashboard"
-msgstr ""
+msgstr "Fin del tablero"
 
 msgid "Start of dashboard"
-msgstr ""
+msgstr "Inicio del tablero"
 
 msgid "Print"
 msgstr "Imprimir"
@@ -430,7 +437,7 @@ msgid "Getting started"
 msgstr ""
 
 msgid "Search for and open saved dashboards from the top bar."
-msgstr ""
+msgstr "Busque y abra tableros guardados desde la barra superior."
 
 msgid ""
 "Click a dashboard chip to open it. Get back to this screen from the \"More\""
@@ -438,10 +445,10 @@ msgid ""
 msgstr ""
 
 msgid "Create a new dashboard with the + button."
-msgstr ""
+msgstr "Crear un nuevo tablero con el botón +."
 
 msgid "Your most viewed dashboards"
-msgstr ""
+msgstr "Sus tableros más vistos"
 
 msgid "No dashboards found. Use the + button to create a new dashboard."
 msgstr ""
@@ -457,24 +464,26 @@ msgstr[1] "{{count}} seleccionado"
 msgstr[2] "{{count}} seleccionado"
 
 msgid "Cannot remove filters while offline"
-msgstr ""
+msgstr "No se pueden eliminar los filtros sin conexión a internet"
 
 msgid "Removing filters while offline"
-msgstr ""
+msgstr "Eliminar filtros sin conexión a internet"
 
 msgid ""
 "Removing this filter while offline will remove all other filters. Do you "
 "want to remove all filters on this dashboard?"
 msgstr ""
+"Eliminar este filtro mientras está sin conexión a internet eliminará todos "
+"los demás filtros. ¿Desea eliminar todos los filtros en este tablero?"
 
 msgid "No, cancel"
 msgstr "No, cancela"
 
 msgid "Yes, remove filters"
-msgstr ""
+msgstr "Sí, eliminar filtros"
 
 msgid "The dashboard couldn't be made available offline. Try again."
-msgstr ""
+msgstr "El tablero no pudo estar disponible sin conexión. Intentar otra vez"
 
 msgid "Failed to unstar the dashboard"
 msgstr "No se pudo desmarcar el tablero"
@@ -483,13 +492,13 @@ msgid "Failed to star the dashboard"
 msgstr "No se pudo marcar el tablero"
 
 msgid "Remove from offline storage"
-msgstr ""
+msgstr "Eliminar del almacenamiento sin conexión"
 
 msgid "Make available offline"
-msgstr ""
+msgstr "Hacer disponible sin conexión"
 
 msgid "Sync offline data now"
-msgstr ""
+msgstr "Sincronizar datos sin conexión ahora"
 
 msgid "Unstar dashboard"
 msgstr "Desmarcar tablero"
@@ -507,7 +516,7 @@ msgid "One item per page"
 msgstr "Un objeto por página"
 
 msgid "Close dashboard"
-msgstr ""
+msgstr "Cerrar tablero"
 
 msgid "More"
 msgstr "Más"
@@ -519,15 +528,18 @@ msgid "Share"
 msgstr "Compartir"
 
 msgid "Clear dashboard filters?"
-msgstr ""
+msgstr "¿Limpiar los filtros del tablero?"
 
 msgid ""
 "A dashboard's filters can’t be saved offline. Do you want to remove the "
 "filters and make this dashboard available offline?"
 msgstr ""
+"Los filtros de un tablero no se pueden guardar sin conexión a internet. "
+"¿Desea eliminar los filtros y hacer que este tablero esté disponible sin "
+"conexión?"
 
 msgid "Yes, clear filters and sync"
-msgstr ""
+msgstr "Sí, limpiar filtros y sincronizar"
 
 msgid "No description"
 msgstr "Sin descripción"
@@ -536,13 +548,13 @@ msgid "Add filter"
 msgstr "Añadir filtro"
 
 msgid "Offline data last updated {{time}}"
-msgstr ""
+msgstr "Última actualización de datos sin conexión {{time}}"
 
 msgid "Cannot unstar this dashboard while offline"
-msgstr ""
+msgstr "No se puede desmarcar este tablero sin conexión a internet"
 
 msgid "Cannot star this dashboard while offline"
-msgstr ""
+msgstr "No se puede marcar este tablero sin conexión a internet"
 
 msgid "Loading dashboard – {{name}}"
 msgstr "Cargando panel – {{nombre}}"
@@ -554,13 +566,14 @@ msgid "Offline"
 msgstr "Desconectado"
 
 msgid "This dashboard cannot be loaded while offline."
-msgstr ""
+msgstr "Este tablero no puede cargarse mientras esté sin conexión a internet."
 
 msgid "Go to start page"
-msgstr ""
+msgstr "Ir a la página de inicio"
 
 msgid "Load dashboard failed"
-msgstr ""
+msgstr "No se pudo cargar el tablero"
 
 msgid "This dashboard could not be loaded. Please try again later."
 msgstr ""
+"No se pudo cargar este tablero. Por favor, inténtelo de nuevo más tarde."
