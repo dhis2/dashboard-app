@@ -3,8 +3,6 @@ name: 'dhis2: nightly'
 # This workflow runs the e2e tests on the default branch against dev at 5:10am M-F
 
 on:
-    pull_request:
-        types: ['opened', 'edited', 'reopened', 'synchronize']
     schedule:
         - cron: '10 5 * * 1-5'
 
