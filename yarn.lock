@@ -2158,10 +2158,10 @@
     classnames "^2.3.1"
     prop-types "^15.7.2"
 
-"@dhis2/analytics@^25.1.0":
-  version "25.1.10"
-  resolved "https://registry.yarnpkg.com/@dhis2/analytics/-/analytics-25.1.10.tgz#b8bfb442335e6de2dbacfccadbeb907cc01173f4"
-  integrity sha512-5+jQIcLi0m9V27aIsxUMwf18Lpd3X8HyOxAnXYV5QMthbs2sodAQZNfM3TsPxPlcKCqNBLAIgyVrRm5RDn2zSw==
+"@dhis2/analytics@^25.1.11":
+  version "25.1.11"
+  resolved "https://registry.yarnpkg.com/@dhis2/analytics/-/analytics-25.1.11.tgz#04c1990798f1c33bebd16849dff4a81523d9e1ce"
+  integrity sha512-+aLYTbcVsxt5ZVLROJgvljFoLWK31jsS6xWzhwzWTQi+7WGVt5ONRUS45rZBYJas4FQj+SqPhCF6nXCssx7huA==
   dependencies:
     "@dhis2/d2-ui-rich-text" "^7.4.0"
     "@dhis2/multi-calendar-dates" "1.0.0"
