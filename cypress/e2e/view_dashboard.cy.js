@@ -47,7 +47,7 @@ const openDashboardRootUrl = () => {
 const searchForDashboard = (searchText) =>
     cy.get(dashboardSearchInputSel).type(searchText)
 
-describe.skip('View dashboard', () => {
+describe('View dashboard', () => {
     it('switches between dashboards', () => {
         cy.visit('/', EXTENDED_TIMEOUT).log(Cypress.env('dhis2BaseUrl'))
         openDashboard(DELIVERY_DASHBOARD_TITLE)
@@ -131,7 +131,7 @@ describe.skip('View dashboard', () => {
         expectDashboardToDisplayInViewMode(DELIVERY_DASHBOARD_TITLE)
     })
 
-    it('shows layer names in legend', () => {
+    it.skip('shows layer names in legend', () => {
         cy.visit('/', EXTENDED_TIMEOUT)
         openDashboard('Delivery')
 
