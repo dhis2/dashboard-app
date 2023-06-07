@@ -12,7 +12,7 @@ import {
 } from '../helpers/open_in_app.js'
 import { EXTENDED_TIMEOUT } from '../support/utils.js'
 
-describe.skip('Item context menu', () => {
+describe('Item context menu', () => {
     // FIXME
     it.skip('displays chart as table', () => {
         cy.visit('/', EXTENDED_TIMEOUT).log(Cypress.env('dhis2BaseUrl'))
