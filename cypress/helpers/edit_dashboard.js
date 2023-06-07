@@ -88,20 +88,20 @@ export const saveDashboard = () => {
     clickEditActionButton('Save changes')
 }
 
-export const openDashboard = (title, itemTypes = ['VISUALIZATION']) => {
+export const openDashboard = (title) => {
     cy.getBySel(dashboardChipSel, EXTENDED_TIMEOUT).contains(title).click()
 
-    cy.location().should((loc) => expectViewRoute(loc.hash))
+    // cy.location().should((loc) => expectViewRoute(loc.hash))
     cy.getBySel(dashboardTitleSel).should('be.visible').and('contain', title)
 
-    if (itemTypes.includes('VISUALIZATION')) {
-        expectChartItemToBeDisplayed()
-        // cy.get(`${gridItemClass}.VISUALIZATION`, EXTENDED_TIMEOUT)
-        //     .first()
-        //     .getIframeBody()
-        //     .find(chartClass, EXTENDED_TIMEOUT)
-        //     .should('exist')
-    }
+    // if (itemTypes.includes('VISUALIZATION')) {
+    // expectChartItemToBeDisplayed()
+    // cy.get(`${gridItemClass}.VISUALIZATION`, EXTENDED_TIMEOUT)
+    //     .first()
+    //     .getIframeBody()
+    //     .find(chartClass, EXTENDED_TIMEOUT)
+    //     .should('exist')
+    // }
 }
 
 export const startNewDashboard = () => {

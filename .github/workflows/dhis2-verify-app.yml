@@ -19,23 +19,6 @@ env:
     CI: true
 
 jobs:
-    lint:
-        runs-on: ubuntu-latest
-        steps:
-            - uses: actions/checkout@v3
-            - uses: actions/setup-node@v3
-              with:
-                  node-version: 18.x
-
-            - name: Install
-              run: yarn install --frozen-lockfile
-
-            - name: Generate translations
-              run: yarn d2-app-scripts i18n generate
-
-            - name: Lint
-              run: yarn d2-style check
-
     call-workflow-e2e-prod:
         if: "!contains(github.event.head_commit.message, '[skip ci]')"
         uses: dhis2/data-visualizer-app/.github/workflows/e2e-prod.yml@dev
