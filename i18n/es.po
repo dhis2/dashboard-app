@@ -85,7 +85,7 @@ msgid "Filters are not applied to line list dashboard items"
 msgstr ""
 
 msgid "Filters not applied"
-msgstr ""
+msgstr "Filtros no aplicados"
 
 msgid "There was a problem loading this dashboard item"
 msgstr "Ha habido un problema al cargar este elemento del tablero"
@@ -121,16 +121,16 @@ msgid "There was a problem loading interpretations for this item"
 msgstr "Hubo un problema al cargar las interpretaciones de este elemento."
 
 msgid "The plugin for rendering this item is not available"
-msgstr ""
+msgstr "El complemento para renderizar este elemento no está disponible"
 
 msgid "Install the {{appName}} app from the App Hub"
-msgstr ""
+msgstr "Instalar la aplicación {{appName}} desde el App Hub"
 
 msgid "No data to display"
 msgstr "Sin datos para mostrar"
 
 msgid "Show without filters"
-msgstr ""
+msgstr "Mostrar sin filtros"
 
 msgid "Maps with Earth Engine layers cannot be displayed when offline"
 msgstr ""
@@ -380,7 +380,7 @@ msgid "Dashboard code"
 msgstr "Código del tablero"
 
 msgid "Code can't be longer than 50 characters"
-msgstr ""
+msgstr "El código no puede tener más de 50 caracteres"
 
 msgid "Dashboard description"
 msgstr "Descripción del tablero"
@@ -432,9 +432,12 @@ msgid ""
 "Use A4 landscape paper size, default margin settings and turn on background "
 "graphics in the browser print dialog"
 msgstr ""
+"Utilice el tamaño de papel A4 horizontal, la configuración de márgenes "
+"predeterminada y active los gráficos de fondo en el cuadro de diálogo de "
+"impresión del navegador"
 
 msgid "Getting started"
-msgstr ""
+msgstr "Comenzar"
 
 msgid "Search for and open saved dashboards from the top bar."
 msgstr "Busque y abra tableros guardados desde la barra superior."
@@ -443,6 +446,8 @@ msgid ""
 "Click a dashboard chip to open it. Get back to this screen from the \"More\""
 " menu."
 msgstr ""
+"Haga clic en una pestaña del tablero para abrirla. Vuelve a esta pantalla "
+"desde el menú \"Más\"."
 
 msgid "Create a new dashboard with the + button."
 msgstr "Crear un nuevo tablero con el botón +."
