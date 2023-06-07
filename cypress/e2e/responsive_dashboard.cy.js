@@ -29,7 +29,7 @@ import {
 import { EXTENDED_TIMEOUT } from '../support/utils.js'
 
 describe('Responsive dashboard', () => {
-    it.only('views a dashboard', () => {
+    it('views a dashboard', () => {
         cy.visit('/', EXTENDED_TIMEOUT)
         openDashboard('Delivery')
         goToSmallScreen()
@@ -38,7 +38,7 @@ describe('Responsive dashboard', () => {
         expectWideScreenView()
     })
 
-    it.only('edits an existing dashboard', () => {
+    it('edits an existing dashboard', () => {
         cy.visit('/', EXTENDED_TIMEOUT)
         openDashboard('Delivery')
         chooseToEditDashboard()

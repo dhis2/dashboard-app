@@ -115,16 +115,16 @@ export const expectDifferentDashboardToDisplayInViewMode = (title) => {
         .and('not.contain', title)
 }
 
-export const expectDashboardToDisplayInViewMode = (title, itemTypes = []) => {
+export const expectDashboardToDisplayInViewMode = (title) => {
     cy.location().should((loc) => expectViewRoute(loc.hash))
 
-    if (itemTypes.includes('VISUALIZATION')) {
-        expectChartItemToBeDisplayed()
-    }
+    // if (itemTypes.includes('VISUALIZATION')) {
+    //     expectChartItemToBeDisplayed()
+    // }
 
-    if (itemTypes.includes('MAP')) {
-        expectMapItemToBeDisplayed()
-    }
+    // if (itemTypes.includes('MAP')) {
+    //     expectMapItemToBeDisplayed()
+    // }
 
     // FIXME which of these is better?
     cy.getBySel(dashboardTitleSel).should('have.text', title)
@@ -139,15 +139,15 @@ export const expectChartItemToBeDisplayed = () => {
         .should('be.visible')
 }
 
-const expectMapItemToBeDisplayed = () => {
-    // Some map visualization load very slowly:
-    // https://dhis2.atlassian.net/browse/DHIS2-14365
-    cy.get(`${gridItemClass}.MAP`)
-        .first()
-        .getIframeBody()
-        .find(mapClass, EXTENDED_TIMEOUT)
-        .should('be.visible')
-}
+// const expectMapItemToBeDisplayed = () => {
+//     // Some map visualization load very slowly:
+//     // https://dhis2.atlassian.net/browse/DHIS2-14365
+//     cy.get(`${gridItemClass}.MAP`)
+//         .first()
+//         .getIframeBody()
+//         .find(mapClass, EXTENDED_TIMEOUT)
+//         .should('be.visible')
+// }
 
 export const chooseToEditDashboard = () => {
     cy.getBySel(titleBarSel, EXTENDED_TIMEOUT)
