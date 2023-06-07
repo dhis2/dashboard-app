@@ -131,7 +131,7 @@ describe('View dashboard', () => {
         expectDashboardToDisplayInViewMode(DELIVERY_DASHBOARD_TITLE)
     })
 
-    it.skip('shows layer names in legend', () => {
+    it('shows layer names in legend', () => {
         cy.visit('/', EXTENDED_TIMEOUT)
         openDashboard('Delivery')
 
