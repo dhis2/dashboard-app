@@ -6,6 +6,7 @@ on:
     schedule:
         - cron: '10 5 * * 1-5'
     workflow_dispatch:
+    pull_request:
 
 concurrency:
     group: ${{ github.workflow}}-${{ github.ref }}
@@ -31,9 +32,6 @@ jobs:
 
             - name: Install
               run: yarn install --frozen-lockfile
-
-            - name: Install Cypress binary
-              run: yarn cypress install
 
             - name: End-to-End tests
               uses: cypress-io/github-action@v2
