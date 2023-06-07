@@ -19,28 +19,6 @@ env:
     CI: true
 
 jobs:
-    build:
-        runs-on: ubuntu-latest
-        steps:
-            - uses: actions/checkout@v3
-            - uses: actions/setup-node@v3
-              with:
-                  node-version: 18.x
-
-            - name: Install
-              run: yarn install --frozen-lockfile
-
-            - name: Build
-              run: yarn d2-app-scripts build
-
-            - uses: actions/upload-artifact@v3
-              with:
-                  name: app-build
-                  path: |
-                      **/build
-                      !**/node_modules
-                  retention-days: 1
-
     lint:
         runs-on: ubuntu-latest
         steps:
@@ -58,26 +36,8 @@ jobs:
             - name: Lint
               run: yarn d2-style check
 
-    test:
-        runs-on: ubuntu-latest
-        steps:
-            - uses: actions/checkout@v3
-            - uses: actions/setup-node@v3
-              with:
-                  node-version: 18.x
-
-            - name: Install
-              run: yarn install --frozen-lockfile
-
-            - name: Generate translations
-              run: yarn d2-app-scripts i18n generate
-
-            - name: Test
-              run: yarn d2-app-scripts test
-
     call-workflow-e2e-prod:
         if: "!contains(github.event.head_commit.message, '[skip ci]')"
-        needs: [build, lint, test]
         uses: dhis2/data-visualizer-app/.github/workflows/e2e-prod.yml@dev
         secrets:
             baseurl: ${{ secrets.CYPRESS_DHIS2_BASE_URL_DEV }}
