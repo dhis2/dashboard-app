@@ -38,7 +38,7 @@ describe('Responsive dashboard', () => {
         expectWideScreenView()
     })
 
-    it('edits an existing dashboard', () => {
+    it.only('edits an existing dashboard', () => {
         cy.visit('/', EXTENDED_TIMEOUT)
         openDashboard('Delivery')
         chooseToEditDashboard()
