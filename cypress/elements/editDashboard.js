@@ -25,6 +25,7 @@ export const createDashboard = (title, items) => {
         cy.getBySel('item-search').click()
         cy.getBySel('item-search').find('input').type(itemName, { force: true })
 
+        // eslint-disable-next-line cypress/unsafe-to-chain-command
         cy.getBySel(`menu-item-${itemName}`).click().closePopper()
     })
 

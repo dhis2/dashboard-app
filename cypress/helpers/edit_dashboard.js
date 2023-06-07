@@ -51,6 +51,7 @@ export const addDashboardTitle = (title) => {
 export const addDashboardItems = (itemTypes = ['VISUALIZATION', 'MAP']) => {
     if (itemTypes.includes('VISUALIZATION')) {
         cy.getBySel('item-search').click()
+        // eslint-disable-next-line cypress/unsafe-to-chain-command
         cy.getBySel('menu-item-ANC: 1 and 3 coverage Yearly')
             .click()
             .closePopper()
@@ -58,6 +59,7 @@ export const addDashboardItems = (itemTypes = ['VISUALIZATION', 'MAP']) => {
 
     if (itemTypes.includes('MAP')) {
         cy.getBySel('item-search').click()
+        // eslint-disable-next-line cypress/unsafe-to-chain-command
         cy.getBySel(
             'menu-item-ANC: 1st visit coverage (%) by district last year'
         )
@@ -66,6 +68,7 @@ export const addDashboardItems = (itemTypes = ['VISUALIZATION', 'MAP']) => {
 
         if (itemTypes.includes('VISUALIZATION')) {
             //move things so the dashboard is more compact
+            // eslint-disable-next-line cypress/unsafe-to-chain-command
             cy.get(`${gridItemClass}.MAP`)
                 .trigger('mousedown')
                 .trigger('mousemove', { clientX: 650 })
@@ -208,6 +211,7 @@ export const expectNoAnalyticsRequestsToBeMadeWhenItemIsMoved = () => {
         })
     })
 
+    // eslint-disable-next-line cypress/unsafe-to-chain-command
     cy.get(gridItemClass)
         .first()
         .trigger('mousedown')

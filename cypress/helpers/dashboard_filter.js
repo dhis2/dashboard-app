@@ -57,6 +57,8 @@ export const expectOrganisationUnitFilterToBeApplied = () => {
         .should('be.visible')
 
     cy.getBySel(innerScrollContainerSel).scrollTo('bottom')
+
+    // eslint-disable-next-line cypress/unsafe-to-chain-command
     cy.get(`${gridItemClass}.VISUALIZATION`)
         .getIframeBody()
         .find(chartXAxisLabelClass, EXTENDED_TIMEOUT)
@@ -71,6 +73,7 @@ export const expectFacilityTypeFilterToBeApplied = () => {
         .should('be.visible')
 
     cy.getBySel(innerScrollContainerSel).scrollTo('top')
+    // eslint-disable-next-line cypress/unsafe-to-chain-command
     cy.get(`${gridItemClass}.VISUALIZATION`)
         .getIframeBody()
         .find(chartSubtitleClass, EXTENDED_TIMEOUT)

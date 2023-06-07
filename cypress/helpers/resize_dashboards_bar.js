@@ -5,6 +5,8 @@ export const resizeDashboardsBarUp = () => {
     cy.intercept('PUT', '**/userDataStore/dashboard/controlBarRows').as(
         'putRows'
     )
+
+    // eslint-disable-next-line cypress/unsafe-to-chain-command
     cy.get(dragHandleSel, EXTENDED_TIMEOUT)
         .trigger('mousedown')
         .trigger('mousemove', { clientY: 300 })

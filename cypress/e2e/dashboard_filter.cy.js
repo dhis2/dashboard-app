@@ -39,6 +39,7 @@ describe.skip('Dashboard filter', () => {
             .type('Inpatient', { force: true })
 
         //chart
+        // eslint-disable-next-line cypress/unsafe-to-chain-command
         cy.getBySel('menu-item-Inpatient: BMI this year by districts')
             .click()
             .closePopper()
@@ -47,11 +48,13 @@ describe.skip('Dashboard filter', () => {
         cy.getBySel('item-search').find('input').type('ipt 2', { force: true })
 
         //map
+        // eslint-disable-next-line cypress/unsafe-to-chain-command
         cy.getBySel('menu-item-ANC: IPT 2 Coverage this year')
             .click()
             .closePopper()
 
         //move things so the dashboard is more compact
+        // eslint-disable-next-line cypress/unsafe-to-chain-command
         cy.get(`${gridItemClass}.MAP`)
             .trigger('mousedown')
             .trigger('mousemove', { clientX: 650 })
