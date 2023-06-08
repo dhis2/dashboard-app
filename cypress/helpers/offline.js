@@ -21,6 +21,7 @@ import {
     getViewActionButton,
     clickViewActionButton,
 } from './dashboard.js'
+import { openDashboard } from './edit_dashboard.js'
 
 beforeEach(() => {
     goOnline()
@@ -60,12 +61,6 @@ const createDashboard = (cacheState) => {
     closeMenu()
     clickEditActionButton('Save changes')
     cy.getBySel(dashboardTitleSel, EXTENDED_TIMEOUT).should('be.visible')
-}
-
-// TODO - use the function in edit_dashboard instead
-export const openDashboard = (title) => {
-    cy.getBySel(dashboardChipSel, EXTENDED_TIMEOUT).contains(title).click()
-    checkDashboardIsVisible(title)
 }
 
 // TODO - use the function in edit_dashboard instead
