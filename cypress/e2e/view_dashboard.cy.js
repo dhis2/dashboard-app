@@ -135,6 +135,7 @@ describe('View dashboard', () => {
         const mapItemUid = dashboards['Delivery'].items.map.itemUid
         getDashboardItem(mapItemUid)
             .getIframeBody()
+            .scrollIntoView()
             .find(mapLegendButtonClass, EXTENDED_TIMEOUT)
             .trigger('mouseover')
 
