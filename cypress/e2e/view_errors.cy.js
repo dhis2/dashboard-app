@@ -1,49 +1,37 @@
 import { dashboards } from '../assets/backends/sierraLeone_236.js'
 import { itemMenuButtonSel } from '../elements/dashboardItem.js'
-import {
-    clickEditActionButton,
-    confirmActionDialogSel,
-} from '../elements/editDashboard.js'
+import { confirmActionDialogSel } from '../elements/editDashboard.js'
 import {
     newButtonSel,
     dashboardDescriptionSel,
     dashboardTitleSel,
     dashboardChipSel,
-    clickViewActionButton,
 } from '../elements/viewDashboard.js'
-import { addFilter } from '../helpers/add_filter.js'
 import {
+    addFilter,
+    clickViewActionButton,
+    clickEditActionButton,
     openDashboardWithItemsMissingAType,
     itemsMissingTypeAreDisplayedWithAWarning,
     itemsCanBeDeleted,
-} from '../helpers/dashboard_item_missing_type.js'
-import {
     openDashboard,
     chooseToEditDashboard,
     expectDashboardToDisplayInViewMode,
-} from '../helpers/edit_dashboard.js'
-import {
     expectDashboardNotStarred,
     expectDashboardNotStarredWarning,
     starDashboardFails,
-} from '../helpers/error_while_starring_dashboard.js'
-import {
     createDashboardWithChartThatWillFail,
     removeFilter,
     visIsDisplayedCorrectly,
     errorMessageNotIncludingLinkIsDisplayedOnItem,
     errorMessageIsDisplayedOnItem,
-} from '../helpers/item_chart_fails_to_render.js'
-import {
     openPrintLayout,
     exitPrintMode,
     printLayoutIsDisplayed,
-} from '../helpers/print.js'
-import {
     resetDescriptionToBeHidden,
     clickingToShowDescriptionFails,
     warningMessageIsDisplayedStatingThatShowDescriptionFailed,
-} from '../helpers/show_description.js'
+} from '../helpers/index.js'
 import { EXTENDED_TIMEOUT, createDashboardTitle } from '../support/utils.js'
 
 const TEST_DASHBOARD_TITLE = createDashboardTitle('0ff')

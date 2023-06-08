@@ -1,7 +1,3 @@
-import { EXTENDED_TIMEOUT } from '../support/utils.js'
-
-/** Selectors **/
-
 // Dashboards bar
 export const dashboardChipSel = 'dashboard-chip'
 export const newButtonSel = 'new-button'
@@ -23,18 +19,3 @@ export const titleBarSel = 'title-bar'
 
 export const outerScrollContainerSel = 'outer-scroll-container'
 export const innerScrollContainerSel = 'inner-scroll-container'
-
-/** Functions **/
-
-export const getViewActionButton = (action) =>
-    cy
-        .getBySel(titleBarSel, EXTENDED_TIMEOUT)
-        .find('button')
-        .contains(action, EXTENDED_TIMEOUT)
-
-export const clickViewActionButton = (action) =>
-    cy
-        .getBySel(titleBarSel, EXTENDED_TIMEOUT)
-        .find('button')
-        .contains(action, EXTENDED_TIMEOUT)
-        .click()

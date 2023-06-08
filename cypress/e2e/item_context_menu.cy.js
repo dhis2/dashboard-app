@@ -1,15 +1,12 @@
 import { dashboards } from '../assets/backends/index.js'
+import { itemMenuButtonSel, itemDetailsSel } from '../elements/dashboardItem.js'
 import {
     getDashboardItem,
-    itemMenuButtonSel,
+    openDashboard,
     clickItemMenuButton,
-    itemDetailsSel,
-} from '../elements/dashboardItem.js'
-import { openDashboard } from '../helpers/edit_dashboard.js'
-import {
     openChartInDataVisualizerApp,
     expectChartToBeOpenedInDataVisualizerApp,
-} from '../helpers/open_in_app.js'
+} from '../helpers/index.js'
 import { EXTENDED_TIMEOUT } from '../support/utils.js'
 
 describe('Item context menu', () => {

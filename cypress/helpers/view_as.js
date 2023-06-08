@@ -1,12 +1,7 @@
 import { dashboards } from '../assets/backends/index.js'
-import {
-    chartClass,
-    mapClass,
-    tableClass,
-    clickItemMenuButton,
-    getDashboardItem,
-} from '../elements/dashboardItem.js'
+import { chartClass, mapClass, tableClass } from '../elements/dashboardItem.js'
 import { EXTENDED_TIMEOUT } from '../support/utils.js'
+import { clickItemMenuButton, getDashboardItem } from './dashboard.js'
 
 // these tests being run on the "Delivery" dashboard
 const chartItemUid = dashboards.Delivery.items.chart.itemUid

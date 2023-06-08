@@ -1,5 +1,5 @@
 import {
-    mapClass,
+    // mapClass,
     gridItemClass,
     chartClass,
     chartSubtitleClass,
@@ -7,7 +7,6 @@ import {
 import {
     confirmActionDialogSel,
     titleInputSel,
-    clickEditActionButton,
 } from '../elements/editDashboard.js'
 import {
     dashboardChipSel,
@@ -16,6 +15,7 @@ import {
     newButtonSel,
 } from '../elements/viewDashboard.js'
 import { EXTENDED_TIMEOUT } from '../support/utils.js'
+import { clickEditActionButton } from './dashboard.js'
 
 // the length of the root route of the app (after the slash): #/
 const ROOT_ROUTE_LENGTH = 0

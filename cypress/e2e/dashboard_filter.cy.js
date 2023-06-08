@@ -1,21 +1,19 @@
 import { dimensionsModalSel } from '../elements/dashboardFilter.js'
 import { gridItemClass } from '../elements/dashboardItem.js'
-import { clickEditActionButton } from '../elements/editDashboard.js'
 import { newButtonSel } from '../elements/viewDashboard.js'
-import { addFilter } from '../helpers/add_filter.js'
 import {
+    addFilter,
     expectFacilityTypeFilterToBeApplied,
     expectOrganisationUnitFilterToBeApplied,
     expectPeriodFilterToBeApplied,
     clickOnFilterBadge,
-} from '../helpers/dashboard_filter.js'
-import {
     confirmDelete,
     openDashboard,
     chooseToEditDashboard,
     expectDashboardToDisplayInViewMode,
     expectDifferentDashboardDisplaysInViewMode,
-} from '../helpers/edit_dashboard.js'
+    clickEditActionButton,
+} from '../helpers/index.js'
 import { EXTENDED_TIMEOUT, createDashboardTitle } from '../support/utils.js'
 
 const TEST_DASHBOARD_TITLE = createDashboardTitle('af')

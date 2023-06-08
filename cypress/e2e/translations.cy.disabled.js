@@ -1,10 +1,10 @@
-import { clickEditActionButton } from '../elements/editDashboard.js'
 import {
     dashboardTitleSel,
     dashboardDescriptionSel,
-    clickViewActionButton,
 } from '../elements/viewDashboard.js'
 import {
+    clickViewActionButton,
+    clickEditActionButton,
     startNewDashboard,
     addDashboardTitle,
     addDashboardItems,
@@ -12,7 +12,7 @@ import {
     openDashboard,
     chooseToEditDashboard,
     expectDashboardToDisplayInViewMode,
-} from '../helpers/edit_dashboard.js'
+} from '../helpers/index.js'
 import {
     EXTENDED_TIMEOUT,
     createDashboardTitle,

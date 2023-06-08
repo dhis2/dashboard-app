@@ -1,12 +1,9 @@
 import {
-    getDashboardItem,
-    clickItemDeleteButton,
-} from '../elements/dashboardItem.js'
-import {
     dashboardChipSel,
     dashboardTitleSel,
 } from '../elements/viewDashboard.js'
 import { EXTENDED_TIMEOUT } from '../support/utils.js'
+import { getDashboardItem, clickItemDeleteButton } from './dashboard.js'
 
 const ITEM_1_UID = 'GaVhJpqABYX'
 const ITEM_2_UID = 'qXsjttMYuoZ'

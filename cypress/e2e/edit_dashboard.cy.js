@@ -1,5 +1,5 @@
-import { clickEditActionButton } from '../elements/editDashboard.js'
 import {
+    clickEditActionButton,
     addDashboardTitle,
     saveDashboard,
     openDashboard,
@@ -16,13 +16,11 @@ import {
     // expectNoAnalyticsRequestsToBeMadeWhenItemIsMoved,
     addDashboardItems,
     expectDashboardToBeDeletedAndFirstStarredDashboardDisplayed,
-} from '../helpers/edit_dashboard.js'
-import {
     starDashboard,
     unstarDashboard,
     expectDashboardToBeStarred,
     expectDashboardToNotBeStarred,
-} from '../helpers/star_dashboard.js'
+} from '../helpers/index.js'
 import { EXTENDED_TIMEOUT, createDashboardTitle } from '../support/utils.js'
 
 const TEST_DASHBOARD_TITLE = createDashboardTitle('af')

@@ -3,7 +3,7 @@
 //     dashboardsBarContainerSel,
 //     showMoreLessSel,
 // } from '../elements/viewDashboard.js'
-import { openDashboard } from '../helpers/edit_dashboard.js'
+import { openDashboard } from '../helpers/index.js'
 import { getApiBaseUrl, EXTENDED_TIMEOUT } from '../support/utils.js'
 
 // const MIN_DASHBOARDS_BAR_HEIGHT = 71

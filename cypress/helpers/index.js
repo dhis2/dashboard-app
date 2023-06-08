@@ -1,4 +1,5 @@
 import './add_filter.js'
+import './dashboard.js'
 import './dashboard_filter.js'
 import './dashboard_item_missing_type.js'
 import './dashboard_items_without_shape.js'

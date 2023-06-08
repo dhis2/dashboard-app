@@ -1,8 +1,6 @@
 import { dashboards } from '../assets/backends/sierraLeone_236.js'
-import {
-    dashboardTitleSel,
-    clickViewActionButton,
-} from '../elements/viewDashboard.js'
+import { dashboardTitleSel } from '../elements/viewDashboard.js'
+import { clickViewActionButton } from './dashboard.js'
 
 export const printLayoutIsDisplayed = (title) => {
     //check the url

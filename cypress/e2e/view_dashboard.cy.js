@@ -1,6 +1,5 @@
 import { dashboards } from '../assets/backends/sierraLeone_236.js'
 import {
-    getDashboardItem,
     mapLegendButtonClass,
     mapLegendTitleClass,
     gridItemClass,
@@ -12,21 +11,18 @@ import {
     dashboardSearchInputSel,
 } from '../elements/viewDashboard.js'
 import {
+    getDashboardItem,
     openDashboard,
     expectDashboardToDisplayInViewMode,
-} from '../helpers/edit_dashboard.js'
-import {
     exitPrintMode,
     openPrintLayout,
     openPrintOipp,
     printOippIsDisplayed,
     printLayoutIsDisplayed,
-} from '../helpers/print.js'
-import {
     resizeDashboardsBarDown,
     resizeDashboardsBarUp,
     expectDashboardsBarHeightToBeUpdated,
-} from '../helpers/resize_dashboards_bar.js'
+} from '../helpers/index.js'
 import { EXTENDED_TIMEOUT } from '../support/utils.js'
 
 // const toggleShowMoreDashboards = () => cy.get(showMoreLessSel).click()

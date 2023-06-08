@@ -2,14 +2,10 @@ import { itemMenuButtonSel } from '../elements/dashboardItem.js'
 import {
     titleInputSel,
     confirmActionDialogSel,
-    clickEditActionButton,
     itemSearchSel,
 } from '../elements/editDashboard.js'
-import { getSharingDialogUserSearch } from '../elements/sharingDialog.js'
 import {
     newButtonSel,
-    getViewActionButton,
-    clickViewActionButton,
     dashboardTitleSel,
     dashboardChipSel,
     dashboardDescriptionSel,
@@ -20,6 +16,11 @@ import {
     goOffline,
     createDashboardTitle,
 } from '../support/utils.js'
+import {
+    clickEditActionButton,
+    getViewActionButton,
+    clickViewActionButton,
+} from './dashboard.js'
 
 beforeEach(() => {
     goOnline()
@@ -313,7 +314,8 @@ export const openCachedDashboardInEditMode = () => {
 export const openSharingSettings = () => {
     clickViewActionButton('Share')
     cy.get('h2').contains(CACHED_DASHBOARD_TITLE).should('be.visible')
-    getSharingDialogUserSearch().should('be.visible')
+    // eslint-disable-next-line cypress/unsafe-to-chain-command
+    cy.get('[placeholder="Enter names"]').scrollIntoView().should('be.visible')
 }
 
 // Then('it is not possible to change sharing settings', () => {

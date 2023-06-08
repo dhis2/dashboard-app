@@ -1,4 +1,3 @@
-import { getSharingDialogUserSearch } from '../elements/sharingDialog.js'
 import { dashboardTitleSel } from '../elements/viewDashboard.js'
 import { EXTENDED_TIMEOUT } from '../support/utils.js'
 
@@ -11,7 +10,8 @@ export const changeSharingSettings = () => {
     //confirm that Boateng is not currently listed
     cy.get('hr').should('have.length', 3)
 
-    getSharingDialogUserSearch().type('Boateng')
+    cy.get('[placeholder="Enter names"]').scrollIntoView()
+    cy.get('[placeholder="Enter names"]').type('Boateng')
     cy.contains(USER_NAME).click()
 
     cy.get('div').contains(USER_NAME).should('be.visible')

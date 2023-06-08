@@ -1,4 +1,4 @@
-import { clickEditActionButton } from '../elements/editDashboard.js'
+import {} from '../elements/editDashboard.js'
 import {
     startNewDashboard,
     chooseToEditDashboard,
@@ -6,8 +6,7 @@ import {
     addDashboardItems,
     saveDashboard,
     expectDashboardToDisplayInViewMode,
-} from '../helpers/edit_dashboard.js'
-import {
+    clickEditActionButton,
     clickConfirm,
     clickFilterSettings,
     clickAddFilter,
@@ -25,7 +24,7 @@ import {
     expectFacilityOwnershipToBeOnlyDimension,
     // expectFilterSettingsToBeUnrestricted,
     visitDashboardInEditMode,
-} from '../helpers/filter_restrict.js'
+} from '../helpers/index.js'
 import { EXTENDED_TIMEOUT, createDashboardTitle } from '../support/utils.js'
 
 const TEST_DASHBOARD_TITLE = createDashboardTitle('af')

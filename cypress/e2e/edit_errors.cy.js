@@ -1,8 +1,6 @@
+import { confirmActionDialogSel } from '../elements/editDashboard.js'
 import {
     clickEditActionButton,
-    confirmActionDialogSel,
-} from '../elements/editDashboard.js'
-import {
     openDashboard,
     startNewDashboard,
     chooseToEditDashboard,
@@ -11,7 +9,7 @@ import {
     saveDashboard,
     expectDashboardToDisplayInViewMode,
     expectDashboardDisplaysInEditMode,
-} from '../helpers/edit_dashboard.js'
+} from '../helpers/index.js'
 import { EXTENDED_TIMEOUT, createDashboardTitle } from '../support/utils.js'
 
 const TEST_DASHBOARD_TITLE = createDashboardTitle('af')

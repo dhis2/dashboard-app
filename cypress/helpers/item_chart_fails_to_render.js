@@ -8,12 +8,12 @@ import {
     chartClass,
     tableClass,
 } from '../elements/dashboardItem.js'
-import { createDashboard } from '../elements/editDashboard.js'
 import {
     dashboardChipSel,
     dashboardTitleSel,
 } from '../elements/viewDashboard.js'
 import { EXTENDED_TIMEOUT } from '../support/utils.js'
+import { createDashboard } from './dashboard.js'
 
 const VIS_NAME =
     'ANC: ANC reporting rate, coverage and visits last 4 quarters dual-axis'

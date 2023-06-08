@@ -1,5 +1,5 @@
-import { clickViewActionButton } from '../elements/viewDashboard.js'
 import { getApiBaseUrl } from '../support/utils.js'
+import { clickViewActionButton } from './dashboard.js'
 
 const SHOW_DESC_RESP_CODE_SUCCESS = 201
 const SHOW_DESC_RESP_CODE_FAIL = 409

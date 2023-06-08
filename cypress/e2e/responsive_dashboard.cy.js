@@ -1,22 +1,18 @@
 import { dimensionsModalSel } from '../elements/dashboardFilter.js'
-import { addFilter } from '../helpers/add_filter.js'
-import { clickOnFilterBadge } from '../helpers/dashboard_filter.js'
 import {
+    addFilter,
+    clickOnFilterBadge,
     startNewDashboard,
     openDashboard,
     addDashboardItems,
     addDashboardTitle,
     chooseToEditDashboard,
     expectDashboardToDisplayInViewMode,
-} from '../helpers/edit_dashboard.js'
-import {
     goToPhoneLandscape,
     scrollDown,
     scrollToTop,
     expectEditControlBarNotVisible,
     expectEditControlBarVisible,
-} from '../helpers/phone_landscape.js'
-import {
     goToSmallScreen,
     expectSmallScreenView,
     expectSmallScreenEditView,
@@ -25,7 +21,7 @@ import {
     expectWideScreenView,
     expectChangesAreStillThere,
     changeUrlToEdit,
-} from '../helpers/responsive_dashboard.js'
+} from '../helpers/index.js'
 import { EXTENDED_TIMEOUT } from '../support/utils.js'
 
 describe('Responsive dashboard', () => {

@@ -1,12 +1,7 @@
 import { filterDimensionsPanelSel } from '../elements/dashboardFilter.js'
-import {
-    confirmActionDialogSel,
-    clickEditActionButton,
-} from '../elements/editDashboard.js'
-import {
-    dashboardTitleSel,
-    clickViewActionButton,
-} from '../elements/viewDashboard.js'
+import { confirmActionDialogSel } from '../elements/editDashboard.js'
+import { dashboardTitleSel } from '../elements/viewDashboard.js'
+import { clickEditActionButton, clickViewActionButton } from './dashboard.js'
 
 export const clickFilterSettings = () => {
     clickEditActionButton('Filter settings')
