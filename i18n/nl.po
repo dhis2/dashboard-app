@@ -267,7 +267,7 @@ msgid "No access"
 msgstr "Geen toegang"
 
 msgid "Not supported"
-msgstr ""
+msgstr "Niet ondersteund"
 
 msgid ""
 "Editing dashboards on small screens is not supported. Resize your screen to "
