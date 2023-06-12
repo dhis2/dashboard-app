@@ -383,7 +383,7 @@ msgid "Start of dashboard"
 msgstr ""
 
 msgid "Print"
-msgstr ""
+msgstr "Afdrukken"
 
 msgid "dashboard layout"
 msgstr ""
