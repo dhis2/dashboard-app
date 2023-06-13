@@ -98,10 +98,10 @@ msgid ""
 msgstr ""
 
 msgid "Not supported"
-msgstr ""
+msgstr "Niet ondersteund"
 
 msgid "Print"
-msgstr ""
+msgstr "Afdrukken"
 
 msgid "dashboard layout"
 msgstr ""
