@@ -168,6 +168,7 @@ Then('no analytics requests are made when item is moved', () => {
         })
     })
 
+    // eslint-disable-next-line cypress/unsafe-to-chain-command
     cy.get(gridItemSel)
         .first()
         .trigger('mousedown')

@@ -17,4 +17,5 @@ Given('I open the {string} dashboard', (title) => {
     cy.get(dashboardTitleSel).should('be.visible').and('contain', title)
     // FIXME
     // cy.get(chartSel, EXTENDED_TIMEOUT).should('exist')
+    cy.wait(3000) // eslint-disable-line cypress/no-unnecessary-waiting
 })

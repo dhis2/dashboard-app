@@ -1,3 +1,83 @@
+# [100.0.0](https://github.com/dhis2/dashboard-app/compare/v99.99.9...v100.0.0) (2023-06-06)
+
+
+### Features
+
+*  update gh workflows and set version to 100.0.0 ([#2367](https://github.com/dhis2/dashboard-app/issues/2367)) ([f86387d](https://github.com/dhis2/dashboard-app/commit/f86387ddcfbb45c043f3457e3aa960aa3f879355))
+
+
+### BREAKING CHANGES
+
+* version will be bumped to v100.0.0,
+which is the base version for app-hub core apps.
+
+The workflows are now updated so that PRs run against 2.40,
+and the nightly build runs against dev.
+
+## [99.11.7](https://github.com/dhis2/dashboard-app/compare/v99.11.6...v99.11.7) (2023-06-05)
+
+
+### Bug Fixes
+
+* **deps:** platform deps for login redirect and connection status fixes [DHIS2-15317] ([#2316](https://github.com/dhis2/dashboard-app/issues/2316)) ([aae6301](https://github.com/dhis2/dashboard-app/commit/aae630102ebd8cd45c01059ac247f772d538efdc))
+* **translations:** sync translations from transifex (master) ([69d675d](https://github.com/dhis2/dashboard-app/commit/69d675df97e9947b9f0287d59ef2d05c70be6ea4))
+
+## [99.11.6](https://github.com/dhis2/dashboard-app/compare/v99.11.5...v99.11.6) (2023-05-28)
+
+
+### Bug Fixes
+
+* **translations:** sync translations from transifex (master) ([30c7828](https://github.com/dhis2/dashboard-app/commit/30c7828dd845209ddb59b507dcdf91433aa337af))
+* **translations:** sync translations from transifex (master) ([bf42e27](https://github.com/dhis2/dashboard-app/commit/bf42e27fc8450e27d3620e9aa02b721d71566349))
+
+## [99.11.5](https://github.com/dhis2/dashboard-app/compare/v99.11.4...v99.11.5) (2023-05-25)
+
+
+### Bug Fixes
+
+* **translations:** sync translations from transifex (master) ([8953b30](https://github.com/dhis2/dashboard-app/commit/8953b30580d0cce8b687509ecd4f1e0b2d67820a))
+
+## [99.11.4](https://github.com/dhis2/dashboard-app/compare/v99.11.3...v99.11.4) (2023-05-24)
+
+
+### Bug Fixes
+
+* **translations:** sync translations from transifex (master) ([1c8dbd3](https://github.com/dhis2/dashboard-app/commit/1c8dbd38b291381f7aa07ec24870e22cbc4ae947))
+* **translations:** sync translations from transifex (master) ([f6d62ad](https://github.com/dhis2/dashboard-app/commit/f6d62ada9eacf3044cbf440f09649f7f25be2634))
+
+## [99.11.3](https://github.com/dhis2/dashboard-app/compare/v99.11.2...v99.11.3) (2023-05-15)
+
+
+### Bug Fixes
+
+* handle "will not install" plugin condition ([#2300](https://github.com/dhis2/dashboard-app/issues/2300)) ([d7954a7](https://github.com/dhis2/dashboard-app/commit/d7954a7b2bc61240d469306685ecab7682729f20))
+
+## [99.11.2](https://github.com/dhis2/dashboard-app/compare/v99.11.1...v99.11.2) (2023-05-05)
+
+
+### Bug Fixes
+
+* bump cli-app-scripts to 10.3.8 for LIBS-499 fix ([#2297](https://github.com/dhis2/dashboard-app/issues/2297)) ([45e22d6](https://github.com/dhis2/dashboard-app/commit/45e22d6300dce8430ca9bb8f74db52f2cfc6d100))
+
+## [99.11.1](https://github.com/dhis2/dashboard-app/compare/v99.11.0...v99.11.1) (2023-05-05)
+
+
+### Bug Fixes
+
+* disable LL items if the plugin version does not support installationStatus message ([#2293](https://github.com/dhis2/dashboard-app/issues/2293)) ([69c90a1](https://github.com/dhis2/dashboard-app/commit/69c90a171709c385b0dd2e40b89c6b18ca36e1cc))
+
+# [99.11.0](https://github.com/dhis2/dashboard-app/compare/v99.10.23...v99.11.0) (2023-05-04)
+
+
+### Bug Fixes
+
+* bump d2-ui-interpretations and related components for BETA-42 ([#2286](https://github.com/dhis2/dashboard-app/issues/2286)) ([c817d73](https://github.com/dhis2/dashboard-app/commit/c817d73187809af3e91f3b92149f7d44e075576e))
+
+
+### Features
+
+* **iframe-plugin:** wait to load plugins from cache to save network [DHIS2-15097] ([#2285](https://github.com/dhis2/dashboard-app/issues/2285)) ([a7368b1](https://github.com/dhis2/dashboard-app/commit/a7368b16b20118a815fdaab01c5239b286f5add5))
+
 ## [99.10.23](https://github.com/dhis2/dashboard-app/compare/v99.10.22...v99.10.23) (2023-03-24)
 
 
