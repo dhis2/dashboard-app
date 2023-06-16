@@ -1,3 +1,19 @@
+# [100.0.0](https://github.com/dhis2/dashboard-app/compare/v99.99.9...v100.0.0) (2023-06-06)
+
+
+### Features
+
+*  update gh workflows and set version to 100.0.0 ([#2367](https://github.com/dhis2/dashboard-app/issues/2367)) ([f86387d](https://github.com/dhis2/dashboard-app/commit/f86387ddcfbb45c043f3457e3aa960aa3f879355))
+
+
+### BREAKING CHANGES
+
+* version will be bumped to v100.0.0,
+which is the base version for app-hub core apps.
+
+The workflows are now updated so that PRs run against 2.40,
+and the nightly build runs against dev.
+
 ## [99.11.7](https://github.com/dhis2/dashboard-app/compare/v99.11.6...v99.11.7) (2023-06-05)
 
 
