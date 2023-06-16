@@ -1,6 +1,6 @@
 import { useDhis2ConnectionStatus } from '@dhis2/app-runtime'
 import i18n from '@dhis2/d2-i18n'
-import { Tooltip, IconStar24, IconStarFilled24, colors } from '@dhis2/ui'
+import { Tooltip, IconStar24, IconStarFilled24 } from '@dhis2/ui'
 import PropTypes from 'prop-types'
 import React from 'react'
 import classes from './styles/StarDashboardButton.module.css'
