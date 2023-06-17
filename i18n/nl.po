@@ -21,7 +21,7 @@ msgid "Untitled dashboard"
 msgstr "Naamloos dashboard"
 
 msgid "Loading dashboard – {{name}}"
-msgstr ""
+msgstr "Dashboard laden – {{name}}"
 
 msgid "Cancel"
 msgstr "Annuleer"
@@ -80,9 +80,11 @@ msgstr "Toon meer dashboards"
 
 msgid "No dashboards found. Use the + button to create a new dashboard."
 msgstr ""
+"Geen dashboards gevonden. Gebruik de + knop om een nieuw dashboard aan te "
+"maken."
 
 msgid "Requested dashboard not found"
-msgstr ""
+msgstr "Gevraagd dashboard niet gevonden"
 
 msgid "No access"
 msgstr "Geen toegang"
@@ -91,6 +93,8 @@ msgid ""
 "Editing dashboards on small screens is not supported. Resize your screen to "
 "return to edit mode."
 msgstr ""
+"Het bewerken van dashboards op kleine schermen wordt niet ondersteund. "
+"Wijzig het formaat van uw scherm om terug te keren naar de bewerkingsmodus."
 
 msgid ""
 "Creating dashboards on small screens is not supported. Resize your screen to"
@@ -104,22 +108,22 @@ msgid "Print"
 msgstr "Afdrukken"
 
 msgid "dashboard layout"
-msgstr ""
+msgstr "dashboardindeling"
 
 msgid "one item per page"
-msgstr ""
+msgstr "één item per pagina"
 
 msgid "Print Preview"
-msgstr ""
+msgstr "Afdrukvoorbeeld"
 
 msgid "For best print results"
-msgstr ""
+msgstr "Voor de beste afdrukresultaten"
 
 msgid "Use Chrome or Edge web browser"
-msgstr ""
+msgstr "Gebruik de Chrome- of Edge-webbrowser"
 
 msgid "Wait for all dashboard items to load before printing"
-msgstr ""
+msgstr "Wacht tot alle dashboarditems zijn geladen voordat u gaat afdrukken"
 
 msgid ""
 "Use A4 landscape paper size and default margin settings in the browser print"
@@ -128,8 +132,8 @@ msgstr ""
 
 msgid "{{count}} selected"
 msgid_plural "{{count}} selected"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "{{count}} geselecteerd"
+msgstr[1] "{{count}} geselecteerd"
 
 msgid "Remove"
 msgstr "Verwijderen"
@@ -186,10 +190,10 @@ msgid "View fullscreen"
 msgstr "Bekijk volledig scherm"
 
 msgid "View as Chart"
-msgstr ""
+msgstr "Bekijk als grafiek"
 
 msgid "This map can't be displayed as a chart"
-msgstr ""
+msgstr "Deze kaart kan niet als grafiek worden weergegeven"
 
 msgid "View as Table"
 msgstr "Bekijk als tabel"
@@ -217,19 +221,19 @@ msgid "Open this item in {{appName}}"
 msgstr "Open dit item in {{appName}}"
 
 msgid "Confirm"
-msgstr ""
+msgstr "Bevestigen"
 
 msgid "Add filter"
 msgstr "Voeg filter toe"
 
 msgid "Allow filtering by all dimensions"
-msgstr ""
+msgstr "Filteren op alle dimensies toestaan"
 
 msgid "Only allow filtering by selected dimensions"
-msgstr ""
+msgstr "Alleen filteren op geselecteerde dimensies toestaan"
 
 msgid "Dashboard filter settings"
-msgstr ""
+msgstr "Dashboardfilterinstellingen"
 
 msgid ""
 "Dashboards can be filtered by dimensions to change\n"
@@ -237,45 +241,49 @@ msgid ""
 "                                         as filters. Alternatively, only selected dimensions can\n"
 "                                         be made available on a dashboard."
 msgstr ""
+"Dashboards kunnen worden gefilterd op dimensies om te wijzigen\n"
+"                                         de getoonde gegevens. Standaard zijn alle afmetingen beschikbaar\n"
+"                                         als filters. Als alternatief kunnen alleen geselecteerde afmetingen\n"
+"                                         beschikbaar worden gesteld op een dashboard."
 
 msgid "Available Filters"
-msgstr ""
+msgstr "Beschikbare filters"
 
 msgid "Selected Filters"
-msgstr ""
+msgstr "geselecteerde filters"
 
 msgid "There are no items on this dashboard"
-msgstr ""
+msgstr "Er zijn geen items op dit dashboard"
 
 msgid "Show fewer"
-msgstr ""
+msgstr "Laat minder zien"
 
 msgid "Show more"
-msgstr ""
+msgstr "Laat meer zien"
 
 msgid "Insert"
-msgstr ""
+msgstr "Invoegen"
 
 msgid "Search for items to add to this dashboard"
-msgstr ""
+msgstr "Zoek naar items om toe te voegen aan dit dashboard"
 
 msgid "Additional items"
-msgstr ""
+msgstr "Extra artikelen"
 
 msgid "Text box"
-msgstr ""
+msgstr "Tekstvak"
 
 msgid "Dashboard title"
-msgstr ""
+msgstr "Dashboard-titel"
 
 msgid "Dashboard description"
-msgstr ""
+msgstr "Dashboardbeschrijving"
 
 msgid "Hide description"
-msgstr ""
+msgstr "Beschrijving verbergen"
 
 msgid "Show description"
-msgstr ""
+msgstr "Laat beschrijving zien"
 
 msgid "Failed to hide description"
 msgstr ""
@@ -287,31 +295,31 @@ msgid "Unstar dashboard"
 msgstr ""
 
 msgid "Star dashboard"
-msgstr ""
+msgstr "Sterrendashboard"
 
 msgid "Failed to unstar the dashboard"
 msgstr ""
 
 msgid "Failed to star the dashboard"
-msgstr ""
+msgstr "Sterren geven aan het dashboard mislukt"
 
 msgid "More"
-msgstr ""
+msgstr "Meer"
 
 msgid "Edit"
 msgstr "Bewerk"
 
 msgid "Share"
-msgstr ""
+msgstr "Deel"
 
 msgid "Dashboard layout"
-msgstr ""
+msgstr "Dashboard-indeling"
 
 msgid "One item per page"
-msgstr ""
+msgstr "Eén item per pagina"
 
 msgid "No description"
-msgstr ""
+msgstr "Geen beschrijving"
 
 msgid "Visualizations"
 msgstr "visualisaties"
@@ -320,7 +328,7 @@ msgid "Pivot tables"
 msgstr "Draaitabellen"
 
 msgid "Charts"
-msgstr ""
+msgstr "Grafieken"
 
 msgid "Maps"
 msgstr "Kaarten"
