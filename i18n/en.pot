@@ -5,8 +5,8 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1)\n"
-"POT-Creation-Date: 2023-06-09T07:52:15.404Z\n"
-"PO-Revision-Date: 2023-06-09T07:52:15.404Z\n"
+"POT-Creation-Date: 2023-06-21T08:54:35.888Z\n"
+"PO-Revision-Date: 2023-06-21T08:54:35.888Z\n"
 
 msgid "Untitled dashboard"
 msgstr "Untitled dashboard"
@@ -61,230 +61,6 @@ msgstr "Text item"
 
 msgid "Add text here"
 msgstr "Add text here"
-
-msgid "Pivot Tables"
-msgstr "Pivot Tables"
-
-msgid "Visualizer"
-msgstr "Visualizer"
-
-msgid "Maps"
-msgstr "Maps"
-
-msgid "Event Reports"
-msgstr "Event Reports"
-
-msgid "Event Visualizer"
-msgstr "Event Visualizer"
-
-msgid "Line Listing"
-msgstr "Line Listing"
-
-msgid "View in {{appName}} app"
-msgstr "View in {{appName}} app"
-
-msgid "View"
-msgstr "View"
-
-msgid "Exit View"
-msgstr "Exit View"
-
-msgid "Like"
-msgstr "Like"
-
-msgid "Unlike"
-msgstr "Unlike"
-
-msgid "Reply"
-msgstr "Reply"
-
-msgid "Edit"
-msgstr "Edit"
-
-msgid "Manage sharing"
-msgstr "Manage sharing"
-
-msgid "Delete"
-msgstr "Delete"
-
-msgid "Back to all interpretations"
-msgstr "Back to all interpretations"
-
-msgid "Interpretations"
-msgstr "Interpretations"
-
-msgid "Not available offline"
-msgstr "Not available offline"
-
-msgid "Save reply"
-msgstr "Save reply"
-
-msgid "Cancel"
-msgstr "Cancel"
-
-msgid "Write a reply"
-msgstr "Write a reply"
-
-msgid "Confirm"
-msgstr "Confirm"
-
-msgid "No description"
-msgstr "No description"
-
-msgid "Show less"
-msgstr "Show less"
-
-msgid "Show more"
-msgstr "Show more"
-
-msgid "Unsubscribe from this {{object}} and stop receiving notifications"
-msgstr "Unsubscribe from this {{object}} and stop receiving notifications"
-
-msgid "Subscribe to this {{object}} and start receiving notifications"
-msgstr "Subscribe to this {{object}} and start receiving notifications"
-
-msgid "Table details"
-msgstr "Table details"
-
-msgid "Chart details"
-msgstr "Chart details"
-
-msgid "Map details"
-msgstr "Map details"
-
-msgid "Visualization details"
-msgstr "Visualization details"
-
-msgid "Line list details"
-msgstr "Line list details"
-
-msgid "Owner"
-msgstr "Owner"
-
-msgid "Created"
-msgstr "Created"
-
-msgid "Last updated"
-msgstr "Last updated"
-
-msgid "Views"
-msgstr "Views"
-
-msgid "Sharing"
-msgstr "Sharing"
-
-msgid "Delete interpretation"
-msgstr "Delete interpretation"
-
-msgid "Are you sure you want to delete this interpretation?"
-msgstr "Are you sure you want to delete this interpretation?"
-
-msgid "Access restricted"
-msgstr "Access restricted"
-
-msgid "{{count}} likes"
-msgid_plural "{{count}} likes"
-msgstr[0] "{{count}} like"
-msgstr[1] "{{count}} likes"
-
-msgid "Save interpretation"
-msgstr "Save interpretation"
-
-msgid "Write an interpretation"
-msgstr "Write an interpretation"
-
-msgid "{{count}} replies"
-msgid_plural "{{count}} replies"
-msgstr[0] "{{count}} reply"
-msgstr[1] "{{count}} replies"
-
-msgid "Hide old replies"
-msgstr "Hide old replies"
-
-msgid "View more replies"
-msgstr "View more replies"
-
-msgid "Delete comment"
-msgstr "Delete comment"
-
-msgid "Are you sure you want to delete this comment?"
-msgstr "Are you sure you want to delete this comment?"
-
-msgid "Hide previous interpretations"
-msgstr "Hide previous interpretations"
-
-msgid "Show previous interpretations"
-msgstr "Show previous interpretations"
-
-msgid "No interpretations"
-msgstr "No interpretations"
-
-msgid "Searching for \"{{filter}}\""
-msgstr "Searching for \"{{filter}}\""
-
-msgid "No results found for \"{{filter}}\""
-msgstr "No results found for \"{{filter}}\""
-
-msgid "external access"
-msgstr "external access"
-
-msgid "public access"
-msgstr "public access"
-
-msgid "None"
-msgstr "None"
-
-msgid "Shared with"
-msgstr "Shared with"
-
-msgid "bold text"
-msgstr "bold text"
-
-msgid "italic text"
-msgstr "italic text"
-
-msgid "Read"
-msgstr "Read"
-
-msgid "Read/Write"
-msgstr "Read/Write"
-
-msgid "Unknown"
-msgstr "Unknown"
-
-msgid "Public"
-msgstr "Public"
-
-msgid "{{count}} users"
-msgid_plural "{{count}} users"
-msgstr[0] "{{count}} user"
-msgstr[1] "{{count}} users"
-
-msgid "{{count}} user groups"
-msgid_plural "{{count}} user groups"
-msgstr[0] "{{count}} user group"
-msgstr[1] "{{count}} user groups"
-
-msgid "visualization"
-msgstr "visualization"
-
-msgid "chart"
-msgstr "chart"
-
-msgid "pivot table"
-msgstr "pivot table"
-
-msgid "map"
-msgstr "map"
-
-msgid "event chart"
-msgstr "event chart"
-
-msgid "event report"
-msgstr "event report"
-
-msgid "object"
-msgstr "object"
 
 msgid "Filters are not applied to line list dashboard items"
 msgstr "Filters are not applied to line list dashboard items"
@@ -358,6 +134,9 @@ msgstr "There was an error loading data for this item"
 msgid "Open this item in {{appName}}"
 msgstr "Open this item in {{appName}}"
 
+msgid "Not available offline"
+msgstr "Not available offline"
+
 msgid "Visualizations"
 msgstr "Visualizations"
 
@@ -366,6 +145,9 @@ msgstr "Pivot tables"
 
 msgid "Charts"
 msgstr "Charts"
+
+msgid "Maps"
+msgstr "Maps"
 
 msgid "Event reports"
 msgstr "Event reports"
@@ -430,6 +212,9 @@ msgstr "Translate"
 msgid "Cannot delete this dashboard while offline"
 msgstr "Cannot delete this dashboard while offline"
 
+msgid "Delete"
+msgstr "Delete"
+
 msgid "Exit without saving"
 msgstr "Exit without saving"
 
@@ -447,6 +232,9 @@ msgstr ""
 "Deleting dashboard \"{{ dashboardName }}\" will remove it for all users. "
 "This action cannot be undone. Are you sure you want to permanently delete "
 "this dashboard?"
+
+msgid "Cancel"
+msgstr "Cancel"
 
 msgid "Discard changes"
 msgstr "Discard changes"
@@ -507,11 +295,17 @@ msgstr "Available Filters"
 msgid "Selected Filters"
 msgstr "Selected Filters"
 
+msgid "Confirm"
+msgstr "Confirm"
+
 msgid "There are no items on this dashboard"
 msgstr "There are no items on this dashboard"
 
 msgid "Show fewer"
 msgstr "Show fewer"
+
+msgid "Show more"
+msgstr "Show more"
 
 msgid "Insert"
 msgstr "Insert"
@@ -717,6 +511,9 @@ msgstr "Close dashboard"
 msgid "More"
 msgstr "More"
 
+msgid "Edit"
+msgstr "Edit"
+
 msgid "Share"
 msgstr "Share"
 
@@ -732,6 +529,9 @@ msgstr ""
 
 msgid "Yes, clear filters and sync"
 msgstr "Yes, clear filters and sync"
+
+msgid "No description"
+msgstr "No description"
 
 msgid "Add filter"
 msgstr "Add filter"
