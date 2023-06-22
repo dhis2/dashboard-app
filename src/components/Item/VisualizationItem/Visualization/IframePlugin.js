@@ -1,10 +1,9 @@
-import { useConfig } from '@dhis2/app-runtime'
+import { useConfig, Plugin } from '@dhis2/app-runtime'
 import { useD2 } from '@dhis2/app-runtime-adapter-d2'
 import { CenteredContent, CircularLoader } from '@dhis2/ui'
-import postRobot from '@krakenjs/post-robot'
 import PropTypes from 'prop-types'
-import React, { useCallback, useEffect, useMemo, useRef, useState } from 'react'
-import { useDispatch, useSelector } from 'react-redux'
+import React, { useCallback, useEffect, useMemo, useState } from 'react'
+import { useDispatch, useSelector, shallowEqual } from 'react-redux'
 import { acAddIframePluginStatus } from '../../../../actions/iframePluginStatus.js'
 import {
     CHART,
@@ -15,9 +14,9 @@ import { getPluginOverrides } from '../../../../modules/localStorage.js'
 import { useCacheableSection } from '../../../../modules/useCacheableSection.js'
 import {
     INSTALLATION_STATUS_INSTALLING,
-    INSTALLATION_STATUS_READY,
+    //    INSTALLATION_STATUS_READY,
     INSTALLATION_STATUS_UNKNOWN,
-    INSTALLATION_STATUS_WILL_NOT_INSTALL,
+    //    INSTALLATION_STATUS_WILL_NOT_INSTALL,
     sGetIframePluginStatus,
 } from '../../../../reducers/iframePluginStatus.js'
 import { useUserSettings } from '../../../UserSettingsProvider.js'
@@ -38,29 +37,41 @@ const IframePlugin = ({
     isFirstOfType,
 }) => {
     const dispatch = useDispatch()
-    const iframePluginStatus = useSelector(sGetIframePluginStatus)
+    const iframePluginStatus = useSelector(sGetIframePluginStatus, shallowEqual)
 
     const { d2 } = useD2()
     const { baseUrl } = useConfig()
 
     const { userSettings } = useUserSettings()
-    const iframeRef = useRef()
     const [error, setError] = useState(null)
 
     // When this mounts, check if the dashboard is recording
     const { isCached, recordingState } = useCacheableSection(dashboardId)
-    const [recordOnNextLoad, setRecordOnNextLoad] = useState(
-        recordingState === 'recording'
-    )
 
-    const prevPluginRef = useRef()
-
-    const onError = () => setError('plugin')
+    // TODO set this to false after first props transfer with true flag
+    const recordOnNextLoad = recordingState === 'recording'
+    //    const [recordOnNextLoad, setRecordOnNextLoad] = useState(
+    //        recordingState === 'recording'
+    //    )
 
     const pluginType = [CHART, REPORT_TABLE].includes(activeType)
         ? VISUALIZATION
         : activeType
-    const installationStatus = iframePluginStatus[pluginType]
+
+    const onError = () => setError('plugin')
+    const onInstallationStatusChange = useCallback(
+        (installationStatus) => {
+            if (isFirstOfType) {
+                dispatch(
+                    acAddIframePluginStatus({
+                        pluginType,
+                        status: installationStatus,
+                    })
+                )
+            }
+        },
+        [dispatch, isFirstOfType, pluginType]
+    )
 
     const pluginProps = useMemo(
         () => ({
@@ -69,6 +80,7 @@ const IframePlugin = ({
             displayProperty: userSettings.keyAnalysisDisplayProperty,
             visualization,
             onError,
+            onInstallationStatusChange,
 
             // For caching: ---
             // Add user & dashboard IDs to cache ID to avoid removing a cached
@@ -84,6 +96,7 @@ const IframePlugin = ({
             dashboardId,
             itemId,
             isCached,
+            onInstallationStatusChange,
             recordOnNextLoad,
         ]
     )
@@ -109,23 +122,25 @@ const IframePlugin = ({
 
     const iframeSrc = getIframeSrc()
 
-    useEffect(() => {
-        // Tell plugin to remove cached data if this dashboard has been removed
-        // from offline storage
-        if (iframeRef?.current && !isCached) {
-            postRobot
-                .send(iframeRef.current.contentWindow, 'removeCachedData')
-                .catch((err) => {
-                    // catch error if iframe hasn't loaded yet
-                    const msg = 'No handler found for post message:'
-                    if (err.message.startsWith(msg)) {
-                        return
-                    }
-                    console.error(err)
-                })
-        }
-    }, [isCached])
+    // TODO figure out how to send this message via Plugin without re-rendering
+    //    useEffect(() => {
+    //        // Tell plugin to remove cached data if this dashboard has been removed
+    //        // from offline storage
+    //        if (iframeRef?.current && !isCached) {
+    //            postRobot
+    //                .send(iframeRef.current.contentWindow, 'removeCachedData')
+    //                .catch((err) => {
+    //                    // catch error if iframe hasn't loaded yet
+    //                    const msg = 'No handler found for post message:'
+    //                    if (err.message.startsWith(msg)) {
+    //                        return
+    //                    }
+    //                    console.error(err)
+    //                })
+    //        }
+    //    }, [isCached])
 
+    /*
     useEffect(() => {
         if (
             iframeRef?.current &&
@@ -167,30 +182,7 @@ const IframePlugin = ({
         installationStatus,
         isFirstOfType,
     ])
-
-    useEffect(() => {
-        if (iframeRef?.current) {
-            const listener = postRobot.on(
-                'installationStatus',
-                {
-                    window: iframeRef.current.contentWindow,
-                },
-                (event) => {
-                    if (isFirstOfType) {
-                        dispatch(
-                            acAddIframePluginStatus({
-                                pluginType,
-                                status: event.data.installationStatus,
-                            })
-                        )
-                    }
-                }
-            )
-
-            return () => listener.cancel()
-        }
-    }, [pluginType, dispatch, visualization, iframePluginStatus, isFirstOfType])
-
+*/
     useEffect(() => {
         setError(null)
     }, [filterVersion, visualization.type])
@@ -237,16 +229,7 @@ const IframePlugin = ({
     return (
         <div className={classes.wrapper}>
             {iframeSrc ? (
-                <iframe
-                    ref={iframeRef}
-                    src={iframeSrc}
-                    // preserve dimensions if provided
-                    style={{
-                        width: style.width || '100%',
-                        height: style.height || '100%',
-                        border: 'none',
-                    }}
-                ></iframe>
+                <Plugin pluginSource={iframeSrc} {...pluginProps} />
             ) : null}
         </div>
     )
