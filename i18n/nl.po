@@ -178,10 +178,10 @@ msgid "There was a problem loading this dashboard item"
 msgstr "Er is een probleem opgetreden bij het laden van dit dashboarditem"
 
 msgid "Hide interpretations and details"
-msgstr ""
+msgstr "Verberg interpretaties en details"
 
 msgid "Show interpretations and details"
-msgstr ""
+msgstr "Toon interpretaties en details"
 
 msgid "Open in {{appName}} app"
 msgstr "Openen in {{appName}}-app"
