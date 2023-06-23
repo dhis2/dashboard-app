@@ -1,8 +1,5 @@
+import { RichTextParser, RichTextEditor } from '@dhis2/analytics'
 import i18n from '@dhis2/d2-i18n'
-import {
-    Parser as RichTextParser,
-    Editor as RichTextEditor,
-} from '@dhis2/d2-ui-rich-text'
 import { Divider, TextArea, spacers } from '@dhis2/ui'
 import PropTypes from 'prop-types'
 import React from 'react'
