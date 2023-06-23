@@ -156,10 +156,10 @@ msgid "No data to display"
 msgstr "geen gegevens om weer te geven"
 
 msgid "Hide interpretations and details"
-msgstr ""
+msgstr "Verberg interpretaties en details"
 
 msgid "Show interpretations and details"
-msgstr ""
+msgstr "Toon interpretaties en details"
 
 msgid "View as Chart"
 msgstr "Bekijk als grafiek"
