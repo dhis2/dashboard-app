@@ -3,6 +3,7 @@
     "video": true,
     "projectId": "5fk191",
     "testFiles": "**/*.feature",
+    "defaultCommandTimeout": 15000,
     "viewportWidth": 1280,
     "viewportHeight": 800
 }
