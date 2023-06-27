@@ -3,15 +3,15 @@
 # phil_dhis2, 2022
 # Viktor Varland <viktor@dhis2.org>, 2022
 # 晓东 林 <13981924470@126.com>, 2022
-# easylin <lin_xd@126.com>, 2022
+# easylin <lin_xd@126.com>, 2023
 # 
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2021-12-21T08:20:25.327Z\n"
+"POT-Creation-Date: 2023-05-15T07:26:26.921Z\n"
 "PO-Revision-Date: 2022-04-20 09:58+0000\n"
-"Last-Translator: easylin <lin_xd@126.com>, 2022\n"
-"Language-Team: Chinese (https://www.transifex.com/hisp-uio/teams/100509/zh/)\n"
+"Last-Translator: easylin <lin_xd@126.com>, 2023\n"
+"Language-Team: Chinese (https://app.transifex.com/hisp-uio/teams/100509/zh/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -73,6 +73,12 @@ msgstr "文本条目"
 msgid "Add text here"
 msgstr "在这里添加文本"
 
+msgid "Filters are not applied to line list dashboard items"
+msgstr "过滤器不适用于行列表仪表板项目"
+
+msgid "Filters not applied"
+msgstr "未应用过滤器"
+
 msgid "There was a problem loading this dashboard item"
 msgstr "载入仪表盘有问题"
 
@@ -112,8 +118,29 @@ msgstr "离线时无法显示带有地球引擎图层的地图"
 msgid "Unable to load the plugin for this item"
 msgstr "不能载入该条目的插件"
 
+msgid "The plugin for rendering this item is not available"
+msgstr "渲染该项目的插件不可用"
+
+msgid "Install the {{appName}} app from the App Hub"
+msgstr "从 App Hub 安装 {{appName}} 应用程序"
+
 msgid "No data to display"
 msgstr "没有数据可显示"
+
+msgid ""
+"Install Line Listing app version ${minLLVersion.join(\n"
+"                                '.'\n"
+"                            )} or higher in order to display this item."
+msgstr ""
+"安装行列表应用程序版本 ${minLLVersion.join(\n"
+"                                '.'\n"
+"                            )} 或更高版本以显示此项。"
+
+msgid "Filters are not applied to line list dashboard items."
+msgstr "过滤器不适用于行列表仪表板项目。"
+
+msgid "Show without filters"
+msgstr "显示无过滤器"
 
 msgid "There was an error loading data for this item"
 msgstr "加载此项目的数据时出错"
@@ -141,6 +168,9 @@ msgstr "事件报表"
 
 msgid "Event charts"
 msgstr "事件图表"
+
+msgid "Line lists"
+msgstr "行列表"
 
 msgid "Apps"
 msgstr "应用"
