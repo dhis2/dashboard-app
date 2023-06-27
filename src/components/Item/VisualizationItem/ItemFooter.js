@@ -27,7 +27,7 @@ const ItemFooter = ({ item }) => {
                         'There was a problem loading interpretations for this item'
                     )}
                 >
-                    <AboutAOUnit type="visualization" id={id} />
+                    <AboutAOUnit type={item.type.toLowerCase()} id={id} />
                     {interpretationId ? (
                         <InterpretationReplyForm
                             currentUser={d2.currentUser}
