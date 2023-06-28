@@ -16,7 +16,7 @@ const ItemFooter = ({ item }) => {
     const { d2 } = useD2()
 
     const id = getVisualizationId(item)
-    const appUrl = getItemUrl(item.type, { id }, baseUrl)
+    const dashboardRedirectUrl = getItemUrl(item.type, { id }, baseUrl)
 
     return (
         <div className={classes.itemFooter} data-test="dashboarditem-footer">
@@ -32,7 +32,7 @@ const ItemFooter = ({ item }) => {
                         <InterpretationReplyForm
                             currentUser={d2.currentUser}
                             interpretationId={interpretationId}
-                            appUrl={appUrl}
+                            dashboardRedirectUrl={dashboardRedirectUrl}
                             onGoBackClicked={() => setInterpretationId(null)}
                             onInterpretationDeleted={Function.prototype}
                         />
@@ -41,7 +41,7 @@ const ItemFooter = ({ item }) => {
                             currentUser={d2.currentUser}
                             type={item.type.toLowerCase()}
                             id={id}
-                            appUrl={appUrl}
+                            dashboardRedirectUrl={dashboardRedirectUrl}
                             inlineReply={true}
                             onInterpretationClick={setInterpretationId}
                             onReplyIconClick={setInterpretationId}
