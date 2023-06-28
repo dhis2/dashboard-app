@@ -3060,7 +3060,7 @@
     i18next "^10.3"
     moment "^2.24.0"
 
-"@dhis2/d2-ui-core@7.4.3", "@dhis2/d2-ui-core@^7.4.3":
+"@dhis2/d2-ui-core@7.4.3":
   version "7.4.3"
   resolved "https://registry.yarnpkg.com/@dhis2/d2-ui-core/-/d2-ui-core-7.4.3.tgz#d880ad82f0ce28833db02fe64016242c3031610d"
   integrity sha512-X+ZlTVB4IbAaQlKKWoXjHXCaTfw5jDxHy2KRIWRskIVPhXfiTiyqzdKN/DSi2/99HDQ6PSq9eqmCY4AeTJb3Kw==
@@ -3088,7 +3088,7 @@
     prop-types "^15.5.10"
     react-portal "^4.1.5"
 
-"@dhis2/d2-ui-mentions-wrapper@7.4.3", "@dhis2/d2-ui-mentions-wrapper@^7.4.3":
+"@dhis2/d2-ui-mentions-wrapper@7.4.3":
   version "7.4.3"
   resolved "https://registry.yarnpkg.com/@dhis2/d2-ui-mentions-wrapper/-/d2-ui-mentions-wrapper-7.4.3.tgz#f6b469fbfe9e092478aacb3babb801e9ae1eda79"
   integrity sha512-H02qUra/Y7XfszN19mAsxRi71eFYe92ctiEL5I26rA8LVQPcrz7mN08yVwJAdHUWwZtI6/UJujeEN5W/IZAKHw==
@@ -3097,7 +3097,7 @@
     lodash "^4.17.10"
     prop-types "^15.6.2"
 
-"@dhis2/d2-ui-rich-text@7.4.3", "@dhis2/d2-ui-rich-text@^7.4.1", "@dhis2/d2-ui-rich-text@^7.4.3":
+"@dhis2/d2-ui-rich-text@7.4.3", "@dhis2/d2-ui-rich-text@^7.4.1":
   version "7.4.3"
   resolved "https://registry.yarnpkg.com/@dhis2/d2-ui-rich-text/-/d2-ui-rich-text-7.4.3.tgz#a42c8e231bcc05186dd432dac86b33aed4ddc10d"
   integrity sha512-60k/6CO2I8f4t3jU1nAic7uWONME1rckM8RcLnelhwUG20EZWq45OnDDdSfHgOWTwVDtxFnG3wspInkG/530KA==
