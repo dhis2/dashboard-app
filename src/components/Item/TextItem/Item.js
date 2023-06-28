@@ -67,15 +67,11 @@ const TextItem = (props) => {
                 <Divider margin={`0 0 ${spacers.dp4} 0`} />
                 <div className="dashboard-item-content">
                     <RichTextEditor
-                        onEdit={(event) => onChangeText(event.target.value)}
-                    >
-                        <TextArea
-                            rows={30}
-                            value={text}
-                            placeholder={i18n.t('Add text here')}
-                            onChange={({ value }) => onChangeText(value)}
-                        />
-                    </RichTextEditor>
+                        onChange={onChangeText}
+                        inputHeight={27}
+                        inputPlaceholder={i18n.t('Add text here')}
+                        value={text}
+                    />
                 </div>
             </>
         )
