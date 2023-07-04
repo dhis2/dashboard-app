@@ -4,7 +4,7 @@ name: 'dhis2: nightly'
 
 on:
     schedule:
-        - cron: ${{ vars.NIGHTLY_SCHEDULE }}
+        - cron: '10 4 * * 2'
     workflow_dispatch:
 
 concurrency:
