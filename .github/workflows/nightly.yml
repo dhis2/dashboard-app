@@ -1,10 +1,10 @@
 name: 'dhis2: nightly'
 
-# This workflow runs the e2e tests on the default branch against dev at 5:10am M-F
+# This workflow runs the e2e tests on the default branch against dev
 
 on:
-    schedule:
-        - cron: '10 5 * * 1-5'
+    # schedule:
+    # - cron: '10 4 * * 2'
     workflow_dispatch:
 
 concurrency:
