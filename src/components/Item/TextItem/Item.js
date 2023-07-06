@@ -18,13 +18,11 @@ import PrintItemInfo from '../ItemHeader/PrintItemInfo.js'
 const style = {
     textDiv: {
         padding: '10px',
-        whiteSpace: 'pre-line',
-        lineHeight: '20px',
+        lineHeight: '16px',
     },
     textField: {
         fontSize: '14px',
         fontStretch: 'normal',
-        width: '90%',
         margin: '0 auto',
         display: 'block',
         lineHeight: '24px',
