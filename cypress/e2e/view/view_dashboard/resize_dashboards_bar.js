@@ -10,10 +10,11 @@ When('I drag to increase the height of the control bar', () => {
     cy.intercept('PUT', '**/userDataStore/dashboard/controlBarRows').as(
         'putRows'
     )
-    cy.get(dragHandleSel, EXTENDED_TIMEOUT)
-        .trigger('mousedown')
-        .trigger('mousemove', { clientY: 300 })
-        .trigger('mouseup')
+    cy.get(dragHandleSel, EXTENDED_TIMEOUT).as('dragHandleSel')
+
+    cy.get('@dragHandleSel').trigger('mousedown')
+    cy.get('@dragHandleSel').trigger('mousemove', { clientY: 300 })
+    cy.get('@dragHandleSel').trigger('mouseup')
 
     cy.wait('@putRows').its('response.statusCode').should('eq', 201)
 })
@@ -37,10 +38,11 @@ When('I drag to decrease the height of the control bar', () => {
     cy.intercept('PUT', '**/userDataStore/dashboard/controlBarRows').as(
         'putRows'
     )
-    cy.get(dragHandleSel, EXTENDED_TIMEOUT)
-        .trigger('mousedown')
-        .trigger('mousemove', { clientY: 300 })
-        .trigger('mouseup')
+    cy.get(dragHandleSel, EXTENDED_TIMEOUT).as('dragHandleSel')
+
+    cy.get('@dragHandleSel').trigger('mousedown')
+    cy.get('@dragHandleSel').trigger('mousemove', { clientY: 300 })
+    cy.get('@dragHandleSel').trigger('mouseup')
 
     cy.wait('@putRows').its('response.statusCode').should('eq', 201)
 })

@@ -63,7 +63,10 @@ Then('the Organisation unit filter is applied to the dashboard', () => {
     cy.get(`${gridItemSel}.VISUALIZATION`)
         .getIframeBody()
         .find(chartXAxisLabelSel, EXTENDED_TIMEOUT)
+        .as('chartXAxisLabelSel')
         .scrollIntoView()
+
+    cy.get('@chartXAxisLabelSel')
         .contains(OU, EXTENDED_TIMEOUT)
         .should('be.visible')
 })
@@ -80,7 +83,10 @@ Then('the Facility Type filter is applied to the dashboard', () => {
     cy.get(`${gridItemSel}.VISUALIZATION`)
         .getIframeBody()
         .find(chartSubtitleSel, EXTENDED_TIMEOUT)
+        .as('chartSubtitleSel')
         .scrollIntoView()
+
+    cy.get('@chartSubtitleSel')
         .contains(FACILITY_TYPE, EXTENDED_TIMEOUT)
         .should('be.visible')
 
