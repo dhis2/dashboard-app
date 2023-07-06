@@ -72,10 +72,10 @@ Then('the dashboard displays in view mode', () => {
         .find(chartSel, EXTENDED_TIMEOUT)
         .should('be.visible')
 
-    //    cy.get(`${gridItemSel}.MAP`)
-    //        .getIframeBody()
-    //        .find(mapSel, EXTENDED_TIMEOUT)
-    //        .should('be.visible')
+    cy.get(`${gridItemSel}.MAP`)
+        .getIframeBody()
+        .find(mapSel, EXTENDED_TIMEOUT)
+        .should('be.visible')
 })
 
 When('I choose to delete dashboard', () => {
