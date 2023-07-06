@@ -53,10 +53,12 @@
         "cypress:stub": "yarn cypress:prepare 'yarn cypress:run:stub'"
     },
     "devDependencies": {
+        "@badeball/cypress-cucumber-preprocessor": "^16.0.0",
+        "@cypress/webpack-preprocessor": "^5.17.1",
         "@dhis2/cli-app-scripts": "^10.3.9",
         "@dhis2/cli-style": "^10.5.1",
-        "@dhis2/cypress-commands": "^9.0.2",
-        "@dhis2/cypress-plugins": "^9.0.2",
+        "@dhis2/cypress-commands": "^10.0.3",
+        "@dhis2/cypress-plugins": "^10.0.3",
         "@testing-library/jest-dom": "^5.14.1",
         "@testing-library/react": "^12.0.0",
         "cypress": "^12.9.0",
