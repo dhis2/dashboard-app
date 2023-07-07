@@ -58,7 +58,7 @@ const TextItem = (props) => {
         return (
             <>
                 <ItemHeader
-                    title={i18n.t('Text item')}
+                    title={i18n.t('Text box')}
                     itemId={item.id}
                     dashboardMode={dashboardMode}
                 />
