@@ -66,9 +66,10 @@ const TextItem = (props) => {
                 <div className="dashboard-item-content">
                     <RichTextEditor
                         onChange={onChangeText}
-                        inputHeight={27}
                         inputPlaceholder={i18n.t('Add text here')}
                         value={text}
+                        initialFocus={false}
+                        resizable={false}
                     />
                 </div>
             </>
