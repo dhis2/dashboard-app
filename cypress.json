@@ -5,5 +5,28 @@
     "testFiles": "**/*.feature",
     "defaultCommandTimeout": 15000,
     "viewportWidth": 1280,
-    "viewportHeight": 800
+    "viewportHeight": 800,
+    "reporter": "@reportportal/agent-js-cypress",
+    "reporterOptions": {
+        "endpoint": "https://test.tools.dhis2.org/reportportal/api/v1",
+        "apiKey": "",
+        "launch": "dashboard_app_master",
+        "project": "dhis2_auto",
+        "description": "",
+        "attributes": [
+            {
+                "key": "version",
+                "value": "master"
+            },
+            {
+                "value": "dashboard_app"
+            }
+        ],
+        "debug": false,
+        "parallel": true,
+        "autoMerge": true,
+        "restClientConfig": {
+            "timeout": 90000
+        }
+    }
 }
