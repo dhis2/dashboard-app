@@ -53,6 +53,7 @@ jobs:
                   cypress_dhis2_username: ${{ secrets.CYPRESS_DHIS2_USERNAME }}
                   cypress_dhis2_password: ${{ secrets.CYPRESS_DHIS2_PASSWORD }}
                   GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+                  CYPRESS_RP_API_KEY: ${{ secrets.CYPRESS_RP_API_KEY }}
 
     send-slack-message:
         runs-on: ubuntu-latest
