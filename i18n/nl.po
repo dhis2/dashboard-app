@@ -142,7 +142,7 @@ msgid "Event reports"
 msgstr "Gebeurtenissen rapporten"
 
 msgid "Event charts"
-msgstr ""
+msgstr "Evenementen grafiek"
 
 msgid "Apps"
 msgstr "Apps"
@@ -449,7 +449,7 @@ msgstr ""
 "eens."
 
 msgid "Failed to unstar the dashboard"
-msgstr ""
+msgstr "Kan het dashboard niet ongedaan maken"
 
 msgid "Failed to star the dashboard"
 msgstr "Sterren geven aan het dashboard mislukt"
@@ -464,7 +464,7 @@ msgid "Sync offline data now"
 msgstr "Synchroniseer nu offline gegevens"
 
 msgid "Unstar dashboard"
-msgstr ""
+msgstr "Dashboard ongedaan maken"
 
 msgid "Star dashboard"
 msgstr "Sterrendashboard"
