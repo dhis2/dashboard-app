@@ -2,14 +2,15 @@
 # Translators:
 # Viktor Varland <viktor@dhis2.org>, 2022
 # phil_dhis2, 2022
+# channara rin, 2023
 # 
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2021-12-21T08:20:25.327Z\n"
+"POT-Creation-Date: 2023-05-15T07:26:26.921Z\n"
 "PO-Revision-Date: 2022-04-20 09:58+0000\n"
-"Last-Translator: phil_dhis2, 2022\n"
-"Language-Team: Khmer (https://www.transifex.com/hisp-uio/teams/100509/km/)\n"
+"Last-Translator: channara rin, 2023\n"
+"Language-Team: Khmer (https://app.transifex.com/hisp-uio/teams/100509/km/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -71,6 +72,12 @@ msgstr ""
 msgid "Add text here"
 msgstr ""
 
+msgid "Filters are not applied to line list dashboard items"
+msgstr ""
+
+msgid "Filters not applied"
+msgstr ""
+
 msgid "There was a problem loading this dashboard item"
 msgstr ""
 
@@ -110,7 +117,25 @@ msgstr ""
 msgid "Unable to load the plugin for this item"
 msgstr ""
 
+msgid "The plugin for rendering this item is not available"
+msgstr ""
+
+msgid "Install the {{appName}} app from the App Hub"
+msgstr ""
+
 msgid "No data to display"
+msgstr ""
+
+msgid ""
+"Install Line Listing app version ${minLLVersion.join(\n"
+"                                '.'\n"
+"                            )} or higher in order to display this item."
+msgstr ""
+
+msgid "Filters are not applied to line list dashboard items."
+msgstr ""
+
+msgid "Show without filters"
 msgstr ""
 
 msgid "There was an error loading data for this item"
@@ -138,6 +163,9 @@ msgid "Event reports"
 msgstr ""
 
 msgid "Event charts"
+msgstr ""
+
+msgid "Line lists"
 msgstr ""
 
 msgid "Apps"
@@ -210,7 +238,7 @@ msgid "Cancel"
 msgstr "បោះបង់"
 
 msgid "Discard changes"
-msgstr ""
+msgstr "លុបការកែប្រែ"
 
 msgid ""
 "This dashboard has unsaved changes. Are you sure you want to leave and "
