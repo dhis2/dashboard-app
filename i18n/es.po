@@ -9,13 +9,14 @@
 # Marta Vila <marta@dhis2.org>, 2023
 # Prabhjot Singh, 2023
 # Janeth Cruz, 2023
+# Enzo Nicolas Rossi <enzo@dhis2.org>, 2023
 # 
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
 "POT-Creation-Date: 2021-10-28T06:43:54.981Z\n"
 "PO-Revision-Date: 2021-09-03 23:41+0000\n"
-"Last-Translator: Janeth Cruz, 2023\n"
+"Last-Translator: Enzo Nicolas Rossi <enzo@dhis2.org>, 2023\n"
 "Language-Team: Spanish (https://app.transifex.com/hisp-uio/teams/100509/es/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -358,9 +359,9 @@ msgstr "Diseño"
 
 msgid "{{count}} columns"
 msgid_plural "{{count}} columns"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
+msgstr[0] "{{contar}} columna"
+msgstr[1] "{{contar}} columnas"
+msgstr[2] "{{contar}} columnas"
 
 msgid "Change layout"
 msgstr "Cambiar diseño"
