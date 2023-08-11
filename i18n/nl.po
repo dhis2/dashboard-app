@@ -2,14 +2,15 @@
 # Translators:
 # Cherise Beek <cherise.beek@gmail.com>, 2021
 # Rica Zamora Duchateau, 2022
+# Charel van den Elsen, 2023
 # 
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
 "POT-Creation-Date: 2021-10-28T06:43:54.981Z\n"
 "PO-Revision-Date: 2021-09-03 23:41+0000\n"
-"Last-Translator: Rica Zamora Duchateau, 2022\n"
-"Language-Team: Dutch (https://www.transifex.com/hisp-uio/teams/100509/nl/)\n"
+"Last-Translator: Charel van den Elsen, 2023\n"
+"Language-Team: Dutch (https://app.transifex.com/hisp-uio/teams/100509/nl/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -17,226 +18,240 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 msgid "Untitled dashboard"
-msgstr ""
+msgstr "Naamloos dashboard"
 
 msgid "Cannot create a dashboard while offline"
-msgstr ""
+msgstr "Kan geen dashboard maken terwijl u offline bent"
 
 msgid "Create new dashboard"
-msgstr ""
+msgstr "Nieuw dashboard maken"
 
 msgid "Search for a dashboard"
-msgstr ""
+msgstr "Zoek een dashboard"
 
 msgid "Show fewer dashboards"
-msgstr ""
+msgstr "Toon minder dashboards"
 
 msgid "Show more dashboards"
-msgstr ""
+msgstr "Toon meer dashboards"
 
 msgid "Remove this item"
-msgstr ""
+msgstr "Verwijder dit item"
 
 msgid "This item has been shortened to fit on one page"
-msgstr ""
+msgstr "Dit item is ingekort om op één pagina te passen"
 
 msgid "Remove"
 msgstr "Verwijderen"
 
 msgid "Messages"
-msgstr ""
+msgstr "Berichten"
 
 msgid "See all messages"
-msgstr ""
+msgstr "Bekijk alle berichten"
 
 msgid "Item type \"{{type}}\" is not supported"
-msgstr ""
+msgstr "Itemtype \"{{type}}\" wordt niet ondersteund"
 
 msgid "The item type is missing"
-msgstr ""
+msgstr "Het artikeltype ontbreekt"
 
 msgid "Filters applied"
-msgstr ""
+msgstr "Filters toegepast"
 
 msgid "Spacer"
-msgstr ""
+msgstr "afstandhouder"
 
 msgid ""
 "Use a spacer to create empty vertical space between other dashboard items."
 msgstr ""
+"Gebruik een afstandshouder om lege verticale ruimte tussen andere "
+"dashboarditems te creëren."
 
 msgid "Text item"
-msgstr ""
+msgstr "Tekst item"
 
 msgid "Add text here"
-msgstr ""
+msgstr "Voeg hier tekst toe"
 
 msgid "There was a problem loading this dashboard item"
-msgstr ""
+msgstr "Er is een probleem opgetreden bij het laden van dit dashboarditem"
 
 msgid "Hide details and interpretations"
-msgstr ""
+msgstr "Details en interpretaties verbergen"
 
 msgid "Show details and interpretations"
-msgstr ""
+msgstr "Toon details en interpretaties"
 
 msgid "Open in {{appName}} app"
-msgstr ""
+msgstr "Openen in {{appName}}-app"
 
 msgid "View fullscreen"
-msgstr ""
+msgstr "Bekijk volledig scherm"
 
 msgid "This map can't be displayed as a chart"
-msgstr ""
+msgstr "Deze kaart kan niet als grafiek worden weergegeven"
 
 msgid "View as Chart"
-msgstr ""
+msgstr "Bekijk als grafiek"
 
 msgid "This map can't be displayed as a table"
-msgstr ""
+msgstr "Deze kaart kan niet als tabel worden weergegeven"
 
 msgid "View as Table"
-msgstr ""
+msgstr "Bekijk als tabel"
 
 msgid "View as Map"
-msgstr ""
+msgstr "Bekijk als kaart"
 
 msgid "There was a problem loading interpretations for this item"
 msgstr ""
+"Er is een probleem opgetreden bij het laden van interpretaties voor dit item"
 
 msgid "Maps with Earth Engine layers cannot be displayed when offline"
-msgstr ""
+msgstr "Kaarten met Earth Engine-lagen kunnen offline niet worden weergegeven"
 
 msgid "Unable to load the plugin for this item"
-msgstr ""
+msgstr "Kan de plug-in voor dit item niet laden"
 
 msgid "No data to display"
-msgstr ""
+msgstr "geen gegevens om weer te geven"
 
 msgid "There was an error loading data for this item"
-msgstr ""
+msgstr "Er is een fout opgetreden bij het laden van gegevens voor dit artikel"
 
 msgid "Open this item in {{appName}}"
-msgstr ""
+msgstr "Open dit item in {{appName}}"
 
 msgid "Not available offline"
 msgstr "Niet beschikbaar offline"
 
 msgid "Visualizations"
-msgstr ""
+msgstr "visualisaties"
 
 msgid "Pivot tables"
-msgstr ""
+msgstr "Draaitabellen"
 
 msgid "Charts"
-msgstr ""
+msgstr "Grafieken"
 
 msgid "Maps"
 msgstr "Kaarten"
 
 msgid "Event reports"
-msgstr ""
+msgstr "Gebeurtenissen rapporten"
 
 msgid "Event charts"
 msgstr ""
 
 msgid "Apps"
-msgstr ""
+msgstr "Apps"
 
 msgid "Reports"
-msgstr ""
+msgstr "rapporten"
 
 msgid "Resources"
-msgstr ""
+msgstr "Bronnen"
 
 msgid "Users"
-msgstr ""
+msgstr "Gebruikers"
 
 msgid ""
 "Failed to save dashboard. You might be offline or not have access to edit "
 "this dashboard."
 msgstr ""
+"Kan dashboard niet opslaan. Mogelijk bent u offline of heeft u geen toegang "
+"om dit dashboard te bewerken."
 
 msgid ""
 "Failed to delete dashboard. You might be offline or not have access to edit "
 "this dashboard."
 msgstr ""
+"Kan dashboard niet verwijderen. Mogelijk bent u offline of heeft u geen "
+"toegang om dit dashboard te bewerken."
 
 msgid "Cannot save this dashboard while offline"
-msgstr ""
+msgstr "Kan dit dashboard niet offline opslaan"
 
 msgid "Save changes"
-msgstr ""
+msgstr "Wijzigingen opslaan"
 
 msgid "Exit print preview"
-msgstr ""
+msgstr "Afdrukvoorbeeld afsluiten"
 
 msgid "Print preview"
-msgstr ""
+msgstr "Afdrukvoorbeeld"
 
 msgid "Filter settings"
-msgstr ""
+msgstr "Filter instellingen"
 
 msgid "Translate"
 msgstr "Vertaal"
 
 msgid "Cannot delete this dashboard while offline"
-msgstr ""
+msgstr "Kan dit dashboard niet offline verwijderen"
 
 msgid "Delete"
 msgstr "Verwijderen"
 
 msgid "Exit without saving"
-msgstr ""
+msgstr "Afsluiten zonder op te slaan"
 
 msgid "Go to dashboards"
-msgstr ""
+msgstr "Ga naar dashboards"
 
 msgid "Delete dashboard"
-msgstr ""
+msgstr "Dashboard verwijderen"
 
 msgid ""
 "Deleting dashboard \"{{ dashboardName }}\" will remove it for all users. "
 "This action cannot be undone. Are you sure you want to permanently delete "
 "this dashboard?"
 msgstr ""
+"Als u dashboard \"{{ dashboardName }}\" verwijdert, wordt het voor alle "
+"gebruikers verwijderd. Deze actie kan niet ongedaan gemaakt worden. Weet u "
+"zeker dat u dit dashboard definitief wilt verwijderen?"
 
 msgid "Cancel"
 msgstr "Annuleer"
 
 msgid "Discard changes"
-msgstr ""
+msgstr "Veranderingen ongedaan maken"
 
 msgid ""
 "This dashboard has unsaved changes. Are you sure you want to leave and "
 "discard these unsaved changes?"
 msgstr ""
+"Dit dashboard bevat niet-opgeslagen wijzigingen. Weet u zeker dat u deze "
+"niet-opgeslagen wijzigingen wilt verlaten en negeren?"
 
 msgid "No, stay here"
-msgstr ""
+msgstr "Nee, blijf hier"
 
 msgid "Yes, discard changes"
-msgstr ""
+msgstr "Ja, wijzigingen negeren"
 
 msgid "No access"
 msgstr "Geen toegang"
 
 msgid "Not supported"
-msgstr ""
+msgstr "Niet ondersteund"
 
 msgid ""
 "Editing dashboards on small screens is not supported. Resize your screen to "
 "return to edit mode."
 msgstr ""
+"Het bewerken van dashboards op kleine schermen wordt niet ondersteund. "
+"Wijzig het formaat van uw scherm om terug te keren naar de bewerkingsmodus."
 
 msgid "Allow filtering by all dimensions"
-msgstr ""
+msgstr "Filteren op alle dimensies toestaan"
 
 msgid "Only allow filtering by selected dimensions"
-msgstr ""
+msgstr "Alleen filteren op geselecteerde dimensies toestaan"
 
 msgid "Dashboard filter settings"
-msgstr ""
+msgstr "Dashboardfilterinstellingen"
 
 msgid ""
 "Dashboards can be filtered by dimensions to change\n"
@@ -244,262 +259,283 @@ msgid ""
 "                                         as filters. Alternatively, only selected dimensions can\n"
 "                                         be made available on a dashboard."
 msgstr ""
+"Dashboards kunnen worden gefilterd op dimensies om te wijzigen\n"
+"                                         de getoonde gegevens. Standaard zijn alle afmetingen beschikbaar\n"
+"                                         als filters. Als alternatief kunnen alleen geselecteerde afmetingen\n"
+"                                         beschikbaar worden gesteld op een dashboard."
 
 msgid "Available Filters"
-msgstr ""
+msgstr "Beschikbare filters"
 
 msgid "Selected Filters"
-msgstr ""
+msgstr "geselecteerde filters"
 
 msgid "Confirm"
-msgstr ""
+msgstr "Bevestigen"
 
 msgid "There are no items on this dashboard"
-msgstr ""
+msgstr "Er zijn geen items op dit dashboard"
 
 msgid "Show fewer"
-msgstr ""
+msgstr "Laat minder zien"
 
 msgid "Show more"
-msgstr ""
+msgstr "Laat meer zien"
 
 msgid "Insert"
-msgstr ""
+msgstr "Invoegen"
 
 msgid "Search for items to add to this dashboard"
-msgstr ""
+msgstr "Zoek naar items om toe te voegen aan dit dashboard"
 
 msgid "Search for visualizations, reports and more"
-msgstr ""
+msgstr "Zoek naar visualisaties, rapporten en meer"
 
 msgid "Cannot search for dashboard items while offline"
-msgstr ""
+msgstr "Kan offline niet zoeken naar dashboarditems"
 
 msgid "Additional items"
-msgstr ""
+msgstr "Extra artikelen"
 
 msgid "Text box"
-msgstr ""
+msgstr "Tekstvak"
 
 msgid "Dashboard layout"
-msgstr ""
+msgstr "Dashboard-indeling"
 
 msgid "Freeflow"
-msgstr ""
+msgstr "Vrije doorstroming"
 
 msgid "Dashboard items can be placed anywhere, at any size."
-msgstr ""
+msgstr "Dashboard-items kunnen overal worden geplaatst, op elk formaat."
 
 msgid "Fixed columns"
-msgstr ""
+msgstr "Vaste kolommen"
 
 msgid ""
 "Dashboard items are automatically placed within fixed, horizontal columns. "
 "The number of columns can be adjusted."
 msgstr ""
+"Dashboarditems worden automatisch binnen vaste, horizontale kolommen "
+"geplaatst. Het aantal kolommen kan worden aangepast."
 
 msgid "Number of columns"
-msgstr ""
+msgstr "Aantal kolommen"
 
 msgid "Gap size between columns (px)"
-msgstr ""
+msgstr "Tussenruimte tussen kolommen (px)"
 
 msgid ""
 "Default height only applies to items added to a dashboard, this setting will"
 " not change existing items"
 msgstr ""
+"De standaardhoogte is alleen van toepassing op items die aan een dashboard "
+"zijn toegevoegd, deze instelling zal bestaande items niet wijzigen"
 
 msgid "Default height for items added to dashboard (rows)"
-msgstr ""
+msgstr "Standaardhoogte voor items toegevoegd aan dashboard (rijen)"
 
 msgid "Save layout"
-msgstr ""
+msgstr "Lay-out opslaan"
 
 msgid "Dashboard title"
-msgstr ""
+msgstr "Dashboard-titel"
 
 msgid "Dashboard description"
-msgstr ""
+msgstr "Dashboardbeschrijving"
 
 msgid "Layout"
-msgstr ""
+msgstr "Lay-out"
 
 msgid "{{count}} columns"
 msgid_plural "{{count}} columns"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "{{count}} kolom"
+msgstr[1] "{{count}} kolommen"
 
 msgid "Change layout"
-msgstr ""
+msgstr "Opmaak veranderen"
 
 msgid "Add new items to"
-msgstr ""
+msgstr "Voeg nieuwe items toe aan"
 
 msgid "End of dashboard"
-msgstr ""
+msgstr "Einde dashboard"
 
 msgid "Start of dashboard"
-msgstr ""
+msgstr "Begin dashboard"
 
 msgid "Print"
-msgstr ""
+msgstr "Afdrukken"
 
 msgid "dashboard layout"
-msgstr ""
+msgstr "dashboardindeling"
 
 msgid "one item per page"
-msgstr ""
+msgstr "één item per pagina"
 
 msgid "Print Preview"
-msgstr ""
+msgstr "Afdrukvoorbeeld"
 
 msgid "For best print results"
-msgstr ""
+msgstr "Voor de beste afdrukresultaten"
 
 msgid "Use Chrome or Edge web browser"
-msgstr ""
+msgstr "Gebruik de Chrome- of Edge-webbrowser"
 
 msgid "Wait for all dashboard items to load before printing"
-msgstr ""
+msgstr "Wacht tot alle dashboarditems zijn geladen voordat u gaat afdrukken"
 
 msgid ""
 "Use A4 landscape paper size, default margin settings and turn on background "
 "graphics in the browser print dialog"
 msgstr ""
+"Gebruik liggend A4-papierformaat, standaardmarge-instellingen en schakel "
+"achtergrondafbeeldingen in het afdrukdialoogvenster van de browser in"
 
 msgid "Getting started"
-msgstr ""
+msgstr "Aan de slag"
 
 msgid "Search for and open saved dashboards from the top bar."
-msgstr ""
+msgstr "Zoek en open opgeslagen dashboards vanuit de bovenste balk."
 
 msgid ""
 "Click a dashboard chip to open it. Get back to this screen from the \"More\""
 " menu."
 msgstr ""
+"Klik op een dashboardchip om deze te openen. Ga terug naar dit scherm vanuit"
+" het menu \"Meer\"."
 
 msgid "Create a new dashboard with the + button."
-msgstr ""
+msgstr "Maak een nieuw dashboard aan met de + knop."
 
 msgid "Your most viewed dashboards"
-msgstr ""
+msgstr "Uw meest bekeken dashboards"
 
 msgid "No dashboards found. Use the + button to create a new dashboard."
 msgstr ""
+"Geen dashboards gevonden. Gebruik de + knop om een nieuw dashboard aan te "
+"maken."
 
 msgid "Requested dashboard not found"
-msgstr ""
+msgstr "Gevraagd dashboard niet gevonden"
 
 msgid "{{count}} selected"
 msgid_plural "{{count}} selected"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "{{count}} geselecteerd"
+msgstr[1] "{{count}} geselecteerd"
 
 msgid "Cannot remove filters while offline"
-msgstr ""
+msgstr "Kan filters niet verwijderen terwijl u offline bent"
 
 msgid "Removing filters while offline"
-msgstr ""
+msgstr "Filters verwijderen terwijl u offline bent"
 
 msgid ""
 "Removing this filter while offline will remove all other filters. Do you "
 "want to remove all filters on this dashboard?"
 msgstr ""
+"Als je deze filter offline verwijdert, worden alle andere filters "
+"verwijderd. Wil je alle filters op dit dashboard verwijderen?"
 
 msgid "No, cancel"
 msgstr "Nee, annuleer"
 
 msgid "Yes, remove filters"
-msgstr ""
+msgstr "Ja, filters verwijderen"
 
 msgid "The dashboard couldn't be made available offline. Try again."
 msgstr ""
+"Het dashboard kon niet offline beschikbaar worden gemaakt. Probeer het nog "
+"eens."
 
 msgid "Failed to unstar the dashboard"
 msgstr ""
 
 msgid "Failed to star the dashboard"
-msgstr ""
+msgstr "Sterren geven aan het dashboard mislukt"
 
 msgid "Remove from offline storage"
-msgstr ""
+msgstr "Verwijderen uit offline opslag"
 
 msgid "Make available offline"
-msgstr ""
+msgstr "Offline beschikbaar maken"
 
 msgid "Sync offline data now"
-msgstr ""
+msgstr "Synchroniseer nu offline gegevens"
 
 msgid "Unstar dashboard"
 msgstr ""
 
 msgid "Star dashboard"
-msgstr ""
+msgstr "Sterrendashboard"
 
 msgid "Hide description"
-msgstr ""
+msgstr "Beschrijving verbergen"
 
 msgid "Show description"
-msgstr ""
+msgstr "Laat beschrijving zien"
 
 msgid "One item per page"
-msgstr ""
+msgstr "Eén item per pagina"
 
 msgid "Close dashboard"
-msgstr ""
+msgstr "Dashboard sluiten"
 
 msgid "More"
-msgstr ""
+msgstr "Meer"
 
 msgid "Edit"
 msgstr "Bewerk"
 
 msgid "Share"
-msgstr ""
+msgstr "Deel"
 
 msgid "Clear dashboard filters?"
-msgstr ""
+msgstr "Dashboardfilters wissen?"
 
 msgid ""
 "A dashboard's filters can’t be saved offline. Do you want to remove the "
 "filters and make this dashboard available offline?"
 msgstr ""
+"De filters van een dashboard kunnen niet offline worden opgeslagen. Wil je "
+"de filters verwijderen en dit dashboard offline beschikbaar maken?"
 
 msgid "Yes, clear filters and sync"
-msgstr ""
+msgstr "Ja, filters wissen en synchroniseren"
 
 msgid "No description"
-msgstr ""
+msgstr "Geen beschrijving"
 
 msgid "Add filter"
 msgstr "Voeg filter toe"
 
 msgid "Offline data last updated {{time}}"
-msgstr ""
+msgstr "Offline gegevens voor het laatst bijgewerkt {{time}}"
 
 msgid "Cannot unstar this dashboard while offline"
 msgstr ""
+"Kan de ster van dit dashboard niet ongedaan maken terwijl het offline is"
 
 msgid "Cannot star this dashboard while offline"
-msgstr ""
+msgstr "Kan dit dashboard niet starten terwijl het offline is"
 
 msgid "Loading dashboard – {{name}}"
-msgstr ""
+msgstr "Dashboard laden – {{name}}"
 
 msgid "Loading dashboard"
-msgstr ""
+msgstr "Dashboard laden"
 
 msgid "Offline"
-msgstr ""
+msgstr "offline"
 
 msgid "This dashboard cannot be loaded while offline."
-msgstr ""
+msgstr "Dit dashboard kan niet offline worden geladen."
 
 msgid "Go to start page"
-msgstr ""
+msgstr "Ga naar startpagina"
 
 msgid "Load dashboard failed"
-msgstr ""
+msgstr "Dashboard laden mislukt"
 
 msgid "This dashboard could not be loaded. Please try again later."
-msgstr ""
+msgstr "Dit dashboard kan niet worden geladen. Probeer het later opnieuw."
