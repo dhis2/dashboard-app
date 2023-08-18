@@ -22,6 +22,7 @@ const query = {
                 'id',
                 'text',
                 'created',
+                'createdBy[id, displayName]',
                 'user[id,displayName]',
                 'likes',
                 'likedBy',
