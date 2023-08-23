@@ -1,4 +1,8 @@
-import { useDhis2ConnectionStatus, useDataEngine, useAlert } from '@dhis2/app-runtime'
+import {
+    useDhis2ConnectionStatus,
+    useDataEngine,
+    useAlert,
+} from '@dhis2/app-runtime'
 import { useD2 } from '@dhis2/app-runtime-adapter-d2'
 import i18n from '@dhis2/d2-i18n'
 import TranslationDialog from '@dhis2/d2-ui-translation-dialog'

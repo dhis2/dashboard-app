@@ -5,7 +5,7 @@ import PropTypes from 'prop-types'
 import React from 'react'
 import classes from './styles/ItemSearchField.module.css'
 
-const ItemSearchField = (props) => {
+const ItemSearchField = props => {
     const { isConnected: online } = useDhis2ConnectionStatus()
 
     const getInput = () => (
