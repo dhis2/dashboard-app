@@ -1,5 +1,9 @@
 import { OfflineTooltip, TranslationDialog } from '@dhis2/analytics'
-import { useDhis2ConnectionStatus, useDataEngine, useAlert } from '@dhis2/app-runtime'
+import {
+    useDhis2ConnectionStatus,
+    useDataEngine,
+    useAlert,
+} from '@dhis2/app-runtime'
 import i18n from '@dhis2/d2-i18n'
 import { Button, ButtonStrip } from '@dhis2/ui'
 import PropTypes from 'prop-types'
