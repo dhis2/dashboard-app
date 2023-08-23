@@ -1,4 +1,4 @@
-import { useOnlineStatus } from '@dhis2/app-runtime'
+import { useDhis2ConnectionStatus } from '@dhis2/app-runtime'
 import i18n from '@dhis2/d2-i18n'
 import PropTypes from 'prop-types'
 import React, { useState } from 'react'
@@ -13,7 +13,7 @@ import FilterBadge from './FilterBadge'
 import classes from './styles/FilterBar.module.css'
 
 const FilterBar = ({ filters, removeFilter, removeAllFilters }) => {
-    const { online } = useOnlineStatus()
+    const { isConnected: online } = useDhis2ConnectionStatus()
     const [dialogIsOpen, setDialogIsOpen] = useState(false)
 
     const onRemoveFilter = filterId => {

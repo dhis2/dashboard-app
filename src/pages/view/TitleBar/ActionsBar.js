@@ -1,4 +1,8 @@
-import { useDataEngine, useAlert, useOnlineStatus } from '@dhis2/app-runtime'
+import {
+    useDataEngine,
+    useAlert,
+    useDhis2ConnectionStatus,
+} from '@dhis2/app-runtime'
 import i18n from '@dhis2/d2-i18n'
 import {
     Button,
@@ -50,7 +54,7 @@ const ViewActions = ({
         useState(false)
     const [redirectUrl, setRedirectUrl] = useState(null)
     const dataEngine = useDataEngine()
-    const { offline } = useOnlineStatus()
+    const { isDisconnected: offline } = useDhis2ConnectionStatus()
     const { lastUpdated, isCached, startRecording, remove } =
         useCacheableSection(id)
 
