@@ -1,6 +1,6 @@
 {
     "name": "dashboard-app",
-    "version": "100.0.1",
+    "version": "100.0.2",
     "description": "DHIS2 Dashboard app",
     "private": true,
     "license": "BSD-3-Clause",
@@ -54,7 +54,7 @@
         "@dhis2/cli-style": "^10.5.1",
         "@dhis2/cli-utils-cypress": "^7.0.1",
         "@dhis2/cypress-commands": "^7.0.1",
-        "@testing-library/jest-dom": "^5.14.1",
+        "@testing-library/jest-dom": "^6.1.2",
         "@testing-library/react": "^12.0.0",
         "d2-manifest": "^1.0.0",
         "eslint-plugin-cypress": "^2.11.3",
