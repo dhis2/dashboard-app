@@ -2158,12 +2158,12 @@
     classnames "^2.3.1"
     prop-types "^15.7.2"
 
-"@dhis2/analytics@^25.1.15":
-  version "25.1.15"
-  resolved "https://registry.yarnpkg.com/@dhis2/analytics/-/analytics-25.1.15.tgz#061a761693f71503ce8b4bc58a0cb93524263a78"
-  integrity sha512-cVKbbG87n945sAUOTr1hUhN5Tcfc0c9TSy9YKAjPyAghFDb2ZycjfKTSA6NiXyIt5Q13VEXIrO5bZKbFCIhrrw==
+"@dhis2/analytics@^26.0.17":
+  version "26.0.17"
+  resolved "https://registry.yarnpkg.com/@dhis2/analytics/-/analytics-26.0.17.tgz#f6f550c266478c38872429ee422f6a890b189a82"
+  integrity sha512-681OmaLrAetgHL59iU9ldeaXZ7NLp5T3nWLxGQGAklUwCpmny32wJKj2aXsCQN6WYuGDvz9PgpqN+YrkAMChFQ==
   dependencies:
-    "@dhis2/d2-ui-rich-text" "^7.4.0"
+    "@dhis2/d2-ui-rich-text" "^7.4.1"
     "@dhis2/multi-calendar-dates" "1.0.0"
     "@dnd-kit/core" "^6.0.7"
     "@dnd-kit/sortable" "^7.0.2"
@@ -2173,7 +2173,7 @@
     crypto-js "^4.1.1"
     d2-utilizr "^0.2.16"
     d3-color "^1.2.3"
-    highcharts "^10.2.0"
+    highcharts "^10.3.3"
     lodash "^4.17.21"
     mathjs "^9.4.2"
     react-beautiful-dnd "^10.1.1"
@@ -2421,7 +2421,7 @@
     lodash "^4.17.10"
     prop-types "^15.6.2"
 
-"@dhis2/d2-ui-rich-text@7.4.3", "@dhis2/d2-ui-rich-text@^7.4.0", "@dhis2/d2-ui-rich-text@^7.4.3":
+"@dhis2/d2-ui-rich-text@7.4.3", "@dhis2/d2-ui-rich-text@^7.4.1", "@dhis2/d2-ui-rich-text@^7.4.3":
   version "7.4.3"
   resolved "https://registry.yarnpkg.com/@dhis2/d2-ui-rich-text/-/d2-ui-rich-text-7.4.3.tgz#a42c8e231bcc05186dd432dac86b33aed4ddc10d"
   integrity sha512-60k/6CO2I8f4t3jU1nAic7uWONME1rckM8RcLnelhwUG20EZWq45OnDDdSfHgOWTwVDtxFnG3wspInkG/530KA==
@@ -8940,7 +8940,7 @@ he@^1.2.0:
   resolved "https://registry.yarnpkg.com/he/-/he-1.2.0.tgz#84ae65fa7eafb165fddb61566ae14baf05664f0f"
   integrity sha512-F/1DnUGPopORZi0ni+CvrCgHQ5FyEAHRLSApuYWMmrbSwoN2Mn/7k+Gl38gJnR7yyDZk6WLXwiGod1JOWNDKGw==
 
-highcharts@^10.2.0:
+highcharts@^10.3.3:
   version "10.3.3"
   resolved "https://registry.yarnpkg.com/highcharts/-/highcharts-10.3.3.tgz#b8acca24f2d4b1f2f726540734166e59e07b35c4"
   integrity sha512-r7wgUPQI9tr3jFDn3XT36qsNwEIZYcfgz4mkKEA6E4nn5p86y+u1EZjazIG4TRkl5/gmGRtkBUiZW81g029RIw==
