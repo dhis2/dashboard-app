@@ -6,7 +6,7 @@
     "license": "BSD-3-Clause",
     "dependencies": {
         "@dhis2/analytics": "^25.1.15",
-        "@dhis2/app-runtime": "^3.9.3",
+        "@dhis2/app-runtime": "^3.9.4",
         "@dhis2/app-runtime-adapter-d2": "^1.1.0",
         "@dhis2/d2-i18n": "^1.1.1",
         "@dhis2/d2-ui-core": "^7.4.3",
