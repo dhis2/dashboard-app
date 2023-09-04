@@ -34,6 +34,8 @@ module.exports = function getCypressEnvVars(config) {
         return acc
     }, inputCypressEnv)
 
+    console.log('jj allEnv', allEnv)
+
     return Object.keys(allEnv).reduce((acc, key) => {
         if (key.toLowerCase().startsWith(CYPRESS_PREFIX)) {
             const cypressKey = key
