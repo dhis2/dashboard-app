@@ -1,6 +1,5 @@
 import { enableAutoLogin } from '@dhis2/cypress-commands'
 
-console.log('jj enableAutoLogin', enableAutoLogin)
 enableAutoLogin()
 
 const resizeObserverLoopErrRe = /^[^(ResizeObserver loop limit exceeded)]/
