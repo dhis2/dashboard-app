@@ -115,5 +115,5 @@ Then('different dashboard displays in view mode', () => {
         .and('not.contain', TEST_DASHBOARD_TITLE)
 
     // remove the custom app
-    // cy.request('DELETE', `${getApiBaseUrl()}/api/apps/${customApp.name}`)
+    cy.request('DELETE', `${getApiBaseUrl()}/api/apps/${customApp.name}`)
 })
