@@ -36,7 +36,6 @@ When('I add a {string} filter', (dimensionType) => {
             // close the popup
             cy.getByDataTest('dhis2-uicore-select-menu-menuwrapper')
                 .closest('[data-test="dhis2-uicore-layer"]')
-                // . closest()
                 .click('topLeft')
             break
 
