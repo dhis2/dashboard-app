@@ -12,7 +12,7 @@ describe('getIframeSrc', () => {
         expect(src).toEqual(expectedSrc)
     })
 
-    it('should return the correct iframe src', () => {
+    it('org units chosen from the tree', () => {
         const ouFilter = [
             {
                 id: 'fdc6uOvgoji',
@@ -32,7 +32,7 @@ describe('getIframeSrc', () => {
         )
     })
 
-    it('org unit group in filter', () => {
+    it('org unit group and org unit from tree', () => {
         const ouFilter = [
             {
                 id: 'OU_GROUP-b0EsAxm8Nge',
@@ -51,7 +51,7 @@ describe('getIframeSrc', () => {
         )
     })
 
-    it('org unit level in filter', () => {
+    it('org unit level and org unit from tree', () => {
         const ouFilter = [
             {
                 id: 'LEVEL-m9lBJogzE95',
@@ -70,7 +70,7 @@ describe('getIframeSrc', () => {
         )
     })
 
-    it('user org unit in filter', () => {
+    it('user org unit', () => {
         const ouFilter = [
             {
                 id: 'USER_ORGUNIT',
@@ -82,7 +82,7 @@ describe('getIframeSrc', () => {
         expect(src).toEqual(`${expectedSrc}&userOrgUnit=USER_ORGUNIT`)
     })
 
-    it('all user org units in filter', () => {
+    it('all user org units', () => {
         const ouFilter = [
             {
                 id: 'USER_ORGUNIT_CHILDREN',
