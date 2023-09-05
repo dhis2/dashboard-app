@@ -13,18 +13,36 @@ const FACILITY_TYPE = 'Clinic'
 When('I add a {string} filter', (dimensionType) => {
     cy.contains('Add filter').click()
 
-    // open the dimensions modal
-    cy.get(filterDimensionsPanelSel).contains(dimensionType).click()
-
     // select an item in the modal
-    if (dimensionType === 'Period') {
-        cy.get(unselectedItemsSel).contains(PERIOD).dblclick()
-    } else if (dimensionType === 'Organisation unit') {
-        cy.get(orgUnitTreeSel, EXTENDED_TIMEOUT)
-            .find('[type="checkbox"]', EXTENDED_TIMEOUT)
-            .check(OU_ID)
-    } else {
-        cy.get(unselectedItemsSel).contains(FACILITY_TYPE).dblclick()
+    switch (dimensionType) {
+        case 'Period':
+            cy.get(filterDimensionsPanelSel).contains(dimensionType).click()
+            cy.get(unselectedItemsSel).contains(PERIOD).dblclick()
+            break
+        case 'Organisation unit':
+            cy.get(filterDimensionsPanelSel).contains(dimensionType).click()
+            cy.get(orgUnitTreeSel, EXTENDED_TIMEOUT)
+                .find('[type="checkbox"]', EXTENDED_TIMEOUT)
+                .check(OU_ID)
+            break
+        case 'Org unit group':
+            cy.get(filterDimensionsPanelSel)
+                .contains('Organisation unit')
+                .click()
+            cy.getByDataTest('org-unit-group-select').click()
+            cy.getByDataTest('dhis2-uicore-select-menu-menuwrapper')
+                .contains('District')
+                .click()
+            // close the popup
+            cy.getByDataTest('dhis2-uicore-select-menu-menuwrapper')
+                .closest('[data-test="dhis2-uicore-layer"]')
+                // . closest()
+                .click('topLeft')
+            break
+
+        default:
+            cy.get(filterDimensionsPanelSel).contains(dimensionType).click()
+            cy.get(unselectedItemsSel).contains(FACILITY_TYPE).dblclick()
     }
 
     // confirm to apply the filter
