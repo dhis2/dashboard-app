@@ -1,4 +1,4 @@
-import { useOnlineStatus } from '@dhis2/app-runtime'
+import { useDhis2ConnectionStatus } from '@dhis2/app-runtime'
 import { render, screen } from '@testing-library/react'
 import React from 'react'
 import { Provider } from 'react-redux'
@@ -9,14 +9,16 @@ import FilterSelector from '../FilterSelector'
 const mockStore = configureMockStore()
 
 jest.mock('@dhis2/app-runtime', () => ({
-    useOnlineStatus: jest.fn(() => ({ offline: false })),
+    useDhis2ConnectionStatus: jest.fn(() => ({ isDisconnected: false })),
 }))
 
 jest.mock('../../../../modules/useDimensions', () => jest.fn())
 useDimensions.mockImplementation(() => ['Moomin', 'Snorkmaiden'])
 
 test('is disabled when offline', () => {
-    useOnlineStatus.mockImplementationOnce(jest.fn(() => ({ offline: true })))
+    useDhis2ConnectionStatus.mockImplementationOnce(
+        jest.fn(() => ({ isDisconnected: true }))
+    )
 
     const store = { activeModalDimension: {}, itemFilters: {} }
 
@@ -34,7 +36,7 @@ test('is disabled when offline', () => {
 })
 
 test('is enabled when online', () => {
-    // useOnlineStatus.mockImplementation(jest.fn(() => ({ offline: false })))
+    // useDhis2ConnectionStatus.mockImplementation(jest.fn(() => ({ isDisconnected: false })))
 
     const store = { activeModalDimension: {}, itemFilters: {} }
 

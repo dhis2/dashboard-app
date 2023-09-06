@@ -1,4 +1,4 @@
-import { useOnlineStatus } from '@dhis2/app-runtime'
+import { useDhis2ConnectionStatus } from '@dhis2/app-runtime'
 import i18n from '@dhis2/d2-i18n'
 import { MenuItem } from '@dhis2/ui'
 import PropTypes from 'prop-types'
@@ -12,7 +12,7 @@ const MenuItemWithTooltip = ({
     disabled,
     ...rest
 }) => {
-    const { offline } = useOnlineStatus()
+    const { isDisconnected: offline } = useDhis2ConnectionStatus()
 
     const tooltipContent =
         disabledWhenOffline && offline

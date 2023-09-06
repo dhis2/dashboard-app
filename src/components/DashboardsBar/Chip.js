@@ -1,4 +1,4 @@
-import { useOnlineStatus } from '@dhis2/app-runtime'
+import { useDhis2ConnectionStatus } from '@dhis2/app-runtime'
 import { Chip as UiChip, colors, IconStarFilled24 } from '@dhis2/ui'
 import cx from 'classnames'
 import debounce from 'lodash/debounce'
@@ -12,7 +12,7 @@ import classes from './styles/Chip.module.css'
 
 const Chip = ({ starred, selected, label, dashboardId, onClick }) => {
     const { lastUpdated } = useCacheableSection(dashboardId)
-    const { online } = useOnlineStatus()
+    const { isConnected: online } = useDhis2ConnectionStatus()
     const chipProps = {
         selected,
     }
