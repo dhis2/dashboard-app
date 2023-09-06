@@ -1,10 +1,15 @@
 import { Given, When, Then } from 'cypress-cucumber-preprocessor/steps'
-import { gridItemSel, chartSel, mapSel } from '../../../elements/dashboardItem'
-import { confirmActionDialogSel } from '../../../elements/editDashboard'
+import {
+    gridItemSel,
+    chartSel,
+    mapSel,
+} from '../../../elements/dashboardItem.js'
+import { confirmActionDialogSel } from '../../../elements/editDashboard.js'
 import {
     dashboardChipSel,
     dashboardTitleSel,
 } from '../../../elements/viewDashboard.js'
+import { getApiBaseUrl } from '../../../support/server/utils.js'
 import {
     EXTENDED_TIMEOUT,
     createDashboardTitle,
@@ -12,36 +17,70 @@ import {
 
 const TEST_DASHBOARD_TITLE = createDashboardTitle('af')
 
-When('I add a MAP and a CHART and save', () => {
-    //add the title
-    cy.get('[data-test="dashboard-title-input"]').type(TEST_DASHBOARD_TITLE)
+const customApp = {
+    name: 'Users-Role-Monitor-Widget',
+    id: '5e43908a-3105-4baa-9a00-87a94ebdc034',
+}
 
-    // add items
-    cy.get('[data-test="item-search"]').click()
-    cy.get('[data-test="item-search"]')
-        .find('input')
-        .type('Inpatient', { force: true })
+When('I add items and save', () => {
+    // first install a custom app
+    cy.request('POST', `${getApiBaseUrl()}/api/appHub/${customApp.id}`).then(
+        (response) => {
+            expect(response.status).to.eq(204)
 
-    // //chart
-    cy.get(
-        '[data-test="menu-item-Inpatient: BMI this year by districts"]'
-    ).click()
+            //add the dashboard title
+            cy.get('[data-test="dashboard-title-input"]').type(
+                TEST_DASHBOARD_TITLE
+            )
 
-    //map
-    cy.get(
-        '[data-test="menu-item-Inpatient: BMI at facility level this year"]'
-    ).click()
+            // open item selector
+            cy.get('[data-test="item-search"]').click()
+            cy.get('[data-test="item-search"]')
+                .find('input')
+                .type('Inpatient', { force: true })
 
-    cy.get('[data-test="dhis2-uicore-layer"]').click('topLeft')
+            //CHART
+            cy.get(
+                '[data-test="menu-item-Inpatient: BMI this year by districts"]'
+            ).click()
 
-    //move things so the dashboard is more compact
-    cy.get(`${gridItemSel}.MAP`)
-        .trigger('mousedown')
-        .trigger('mousemove', { clientX: 600 })
-        .trigger('mouseup')
+            cy.get('[data-test="dhis2-uicore-layer"]').click('topLeft')
 
-    //save
-    cy.get('button').contains('Save changes', EXTENDED_TIMEOUT).click()
+            cy.get('[data-test="item-search"]').click()
+            cy.get('[data-test="item-search"]')
+                .find('input')
+                .type('ipt 2', { force: true })
+
+            //MAP
+            cy.get(
+                '[data-test="menu-item-ANC: IPT 2 Coverage this year"]'
+            ).click()
+
+            // close the item selector
+            cy.get('[data-test="dhis2-uicore-layer"]').click('topLeft')
+
+            //add a custom app item
+            cy.get('[data-test="item-search"]').click()
+            cy.get('[data-test="item-search"]')
+                .find('input')
+                .type('Role Monitor', { force: true })
+
+            cy.contains('Role Monitor Widget').click()
+
+            // close the item selector
+            cy.get('[data-test="dhis2-uicore-layer"]').click('topLeft')
+
+            //move things so the dashboard is more compact
+            // eslint-disable-next-line cypress/unsafe-to-chain-command
+            cy.get(`${gridItemSel}.MAP`)
+                .trigger('mousedown')
+                .trigger('mousemove', { clientX: 650 })
+                .trigger('mouseup')
+
+            //save
+            cy.get('button').contains('Save changes', EXTENDED_TIMEOUT).click()
+        }
+    )
 })
 
 Given('I open existing dashboard', () => {
@@ -68,4 +107,7 @@ Then('different dashboard displays in view mode', () => {
     cy.get(dashboardTitleSel)
         .should('be.visible')
         .and('not.contain', TEST_DASHBOARD_TITLE)
+
+    // remove the custom app
+    cy.request('DELETE', `${getApiBaseUrl()}/api/apps/${customApp.name}`)
 })

@@ -81,6 +81,23 @@ Then('the Facility Type filter is applied to the dashboard', () => {
         .should('be.visible')
 })
 
+Then('the Org unit group filter is applied to the dashboard', () => {
+    // check that the filter badge is correct
+    cy.get(filterBadgeSel)
+        .contains('Organisation unit: District')
+        .should('be.visible')
+
+    // check that the custom app is loaded (see ticket DHIS2-14544)
+    cy.get('iframe')
+        .invoke('attr', 'title')
+        .contains('Role Monitor Widget')
+        .scrollIntoView()
+    cy.get('iframe')
+        .invoke('attr', 'title')
+        .contains('Role Monitor Widget')
+        .should('be.visible')
+})
+
 Then('the filter modal is opened', () => {
     cy.get(dimensionsModalSel, EXTENDED_TIMEOUT).should('be.visible')
 })

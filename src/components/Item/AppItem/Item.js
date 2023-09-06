@@ -3,27 +3,13 @@ import { Divider, colors, spacers, IconQuestion24 } from '@dhis2/ui'
 import PropTypes from 'prop-types'
 import React from 'react'
 import { connect } from 'react-redux'
-import { FILTER_ORG_UNIT } from '../../../actions/itemFilters'
-import { EDIT, isEditMode } from '../../../modules/dashboardModes'
+import { EDIT, isEditMode } from '../../../modules/dashboardModes.js'
 import {
     sGetItemFiltersRoot,
     DEFAULT_STATE_ITEM_FILTERS,
-} from '../../../reducers/itemFilters'
-import ItemHeader from '../ItemHeader/ItemHeader'
-
-const getIframeSrc = (appDetails, item, itemFilters) => {
-    let iframeSrc = `${appDetails.launchUrl}?dashboardItemId=${item.id}`
-
-    if (itemFilters[FILTER_ORG_UNIT] && itemFilters[FILTER_ORG_UNIT].length) {
-        const ouIds = itemFilters[FILTER_ORG_UNIT].map(
-            ouFilter => ouFilter.path.split('/').slice(-1)[0]
-        )
-
-        iframeSrc += `&userOrgUnit=${ouIds.join(',')}`
-    }
-
-    return iframeSrc
-}
+} from '../../../reducers/itemFilters.js'
+import ItemHeader from '../ItemHeader/ItemHeader.js'
+import { getIframeSrc } from './getIframeSrc.js'
 
 const AppItem = ({ dashboardMode, item, itemFilters }) => {
     const { d2 } = useD2()
@@ -33,7 +19,7 @@ const AppItem = ({ dashboardMode, item, itemFilters }) => {
     const appKey = item.appKey
 
     if (appKey) {
-        appDetails = d2.system.installedApps.find(app => app.key === appKey)
+        appDetails = d2.system.installedApps.find((app) => app.key === appKey)
     }
 
     const hideTitle =
