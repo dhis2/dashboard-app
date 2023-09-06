@@ -1,4 +1,4 @@
-import { useDataEngine, useOnlineStatus } from '@dhis2/app-runtime'
+import { useDataEngine, useDhis2ConnectionStatus } from '@dhis2/app-runtime'
 import i18n from '@dhis2/d2-i18n'
 import PropTypes from 'prop-types'
 import React, { useEffect, useState } from 'react'
@@ -9,7 +9,7 @@ import styles from './styles/StartScreen.module.css'
 const StartScreen = ({ username }) => {
     const [mostViewedDashboards, setMostViewedDashboards] = useState([])
     const dataEngine = useDataEngine()
-    const { online } = useOnlineStatus()
+    const { isConnected: online } = useDhis2ConnectionStatus()
 
     useEffect(() => {
         async function populateMostViewedDashboards(dataEngine) {

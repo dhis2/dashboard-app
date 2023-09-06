@@ -1,4 +1,4 @@
-import { useOnlineStatus } from '@dhis2/app-runtime'
+import { useDhis2ConnectionStatus } from '@dhis2/app-runtime'
 import { useD2 } from '@dhis2/app-runtime-adapter-d2'
 import i18n from '@dhis2/d2-i18n'
 import PropTypes from 'prop-types'
@@ -22,7 +22,7 @@ const MapPlugin = ({
     ...props
 }) => {
     const { d2 } = useD2()
-    const { offline } = useOnlineStatus()
+    const { isDisconnected: offline } = useDhis2ConnectionStatus()
     const [initialized, setInitialized] = useState(false)
 
     useEffect(() => {
