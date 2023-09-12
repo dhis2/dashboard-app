@@ -1,6 +1,6 @@
 # 
 # Translators:
-# phil_dhis2, 2021
+# Philip Larsen Donnelly, 2021
 # Viktor Varland <viktor@dhis2.org>, 2021
 # Sergio Valenzuela <sergio.valenzuela@ehas.org>, 2021
 # William Aviles <waviles@clintonhealthaccess.org>, 2021
@@ -8,6 +8,7 @@
 # Alison Andrade <aandrade@ippfwhr.org>, 2021
 # Marta Vila <marta@dhis2.org>, 2023
 # Prabhjot Singh, 2023
+# Enzo Nicolas Rossi <enzo@dhis2.org>, 2023
 # Janeth Cruz, 2023
 # 
 msgid ""
@@ -311,7 +312,7 @@ msgid "Dashboard layout"
 msgstr "Diseño del tablero"
 
 msgid "Freeflow"
-msgstr ""
+msgstr "Diseño libre"
 
 msgid "Dashboard items can be placed anywhere, at any size."
 msgstr ""
@@ -358,9 +359,9 @@ msgstr "Diseño"
 
 msgid "{{count}} columns"
 msgid_plural "{{count}} columns"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
+msgstr[0] "{{contar}} columna"
+msgstr[1] "{{contar}} columnas"
+msgstr[2] "{{contar}} columnas"
 
 msgid "Change layout"
 msgstr "Cambiar diseño"
