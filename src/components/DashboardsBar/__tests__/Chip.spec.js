@@ -6,7 +6,7 @@ import { Router } from 'react-router-dom'
 import Chip from '../Chip'
 
 jest.mock('@dhis2/app-runtime', () => ({
-    useOnlineStatus: () => ({ online: true }),
+    useDhis2ConnectionStatus: () => ({ isConnected: true }),
     useCacheableSection: jest.fn(),
 }))
 

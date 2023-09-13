@@ -3,7 +3,7 @@ import React from 'react'
 import FilterSettingsDialog from '../FilterSettingsDialog'
 
 jest.mock('@dhis2/app-runtime', () => ({
-    useOnlineStatus: () => ({ online: true }),
+    useDhis2ConnectionStatus: () => ({ isConnected: true }),
 }))
 
 jest.mock('@dhis2/ui', () => {
