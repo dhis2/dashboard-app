@@ -1,4 +1,4 @@
-import { useOnlineStatus } from '@dhis2/app-runtime'
+import { useDhis2ConnectionStatus } from '@dhis2/app-runtime'
 import i18n from '@dhis2/d2-i18n'
 import { Tooltip as UiTooltip } from '@dhis2/ui'
 import cx from 'classnames'
@@ -7,7 +7,7 @@ import React from 'react'
 import classes from './styles/Tooltip.module.css'
 
 const Tooltip = ({ disabledWhenOffline, disabled, content, children }) => {
-    const { offline } = useOnlineStatus()
+    const { isDisconnected: offline } = useDhis2ConnectionStatus()
 
     const notAllowed = disabled || (disabledWhenOffline && offline)
 

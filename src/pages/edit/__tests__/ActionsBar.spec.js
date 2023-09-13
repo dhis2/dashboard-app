@@ -44,7 +44,10 @@ useD2.mockReturnValue({
 })
 
 jest.mock('@dhis2/app-runtime', () => ({
-    useOnlineStatus: jest.fn(() => ({ online: true, offline: false })),
+    useDhis2ConnectionStatus: jest.fn(() => ({
+        isConnected: true,
+        isDisconnected: false,
+    })),
     useDataEngine: jest.fn(() => ({ dataEngine: {} })),
     useAlert: jest.fn(() => ({})),
 }))
