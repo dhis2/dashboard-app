@@ -1,3 +1,10 @@
+## [100.0.3](https://github.com/dhis2/dashboard-app/compare/v100.0.2...v100.0.3) (2023-09-13)
+
+
+### Bug Fixes
+
+* parse the ou filter correctly for all ou types ([#2691](https://github.com/dhis2/dashboard-app/issues/2691)) ([35877e1](https://github.com/dhis2/dashboard-app/commit/35877e16d640b343a847a2826aabc5e07cb7ece5))
+
 ## [100.0.2](https://github.com/dhis2/dashboard-app/compare/v100.0.1...v100.0.2) (2023-08-30)
 
 
