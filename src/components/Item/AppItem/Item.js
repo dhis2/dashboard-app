@@ -19,7 +19,7 @@ const AppItem = ({ dashboardMode, item, itemFilters }) => {
     const appKey = item.appKey
 
     if (appKey) {
-        appDetails = d2.system.installedApps.find((app) => app.key === appKey)
+        appDetails = d2.system.installedApps.find(app => app.key === appKey)
     }
 
     const hideTitle =
