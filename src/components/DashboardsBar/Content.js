@@ -1,4 +1,4 @@
-import { useOnlineStatus } from '@dhis2/app-runtime'
+import { useDhis2ConnectionStatus } from '@dhis2/app-runtime'
 import i18n from '@dhis2/d2-i18n'
 import { Button, ComponentCover, Tooltip, IconAdd24 } from '@dhis2/ui'
 import cx from 'classnames'
@@ -24,7 +24,7 @@ const Content = ({
     onSearchClicked,
 }) => {
     const [redirectUrl, setRedirectUrl] = useState(null)
-    const { offline } = useOnlineStatus()
+    const { isDisconnected: offline } = useDhis2ConnectionStatus()
 
     const onSelectDashboard = () => {
         const id = getFilteredDashboards(dashboards, filterText)[0]?.id
