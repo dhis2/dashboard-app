@@ -190,6 +190,6 @@ jobs:
               uses: slackapi/slack-github-action@v1.23.0
               with:
                   channel-id: ${{ secrets.SLACK_CHANNEL_ID }}
-                  slack-message: ':large_green_circle: :dashboard-app: :tada: Dashboard-app released <https://github.com/dhis2/dashboard-app/actions/workflows/dhis2-verify-app.yml?query=branch%3Amaster+is%3Asuccess>'
+                  slack-message: ':large_green_circle: :dashboard-app: :tada: Dashboard-app ${{ steps.package-version.outputs.current-version}} released <https://github.com/dhis2/dashboard-app/actions/workflows/dhis2-verify-app.yml?query=branch%3Amaster+is%3Asuccess>'
               env:
                   SLACK_BOT_TOKEN: ${{ secrets.SLACK_BOT_TOKEN }}
