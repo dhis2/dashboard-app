@@ -163,11 +163,65 @@ jobs:
             !cancelled() &&
             github.ref == 'refs/heads/master'
         steps:
+            - name: Checkout code
+              uses: actions/checkout@master
+
+            - name: Extract version
+              id: extract_version
+              uses: Saionaro/extract-package-version@v1.2.1
+
             - name: Send failure message to analytics-internal-bot slack channel
               id: slack
               uses: slackapi/slack-github-action@v1.23.0
               with:
                   channel-id: ${{ secrets.SLACK_CHANNEL_ID }}
-                  slack-message: ':small_red_triangle_down: :dashboard-app: Dashboard-app release <https://github.com/dhis2/dashboard-app/actions/workflows/dhis2-verify-app.yml?query=branch%3Amaster+is%3Afailure>'
+                  payload: |
+                      {
+                        "text": ":small_red_triangle_down: :dashboard-app: Dashboard version ${{ steps.extract_version.outputs.version }} release <https://github.com/dhis2/dashboard-app/actions/workflows/dhis2-verify-app.yml?query=branch%3Amaster+is%3Afailure|failed>",
+                        "blocks": [
+                          {
+                            "type": "section",
+                            "text": {
+                              "type": "mrkdwn",
+                              "text": ":small_red_triangle_down: :dashboard-app: Dashboard version ${{ steps.extract_version.outputs.version }} release <https://github.com/dhis2/dashboard-app/actions/workflows/dhis2-verify-app.yml?query=branch%3Amaster+is%3Afailure|failed>"
+                            }
+                          }
+                        ]
+                      }
+              env:
+                  SLACK_BOT_TOKEN: ${{ secrets.SLACK_BOT_TOKEN }}
+
+    report-release-success:
+        runs-on: ubuntu-latest
+        needs: release
+        if: |
+            success() &&
+            !cancelled()
+        steps:
+            - name: Checkout code
+              uses: actions/checkout@master
+
+            - name: Extract version
+              id: extract_version
+              uses: Saionaro/extract-package-version@v1.2.1
+
+            - name: Send success message to analytics-internal-bot slack channel
+              id: slack
+              uses: slackapi/slack-github-action@v1.23.0
+              with:
+                  channel-id: ${{ secrets.SLACK_CHANNEL_ID }}
+                  payload: |
+                      {
+                        "text": ":large_green_circle: :dashboard-app: :tada: Dashboard app release succeeded for version: ${{ steps.extract_version.outputs.version }}",
+                        "blocks": [
+                          {
+                            "type": "section",
+                            "text": {
+                              "type": "mrkdwn",
+                              "text": ":large_green_circle: :dashboard-app: :tada: Dashboard version ${{ steps.extract_version.outputs.version }} released <https://github.com/dhis2/dashboard-app/actions/workflows/dhis2-verify-app.yml?query=branch%3Amaster+is%3Asuccess|successfully>"
+                            }
+                          }
+                        ]
+                      }
               env:
                   SLACK_BOT_TOKEN: ${{ secrets.SLACK_BOT_TOKEN }}
