@@ -185,11 +185,26 @@ jobs:
               with:
                   path: package.json
 
+            - name: echo the packagejson version
+              run: echo ${{ steps.package-version.outputs.current-version }}
+
             - name: Send success message to analytics-internal-bot slack channel
               id: slack
               uses: slackapi/slack-github-action@v1.23.0
               with:
                   channel-id: ${{ secrets.SLACK_CHANNEL_ID }}
-                  slack-message: ':large_green_circle: :dashboard-app: :tada: Dashboard-app ${{ steps.package-version.outputs.current-version}} released <https://github.com/dhis2/dashboard-app/actions/workflows/dhis2-verify-app.yml?query=branch%3Amaster+is%3Asuccess>'
+                  payload: |
+                      {
+                        "text": ":large_green_circle: :dashboard-app: :tada: Dashboard app release succeeded for version: ${{ steps.package-version.outputs.current-version }}",
+                        "blocks": [
+                          {
+                            "type": "section",
+                            "text": {
+                              "type": "mrkdwn",
+                              "text": "Build was <https://github.com/dhis2/dashboard-app/actions/workflows/dhis2-verify-app.yml?query=branch%3Amaster+is%3Asuccess|successful>"
+                            }
+                          }
+                        ]
+                      }
               env:
                   SLACK_BOT_TOKEN: ${{ secrets.SLACK_BOT_TOKEN }}
