@@ -9,10 +9,10 @@ import {
     dashboardChipSel,
     dashboardTitleSel,
 } from '../../../elements/viewDashboard.js'
-import { getApiBaseUrl } from '../../../support/server/utils.js'
 import {
     EXTENDED_TIMEOUT,
     createDashboardTitle,
+    getApiBaseUrl,
 } from '../../../support/utils.js'
 
 const TEST_DASHBOARD_TITLE = createDashboardTitle('af')
