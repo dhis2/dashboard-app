@@ -171,3 +171,25 @@ jobs:
                   slack-message: ':small_red_triangle_down: :dashboard-app: Dashboard-app release <https://github.com/dhis2/dashboard-app/actions/workflows/dhis2-verify-app.yml?query=branch%3Amaster+is%3Afailure>'
               env:
                   SLACK_BOT_TOKEN: ${{ secrets.SLACK_BOT_TOKEN }}
+
+     report-release-success:
+        runs-on: ubuntu-latest
+        needs: test
+        if: |
+            success() &&
+            !cancelled()
+        steps:
+            - name: get-npm-version
+              id: package-version
+              uses: martinbeentjes/npm-get-version-action@v1.3.1
+              with:
+                  path: package.json
+
+            - name: Send success message to analytics-internal-bot slack channel
+              id: slack
+              uses: slackapi/slack-github-action@v1.23.0
+              with:
+                  channel-id: ${{ secrets.SLACK_CHANNEL_ID }}
+                  slack-message: format(':large_green_circle: :maps-app: :tada: Maps-app {0} released <https://github.com/dhis2/maps-app/actions/workflows/dhis2-verify-app.yml?query=branch%3Amaster+is%3Asuccess>', ${{ steps.package-version.outputs.current-version}})
+              env:
+                  SLACK_BOT_TOKEN: ${{ secrets.SLACK_BOT_TOKEN }}
