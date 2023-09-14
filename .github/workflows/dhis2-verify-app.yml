@@ -174,7 +174,7 @@ jobs:
 
     report-release-success:
         runs-on: ubuntu-latest
-        needs: test
+        needs: lint
         if: |
             success() &&
             !cancelled()
@@ -201,7 +201,16 @@ jobs:
                             "type": "section",
                             "text": {
                               "type": "mrkdwn",
-                              "text": "Build was <https://github.com/dhis2/dashboard-app/actions/workflows/dhis2-verify-app.yml?query=branch%3Amaster+is%3Asuccess|successful>"
+                              "text": ":large_green_circle: :dashboard-app: :tada: Dashboard app release succeeded for version: ${{ steps.package-version.outputs.current-version }}"
+                            }
+                          }
+                        ],
+                        [
+                          {
+                            "type": "section",
+                            "text": {
+                              "type": "mrkdwn",
+                              "text": "<https://github.com/dhis2/dashboard-app/actions/workflows/dhis2-verify-app.yml?query=branch%3Amaster+is%3Asuccess|Build output>"
                             }
                           }
                         ]
