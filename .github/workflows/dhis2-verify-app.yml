@@ -196,7 +196,8 @@ jobs:
         needs: release
         if: |
             success() &&
-            !cancelled()
+            !cancelled()  &&
+            github.ref == 'refs/heads/master'
         steps:
             - name: Checkout code
               uses: actions/checkout@master
