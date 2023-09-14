@@ -192,8 +192,6 @@ jobs:
             - name: get-npm-version
               id: package-version
               uses: martinbeentjes/npm-get-version-action@v1.3.1
-              with:
-                  path: package.json
 
             - name: echo the packagejson version
               run: echo ${{ steps.package-version.outputs.current-version }}
@@ -212,6 +210,13 @@ jobs:
                             "text": {
                               "type": "mrkdwn",
                               "text": ":large_green_circle: :dashboard-app: :tada: Dashboard app release succeeded for version: ${{ steps.package-version.outputs.current-version }}"
+                            }
+                          },
+                          {
+                            "type": "section",
+                            "text": {
+                              "type": "mrkdwn",
+                              "text": ":large_green_circle: :dashboard-app: :tada: Dashboard app release succeeded for version: ${{ steps.extract_version.outputs.version }}"
                             }
                           },
                           {
