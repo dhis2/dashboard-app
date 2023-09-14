@@ -44,12 +44,10 @@ CYPRESS_DHIS2_PASSWORD=district
 
 The following commands can be used to run the tests:
 
-| Command             |  Backend   | Environment |        Tests |
-| ------------------- | :--------: | ----------: | -----------: |
-| `yarn cy:open-live` | API server |  Cypress UI |          All |
-| `yarn cy:run-live`  | API server |    Headless |          All |
-| `yarn cy:open-stub` |  Fixtures  |  Cypress UI | Non-mutating |
-| `yarn cy:run-stub`  |  Fixtures  |    Headless | Non-mutating |
+| Comman         |  Backend   | Environment | Tests |
+| -------------- | :--------: | ----------: | ----: |
+| `yarn cy:open` | API server |  Cypress UI |   All |
+| `yarn cy:run`  | API server |    Headless |   All |
 
 ### `yarn test`
 
