@@ -43,11 +43,8 @@
         "validate-push": "CI=true yarn test",
         "postinstall": "patch-package",
         "cypress:start": "BROWSER=none yarn start",
-        "cy:open-live": "cypress_dhis2_api_stub_mode=DISABLED d2-utils-cypress open --appStart 'yarn cypress:start'",
-        "cy:run-live": "cypress_dhis2_api_stub_mode=DISABLED d2-utils-cypress run --appStart 'yarn cypress:start'",
-        "cy:open-stub": "cypress_dhis2_api_stub_mode=STUB d2-utils-cypress open --appStart 'yarn cypress:start'",
-        "cy:run-stub": "cypress_dhis2_api_stub_mode=STUB d2-utils-cypress run --tags '@nonmutating' --appStart 'yarn cypress:start' --record",
-        "cy:capture": "cypress_dhis2_api_stub_mode=CAPTURE yarn d2-utils-cypress run --appStart 'yarn cypress:start'"
+        "cy:open": "d2-utils-cypress open --appStart 'yarn cypress:start'",
+        "cy:run": "d2-utils-cypress run --appStart 'yarn cypress:start'"
     },
     "devDependencies": {
         "@dhis2/cli-app-scripts": "^10.3.10",
