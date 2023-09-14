@@ -193,7 +193,7 @@ jobs:
 
     report-release-success:
         runs-on: ubuntu-latest
-        needs: lint
+        needs: release
         if: |
             success() &&
             !cancelled()
