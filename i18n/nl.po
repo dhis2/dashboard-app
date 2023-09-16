@@ -178,10 +178,10 @@ msgid "There was a problem loading this dashboard item"
 msgstr "Er is een probleem opgetreden bij het laden van dit dashboarditem"
 
 msgid "Hide interpretations and details"
-msgstr ""
+msgstr "Verberg interpretaties en details"
 
 msgid "Show interpretations and details"
-msgstr ""
+msgstr "Toon interpretaties en details"
 
 msgid "Open in {{appName}} app"
 msgstr "Openen in {{appName}}-app"
@@ -292,13 +292,13 @@ msgid "Failed to show description"
 msgstr ""
 
 msgid "Unstar dashboard"
-msgstr ""
+msgstr "Dashboard ongedaan maken"
 
 msgid "Star dashboard"
 msgstr "Sterrendashboard"
 
 msgid "Failed to unstar the dashboard"
-msgstr ""
+msgstr "Kan het dashboard niet ongedaan maken"
 
 msgid "Failed to star the dashboard"
 msgstr "Sterren geven aan het dashboard mislukt"
@@ -337,7 +337,7 @@ msgid "Event reports"
 msgstr "Gebeurtenissen rapporten"
 
 msgid "Event charts"
-msgstr ""
+msgstr "Evenementen grafiek"
 
 msgid "Apps"
 msgstr "Apps"
