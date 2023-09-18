@@ -57,7 +57,7 @@
         "@testing-library/jest-dom": "^6.1.2",
         "@testing-library/react": "^12",
         "d2-manifest": "^1.0.0",
-        "eslint-plugin-cypress": "^2.14.0",
+        "eslint-plugin-cypress": "^2.15.1",
         "immutability-helper": "^3.1.1",
         "patch-package": "^7",
         "postinstall-postinstall": "^2.1.0",
