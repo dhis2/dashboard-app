@@ -1,279 +1,279 @@
 # 
 # Translators:
-# Philip Larsen Donnelly, 2022
-# Viktor Varland <viktor@dhis2.org>, 2022
-# 晓东 林 <13981924470@126.com>, 2022
-# easylin <lin_xd@126.com>, 2023
+# Yury Rogachev <yury@dhis2.org>, 2022
 # 
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
 "POT-Creation-Date: 2023-05-15T07:26:26.921Z\n"
 "PO-Revision-Date: 2022-04-20 09:58+0000\n"
-"Last-Translator: easylin <lin_xd@126.com>, 2023\n"
-"Language-Team: Chinese (https://app.transifex.com/hisp-uio/teams/100509/zh/)\n"
+"Last-Translator: Yury Rogachev <yury@dhis2.org>, 2022\n"
+"Language-Team: Uzbek (Latin) (https://app.transifex.com/hisp-uio/teams/100509/uz@Latn/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: zh\n"
+"Language: uz@Latn\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 
 msgid "Untitled dashboard"
-msgstr "未命名的仪表板"
+msgstr "Nomsiz boshqaruv paneli"
 
 msgid "Cannot create a dashboard while offline"
-msgstr "离线时无法创建仪表板"
+msgstr ""
 
 msgid "Create new dashboard"
-msgstr "创建新仪表盘"
+msgstr ""
 
 msgid "Search for a dashboard"
-msgstr "搜索仪表盘"
+msgstr "Boshqarish panelida izlash"
 
 msgid "Show fewer dashboards"
-msgstr "显示更少的仪表盘"
+msgstr ""
 
 msgid "Show more dashboards"
-msgstr "显示更多仪表盘"
+msgstr ""
 
 msgid "Remove this item"
-msgstr "删除该条目"
+msgstr ""
 
 msgid "This item has been shortened to fit on one page"
-msgstr "此项已缩短为适合一页"
+msgstr "Ushbu element bir sahifaga joylashtirish uchun moslashtirildi"
 
 msgid "Remove"
-msgstr "移除"
+msgstr "Олиб ташлаш"
 
 msgid "Messages"
-msgstr "消息"
+msgstr "Xabarlar"
 
 msgid "See all messages"
-msgstr "查看所有消息"
+msgstr "Barcha xabarlarni koʼrish"
 
 msgid "Item type \"{{type}}\" is not supported"
-msgstr "不支持项目类型“{{type}}”"
+msgstr ""
 
 msgid "The item type is missing"
-msgstr "缺少条目类型"
+msgstr ""
 
 msgid "Filters applied"
-msgstr "已应用的过滤器"
+msgstr "Filtr qoʼllanildi"
 
 msgid "Spacer"
-msgstr "空白隔断"
+msgstr "Boʼsh joy"
 
 msgid ""
 "Use a spacer to create empty vertical space between other dashboard items."
-msgstr "使用空白隔断在不同条目间创建垂直的空白区"
+msgstr ""
+"Monitoring panelida elementlar orasida vertikal boʼsh joy yaratish uchun "
+"boʼsh joy qoldirish funktsiyasidan foydalaning"
 
 msgid "Text item"
-msgstr "文本条目"
+msgstr "Matn elementi"
 
 msgid "Add text here"
-msgstr "在这里添加文本"
+msgstr "Matnni shu yerga qoʼshing"
 
 msgid "Filters are not applied to line list dashboard items"
-msgstr "过滤器不适用于行列表仪表板项目"
+msgstr ""
 
 msgid "Filters not applied"
-msgstr "未应用过滤器"
+msgstr ""
 
 msgid "There was a problem loading this dashboard item"
-msgstr "载入仪表盘有问题"
+msgstr "Ushbu panel elementlari yuklanishida muaamoga duch kelindi"
 
 msgid "Hide details and interpretations"
-msgstr "隐藏细节和解释"
+msgstr ""
 
 msgid "Show details and interpretations"
-msgstr "显示细节和解释"
+msgstr ""
 
 msgid "Open in {{appName}} app"
-msgstr "在{{appName}} 应用中打开"
+msgstr "Ilovada {{appName}} da ochish"
 
 msgid "View fullscreen"
-msgstr "全屏查看"
+msgstr ""
 
 msgid "This map can't be displayed as a chart"
-msgstr "该地图无法显示为图表"
+msgstr ""
 
 msgid "View as Chart"
-msgstr "查看图表"
+msgstr "Diagramma sifatida koʼrish"
 
 msgid "This map can't be displayed as a table"
-msgstr "该地图无法显示为表格"
+msgstr ""
 
 msgid "View as Table"
-msgstr "查看表格"
+msgstr "Jadval sifatida koʼrish"
 
 msgid "View as Map"
-msgstr "查看地图"
+msgstr "Xarita sifatida koʼrish"
 
 msgid "There was a problem loading interpretations for this item"
-msgstr "加载该项目的解释时出现问题"
+msgstr ""
 
 msgid "Maps with Earth Engine layers cannot be displayed when offline"
-msgstr "离线时无法显示带有地球引擎图层的地图"
+msgstr ""
 
 msgid "Unable to load the plugin for this item"
-msgstr "不能载入该条目的插件"
+msgstr "Ushbu element uchun plagin yuklanmadi"
 
 msgid "The plugin for rendering this item is not available"
-msgstr "渲染该项目的插件不可用"
+msgstr ""
 
 msgid "Install the {{appName}} app from the App Hub"
-msgstr "从 App Hub 安装 {{appName}} 应用程序"
+msgstr ""
 
 msgid "No data to display"
-msgstr "没有数据可显示"
+msgstr "Maʼlumot ekranga chiqarilmadi"
 
 msgid ""
 "Install Line Listing app version ${minLLVersion.join(\n"
 "                                '.'\n"
 "                            )} or higher in order to display this item."
 msgstr ""
-"安装行列表应用程序版本 ${minLLVersion.join(\n"
-"                                '.'\n"
-"                            )} 或更高版本以显示此项。"
 
 msgid "Filters are not applied to line list dashboard items."
-msgstr "过滤器不适用于行列表仪表板项目。"
+msgstr ""
 
 msgid "Show without filters"
-msgstr "显示无过滤器"
+msgstr ""
 
 msgid "There was an error loading data for this item"
-msgstr "加载此项目的数据时出错"
+msgstr ""
 
 msgid "Open this item in {{appName}}"
-msgstr "在 {{appName}} 中打开此条目"
+msgstr ""
 
 msgid "Not available offline"
-msgstr "离线不可用"
+msgstr ""
 
 msgid "Visualizations"
-msgstr "可视化"
+msgstr "Vizualizatsiya"
 
 msgid "Pivot tables"
-msgstr "透视表"
+msgstr ""
 
 msgid "Charts"
-msgstr "图表"
+msgstr "Diagrammalar"
 
 msgid "Maps"
-msgstr "地图"
+msgstr "Xaritalar"
 
 msgid "Event reports"
-msgstr "事件报表"
+msgstr "Hodisalar hisoboti"
 
 msgid "Event charts"
-msgstr "事件图表"
+msgstr "Hodisalar diagrammalarda"
 
 msgid "Line lists"
-msgstr "行列表"
+msgstr ""
 
 msgid "Apps"
-msgstr "应用"
+msgstr "Ilova"
 
 msgid "Reports"
-msgstr "报表"
+msgstr "Hisobotlar"
 
 msgid "Resources"
-msgstr "资源"
+msgstr "Resurslar"
 
 msgid "Users"
-msgstr "用户"
+msgstr "Foydalanuvchilar"
 
 msgid ""
 "Failed to save dashboard. You might be offline or not have access to edit "
 "this dashboard."
-msgstr "未能保存仪表板。您可能处于离线状态或无权编辑此仪表板。"
+msgstr ""
 
 msgid ""
 "Failed to save dashboard. This code is already being used on another "
 "dashboard."
-msgstr "未能保存仪表板。此代码已在另一个仪表板上使用。"
+msgstr ""
 
 msgid ""
 "Failed to delete dashboard. You might be offline or not have access to edit "
 "this dashboard."
-msgstr "删除仪表盘失败。您可能处于离线状态，或者无权编辑此仪表板。"
+msgstr ""
 
 msgid "Cannot save this dashboard while offline"
-msgstr "离线时无法保存此仪表板"
+msgstr ""
 
 msgid "Save changes"
-msgstr "保存修改"
+msgstr "Oʼzgartirishni saqlash"
 
 msgid "Exit print preview"
-msgstr "退出打印预览"
+msgstr ""
 
 msgid "Print preview"
-msgstr "打印预览"
+msgstr "Chop etishdan avvalgi koʼrik"
 
 msgid "Filter settings"
-msgstr "过滤器设置"
+msgstr ""
 
 msgid "Translate"
-msgstr "翻译"
+msgstr "Tarjima qiling"
 
 msgid "Cannot delete this dashboard while offline"
-msgstr "离线时无法删除此仪表板"
+msgstr ""
 
 msgid "Delete"
-msgstr "删除"
+msgstr "Oʼchirib tashlash"
 
 msgid "Exit without saving"
-msgstr "不保存退出"
+msgstr "Saqlamasdan chiqish"
 
 msgid "Go to dashboards"
-msgstr "进到仪表盘"
+msgstr "Boshqaruv panellariga oʼtish"
 
 msgid "Delete dashboard"
-msgstr "删除仪表盘"
+msgstr "Boshqaruv panelini oʼchirib tashlash"
 
 msgid ""
 "Deleting dashboard \"{{ dashboardName }}\" will remove it for all users. "
 "This action cannot be undone. Are you sure you want to permanently delete "
 "this dashboard?"
-msgstr "删除仪表盘 \"{{ dashboardName }}\" 将从所有用户仪表盘中移除。该操作不能撤销，你确信要永久删除该仪表盘条目？"
+msgstr ""
+"Panelni oʼchirib tashlash {{ dashboardName }}, uni barcha foydalanuvchilar "
+"uchun oʼchirilishiga olib keladi. Bu harakatni orqaga qaytarib boʼlmaydi. "
+"Haqiqatdan ham ushbu panelni orqaga qaytarib boʼlmaslik sharti bilan "
+"oʼchirib tashlamoqchimisiz?"
 
 msgid "Cancel"
-msgstr "取消"
+msgstr "Бекор қилиш"
 
 msgid "Discard changes"
-msgstr "忽略修改"
+msgstr "Oʼzgartirishlar bekor qilinsin"
 
 msgid ""
 "This dashboard has unsaved changes. Are you sure you want to leave and "
 "discard these unsaved changes?"
-msgstr "此仪表板有未保存的更改。您确定要离开并放弃这些未保存的更改吗？"
+msgstr ""
 
 msgid "No, stay here"
-msgstr "不，待在这里"
+msgstr "Yoʼq, sahifada qolish"
 
 msgid "Yes, discard changes"
-msgstr "是的，放弃更改"
+msgstr ""
 
 msgid "No access"
-msgstr "不能访问"
+msgstr "Kirish taʼqiqlangan"
 
 msgid "Not supported"
-msgstr "不支持"
+msgstr ""
 
 msgid ""
 "Editing dashboards on small screens is not supported. Resize your screen to "
 "return to edit mode."
-msgstr "不支持在小屏幕上编辑仪表板。调整屏幕大小以返回编辑模式。"
+msgstr ""
 
 msgid "Allow filtering by all dimensions"
-msgstr "允许按所有维度过滤"
+msgstr ""
 
 msgid "Only allow filtering by selected dimensions"
-msgstr "仅允许按选定的维度进行过滤"
+msgstr ""
 
 msgid "Dashboard filter settings"
-msgstr "仪表板过滤器设置"
+msgstr ""
 
 msgid ""
 "Dashboards can be filtered by dimensions to change\n"
@@ -281,270 +281,270 @@ msgid ""
 "                                         as filters. Alternatively, only selected dimensions can\n"
 "                                         be made available on a dashboard."
 msgstr ""
-"仪表板可以按维度进行过滤以进行更改\n"
-"                                         显示的数据。默认情况下，所有尺寸均可用\n"
-"                                         作为过滤器。另外，只有选定的尺寸可以\n"
-"                                         在仪表板上可用。"
 
 msgid "Available Filters"
-msgstr "可用的过滤器"
+msgstr ""
 
 msgid "Selected Filters"
-msgstr "选定的过滤器"
+msgstr ""
 
 msgid "Confirm"
-msgstr "确认"
+msgstr "Tasdiqlang"
 
 msgid "There are no items on this dashboard"
-msgstr "该仪表盘没有条目"
+msgstr "Ushbu boshqaruv panelida elementlar yoʼq"
 
 msgid "Show fewer"
-msgstr "显示较少"
+msgstr "Kamroq koʼrsatish"
 
 msgid "Show more"
-msgstr "更多"
+msgstr "Koʼproq koʼrsatish"
 
 msgid "Insert"
-msgstr "插入"
+msgstr "Kiritish"
 
 msgid "Search for items to add to this dashboard"
-msgstr "搜索条目添加到该仪表盘"
+msgstr "Ushbu boshqaruv paneliga kiritish uchun elementlarni qidiring"
 
 msgid "Search for visualizations, reports and more"
-msgstr "搜索可视化、报告等"
+msgstr ""
 
 msgid "Cannot search for dashboard items while offline"
-msgstr "离线时无法搜索仪表盘项目"
+msgstr ""
 
 msgid "Additional items"
-msgstr "其它条目"
+msgstr "Qoʼshimcha elementlar"
 
 msgid "Text box"
-msgstr "文本框"
+msgstr "Matn joyi"
 
 msgid "Dashboard layout"
-msgstr "仪表盘布局"
+msgstr "Boshqaruv paneli maketi"
 
 msgid "Freeflow"
-msgstr "自由布局"
+msgstr ""
 
 msgid "Dashboard items can be placed anywhere, at any size."
-msgstr "仪表盘项目以任何大小放置在任何地方。"
+msgstr ""
 
 msgid "Fixed columns"
-msgstr "固定列数"
+msgstr ""
 
 msgid ""
 "Dashboard items are automatically placed within fixed, horizontal columns. "
 "The number of columns can be adjusted."
-msgstr "仪表板项目自动放置在固定的水平列中。列数可以调整。"
+msgstr ""
 
 msgid "Number of columns"
-msgstr "列数"
+msgstr ""
 
 msgid "Gap size between columns (px)"
-msgstr "列之间的间隙大小 (px)"
+msgstr ""
 
 msgid ""
 "Default height only applies to items added to a dashboard, this setting will"
 " not change existing items"
-msgstr "默认高度仅适用于添加到仪表板的项目，此设置不会更改现有项目"
+msgstr ""
 
 msgid "Default height for items added to dashboard (rows)"
-msgstr "添加到仪表板的项目的默认高度（行）"
+msgstr ""
 
 msgid "Save layout"
-msgstr "保存布局"
+msgstr ""
 
 msgid "Dashboard title"
-msgstr "仪表盘标题"
+msgstr "Boshqaruv paneli nomlanishi"
 
 msgid "Dashboard code"
-msgstr "仪表盘代码"
+msgstr ""
 
 msgid "Code can't be longer than 50 characters"
-msgstr "代码不能超过 50 个字符"
+msgstr ""
 
 msgid "Dashboard description"
-msgstr "仪表盘描述"
+msgstr "Boshqaruv paneli tavsifi"
 
 msgid "Layout"
-msgstr "布局"
+msgstr "Joylashish tartibi"
 
 msgid "{{count}} columns"
 msgid_plural "{{count}} columns"
-msgstr[0] "{{count}} 列"
+msgstr[0] ""
 
 msgid "Change layout"
-msgstr "更改布局"
+msgstr ""
 
 msgid "Add new items to"
-msgstr "将新项目添加到"
+msgstr ""
 
 msgid "End of dashboard"
-msgstr "仪表板结束"
+msgstr ""
 
 msgid "Start of dashboard"
-msgstr "仪表板开始"
+msgstr ""
 
 msgid "Print"
-msgstr "打印"
+msgstr "Chop etish"
 
 msgid "dashboard layout"
-msgstr "仪表板布局"
+msgstr "boshqarish paneli maketi"
 
 msgid "one item per page"
-msgstr "每页一项"
+msgstr "bir sahifada bir element"
 
 msgid "Print Preview"
-msgstr "打印预览"
+msgstr ""
 
 msgid "For best print results"
-msgstr "以获得最佳打印效果"
+msgstr "Bosib chiqarishda (printerda) eng yaxshi natijaga erishish"
 
 msgid "Use Chrome or Edge web browser"
-msgstr "使用Chrome或Edge网络浏览器"
+msgstr "Chrome yoki Edge brauzeridan foydalaning"
 
 msgid "Wait for all dashboard items to load before printing"
-msgstr "等待所有仪表板项目加载后再打印"
+msgstr ""
+"Bosib chiqarishdan oldin boshqarish paneliga barcha elementlarning "
+"yuklanishini kuting"
 
 msgid ""
 "Use A4 landscape paper size, default margin settings and turn on background "
 "graphics in the browser print dialog"
-msgstr "使用 A4 横向纸张大小、默认边距设置并在浏览器打印对话框中打开背景图形"
+msgstr ""
 
 msgid "Getting started"
-msgstr "开始"
+msgstr "Ish boshlanganida"
 
 msgid "Search for and open saved dashboards from the top bar."
-msgstr "从顶部栏中搜索并打开保存的仪表盘。"
+msgstr ""
 
 msgid ""
 "Click a dashboard chip to open it. Get back to this screen from the \"More\""
 " menu."
-msgstr "单击仪表盘芯片将其打开。从“更多”菜单返回此屏幕。"
+msgstr ""
 
 msgid "Create a new dashboard with the + button."
-msgstr "使用 + 按钮创建一个新仪表盘。"
+msgstr ""
 
 msgid "Your most viewed dashboards"
-msgstr "您最常查看的仪表盘"
+msgstr ""
 
 msgid "No dashboards found. Use the + button to create a new dashboard."
-msgstr "没有发现仪表盘，使用+按钮创建新的仪表盘"
+msgstr ""
+"Boshqaruv paneli topilmadi. Yangi boshqaruv panelini yaratish uchun + "
+"tugmasini bosing."
 
 msgid "Requested dashboard not found"
-msgstr "请求的仪表盘没有找到"
+msgstr "Soʼralgan boshqaruv paneli topilmadi"
 
 msgid "{{count}} selected"
 msgid_plural "{{count}} selected"
-msgstr[0] "已选择 {{count}} 个"
+msgstr[0] ""
 
 msgid "Cannot remove filters while offline"
-msgstr "离线时无法删除过滤器"
+msgstr ""
 
 msgid "Removing filters while offline"
-msgstr "离线时删除过滤器"
+msgstr ""
 
 msgid ""
 "Removing this filter while offline will remove all other filters. Do you "
 "want to remove all filters on this dashboard?"
-msgstr "脱机时删除此过滤器将删除所有其他过滤器。是否要删除此仪表板上的所有过滤器？"
+msgstr ""
 
 msgid "No, cancel"
-msgstr "不，取消"
+msgstr "Yoʼq, bekor qiling"
 
 msgid "Yes, remove filters"
-msgstr "是的，删除过滤器"
+msgstr ""
 
 msgid "The dashboard couldn't be made available offline. Try again."
-msgstr "仪表盘无法离线使用。再试一次。"
+msgstr ""
 
 msgid "Failed to unstar the dashboard"
-msgstr "未能取消星标仪表板"
+msgstr ""
 
 msgid "Failed to star the dashboard"
-msgstr "未能为仪表板加注星标"
+msgstr ""
 
 msgid "Remove from offline storage"
-msgstr "从离线存储中删除"
+msgstr ""
 
 msgid "Make available offline"
-msgstr "离线使用"
+msgstr ""
 
 msgid "Sync offline data now"
-msgstr "立即同步离线数据"
+msgstr ""
 
 msgid "Unstar dashboard"
-msgstr "取消星标仪表盘"
+msgstr "Boshqaruv panelidagi yulduzcha oʼchiriladi"
 
 msgid "Star dashboard"
-msgstr "标星仪表板"
+msgstr "Boshqaruv paneliga yulduzcha oʼrnatiladi"
 
 msgid "Hide description"
-msgstr "隐藏说明"
+msgstr "Tavsifni berkitish"
 
 msgid "Show description"
-msgstr "显示说明"
+msgstr "Tavsifni koʼrsatish"
 
 msgid "One item per page"
-msgstr "每页一项"
+msgstr "Har bir sahifada bitta element"
 
 msgid "Close dashboard"
-msgstr "关闭仪表盘"
+msgstr ""
 
 msgid "More"
-msgstr "更多"
+msgstr "Koʼproq"
 
 msgid "Edit"
-msgstr "编辑"
+msgstr "Tahrirlash"
 
 msgid "Share"
-msgstr "分享"
+msgstr "Улашиш"
 
 msgid "Clear dashboard filters?"
-msgstr "清除仪表板过滤器？"
+msgstr ""
 
 msgid ""
 "A dashboard's filters can’t be saved offline. Do you want to remove the "
 "filters and make this dashboard available offline?"
-msgstr "仪表板的过滤器无法离线保存。是否要删除过滤器并使此仪表板可脱机使用？"
+msgstr ""
 
 msgid "Yes, clear filters and sync"
-msgstr "是的，清除过滤器并同步"
+msgstr ""
 
 msgid "No description"
-msgstr "无描述"
+msgstr "Tavsif yoʼq"
 
 msgid "Add filter"
-msgstr "添加过滤器"
+msgstr "Filtr kiritish"
 
 msgid "Offline data last updated {{time}}"
-msgstr "离线数据上次更新 {{time}}"
+msgstr ""
 
 msgid "Cannot unstar this dashboard while offline"
-msgstr "离线时无法取消此仪表板的星标"
+msgstr ""
 
 msgid "Cannot star this dashboard while offline"
-msgstr "离线时无法为此仪表板加注星标"
+msgstr ""
 
 msgid "Loading dashboard – {{name}}"
-msgstr "加载仪表盘-{{name}}"
+msgstr "Boshqaruv paneli yuklanmoqda - {{ismi}}"
 
 msgid "Loading dashboard"
-msgstr "加载仪表板"
+msgstr ""
 
 msgid "Offline"
-msgstr "离线"
+msgstr "Offlayn"
 
 msgid "This dashboard cannot be loaded while offline."
-msgstr "离线时无法加载此仪表板。"
+msgstr ""
 
 msgid "Go to start page"
-msgstr "转到起始页"
+msgstr ""
 
 msgid "Load dashboard failed"
-msgstr "加载仪表板失败"
+msgstr ""
 
 msgid "This dashboard could not be loaded. Please try again later."
-msgstr "无法加载此仪表板。请稍后再试。"
+msgstr ""
