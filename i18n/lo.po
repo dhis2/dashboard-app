@@ -1,16 +1,16 @@
 # 
 # Translators:
-# Saysamone Sibounma, 2023
 # Somkhit Bouavong <bouavongk@gmail.com>, 2023
 # Viktor Varland <viktor@dhis2.org>, 2023
-# phil_dhis2, 2023
+# Philip Larsen Donnelly, 2023
+# Saysamone Sibounma, 2023
 # 
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
 "POT-Creation-Date: 2023-03-19T15:27:59.188Z\n"
 "PO-Revision-Date: 2023-05-22 18:14+0000\n"
-"Last-Translator: phil_dhis2, 2023\n"
+"Last-Translator: Saysamone Sibounma, 2023\n"
 "Language-Team: Lao (https://app.transifex.com/hisp-uio/teams/100509/lo/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -244,7 +244,7 @@ msgid "Yes, discard changes"
 msgstr ""
 
 msgid "No access"
-msgstr ""
+msgstr "ບໍ່ມີການເຂົ້າເຖີງ"
 
 msgid "Not supported"
 msgstr ""
