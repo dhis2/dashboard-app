@@ -5,7 +5,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2021-12-21T08:20:25.327Z\n"
+"POT-Creation-Date: 2023-05-15T07:26:26.921Z\n"
 "PO-Revision-Date: 2022-04-20 09:58+0000\n"
 "Last-Translator: Ibatov <ibatovk@who.int>, 2023\n"
 "Language-Team: Uzbek (Cyrillic) (https://app.transifex.com/hisp-uio/teams/100509/uz@Cyrl/)\n"
@@ -72,6 +72,12 @@ msgstr "Матн элементи"
 msgid "Add text here"
 msgstr "Матнни шу ерга қўшинг"
 
+msgid "Filters are not applied to line list dashboard items"
+msgstr ""
+
+msgid "Filters not applied"
+msgstr ""
+
 msgid "There was a problem loading this dashboard item"
 msgstr "Ушбу панел элементлари юкланишида муаамога дуч келинди"
 
@@ -111,8 +117,26 @@ msgstr ""
 msgid "Unable to load the plugin for this item"
 msgstr "Ушбу элемент учун плагин юкланмади"
 
+msgid "The plugin for rendering this item is not available"
+msgstr ""
+
+msgid "Install the {{appName}} app from the App Hub"
+msgstr ""
+
 msgid "No data to display"
 msgstr "Маълумот экранга чиқарилмади"
+
+msgid ""
+"Install Line Listing app version ${minLLVersion.join(\n"
+"                                '.'\n"
+"                            )} or higher in order to display this item."
+msgstr ""
+
+msgid "Filters are not applied to line list dashboard items."
+msgstr ""
+
+msgid "Show without filters"
+msgstr ""
 
 msgid "There was an error loading data for this item"
 msgstr ""
@@ -140,6 +164,9 @@ msgstr "Ҳодиса/Тадбирлар ҳисоботи"
 
 msgid "Event charts"
 msgstr "Ҳодиса/Тадбирлар диаграммаларда"
+
+msgid "Line lists"
+msgstr ""
 
 msgid "Apps"
 msgstr "Илова"
