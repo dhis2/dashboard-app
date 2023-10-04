@@ -1,17 +1,17 @@
 # 
 # Translators:
-# Nadiia <semchuk@aph.org.ua>, 2022
 # Wanda <wanda@frontlineaids.org>, 2022
-# phil_dhis2, 2022
+# Philip Larsen Donnelly, 2022
 # Viktor Varland <viktor@dhis2.org>, 2022
 # Éva Tamási, 2023
+# Nadiia <semchuk@aph.org.ua>, 2023
 # 
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2021-12-21T08:20:25.327Z\n"
+"POT-Creation-Date: 2023-05-10T12:25:45.620Z\n"
 "PO-Revision-Date: 2022-10-15 22:30+0000\n"
-"Last-Translator: Éva Tamási, 2023\n"
+"Last-Translator: Nadiia <semchuk@aph.org.ua>, 2023\n"
 "Language-Team: Ukrainian (https://app.transifex.com/hisp-uio/teams/100509/uk/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -76,6 +76,13 @@ msgstr "Текстовий об'єкт"
 msgid "Add text here"
 msgstr "Додати текст сюди"
 
+msgid "Filters are not applied to line list dashboard items"
+msgstr ""
+"Фільтри не застосовуються до елементів списку рядків інформаційної панелі "
+
+msgid "Filters not applied"
+msgstr "Фільтри не застосовані"
+
 msgid "There was a problem loading this dashboard item"
 msgstr ""
 "Під час завантаження цього елемента інформаційної панелі сталася помилка"
@@ -117,8 +124,30 @@ msgstr ""
 msgid "Unable to load the plugin for this item"
 msgstr "Неможливо завантажити плагін для цього елемента"
 
+msgid "The plugin for rendering this item is not available"
+msgstr "Плагін для відтворення цього елемента недоступний"
+
+msgid "Install the {{appName}} app from the App Hub"
+msgstr "Установіть додаток {{appName}} із App Hub"
+
 msgid "No data to display"
 msgstr "Немає даних для відображення"
+
+msgid ""
+"Install Line Listing app version ${minLLVersion.join(\n"
+"                                '.'\n"
+"                            )} or higher in order to display this item."
+msgstr ""
+"Встановіть версію програми Line Listing ${minLLVersion.join(\n"
+"                                '.'\n"
+"                            )} або вище, щоб відобразити цей елемент."
+
+msgid "Filters are not applied to line list dashboard items."
+msgstr ""
+"Фільтри не застосовуються до елементів списку рядків інформаційної панелі."
+
+msgid "Show without filters"
+msgstr "Показати без фільтрів"
 
 msgid "There was an error loading data for this item"
 msgstr "Сталася помилка під час завантаження даних для цього елемента"
@@ -146,6 +175,9 @@ msgstr "Звіти про події"
 
 msgid "Event charts"
 msgstr "Діаграми подій"
+
+msgid "Line lists"
+msgstr "Списки рядків"
 
 msgid "Apps"
 msgstr "Додатки"
@@ -189,7 +221,7 @@ msgid "Save changes"
 msgstr "Зберегти зміни"
 
 msgid "Exit print preview"
-msgstr "Вийти з попереднього перегляду друку"
+msgstr "Вийти з режиму попереднього перегляду друку"
 
 msgid "Print preview"
 msgstr "Попередній перегляд друку"
@@ -398,7 +430,7 @@ msgid "one item per page"
 msgstr "один елемент на сторінку"
 
 msgid "Print Preview"
-msgstr "Попередній перегляд друку"
+msgstr "Попередній перегляд режиму друку"
 
 msgid "For best print results"
 msgstr "Для найкращих результатів друку"
@@ -414,8 +446,8 @@ msgid ""
 "Use A4 landscape paper size, default margin settings and turn on background "
 "graphics in the browser print dialog"
 msgstr ""
-"Використовувати альбомний формат A4, параметри полів за замовчуванням і "
-"увімкнути фонову графіку в діалоговому вікні друку браузера"
+"Використовуйте альбомний формат A4, параметри полів за замовчуванням і "
+"увімкніть фонову графіку в діалоговому вікні друку браузера"
 
 msgid "Getting started"
 msgstr "Початок роботи"
@@ -452,7 +484,7 @@ msgstr[2] "Вибрано {{count}}"
 msgstr[3] "Вибрано {{count}}"
 
 msgid "Cannot remove filters while offline"
-msgstr "Неможливо видалити фільтри в автономному режимі"
+msgstr "Неможливо прибрати фільтри в автономному режимі"
 
 msgid "Removing filters while offline"
 msgstr "Видалення фільтрів в автономному режимі"
