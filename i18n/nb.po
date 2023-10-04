@@ -123,7 +123,7 @@ msgid "Open this item in {{appName}}"
 msgstr ""
 
 msgid "Not available offline"
-msgstr ""
+msgstr "Ikke tilgjengelig i frakoblet modus"
 
 msgid "Visualizations"
 msgstr "Visualiseringer"
