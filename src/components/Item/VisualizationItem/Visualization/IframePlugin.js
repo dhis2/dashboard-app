@@ -14,9 +14,7 @@ import { getPluginOverrides } from '../../../../modules/localStorage.js'
 import { useCacheableSection } from '../../../../modules/useCacheableSection.js'
 import {
     INSTALLATION_STATUS_INSTALLING,
-    //    INSTALLATION_STATUS_READY,
     INSTALLATION_STATUS_UNKNOWN,
-    //    INSTALLATION_STATUS_WILL_NOT_INSTALL,
     sGetIframePluginStatus,
 } from '../../../../reducers/iframePluginStatus.js'
 import { useUserSettings } from '../../../UserSettingsProvider.js'
@@ -48,11 +46,10 @@ const IframePlugin = ({
     // When this mounts, check if the dashboard is recording
     const { isCached, recordingState } = useCacheableSection(dashboardId)
 
-    // TODO set this to false after first props transfer with true flag
-    const recordOnNextLoad = recordingState === 'recording'
-    //    const [recordOnNextLoad, setRecordOnNextLoad] = useState(
-    //        recordingState === 'recording'
-    //    )
+    // set this to false after first props transfer with true flag
+    const [recordOnNextLoad, setRecordOnNextLoad] = useState(
+        recordingState === 'recording'
+    )
 
     const pluginType = [CHART, REPORT_TABLE].includes(activeType)
         ? VISUALIZATION
@@ -72,6 +69,11 @@ const IframePlugin = ({
         },
         [dispatch, isFirstOfType, pluginType]
     )
+    const onPropsReceived = useCallback(() => {
+        if (recordOnNextLoad) {
+            setRecordOnNextLoad(false)
+        }
+    }, [recordOnNextLoad])
 
     const pluginProps = useMemo(
         () => ({
@@ -81,6 +83,7 @@ const IframePlugin = ({
             visualization,
             onError,
             onInstallationStatusChange,
+            onPropsReceived,
 
             // For caching: ---
             // Add user & dashboard IDs to cache ID to avoid removing a cached
@@ -97,6 +100,7 @@ const IframePlugin = ({
             itemId,
             isCached,
             onInstallationStatusChange,
+            onPropsReceived,
             recordOnNextLoad,
         ]
     )
@@ -122,67 +126,6 @@ const IframePlugin = ({
 
     const iframeSrc = getIframeSrc()
 
-    // TODO figure out how to send this message via Plugin without re-rendering
-    //    useEffect(() => {
-    //        // Tell plugin to remove cached data if this dashboard has been removed
-    //        // from offline storage
-    //        if (iframeRef?.current && !isCached) {
-    //            postRobot
-    //                .send(iframeRef.current.contentWindow, 'removeCachedData')
-    //                .catch((err) => {
-    //                    // catch error if iframe hasn't loaded yet
-    //                    const msg = 'No handler found for post message:'
-    //                    if (err.message.startsWith(msg)) {
-    //                        return
-    //                    }
-    //                    console.error(err)
-    //                })
-    //        }
-    //    }, [isCached])
-
-    /*
-    useEffect(() => {
-        if (
-            iframeRef?.current &&
-            (installationStatus === INSTALLATION_STATUS_READY ||
-                installationStatus === INSTALLATION_STATUS_WILL_NOT_INSTALL ||
-                isFirstOfType)
-        ) {
-            // if iframe has not sent initial request, set up a listener
-            if (iframeSrc !== prevPluginRef.current) {
-                prevPluginRef.current = iframeSrc
-
-                const listener = postRobot.on(
-                    'getProps',
-                    // listen for messages coming only from the iframe rendered by this component
-                    { window: iframeRef.current.contentWindow },
-                    () => {
-                        if (recordOnNextLoad) {
-                            // Avoid recording unnecessarily,
-                            // e.g. if plugin re-requests props for some reason
-                            setRecordOnNextLoad(false)
-                        }
-                        return pluginProps
-                    }
-                )
-
-                return () => listener.cancel()
-            } else {
-                postRobot.send(
-                    iframeRef.current.contentWindow,
-                    'newProps',
-                    pluginProps
-                )
-            }
-        }
-    }, [
-        recordOnNextLoad,
-        pluginProps,
-        iframeSrc,
-        installationStatus,
-        isFirstOfType,
-    ])
-*/
     useEffect(() => {
         setError(null)
     }, [filterVersion, visualization.type])
@@ -229,7 +172,12 @@ const IframePlugin = ({
     return (
         <div className={classes.wrapper}>
             {iframeSrc ? (
-                <Plugin pluginSource={iframeSrc} {...pluginProps} />
+                <Plugin
+                    pluginSource={iframeSrc}
+                    width={style.width}
+                    height={style.height}
+                    {...pluginProps}
+                />
             ) : null}
         </div>
     )
