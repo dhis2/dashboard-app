@@ -256,7 +256,7 @@ msgid "No, stay here"
 msgstr "Nei, bli her"
 
 msgid "Yes, discard changes"
-msgstr ""
+msgstr "Ja, forkast endringer"
 
 msgid "No access"
 msgstr "Ingen tilgang"
