@@ -101,7 +101,7 @@ jobs:
             - name: Test
               run: yarn test
 
-    # v36 is no longer supported, so do not run e2e tests
+    # v36 is no longer supported, so set the if condition to false to skip this job
     e2e:
         runs-on: ubuntu-latest
         needs: install
