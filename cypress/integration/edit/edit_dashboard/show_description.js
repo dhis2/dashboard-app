@@ -4,7 +4,7 @@ import { getApiBaseUrl } from '../../../support/utils.js'
 
 const RESP_CODE_200 = 200
 const RESP_CODE_201 = 201
-const SHOW_DESC_RESP_CODE_FAIL = 409
+const RESP_CODE_FAIL = 409
 
 before(() => {
     //ensure that the description is not currently shown
@@ -45,14 +45,14 @@ When('I click to hide the description', () => {
 // Error scenario
 When('clicking to show description fails', () => {
     cy.intercept('PUT', 'userDataStore/dashboard/showDescription', {
-        statusCode: SHOW_DESC_RESP_CODE_FAIL,
+        statusCode: RESP_CODE_FAIL,
     }).as('showDescriptionFails')
 
     clickViewActionButton('More')
     cy.contains('Show description').click()
     cy.wait('@showDescriptionFails')
         .its('response.statusCode')
-        .should('eq', SHOW_DESC_RESP_CODE_FAIL)
+        .should('eq', RESP_CODE_FAIL)
 })
 
 Then(

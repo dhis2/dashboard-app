@@ -9,6 +9,10 @@ import { getApiBaseUrl, EXTENDED_TIMEOUT } from '../../../support/utils.js'
 const MIN_DASHBOARDS_BAR_HEIGHT = 71
 const MAX_DASHBOARDS_BAR_HEIGHT = 431
 
+const RESP_CODE_200 = 200
+const RESP_CODE_201 = 201
+
+
 beforeEach(() => {
     cy.request({
         method: 'PUT',
@@ -17,7 +21,7 @@ beforeEach(() => {
             'content-type': 'application/json',
         },
         body: '1',
-    }).then((response) => expect(response.status).to.equal(201))
+    }).then((response) => expect(response.status).to.be.oneOf([RESP_CODE_201, RESP_CODE_200])
 })
 
 When('I toggle show more dashboards', () => {

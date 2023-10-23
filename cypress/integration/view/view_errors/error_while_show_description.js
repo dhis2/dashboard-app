@@ -1,6 +1,10 @@
 import { When, Then } from 'cypress-cucumber-preprocessor/steps'
 import { getApiBaseUrl } from '../../../support/utils.js'
 
+const RESP_CODE_200 = 200
+const RESP_CODE_201 = 201
+const RESP_CODE_FAIL = 409
+
 // Error scenario
 
 before(() => {
@@ -12,12 +16,12 @@ before(() => {
             'content-type': 'application/json',
         },
         body: 'false',
-    }).then((response) => expect(response.status).to.equal(201))
+    }).then((response) => expect(response.status).to.be.oneOf([RESP_CODE_201, RESP_CODE_200])
 })
 
 When('clicking to show description fails', () => {
     cy.intercept('PUT', 'userDataStore/dashboard/showDescription', {
-        statusCode: 409,
+        statusCode: RESP_CODE_FAIL,
     }).as('showDescriptionFails')
 
     cy.get('button').contains('More').click()
@@ -25,7 +29,7 @@ When('clicking to show description fails', () => {
 
     cy.wait('@showDescriptionFails')
         .its('response.statusCode')
-        .should('eq', 409)
+        .should('eq', RESP_CODE_FAIL)
 })
 
 Then(
