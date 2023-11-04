@@ -1,13 +1,14 @@
 # 
 # Translators:
 # William Aviles <waviles@clintonhealthaccess.org>, 2022
-# phil_dhis2, 2022
+# Philip Larsen Donnelly, 2022
 # Viktor Varland <viktor@dhis2.org>, 2022
 # Alison Andrade <aandrade@ippfwhr.org>, 2022
 # Sergio Valenzuela <sergio.valenzuela@ehas.org>, 2022
 # Gabriela Rodriguez <grodriguezcoronado@gmail.com>, 2022
 # Marta Vila <marta@dhis2.org>, 2023
 # Prabhjot Singh, 2023
+# Enzo Nicolas Rossi <enzo@dhis2.org>, 2023
 # Janeth Cruz, 2023
 # 
 msgid ""
@@ -82,7 +83,7 @@ msgid "Add text here"
 msgstr "Añada texto aquí"
 
 msgid "Filters are not applied to line list dashboard items"
-msgstr ""
+msgstr "Los filtros no se aplican a los elementos del tablero de listados"
 
 msgid "Filters not applied"
 msgstr "Filtros no aplicados"
@@ -142,9 +143,13 @@ msgid ""
 "                                '.'\n"
 "                            )} or higher in order to display this item."
 msgstr ""
+"Instale la versión de la aplicación Listados ${minLLVersion.join(\n"
+"                                '.'\n"
+"                            )} o superior para mostrar este elemento."
 
 msgid "Filters are not applied to line list dashboard items."
 msgstr ""
+"Los filtros no se aplican a los elementos del tablero de la lista de líneas."
 
 msgid "Show without filters"
 msgstr "Mostrar sin filtros"
@@ -177,7 +182,7 @@ msgid "Event charts"
 msgstr "Herramienta para gráficos con información individual"
 
 msgid "Line lists"
-msgstr ""
+msgstr "Listados"
 
 msgid "Apps"
 msgstr "Aplicaciones"
@@ -346,7 +351,7 @@ msgid "Dashboard layout"
 msgstr "Diseño del tablero"
 
 msgid "Freeflow"
-msgstr ""
+msgstr "Diseño libre"
 
 msgid "Dashboard items can be placed anywhere, at any size."
 msgstr ""
@@ -399,9 +404,9 @@ msgstr "Diseño"
 
 msgid "{{count}} columns"
 msgid_plural "{{count}} columns"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
+msgstr[0] "{{contar}} columna"
+msgstr[1] "{{contar}} columnas"
+msgstr[2] "{{contar}} columnas"
 
 msgid "Change layout"
 msgstr "Cambiar diseño"
