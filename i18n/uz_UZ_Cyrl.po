@@ -1,78 +1,76 @@
 # 
 # Translators:
-# Caroline Hesthagen Holen <caroline@devotta.no>, 2021
-# Jan Henrik Øverland, 2022
-# Karoline Tufte Lien <karoline@dhis2.org>, 2023
+# Ibatov <ibatovk@who.int>, 2021
 # 
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
 "POT-Creation-Date: 2023-05-03T11:08:21.315Z\n"
 "PO-Revision-Date: 2019-06-25 12:37+0000\n"
-"Last-Translator: Karoline Tufte Lien <karoline@dhis2.org>, 2023\n"
-"Language-Team: Norwegian Bokmål (https://app.transifex.com/hisp-uio/teams/100509/nb/)\n"
+"Last-Translator: Ibatov <ibatovk@who.int>, 2021\n"
+"Language-Team: Uzbek (Cyrillic) (https://app.transifex.com/hisp-uio/teams/100509/uz@Cyrl/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: nb\n"
-"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"Language: uz@Cyrl\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
 
 msgid "Untitled dashboard"
-msgstr "Dashbord uten navn"
+msgstr "Номсиз бошқарув панели"
 
 msgid "Cannot create a dashboard while offline"
 msgstr ""
 
 msgid "Create new dashboard"
-msgstr "Lag et nytt dashbord"
+msgstr ""
 
 msgid "Search for a dashboard"
-msgstr "Søk etter et dashbord"
+msgstr "Бошқариш панелида излаш"
 
 msgid "Show fewer dashboards"
-msgstr "Vis færre dashbord"
+msgstr ""
 
 msgid "Show more dashboards"
-msgstr "Vis flere dashbord"
+msgstr ""
 
 msgid "Remove this item"
-msgstr "Fjern dette elementet"
+msgstr ""
 
 msgid "This item has been shortened to fit on one page"
-msgstr "Dette elementet har blitt forkortet for å passe på én side"
+msgstr "Ушбу элемент бир саҳифага жойлаштириш учун мослаштирилди"
 
 msgid "Remove"
-msgstr "Fjern"
+msgstr "Олиб ташлаш"
 
 msgid "Messages"
-msgstr "Meldinger"
+msgstr "Хабарлар"
 
 msgid "See all messages"
-msgstr "Se alle meldinger"
+msgstr "Барча хабарларни кўриш"
 
 msgid "Item type \"{{type}}\" is not supported"
-msgstr "Elementtypen \"{{type}}\" støttes ikke"
+msgstr ""
 
 msgid "The item type is missing"
-msgstr "Elementtype mangler"
+msgstr ""
 
 msgid "Filters applied"
-msgstr "Filtre brukt"
+msgstr "Фильтр қўлланилди"
 
 msgid "Spacer"
-msgstr "Mellomrom"
+msgstr "Бўш жой"
 
 msgid ""
 "Use a spacer to create empty vertical space between other dashboard items."
 msgstr ""
-"Bruk mellomrom for å lage tom vertikal plass mellom andre elementer i "
-"dashbordet."
+"Мониторинг панелида элементлар орасида вертикал бўш жой яратиш учун бўш жой "
+"қолдириш функциясидан фойдаланинг"
 
 msgid "Text item"
-msgstr "Tekstelement"
+msgstr "Матн элементи"
 
 msgid "Add text here"
-msgstr "Legg til tekst her"
+msgstr "Матнни шу ерга қўшинг"
 
 msgid "Filters are not applied to line list dashboard items"
 msgstr ""
@@ -81,7 +79,7 @@ msgid "Filters not applied"
 msgstr ""
 
 msgid "There was a problem loading this dashboard item"
-msgstr "Det oppstod et problem med å laste inn dette dashbordelementet"
+msgstr "Ушбу панел элементлари юкланишида муаамога дуч келинди"
 
 msgid "Hide details and interpretations"
 msgstr ""
@@ -90,25 +88,25 @@ msgid "Show details and interpretations"
 msgstr ""
 
 msgid "Open in {{appName}} app"
-msgstr "Åpne i {{appName}} -appen"
+msgstr "Иловада {{ИловаНоми}} да очиш"
 
 msgid "View fullscreen"
-msgstr "Vis fullskjerm"
+msgstr ""
 
 msgid "This map can't be displayed as a chart"
-msgstr "Dette kartet kan ikke vises som diagram"
+msgstr ""
 
 msgid "View as Chart"
-msgstr "Vis som diagram"
+msgstr "Диаграмма сифатида кўриш"
 
 msgid "This map can't be displayed as a table"
-msgstr "Dette kartet kan ikke vises som tabell"
+msgstr ""
 
 msgid "View as Table"
-msgstr "Vis som tabell"
+msgstr "Жадвал сифатида кўриш"
 
 msgid "View as Map"
-msgstr "Vis som kart"
+msgstr "Харита сифатида кўриш"
 
 msgid "There was a problem loading interpretations for this item"
 msgstr ""
@@ -120,7 +118,7 @@ msgid "Install the {{appName}} app from the App Hub"
 msgstr ""
 
 msgid "No data to display"
-msgstr "Ingen data å vise"
+msgstr "Маълумот экранга чиқарилмади"
 
 msgid ""
 "Install Line Listing app version ${minLLVersion.join(\n"
@@ -135,7 +133,7 @@ msgid "Maps with Earth Engine layers cannot be displayed when offline"
 msgstr ""
 
 msgid "Unable to load the plugin for this item"
-msgstr "Kan ikke laste inn plugin-modulen for dette elementet"
+msgstr "Ушбу элемент учун плагин юкланмади"
 
 msgid "There was an error loading data for this item"
 msgstr ""
@@ -144,47 +142,45 @@ msgid "Open this item in {{appName}}"
 msgstr ""
 
 msgid "Not available offline"
-msgstr "Ikke tilgjengelig i frakoblet modus"
+msgstr "Оффлайн режимда мавжуд эмас"
 
 msgid "Visualizations"
-msgstr "Visualiseringer"
+msgstr "Визуализация"
 
 msgid "Pivot tables"
-msgstr "Pivottabeller"
+msgstr "Солиштирма жадваллар"
 
 msgid "Charts"
-msgstr "Diagrammer"
+msgstr "Диаграммалар"
 
 msgid "Maps"
-msgstr "Kart"
+msgstr "Хариталар"
 
 msgid "Event reports"
-msgstr "Hendelsesrapporter"
+msgstr "Ҳодисалар ҳисоботи"
 
 msgid "Event charts"
-msgstr "Hendelsesdiagrammer"
+msgstr "Ҳодисалар диаграммаларда"
 
 msgid "Line lists"
 msgstr ""
 
 msgid "Apps"
-msgstr "Applikasjoner"
+msgstr "Илова"
 
 msgid "Reports"
-msgstr "Rapporter"
+msgstr "Ҳисоботлар"
 
 msgid "Resources"
-msgstr "Ressurser"
+msgstr "Ресурслар"
 
 msgid "Users"
-msgstr "Brukere"
+msgstr "Фойдаланувчилар"
 
 msgid ""
 "Failed to save dashboard. You might be offline or not have access to edit "
 "this dashboard."
 msgstr ""
-"Kunne ikke lagre dashbordet. Du kan være frakoblet eller ikke ha tilgang til"
-" å redigere dette dashbordet."
 
 msgid ""
 "Failed to save dashboard. This code is already being used on another "
@@ -200,49 +196,50 @@ msgid "Cannot save this dashboard while offline"
 msgstr ""
 
 msgid "Save changes"
-msgstr "Lagre endringer"
+msgstr "Ўзгартиришни сақлаш"
 
 msgid "Exit print preview"
-msgstr "Avslutt forhåndsvisning av utskrift"
+msgstr "Чоп этишдан аввалги кўрикдан чиқинг"
 
 msgid "Print preview"
-msgstr "Utskriftforhåndsvisning"
+msgstr "Чоп этишдан аввалги кўрик"
 
 msgid "Filter settings"
-msgstr "Filterinnstillinger"
+msgstr ""
 
 msgid "Translate"
-msgstr "Oversett"
+msgstr "Таржима қилинг"
 
 msgid "Cannot delete this dashboard while offline"
 msgstr ""
 
 msgid "Delete"
-msgstr "Slett"
+msgstr "Ўчириб ташлаш"
 
 msgid "Exit without saving"
-msgstr "Avslutte uten å lagre"
+msgstr "Сақламасдан чиқиш"
 
 msgid "Go to dashboards"
-msgstr "Gå til dashbordene"
+msgstr "Бошқарув панелларига ўтиш"
 
 msgid "Delete dashboard"
-msgstr "Slett dashbord"
+msgstr "Бошқарув панелини ўчириб ташлаш"
 
 msgid ""
 "Deleting dashboard \"{{ dashboardName }}\" will remove it for all users. "
 "This action cannot be undone. Are you sure you want to permanently delete "
 "this dashboard?"
 msgstr ""
-"Hvis du sletter dashbordet \"{{dashboardName}}\", fjernes det for alle "
-"brukere. Denne handlingen kan ikke angres. Er du sikker på at du vil slette "
-"dette dashbordet permanent?"
+"Панелни ўчириб ташлаш {{БошқарувПанелиНоми}}, уни барча фойдаланувчилар учун"
+" ўчирилишига олиб келади. Бу ҳаракатни орқага қайтариб бўлмайди. Ҳақиқатдан "
+"ҳам ушбу панелни орқага қайтариб бўлмаслик шарти билан ўчириб "
+"ташламоқчимисиз?"
 
 msgid "Cancel"
-msgstr "Avbryt"
+msgstr "Бекор қилиш"
 
 msgid "Discard changes"
-msgstr "Forkast endringer"
+msgstr "Ўзгартиришлар бекор қилинсин"
 
 msgid ""
 "This dashboard has unsaved changes. Are you sure you want to leave and "
@@ -250,32 +247,30 @@ msgid ""
 msgstr ""
 
 msgid "No, stay here"
-msgstr "Nei, bli her"
+msgstr "Йўқ, саҳифада қолиш"
 
 msgid "Yes, discard changes"
-msgstr "Ja, forkast endringer"
+msgstr ""
 
 msgid "No access"
-msgstr "Ingen tilgang"
+msgstr "Кириш ҳуқуқи мавжуд эмас"
 
 msgid "Not supported"
-msgstr "Ikke støttet"
+msgstr ""
 
 msgid ""
 "Editing dashboards on small screens is not supported. Resize your screen to "
 "return to edit mode."
 msgstr ""
-"Redigering av dashbord på små skjermer støttes ikke. Endre størrelsen på "
-"skjermen for å gå tilbake til redigeringsmodus."
 
 msgid "Allow filtering by all dimensions"
-msgstr "Tillat filtrering etter alle dimensjoner"
+msgstr ""
 
 msgid "Only allow filtering by selected dimensions"
-msgstr "Tillat bare filtrering etter valgte dimensjoner"
+msgstr ""
 
 msgid "Dashboard filter settings"
-msgstr "Dashbordfilterinnstillinger"
+msgstr ""
 
 msgid ""
 "Dashboards can be filtered by dimensions to change\n"
@@ -283,34 +278,30 @@ msgid ""
 "                                         as filters. Alternatively, only selected dimensions can\n"
 "                                         be made available on a dashboard."
 msgstr ""
-"Dashbord kan filtreres etter dimensjoner for å endre\n"
-"                                         dataene som vises. Som standard er alle dimensjoner tilgjengelige\n"
-"                                         som filtre. Alternativt er det bare valgte dimensjoner som kan\n"
-"                                         gjøres tilgjengelig på et dashbord."
 
 msgid "Available Filters"
-msgstr "Tilgjengelige filtere"
+msgstr ""
 
 msgid "Selected Filters"
-msgstr "Valgte filtere"
+msgstr ""
 
 msgid "Confirm"
-msgstr "Bekreft"
+msgstr "Тасдиқланг"
 
 msgid "There are no items on this dashboard"
-msgstr "Det er ingen elementer på dette dashbordet"
+msgstr "Ушбу бошқарув панелида элементлар йўқ"
 
 msgid "Show fewer"
-msgstr "Vis færre"
+msgstr "Камроқ кўрсатиш"
 
 msgid "Show more"
-msgstr "Vis mer"
+msgstr "Кўпроқ кўрсатилсин"
 
 msgid "Insert"
-msgstr "Sett inn"
+msgstr "Киритиш"
 
 msgid "Search for items to add to this dashboard"
-msgstr "Søk etter elementer du vil legge til i dette dashbordet"
+msgstr "Ушбу бошқарув панелига киритиш учун элементларни қидиринг"
 
 msgid "Search for visualizations, reports and more"
 msgstr ""
@@ -319,13 +310,13 @@ msgid "Cannot search for dashboard items while offline"
 msgstr ""
 
 msgid "Additional items"
-msgstr "Ytterligere elementer"
+msgstr "Қўшимча элементлар"
 
 msgid "Text box"
-msgstr "Tekstboks"
+msgstr "Матн жойи"
 
 msgid "Dashboard layout"
-msgstr "Dashbordoppsett"
+msgstr "Бошқарув панели макети"
 
 msgid "Freeflow"
 msgstr ""
@@ -359,7 +350,7 @@ msgid "Save layout"
 msgstr ""
 
 msgid "Dashboard title"
-msgstr "Dashbordtittel"
+msgstr "Бошқарув панели номланиши"
 
 msgid "Dashboard code"
 msgstr ""
@@ -368,15 +359,14 @@ msgid "Code can't be longer than 50 characters"
 msgstr ""
 
 msgid "Dashboard description"
-msgstr "Beskrivelse av dashbord"
+msgstr "Бошқарув панели тавсифи"
 
 msgid "Layout"
-msgstr "Oppsett"
+msgstr "Жойлашиш тартиби"
 
 msgid "{{count}} columns"
 msgid_plural "{{count}} columns"
 msgstr[0] ""
-msgstr[1] ""
 
 msgid "Change layout"
 msgstr ""
@@ -391,25 +381,27 @@ msgid "Start of dashboard"
 msgstr ""
 
 msgid "Print"
-msgstr "Skriv ut"
+msgstr "Чоп этиш"
 
 msgid "dashboard layout"
-msgstr "dashbordoppsett"
+msgstr "бошқариш панели макети"
 
 msgid "one item per page"
-msgstr "ett element per side"
+msgstr "бир саҳифада бир элемент"
 
 msgid "Print Preview"
-msgstr "Utskriftforhåndsvisning"
+msgstr "Чоп этишдан аввалги кўрик"
 
 msgid "For best print results"
-msgstr "For best utskriftsresultat"
+msgstr "Босиб чиқаришда (принтерда) энг яхши натижага эришиш"
 
 msgid "Use Chrome or Edge web browser"
-msgstr "BrukChrome eller Edge-nettleser"
+msgstr " Chrome ёки Edge браузеридан фойдаланинг"
 
 msgid "Wait for all dashboard items to load before printing"
-msgstr "Vent til alle dashbordelementene har lastet før du skriver ut"
+msgstr ""
+"Босиб чиқаришдан олдин бошқариш панелига барча элементларнинг юкланишини "
+"кутинг"
 
 msgid ""
 "Use A4 landscape paper size, default margin settings and turn on background "
@@ -417,7 +409,7 @@ msgid ""
 msgstr ""
 
 msgid "Getting started"
-msgstr "Komme i gang"
+msgstr "Иш бошланганида"
 
 msgid "Search for and open saved dashboards from the top bar."
 msgstr ""
@@ -434,15 +426,16 @@ msgid "Your most viewed dashboards"
 msgstr ""
 
 msgid "No dashboards found. Use the + button to create a new dashboard."
-msgstr "Ingen dashbord funnet. Bruk + -knappen for å lage et nytt dashbord."
+msgstr ""
+"Бошқарув панели топилмади. Янги бошқарув панелини яратиш учун + тугмасини "
+"босинг."
 
 msgid "Requested dashboard not found"
-msgstr "Forespurt dashbord ikke funnet"
+msgstr "Сўралган бошқарув панели топилмади"
 
 msgid "{{count}} selected"
 msgid_plural "{{count}} selected"
-msgstr[0] "{{count}} valgt"
-msgstr[1] "{{count}} valgt"
+msgstr[0] "{{жами}} танланган"
 
 msgid "Cannot remove filters while offline"
 msgstr ""
@@ -456,7 +449,7 @@ msgid ""
 msgstr ""
 
 msgid "No, cancel"
-msgstr "Nei, avbryt"
+msgstr "Йўқ, бекор қилинг"
 
 msgid "Yes, remove filters"
 msgstr ""
@@ -465,10 +458,10 @@ msgid "The dashboard couldn't be made available offline. Try again."
 msgstr ""
 
 msgid "Failed to unstar the dashboard"
-msgstr "Kunne ikke fjerne stjernemerket på dashbordet"
+msgstr ""
 
 msgid "Failed to star the dashboard"
-msgstr "Kunne ikke stjernemerke dashbordet"
+msgstr ""
 
 msgid "Remove from offline storage"
 msgstr ""
@@ -480,31 +473,31 @@ msgid "Sync offline data now"
 msgstr ""
 
 msgid "Unstar dashboard"
-msgstr "Fjern stjerne fra dashbordet"
+msgstr "Бошқарув панелидаги юлдузча ўчирилади"
 
 msgid "Star dashboard"
-msgstr "Merk dashbord med stjerne"
+msgstr "Бошқарув панелига юлдузча ўрнатилади"
 
 msgid "Hide description"
-msgstr "Skjul beskrivelse"
+msgstr "Тавсифни беркитиш"
 
 msgid "Show description"
-msgstr "Vis beskrivelse"
+msgstr "Тавсифни кўрсатиш"
 
 msgid "One item per page"
-msgstr "Ett element per side"
+msgstr "Ҳар бир саҳифада битта элемент"
 
 msgid "Close dashboard"
 msgstr ""
 
 msgid "More"
-msgstr "Mer"
+msgstr "Кўпроқ"
 
 msgid "Edit"
-msgstr "Rediger"
+msgstr "Таҳрирлаш"
 
 msgid "Share"
-msgstr "Del"
+msgstr "Улашиш"
 
 msgid "Clear dashboard filters?"
 msgstr ""
@@ -518,10 +511,10 @@ msgid "Yes, clear filters and sync"
 msgstr ""
 
 msgid "No description"
-msgstr "Ingen beskrivelse"
+msgstr "Тавсиф йўқ"
 
 msgid "Add filter"
-msgstr "Legg til filter"
+msgstr "Фильтр киритиш"
 
 msgid "Offline data last updated {{time}}"
 msgstr ""
@@ -533,13 +526,13 @@ msgid "Cannot star this dashboard while offline"
 msgstr ""
 
 msgid "Loading dashboard – {{name}}"
-msgstr "Laster dashbord - {{name}}"
+msgstr "Бошқарув панели юкланмоқда - {{исми}}"
 
 msgid "Loading dashboard"
 msgstr ""
 
 msgid "Offline"
-msgstr "Frakoblet"
+msgstr "Оффлайн"
 
 msgid "This dashboard cannot be loaded while offline."
 msgstr ""
