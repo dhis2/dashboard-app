@@ -43,7 +43,7 @@ msgstr ""
 msgid ""
 "Failed to save dashboard. You might be offline or not have access to edit "
 "this dashboard."
-msgstr ""
+msgstr "Бошқарув панели сақланмади. Сиз оффлайн ёки бу ҳуқуқга эга эмассиз."
 
 msgid "Save changes"
 msgstr "Ўзгартиришни сақлаш"
@@ -55,7 +55,7 @@ msgid "Print preview"
 msgstr "Чоп этишдан аввалги кўрик"
 
 msgid "Filter settings"
-msgstr ""
+msgstr "Фильтр созламалари"
 
 msgid "Translate"
 msgstr "Таржима қилинг"
@@ -70,10 +70,10 @@ msgid "Search for a dashboard"
 msgstr "Бошқариш панелида излаш"
 
 msgid "Show fewer dashboards"
-msgstr ""
+msgstr "Камроқ мониторинг панелини кўрсатиш"
 
 msgid "Show more dashboards"
-msgstr ""
+msgstr "Кўпроқ мониторинг панелини кўрсатиш"
 
 msgid "No dashboards found. Use the + button to create a new dashboard."
 msgstr ""
@@ -90,14 +90,18 @@ msgid ""
 "Editing dashboards on small screens is not supported. Resize your screen to "
 "return to edit mode."
 msgstr ""
+"Кичрайтирилган экранда асбоблар панелини таҳрирлаш қўллаб қувватланмайди. "
+"Таҳрирлаш режимига ўтиш учун экран ўлчамини ўзгартиринг."
 
 msgid ""
 "Creating dashboards on small screens is not supported. Resize your screen to"
 " return to create mode."
 msgstr ""
+"Кичрайтирилган экранда асбоблар панелини яратиш қўллаб қувватланмайди. "
+"Яратиш режимига ўтиш учун экран ўлчамини ўзгартиринг."
 
 msgid "Not supported"
-msgstr ""
+msgstr "Қўллаб қувватланмади"
 
 msgid "Print"
 msgstr "Чоп этиш"
@@ -149,10 +153,10 @@ msgid "See all messages"
 msgstr "Барча хабарларни кщриш"
 
 msgid "Item type \"{{type}}\" is not supported"
-msgstr ""
+msgstr "Элемент тури \"{{type}}\" қўллаб қувватланмади"
 
 msgid "The item type is missing"
-msgstr ""
+msgstr "Элемент тури мавжуд эмас"
 
 msgid "Filters applied"
 msgstr "Фильтр қўлланилди"
@@ -185,25 +189,25 @@ msgid "Open in {{appName}} app"
 msgstr "Иловада {{ИловаНоми}} да очиш"
 
 msgid "View fullscreen"
-msgstr ""
+msgstr "Экранни тўлдириб кўрсатиш"
 
 msgid "View as Chart"
 msgstr "Диаграмма сифатида кўриш"
 
 msgid "This map can't be displayed as a chart"
-msgstr ""
+msgstr "Ушбу харитани диаграмма сифатида кўрсатиб бўлмайди"
 
 msgid "View as Table"
 msgstr "Жадвал сифатида кўриш"
 
 msgid "This map can't be displayed as a table"
-msgstr ""
+msgstr "Ушбу харитани жадвал сифатида кўратиб бўлмайди"
 
 msgid "View as Map"
 msgstr "Харита сифатида кўриш"
 
 msgid "There was a problem loading interpretations for this item"
-msgstr ""
+msgstr "Ушбу элемент тавсифини юклашда хатолик юз берди"
 
 msgid "Unable to load the plugin for this item"
 msgstr "Ушбу элемент учун плагин юкланмади"
@@ -212,10 +216,10 @@ msgid "No data to display"
 msgstr "Маълумот экранга чиқарилмади"
 
 msgid "There was an error loading data for this item"
-msgstr ""
+msgstr "Ушбу элемент маълумотларини юклашда хатолик юз берди"
 
 msgid "Open this item in {{appName}}"
-msgstr ""
+msgstr " {{appName}}да ушбу элементни очмоқ"
 
 msgid "Confirm"
 msgstr "Тасдиқланг"
@@ -224,13 +228,13 @@ msgid "Add filter"
 msgstr "Фильтр киритиш"
 
 msgid "Allow filtering by all dimensions"
-msgstr ""
+msgstr "Барча ўлчамлар бўйича фильтрлашга рухсат бериш"
 
 msgid "Only allow filtering by selected dimensions"
-msgstr ""
+msgstr "Фақат танланган ўлчамлар бўйича фильтрлашга ручсат бериш"
 
 msgid "Dashboard filter settings"
-msgstr ""
+msgstr "Бошқарув панели фильтр созламалари"
 
 msgid ""
 "Dashboards can be filtered by dimensions to change\n"
@@ -238,12 +242,16 @@ msgid ""
 "                                         as filters. Alternatively, only selected dimensions can\n"
 "                                         be made available on a dashboard."
 msgstr ""
+"Кўрсатиладиган маълумотларни ўзгартириш учун асбоблар панелида ўлчамлар "
+"бўйича фильтрлаш мумкин. Одатда балча ўлчамлар фильтрлаш учун "
+"мослаштирилган. Алтернатив шаклда асбоблар панелида фақат танланганлар учун "
+"фильтр созлаш мумкин."
 
 msgid "Available Filters"
-msgstr ""
+msgstr "Мавжуд фильтрлар"
 
 msgid "Selected Filters"
-msgstr ""
+msgstr "Танланган фильтрлар"
 
 msgid "There are no items on this dashboard"
 msgstr "Ушбу бошқарув панелида элементлар йўқ"
@@ -279,10 +287,10 @@ msgid "Show description"
 msgstr "Тавсифни кўрсатиш"
 
 msgid "Failed to hide description"
-msgstr ""
+msgstr "Тавсифларни яшириб бўлмади"
 
 msgid "Failed to show description"
-msgstr ""
+msgstr "Тавсифларни кўрсатиб бўлмади"
 
 msgid "Unstar dashboard"
 msgstr "Бошқарув панелидаги юлдузча ўчирилади"
@@ -291,10 +299,10 @@ msgid "Star dashboard"
 msgstr "Бошқарув панелига юлдузча ўрнатилади"
 
 msgid "Failed to unstar the dashboard"
-msgstr ""
+msgstr "Бошқарув панелидаги белги олиб ташланмади"
 
 msgid "Failed to star the dashboard"
-msgstr ""
+msgstr "Бошқарув панелида белги қўйиб бўлмади"
 
 msgid "More"
 msgstr "Кўпроқ"
