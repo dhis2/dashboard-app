@@ -2158,10 +2158,10 @@
     classnames "^2.3.1"
     prop-types "^15.7.2"
 
-"@dhis2/analytics@26.2.0-cumulative-values-alpha.1":
-  version "26.2.0-cumulative-values-alpha.1"
-  resolved "https://registry.yarnpkg.com/@dhis2/analytics/-/analytics-26.2.0-cumulative-values-alpha.1.tgz#013097045287c0622417933526c119f1fc689130"
-  integrity sha512-vFBqRdwtNnXbSBUlLQd16idbarJV17II4KushjptL3fRoBxxsgKdLc0o+pJuYPGmHG07FASbFby614I+6dAKaQ==
+"@dhis2/analytics@^26.2.0":
+  version "26.2.0"
+  resolved "https://registry.yarnpkg.com/@dhis2/analytics/-/analytics-26.2.0.tgz#36a7f258ac96ddab90f4001e62257e2cc64f202e"
+  integrity sha512-YcJu6EHnor6pbHmwXKYumLRVy/9TxuLtBDv9JIzjt9/APZa8kbak6sT2/53pnWDnbUjzDwR8EV1UIz24vAX+ig==
   dependencies:
     "@dhis2/d2-ui-rich-text" "^7.4.1"
     "@dhis2/multi-calendar-dates" "1.0.0"
