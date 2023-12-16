@@ -5,7 +5,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2021-12-21T08:20:25.327Z\n"
+"POT-Creation-Date: 2023-05-10T12:25:45.620Z\n"
 "PO-Revision-Date: 2022-10-15 22:30+0000\n"
 "Last-Translator: Jiří Podhorecký, 2023\n"
 "Language-Team: Czech (https://app.transifex.com/hisp-uio/teams/100509/cs/)\n"
@@ -72,6 +72,12 @@ msgstr "Textová položka"
 msgid "Add text here"
 msgstr "Sem přidat text"
 
+msgid "Filters are not applied to line list dashboard items"
+msgstr "Filtry se nepoužívají na položky ovládacího panelu řádkového seznamu"
+
+msgid "Filters not applied"
+msgstr "Filtry nejsou použity"
+
 msgid "There was a problem loading this dashboard item"
 msgstr "Při načítání této položky ovládacího panelu došlo k problému"
 
@@ -111,8 +117,29 @@ msgstr "Mapy s vrstvami Earth Engine nelze zobrazit v režimu offline"
 msgid "Unable to load the plugin for this item"
 msgstr "Nelze načíst plugin pro tuto položku"
 
+msgid "The plugin for rendering this item is not available"
+msgstr "Plugin pro vykreslení této položky není k dispozici"
+
+msgid "Install the {{appName}} app from the App Hub"
+msgstr "Nainstalujte si aplikaci {{appName}} z App Hub"
+
 msgid "No data to display"
 msgstr "Žádná data k zobrazení"
+
+msgid ""
+"Install Line Listing app version ${minLLVersion.join(\n"
+"                                '.'\n"
+"                            )} or higher in order to display this item."
+msgstr ""
+"Nainstalovat aplikaci Line Listing verze ${minLLVersion.join(\n"
+"                                '.'\n"
+"                            )} nebo vyšší pro zobrazení této položky."
+
+msgid "Filters are not applied to line list dashboard items."
+msgstr ""
+
+msgid "Show without filters"
+msgstr "Zobrazit bez filtrů"
 
 msgid "There was an error loading data for this item"
 msgstr "Při načítání dat této položky došlo k chybě"
@@ -140,6 +167,9 @@ msgstr "Zprávy o událostech"
 
 msgid "Event charts"
 msgstr "Grafy událostí"
+
+msgid "Line lists"
+msgstr ""
 
 msgid "Apps"
 msgstr "Aplikace"
