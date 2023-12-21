@@ -38,6 +38,7 @@ export const InterpretationReplyForm = ({
     onGoBackClicked,
     onInterpretationDeleted,
     dashboardRedirectUrl,
+    initialFocus,
 }) => {
     const { data, refetch, loading, fetching } = useDataQuery(query, {
         lazy: true,
@@ -87,7 +88,7 @@ export const InterpretationReplyForm = ({
                 interpretation={interpretation}
                 onInterpretationDeleted={onInterpretationDeleted}
                 onThreadUpdated={onThreadUpdated}
-                initialFocus={true}
+                initialFocus={initialFocus}
                 dashboardRedirectUrl={dashboardRedirectUrl}
             />
         </div>
@@ -105,5 +106,6 @@ InterpretationReplyForm.propTypes = {
     interpretationId: PropTypes.string.isRequired,
     onGoBackClicked: PropTypes.func.isRequired,
     dashboardRedirectUrl: PropTypes.string,
+    initialFocus: PropTypes.bool,
     onInterpretationDeleted: PropTypes.func,
 }

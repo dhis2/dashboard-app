@@ -13,7 +13,22 @@ import classes from './styles/ItemFooter.module.css'
 const ItemFooter = ({ item }) => {
     const { baseUrl } = useConfig()
     const [interpretationId, setInterpretationId] = useState(null)
+    const [replyInitialFocus, setReplyInitialFocus] = useState(false)
     const { d2 } = useD2()
+
+    const setReplyToInterpretation = (id) => {
+        setInterpretationId(id)
+        setReplyInitialFocus(true)
+    }
+    const clearInterpretation = () => {
+        setInterpretationId(null)
+        setReplyInitialFocus(false)
+    }
+
+    const setViewInterpretation = (id) => {
+        setInterpretationId(id)
+        setReplyInitialFocus(false)
+    }
 
     const id = getVisualizationId(item)
     const dashboardRedirectUrl = getItemUrl(item.type, { id }, baseUrl)
@@ -33,8 +48,9 @@ const ItemFooter = ({ item }) => {
                             currentUser={d2.currentUser}
                             interpretationId={interpretationId}
                             dashboardRedirectUrl={dashboardRedirectUrl}
-                            onGoBackClicked={() => setInterpretationId(null)}
+                            onGoBackClicked={clearInterpretation}
                             onInterpretationDeleted={Function.prototype}
+                            initialFocus={replyInitialFocus}
                         />
                     ) : (
                         <InterpretationsUnit
@@ -42,9 +58,8 @@ const ItemFooter = ({ item }) => {
                             type={item.type.toLowerCase()}
                             id={id}
                             dashboardRedirectUrl={dashboardRedirectUrl}
-                            inlineReply={true}
-                            onInterpretationClick={setInterpretationId}
-                            onReplyIconClick={setInterpretationId}
+                            onInterpretationClick={setViewInterpretation}
+                            onReplyIconClick={setReplyToInterpretation}
                         />
                     )}
                 </FatalErrorBoundary>
