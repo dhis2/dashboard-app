@@ -1,11 +1,11 @@
 {
     "name": "dashboard-app",
-    "version": "100.0.3",
+    "version": "100.0.4",
     "description": "DHIS2 Dashboard app",
     "private": true,
     "license": "BSD-3-Clause",
     "dependencies": {
-        "@dhis2/analytics": "^26.0.17",
+        "@dhis2/analytics": "^26.2.0",
         "@dhis2/app-runtime": "^3.9.4",
         "@dhis2/app-runtime-adapter-d2": "^1.1.0",
         "@dhis2/d2-i18n": "^1.1.1",

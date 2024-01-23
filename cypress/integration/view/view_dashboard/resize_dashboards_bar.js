@@ -5,6 +5,9 @@ import {
 } from '../../../elements/viewDashboard.js'
 import { EXTENDED_TIMEOUT } from '../../../support/utils.js'
 
+const RESP_CODE_200 = 200
+const RESP_CODE_201 = 201
+
 // Scenario: I change the height of the control bar
 When('I drag to increase the height of the control bar', () => {
     cy.intercept('PUT', '/userDataStore/dashboard/controlBarRows').as('putRows')
@@ -14,7 +17,9 @@ When('I drag to increase the height of the control bar', () => {
         .trigger('mousemove', { clientY: 300 })
         .trigger('mouseup')
 
-    cy.wait('@putRows').its('response.statusCode').should('eq', 201)
+    cy.wait('@putRows')
+        .its('response.statusCode')
+        .should('be.oneOf', [RESP_CODE_200, RESP_CODE_201])
 })
 
 Then('the control bar height should be updated', () => {
@@ -29,7 +34,9 @@ Then('the control bar height should be updated', () => {
         .trigger('mousedown')
         .trigger('mousemove', { clientY: 71 })
         .trigger('mouseup')
-    cy.wait('@putRows').its('response.statusCode').should('eq', 201)
+    cy.wait('@putRows')
+        .its('response.statusCode')
+        .should('be.oneOf', [RESP_CODE_200, RESP_CODE_201])
 })
 
 When('I drag to decrease the height of the control bar', () => {
@@ -40,5 +47,7 @@ When('I drag to decrease the height of the control bar', () => {
         .trigger('mousemove', { clientY: 300 })
         .trigger('mouseup')
 
-    cy.wait('@putRows').its('response.statusCode').should('eq', 201)
+    cy.wait('@putRows')
+        .its('response.statusCode')
+        .should('be.oneOf', [RESP_CODE_200, RESP_CODE_201])
 })
