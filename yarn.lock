@@ -3,9 +3,9 @@
 
 
 "@adobe/css-tools@^4.3.0":
-  version "4.3.1"
-  resolved "https://registry.yarnpkg.com/@adobe/css-tools/-/css-tools-4.3.1.tgz#abfccb8ca78075a2b6187345c26243c1a0842f28"
-  integrity sha512-/62yikz7NLScCGAAST5SHdnjaDJQBDq0M2muyRTpf2VQhw6StBg2ALiu73zSJQ4fMVLA+0uBhBHAle7Wg+2kSg==
+  version "4.3.2"
+  resolved "https://registry.yarnpkg.com/@adobe/css-tools/-/css-tools-4.3.2.tgz#a6abc715fb6884851fca9dad37fc34739a04fd11"
+  integrity sha512-DA5a1C0gD/pLOvhv33YMrbf2FK3oUzwNl9oOJqE4XVjuEtt6XIakRcsd7eLiOSPkp1kTRQGICTA8cKra/vFbjw==
 
 "@ampproject/remapping@^2.1.0":
   version "2.2.0"
@@ -2158,10 +2158,10 @@
     classnames "^2.3.1"
     prop-types "^15.7.2"
 
-"@dhis2/analytics@^26.0.17":
-  version "26.0.17"
-  resolved "https://registry.yarnpkg.com/@dhis2/analytics/-/analytics-26.0.17.tgz#f6f550c266478c38872429ee422f6a890b189a82"
-  integrity sha512-681OmaLrAetgHL59iU9ldeaXZ7NLp5T3nWLxGQGAklUwCpmny32wJKj2aXsCQN6WYuGDvz9PgpqN+YrkAMChFQ==
+"@dhis2/analytics@^26.2.0":
+  version "26.2.0"
+  resolved "https://registry.yarnpkg.com/@dhis2/analytics/-/analytics-26.2.0.tgz#36a7f258ac96ddab90f4001e62257e2cc64f202e"
+  integrity sha512-YcJu6EHnor6pbHmwXKYumLRVy/9TxuLtBDv9JIzjt9/APZa8kbak6sT2/53pnWDnbUjzDwR8EV1UIz24vAX+ig==
   dependencies:
     "@dhis2/d2-ui-rich-text" "^7.4.1"
     "@dhis2/multi-calendar-dates" "1.0.0"
