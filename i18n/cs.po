@@ -73,10 +73,10 @@ msgid "Add text here"
 msgstr "Sem přidat text"
 
 msgid "Filters are not applied to line list dashboard items"
-msgstr ""
+msgstr "Filtry se nepoužívají na položky ovládacího panelu řádkového seznamu"
 
 msgid "Filters not applied"
-msgstr ""
+msgstr "Filtry nejsou použity"
 
 msgid "There was a problem loading this dashboard item"
 msgstr "Při načítání této položky ovládacího panelu došlo k problému"
@@ -112,16 +112,16 @@ msgid "There was a problem loading interpretations for this item"
 msgstr "Při načítání interpretací této položky došlo k problému"
 
 msgid "The plugin for rendering this item is not available"
-msgstr ""
+msgstr "Plugin pro vykreslení této položky není k dispozici"
 
 msgid "Install the {{appName}} app from the App Hub"
-msgstr ""
+msgstr "Nainstalujte si aplikaci {{appName}} z App Hub"
 
 msgid "No data to display"
 msgstr "Žádná data k zobrazení"
 
 msgid "Show without filters"
-msgstr ""
+msgstr "Zobrazit bez filtrů"
 
 msgid "Maps with Earth Engine layers cannot be displayed when offline"
 msgstr "Mapy s vrstvami Earth Engine nelze zobrazit v režimu offline"
