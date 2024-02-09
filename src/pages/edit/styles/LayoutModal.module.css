@@ -3,7 +3,7 @@
     align-items: flex-start;
     cursor: pointer;
     padding: var(--spacers-dp16);
-    margin-bottom: var(--spacers-dp8);
+    margin-block-end: var(--spacers-dp8);
     border: 1px solid var(--colors-grey300);
     border-radius: 3px;
 }
@@ -14,12 +14,15 @@
 }
 
 .radio {
-    margin-top: var(--spacers-dp16);
-    margin-right: var(--spacers-dp8);
+    margin-block-start: var(--spacers-dp16);
+    margin-inline-end: var(--spacers-dp8);
 }
 
 .iconWrapper {
-    margin: 2px var(--spacers-dp16) 0 var(--spacers-dp24);
+    margin-block-start: 2px;
+    margin-block-end: 0;
+    margin-inline-start: var(--spacers-dp24);
+    margin-inline-end: var(--spacers-dp16);
     fill: var(--colors-grey500);
 }
 
@@ -28,7 +31,10 @@
 }
 
 .title {
-    margin: 0 0 var(--spacers-dp8) 0;
+    margin-block-start: 0;
+    margin-block-end: var(--spacers-dp8);
+    margin-inline-start: 0;
+    margin-inline-end: 0;
     font-size: 20px;
 }
 
@@ -40,9 +46,9 @@
 
 .columnOptions {
     display: flex;
-    margin-top: var(--spacers-dp16);
+    margin-block-start: var(--spacers-dp16);
 }
 
 .gap {
-    margin-left: var(--spacers-dp16);
+    margin-inline-start: var(--spacers-dp16);
 }

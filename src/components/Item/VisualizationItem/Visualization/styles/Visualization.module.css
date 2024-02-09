@@ -4,8 +4,8 @@
     gap: var(--spacers-dp8);
     align-items: center;
     justify-content: center;
-    height: 100%;
-    width: 100%;
+    block-size: 100%;
+    inline-size: 100%;
     background-color: rgba(255, 255, 255, 0.92);
     font-size: 13px;
     font-stretch: normal;
