@@ -126,7 +126,7 @@ jobs:
         if: |
             !github.event.push.repository.fork &&
             github.actor != 'dependabot[bot]' &&
-            github.event_name != 'pull_request'
+            github.ref == 'refs/heads/master'
         steps:
             - uses: actions/checkout@v3
               with:
@@ -196,8 +196,9 @@ jobs:
         needs: release
         if: |
             success() &&
-            !cancelled()  &&
-            github.ref == 'refs/heads/master'
+            !cancelled() &&
+            github.ref == 'refs/heads/master' &&
+            contains(github.event.head_commit.message, 'chore(release)')
         steps:
             - name: Checkout code
               uses: actions/checkout@master
@@ -213,13 +214,41 @@ jobs:
                   channel-id: ${{ secrets.SLACK_CHANNEL_ID }}
                   payload: |
                       {
-                        "text": ":large_green_circle: :dashboard-app: :tada: Dashboard app release succeeded for version: ${{ steps.extract_version.outputs.version }}",
+                        "text": "Dashboard app release ${{ steps.extract_version.outputs.version }} succeeded",
                         "blocks": [
+                          {
+                            "type": "header",
+                            "text": {
+                                "type": "plain_text",
+                                "text": ":large_green_circle: :dashboard-app: Dashboard version ${{ steps.extract_version.outputs.version }} released :tada:",
+                                "emoji": true
+                            }
+                          },
+                          {
+                            "type": "divider"
+                          },
                           {
                             "type": "section",
                             "text": {
-                              "type": "mrkdwn",
-                              "text": ":large_green_circle: :dashboard-app: :tada: Dashboard version ${{ steps.extract_version.outputs.version }} released <https://github.com/dhis2/dashboard-app/actions/workflows/dhis2-verify-app.yml?query=branch%3Amaster+is%3Asuccess|successfully>"
+                                "type": "mrkdwn",
+                                "text": "*Release Notes*"
+                            }
+                          },
+                          {
+                            "type": "section",
+                            "text": {
+                                "type": "mrkdwn",
+                                "text": ${{ toJSON(github.event.head_commit.message) }}
+                            }
+                          },
+                          {
+                            "type": "divider"
+                          },
+                          {
+                            "type": "section",
+                            "text": {
+                                "type": "mrkdwn",
+                                "text": "Link to <https://github.com/dhis2/dashboard-app/actions/workflows/dhis2-verify-app.yml?query=branch%3Amaster+is%3Asuccess|build>"
                             }
                           }
                         ]
