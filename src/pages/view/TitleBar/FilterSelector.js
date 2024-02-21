@@ -62,6 +62,8 @@ const FilterSelector = (props) => {
         <>
             <span className={classes.buttonContainer}>
                 <DropdownButton
+                    small
+                    secondary
                     open={filterDialogIsOpen}
                     disabled={offline}
                     onClick={toggleFilterDialogIsOpen}

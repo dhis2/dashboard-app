@@ -1,16 +1,14 @@
 .actions {
     display: flex;
     align-items: center;
-    margin-left: 8px;
+    gap: var(--spacers-dp8);
+    padding: 0 var(--spacers-dp8);
 }
 
 .strip {
     display: flex;
-    margin-left: var(--spacers-dp8);
-}
-
-.strip > * {
-    margin-left: var(--spacers-dp8);
+    align-items: center;
+    gap: var(--spacers-dp4);
 }
 
 .strip .moreButtonSmall {
