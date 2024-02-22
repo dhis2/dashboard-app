@@ -2153,12 +2153,13 @@
     classnames "^2.3.1"
     prop-types "^15.7.2"
 
-"@dhis2/analytics@^24.0.9":
-  version "24.2.5"
-  resolved "https://registry.yarnpkg.com/@dhis2/analytics/-/analytics-24.2.5.tgz#85b3b42081cf0a08963d33f213625a11450b183a"
-  integrity sha512-NKC461JXEpz6+Dkc14QPm1N56YxR3/7qAlV4pu2Tpa1yZqrZpNQBPRsCG3bd0T9BkkbClkCWfr/oH9VA9jUyTQ==
+"@dhis2/analytics@^24.9.3":
+  version "24.10.2"
+  resolved "https://registry.yarnpkg.com/@dhis2/analytics/-/analytics-24.10.2.tgz#011d49703125112dda792eadd2fa150d9fa95484"
+  integrity sha512-26BUUut1AwMEBipgIjKbZGFR9PvrZmf0cJ3am71yMj33n6XRLYI13NUduJ4hSGKXO5bwRkthNkUBsNzhCxOHoQ==
   dependencies:
     "@dhis2/d2-ui-rich-text" "^7.4.0"
+    "@dhis2/multi-calendar-dates" "1.0.0"
     classnames "^2.3.1"
     d2-utilizr "^0.2.16"
     d3-color "^1.2.3"
@@ -2204,7 +2205,7 @@
   dependencies:
     prop-types "^15.7.2"
 
-"@dhis2/app-runtime@^3.4.4", "@dhis2/app-runtime@^3.9.0", "@dhis2/app-runtime@^3.9.3":
+"@dhis2/app-runtime@^3.9.0", "@dhis2/app-runtime@^3.9.3":
   version "3.9.3"
   resolved "https://registry.yarnpkg.com/@dhis2/app-runtime/-/app-runtime-3.9.3.tgz#6316aabf213be5ee33da36a015f85ef72bd54544"
   integrity sha512-Exfp8EFa81uobEpFFKwxWi6KEioZlGhaQwIBb/dV9sxSjMEg3wO1ULdSi2VBdf9/UQKb/0YM+Ki7d9/bCsRrFw==
@@ -2454,13 +2455,13 @@
     recompose "^0.26.0"
     rxjs "^5.5.7"
 
-"@dhis2/data-visualizer-plugin@^39.2.10":
-  version "39.2.12"
-  resolved "https://registry.yarnpkg.com/@dhis2/data-visualizer-plugin/-/data-visualizer-plugin-39.2.12.tgz#a3e00e9ef6c9bed37d37536cf301e70f5a567aab"
-  integrity sha512-/esgB1JP+esNdkra6TAlxQjXYRwViHaakGeT9plCRIbCHVPNe0zo0BW/4m/M1ISaJUkrKts4X1R84WEKru3FDQ==
+"@dhis2/data-visualizer-plugin@39.2.19":
+  version "39.2.19"
+  resolved "https://registry.yarnpkg.com/@dhis2/data-visualizer-plugin/-/data-visualizer-plugin-39.2.19.tgz#817dae1fa463324b847cd18b7edb8f2c06f66770"
+  integrity sha512-CS6qgHRIcdaTwPZozzWmVvplEpojiLPP/sjsrnKcAIV6QIdMPSRC+xUEcDhzyzILcfDPTyruNXgEGQ1gI5Ukqg==
   dependencies:
-    "@dhis2/analytics" "^24.0.9"
-    "@dhis2/app-runtime" "^3.4.4"
+    "@dhis2/analytics" "^24.9.3"
+    "@dhis2/app-runtime" "^3.9.0"
     "@dhis2/d2-i18n" "^1.1.0"
     "@dhis2/ui" "^8.4.11"
     lodash-es "^4.17.21"
