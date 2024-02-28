@@ -1,15 +1,16 @@
 # 
 # Translators:
-# phil_dhis2, 2021
+# Philip Larsen Donnelly, 2021
 # Viktor Varland <viktor@dhis2.org>, 2021
+# Thiago Rocha, 2024
 # 
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
 "POT-Creation-Date: 2021-10-28T06:43:54.981Z\n"
 "PO-Revision-Date: 2021-09-03 23:41+0000\n"
-"Last-Translator: Viktor Varland <viktor@dhis2.org>, 2021\n"
-"Language-Team: Portuguese (Brazil) (https://www.transifex.com/hisp-uio/teams/100509/pt_BR/)\n"
+"Last-Translator: Thiago Rocha, 2024\n"
+"Language-Team: Portuguese (Brazil) (https://app.transifex.com/hisp-uio/teams/100509/pt_BR/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -141,7 +142,7 @@ msgid "Event charts"
 msgstr ""
 
 msgid "Apps"
-msgstr ""
+msgstr "Aplicações"
 
 msgid "Reports"
 msgstr "Relatórios"
@@ -166,7 +167,7 @@ msgid "Cannot save this dashboard while offline"
 msgstr ""
 
 msgid "Save changes"
-msgstr ""
+msgstr "Salvar alterações"
 
 msgid "Exit print preview"
 msgstr ""
@@ -219,7 +220,7 @@ msgid "Yes, discard changes"
 msgstr ""
 
 msgid "No access"
-msgstr ""
+msgstr "Sem acesso"
 
 msgid "Not supported"
 msgstr ""
@@ -409,7 +410,7 @@ msgid ""
 msgstr ""
 
 msgid "No, cancel"
-msgstr ""
+msgstr "Não, cancelar"
 
 msgid "Yes, remove filters"
 msgstr ""
@@ -451,7 +452,7 @@ msgid "Close dashboard"
 msgstr ""
 
 msgid "More"
-msgstr ""
+msgstr "Mais"
 
 msgid "Edit"
 msgstr "Editar"
