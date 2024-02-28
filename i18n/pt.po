@@ -1,19 +1,19 @@
 # 
 # Translators:
 # David Júnior <davidjr.mondlane@gmail.com>, 2022
-# phil_dhis2, 2022
 # Ge Joao <gsimango@saudigitus.org>, 2022
 # Fernando Jorge Bade, 2022
 # Viktor Varland <viktor@dhis2.org>, 2022
 # Sheila André <sandre@saudigitus.org>, 2022
 # Gabriela Rodriguez <grodriguezcoronado@gmail.com>, 2023
+# Philip Larsen Donnelly, 2024
 # 
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2021-12-21T08:20:25.327Z\n"
+"POT-Creation-Date: 2023-05-10T12:25:45.620Z\n"
 "PO-Revision-Date: 2022-10-15 22:30+0000\n"
-"Last-Translator: Gabriela Rodriguez <grodriguezcoronado@gmail.com>, 2023\n"
+"Last-Translator: Philip Larsen Donnelly, 2024\n"
 "Language-Team: Portuguese (https://app.transifex.com/hisp-uio/teams/100509/pt/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -78,6 +78,12 @@ msgstr "Item do texto"
 msgid "Add text here"
 msgstr "Adicione texto aqui"
 
+msgid "Filters are not applied to line list dashboard items"
+msgstr ""
+
+msgid "Filters not applied"
+msgstr ""
+
 msgid "There was a problem loading this dashboard item"
 msgstr "Ocorreu um problema ao carregar este item do painel"
 
@@ -117,8 +123,26 @@ msgstr ""
 msgid "Unable to load the plugin for this item"
 msgstr "Não foi possível carregar o plug-in para este item"
 
+msgid "The plugin for rendering this item is not available"
+msgstr ""
+
+msgid "Install the {{appName}} app from the App Hub"
+msgstr ""
+
 msgid "No data to display"
 msgstr "Não há dados para exibir"
+
+msgid ""
+"Install Line Listing app version ${minLLVersion.join(\n"
+"                                '.'\n"
+"                            )} or higher in order to display this item."
+msgstr ""
+
+msgid "Filters are not applied to line list dashboard items."
+msgstr ""
+
+msgid "Show without filters"
+msgstr ""
 
 msgid "There was an error loading data for this item"
 msgstr "Houve um erro de carregamento de dados para este item"
@@ -146,6 +170,9 @@ msgstr "Relatórios de eventos"
 
 msgid "Event charts"
 msgstr "Gráficos de eventos"
+
+msgid "Line lists"
+msgstr ""
 
 msgid "Apps"
 msgstr "Aplicações"
@@ -519,7 +546,7 @@ msgid "Cannot star this dashboard while offline"
 msgstr ""
 
 msgid "Loading dashboard – {{name}}"
-msgstr "Carregando painel – {{nome}}"
+msgstr "Carregando painel – {{name}}"
 
 msgid "Loading dashboard"
 msgstr "A carregar painel"
