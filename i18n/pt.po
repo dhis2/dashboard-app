@@ -1,19 +1,19 @@
 # 
 # Translators:
-# phil_dhis2, 2020
 # Viktor Varland <viktor@dhis2.org>, 2020
 # Sheila André <sandre@saudigitus.org>, 2020
 # Gabriela Rodriguez <grodriguezcoronado@gmail.com>, 2021
 # Fernando Jorge Bade, 2021
 # David Júnior <davidjr.mondlane@gmail.com>, 2022
+# Philip Larsen Donnelly, 2024
 # 
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
 "POT-Creation-Date: 2021-07-06T07:28:33.146Z\n"
 "PO-Revision-Date: 2020-12-22 22:13+0000\n"
-"Last-Translator: David Júnior <davidjr.mondlane@gmail.com>, 2022\n"
-"Language-Team: Portuguese (https://www.transifex.com/hisp-uio/teams/100509/pt/)\n"
+"Last-Translator: Philip Larsen Donnelly, 2024\n"
+"Language-Team: Portuguese (https://app.transifex.com/hisp-uio/teams/100509/pt/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -37,9 +37,9 @@ msgid ""
 "This action cannot be undone. Are you sure you want to permanently delete "
 "this dashboard?"
 msgstr ""
-"Ao apagar o painel \"{{dashboardName}}\" sera removido de todos os usuários "
-". Essa ação não pode ser desfeita. Tem certeza de que deseja apagar "
-"permanentemente este painel?"
+"Ao apagar o painel \"{{ dashboardName }}\" sera removido de todos os "
+"usuários . Essa ação não pode ser desfeita. Tem certeza de que deseja apagar"
+" permanentemente este painel?"
 
 msgid "Exit Print preview"
 msgstr "Sair da visualização de impressão"
