@@ -6,17 +6,17 @@
 # Viktor Varland <viktor@dhis2.org>, 2023
 # Alison Andrade <aandrade@ippfwhr.org>, 2023
 # Sergio Valenzuela <sergio.valenzuela@ehas.org>, 2023
-# Philip Larsen Donnelly, 2023
 # Prabhjot Singh, 2023
 # Enzo Nicolas Rossi <enzo@dhis2.org>, 2023
 # Janeth Cruz, 2023
+# Philip Larsen Donnelly, 2024
 # 
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
 "POT-Creation-Date: 2023-03-19T15:27:59.188Z\n"
 "PO-Revision-Date: 2023-05-22 18:14+0000\n"
-"Last-Translator: Janeth Cruz, 2023\n"
+"Last-Translator: Philip Larsen Donnelly, 2024\n"
 "Language-Team: Spanish (https://app.transifex.com/hisp-uio/teams/100509/es/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -391,9 +391,9 @@ msgstr "Diseño"
 
 msgid "{{count}} columns"
 msgid_plural "{{count}} columns"
-msgstr[0] "{{contar}} columna"
-msgstr[1] "{{contar}} columnas"
-msgstr[2] "{{contar}} columnas"
+msgstr[0] "{{count}} columna"
+msgstr[1] "{{count}} columnas"
+msgstr[2] "{{count}} columnas"
 
 msgid "Change layout"
 msgstr "Cambiar diseño"
@@ -563,7 +563,7 @@ msgid "Cannot star this dashboard while offline"
 msgstr "No se puede marcar este tablero sin conexión a internet"
 
 msgid "Loading dashboard – {{name}}"
-msgstr "Cargando panel – {{nombre}}"
+msgstr "Cargando panel – {{name}}"
 
 msgid "Loading dashboard"
 msgstr "Cargando tablero de mando"

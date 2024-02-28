@@ -1,14 +1,14 @@
 # 
 # Translators:
-# Enzo Nicolas Rossi <enzo@dhis2.org>, 2023
 # Jaime Bosque <jaime.bosque@dhis2.org>, 2023
+# Enzo Nicolas Rossi <enzo@dhis2.org>, 2024
 # 
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
 "POT-Creation-Date: 2023-03-19T15:27:59.188Z\n"
 "PO-Revision-Date: 2023-05-22 18:14+0000\n"
-"Last-Translator: Jaime Bosque <jaime.bosque@dhis2.org>, 2023\n"
+"Last-Translator: Enzo Nicolas Rossi <enzo@dhis2.org>, 2024\n"
 "Language-Team: Spanish (Latin America) (https://app.transifex.com/hisp-uio/teams/100509/es_419/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -41,7 +41,7 @@ msgid "This item has been shortened to fit on one page"
 msgstr ""
 
 msgid "Remove"
-msgstr ""
+msgstr "Eliminar"
 
 msgid "Messages"
 msgstr ""
@@ -239,7 +239,7 @@ msgid "No, stay here"
 msgstr "No, quedarme aquí."
 
 msgid "Yes, discard changes"
-msgstr ""
+msgstr "Sí, descartar cambios"
 
 msgid "No access"
 msgstr ""
