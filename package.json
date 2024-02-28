@@ -15,7 +15,7 @@
         "@dhis2/d2-ui-rich-text": "^7.4.3",
         "@dhis2/ui": "^8.14.0",
         "@krakenjs/post-robot": "^11.0.0",
-        "classnames": "^2.3.2",
+        "classnames": "^2.5.1",
         "d2": "^31.10.0",
         "d2-utilizr": "^0.2.16",
         "i18next": "^20.3.5",
