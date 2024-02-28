@@ -1,15 +1,16 @@
 # 
 # Translators:
-# phil_dhis2, 2021
+# Philip Larsen Donnelly, 2021
 # Viktor Varland <viktor@dhis2.org>, 2021
+# Thiago Rocha, 2024
 # 
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
 "POT-Creation-Date: 2022-01-10T14:24:29.926Z\n"
 "PO-Revision-Date: 2019-09-01 20:38+0000\n"
-"Last-Translator: Viktor Varland <viktor@dhis2.org>, 2021\n"
-"Language-Team: Portuguese (Brazil) (https://www.transifex.com/hisp-uio/teams/100509/pt_BR/)\n"
+"Last-Translator: Thiago Rocha, 2024\n"
+"Language-Team: Portuguese (Brazil) (https://app.transifex.com/hisp-uio/teams/100509/pt_BR/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -43,7 +44,7 @@ msgid ""
 msgstr ""
 
 msgid "Save changes"
-msgstr ""
+msgstr "Salvar alterações"
 
 msgid "Exit print preview"
 msgstr ""
@@ -79,7 +80,7 @@ msgid "Requested dashboard not found"
 msgstr ""
 
 msgid "No access"
-msgstr ""
+msgstr "Sem acesso"
 
 msgid ""
 "Editing dashboards on small screens is not supported. Resize your screen to "
@@ -288,7 +289,7 @@ msgid "Failed to star the dashboard"
 msgstr ""
 
 msgid "More"
-msgstr ""
+msgstr "Mais"
 
 msgid "Edit"
 msgstr "Editar"
@@ -324,7 +325,7 @@ msgid "Event charts"
 msgstr ""
 
 msgid "Apps"
-msgstr ""
+msgstr "Aplicações"
 
 msgid "Reports"
 msgstr "Relatórios"
