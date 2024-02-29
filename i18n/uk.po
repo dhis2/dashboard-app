@@ -1,17 +1,18 @@
 # 
 # Translators:
 # Viktor Varland <viktor@dhis2.org>, 2020
-# phil_dhis2, 2021
 # Wanda <wanda@frontlineaids.org>, 2021
 # Éva Tamási, 2022
+# Nadiia <semchuk@aph.org.ua>, 2023
+# Philip Larsen Donnelly, 2024
 # 
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2021-12-21T08:20:25.327Z\n"
+"POT-Creation-Date: 2023-05-03T11:08:21.315Z\n"
 "PO-Revision-Date: 2019-06-25 12:37+0000\n"
-"Last-Translator: Éva Tamási, 2022\n"
-"Language-Team: Ukrainian (https://www.transifex.com/hisp-uio/teams/100509/uk/)\n"
+"Last-Translator: Philip Larsen Donnelly, 2024\n"
+"Language-Team: Ukrainian (https://app.transifex.com/hisp-uio/teams/100509/uk/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -75,6 +76,13 @@ msgstr "Текстовий об'єкт"
 msgid "Add text here"
 msgstr "Додати текст сюди"
 
+msgid "Filters are not applied to line list dashboard items"
+msgstr ""
+"Фільтри не застосовуються до елементів інформаційної панелі списку рядків"
+
+msgid "Filters not applied"
+msgstr "Фільтри не застосовані"
+
 msgid "There was a problem loading this dashboard item"
 msgstr ""
 "Під час завантаження цього елемента інформаційної панелі сталася помилка"
@@ -109,15 +117,33 @@ msgstr "Переглянути як мапу"
 msgid "There was a problem loading interpretations for this item"
 msgstr "Під час завантаження інтерпретацій для цього об'єкта сталася помилка"
 
+msgid "The plugin for rendering this item is not available"
+msgstr "Плагін для відтворення цього елемента недоступний"
+
+msgid "Install the {{appName}} app from the App Hub"
+msgstr "Установіть програму {{appName}} із App Hub"
+
+msgid "No data to display"
+msgstr "Немає даних для відображення"
+
+msgid ""
+"Install Line Listing app version ${minLLVersion.join(\n"
+"                                '.'\n"
+"                            )} or higher in order to display this item."
+msgstr ""
+"Встановіть версію програми Line Listing ${minLLVersion.join(\n"
+"                                '.'\n"
+"                            )} або вище, щоб відобразити цей елемент."
+
+msgid "Show without filters"
+msgstr "Показати без фільтрів"
+
 msgid "Maps with Earth Engine layers cannot be displayed when offline"
 msgstr ""
 "Мапи з шарами Earth Engine не можуть відображатися в автономному режимі"
 
 msgid "Unable to load the plugin for this item"
 msgstr "Неможливо завантажити плагін для цього елемента"
-
-msgid "No data to display"
-msgstr "Немає даних для відображення"
 
 msgid "There was an error loading data for this item"
 msgstr "Сталася помилка під час завантаження даних для цього елемента"
@@ -145,6 +171,9 @@ msgstr "Звіти про події"
 
 msgid "Event charts"
 msgstr "Діаграми подій"
+
+msgid "Line lists"
+msgstr "Списки рядків"
 
 msgid "Apps"
 msgstr "Додатки"
@@ -219,7 +248,7 @@ msgid ""
 "This action cannot be undone. Are you sure you want to permanently delete "
 "this dashboard?"
 msgstr ""
-"Після видалення інформаційної панелі \"{ { dashboardName}}\" її буде "
+"Після видалення інформаційної панелі \"{{ dashboardName }}\" її буде "
 "видалено для всіх користувачів. Цю дію неможливо скасувати. Ви дійсно хочете"
 " остаточно видалити цю інформаційну панель?"
 

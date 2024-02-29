@@ -1,13 +1,7 @@
 import { enableAutoLogin } from '@dhis2/cypress-commands'
-import { enableNetworkShim } from './server/index.js'
-import { getDefaultMode, isStubMode } from './server/utils.js'
+import './commands.js'
 
-enableNetworkShim()
-
-if (!isStubMode(getDefaultMode())) {
-    // log in if using a live backend
-    enableAutoLogin()
-}
+enableAutoLogin()
 
 const resizeObserverLoopErrRe = /^[^(ResizeObserver loop limit exceeded)]/
 Cypress.on('uncaught:exception', (err) => {
