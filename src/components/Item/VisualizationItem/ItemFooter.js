@@ -5,7 +5,7 @@ import i18n from '@dhis2/d2-i18n'
 import PropTypes from 'prop-types'
 import React, { useState } from 'react'
 import { getVisualizationId } from '../../../modules/item.js'
-import { getItemUrl } from '../../../modules/itemTypes.js'
+import { getItemUrl, itemTypeMap } from '../../../modules/itemTypes.js'
 import FatalErrorBoundary from './FatalErrorBoundary.js'
 import { InterpretationReplyForm } from './InterpretationReplyForm.js'
 import classes from './styles/ItemFooter.module.css'
@@ -42,7 +42,10 @@ const ItemFooter = ({ item }) => {
                         'There was a problem loading interpretations for this item'
                     )}
                 >
-                    <AboutAOUnit type={item.type.toLowerCase()} id={id} />
+                    <AboutAOUnit
+                        type={itemTypeMap[item.type]?.propName}
+                        id={id}
+                    />
                     {interpretationId ? (
                         <InterpretationReplyForm
                             currentUser={d2.currentUser}
@@ -55,7 +58,7 @@ const ItemFooter = ({ item }) => {
                     ) : (
                         <InterpretationsUnit
                             currentUser={d2.currentUser}
-                            type={item.type.toLowerCase()}
+                            type={itemTypeMap[item.type]?.propName}
                             id={id}
                             dashboardRedirectUrl={dashboardRedirectUrl}
                             onInterpretationClick={setViewInterpretation}
