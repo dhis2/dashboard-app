@@ -2245,10 +2245,10 @@
     classnames "^2.3.1"
     prop-types "^15.7.2"
 
-"@dhis2/analytics@^26.2.0":
-  version "26.2.0"
-  resolved "https://registry.yarnpkg.com/@dhis2/analytics/-/analytics-26.2.0.tgz#36a7f258ac96ddab90f4001e62257e2cc64f202e"
-  integrity sha512-YcJu6EHnor6pbHmwXKYumLRVy/9TxuLtBDv9JIzjt9/APZa8kbak6sT2/53pnWDnbUjzDwR8EV1UIz24vAX+ig==
+"@dhis2/analytics@999.9.9-interpretations-for-dashboard.alpha.1":
+  version "999.9.9-interpretations-for-dashboard.alpha.1"
+  resolved "https://registry.yarnpkg.com/@dhis2/analytics/-/analytics-999.9.9-interpretations-for-dashboard.alpha.1.tgz#641c31ab5780ca656336d0aae8a0545f1a358dd7"
+  integrity sha512-f6mBsl9gC5vy0InXri0Zriw991w5Q9XnjbmyxgWtctBBpX19uwkm1MgSj///wFe0Rvmy5WhkvocpuA0Z9xHejg==
   dependencies:
     "@dhis2/d2-ui-rich-text" "^7.4.1"
     "@dhis2/multi-calendar-dates" "1.0.0"
@@ -2480,7 +2480,7 @@
     i18next "^10.3"
     moment "^2.24.0"
 
-"@dhis2/d2-ui-rich-text@^7.4.0", "@dhis2/d2-ui-rich-text@^7.4.3":
+"@dhis2/d2-ui-rich-text@^7.4.1", "@dhis2/d2-ui-rich-text@^7.4.3":
   version "7.4.3"
   resolved "https://registry.yarnpkg.com/@dhis2/d2-ui-rich-text/-/d2-ui-rich-text-7.4.3.tgz#a42c8e231bcc05186dd432dac86b33aed4ddc10d"
   integrity sha512-60k/6CO2I8f4t3jU1nAic7uWONME1rckM8RcLnelhwUG20EZWq45OnDDdSfHgOWTwVDtxFnG3wspInkG/530KA==
