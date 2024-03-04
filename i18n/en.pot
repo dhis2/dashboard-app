@@ -5,8 +5,8 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1)\n"
-"POT-Creation-Date: 2023-05-03T11:08:21.315Z\n"
-"PO-Revision-Date: 2023-05-03T11:08:21.315Z\n"
+"POT-Creation-Date: 2023-06-22T08:57:46.931Z\n"
+"PO-Revision-Date: 2023-06-22T08:57:46.931Z\n"
 
 msgid "Untitled dashboard"
 msgstr "Untitled dashboard"
@@ -61,6 +61,9 @@ msgstr "Text item"
 
 msgid "Add text here"
 msgstr "Add text here"
+
+msgid "Back to all interpretations"
+msgstr "Back to all interpretations"
 
 msgid "Filters are not applied to line list dashboard items"
 msgstr "Filters are not applied to line list dashboard items"
