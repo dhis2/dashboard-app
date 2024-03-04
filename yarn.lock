@@ -2245,10 +2245,10 @@
     classnames "^2.3.1"
     prop-types "^15.7.2"
 
-"@dhis2/analytics@999.9.9-interpretations-for-dashboard.alpha.2":
-  version "999.9.9-interpretations-for-dashboard.alpha.2"
-  resolved "https://registry.yarnpkg.com/@dhis2/analytics/-/analytics-999.9.9-interpretations-for-dashboard.alpha.2.tgz#b16977848e2cbb1bd129db142a97b9d19ae61be8"
-  integrity sha512-FoU3QTO6I82O37t+DMIA38KGBeE8rSBY4R5SMZWf6kzSrgQO4lsmcZMyNOlXWF+PEn8zo1OiaxKt42LvS1ZWBg==
+"@dhis2/analytics@^26.4.0":
+  version "26.4.0"
+  resolved "https://registry.yarnpkg.com/@dhis2/analytics/-/analytics-26.4.0.tgz#adbdac2896457fdcaf913f66ee5afe012eab5ea5"
+  integrity sha512-j5t6hOykYEW6jTmcwDUP/bmXJS3+t2h92GzzOKhNnhsc3iPNjB1xVGQxfKmPhO3sCLvMR1N0mG1EP7/AEefUew==
   dependencies:
     "@dhis2/d2-ui-rich-text" "^7.4.1"
     "@dhis2/multi-calendar-dates" "1.0.0"
