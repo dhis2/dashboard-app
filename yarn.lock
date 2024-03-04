@@ -2455,7 +2455,7 @@
     recompose "^0.26.0"
     rxjs "^5.5.7"
 
-"@dhis2/data-visualizer-plugin@39.2.21":
+"@dhis2/data-visualizer-plugin@^39.2.21":
   version "39.2.21"
   resolved "https://registry.yarnpkg.com/@dhis2/data-visualizer-plugin/-/data-visualizer-plugin-39.2.21.tgz#1438f9c31a511511bbc3f75bd7c8d0d714e7e3cc"
   integrity sha512-eSy0wUw+FbfFwvdv48NWd38A4iATL7mOXZEpK8JEXdi/BwpoJzEjCAOYZv8BXOst3ukn6yTdZqxSIqQBFcNJmQ==
