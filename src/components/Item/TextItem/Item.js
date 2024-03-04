@@ -1,9 +1,6 @@
+import { RichTextParser, RichTextEditor } from '@dhis2/analytics'
 import i18n from '@dhis2/d2-i18n'
-import {
-    Parser as RichTextParser,
-    Editor as RichTextEditor,
-} from '@dhis2/d2-ui-rich-text'
-import { Divider, TextArea, spacers } from '@dhis2/ui'
+import { Divider, spacers } from '@dhis2/ui'
 import PropTypes from 'prop-types'
 import React from 'react'
 import { connect } from 'react-redux'
@@ -21,13 +18,11 @@ import PrintItemInfo from '../ItemHeader/PrintItemInfo.js'
 const style = {
     textDiv: {
         padding: '10px',
-        whiteSpace: 'pre-line',
-        lineHeight: '20px',
+        lineHeight: '16px',
     },
     textField: {
         fontSize: '14px',
         fontStretch: 'normal',
-        width: '90%',
         margin: '0 auto',
         display: 'block',
         lineHeight: '24px',
@@ -63,22 +58,19 @@ const TextItem = (props) => {
         return (
             <>
                 <ItemHeader
-                    title={i18n.t('Text item')}
+                    title={i18n.t('Text box')}
                     itemId={item.id}
                     dashboardMode={dashboardMode}
                 />
                 <Divider margin={`0 0 ${spacers.dp4} 0`} />
                 <div className="dashboard-item-content">
                     <RichTextEditor
-                        onEdit={(event) => onChangeText(event.target.value)}
-                    >
-                        <TextArea
-                            rows={30}
-                            value={text}
-                            placeholder={i18n.t('Add text here')}
-                            onChange={({ value }) => onChangeText(value)}
-                        />
-                    </RichTextEditor>
+                        onChange={onChangeText}
+                        inputPlaceholder={i18n.t('Add text here')}
+                        value={text}
+                        initialFocus={false}
+                        resizable={false}
+                    />
                 </div>
             </>
         )
