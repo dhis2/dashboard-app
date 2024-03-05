@@ -36,6 +36,9 @@ test('renders menu for active type MAP and type CHART', async () => {
     const props = Object.assign({}, defaultProps, {
         type: CHART,
         activeType: MAP,
+        visualization: {
+            type: 'COLUMN',
+        },
     })
 
     const { container } = render(<ViewAsMenuItems {...props} />)
@@ -49,6 +52,9 @@ test('renders disabled menu items when offline', () => {
     const props = Object.assign({}, defaultProps, {
         type: CHART,
         activeType: MAP,
+        visualization: {
+            type: 'COLUMN',
+        },
     })
 
     const { container } = render(<ViewAsMenuItems {...props} />)
@@ -105,7 +111,7 @@ test('renders menu for active type REPORT_TABLE and type CHART', async () => {
     const props = Object.assign({}, defaultProps, {
         type: CHART,
         activeType: REPORT_TABLE,
-        visualization: {},
+        visualization: { type: 'COLUMN' },
     })
 
     const { container } = render(<ViewAsMenuItems {...props} />)
@@ -118,7 +124,7 @@ test('renders menu for active type CHART and type REPORT_TABLE', async () => {
     const props = Object.assign({}, defaultProps, {
         type: REPORT_TABLE,
         activeType: CHART,
-        visualization: {},
+        visualization: { type: 'PIVOT_TABLE' },
     })
 
     const { container } = render(<ViewAsMenuItems {...props} />)
