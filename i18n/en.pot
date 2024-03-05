@@ -5,8 +5,8 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1)\n"
-"POT-Creation-Date: 2023-06-22T08:57:46.931Z\n"
-"PO-Revision-Date: 2023-06-22T08:57:46.931Z\n"
+"POT-Creation-Date: 2024-02-26T14:42:02.563Z\n"
+"PO-Revision-Date: 2024-02-26T14:42:02.563Z\n"
 
 msgid "Untitled dashboard"
 msgstr "Untitled dashboard"
@@ -89,14 +89,20 @@ msgstr "View fullscreen"
 msgid "This map can't be displayed as a chart"
 msgstr "This map can't be displayed as a chart"
 
+msgid "This map can't be displayed as a pivot table"
+msgstr "This map can't be displayed as a pivot table"
+
+msgid "This visualization can't be displayed as a pivot table"
+msgstr "This visualization can't be displayed as a pivot table"
+
+msgid "This visualization can't be displayed as a map"
+msgstr "This visualization can't be displayed as a map"
+
 msgid "View as Chart"
 msgstr "View as Chart"
 
-msgid "This map can't be displayed as a table"
-msgstr "This map can't be displayed as a table"
-
-msgid "View as Table"
-msgstr "View as Table"
+msgid "View as Pivot table"
+msgstr "View as Pivot table"
 
 msgid "View as Map"
 msgstr "View as Map"
