@@ -125,8 +125,7 @@ jobs:
         needs: e2e-prod
         if: |
             !github.event.push.repository.fork &&
-            github.actor != 'dependabot[bot]' &&
-            github.ref == 'refs/heads/master'
+            github.actor != 'dependabot[bot]'
         steps:
             - uses: actions/checkout@v3
               with:
