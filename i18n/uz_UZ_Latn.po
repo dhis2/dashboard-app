@@ -1,14 +1,14 @@
 # 
 # Translators:
-# Yury Rogachev <yury@dhis2.org>, 2021
 # Philip Larsen Donnelly, 2024
+# Yury Rogachev <yury@dhis2.org>, 2024
 # 
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2023-05-03T11:08:21.315Z\n"
+"POT-Creation-Date: 2024-02-26T14:42:02.563Z\n"
 "PO-Revision-Date: 2019-06-25 12:37+0000\n"
-"Last-Translator: Philip Larsen Donnelly, 2024\n"
+"Last-Translator: Yury Rogachev <yury@dhis2.org>, 2024\n"
 "Language-Team: Uzbek (Latin) (https://app.transifex.com/hisp-uio/teams/100509/uz@Latn/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -73,6 +73,9 @@ msgstr "Matn elementi"
 msgid "Add text here"
 msgstr "Matnni shu yerga qoʼshing"
 
+msgid "Back to all interpretations"
+msgstr "Jami talqinlarga qaytish"
+
 msgid "Filters are not applied to line list dashboard items"
 msgstr ""
 
@@ -97,14 +100,20 @@ msgstr ""
 msgid "This map can't be displayed as a chart"
 msgstr ""
 
+msgid "This map can't be displayed as a pivot table"
+msgstr ""
+
+msgid "This visualization can't be displayed as a pivot table"
+msgstr ""
+
+msgid "This visualization can't be displayed as a map"
+msgstr ""
+
 msgid "View as Chart"
 msgstr "Diagramma sifatida koʼrish"
 
-msgid "This map can't be displayed as a table"
+msgid "View as Pivot table"
 msgstr ""
-
-msgid "View as Table"
-msgstr "Jadval sifatida koʼrish"
 
 msgid "View as Map"
 msgstr "Xarita sifatida koʼrish"
