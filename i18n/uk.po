@@ -2,16 +2,16 @@
 # Translators:
 # Viktor Varland <viktor@dhis2.org>, 2020
 # Wanda <wanda@frontlineaids.org>, 2021
-# Éva Tamási, 2022
 # Nadiia <semchuk@aph.org.ua>, 2023
 # Philip Larsen Donnelly, 2024
+# Éva Tamási, 2024
 # 
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2023-05-03T11:08:21.315Z\n"
+"POT-Creation-Date: 2024-02-26T14:42:02.563Z\n"
 "PO-Revision-Date: 2019-06-25 12:37+0000\n"
-"Last-Translator: Philip Larsen Donnelly, 2024\n"
+"Last-Translator: Éva Tamási, 2024\n"
 "Language-Team: Ukrainian (https://app.transifex.com/hisp-uio/teams/100509/uk/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -76,6 +76,9 @@ msgstr "Текстовий об'єкт"
 msgid "Add text here"
 msgstr "Додати текст сюди"
 
+msgid "Back to all interpretations"
+msgstr "Повернутися до всіх інтерпретацій"
+
 msgid "Filters are not applied to line list dashboard items"
 msgstr ""
 "Фільтри не застосовуються до елементів інформаційної панелі списку рядків"
@@ -102,14 +105,20 @@ msgstr "Перегляд у повноекранному режимі"
 msgid "This map can't be displayed as a chart"
 msgstr "Цю мапу неможливо відобразити у вигляді діаграми"
 
+msgid "This map can't be displayed as a pivot table"
+msgstr ""
+
+msgid "This visualization can't be displayed as a pivot table"
+msgstr ""
+
+msgid "This visualization can't be displayed as a map"
+msgstr ""
+
 msgid "View as Chart"
 msgstr "Переглянути як діаграму"
 
-msgid "This map can't be displayed as a table"
-msgstr "Цю мапу неможливо відобразити у вигляді таблиці"
-
-msgid "View as Table"
-msgstr "Переглянути як таблицю"
+msgid "View as Pivot table"
+msgstr ""
 
 msgid "View as Map"
 msgstr "Переглянути як мапу"
