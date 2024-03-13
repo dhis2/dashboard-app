@@ -2245,10 +2245,10 @@
     classnames "^2.3.1"
     prop-types "^15.7.2"
 
-"@dhis2/analytics@999.99.9-outlier-and-te.alpha.1":
-  version "999.99.9-outlier-and-te.alpha.1"
-  resolved "https://registry.yarnpkg.com/@dhis2/analytics/-/analytics-999.99.9-outlier-and-te.alpha.1.tgz#0da88a32c3540aaaa8de01942219b2abebd4c89f"
-  integrity sha512-Hn/Gp2iuYzZOkTfyBJXK+r+am78+A/Fkq0QiHXpJai5pgGA07ze6tv2jouPCWKnfXSKStZgTLt1QvvJ9DkojAQ==
+"@dhis2/analytics@^26.6.0":
+  version "26.6.0"
+  resolved "https://registry.yarnpkg.com/@dhis2/analytics/-/analytics-26.6.0.tgz#1d70463fca8a4d5f5838928e9ab6c5c07873715f"
+  integrity sha512-fO8ozVfnTulXQptPcT3W/y+Ru6sN/Qjhr6dWHL4LsG2siL1v8QOWKcnM/yScClJtRZvsbEnQ6vX47c7ujRsGUA==
   dependencies:
     "@dhis2/d2-ui-rich-text" "^7.4.1"
     "@dhis2/multi-calendar-dates" "1.0.0"
