@@ -6,7 +6,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2023-05-03T11:08:21.315Z\n"
+"POT-Creation-Date: 2024-02-26T14:42:02.563Z\n"
 "PO-Revision-Date: 2019-06-25 12:37+0000\n"
 "Last-Translator: Philip Larsen Donnelly, 2024\n"
 "Language-Team: Arabic (Iraq) (https://app.transifex.com/hisp-uio/teams/100509/ar_IQ/)\n"
@@ -71,6 +71,9 @@ msgstr "عنصر نصي"
 msgid "Add text here"
 msgstr "اضف نص هنا"
 
+msgid "Back to all interpretations"
+msgstr ""
+
 msgid "Filters are not applied to line list dashboard items"
 msgstr ""
 
@@ -95,14 +98,20 @@ msgstr ""
 msgid "This map can't be displayed as a chart"
 msgstr ""
 
+msgid "This map can't be displayed as a pivot table"
+msgstr ""
+
+msgid "This visualization can't be displayed as a pivot table"
+msgstr ""
+
+msgid "This visualization can't be displayed as a map"
+msgstr ""
+
 msgid "View as Chart"
 msgstr "عرض كمخطط بياني"
 
-msgid "This map can't be displayed as a table"
+msgid "View as Pivot table"
 msgstr ""
-
-msgid "View as Table"
-msgstr "عرض كجدول"
 
 msgid "View as Map"
 msgstr "عرض كخريطة"

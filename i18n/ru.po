@@ -1,16 +1,16 @@
 # 
 # Translators:
-# Ulanbek Abakirov <ulans@mail.ru>, 2021
-# phil_dhis2, 2021
+# Philip Larsen Donnelly, 2021
 # Viktor Varland <viktor@dhis2.org>, 2021
+# Ulanbek Abakirov <ulans@mail.ru>, 2024
 # 
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2021-12-21T08:20:25.327Z\n"
+"POT-Creation-Date: 2024-02-26T14:42:02.563Z\n"
 "PO-Revision-Date: 2019-06-25 12:37+0000\n"
-"Last-Translator: Viktor Varland <viktor@dhis2.org>, 2021\n"
-"Language-Team: Russian (https://www.transifex.com/hisp-uio/teams/100509/ru/)\n"
+"Last-Translator: Ulanbek Abakirov <ulans@mail.ru>, 2024\n"
+"Language-Team: Russian (https://app.transifex.com/hisp-uio/teams/100509/ru/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -74,6 +74,15 @@ msgstr "Текстовый элемент"
 msgid "Add text here"
 msgstr "Добавить текст сюда"
 
+msgid "Back to all interpretations"
+msgstr "Назад к переводам"
+
+msgid "Filters are not applied to line list dashboard items"
+msgstr ""
+
+msgid "Filters not applied"
+msgstr ""
+
 msgid "There was a problem loading this dashboard item"
 msgstr ""
 
@@ -92,13 +101,19 @@ msgstr ""
 msgid "This map can't be displayed as a chart"
 msgstr ""
 
+msgid "This map can't be displayed as a pivot table"
+msgstr ""
+
+msgid "This visualization can't be displayed as a pivot table"
+msgstr ""
+
+msgid "This visualization can't be displayed as a map"
+msgstr ""
+
 msgid "View as Chart"
 msgstr ""
 
-msgid "This map can't be displayed as a table"
-msgstr ""
-
-msgid "View as Table"
+msgid "View as Pivot table"
 msgstr ""
 
 msgid "View as Map"
@@ -107,14 +122,29 @@ msgstr ""
 msgid "There was a problem loading interpretations for this item"
 msgstr ""
 
+msgid "The plugin for rendering this item is not available"
+msgstr ""
+
+msgid "Install the {{appName}} app from the App Hub"
+msgstr ""
+
+msgid "No data to display"
+msgstr ""
+
+msgid ""
+"Install Line Listing app version ${minLLVersion.join(\n"
+"                                '.'\n"
+"                            )} or higher in order to display this item."
+msgstr ""
+
+msgid "Show without filters"
+msgstr ""
+
 msgid "Maps with Earth Engine layers cannot be displayed when offline"
 msgstr ""
 
 msgid "Unable to load the plugin for this item"
 msgstr "Невозможно загрузить плагин для этого элемента"
-
-msgid "No data to display"
-msgstr ""
 
 msgid "There was an error loading data for this item"
 msgstr ""
@@ -142,6 +172,9 @@ msgstr "Отчеты по событиям"
 
 msgid "Event charts"
 msgstr "Диаграммы событий"
+
+msgid "Line lists"
+msgstr ""
 
 msgid "Apps"
 msgstr "Приложения"
