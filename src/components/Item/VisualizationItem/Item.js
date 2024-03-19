@@ -1,3 +1,4 @@
+import { VIS_TYPE_OUTLIER_TABLE } from '@dhis2/analytics'
 import i18n from '@dhis2/d2-i18n'
 import { Tag, Tooltip } from '@dhis2/ui'
 import PropTypes from 'prop-types'
@@ -20,7 +21,9 @@ import {
 import {
     getDataStatisticsName,
     getItemTypeForVis,
+    CHART,
     EVENT_VISUALIZATION,
+    VISUALIZATION,
 } from '../../../modules/itemTypes.js'
 import { sGetIsEditing } from '../../../reducers/editDashboard.js'
 import { sGetItemActiveType } from '../../../reducers/itemActiveTypes.js'
@@ -203,19 +206,42 @@ class Item extends Component {
                 />
             ) : null
 
-        const tags =
-            isViewMode(dashboardMode) &&
-            Object.keys(itemFilters).length &&
-            !showNoFiltersOverlay &&
-            activeType === EVENT_VISUALIZATION ? (
-                <Tooltip
-                    content={i18n.t(
-                        'Filters are not applied to line list dashboard items'
-                    )}
-                >
-                    <Tag negative>{i18n.t('Filters not applied')}</Tag>
-                </Tooltip>
-            ) : null
+        const getTags = (item) => {
+            if (isViewMode(dashboardMode) && Object.keys(itemFilters).length) {
+                switch (activeType) {
+                    case EVENT_VISUALIZATION: {
+                        return !showNoFiltersOverlay ? (
+                            <Tooltip
+                                content={i18n.t(
+                                    'Filters are not applied to line list dashboard items'
+                                )}
+                            >
+                                <Tag negative>
+                                    {i18n.t('Filters not applied')}
+                                </Tag>
+                            </Tooltip>
+                        ) : null
+                    }
+                    case CHART:
+                    case VISUALIZATION: {
+                        return item.visualization.type ===
+                            VIS_TYPE_OUTLIER_TABLE ? (
+                            <Tooltip
+                                content={i18n.t(
+                                    'Only Period and Organisation unit filters can be applied to this item'
+                                )}
+                            >
+                                <Tag negative>
+                                    {i18n.t('Some filters not applied')}
+                                </Tag>
+                            </Tooltip>
+                        ) : null
+                    }
+                }
+            }
+
+            return null
+        }
 
         return (
             <>
@@ -226,7 +252,7 @@ class Item extends Component {
                     ref={this.headerRef}
                     dashboardMode={dashboardMode}
                     isShortened={item.shortened}
-                    tags={tags}
+                    tags={getTags(item)}
                 />
                 <FatalErrorBoundary
                     message={i18n.t(
