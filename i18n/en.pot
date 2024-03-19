@@ -5,8 +5,8 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1)\n"
-"POT-Creation-Date: 2024-02-26T14:42:02.563Z\n"
-"PO-Revision-Date: 2024-02-26T14:42:02.563Z\n"
+"POT-Creation-Date: 2024-03-19T12:31:03.302Z\n"
+"PO-Revision-Date: 2024-03-19T12:31:03.302Z\n"
 
 msgid "Untitled dashboard"
 msgstr "Untitled dashboard"
@@ -70,6 +70,12 @@ msgstr "Filters are not applied to line list dashboard items"
 
 msgid "Filters not applied"
 msgstr "Filters not applied"
+
+msgid "Only Period and Organisation unit filters can be applied to this item"
+msgstr "Only Period and Organisation unit filters can be applied to this item"
+
+msgid "Some filters not applied"
+msgstr "Some filters not applied"
 
 msgid "There was a problem loading this dashboard item"
 msgstr "There was a problem loading this dashboard item"
