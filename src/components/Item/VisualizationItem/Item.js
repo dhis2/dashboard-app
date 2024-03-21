@@ -1,4 +1,8 @@
-import { VIS_TYPE_OUTLIER_TABLE } from '@dhis2/analytics'
+import {
+    VIS_TYPE_OUTLIER_TABLE,
+    DIMENSION_ID_PERIOD,
+    DIMENSION_ID_ORGUNIT,
+} from '@dhis2/analytics'
 import i18n from '@dhis2/d2-i18n'
 import { Tag, Tooltip } from '@dhis2/ui'
 import PropTypes from 'prop-types'
@@ -225,7 +229,14 @@ class Item extends Component {
                     case CHART:
                     case VISUALIZATION: {
                         return item.visualization.type ===
-                            VIS_TYPE_OUTLIER_TABLE ? (
+                            VIS_TYPE_OUTLIER_TABLE &&
+                            Object.keys(itemFilters).some(
+                                (filter) =>
+                                    ![
+                                        DIMENSION_ID_ORGUNIT,
+                                        DIMENSION_ID_PERIOD,
+                                    ].includes(filter)
+                            ) ? (
                             <Tooltip
                                 content={i18n.t(
                                     'Only Period and Organisation unit filters can be applied to this item'
