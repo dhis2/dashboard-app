@@ -21,7 +21,9 @@ beforeEach(() => {
             'content-type': 'application/json',
         },
         body: '1',
-    }).then((response) => expect(response.status).to.be.oneOf([RESP_CODE_201, RESP_CODE_200])
+    }).then((response) =>
+        expect(response.status).to.be.oneOf([RESP_CODE_201, RESP_CODE_200])
+    )
 })
 
 When('I toggle show more dashboards', () => {
