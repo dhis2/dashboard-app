@@ -2153,17 +2153,17 @@
     classnames "^2.3.1"
     prop-types "^15.7.2"
 
-"@dhis2/analytics@^24.9.3":
-  version "24.10.2"
-  resolved "https://registry.yarnpkg.com/@dhis2/analytics/-/analytics-24.10.2.tgz#011d49703125112dda792eadd2fa150d9fa95484"
-  integrity sha512-26BUUut1AwMEBipgIjKbZGFR9PvrZmf0cJ3am71yMj33n6XRLYI13NUduJ4hSGKXO5bwRkthNkUBsNzhCxOHoQ==
+"@dhis2/analytics@^24.10.5":
+  version "24.10.5"
+  resolved "https://registry.yarnpkg.com/@dhis2/analytics/-/analytics-24.10.5.tgz#1520c20fce10739039ddffb8078eac8319c21bba"
+  integrity sha512-MM0owzVmFkJr1LYSnfd6Du+j8yM/v5482iAOs6mLStL54JB1jxt3SW5V7LTc8rT8X7Vp55Vj0ZG7pLipEz9bng==
   dependencies:
     "@dhis2/d2-ui-rich-text" "^7.4.0"
     "@dhis2/multi-calendar-dates" "1.0.0"
     classnames "^2.3.1"
     d2-utilizr "^0.2.16"
     d3-color "^1.2.3"
-    highcharts "^10.2.0"
+    highcharts "^10.3.3"
     lodash "^4.17.21"
     mathjs "^9.4.2"
     react-beautiful-dnd "^10.1.1"
@@ -2455,12 +2455,12 @@
     recompose "^0.26.0"
     rxjs "^5.5.7"
 
-"@dhis2/data-visualizer-plugin@^39.2.21":
-  version "39.2.21"
-  resolved "https://registry.yarnpkg.com/@dhis2/data-visualizer-plugin/-/data-visualizer-plugin-39.2.21.tgz#1438f9c31a511511bbc3f75bd7c8d0d714e7e3cc"
-  integrity sha512-eSy0wUw+FbfFwvdv48NWd38A4iATL7mOXZEpK8JEXdi/BwpoJzEjCAOYZv8BXOst3ukn6yTdZqxSIqQBFcNJmQ==
+"@dhis2/data-visualizer-plugin@^39.2.24":
+  version "39.2.24"
+  resolved "https://registry.yarnpkg.com/@dhis2/data-visualizer-plugin/-/data-visualizer-plugin-39.2.24.tgz#a698898c745cbc62b9d56e86a00e4ae10b173e00"
+  integrity sha512-R6MZU8DBeqaEdLg4HiWvPVL7FbXx574oYS4eiHdU8R+nGe7TS0BR/ws8ECc/pBsyZWI7P9M9TzIxg2vFu3VoPg==
   dependencies:
-    "@dhis2/analytics" "^24.9.3"
+    "@dhis2/analytics" "^24.10.5"
     "@dhis2/app-runtime" "^3.9.0"
     "@dhis2/d2-i18n" "^1.1.0"
     "@dhis2/ui" "^8.4.11"
@@ -8896,11 +8896,6 @@ he@^1.2.0:
   version "1.2.0"
   resolved "https://registry.yarnpkg.com/he/-/he-1.2.0.tgz#84ae65fa7eafb165fddb61566ae14baf05664f0f"
   integrity sha512-F/1DnUGPopORZi0ni+CvrCgHQ5FyEAHRLSApuYWMmrbSwoN2Mn/7k+Gl38gJnR7yyDZk6WLXwiGod1JOWNDKGw==
-
-highcharts@^10.2.0:
-  version "10.2.0"
-  resolved "https://registry.yarnpkg.com/highcharts/-/highcharts-10.2.0.tgz#646b1c80fb4add9e35e5813bd87419ccdf1fc6b7"
-  integrity sha512-MvLo4dzR2Vo7Y85dsqJ07uabBXSSIRKRRdW4l9IGP55h2jYWNm/m9JBszVVxySH5Lda6g+Ins9NdGppZJpjNCA==
 
 highcharts@^10.3.3:
   version "10.3.3"
