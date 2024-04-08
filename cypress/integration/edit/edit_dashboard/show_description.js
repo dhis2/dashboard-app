@@ -30,7 +30,7 @@ When('I click to show description', () => {
 
     cy.wait('@toggleDescription')
         .its('response.statusCode')
-        .sho.should('be.oneOf', [RESP_CODE_200, RESP_CODE_201])
+        .should('be.oneOf', [RESP_CODE_200, RESP_CODE_201])
 })
 
 When('I click to hide the description', () => {
