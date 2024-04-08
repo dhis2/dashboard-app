@@ -15,7 +15,7 @@ before(() => {
             'content-type': 'application/json',
         },
         body: 'false',
-    }).then((response) =>
+    }).then(response =>
         expect(response.status).to.be.oneOf([RESP_CODE_201, RESP_CODE_200])
     )
 })

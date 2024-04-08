@@ -85,7 +85,7 @@ Then(
             .contains('Period')
             .should('be.visible')
         cy.get('[data-test="dhis2-uicore-transfer-rightside"]')
-            .contains('Organisation Unit')
+            .contains('Organisation unit')
             .should('be.visible')
     }
 )
