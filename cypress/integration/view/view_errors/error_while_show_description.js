@@ -3,10 +3,6 @@ import { getApiBaseUrl } from '../../../support/server/utils.js'
 
 // Error scenario
 
-const RESP_CODE_200 = 200
-const RESP_CODE_201 = 201
-const RESP_CODE_FAIL = 409
-
 before(() => {
     //first ensure that the description is not currently shown
     cy.request({
@@ -16,12 +12,12 @@ before(() => {
             'content-type': 'application/json',
         },
         body: 'false',
-    }).then((response) => expect(response.status).to.be.oneOf([RESP_CODE_201, RESP_CODE_200]))
+    }).then((response) => expect(response.status).to.be.oneOf([200, 201]))
 })
 
 When('clicking to show description fails', () => {
     cy.intercept('PUT', 'userDataStore/dashboard/showDescription', {
-        statusCode: RESP_CODE_FAIL,
+        statusCode: 409,
     }).as('showDescriptionFails')
 
     cy.get('button').contains('More').click()
@@ -29,7 +25,7 @@ When('clicking to show description fails', () => {
 
     cy.wait('@showDescriptionFails')
         .its('response.statusCode')
-        .should('eq', RESP_CODE_FAIL)
+        .should('eq', 409)
 })
 
 Then(
