@@ -8,9 +8,6 @@ import { EXTENDED_TIMEOUT } from '../../../support/utils.js'
 const RESP_CODE_200 = 200
 const RESP_CODE_201 = 201
 
-const RESP_CODE_200 = 200
-const RESP_CODE_201 = 201
-
 // Scenario: I change the height of the control bar
 When('I drag to increase the height of the control bar', () => {
     cy.intercept('PUT', '/userDataStore/dashboard/controlBarRows').as('putRows')
