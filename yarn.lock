@@ -2455,10 +2455,10 @@
     recompose "^0.26.0"
     rxjs "^5.5.7"
 
-"@dhis2/data-visualizer-plugin@^39.2.24":
-  version "39.2.24"
-  resolved "https://registry.yarnpkg.com/@dhis2/data-visualizer-plugin/-/data-visualizer-plugin-39.2.24.tgz#a698898c745cbc62b9d56e86a00e4ae10b173e00"
-  integrity sha512-R6MZU8DBeqaEdLg4HiWvPVL7FbXx574oYS4eiHdU8R+nGe7TS0BR/ws8ECc/pBsyZWI7P9M9TzIxg2vFu3VoPg==
+"@dhis2/data-visualizer-plugin@^39.2.25":
+  version "39.2.25"
+  resolved "https://registry.yarnpkg.com/@dhis2/data-visualizer-plugin/-/data-visualizer-plugin-39.2.25.tgz#02376570ac778f67fdf43b9097d1770e0d98949e"
+  integrity sha512-XiEtSMdjsP7nsF/GWBT+OR3k6cA7HjLktt2TdQFXDsEogL8NBI7hLgGzsRc8K/mddsbmFe4wl2jqXFa61lFLjQ==
   dependencies:
     "@dhis2/analytics" "^24.10.5"
     "@dhis2/app-runtime" "^3.9.0"
