@@ -2,8 +2,8 @@ import { When, Then } from 'cypress-cucumber-preprocessor/steps'
 import {
     dragHandleSel,
     dashboardsBarSel,
-} from '../../../elements/viewDashboard'
-import { EXTENDED_TIMEOUT } from '../../../support/utils'
+} from '../../../elements/viewDashboard.js'
+import { EXTENDED_TIMEOUT } from '../../../support/utils.js'
 
 const RESP_CODE_200 = 200
 const RESP_CODE_201 = 201

@@ -1,7 +1,9 @@
 import { When, Then } from 'cypress-cucumber-preprocessor/steps'
-import { getApiBaseUrl } from '../../../support/server/utils'
+import { getApiBaseUrl } from '../../../support/server/utils.js'
 
-// Error scenario
+const RESP_CODE_200 = 200
+const RESP_CODE_201 = 201
+const RESP_CODE_FAIL = 409
 
 before(() => {
     //first ensure that the description is not currently shown
@@ -12,7 +14,9 @@ before(() => {
             'content-type': 'application/json',
         },
         body: 'false',
-    }).then(response => expect(response.status).to.be.oneOf([200, 201]))
+    }).then(response =>
+        expect(response.status).to.be.oneOf([RESP_CODE_201, RESP_CODE_200])
+    )
 })
 
 When('clicking to show description fails', () => {
@@ -25,7 +29,7 @@ When('clicking to show description fails', () => {
 
     cy.wait('@showDescriptionFails')
         .its('response.statusCode')
-        .should('eq', 409)
+        .should('eq', RESP_CODE_FAIL)
 })
 
 Then(

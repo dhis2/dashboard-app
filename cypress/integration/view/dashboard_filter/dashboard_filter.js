@@ -42,7 +42,7 @@ Then('the Period filter is applied to the dashboard', () => {
 })
 
 /*
-Scenario: I add an Organisation init filter
+Scenario: I add an Organisation unit filter
 */
 
 Then('the Organisation unit filter is applied to the dashboard', () => {
