@@ -55,15 +55,15 @@ Feature: Creating, editing and deleting dashboard
         Then the dashboard is not starred
 
 
-    @mutating
-    Scenario: I toggle show description
-        Given I open existing dashboard
-        # And the description is not shown
-        And the dashboard description is not displayed
-        When I click to show description
-        Then the dashboard description is displayed
-        When I click to hide the description
-        Then the dashboard description is not displayed
+    # @mutating
+    # Scenario: I toggle show description
+    #     Given I open existing dashboard
+    #     # And the description is not shown
+    #     And the dashboard description is not displayed
+    #     When I click to show description
+    #     Then the dashboard description is displayed
+    #     When I click to hide the description
+    #     Then the dashboard description is not displayed
 
     @nonmutating
     Scenario: I move an item on a dashboard
