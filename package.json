@@ -13,7 +13,7 @@
         "@dhis2/d2-ui-interpretations": "^7.4.1",
         "@dhis2/d2-ui-mentions-wrapper": "^7.4.1",
         "@dhis2/d2-ui-rich-text": "^7.4.1",
-        "@dhis2/data-visualizer-plugin": "^38.3.27",
+        "@dhis2/data-visualizer-plugin": "^38.3.28",
         "@dhis2/ui": "^8.12.4",
         "@krakenjs/post-robot": "^11.0.0",
         "classnames": "^2.3.1",
