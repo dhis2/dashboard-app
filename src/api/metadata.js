@@ -22,6 +22,10 @@ export const getDimensionFields = ({ withItems, withRepetition }) =>
         'programStage',
         withItems ? `items[${getItemFields().join(',')}]` : ``,
         withRepetition ? 'repetition' : '',
+        'dimensionType',
+        'program[id]',
+        'optionSet[id]',
+        'valueType',
     ])
 
 // Axis
