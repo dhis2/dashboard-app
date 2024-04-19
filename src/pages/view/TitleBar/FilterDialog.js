@@ -117,9 +117,7 @@ const FilterDialog = ({
                         dimensionId={dimension.id}
                         onSelect={onSelectItems}
                         dimensionTitle={dimension.name}
-                        displayNameProp={
-                            userSettings.keyAnalysisDisplayProperty
-                        }
+                        displayNameProp={userSettings.displayProperty}
                     />
                 )
         }
