@@ -17,7 +17,7 @@ const useDimensions = (doFetch) => {
             try {
                 const unfilteredDimensions = await apiFetchDimensions(
                     dataEngine,
-                    userSettings.keyAnalysisDisplayProperty
+                    userSettings.displayProperty
                 )
 
                 dispatch(
@@ -31,11 +31,11 @@ const useDimensions = (doFetch) => {
         if (
             !dimensions.length &&
             doFetch &&
-            userSettings.keyAnalysisDisplayProperty
+            userSettings.displayProperty
         ) {
             fetchDimensions()
         }
-    }, [dimensions, doFetch, userSettings.keyAnalysisDisplayProperty])
+    }, [dimensions, doFetch, userSettings.displayProperty, dispatch, dataEngine])
 
     return dimensions
 }

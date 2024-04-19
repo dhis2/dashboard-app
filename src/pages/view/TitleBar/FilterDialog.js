@@ -120,7 +120,7 @@ const FilterDialog = ({
                         onSelect={onSelectItems}
                         dimensionTitle={dimension.name}
                         displayNameProp={
-                            userSettings.keyAnalysisDisplayProperty
+                            userSettings.displayProperty
                         }
                     />
                 )
