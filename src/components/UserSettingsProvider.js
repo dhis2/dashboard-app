@@ -23,7 +23,7 @@ const UserSettingsProvider = ({ children }) => {
             })
         }
         fetchData()
-    }, [])
+    }, [engine])
 
     return (
         <UserSettingsCtx.Provider
