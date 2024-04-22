@@ -17,9 +17,10 @@ const UserSettingsProvider = ({ children }) => {
 
             setSettings({
                 ...userSettings,
-                displayProperty:  userSettings.keyAnalysisDisplayProperty === 'name'
-                ? 'displayName'
-                : 'displayShortName',
+                displayProperty:
+                    userSettings.keyAnalysisDisplayProperty === 'name'
+                        ? 'displayName'
+                        : 'displayShortName',
             })
         }
         fetchData()

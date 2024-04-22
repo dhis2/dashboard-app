@@ -119,9 +119,7 @@ const FilterDialog = ({
                         dimensionId={dimension.id}
                         onSelect={onSelectItems}
                         dimensionTitle={dimension.name}
-                        displayNameProp={
-                            userSettings.displayProperty
-                        }
+                        displayNameProp={userSettings.displayProperty}
                     />
                 )
         }

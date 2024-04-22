@@ -28,14 +28,16 @@ const useDimensions = (doFetch) => {
             }
         }
 
-        if (
-            !dimensions.length &&
-            doFetch &&
-            userSettings.displayProperty
-        ) {
+        if (!dimensions.length && doFetch && userSettings.displayProperty) {
             fetchDimensions()
         }
-    }, [dimensions, doFetch, userSettings.displayProperty, dispatch, dataEngine])
+    }, [
+        dimensions,
+        doFetch,
+        userSettings.displayProperty,
+        dispatch,
+        dataEngine,
+    ])
 
     return dimensions
 }
