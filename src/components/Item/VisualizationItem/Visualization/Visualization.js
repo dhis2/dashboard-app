@@ -111,6 +111,8 @@ const Visualization = ({
         return <NoVisualizationMessage message={i18n.t('No data to display')} />
     }
 
+    console.log('v39 Visualization with rest', rest, iFramePluginProps)
+
     if (
         activeType === EVENT_VISUALIZATION &&
         !isLLVersionCompatible(lineListingAppVersion)
