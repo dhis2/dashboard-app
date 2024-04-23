@@ -88,7 +88,7 @@ const IframePlugin = ({
         // 2. check if there is an installed app for the item type
         // and use its plugin launch URL
         if (appKey) {
-            const appDetails = apps.find((app) => app.key === appKey)
+            const appDetails = apps.find(app => app.key === appKey)
 
             if (appDetails.baseUrl) {
                 return `${appDetails.baseUrl}/plugin.html`
@@ -108,7 +108,7 @@ const IframePlugin = ({
         if (iframeRef?.current && !isCached) {
             postRobot
                 .send(iframeRef.current.contentWindow, 'removeCachedData')
-                .catch((err) => {
+                .catch(err => {
                     // catch error if iframe hasn't loaded yet
                     const msg = 'No handler found for post message:'
                     if (err.message.startsWith(msg)) {
@@ -167,7 +167,7 @@ const IframePlugin = ({
                 {
                     window: iframeRef.current.contentWindow,
                 },
-                (event) => {
+                event => {
                     if (isFirstOfType) {
                         dispatch(
                             acAddIframePluginStatus({
