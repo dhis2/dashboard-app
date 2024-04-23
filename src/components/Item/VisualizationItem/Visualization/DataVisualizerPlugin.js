@@ -53,7 +53,6 @@ const DataVisualizerPlugin = ({
                     visualization={visualization}
                     forDashboard={true}
                     userSettings={userSettings}
-                    displayProperty={userSettings.displayProperty}
                     style={style}
                     onLoadingComplete={onLoadingComplete}
                     onError={onError}
