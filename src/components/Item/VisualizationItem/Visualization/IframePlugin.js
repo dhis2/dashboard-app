@@ -53,7 +53,7 @@ const IframePlugin = ({
         () => ({
             isVisualizationLoaded: true,
             forDashboard: true,
-            displayProperty: userSettings.displayProperty,
+            displayProperty: userSettings.keyAnalysisDisplayProperty,
             visualization,
             onError,
 

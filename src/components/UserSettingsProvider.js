@@ -17,11 +17,14 @@ const UserSettingsProvider = ({ children }) => {
 
             setSettings({
                 ...userSettings,
-                displayProperty: userSettings.keyAnalysisDisplayProperty,
+                displayProperty:
+                    userSettings.keyAnalysisDisplayProperty === 'name'
+                        ? 'displayName'
+                        : 'displayShortName',
             })
         }
         fetchData()
-    }, [])
+    }, [engine])
 
     return (
         <UserSettingsCtx.Provider
