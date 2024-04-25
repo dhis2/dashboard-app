@@ -83,10 +83,10 @@ msgid "Filters not applied"
 msgstr "未应用过滤器"
 
 msgid "Only Period and Organisation unit filters can be applied to this item"
-msgstr ""
+msgstr "仅可对此项应用期间和组织机构过滤器"
 
 msgid "Some filters not applied"
-msgstr ""
+msgstr "某些过滤器未应用"
 
 msgid "There was a problem loading this dashboard item"
 msgstr "载入仪表盘有问题"
