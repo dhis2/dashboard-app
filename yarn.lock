@@ -2153,10 +2153,10 @@
     classnames "^2.3.1"
     prop-types "^15.7.2"
 
-"@dhis2/analytics@^24.10.5":
-  version "24.10.5"
-  resolved "https://registry.yarnpkg.com/@dhis2/analytics/-/analytics-24.10.5.tgz#1520c20fce10739039ddffb8078eac8319c21bba"
-  integrity sha512-MM0owzVmFkJr1LYSnfd6Du+j8yM/v5482iAOs6mLStL54JB1jxt3SW5V7LTc8rT8X7Vp55Vj0ZG7pLipEz9bng==
+"@dhis2/analytics@^24.10.8":
+  version "24.10.8"
+  resolved "https://registry.yarnpkg.com/@dhis2/analytics/-/analytics-24.10.8.tgz#7339f1fd565a0fe503c6c49643e20b9b4b40c860"
+  integrity sha512-6Bk9LrTC2urHZqJBVyNWgNY9QgImJ4G8IsYNPHVo59zWPbuCJ/363l1DCL+MZU0PxcIafTGAjUImvK6EDGMYkg==
   dependencies:
     "@dhis2/d2-ui-rich-text" "^7.4.0"
     "@dhis2/multi-calendar-dates" "1.0.0"
@@ -2455,12 +2455,12 @@
     recompose "^0.26.0"
     rxjs "^5.5.7"
 
-"@dhis2/data-visualizer-plugin@^39.2.25":
-  version "39.2.25"
-  resolved "https://registry.yarnpkg.com/@dhis2/data-visualizer-plugin/-/data-visualizer-plugin-39.2.25.tgz#02376570ac778f67fdf43b9097d1770e0d98949e"
-  integrity sha512-XiEtSMdjsP7nsF/GWBT+OR3k6cA7HjLktt2TdQFXDsEogL8NBI7hLgGzsRc8K/mddsbmFe4wl2jqXFa61lFLjQ==
+"@dhis2/data-visualizer-plugin@^39.2.29":
+  version "39.2.29"
+  resolved "https://registry.yarnpkg.com/@dhis2/data-visualizer-plugin/-/data-visualizer-plugin-39.2.29.tgz#77c7068e89dc94afc5426cadd83a91689ed018eb"
+  integrity sha512-K70P9qElfVI7EFJLOVJXfduOeOMYtMPRyuVJisTtsGoQxko+2FRs5q21QF+1CmaRc2fUEcGwUw0IBE0YequkQg==
   dependencies:
-    "@dhis2/analytics" "^24.10.5"
+    "@dhis2/analytics" "^24.10.8"
     "@dhis2/app-runtime" "^3.9.0"
     "@dhis2/d2-i18n" "^1.1.0"
     "@dhis2/ui" "^8.4.11"
