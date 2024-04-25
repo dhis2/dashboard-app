@@ -1,3 +1,12 @@
+## [100.2.1](https://github.com/dhis2/dashboard-app/compare/v100.2.0...v100.2.1) (2024-04-24)
+
+
+### Bug Fixes
+
+* in paragraphs were removed in dashboard item description ([#2962](https://github.com/dhis2/dashboard-app/issues/2962)) ([783399e](https://github.com/dhis2/dashboard-app/commit/783399eb916556d1fe5723af1781d2e3c74e6f18))
+* short name was not being shown in visualizations ([#2959](https://github.com/dhis2/dashboard-app/issues/2959)) ([c0fc1d6](https://github.com/dhis2/dashboard-app/commit/c0fc1d68b3fae20c1dcd3e5912a26e745fb015cb))
+* **translations:** sync translations from transifex (dev) ([3651a71](https://github.com/dhis2/dashboard-app/commit/3651a716531dee8064a44c1771d74a55d6f3e4e1))
+
 # [100.2.0](https://github.com/dhis2/dashboard-app/compare/v100.1.0...v100.2.0) (2024-04-17)
 
 
