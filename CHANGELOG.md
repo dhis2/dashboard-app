@@ -1,3 +1,15 @@
+# [100.2.0](https://github.com/dhis2/dashboard-app/compare/v100.1.0...v100.2.0) (2024-04-17)
+
+
+### Bug Fixes
+
+* **translations:** sync translations from transifex (dev) ([dc1f032](https://github.com/dhis2/dashboard-app/commit/dc1f03262dde9bef167cfefe1ac5deab2ac799dc))
+
+
+### Features
+
+* add metadata support for TE (DHIS2-17242) ([#2956](https://github.com/dhis2/dashboard-app/issues/2956)) ([39bedbe](https://github.com/dhis2/dashboard-app/commit/39bedbe5b5c467d4730857ffe23f4db0c7a74db1))
+
 # [100.1.0](https://github.com/dhis2/dashboard-app/compare/v100.0.4...v100.1.0) (2024-03-21)
 
 
