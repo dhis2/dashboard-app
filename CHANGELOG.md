@@ -1,3 +1,42 @@
+## [100.2.1](https://github.com/dhis2/dashboard-app/compare/v100.2.0...v100.2.1) (2024-04-24)
+
+
+### Bug Fixes
+
+* in paragraphs were removed in dashboard item description ([#2962](https://github.com/dhis2/dashboard-app/issues/2962)) ([783399e](https://github.com/dhis2/dashboard-app/commit/783399eb916556d1fe5723af1781d2e3c74e6f18))
+* short name was not being shown in visualizations ([#2959](https://github.com/dhis2/dashboard-app/issues/2959)) ([c0fc1d6](https://github.com/dhis2/dashboard-app/commit/c0fc1d68b3fae20c1dcd3e5912a26e745fb015cb))
+* **translations:** sync translations from transifex (dev) ([3651a71](https://github.com/dhis2/dashboard-app/commit/3651a716531dee8064a44c1771d74a55d6f3e4e1))
+
+# [100.2.0](https://github.com/dhis2/dashboard-app/compare/v100.1.0...v100.2.0) (2024-04-17)
+
+
+### Bug Fixes
+
+* **translations:** sync translations from transifex (dev) ([dc1f032](https://github.com/dhis2/dashboard-app/commit/dc1f03262dde9bef167cfefe1ac5deab2ac799dc))
+
+
+### Features
+
+* add metadata support for TE (DHIS2-17242) ([#2956](https://github.com/dhis2/dashboard-app/issues/2956)) ([39bedbe](https://github.com/dhis2/dashboard-app/commit/39bedbe5b5c467d4730857ffe23f4db0c7a74db1))
+
+# [100.1.0](https://github.com/dhis2/dashboard-app/compare/v100.0.4...v100.1.0) (2024-03-21)
+
+
+### Bug Fixes
+
+* show tag/tooltip about not applied filters for Outlier table (DHIS2-13858) ([#2937](https://github.com/dhis2/dashboard-app/issues/2937)) ([dffb754](https://github.com/dhis2/dashboard-app/commit/dffb75440509a6627d84b80aadf0c045ae1d3ae2))
+* show tag/tooltip only when a filter other than ou/pe is used ([#2941](https://github.com/dhis2/dashboard-app/issues/2941)) ([b6b8850](https://github.com/dhis2/dashboard-app/commit/b6b8850a886955252e96b204a06bae36da3d5865))
+* **translations:** sync translations from transifex (dev) ([755c6df](https://github.com/dhis2/dashboard-app/commit/755c6dff1e4a9d9e578b63c5711c109f0ad32248))
+* use interpretations component from Analytics (DHIS2-15441) ([#2430](https://github.com/dhis2/dashboard-app/issues/2430)) ([0af5c5b](https://github.com/dhis2/dashboard-app/commit/0af5c5b3d4da3591da8766e9d746695830d83492))
+* **translations:** sync translations from transifex (dev) ([0de3606](https://github.com/dhis2/dashboard-app/commit/0de3606aed8918ebd1bb4a6f304020bae22ffc75))
+* **translations:** sync translations from transifex (dev) ([b88e87c](https://github.com/dhis2/dashboard-app/commit/b88e87cc57e6c1ce2e358dbcce706e3f3f7809e4))
+* **translations:** sync translations from transifex (dev) ([#2920](https://github.com/dhis2/dashboard-app/issues/2920)) ([add7139](https://github.com/dhis2/dashboard-app/commit/add7139653fbe6d3c9b2bbd077e3894092b64780))
+
+
+### Features
+
+* support outlier table plugin (DHIS2-16751) ([#2912](https://github.com/dhis2/dashboard-app/issues/2912)) ([1af22d5](https://github.com/dhis2/dashboard-app/commit/1af22d5566409c438243f932379beae2315e6f41))
+
 ## [100.0.4](https://github.com/dhis2/dashboard-app/compare/v100.0.3...v100.0.4) (2023-11-06)
 
 

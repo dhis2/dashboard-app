@@ -94,7 +94,7 @@ jobs:
               id: yarn-cache
               with:
                   path: '**/node_modules'
-                  key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
+                  key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}-${{ hashFiles('patches/*.patch') }}
 
             - name: End-to-End tests
               uses: cypress-io/github-action@v2
@@ -104,7 +104,7 @@ jobs:
                   start: ${{ env.SERVER_START_CMD }}
                   wait-on: ${{ env.SERVER_URL }}
                   wait-on-timeout: 300
-                  cache-key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
+                  cache-key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}-${{ hashFiles('patches/*.patch') }}
                   group: 'e2e'
                   tag: ${{ github.event_name }}
               env:
@@ -114,8 +114,8 @@ jobs:
                   SERVER_START_CMD: 'yarn cypress:start'
                   SERVER_URL: 'http://localhost:3000'
                   cypress_dhis2_api_stub_mode: 'DISABLED'
-                  REACT_APP_DHIS2_BASE_URL: ${{ secrets.CYPRESS_DHIS2_BASE_URL_40 }}
-                  cypress_dhis2_base_url: ${{ secrets.CYPRESS_DHIS2_BASE_URL_40}}
+                  REACT_APP_DHIS2_BASE_URL: ${{ secrets.CYPRESS_DHIS2_BASE_URL_41 }}
+                  cypress_dhis2_base_url: ${{ secrets.CYPRESS_DHIS2_BASE_URL_41}}
                   cypress_dhis2_username: ${{ secrets.CYPRESS_DHIS2_USERNAME }}
                   cypress_dhis2_password: ${{ secrets.CYPRESS_DHIS2_PASSWORD }}
                   GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -126,7 +126,7 @@ jobs:
         if: |
             !github.event.push.repository.fork &&
             github.actor != 'dependabot[bot]' &&
-            github.event_name != 'pull_request'
+            (github.ref == 'refs/heads/master' || github.ref == 'refs/heads/dev')
         steps:
             - uses: actions/checkout@v3
               with:
@@ -196,8 +196,9 @@ jobs:
         needs: release
         if: |
             success() &&
-            !cancelled()  &&
-            github.ref == 'refs/heads/master'
+            !cancelled() &&
+            github.ref == 'refs/heads/master' &&
+            contains(github.event.head_commit.message, 'chore(release)')
         steps:
             - name: Checkout code
               uses: actions/checkout@master
@@ -213,13 +214,41 @@ jobs:
                   channel-id: ${{ secrets.SLACK_CHANNEL_ID }}
                   payload: |
                       {
-                        "text": ":large_green_circle: :dashboard-app: :tada: Dashboard app release succeeded for version: ${{ steps.extract_version.outputs.version }}",
+                        "text": "Dashboard app release ${{ steps.extract_version.outputs.version }} succeeded",
                         "blocks": [
+                          {
+                            "type": "header",
+                            "text": {
+                                "type": "plain_text",
+                                "text": ":large_green_circle: :dashboard-app: Dashboard version ${{ steps.extract_version.outputs.version }} released :tada:",
+                                "emoji": true
+                            }
+                          },
+                          {
+                            "type": "divider"
+                          },
                           {
                             "type": "section",
                             "text": {
-                              "type": "mrkdwn",
-                              "text": ":large_green_circle: :dashboard-app: :tada: Dashboard version ${{ steps.extract_version.outputs.version }} released <https://github.com/dhis2/dashboard-app/actions/workflows/dhis2-verify-app.yml?query=branch%3Amaster+is%3Asuccess|successfully>"
+                                "type": "mrkdwn",
+                                "text": "*Release Notes*"
+                            }
+                          },
+                          {
+                            "type": "section",
+                            "text": {
+                                "type": "mrkdwn",
+                                "text": ${{ toJSON(github.event.head_commit.message) }}
+                            }
+                          },
+                          {
+                            "type": "divider"
+                          },
+                          {
+                            "type": "section",
+                            "text": {
+                                "type": "mrkdwn",
+                                "text": "Link to <https://github.com/dhis2/dashboard-app/actions/workflows/dhis2-verify-app.yml?query=branch%3Amaster+is%3Asuccess|build>"
                             }
                           }
                         ]
