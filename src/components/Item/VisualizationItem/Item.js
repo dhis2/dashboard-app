@@ -232,8 +232,9 @@ class Item extends Component {
                     }
                     case CHART:
                     case VISUALIZATION: {
-                        return item.visualization.type ===
-                            VIS_TYPE_OUTLIER_TABLE &&
+                        return item.type === VISUALIZATION &&
+                            item.visualization.type ===
+                                VIS_TYPE_OUTLIER_TABLE &&
                             Object.keys(itemFilters).some(
                                 (filter) =>
                                     ![
