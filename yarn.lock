@@ -2245,10 +2245,10 @@
     classnames "^2.3.1"
     prop-types "^15.7.2"
 
-"@dhis2/analytics@999.9.9-chip-alpha.2":
-  version "999.9.9-chip-alpha.2"
-  resolved "https://registry.yarnpkg.com/@dhis2/analytics/-/analytics-999.9.9-chip-alpha.2.tgz#0eedcf2fb276e6a2e8b91fbedbe6ed5a21aa79d9"
-  integrity sha512-9ThqcqQxnKOZxMMUu3iv8RHT/ZYKsyMbnkgKYQyyXWQZS8g3piFsAX1ariS7d0voUEKeyKE7OOIlrljhMPHO7A==
+"@dhis2/analytics@999.9.9-chip-alpha.3":
+  version "999.9.9-chip-alpha.3"
+  resolved "https://registry.yarnpkg.com/@dhis2/analytics/-/analytics-999.9.9-chip-alpha.3.tgz#7949ee91332ed0af5e390e1a25b02607fb044e8b"
+  integrity sha512-+Q/FKzuvrEEc29IVE5eiEZ4WLBud4EMi38cNX1hqQPqVOC1tFDreZA4tVM0EsDr1WLHbKpokQPcvh7hAqINzZw==
   dependencies:
     "@dhis2/d2-ui-rich-text" "^7.4.1"
     "@dhis2/multi-calendar-dates" "1.0.0"
