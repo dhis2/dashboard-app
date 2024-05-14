@@ -119,6 +119,9 @@ msgstr ""
 msgid "View as Chart"
 msgstr "Диаграмма сифатида кўриш"
 
+msgid "This map can't be displayed as a table"
+msgstr "Ушбу харитани жадвал сифатида кўратиб бўлмайди"
+
 msgid "View as Pivot table"
 msgstr ""
 
