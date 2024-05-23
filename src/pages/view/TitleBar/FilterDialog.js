@@ -110,6 +110,7 @@ const FilterDialog = ({
                         )}
                         selected={selectedItems}
                         onSelect={onSelectItems}
+                        displayNameProp={userSettings.displayProperty}
                     />
                 )
             default:
