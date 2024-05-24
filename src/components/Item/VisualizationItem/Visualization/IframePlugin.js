@@ -1,5 +1,6 @@
-import { useConfig, Plugin } from '@dhis2/app-runtime'
+import { useConfig } from '@dhis2/app-runtime'
 import { useD2 } from '@dhis2/app-runtime-adapter-d2'
+import { Plugin } from '@dhis2/app-runtime/experimental'
 import { CenteredContent, CircularLoader } from '@dhis2/ui'
 import PropTypes from 'prop-types'
 import React, { useCallback, useEffect, useMemo, useState } from 'react'
