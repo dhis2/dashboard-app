@@ -1,5 +1,6 @@
 import { useCachedDataQuery } from '@dhis2/analytics'
-import { useConfig, Plugin } from '@dhis2/app-runtime'
+import { useConfig } from '@dhis2/app-runtime'
+import { Plugin } from '@dhis2/app-runtime/experimental'
 import { CenteredContent, CircularLoader } from '@dhis2/ui'
 import PropTypes from 'prop-types'
 import React, { useCallback, useEffect, useMemo, useState } from 'react'
