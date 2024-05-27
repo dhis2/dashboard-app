@@ -44,12 +44,7 @@ const IframePlugin = ({
     const { apps } = useCachedDataQuery()
 
     // When this mounts, check if the dashboard is recording
-    const { isCached, recordingState } = useCacheableSection(dashboardId)
-
-    // set this to false after first props transfer with true flag
-    const [recordOnNextLoad, setRecordOnNextLoad] = useState(
-        recordingState === 'recording'
-    )
+    const { isCached } = useCacheableSection(dashboardId)
 
     const pluginType = [CHART, REPORT_TABLE].includes(activeType)
         ? VISUALIZATION
@@ -58,6 +53,7 @@ const IframePlugin = ({
     const onError = () => setError('plugin')
     const onInstallationStatusChange = useCallback(
         (installationStatus) => {
+            console.log('DS installation status change', installationStatus)
             if (isFirstOfType) {
                 dispatch(
                     acAddIframePluginStatus({
@@ -69,11 +65,6 @@ const IframePlugin = ({
         },
         [dispatch, isFirstOfType, pluginType]
     )
-    const onPropsReceived = useCallback(() => {
-        if (recordOnNextLoad) {
-            setRecordOnNextLoad(false)
-        }
-    }, [recordOnNextLoad])
 
     const pluginProps = useMemo(
         () => ({
@@ -83,7 +74,6 @@ const IframePlugin = ({
             visualization,
             onError,
             onInstallationStatusChange,
-            onPropsReceived,
 
             // For caching: ---
             // Add user & dashboard IDs to cache ID to avoid removing a cached
@@ -91,7 +81,6 @@ const IframePlugin = ({
             // TODO: May also want user ID too for multi-user situations
             cacheId: `${dashboardId}-${itemId}`,
             isParentCached: isCached,
-            recordOnNextLoad,
         }),
         [
             userSettings,
@@ -100,8 +89,6 @@ const IframePlugin = ({
             itemId,
             isCached,
             onInstallationStatusChange,
-            onPropsReceived,
-            recordOnNextLoad,
         ]
     )
 
