@@ -15,7 +15,7 @@ import {
 import PropTypes from 'prop-types'
 import React, { useState } from 'react'
 import { connect } from 'react-redux'
-import { Link, Redirect } from 'react-router-dom'
+import { Redirect } from 'react-router-dom'
 import { acSetDashboardStarred } from '../../../actions/dashboards.js'
 import { acClearItemFilters } from '../../../actions/itemFilters.js'
 import { acSetShowDescription } from '../../../actions/showDescription.js'
@@ -202,13 +202,12 @@ const ViewActions = ({
                     dataTest="print-oipp-menu-item"
                 />
             </MenuItem>
-            <Link to={ROUTE_START_PATH} className={classes.link}>
-                <MenuItem
-                    dense
-                    disabledWhenOffline={false}
-                    label={i18n.t('Close dashboard')}
-                />
-            </Link>
+            <MenuItem
+                dense
+                disabledWhenOffline={false}
+                label={i18n.t('Close dashboard')}
+                onClick={() => setRedirectUrl(ROUTE_START_PATH)}
+            />
         </FlyoutMenu>
     )
 
