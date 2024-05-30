@@ -1,5 +1,7 @@
 /* react-grid-layout style */
-
+.react-grid-layout {
+    direction: ltr;
+}
 .react-grid-item {
     overflow: hidden !important;
     box-shadow: 0px 0px 3px 0px #999999;
