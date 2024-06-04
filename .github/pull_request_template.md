@@ -1,33 +1,5 @@
-Implements [DHIS2-XXXX](https://dhis2.atlassian.net/browse/DHIS2-XXXX)
+### Testing checklist
 
-**Requires https://github.com/dhis2/analytics/pull/XXX**
-
----
-
-### Key features
-
-1. _feature_
-
----
-
-### Description
-
-_text_
-
----
-
-### TODO
-
--   [ ] _task_
-
----
-
-### Known issues
-
--   [ ] _issue_
-
----
-
-### Screenshots
-
-_supporting text_
+-   [ ] Offline dashboards
+-   [ ] Small screen
+-   [ ] Re-rendering/flashing
