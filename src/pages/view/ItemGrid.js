@@ -109,6 +109,7 @@ const ResponsiveItemGrid = ({ dashboardId, dashboardItems }) => {
                     item={item}
                     gridWidth={gridWidth}
                     dashboardMode={VIEW}
+                    isRecording={forceLoad}
                     onToggleItemExpanded={onToggleItemExpanded}
                 />
             </ProgressiveLoadingContainer>
