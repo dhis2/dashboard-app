@@ -2160,10 +2160,10 @@
     classnames "^2.3.1"
     prop-types "^15.7.2"
 
-"@dhis2/analytics@999.99.9-rich-text-alpha.5":
-  version "999.99.9-rich-text-alpha.5"
-  resolved "https://registry.yarnpkg.com/@dhis2/analytics/-/analytics-999.99.9-rich-text-alpha.5.tgz#412c6d19e115669e8f951085e7e8fc56dce13bc5"
-  integrity sha512-ZSLezGW2gdw5PyY+kcY9p9+i6hxPT8QONAaJPz9zKBzYyXrTB1pjmN01LWlwtgecmxSAyOgDNPEcSOqF5OztqA==
+"@dhis2/analytics@999.99.9-rich-text-alpha.6":
+  version "999.99.9-rich-text-alpha.6"
+  resolved "https://registry.yarnpkg.com/@dhis2/analytics/-/analytics-999.99.9-rich-text-alpha.6.tgz#057e9da8508c135f9803a48d4734dbacd7e9ebf4"
+  integrity sha512-K/esRDlNiWpzR9e8VzwBWIrGMFjlciwLNWJ1kmoJWmObUZpfNBcB07CUDNqt5LZumNJWhTgJZjMckfgsFhQBvw==
   dependencies:
     "@dhis2/multi-calendar-dates" "1.0.0"
     "@dnd-kit/core" "^6.0.7"
