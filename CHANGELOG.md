@@ -1,3 +1,13 @@
+## [100.2.2](https://github.com/dhis2/dashboard-app/compare/v100.2.1...v100.2.2) (2024-05-16)
+
+
+### Bug Fixes
+
+* avoid re-rendering an item when adding the same again (DHIS2-17016) ([#2935](https://github.com/dhis2/dashboard-app/issues/2935)) ([dd67fc6](https://github.com/dhis2/dashboard-app/commit/dd67fc69c6b39bd177c1dd6a51cdf90d4dd4a1a2))
+* avoid reading from undefined error (DHIS2-17334) ([#2970](https://github.com/dhis2/dashboard-app/issues/2970)) ([a4e5340](https://github.com/dhis2/dashboard-app/commit/a4e5340a6605db261fd2a2af1ced272d94c760dc))
+* dimension list design (DHIS2-16270) ([#2861](https://github.com/dhis2/dashboard-app/issues/2861)) ([790afd2](https://github.com/dhis2/dashboard-app/commit/790afd2d64e8fb8252088453cdb803735b79c4de))
+* system / user setting for display name not respected in Org Unit tree (DHIS2-15000) ([#2971](https://github.com/dhis2/dashboard-app/issues/2971)) ([928b88a](https://github.com/dhis2/dashboard-app/commit/928b88a7a97816f0c0a8a9cf364bf7fa189c848a))
+
 ## [100.2.1](https://github.com/dhis2/dashboard-app/compare/v100.2.0...v100.2.1) (2024-04-24)
 
 
