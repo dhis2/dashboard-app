@@ -56,8 +56,8 @@ msgstr "Spacer"
 msgid "Use a spacer to create empty vertical space between other dashboard items."
 msgstr "Use a spacer to create empty vertical space between other dashboard items."
 
-msgid "Text item"
-msgstr "Text item"
+msgid "Text box"
+msgstr "Text box"
 
 msgid "Add text here"
 msgstr "Add text here"
@@ -336,9 +336,6 @@ msgstr "Cannot search for dashboard items while offline"
 
 msgid "Additional items"
 msgstr "Additional items"
-
-msgid "Text box"
-msgstr "Text box"
 
 msgid "Dashboard layout"
 msgstr "Dashboard layout"
