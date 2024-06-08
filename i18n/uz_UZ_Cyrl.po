@@ -67,8 +67,8 @@ msgstr ""
 "Мониторинг панелида элементлар орасида вертикал бўш жой яратиш учун бўш жой "
 "қолдириш функциясидан фойдаланинг"
 
-msgid "Text item"
-msgstr "Матн элементи"
+msgid "Text box"
+msgstr "Матн жойи"
 
 msgid "Add text here"
 msgstr "Матнни шу ерга қўшинг"
@@ -118,9 +118,6 @@ msgstr ""
 
 msgid "View as Chart"
 msgstr "Диаграмма сифатида кўриш"
-
-msgid "This map can't be displayed as a table"
-msgstr "Ушбу харитани жадвал сифатида кўратиб бўлмайди"
 
 msgid "View as Pivot table"
 msgstr ""
@@ -344,9 +341,6 @@ msgstr "Офллайн режимда асбоблар панели элемен
 
 msgid "Additional items"
 msgstr "Қўшимча элементлар"
-
-msgid "Text box"
-msgstr "Матн жойи"
 
 msgid "Dashboard layout"
 msgstr "Бошқарув панели макети"

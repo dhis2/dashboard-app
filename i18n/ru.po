@@ -19,16 +19,16 @@ msgstr ""
 "Plural-Forms: nplurals=4; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<12 || n%100>14) ? 1 : n%10==0 || (n%10>=5 && n%10<=9) || (n%100>=11 && n%100<=14)? 2 : 3);\n"
 
 msgid "Untitled dashboard"
-msgstr ""
+msgstr "Инфопанель без названия"
 
 msgid "Cannot create a dashboard while offline"
-msgstr ""
+msgstr "Невозможно создать инфопанель в автономном режиме"
 
 msgid "Create new dashboard"
-msgstr ""
+msgstr "Создать новую инфопанель"
 
 msgid "Search for a dashboard"
-msgstr "Поиск информационной панели"
+msgstr "Поиск инфопанели"
 
 msgid "Show fewer dashboards"
 msgstr ""
@@ -69,8 +69,8 @@ msgstr ""
 "Используйте разделитель для того, чтобы создать пустое вертикальное "
 "пространство между элементами информационной панели."
 
-msgid "Text item"
-msgstr "Текстовый элемент"
+msgid "Text box"
+msgstr "Текстовое окно"
 
 msgid "Add text here"
 msgstr "Добавить текст сюда"
@@ -325,9 +325,6 @@ msgstr ""
 
 msgid "Additional items"
 msgstr ""
-
-msgid "Text box"
-msgstr "Текстовое окно"
 
 msgid "Dashboard layout"
 msgstr ""

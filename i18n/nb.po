@@ -8,7 +8,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2024-02-26T14:42:02.563Z\n"
+"POT-Creation-Date: 2024-03-19T12:31:03.302Z\n"
 "PO-Revision-Date: 2019-06-25 12:37+0000\n"
 "Last-Translator: Karoline Tufte Lien <karoline@dhis2.org>, 2024\n"
 "Language-Team: Norwegian Bokmål (https://app.transifex.com/hisp-uio/teams/100509/nb/)\n"
@@ -69,8 +69,8 @@ msgstr ""
 "Bruk mellomrom for å lage tom vertikal plass mellom andre elementer i "
 "dashbordet."
 
-msgid "Text item"
-msgstr "Tekstelement"
+msgid "Text box"
+msgstr "Tekstboks"
 
 msgid "Add text here"
 msgstr "Legg til tekst her"
@@ -82,6 +82,12 @@ msgid "Filters are not applied to line list dashboard items"
 msgstr ""
 
 msgid "Filters not applied"
+msgstr ""
+
+msgid "Only Period and Organisation unit filters can be applied to this item"
+msgstr ""
+
+msgid "Some filters not applied"
 msgstr ""
 
 msgid "There was a problem loading this dashboard item"
@@ -330,9 +336,6 @@ msgstr ""
 
 msgid "Additional items"
 msgstr "Ytterligere elementer"
-
-msgid "Text box"
-msgstr "Tekstboks"
 
 msgid "Dashboard layout"
 msgstr "Dashbordoppsett"

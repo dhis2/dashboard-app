@@ -67,8 +67,8 @@ msgid ""
 "Use a spacer to create empty vertical space between other dashboard items."
 msgstr "使用空白隔断在不同条目间创建垂直的空白区"
 
-msgid "Text item"
-msgstr "文本条目"
+msgid "Text box"
+msgstr "文本框"
 
 msgid "Add text here"
 msgstr "在这里添加文本"
@@ -330,9 +330,6 @@ msgstr "离线时无法搜索仪表盘项目"
 
 msgid "Additional items"
 msgstr "其它条目"
-
-msgid "Text box"
-msgstr "文本框"
 
 msgid "Dashboard layout"
 msgstr "仪表盘布局"

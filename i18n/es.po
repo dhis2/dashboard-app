@@ -14,7 +14,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2024-02-26T14:42:02.563Z\n"
+"POT-Creation-Date: 2024-03-19T12:31:03.302Z\n"
 "PO-Revision-Date: 2019-06-25 12:37+0000\n"
 "Last-Translator: Gabriela Rodriguez <grodriguezcoronado@gmail.com>, 2024\n"
 "Language-Team: Spanish (https://app.transifex.com/hisp-uio/teams/100509/es/)\n"
@@ -76,8 +76,8 @@ msgstr ""
 "Use el tabulador para crear un espacio vertical vacío con otro objeto del "
 "tablero."
 
-msgid "Text item"
-msgstr "Elemento de texto"
+msgid "Text box"
+msgstr "Caja de texto"
 
 msgid "Add text here"
 msgstr "Añada texto aquí"
@@ -90,6 +90,12 @@ msgstr "Los filtros no se aplican a los elementos del tablero de listados"
 
 msgid "Filters not applied"
 msgstr "Filtros no aplicados"
+
+msgid "Only Period and Organisation unit filters can be applied to this item"
+msgstr ""
+
+msgid "Some filters not applied"
+msgstr ""
 
 msgid "There was a problem loading this dashboard item"
 msgstr "Ha habido un problema al cargar este elemento del tablero"
@@ -347,9 +353,6 @@ msgstr "No se pueden buscar elementos de tableros sin conexión a internet"
 
 msgid "Additional items"
 msgstr "Objetos adicionales"
-
-msgid "Text box"
-msgstr "Caja de texto"
 
 msgid "Dashboard layout"
 msgstr "Diseño del tablero"
