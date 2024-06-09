@@ -9,7 +9,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2024-02-26T14:42:02.563Z\n"
+"POT-Creation-Date: 2024-03-19T12:31:03.302Z\n"
 "PO-Revision-Date: 2019-06-25 12:37+0000\n"
 "Last-Translator: Éva Tamási, 2024\n"
 "Language-Team: Ukrainian (https://app.transifex.com/hisp-uio/teams/100509/uk/)\n"
@@ -70,8 +70,8 @@ msgstr ""
 "Використовуйте роздільник, щоб створити порожній вертикальний простір між "
 "іншими елементами інформаційної панелі."
 
-msgid "Text item"
-msgstr "Текстовий об'єкт"
+msgid "Text box"
+msgstr "Текстове поле"
 
 msgid "Add text here"
 msgstr "Додати текст сюди"
@@ -85,6 +85,12 @@ msgstr ""
 
 msgid "Filters not applied"
 msgstr "Фільтри не застосовані"
+
+msgid "Only Period and Organisation unit filters can be applied to this item"
+msgstr ""
+
+msgid "Some filters not applied"
+msgstr ""
 
 msgid "There was a problem loading this dashboard item"
 msgstr ""
@@ -345,9 +351,6 @@ msgstr "Неможливо знайти елементи інформаційн�
 
 msgid "Additional items"
 msgstr "Додаткові елементи"
-
-msgid "Text box"
-msgstr "Текстове поле"
 
 msgid "Dashboard layout"
 msgstr "Макет інформаційної панелі"

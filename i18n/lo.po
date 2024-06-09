@@ -68,8 +68,8 @@ msgid ""
 "Use a spacer to create empty vertical space between other dashboard items."
 msgstr ""
 
-msgid "Text item"
-msgstr "ລາຍການທີ່ເປັນໜັງສື"
+msgid "Text box"
+msgstr ""
 
 msgid "Add text here"
 msgstr "ເພີ້ມໜັງສືບ່ອນນີ້"
@@ -323,9 +323,6 @@ msgid "Cannot search for dashboard items while offline"
 msgstr ""
 
 msgid "Additional items"
-msgstr ""
-
-msgid "Text box"
 msgstr ""
 
 msgid "Dashboard layout"

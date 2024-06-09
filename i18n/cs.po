@@ -5,7 +5,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2024-02-26T14:42:02.563Z\n"
+"POT-Creation-Date: 2024-03-19T12:31:03.302Z\n"
 "PO-Revision-Date: 2019-06-25 12:37+0000\n"
 "Last-Translator: Jiří Podhorecký, 2024\n"
 "Language-Team: Czech (https://app.transifex.com/hisp-uio/teams/100509/cs/)\n"
@@ -66,8 +66,8 @@ msgstr ""
 "Pomocí mezerníku vytvořte prázdný svislý prostor mezi ostatními položkami "
 "ovládacího panelu."
 
-msgid "Text item"
-msgstr "Textová položka"
+msgid "Text box"
+msgstr "Textové pole"
 
 msgid "Add text here"
 msgstr "Sem přidat text"
@@ -80,6 +80,12 @@ msgstr "Filtry se nepoužívají na položky ovládacího panelu řádkového se
 
 msgid "Filters not applied"
 msgstr "Filtry nejsou použity"
+
+msgid "Only Period and Organisation unit filters can be applied to this item"
+msgstr ""
+
+msgid "Some filters not applied"
+msgstr ""
 
 msgid "There was a problem loading this dashboard item"
 msgstr "Při načítání této položky ovládacího panelu došlo k problému"
@@ -336,9 +342,6 @@ msgstr "V režimu offline nelze vyhledávat položky ovládacího panelu"
 
 msgid "Additional items"
 msgstr "Další položky"
-
-msgid "Text box"
-msgstr "Textové pole"
 
 msgid "Dashboard layout"
 msgstr "Rozložení ovládacího panelu"

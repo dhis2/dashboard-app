@@ -11,7 +11,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2024-02-26T14:42:02.563Z\n"
+"POT-Creation-Date: 2024-03-19T12:31:03.302Z\n"
 "PO-Revision-Date: 2019-06-25 12:37+0000\n"
 "Last-Translator: Raja Fathurrahim, 2022\n"
 "Language-Team: Indonesian (https://app.transifex.com/hisp-uio/teams/100509/id/)\n"
@@ -72,8 +72,8 @@ msgstr ""
 "Gunakan spacer untuk memberi ruang vertikal kosong di antara item-item "
 "dashboard."
 
-msgid "Text item"
-msgstr "Item teks"
+msgid "Text box"
+msgstr "Kotak teks"
 
 msgid "Add text here"
 msgstr "Tambahkan teks di sini"
@@ -85,6 +85,12 @@ msgid "Filters are not applied to line list dashboard items"
 msgstr ""
 
 msgid "Filters not applied"
+msgstr ""
+
+msgid "Only Period and Organisation unit filters can be applied to this item"
+msgstr ""
+
+msgid "Some filters not applied"
 msgstr ""
 
 msgid "There was a problem loading this dashboard item"
@@ -337,9 +343,6 @@ msgstr ""
 
 msgid "Additional items"
 msgstr "Item tambahan"
-
-msgid "Text box"
-msgstr "Kotak teks"
 
 msgid "Dashboard layout"
 msgstr "Tata letak dasbor"
