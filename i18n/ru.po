@@ -21,7 +21,7 @@ msgid "Untitled dashboard"
 msgstr "Инфопанель без названия"
 
 msgid "Loading dashboard – {{name}}"
-msgstr ""
+msgstr "Загрузка инфопанели - {{name}}"
 
 msgid "Cancel"
 msgstr "Отмена"
@@ -30,30 +30,35 @@ msgid "Delete"
 msgstr "Удалить"
 
 msgid "Delete dashboard"
-msgstr ""
+msgstr "Удалить инфопанель"
 
 msgid ""
 "Deleting dashboard \"{{ dashboardName }}\" will remove it for all users. "
 "This action cannot be undone. Are you sure you want to permanently delete "
 "this dashboard?"
 msgstr ""
+"Удаление инфопанели \"{{ dashboardName }}\" удалит ее для всех "
+"пользователей. Это действие нельзя отменить. Вы уверены, что хотите навсегда"
+" удалить данную инфопанель?"
 
 msgid ""
 "Failed to save dashboard. You might be offline or not have access to edit "
 "this dashboard."
 msgstr ""
+"Не удалось сохранить инфопанель. Возможно, вы не в сети или не имеете "
+"доступа к редактированию данной инфопанели."
 
 msgid "Save changes"
 msgstr "Сохранить изменения"
 
 msgid "Exit print preview"
-msgstr ""
+msgstr "Выйти из режима предварительного просмотра печати"
 
 msgid "Print preview"
-msgstr ""
+msgstr "Предварительный просмотр печати"
 
 msgid "Filter settings"
-msgstr ""
+msgstr "Настройки фильтров"
 
 msgid "Translate"
 msgstr "Перевести"
@@ -68,10 +73,10 @@ msgid "Search for a dashboard"
 msgstr "Поиск информационной панели"
 
 msgid "Show fewer dashboards"
-msgstr ""
+msgstr "Показать меньше инфопанелей"
 
 msgid "Show more dashboards"
-msgstr ""
+msgstr "Показать больше инфопанелей"
 
 msgid "No dashboards found. Use the + button to create a new dashboard."
 msgstr ""
@@ -88,6 +93,8 @@ msgid ""
 "Editing dashboards on small screens is not supported. Resize your screen to "
 "return to edit mode."
 msgstr ""
+"Редактирование инфопанелей на маленьких экранах не поддерживается. Чтобы "
+"вернуться в режим редактирования, измените размер экрана."
 
 msgid ""
 "Creating dashboards on small screens is not supported. Resize your screen to"
@@ -95,28 +102,28 @@ msgid ""
 msgstr ""
 
 msgid "Not supported"
-msgstr ""
+msgstr "Не поддерживается"
 
 msgid "Print"
 msgstr "Печать"
 
 msgid "dashboard layout"
-msgstr ""
+msgstr "дизайн инфопанели"
 
 msgid "one item per page"
-msgstr ""
+msgstr "один элемент на страницу"
 
 msgid "Print Preview"
-msgstr ""
+msgstr "Предварительный просмотр печати"
 
 msgid "For best print results"
-msgstr ""
+msgstr "Для достижения наилучших результатов печати"
 
 msgid "Use Chrome or Edge web browser"
-msgstr ""
+msgstr "Используйте браузеры Chrome или Edge"
 
 msgid "Wait for all dashboard items to load before printing"
-msgstr ""
+msgstr "Дождитесь загрузки всех элементов инфопанели перед началом печати"
 
 msgid ""
 "Use A4 landscape paper size and default margin settings in the browser print"
@@ -125,10 +132,10 @@ msgstr ""
 
 msgid "{{count}} selected"
 msgid_plural "{{count}} selected"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
-msgstr[3] ""
+msgstr[0] "{{count}} выбрана"
+msgstr[1] "{{count}} выбранные"
+msgstr[2] "{{count}} выбранные"
+msgstr[3] "{{count}} выбрана"
 
 msgid "Remove"
 msgstr "Убрать"
@@ -137,7 +144,7 @@ msgid "Delete item"
 msgstr ""
 
 msgid "This item has been shortened to fit on one page"
-msgstr ""
+msgstr "Данный элемент был укорочен, чтобы поместиться на одной странице"
 
 msgid "Messages"
 msgstr "Сообщения"
@@ -146,13 +153,13 @@ msgid "See all messages"
 msgstr "Посмотреть все сообщения"
 
 msgid "Item type \"{{type}}\" is not supported"
-msgstr ""
+msgstr "Элемент типа \"{{type}}\" не поддерживается"
 
 msgid "The item type is missing"
-msgstr ""
+msgstr "Тип элемента отсутствует"
 
 msgid "Filters applied"
-msgstr ""
+msgstr "Применены фильтры"
 
 msgid "Spacer"
 msgstr "Разделитель"
@@ -170,7 +177,7 @@ msgid "Add text here"
 msgstr "Добавить текст сюда"
 
 msgid "There was a problem loading this dashboard item"
-msgstr ""
+msgstr "Возникла проблема с загрузкой данного элемента инфопанели."
 
 msgid "Hide interpretations and details"
 msgstr ""
@@ -179,16 +186,16 @@ msgid "Show interpretations and details"
 msgstr ""
 
 msgid "Open in {{appName}} app"
-msgstr ""
+msgstr "Открыть в приложении {{appName}} "
 
 msgid "View fullscreen"
-msgstr ""
+msgstr "Просмотр в полноэкранном режиме"
 
 msgid "View as Chart"
-msgstr ""
+msgstr "Просмотр в виде диаграммы"
 
 msgid "This map can't be displayed as a chart"
-msgstr ""
+msgstr "Данная карта не может быть отображена в виде графика"
 
 msgid "View as Table"
 msgstr ""
@@ -197,37 +204,37 @@ msgid "This map can't be displayed as a table"
 msgstr ""
 
 msgid "View as Map"
-msgstr ""
+msgstr "Просмотр в виде карты"
 
 msgid "There was a problem loading interpretations for this item"
-msgstr ""
+msgstr "Возникла проблема с загрузкой интерпретаций для данного элемента"
 
 msgid "Unable to load the plugin for this item"
 msgstr "Невозможно загрузить плагин для этого элемента"
 
 msgid "No data to display"
-msgstr ""
+msgstr "Нет данных для отображения"
 
 msgid "There was an error loading data for this item"
-msgstr ""
+msgstr "Возникла ошибка при загрузке данных для данного элемента"
 
 msgid "Open this item in {{appName}}"
-msgstr ""
+msgstr "Откройте данный элемент в приложении {{appName}}"
 
 msgid "Confirm"
 msgstr "Подтвердить"
 
 msgid "Add filter"
-msgstr ""
+msgstr "Добавить фильтр"
 
 msgid "Allow filtering by all dimensions"
-msgstr ""
+msgstr "Разрешить фильтрацию по всем измерениям"
 
 msgid "Only allow filtering by selected dimensions"
-msgstr ""
+msgstr "Разрешить фильтрацию только по выбранным параметрам"
 
 msgid "Dashboard filter settings"
-msgstr ""
+msgstr "Настройки фильтров инфопанели"
 
 msgid ""
 "Dashboards can be filtered by dimensions to change\n"
@@ -235,18 +242,22 @@ msgid ""
 "                                         as filters. Alternatively, only selected dimensions can\n"
 "                                         be made available on a dashboard."
 msgstr ""
+"Инфопанели можно фильтровать по различным параметрам.\n"
+"                                         По умолчанию все параметры доступны для фильтрации.\n"
+"                                          Возможно применить только выбранные параметры\n"
+"                                         для фильтрации данных на инфопанели."
 
 msgid "Available Filters"
-msgstr ""
+msgstr "Доступные фильтры"
 
 msgid "Selected Filters"
-msgstr ""
+msgstr "Выбранные фильтры"
 
 msgid "There are no items on this dashboard"
 msgstr "На этой информационной панели нет элементов"
 
 msgid "Show fewer"
-msgstr ""
+msgstr "Показать меньше"
 
 msgid "Show more"
 msgstr "Показать больше информации"
@@ -258,22 +269,22 @@ msgid "Search for items to add to this dashboard"
 msgstr "Поиск элементов для добавления на эту информационную панель"
 
 msgid "Additional items"
-msgstr ""
+msgstr "Дополнительные элементы"
 
 msgid "Text box"
 msgstr "Текстовое окно"
 
 msgid "Dashboard title"
-msgstr ""
+msgstr "Название инфопанели"
 
 msgid "Dashboard description"
-msgstr ""
+msgstr "Описание инфопанели"
 
 msgid "Hide description"
-msgstr ""
+msgstr "Скрыть описание"
 
 msgid "Show description"
-msgstr ""
+msgstr "Показать описание"
 
 msgid "Failed to hide description"
 msgstr ""
@@ -282,16 +293,16 @@ msgid "Failed to show description"
 msgstr ""
 
 msgid "Unstar dashboard"
-msgstr ""
+msgstr "Удалить метку \"звезда\" с инфопанели"
 
 msgid "Star dashboard"
-msgstr ""
+msgstr "Добавить метку \"звезда\" на инфопанель"
 
 msgid "Failed to unstar the dashboard"
-msgstr ""
+msgstr "Не удалось снять звезду с инфопанели"
 
 msgid "Failed to star the dashboard"
-msgstr ""
+msgstr "Не удалось добавить метку \"звезда\" к инфопанели"
 
 msgid "More"
 msgstr "Более"
@@ -303,16 +314,16 @@ msgid "Share"
 msgstr "Поделиться"
 
 msgid "Dashboard layout"
-msgstr ""
+msgstr "Дизайн инфопанели"
 
 msgid "One item per page"
-msgstr ""
+msgstr "Один элемент на страницу"
 
 msgid "No description"
 msgstr "Нет описания"
 
 msgid "Visualizations"
-msgstr ""
+msgstr "Визуализации"
 
 msgid "Pivot tables"
 msgstr "Сводные таблицы"
