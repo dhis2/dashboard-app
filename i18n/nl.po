@@ -1,15 +1,15 @@
 # 
 # Translators:
 # Cherise Beek <cherise.beek@gmail.com>, 2021
-# Rica Zamora Duchateau, 2022
 # Charel van den Elsen, 2023
+# Rica, 2024
 # 
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
 "POT-Creation-Date: 2024-03-19T12:31:03.302Z\n"
 "PO-Revision-Date: 2019-06-25 12:37+0000\n"
-"Last-Translator: Charel van den Elsen, 2023\n"
+"Last-Translator: Rica, 2024\n"
 "Language-Team: Dutch (https://app.transifex.com/hisp-uio/teams/100509/nl/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -75,7 +75,7 @@ msgid "Add text here"
 msgstr "Voeg hier tekst toe"
 
 msgid "Back to all interpretations"
-msgstr ""
+msgstr "Terug naar alle interpretaties"
 
 msgid "Filters are not applied to line list dashboard items"
 msgstr "Filters worden niet toegepast op dashboarditems van de regellijst"
@@ -85,9 +85,11 @@ msgstr "Filters niet toegepast"
 
 msgid "Only Period and Organisation unit filters can be applied to this item"
 msgstr ""
+"Alleen filters voor Periodes en Organisatie-eenheden kunnen tot dit artikel "
+"toegepast worden"
 
 msgid "Some filters not applied"
-msgstr ""
+msgstr "Sommige filters niet toegepast"
 
 msgid "There was a problem loading this dashboard item"
 msgstr "Er is een probleem opgetreden bij het laden van dit dashboarditem"
@@ -108,19 +110,19 @@ msgid "This map can't be displayed as a chart"
 msgstr "Deze kaart kan niet als grafiek worden weergegeven"
 
 msgid "This map can't be displayed as a pivot table"
-msgstr ""
+msgstr "Deze kaart kan niet weergegeven worden als draaitabel"
 
 msgid "This visualization can't be displayed as a pivot table"
-msgstr ""
+msgstr "Deze visualisatie kan niet weergegeven worden als een draaitabel"
 
 msgid "This visualization can't be displayed as a map"
-msgstr ""
+msgstr "Deze visualisatie kan niet weergegeven worden als een kaart"
 
 msgid "View as Chart"
 msgstr "Bekijk als grafiek"
 
 msgid "View as Pivot table"
-msgstr ""
+msgstr "Bekijk als Draaitabel"
 
 msgid "View as Map"
 msgstr "Bekijk als kaart"
