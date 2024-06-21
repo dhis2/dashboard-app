@@ -1,26 +1,24 @@
 .container {
-    margin-top: var(--spacers-dp12);
+    /* margin-top: var(--spacers-dp12); */
+    background: var(--colors-white);
+    border-bottom: 1px solid var(--colors-grey300);
+    padding: var(--spacers-dp12) var(--spacers-dp16) var(--spacers-dp8);
+    position: sticky;
+    top: 0;
+    z-index: 10;
 }
 
 .titleBar {
     display: flex;
-    align-items: flex-start;
+    align-items: center;
+    justify-content: space-between;
     position: relative;
 }
 
 .title {
     position: relative;
-    font-size: 21px;
+    font-size: 18px;
     font-weight: 500;
-    color: var(--colors-black);
-    min-width: 50px;
-    cursor: default;
+    color: var(--colors-grey900);
     user-select: text;
-    top: 7px;
-}
-
-@media only screen and (max-width: 480px) {
-    .title {
-        top: 3px;
-    }
 }
