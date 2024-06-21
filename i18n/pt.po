@@ -1,20 +1,20 @@
 # 
 # Translators:
 # Viktor Varland <viktor@dhis2.org>, 2020
-# Gabriela Rodriguez <grodriguezcoronado@gmail.com>, 2021
-# phil_dhis2, 2021
 # Sheila André <sandre@saudigitus.org>, 2021
 # Ge Joao <gsimango@saudigitus.org>, 2021
 # Fernando Jorge Bade, 2021
 # David Júnior <davidjr.mondlane@gmail.com>, 2022
+# Philip Larsen Donnelly, 2024
+# Gabriela Rodriguez <grodriguezcoronado@gmail.com>, 2024
 # 
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2021-12-21T08:20:25.327Z\n"
+"POT-Creation-Date: 2024-03-19T12:31:03.302Z\n"
 "PO-Revision-Date: 2019-06-25 12:37+0000\n"
-"Last-Translator: David Júnior <davidjr.mondlane@gmail.com>, 2022\n"
-"Language-Team: Portuguese (https://www.transifex.com/hisp-uio/teams/100509/pt/)\n"
+"Last-Translator: Gabriela Rodriguez <grodriguezcoronado@gmail.com>, 2024\n"
+"Language-Team: Portuguese (https://app.transifex.com/hisp-uio/teams/100509/pt/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -72,11 +72,26 @@ msgstr ""
 "Use um espaçador para criar um espaço vertical vazio entre outros itens do "
 "painel."
 
-msgid "Text item"
-msgstr "Item de texto"
+msgid "Text box"
+msgstr "Caixa de texto"
 
 msgid "Add text here"
 msgstr "Adicione texto aqui"
+
+msgid "Back to all interpretations"
+msgstr "Voltar para todas as interpretações"
+
+msgid "Filters are not applied to line list dashboard items"
+msgstr ""
+
+msgid "Filters not applied"
+msgstr ""
+
+msgid "Only Period and Organisation unit filters can be applied to this item"
+msgstr ""
+
+msgid "Some filters not applied"
+msgstr ""
 
 msgid "There was a problem loading this dashboard item"
 msgstr "Ocorreu um problema ao carregar este item do painel"
@@ -96,14 +111,20 @@ msgstr "Ver em tela cheia"
 msgid "This map can't be displayed as a chart"
 msgstr "Este mapa não pode ser exibido como um gráfico"
 
+msgid "This map can't be displayed as a pivot table"
+msgstr ""
+
+msgid "This visualization can't be displayed as a pivot table"
+msgstr ""
+
+msgid "This visualization can't be displayed as a map"
+msgstr ""
+
 msgid "View as Chart"
 msgstr "Ver como gráfico"
 
-msgid "This map can't be displayed as a table"
-msgstr "Este mapa não pode ser exibido como uma tabela"
-
-msgid "View as Table"
-msgstr "Ver como Tabela"
+msgid "View as Pivot table"
+msgstr ""
 
 msgid "View as Map"
 msgstr "Ver como mapa"
@@ -111,14 +132,29 @@ msgstr "Ver como mapa"
 msgid "There was a problem loading interpretations for this item"
 msgstr "Ocorreu um problema ao carregar as interpretações para este item"
 
+msgid "The plugin for rendering this item is not available"
+msgstr ""
+
+msgid "Install the {{appName}} app from the App Hub"
+msgstr ""
+
+msgid "No data to display"
+msgstr "Nenhum dado para exibir"
+
+msgid ""
+"Install Line Listing app version ${minLLVersion.join(\n"
+"                                '.'\n"
+"                            )} or higher in order to display this item."
+msgstr ""
+
+msgid "Show without filters"
+msgstr ""
+
 msgid "Maps with Earth Engine layers cannot be displayed when offline"
 msgstr "Mapas com camadas do Earth Engine não podem ser exibidos off-line"
 
 msgid "Unable to load the plugin for this item"
 msgstr "Não foi possível carregar o plug-in para este item"
-
-msgid "No data to display"
-msgstr "Nenhum dado para exibir"
 
 msgid "There was an error loading data for this item"
 msgstr "Ocorreu um erro ao carregar os dados deste item"
@@ -146,6 +182,9 @@ msgstr "Relatórios de eventos"
 
 msgid "Event charts"
 msgstr "Gráficos de eventos"
+
+msgid "Line lists"
+msgstr ""
 
 msgid "Apps"
 msgstr "Aplicações"
@@ -305,9 +344,6 @@ msgstr "Não é possível pesquisar itens do painel enquanto estiver offline"
 
 msgid "Additional items"
 msgstr "Itens adicionais"
-
-msgid "Text box"
-msgstr "Caixa de texto"
 
 msgid "Dashboard layout"
 msgstr "Layout do painel"
@@ -537,7 +573,7 @@ msgstr ""
 "Não é possível marcar este painel com estrela enquanto estiver off-line"
 
 msgid "Loading dashboard – {{name}}"
-msgstr "Carregando painel– {{nome}}"
+msgstr "Carregando painel– {{name}}"
 
 msgid "Loading dashboard"
 msgstr "A carregar painel"

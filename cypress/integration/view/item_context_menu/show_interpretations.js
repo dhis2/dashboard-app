@@ -23,7 +23,7 @@ When(
 Then('the interpretations panel is displayed', () => {
     getDashboardItem(chartItemUid)
         .find(itemDetailsSel)
-        .contains('Visualization details')
+        .contains('About this')
         .scrollIntoView()
         .should('be.visible')
 

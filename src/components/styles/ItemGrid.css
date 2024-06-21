@@ -66,6 +66,10 @@
     overflow: auto;
 }
 
+.TEXT .dashboard-item-content {
+    padding-bottom: var(--item-content-padding);
+}
+
 .EVENT_REPORT .dashboard-item-content {
     position: relative;
 }

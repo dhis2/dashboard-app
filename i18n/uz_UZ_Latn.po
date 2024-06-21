@@ -1,25 +1,23 @@
 # 
 # Translators:
-# Viktor Varland <viktor@dhis2.org>, 2021
-# Thuy Nguyen <thuynguyen@hispvietnam.org>, 2022
 # Philip Larsen Donnelly, 2024
-# Mai Nguyen <thanhmai.jica@gmail.com>, 2024
+# Yury Rogachev <yury@dhis2.org>, 2024
 # 
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
 "POT-Creation-Date: 2024-03-19T12:31:03.302Z\n"
 "PO-Revision-Date: 2019-06-25 12:37+0000\n"
-"Last-Translator: Mai Nguyen <thanhmai.jica@gmail.com>, 2024\n"
-"Language-Team: Vietnamese (https://app.transifex.com/hisp-uio/teams/100509/vi/)\n"
+"Last-Translator: Yury Rogachev <yury@dhis2.org>, 2024\n"
+"Language-Team: Uzbek (Latin) (https://app.transifex.com/hisp-uio/teams/100509/uz@Latn/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: vi\n"
+"Language: uz@Latn\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 
 msgid "Untitled dashboard"
-msgstr "Bảng điều khiển không có tiêu đề"
+msgstr "Nomsiz boshqaruv paneli"
 
 msgid "Cannot create a dashboard while offline"
 msgstr ""
@@ -28,28 +26,28 @@ msgid "Create new dashboard"
 msgstr ""
 
 msgid "Search for a dashboard"
-msgstr "Tìm kiếm bảng điều khiển"
+msgstr "Boshqarish panelida izlash"
 
 msgid "Show fewer dashboards"
-msgstr "Hiển thị ít bảng điều khiển hơn"
+msgstr ""
 
 msgid "Show more dashboards"
-msgstr "Hiển thị thêm bảng điều khiển"
+msgstr ""
 
 msgid "Remove this item"
 msgstr ""
 
 msgid "This item has been shortened to fit on one page"
-msgstr "Mục này đã được rút ngắn để vừa với một trang"
+msgstr "Ushbu element bir sahifaga joylashtirish uchun moslashtirildi"
 
 msgid "Remove"
-msgstr "Tháo ra"
+msgstr "Olib tashlash"
 
 msgid "Messages"
-msgstr "Hộp thư"
+msgstr "Xabarlar"
 
 msgid "See all messages"
-msgstr "Xem tất cả tin nhắn"
+msgstr "Barcha xabarlarni koʼrish"
 
 msgid "Item type \"{{type}}\" is not supported"
 msgstr ""
@@ -58,25 +56,25 @@ msgid "The item type is missing"
 msgstr ""
 
 msgid "Filters applied"
-msgstr "Bộ lọc được áp dụng"
+msgstr "Filtr qoʼllanildi"
 
 msgid "Spacer"
-msgstr "Dấu cách"
+msgstr "Boʼsh joy"
 
 msgid ""
 "Use a spacer to create empty vertical space between other dashboard items."
 msgstr ""
-"Sử dụng dấu cách để tạo không gian dọc trống giữa các mục bảng điều khiển "
-"khác."
+"Monitoring panelida elementlar orasida vertikal boʼsh joy yaratish uchun "
+"boʼsh joy qoldirish funktsiyasidan foydalaning"
 
 msgid "Text box"
-msgstr "Hộp văn bản"
+msgstr "Matn joyi"
 
 msgid "Add text here"
-msgstr "Thêm văn bản tại đây"
+msgstr "Matnni shu yerga qoʼshing"
 
 msgid "Back to all interpretations"
-msgstr "Quay lại tất cả các diễn giải"
+msgstr "Jami talqinlarga qaytish"
 
 msgid "Filters are not applied to line list dashboard items"
 msgstr ""
@@ -91,7 +89,7 @@ msgid "Some filters not applied"
 msgstr ""
 
 msgid "There was a problem loading this dashboard item"
-msgstr "Đã xảy ra sự cố khi tải mục bảng điều khiển này"
+msgstr "Ushbu panel elementlari yuklanishida muaamoga duch kelindi"
 
 msgid "Hide details and interpretations"
 msgstr ""
@@ -100,10 +98,10 @@ msgid "Show details and interpretations"
 msgstr ""
 
 msgid "Open in {{appName}} app"
-msgstr "Mở trong ứng dụng {{appName}}"
+msgstr "Ilovada {{appName}} da ochish"
 
 msgid "View fullscreen"
-msgstr "Xem toàn màn hình"
+msgstr ""
 
 msgid "This map can't be displayed as a chart"
 msgstr ""
@@ -118,13 +116,13 @@ msgid "This visualization can't be displayed as a map"
 msgstr ""
 
 msgid "View as Chart"
-msgstr "Xem dưới dạng biểu đồ"
+msgstr "Diagramma sifatida koʼrish"
 
 msgid "View as Pivot table"
 msgstr ""
 
 msgid "View as Map"
-msgstr "Xem dưới dạng bản đồ"
+msgstr "Xarita sifatida koʼrish"
 
 msgid "There was a problem loading interpretations for this item"
 msgstr ""
@@ -136,7 +134,7 @@ msgid "Install the {{appName}} app from the App Hub"
 msgstr ""
 
 msgid "No data to display"
-msgstr "Không có dữ liệu hiển thị"
+msgstr "Maʼlumot ekranga chiqarilmadi"
 
 msgid ""
 "Install Line Listing app version ${minLLVersion.join(\n"
@@ -151,7 +149,7 @@ msgid "Maps with Earth Engine layers cannot be displayed when offline"
 msgstr ""
 
 msgid "Unable to load the plugin for this item"
-msgstr "Không thể tải plugin cho mục này"
+msgstr "Ushbu element uchun plagin yuklanmadi"
 
 msgid "There was an error loading data for this item"
 msgstr ""
@@ -163,37 +161,37 @@ msgid "Not available offline"
 msgstr ""
 
 msgid "Visualizations"
-msgstr "Mô hình hóa"
+msgstr "Vizualizatsiya"
 
 msgid "Pivot tables"
-msgstr "Bảng Xoay"
+msgstr ""
 
 msgid "Charts"
-msgstr "Biểu Đồ"
+msgstr "Diagrammalar"
 
 msgid "Maps"
-msgstr "Bản Đồ"
+msgstr "Xaritalar"
 
 msgid "Event reports"
-msgstr "Báo Cáo Sự Kiện"
+msgstr "Hodisalar hisoboti"
 
 msgid "Event charts"
-msgstr "Biểu Đồ Sự Kiện"
+msgstr "Hodisalar diagrammalarda"
 
 msgid "Line lists"
 msgstr ""
 
 msgid "Apps"
-msgstr "Ứng dụng"
+msgstr "Ilova"
 
 msgid "Reports"
-msgstr "Báo Cáo"
+msgstr "Hisobotlar"
 
 msgid "Resources"
-msgstr "Tài Nguyên"
+msgstr "Resurslar"
 
 msgid "Users"
-msgstr "Người dùng"
+msgstr "Foydalanuvchilar"
 
 msgid ""
 "Failed to save dashboard. You might be offline or not have access to edit "
@@ -214,49 +212,50 @@ msgid "Cannot save this dashboard while offline"
 msgstr ""
 
 msgid "Save changes"
-msgstr "Lưu các thay đổi"
+msgstr "Oʼzgartirishni saqlash"
 
 msgid "Exit print preview"
-msgstr "Thoát xem trước bản in"
+msgstr ""
 
 msgid "Print preview"
-msgstr "Xem thử bản in"
+msgstr "Chop etishdan avvalgi koʼrik"
 
 msgid "Filter settings"
 msgstr ""
 
 msgid "Translate"
-msgstr "Dịch"
+msgstr "Tarjima qiling"
 
 msgid "Cannot delete this dashboard while offline"
 msgstr ""
 
 msgid "Delete"
-msgstr "Xoá"
+msgstr "Oʼchirib tashlash"
 
 msgid "Exit without saving"
-msgstr "Đóng và không lưu"
+msgstr "Saqlamasdan chiqish"
 
 msgid "Go to dashboards"
-msgstr "Di chuyển tới bảng điều khiển"
+msgstr "Boshqaruv panellariga oʼtish"
 
 msgid "Delete dashboard"
-msgstr "Xóa bảng điều khiển"
+msgstr "Boshqaruv panelini oʼchirib tashlash"
 
 msgid ""
 "Deleting dashboard \"{{ dashboardName }}\" will remove it for all users. "
 "This action cannot be undone. Are you sure you want to permanently delete "
 "this dashboard?"
 msgstr ""
-"Xóa bảng điều khiển \"{{ dashboardName }}\" sẽ xóa cho tất cả người dùng. "
-"Hành động này không thể được hoàn tác. Bạn có chắc chắn muốn xóa vĩnh viễn "
-"bảng điều khiển này không?"
+"Panelni oʼchirib tashlash {{ dashboardName }}, uni barcha foydalanuvchilar "
+"uchun oʼchirilishiga olib keladi. Bu harakatni orqaga qaytarib boʼlmaydi. "
+"Haqiqatdan ham ushbu panelni orqaga qaytarib boʼlmaslik sharti bilan "
+"oʼchirib tashlamoqchimisiz?"
 
 msgid "Cancel"
-msgstr "Hủy"
+msgstr "Bekor qilish"
 
 msgid "Discard changes"
-msgstr "Hủy bỏ các thay đổi"
+msgstr "Oʼzgartirishlar bekor qilinsin"
 
 msgid ""
 "This dashboard has unsaved changes. Are you sure you want to leave and "
@@ -264,16 +263,16 @@ msgid ""
 msgstr ""
 
 msgid "No, stay here"
-msgstr "Không, ở lại đây"
+msgstr "Yoʼq, sahifada qolish"
 
 msgid "Yes, discard changes"
 msgstr ""
 
 msgid "No access"
-msgstr "Không truy cập"
+msgstr "Kirish huquqi mavjud emas"
 
 msgid "Not supported"
-msgstr "Không được hỗ trợ"
+msgstr ""
 
 msgid ""
 "Editing dashboards on small screens is not supported. Resize your screen to "
@@ -303,22 +302,22 @@ msgid "Selected Filters"
 msgstr ""
 
 msgid "Confirm"
-msgstr "Xác nhận"
+msgstr "Tasdiqlang"
 
 msgid "There are no items on this dashboard"
-msgstr "Không có mục nào trong bảng điều khiển này"
+msgstr "Ushbu boshqaruv panelida elementlar yoʼq"
 
 msgid "Show fewer"
-msgstr "Hiển thị ít hơn"
+msgstr "Kamroq koʼrsatish"
 
 msgid "Show more"
-msgstr "Hiện thêm"
+msgstr "Koʼproq koʼrsatilsin"
 
 msgid "Insert"
-msgstr "Chèn vào"
+msgstr "Kiritish"
 
 msgid "Search for items to add to this dashboard"
-msgstr "Tìm mục để thêm vào bảng điều khiển này"
+msgstr "Ushbu boshqaruv paneliga kiritish uchun elementlarni qidiring"
 
 msgid "Search for visualizations, reports and more"
 msgstr ""
@@ -327,10 +326,10 @@ msgid "Cannot search for dashboard items while offline"
 msgstr ""
 
 msgid "Additional items"
-msgstr "Hạng mục bổ sung"
+msgstr "Qoʼshimcha elementlar"
 
 msgid "Dashboard layout"
-msgstr "Bố cục bảng điều khiển "
+msgstr "Boshqaruv paneli maketi"
 
 msgid "Freeflow"
 msgstr ""
@@ -364,7 +363,7 @@ msgid "Save layout"
 msgstr ""
 
 msgid "Dashboard title"
-msgstr "Tiêu đề bảng điều khiển"
+msgstr "Boshqaruv paneli nomlanishi"
 
 msgid "Dashboard code"
 msgstr ""
@@ -373,10 +372,10 @@ msgid "Code can't be longer than 50 characters"
 msgstr ""
 
 msgid "Dashboard description"
-msgstr "Mô tả bảng điều khiển"
+msgstr "Boshqaruv paneli tavsifi"
 
 msgid "Layout"
-msgstr "Bố cục"
+msgstr "Joylashish tartibi"
 
 msgid "{{count}} columns"
 msgid_plural "{{count}} columns"
@@ -395,25 +394,27 @@ msgid "Start of dashboard"
 msgstr ""
 
 msgid "Print"
-msgstr "In"
+msgstr "Chop etish"
 
 msgid "dashboard layout"
-msgstr "bố cục bảng điều khiển"
+msgstr "boshqarish paneli maketi"
 
 msgid "one item per page"
-msgstr "một mục trên mỗi trang"
+msgstr "bir sahifada bir element"
 
 msgid "Print Preview"
-msgstr "Xem trước bản in"
+msgstr ""
 
 msgid "For best print results"
-msgstr "Để có bản in tốt nhất"
+msgstr "Bosib chiqarishda (printerda) eng yaxshi natijaga erishish"
 
 msgid "Use Chrome or Edge web browser"
-msgstr "Sử dụng trình duyệt Chrome hoặc Edge"
+msgstr "Chrome yoki Edge brauzeridan foydalaning"
 
 msgid "Wait for all dashboard items to load before printing"
-msgstr "Chờ tải tất cả các mục trên bảng điều khiển trước khi in"
+msgstr ""
+"Bosib chiqarishdan oldin boshqarish paneliga barcha elementlarning "
+"yuklanishini kuting"
 
 msgid ""
 "Use A4 landscape paper size, default margin settings and turn on background "
@@ -421,7 +422,7 @@ msgid ""
 msgstr ""
 
 msgid "Getting started"
-msgstr "Bắt đầu"
+msgstr "Ish boshlanganida"
 
 msgid "Search for and open saved dashboards from the top bar."
 msgstr ""
@@ -439,14 +440,15 @@ msgstr ""
 
 msgid "No dashboards found. Use the + button to create a new dashboard."
 msgstr ""
-"Không thấy bảng điều khiển. Nhấn vào dấu cộng để tạo bảng điều khiến mới"
+"Boshqaruv paneli topilmadi. Yangi boshqaruv panelini yaratish uchun + "
+"tugmasini bosing."
 
 msgid "Requested dashboard not found"
-msgstr "Không tìm thấy bảng điều khiển được yêu cầu"
+msgstr "Soʼralgan boshqaruv paneli topilmadi"
 
 msgid "{{count}} selected"
 msgid_plural "{{count}} selected"
-msgstr[0] "Đã chọn {{count}}"
+msgstr[0] ""
 
 msgid "Cannot remove filters while offline"
 msgstr ""
@@ -460,7 +462,7 @@ msgid ""
 msgstr ""
 
 msgid "No, cancel"
-msgstr "Không"
+msgstr "Yoʼq, bekor qiling"
 
 msgid "Yes, remove filters"
 msgstr ""
@@ -484,31 +486,31 @@ msgid "Sync offline data now"
 msgstr ""
 
 msgid "Unstar dashboard"
-msgstr "Không gắn dấu sao bảng điều khiển "
+msgstr "Boshqaruv panelidagi yulduzcha oʼchiriladi"
 
 msgid "Star dashboard"
-msgstr "Gán dấu sao bảng điều khiển "
+msgstr "Boshqaruv paneliga yulduzcha oʼrnatiladi"
 
 msgid "Hide description"
-msgstr "Ẩn mô tả"
+msgstr "Tavsifni berkitish"
 
 msgid "Show description"
-msgstr "Hiển thị mô tả"
+msgstr "Tavsifni koʼrsatish"
 
 msgid "One item per page"
-msgstr "Một mục trên mỗi trang"
+msgstr "Har bir sahifada bitta element"
 
 msgid "Close dashboard"
 msgstr ""
 
 msgid "More"
-msgstr "Thêm"
+msgstr "Koʼproq"
 
 msgid "Edit"
-msgstr "Chỉnh sửa"
+msgstr "Tahrirlash"
 
 msgid "Share"
-msgstr "Chia sẻ"
+msgstr "Ulashish"
 
 msgid "Clear dashboard filters?"
 msgstr ""
@@ -522,10 +524,10 @@ msgid "Yes, clear filters and sync"
 msgstr ""
 
 msgid "No description"
-msgstr "Không có mô tả"
+msgstr "Tavsif yoʼq"
 
 msgid "Add filter"
-msgstr "Bộ lọc"
+msgstr "Filtr kiritish"
 
 msgid "Offline data last updated {{time}}"
 msgstr ""
@@ -537,13 +539,13 @@ msgid "Cannot star this dashboard while offline"
 msgstr ""
 
 msgid "Loading dashboard – {{name}}"
-msgstr "Đang bảng điều khiển - {{name}}"
+msgstr "Boshqaruv paneli yuklanmoqda - {{name}}"
 
 msgid "Loading dashboard"
 msgstr ""
 
 msgid "Offline"
-msgstr "Ngoại tuyến"
+msgstr "Offlayn"
 
 msgid "This dashboard cannot be loaded while offline."
 msgstr ""

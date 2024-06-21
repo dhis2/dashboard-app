@@ -1,15 +1,15 @@
 # 
 # Translators:
 # Cherise Beek <cherise.beek@gmail.com>, 2021
-# Rica Zamora Duchateau, 2022
 # Charel van den Elsen, 2023
+# Rica, 2024
 # 
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2023-05-03T11:08:21.315Z\n"
+"POT-Creation-Date: 2024-03-19T12:31:03.302Z\n"
 "PO-Revision-Date: 2019-06-25 12:37+0000\n"
-"Last-Translator: Charel van den Elsen, 2023\n"
+"Last-Translator: Rica, 2024\n"
 "Language-Team: Dutch (https://app.transifex.com/hisp-uio/teams/100509/nl/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -68,17 +68,28 @@ msgstr ""
 "Gebruik een afstandshouder om lege verticale ruimte tussen andere "
 "dashboarditems te creëren."
 
-msgid "Text item"
-msgstr "Tekst item"
+msgid "Text box"
+msgstr "Tekstvak"
 
 msgid "Add text here"
 msgstr "Voeg hier tekst toe"
+
+msgid "Back to all interpretations"
+msgstr "Terug naar alle interpretaties"
 
 msgid "Filters are not applied to line list dashboard items"
 msgstr "Filters worden niet toegepast op dashboarditems van de regellijst"
 
 msgid "Filters not applied"
 msgstr "Filters niet toegepast"
+
+msgid "Only Period and Organisation unit filters can be applied to this item"
+msgstr ""
+"Alleen filters voor Periodes en Organisatie-eenheden kunnen tot dit artikel "
+"toegepast worden"
+
+msgid "Some filters not applied"
+msgstr "Sommige filters niet toegepast"
 
 msgid "There was a problem loading this dashboard item"
 msgstr "Er is een probleem opgetreden bij het laden van dit dashboarditem"
@@ -98,14 +109,20 @@ msgstr "Bekijk volledig scherm"
 msgid "This map can't be displayed as a chart"
 msgstr "Deze kaart kan niet als grafiek worden weergegeven"
 
+msgid "This map can't be displayed as a pivot table"
+msgstr "Deze kaart kan niet weergegeven worden als draaitabel"
+
+msgid "This visualization can't be displayed as a pivot table"
+msgstr "Deze visualisatie kan niet weergegeven worden als een draaitabel"
+
+msgid "This visualization can't be displayed as a map"
+msgstr "Deze visualisatie kan niet weergegeven worden als een kaart"
+
 msgid "View as Chart"
 msgstr "Bekijk als grafiek"
 
-msgid "This map can't be displayed as a table"
-msgstr "Deze kaart kan niet als tabel worden weergegeven"
-
-msgid "View as Table"
-msgstr "Bekijk als tabel"
+msgid "View as Pivot table"
+msgstr "Bekijk als Draaitabel"
 
 msgid "View as Map"
 msgstr "Bekijk als kaart"
@@ -163,13 +180,13 @@ msgid "Maps"
 msgstr "Kaarten"
 
 msgid "Event reports"
-msgstr "Gebeurtenissen rapporten"
+msgstr "Evenement rapporten"
 
 msgid "Event charts"
-msgstr ""
+msgstr "Evenementen grafiek"
 
 msgid "Line lists"
-msgstr ""
+msgstr "Lijn -lijsten"
 
 msgid "Apps"
 msgstr "Apps"
@@ -331,9 +348,6 @@ msgstr "Kan offline niet zoeken naar dashboarditems"
 msgid "Additional items"
 msgstr "Aanvullende items"
 
-msgid "Text box"
-msgstr "Tekstvak"
-
 msgid "Dashboard layout"
 msgstr "Dashboard-indeling"
 
@@ -489,7 +503,7 @@ msgstr ""
 "eens."
 
 msgid "Failed to unstar the dashboard"
-msgstr ""
+msgstr "Kan het dashboard niet ongedaan maken"
 
 msgid "Failed to star the dashboard"
 msgstr "Sterren geven aan het dashboard mislukt"
@@ -504,7 +518,7 @@ msgid "Sync offline data now"
 msgstr "Synchroniseer nu offline gegevens"
 
 msgid "Unstar dashboard"
-msgstr ""
+msgstr "Dashboard ongedaan maken"
 
 msgid "Star dashboard"
 msgstr "Sterrendashboard"

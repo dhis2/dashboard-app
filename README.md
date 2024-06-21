@@ -44,12 +44,10 @@ CYPRESS_DHIS2_PASSWORD=district
 
 The following commands can be used to run the tests:
 
-| Command             |  Backend   | Environment |        Tests |
-| ------------------- | :--------: | ----------: | -----------: |
-| `yarn cy:open-live` | API server |  Cypress UI |          All |
-| `yarn cy:run-live`  | API server |    Headless |          All |
-| `yarn cy:open-stub` |  Fixtures  |  Cypress UI | Non-mutating |
-| `yarn cy:run-stub`  |  Fixtures  |    Headless | Non-mutating |
+| Comman         |  Backend   | Environment | Tests |
+| -------------- | :--------: | ----------: | ----: |
+| `yarn cy:open` | API server |  Cypress UI |   All |
+| `yarn cy:run`  | API server |    Headless |   All |
 
 ### `yarn test`
 
@@ -62,6 +60,15 @@ See the section about [running tests](https://platform.dhis2.nu/#/scripts/test) 
 Builds the app for production to the `build` folder.<br />. This command is run by the continuous integration server.
 
 See the [building](https://platform.dhis2.nu/#/scripts/build) section for more information.
+
+## Conditional E2E Test Recording
+
+To record e2e tests in Cypress Cloud, you can use one of the following methods based on your needs:
+
+-   **Commit Message**: Include `[e2e record]` in your commit messages to activate recording.
+-   **GitHub Labels**: Apply the `e2e record` label to your pull request to trigger recording.
+
+This setup helps in managing Cypress Cloud credits more efficiently, ensuring recordings are only made when explicitly required.
 
 ## Learn More
 

@@ -1,16 +1,17 @@
 # 
 # Translators:
 # Caroline Hesthagen Holen <caroline@devotta.no>, 2021
-# Karoline Tufte Lien <karoline@dhis2.org>, 2021
 # Jan Henrik Øverland, 2022
+# Philip Larsen Donnelly, 2024
+# Karoline Tufte Lien <karoline@dhis2.org>, 2024
 # 
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2021-12-21T08:20:25.327Z\n"
+"POT-Creation-Date: 2024-03-19T12:31:03.302Z\n"
 "PO-Revision-Date: 2019-06-25 12:37+0000\n"
-"Last-Translator: Jan Henrik Øverland, 2022\n"
-"Language-Team: Norwegian Bokmål (https://www.transifex.com/hisp-uio/teams/100509/nb/)\n"
+"Last-Translator: Karoline Tufte Lien <karoline@dhis2.org>, 2024\n"
+"Language-Team: Norwegian Bokmål (https://app.transifex.com/hisp-uio/teams/100509/nb/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -68,11 +69,26 @@ msgstr ""
 "Bruk mellomrom for å lage tom vertikal plass mellom andre elementer i "
 "dashbordet."
 
-msgid "Text item"
-msgstr "Tekstelement"
+msgid "Text box"
+msgstr "Tekstboks"
 
 msgid "Add text here"
 msgstr "Legg til tekst her"
+
+msgid "Back to all interpretations"
+msgstr "Tilbake til alle tolkninger"
+
+msgid "Filters are not applied to line list dashboard items"
+msgstr ""
+
+msgid "Filters not applied"
+msgstr ""
+
+msgid "Only Period and Organisation unit filters can be applied to this item"
+msgstr ""
+
+msgid "Some filters not applied"
+msgstr ""
 
 msgid "There was a problem loading this dashboard item"
 msgstr "Det oppstod et problem med å laste inn dette dashbordelementet"
@@ -92,19 +108,43 @@ msgstr "Vis fullskjerm"
 msgid "This map can't be displayed as a chart"
 msgstr "Dette kartet kan ikke vises som diagram"
 
+msgid "This map can't be displayed as a pivot table"
+msgstr ""
+
+msgid "This visualization can't be displayed as a pivot table"
+msgstr ""
+
+msgid "This visualization can't be displayed as a map"
+msgstr ""
+
 msgid "View as Chart"
 msgstr "Vis som diagram"
 
-msgid "This map can't be displayed as a table"
-msgstr "Dette kartet kan ikke vises som tabell"
-
-msgid "View as Table"
-msgstr "Vis som tabell"
+msgid "View as Pivot table"
+msgstr ""
 
 msgid "View as Map"
 msgstr "Vis som kart"
 
 msgid "There was a problem loading interpretations for this item"
+msgstr ""
+
+msgid "The plugin for rendering this item is not available"
+msgstr ""
+
+msgid "Install the {{appName}} app from the App Hub"
+msgstr ""
+
+msgid "No data to display"
+msgstr "Ingen data å vise"
+
+msgid ""
+"Install Line Listing app version ${minLLVersion.join(\n"
+"                                '.'\n"
+"                            )} or higher in order to display this item."
+msgstr ""
+
+msgid "Show without filters"
 msgstr ""
 
 msgid "Maps with Earth Engine layers cannot be displayed when offline"
@@ -113,9 +153,6 @@ msgstr ""
 msgid "Unable to load the plugin for this item"
 msgstr "Kan ikke laste inn plugin-modulen for dette elementet"
 
-msgid "No data to display"
-msgstr "Ingen data å vise"
-
 msgid "There was an error loading data for this item"
 msgstr ""
 
@@ -123,7 +160,7 @@ msgid "Open this item in {{appName}}"
 msgstr ""
 
 msgid "Not available offline"
-msgstr ""
+msgstr "Ikke tilgjengelig i frakoblet modus"
 
 msgid "Visualizations"
 msgstr "Visualiseringer"
@@ -142,6 +179,9 @@ msgstr "Hendelsesrapporter"
 
 msgid "Event charts"
 msgstr "Hendelsesdiagrammer"
+
+msgid "Line lists"
+msgstr ""
 
 msgid "Apps"
 msgstr "Applikasjoner"
@@ -210,7 +250,7 @@ msgid ""
 "This action cannot be undone. Are you sure you want to permanently delete "
 "this dashboard?"
 msgstr ""
-"Hvis du sletter dashbordet \"{{dashboardName}}\", fjernes det for alle "
+"Hvis du sletter dashbordet \"{{ dashboardName }}\", fjernes det for alle "
 "brukere. Denne handlingen kan ikke angres. Er du sikker på at du vil slette "
 "dette dashbordet permanent?"
 
@@ -229,7 +269,7 @@ msgid "No, stay here"
 msgstr "Nei, bli her"
 
 msgid "Yes, discard changes"
-msgstr ""
+msgstr "Ja, forkast endringer"
 
 msgid "No access"
 msgstr "Ingen tilgang"
@@ -296,9 +336,6 @@ msgstr ""
 
 msgid "Additional items"
 msgstr "Ytterligere elementer"
-
-msgid "Text box"
-msgstr "Tekstboks"
 
 msgid "Dashboard layout"
 msgstr "Dashbordoppsett"
