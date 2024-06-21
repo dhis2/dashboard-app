@@ -65,8 +65,8 @@ msgid ""
 "Use a spacer to create empty vertical space between other dashboard items."
 msgstr "استخدم فاصل لإنشاء مساحة رأسية فارغة بين عناصر لوحة المعلومات الأخرى"
 
-msgid "Text item"
-msgstr "عنصر نصي"
+msgid "Text box"
+msgstr "مربع نص"
 
 msgid "Add text here"
 msgstr "اضف نص هنا"
@@ -324,9 +324,6 @@ msgstr ""
 
 msgid "Additional items"
 msgstr "عناصر إضافية"
-
-msgid "Text box"
-msgstr "مربع نص"
 
 msgid "Dashboard layout"
 msgstr ""

@@ -103,7 +103,7 @@ const EditItemGrid = ({
             onWidthChange={onWidthChanged}
             isDraggable={!hasLayout}
             isResizable={!hasLayout}
-            draggableCancel="input,textarea"
+            draggableCancel="button,input,textarea"
         >
             {getItemComponents(dashboardItems)}
         </ResponsiveReactGridLayout>

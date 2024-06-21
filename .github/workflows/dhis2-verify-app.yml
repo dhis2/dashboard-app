@@ -2,7 +2,7 @@ name: 'dhis2: verify (app)'
 
 on:
     pull_request:
-        types: ['opened', 'edited', 'reopened', 'synchronize']
+        types: ['opened', 'labeled', 'reopened', 'synchronize']
     push:
         branches:
             - 'master'
@@ -19,6 +19,18 @@ env:
     CI: true
 
 jobs:
+    setup-matrix:
+        runs-on: ubuntu-latest
+        outputs:
+            matrix: ${{ steps.set-matrix.outputs.specs }}
+        steps:
+            - uses: actions/checkout@v3
+            - name: Generate test matrix
+              id: set-matrix
+              run: |
+                  node cypress/support/generateTestMatrix.js > matrix.json
+                  echo "::set-output name=specs::$(cat matrix.json)"
+
     build:
         runs-on: ubuntu-latest
         steps:
@@ -77,12 +89,16 @@ jobs:
 
     e2e-prod:
         runs-on: ubuntu-latest
-        needs: test
+        needs: [test, setup-matrix]
         if: "!contains(github.event.head_commit.message, '[skip ci]')"
 
         strategy:
+            fail-fast: false
             matrix:
-                containers: [1, 2, 3, 4]
+                spec-group: ${{ fromJson(needs.setup-matrix.outputs.matrix) }}
+
+        env:
+            SHOULD_RECORD: ${{ contains(github.event.head_commit.message, '[e2e record]') || contains(join(github.event.pull_request.labels.*.name), 'e2e record') }}
 
         steps:
             - uses: actions/checkout@v3
@@ -96,17 +112,35 @@ jobs:
                   path: '**/node_modules'
                   key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}-${{ hashFiles('patches/*.patch') }}
 
+            - name: Set Cypress Record Environment Variables
+              if: env.SHOULD_RECORD == 'true'
+              run: |
+                  echo "CYPRESS_GROUP=e2e-${{ matrix.spec-group.id }}" >> $GITHUB_ENV
+                  echo "CYPRESS_TAG=${{ github.event_name }}" >> $GITHUB_ENV
+                  echo "CYPRESS_CI_BUILD_ID=${{ github.run_id }}" >> $GITHUB_ENV
+
+            - name: Debug Environment Variables
+              run: |
+                  echo "SHOULD_RECORD=${{ env.SHOULD_RECORD }}"
+                  echo "CI Build ID=${{ github.run_id }}"
+                  echo "Computed Group=${{ env.SHOULD_RECORD == 'true' && env.CYPRESS_GROUP || '' }}"
+                  echo "Computed Tag=${{ env.SHOULD_RECORD == 'true' && env.CYPRESS_TAG || '' }}"
+                  echo "Computed CI Build ID=${{ env.SHOULD_RECORD == 'true' && env.CYPRESS_CI_BUILD_ID || '' }}"
+                  echo "Spec=${{ join(matrix.spec-group.tests, ',') }}"
+
             - name: End-to-End tests
               uses: cypress-io/github-action@v2
               with:
-                  record: true
-                  parallel: true
                   start: ${{ env.SERVER_START_CMD }}
                   wait-on: ${{ env.SERVER_URL }}
                   wait-on-timeout: 300
                   cache-key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}-${{ hashFiles('patches/*.patch') }}
-                  group: 'e2e'
-                  tag: ${{ github.event_name }}
+                  record: ${{ env.SHOULD_RECORD }}
+                  parallel: ${{ env.SHOULD_RECORD }}
+                  group: ${{ env.SHOULD_RECORD == 'true' && env.CYPRESS_GROUP || '' }}
+                  tag: ${{ env.SHOULD_RECORD == 'true' && env.CYPRESS_TAG || '' }}
+                  ci-build-id: ${{ env.SHOULD_RECORD == 'true' && env.CYPRESS_CI_BUILD_ID || '' }}
+                  spec: ${{ join(matrix.spec-group.tests, ',') }}
               env:
                   CI: true
                   CYPRESS_RECORD_KEY: ${{ secrets.CYPRESS_RECORD_KEY }}
@@ -126,7 +160,7 @@ jobs:
         if: |
             !github.event.push.repository.fork &&
             github.actor != 'dependabot[bot]' &&
-            (github.ref == 'refs/heads/master' || github.ref == 'refs/heads/dev')
+            (github.ref == 'refs/heads/master' || startsWith(github.ref, 'refs/tags/'))
         steps:
             - uses: actions/checkout@v3
               with:
