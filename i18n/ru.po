@@ -1,8 +1,7 @@
 # 
 # Translators:
-# Philip Larsen Donnelly, 2021
-# Viktor Varland <viktor@dhis2.org>, 2021
-# Ulanbek Abakirov <ulans@mail.ru>, 2024
+# Viktor Varland <viktor@dhis2.org>, 2019
+# Philip Larsen Donnelly, 2020
 # Yury Rogachev <yury@dhis2.org>, 2024
 # 
 msgid ""
@@ -19,31 +18,31 @@ msgstr ""
 "Plural-Forms: nplurals=4; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<12 || n%100>14) ? 1 : n%10==0 || (n%10>=5 && n%10<=9) || (n%100>=11 && n%100<=14)? 2 : 3);\n"
 
 msgid "Untitled dashboard"
-msgstr ""
+msgstr "Инфопанель без названия"
 
 msgid "Cannot create a dashboard while offline"
-msgstr ""
+msgstr "Невозможно создать инфопанель в автономном режиме"
 
 msgid "Create new dashboard"
-msgstr ""
+msgstr "Создать новую инфопанель"
 
 msgid "Search for a dashboard"
-msgstr "Поиск информационной панели"
+msgstr "Поиск инфопанели"
 
 msgid "Show fewer dashboards"
-msgstr ""
+msgstr "Показать меньше инфопанелей"
 
 msgid "Show more dashboards"
-msgstr ""
+msgstr "Показать больше инфопанелей"
 
 msgid "Remove this item"
-msgstr ""
+msgstr "Удалить данный элемент"
 
 msgid "This item has been shortened to fit on one page"
-msgstr ""
+msgstr "Данный элемент был укорочен, чтобы поместиться на одной странице"
 
 msgid "Remove"
-msgstr "Удалить"
+msgstr "Убрать"
 
 msgid "Messages"
 msgstr "Сообщения"
@@ -52,13 +51,13 @@ msgid "See all messages"
 msgstr "Посмотреть все сообщения"
 
 msgid "Item type \"{{type}}\" is not supported"
-msgstr ""
+msgstr "Элемент типа \"{{type}}\" не поддерживается"
 
 msgid "The item type is missing"
-msgstr ""
+msgstr "Тип элемента отсутствует"
 
 msgid "Filters applied"
-msgstr ""
+msgstr "Применены фильтры"
 
 msgid "Spacer"
 msgstr "Разделитель"
@@ -67,103 +66,109 @@ msgid ""
 "Use a spacer to create empty vertical space between other dashboard items."
 msgstr ""
 "Используйте разделитель для того, чтобы создать пустое вертикальное "
-"пространство между элементами информационной панели."
+"пространство между элементами инфопанели."
 
-msgid "Text item"
-msgstr "Текстовый элемент"
+msgid "Text box"
+msgstr "Текстовое окно"
 
 msgid "Add text here"
-msgstr "Добавить текст сюда"
+msgstr "Добавить текст здесь"
 
 msgid "Back to all interpretations"
-msgstr "Назад к переводам"
+msgstr "Назад к интерпритациям"
 
 msgid "Filters are not applied to line list dashboard items"
-msgstr ""
+msgstr "Фильтры не применимы к построчным спискам на инфопанели"
 
 msgid "Filters not applied"
-msgstr ""
+msgstr "Фильтры не применены"
 
 msgid "Only Period and Organisation unit filters can be applied to this item"
 msgstr ""
+"К данному элементу применимы только фильтры по периодам и организационным "
+"единицам"
 
 msgid "Some filters not applied"
-msgstr ""
+msgstr "Некоторые фильтры не применяются"
 
 msgid "There was a problem loading this dashboard item"
-msgstr ""
+msgstr "Возникла проблема с загрузкой данного элемента инфопанели."
 
 msgid "Hide details and interpretations"
-msgstr ""
+msgstr "Скрыть детали и интерпретации"
 
 msgid "Show details and interpretations"
-msgstr ""
+msgstr "Показать детали и интерпретации"
 
 msgid "Open in {{appName}} app"
-msgstr ""
+msgstr "Открыть в приложении {{appName}} "
 
 msgid "View fullscreen"
-msgstr ""
+msgstr "Просмотр в полноэкранном режиме"
 
 msgid "This map can't be displayed as a chart"
-msgstr ""
+msgstr "Данная карта не может быть отображена в виде диаграммы"
 
 msgid "This map can't be displayed as a pivot table"
-msgstr ""
+msgstr "Данная карта не может быть отображена в виде сводной таблицы"
 
 msgid "This visualization can't be displayed as a pivot table"
-msgstr ""
+msgstr "Данная визуализация не может быть отображена в виде сводной таблицы"
 
 msgid "This visualization can't be displayed as a map"
-msgstr ""
+msgstr "Данная визуализация не может быть отображена в виде карты"
 
 msgid "View as Chart"
-msgstr ""
+msgstr "Просмотр в виде диаграммы"
 
 msgid "View as Pivot table"
-msgstr ""
+msgstr "Просмотр в виде сводной таблицы"
 
 msgid "View as Map"
-msgstr ""
+msgstr "Просмотр в виде карты"
 
 msgid "There was a problem loading interpretations for this item"
-msgstr ""
+msgstr "Возникла проблема с загрузкой интерпретаций для данного элемента"
 
 msgid "The plugin for rendering this item is not available"
-msgstr ""
+msgstr "Плагин для рендеринга данного элемента недоступен"
 
 msgid "Install the {{appName}} app from the App Hub"
-msgstr ""
+msgstr "Установить приложение {{appName}} из Центра Приложений"
 
 msgid "No data to display"
-msgstr ""
+msgstr "Нет данных для отображения"
 
 msgid ""
 "Install Line Listing app version ${minLLVersion.join(\n"
 "                                '.'\n"
 "                            )} or higher in order to display this item."
 msgstr ""
+"Установить версию ${minLLVersion.join(\n"
+"                                '.'\n"
+"                            )} приложения Построчные Списки или выше, чтобы отобразить данный элемент."
 
 msgid "Show without filters"
-msgstr ""
+msgstr "Показать без фильтров"
 
 msgid "Maps with Earth Engine layers cannot be displayed when offline"
 msgstr ""
+"Карты со слоями Earth Engine не могут отображаться в автономном режиме"
 
 msgid "Unable to load the plugin for this item"
-msgstr "Невозможно загрузить плагин для этого элемента"
+msgstr "Невозможно загрузить плагин для данного элемента"
 
 msgid "There was an error loading data for this item"
-msgstr ""
+msgstr "Возникла ошибка при загрузке данных для данного элемента"
 
 msgid "Open this item in {{appName}}"
-msgstr ""
+msgstr "Откройте данный элемент в приложении {{appName}}"
 
 msgid "Not available offline"
-msgstr ""
+msgstr "Недоступно в автономном режиме"
 
 msgid "Visualizations"
-msgstr ""
+msgstr "Визуализации"
 
 msgid "Pivot tables"
 msgstr "Сводные таблицы"
@@ -181,7 +186,7 @@ msgid "Event charts"
 msgstr "Диаграммы событий"
 
 msgid "Line lists"
-msgstr ""
+msgstr "Построчные списки"
 
 msgid "Apps"
 msgstr "Приложения"
@@ -199,37 +204,43 @@ msgid ""
 "Failed to save dashboard. You might be offline or not have access to edit "
 "this dashboard."
 msgstr ""
+"Не удалось сохранить инфопанель. Возможно, вы не в сети или не имеете "
+"доступа к редактированию данной инфопанели."
 
 msgid ""
 "Failed to save dashboard. This code is already being used on another "
 "dashboard."
 msgstr ""
+"Не удалось сохранить инфопанель. Данный код уже используется в другой "
+"инфопанели."
 
 msgid ""
 "Failed to delete dashboard. You might be offline or not have access to edit "
 "this dashboard."
 msgstr ""
+"Не удалось удалить инфопанель. Возможно, вы не в сети или не имеете доступа "
+"к редактированию данной инфопанели."
 
 msgid "Cannot save this dashboard while offline"
-msgstr ""
+msgstr "Невозможно сохранить данную инфопанель в автономном режиме"
 
 msgid "Save changes"
 msgstr "Сохранить изменения"
 
 msgid "Exit print preview"
-msgstr ""
+msgstr "Выйти из режима предварительного просмотра печати"
 
 msgid "Print preview"
-msgstr ""
+msgstr "Предварительный просмотр печати"
 
 msgid "Filter settings"
-msgstr ""
+msgstr "Настройки фильтров"
 
 msgid "Translate"
 msgstr "Перевести"
 
 msgid "Cannot delete this dashboard while offline"
-msgstr ""
+msgstr "Невозможно удалить данную инфопанель в автономном режиме"
 
 msgid "Delete"
 msgstr "Удалить"
@@ -238,30 +249,35 @@ msgid "Exit without saving"
 msgstr "Выйти без сохранения"
 
 msgid "Go to dashboards"
-msgstr "Перейти на информационную панель"
+msgstr "Перейти на инфопанель"
 
 msgid "Delete dashboard"
-msgstr ""
+msgstr "Удалить инфопанель"
 
 msgid ""
 "Deleting dashboard \"{{ dashboardName }}\" will remove it for all users. "
 "This action cannot be undone. Are you sure you want to permanently delete "
 "this dashboard?"
 msgstr ""
+"Удаление инфопанели \"{{ dashboardName }}\" удалит ее для всех "
+"пользователей. Это действие нельзя отменить. Вы уверены, что хотите навсегда"
+" удалить данную инфопанель?"
 
 msgid "Cancel"
 msgstr "Отменить"
 
 msgid "Discard changes"
-msgstr ""
+msgstr "Не сохранять изменения"
 
 msgid ""
 "This dashboard has unsaved changes. Are you sure you want to leave and "
 "discard these unsaved changes?"
 msgstr ""
+"У данной инфопанели есть несохраненные изменения. Вы уверены, что хотите "
+"выйти и не сохранять эти изменения?"
 
 msgid "No, stay here"
-msgstr "Нет, остаюсь тут"
+msgstr "Нет, остаться"
 
 msgid "Yes, discard changes"
 msgstr "Да, не сохранять изменения"
@@ -270,21 +286,23 @@ msgid "No access"
 msgstr "Нет доступа"
 
 msgid "Not supported"
-msgstr ""
+msgstr "Не поддерживается"
 
 msgid ""
 "Editing dashboards on small screens is not supported. Resize your screen to "
 "return to edit mode."
 msgstr ""
+"Редактирование инфопанелей на маленьких экранах не поддерживается. Чтобы "
+"вернуться в режим редактирования, измените размер экрана."
 
 msgid "Allow filtering by all dimensions"
-msgstr ""
+msgstr "Разрешить фильтрацию по всем параметрам"
 
 msgid "Only allow filtering by selected dimensions"
-msgstr ""
+msgstr "Разрешить фильтрацию только по выбранным параметрам"
 
 msgid "Dashboard filter settings"
-msgstr ""
+msgstr "Настройки фильтров инфопанели"
 
 msgid ""
 "Dashboards can be filtered by dimensions to change\n"
@@ -292,221 +310,234 @@ msgid ""
 "                                         as filters. Alternatively, only selected dimensions can\n"
 "                                         be made available on a dashboard."
 msgstr ""
+"Инфопанели можно фильтровать по различным параметрам.\n"
+"                                         По умолчанию все параметры доступны для фильтрации.\n"
+"                                          Возможно применить только выбранные параметры\n"
+"                                         для фильтрации данных на инфопанели."
 
 msgid "Available Filters"
-msgstr ""
+msgstr "Доступные фильтры"
 
 msgid "Selected Filters"
-msgstr ""
+msgstr "Выбранные фильтры"
 
 msgid "Confirm"
 msgstr "Подтвердить"
 
 msgid "There are no items on this dashboard"
-msgstr "На этой информационной панели нет элементов"
+msgstr "Данная инфопанель не содержит элементов"
 
 msgid "Show fewer"
-msgstr ""
+msgstr "Показать меньше"
 
 msgid "Show more"
-msgstr "Показать больше информации"
+msgstr "Показать больше"
 
 msgid "Insert"
-msgstr "Ввести"
+msgstr "Вставить"
 
 msgid "Search for items to add to this dashboard"
-msgstr "Поиск элементов для добавления на эту информационную панель"
+msgstr "Поиск элементов для добавления на данную инфопанель"
 
 msgid "Search for visualizations, reports and more"
-msgstr ""
+msgstr "Поиск визуализаций, отчетов и тд"
 
 msgid "Cannot search for dashboard items while offline"
-msgstr ""
+msgstr "Невозможно выполнить поиск элементов инфопанели в автономном режиме"
 
 msgid "Additional items"
-msgstr ""
-
-msgid "Text box"
-msgstr "Текстовое окно"
+msgstr "Дополнительные элементы"
 
 msgid "Dashboard layout"
-msgstr ""
+msgstr "Дизайн инфопанели"
 
 msgid "Freeflow"
-msgstr ""
+msgstr "Свободный поток"
 
 msgid "Dashboard items can be placed anywhere, at any size."
 msgstr ""
+"Элементы инфопанели могут иметь любой размер и размещаться в любом месте."
 
 msgid "Fixed columns"
-msgstr ""
+msgstr "Фиксированные столбцы"
 
 msgid ""
 "Dashboard items are automatically placed within fixed, horizontal columns. "
 "The number of columns can be adjusted."
 msgstr ""
+"Элементы инфопанели автоматически размещаются в фиксированных столбцах. "
+"Количество столбцов можно регулировать."
 
 msgid "Number of columns"
-msgstr ""
+msgstr "Количество столбцов"
 
 msgid "Gap size between columns (px)"
-msgstr ""
+msgstr "Размер промежутка между столбцами (px)"
 
 msgid ""
 "Default height only applies to items added to a dashboard, this setting will"
 " not change existing items"
 msgstr ""
+"Высота по умолчанию применяется только к элементам, добавляемым на "
+"инфопанель, эта настройка не изменит существующие элементы."
 
 msgid "Default height for items added to dashboard (rows)"
-msgstr ""
+msgstr "Высота по умолчанию для элементов, добавляемых на инфопанель (ряды)"
 
 msgid "Save layout"
-msgstr ""
+msgstr "Сохранить дизайн"
 
 msgid "Dashboard title"
-msgstr ""
+msgstr "Название инфопанели"
 
 msgid "Dashboard code"
-msgstr ""
+msgstr "Код инфопанели"
 
 msgid "Code can't be longer than 50 characters"
-msgstr ""
+msgstr "Код не может быть содержать более 50 символов"
 
 msgid "Dashboard description"
-msgstr ""
+msgstr "Описание инфопанели"
 
 msgid "Layout"
-msgstr "Макет"
+msgstr "Дизайн"
 
 msgid "{{count}} columns"
 msgid_plural "{{count}} columns"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
-msgstr[3] ""
+msgstr[0] "{{count}} столбец"
+msgstr[1] "{{count}} столбца/ов"
+msgstr[2] "{{count}} колонки"
+msgstr[3] "{{count}} столбца/ов"
 
 msgid "Change layout"
-msgstr ""
+msgstr "Изменить дизайн"
 
 msgid "Add new items to"
-msgstr ""
+msgstr "Добавить новые элементы в"
 
 msgid "End of dashboard"
-msgstr ""
+msgstr "Конец инфопанели"
 
 msgid "Start of dashboard"
-msgstr ""
+msgstr "Начало инфопанели"
 
 msgid "Print"
 msgstr "Печать"
 
 msgid "dashboard layout"
-msgstr ""
+msgstr "дизайн инфопанели"
 
 msgid "one item per page"
-msgstr ""
+msgstr "один элемент на страницу"
 
 msgid "Print Preview"
-msgstr ""
+msgstr "Предварительный просмотр печати"
 
 msgid "For best print results"
-msgstr ""
+msgstr "Для достижения наилучших результатов печати"
 
 msgid "Use Chrome or Edge web browser"
-msgstr ""
+msgstr "Используйте браузеры Chrome или Edge"
 
 msgid "Wait for all dashboard items to load before printing"
-msgstr ""
+msgstr "Дождитесь загрузки всех элементов инфопанели перед началом печати"
 
 msgid ""
 "Use A4 landscape paper size, default margin settings and turn on background "
 "graphics in the browser print dialog"
 msgstr ""
+"Используйте альбомный формат A4, настройки полей по умолчанию и включите "
+"фоновую графику в диалоговом окне печати браузера."
 
 msgid "Getting started"
-msgstr ""
+msgstr "Начало работы"
 
 msgid "Search for and open saved dashboards from the top bar."
-msgstr ""
+msgstr "Искать и открыть сохраненные инфопанели из верхней панели."
 
 msgid ""
 "Click a dashboard chip to open it. Get back to this screen from the \"More\""
 " menu."
 msgstr ""
+"Щелкните на кнопку инфопанели, чтобы открыть ее. Вернитесь на данный экран "
+"из меню \"Больше\"."
 
 msgid "Create a new dashboard with the + button."
-msgstr ""
+msgstr "Создать новую инфопанель с помощью кнопки +."
 
 msgid "Your most viewed dashboards"
-msgstr ""
+msgstr "Самые просматриваемые инфопанели"
 
 msgid "No dashboards found. Use the + button to create a new dashboard."
 msgstr ""
-"Информационные Панели не найдены. Используйте кнопку + для создания новой "
-"информационной панели."
+"Инфопанели не найдены. Используйте кнопку + для создания новой инфопанели."
 
 msgid "Requested dashboard not found"
-msgstr "Запрашиваемая информационная панель не найдена"
+msgstr "Запрашиваемая инфопанель не найдена"
 
 msgid "{{count}} selected"
 msgid_plural "{{count}} selected"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
-msgstr[3] ""
+msgstr[0] "{{count}} выбран"
+msgstr[1] "{{count}} выбрано"
+msgstr[2] "{{count}} выбрано"
+msgstr[3] "{{count}} выбрано"
 
 msgid "Cannot remove filters while offline"
-msgstr ""
+msgstr "Невозможно удалить фильтры в автономном режиме"
 
 msgid "Removing filters while offline"
-msgstr ""
+msgstr "Удаление фильтров в автономном режиме"
 
 msgid ""
 "Removing this filter while offline will remove all other filters. Do you "
 "want to remove all filters on this dashboard?"
 msgstr ""
+"Удаление данного фильтра в автономном режиме приведет к удалению всех "
+"остальных фильтров. Вы хотите удалить все фильтры на данной инфопанели?"
 
 msgid "No, cancel"
 msgstr "Нет, отменить"
 
 msgid "Yes, remove filters"
-msgstr ""
+msgstr "Да, убрать фильтры"
 
 msgid "The dashboard couldn't be made available offline. Try again."
 msgstr ""
+"Не удалось сделать инфопанель доступной в автономном режиме. Попробуйте еще "
+"раз."
 
 msgid "Failed to unstar the dashboard"
-msgstr ""
+msgstr "Не удалось удалить метку \"звезда\" с инфопанели"
 
 msgid "Failed to star the dashboard"
-msgstr ""
+msgstr "Не удалось добавить метку \"звезда\" к инфопанели"
 
 msgid "Remove from offline storage"
-msgstr ""
+msgstr "Убрать из автономного хранилища"
 
 msgid "Make available offline"
-msgstr ""
+msgstr "Открыть доступ в автономном режиме"
 
 msgid "Sync offline data now"
-msgstr ""
+msgstr "Синхронизировать автономные данные"
 
 msgid "Unstar dashboard"
-msgstr ""
+msgstr "Удалить метку \"звезда\" с инфопанели"
 
 msgid "Star dashboard"
-msgstr ""
+msgstr "Добавить метку \"звезда\" на инфопанель"
 
 msgid "Hide description"
-msgstr ""
+msgstr "Скрыть описание"
 
 msgid "Show description"
-msgstr ""
+msgstr "Показать описание"
 
 msgid "One item per page"
-msgstr ""
+msgstr "Один элемент на страницу"
 
 msgid "Close dashboard"
-msgstr ""
+msgstr "Закрыть инфопанель"
 
 msgid "More"
 msgstr "Более"
@@ -518,48 +549,51 @@ msgid "Share"
 msgstr "Поделиться"
 
 msgid "Clear dashboard filters?"
-msgstr ""
+msgstr "Очистить фильтры инфопанели?"
 
 msgid ""
 "A dashboard's filters can’t be saved offline. Do you want to remove the "
 "filters and make this dashboard available offline?"
 msgstr ""
+"Фильтры инфопанели не могут быть сохранены в автономном режиме. Хотите "
+"удалить фильтры и открыть доступ к данной инфопанели в автономном режиме?"
 
 msgid "Yes, clear filters and sync"
-msgstr ""
+msgstr "Да, удалить фильтры и синхронизировать"
 
 msgid "No description"
 msgstr "Нет описания"
 
 msgid "Add filter"
-msgstr ""
+msgstr "Добавить фильтр"
 
 msgid "Offline data last updated {{time}}"
-msgstr ""
+msgstr "Последнее обновление данных в автономном режиме: {{time}}"
 
 msgid "Cannot unstar this dashboard while offline"
-msgstr ""
+msgstr "Невозможно удалить метку \"звезда\" с инфопанели в автономном режиме"
 
 msgid "Cannot star this dashboard while offline"
-msgstr ""
+msgstr "Невозможно добавить метку \"звезда\" на инфопанель в автономном режиме"
 
 msgid "Loading dashboard – {{name}}"
-msgstr ""
+msgstr "Загрузка инфопанели - {{name}}"
 
 msgid "Loading dashboard"
-msgstr ""
+msgstr "Загрузка инфопанели"
 
 msgid "Offline"
-msgstr "Офлайн"
+msgstr "Автономный режим"
 
 msgid "This dashboard cannot be loaded while offline."
-msgstr ""
+msgstr "Инфопанель не может быть загружена в автономном режиме."
 
 msgid "Go to start page"
-msgstr ""
+msgstr "Перейти на стартовую страницу"
 
 msgid "Load dashboard failed"
-msgstr ""
+msgstr "Загрузка инфопанели не удалась"
 
 msgid "This dashboard could not be loaded. Please try again later."
 msgstr ""
+"Данную инфопанель не удалось загрузить. Пожалуйста, повторите попытку позже."

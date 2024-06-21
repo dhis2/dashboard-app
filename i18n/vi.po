@@ -69,8 +69,8 @@ msgstr ""
 "Sử dụng dấu cách để tạo không gian dọc trống giữa các mục bảng điều khiển "
 "khác."
 
-msgid "Text item"
-msgstr "Mục văn bản"
+msgid "Text box"
+msgstr "Hộp văn bản"
 
 msgid "Add text here"
 msgstr "Thêm văn bản tại đây"
@@ -328,9 +328,6 @@ msgstr ""
 
 msgid "Additional items"
 msgstr "Hạng mục bổ sung"
-
-msgid "Text box"
-msgstr "Hộp văn bản"
 
 msgid "Dashboard layout"
 msgstr "Bố cục bảng điều khiển "

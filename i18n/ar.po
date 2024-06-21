@@ -7,7 +7,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2024-02-26T14:42:02.563Z\n"
+"POT-Creation-Date: 2024-03-19T12:31:03.302Z\n"
 "PO-Revision-Date: 2019-06-25 12:37+0000\n"
 "Last-Translator: Hamza Assada <7amza.it@gmail.com>, 2024\n"
 "Language-Team: Arabic (https://app.transifex.com/hisp-uio/teams/100509/ar/)\n"
@@ -66,8 +66,8 @@ msgid ""
 "Use a spacer to create empty vertical space between other dashboard items."
 msgstr "استخدم فاصل لإنشاء مساحة رأسية فارغة بين عناصر لوحة المعلومات الأخرى"
 
-msgid "Text item"
-msgstr "عنصر نصي"
+msgid "Text box"
+msgstr "مربع نص"
 
 msgid "Add text here"
 msgstr "اضف نص هنا"
@@ -79,6 +79,12 @@ msgid "Filters are not applied to line list dashboard items"
 msgstr ""
 
 msgid "Filters not applied"
+msgstr ""
+
+msgid "Only Period and Organisation unit filters can be applied to this item"
+msgstr ""
+
+msgid "Some filters not applied"
 msgstr ""
 
 msgid "There was a problem loading this dashboard item"
@@ -331,9 +337,6 @@ msgstr "لا يمكن البحث عن عناصر لوحة معلومات بلا 
 
 msgid "Additional items"
 msgstr "عناصر إضافية"
-
-msgid "Text box"
-msgstr "مربع نص"
 
 msgid "Dashboard layout"
 msgstr "تخطيط لوحة المعلومات"
