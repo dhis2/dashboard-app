@@ -5,7 +5,7 @@ import i18n from '@dhis2/d2-i18n'
 import { Button, Cover, IconInfo24, IconWarning24, colors } from '@dhis2/ui'
 import uniqueId from 'lodash/uniqueId.js'
 import PropTypes from 'prop-types'
-import React, { useMemo } from 'react'
+import React, { useCallback, useMemo } from 'react'
 import { useSelector } from 'react-redux'
 import {
     isLLVersionCompatible,
@@ -75,14 +75,13 @@ const Visualization = ({
         )
     }, [visualization, activeType, originalType, itemFilters])
 
-    const filterVersion = useMemo(() => uniqueId(), [])
+    const filterVersion = useCallback(() => uniqueId(), [])
 
     const iFramePluginProps = useMemo(
         () => ({
             originalType,
             activeType,
             style,
-            filterVersion,
             dashboardMode,
             dashboardId,
             itemId: item.id,
@@ -93,7 +92,6 @@ const Visualization = ({
             originalType,
             activeType,
             style,
-            filterVersion,
             dashboardMode,
             dashboardId,
             item.id,
@@ -142,6 +140,7 @@ const Visualization = ({
             return (
                 <IframePlugin
                     visualization={visualizationConfig}
+                    filterVersion={filterVersion()}
                     {...iFramePluginProps}
                 />
             )
@@ -215,7 +214,7 @@ const Visualization = ({
                     item={item}
                     activeType={activeType}
                     visualization={visualizationConfig}
-                    filterVersion={filterVersion}
+                    filterVersion={filterVersion()}
                     style={style}
                     gridWidth={gridWidth}
                     {...rest}
