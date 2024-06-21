@@ -1,4 +1,6 @@
 #!/bin/sh
 . "$(dirname "$0")/_/husky.sh"
 
-yarn d2-style check --staged
+yarn d2-app-scripts i18n extract && \
+    git add i18n && \
+    yarn d2-style check --staged
