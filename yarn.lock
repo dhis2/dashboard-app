@@ -2153,9 +2153,10 @@
     classnames "^2.3.1"
     prop-types "^15.7.2"
 
-"@dhis2/analytics@git+https://github.com/d2-ci/analytics.git#418c49ef9961909473b62ac7af878dfed69c43b1":
-  version "24.10.10"
-  resolved "git+https://github.com/d2-ci/analytics.git#418c49ef9961909473b62ac7af878dfed69c43b1"
+"@dhis2/analytics@^24.10.11":
+  version "24.10.11"
+  resolved "https://registry.yarnpkg.com/@dhis2/analytics/-/analytics-24.10.11.tgz#32237c1c5fee150a24cda57d8083a61c294d4d92"
+  integrity sha512-uRnV1/6A+PjREFk/9x1IUsnJUKjXeTm4+ycG4S0NO6Q76ii3mOQu2YYOjWYbGNRs0I4rz1uGhJXdv5ouo0zfKw==
   dependencies:
     "@dhis2/d2-ui-rich-text" "^7.4.0"
     "@dhis2/multi-calendar-dates" "1.0.0"
@@ -2433,12 +2434,12 @@
     recompose "^0.26.0"
     rxjs "^5.5.7"
 
-"@dhis2/data-visualizer-plugin@^39.2.37-alpha.1":
-  version "39.2.37-alpha.1"
-  resolved "https://registry.yarnpkg.com/@dhis2/data-visualizer-plugin/-/data-visualizer-plugin-39.2.37-alpha.1.tgz#06f6cff34addcd077530c402c8c66d9331f4f8c8"
-  integrity sha512-rXc1I1Hg30st6YvivuHCAXFeAkSqy56zc7VcdBj8qZEz642a5zP3qnrZ86sfQNeK6AEdmA1qYJCyFzeifdXtvg==
+"@dhis2/data-visualizer-plugin@^39.2.37":
+  version "39.2.37"
+  resolved "https://registry.yarnpkg.com/@dhis2/data-visualizer-plugin/-/data-visualizer-plugin-39.2.37.tgz#dda4d8f67ec7e9fcde890778467391b9a99ecd58"
+  integrity sha512-adnJdChz4laqUPI0ZSkFXSsqJvCEYjSZOCN8kBOjiwF7zi8AdhaSGYY4momapD3ywc1/Bp5N5uDCTKpRtKIvQg==
   dependencies:
-    "@dhis2/analytics" "git+https://github.com/d2-ci/analytics.git#418c49ef9961909473b62ac7af878dfed69c43b1"
+    "@dhis2/analytics" "^24.10.11"
     "@dhis2/app-runtime" "^3.9.0"
     "@dhis2/d2-i18n" "^1.1.0"
     "@dhis2/ui" "^8.4.11"
