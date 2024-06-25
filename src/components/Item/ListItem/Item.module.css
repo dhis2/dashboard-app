@@ -1,11 +1,11 @@
 .list {
-    margin-top: 10px;
+    margin-block-start: 10px;
     list-style: none;
     padding-inline-start: 0px;
 }
 
 .item {
-    margin-bottom: var(--spacers-dp8);
+    margin-block-end: var(--spacers-dp8);
 }
 
 .itemContent {
@@ -14,14 +14,14 @@
 
 .link {
     font-size: 14px;
-    margin-left: var(--spacers-dp4);
+    margin-inline-start: var(--spacers-dp4);
     text-decoration: underline;
 }
 
 .removeButton {
     border: none;
     cursor: pointer;
-    margin-left: var(--spacers-dp8);
+    margin-inline-start: var(--spacers-dp8);
     color: var(--colors-red600);
     font-size: 12px;
     text-decoration: underline;

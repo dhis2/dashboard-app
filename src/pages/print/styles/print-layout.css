@@ -1,7 +1,7 @@
 .react-grid-item.layout.PAGEBREAK {
-    margin-left: -25px;
-    min-height: 50px !important;
-    height: 50px !important;
+    margin-inline-start: -25px;
+    min-block-size: 50px !important;
+    block-size: 50px !important;
 }
 
 .react-grid-item.layout.SPACER {

@@ -2,8 +2,8 @@
     border: none;
     border-radius: 50%;
     cursor: pointer;
-    width: 24px;
-    height: 24px;
+    inline-size: 24px;
+    block-size: 24px;
 }
 
 .button > span {
@@ -17,13 +17,13 @@
 }
 
 .icon {
-    width: 16px;
-    height: 16px;
+    inline-size: 16px;
+    block-size: 16px;
 }
 
 @media only screen and (max-width: 480px) {
     .button {
-        margin-bottom: var(--spacers-dp4);
-        margin-right: 1px;
+        margin-block-end: var(--spacers-dp4);
+        margin-inline-end: 1px;
     }
 }

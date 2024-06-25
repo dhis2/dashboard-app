@@ -4,12 +4,12 @@
     }
 
     .react-grid-item.oipp.PAGEBREAK {
-        height: 20px !important;
+        block-size: 20px !important;
         visibility: hidden;
     }
 
     .react-grid-item.oipp:not(.PAGEBREAK) {
-        margin-top: 0px !important;
+        margin-block-start: 0px !important;
     }
 }
 
@@ -28,16 +28,16 @@
 
 .react-grid-item.oipp:not(.PAGEBREAK) {
     position: static !important;
-    margin-bottom: 20px;
-    margin-left: 30px;
-    margin-top: 30px;
+    margin-block-end: 20px;
+    margin-inline-start: 30px;
+    margin-block-start: 30px;
 }
 
 .react-grid-item.oipp.PAGEBREAK {
     position: relative !important;
-    margin-left: -14px;
-    min-height: 50px !important;
-    height: 50px !important;
+    margin-inline-start: -14px;
+    min-block-size: 50px !important;
+    block-size: 50px !important;
 }
 
 .react-grid-item.oipp.SPACER {

@@ -1,7 +1,7 @@
 .warning {
     position: absolute;
-    top: 5px;
-    right: 5px;
+    inset-block-start: 5px;
+    inset-inline-end: 5px;
     visibility: visible;
 }
 

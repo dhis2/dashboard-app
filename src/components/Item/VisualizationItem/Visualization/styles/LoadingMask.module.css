@@ -1,6 +1,6 @@
 .center {
     display: flex;
     justify-content: center;
-    height: 100%;
-    margin-top: var(--spacers-dp8);
+    block-size: 100%;
+    margin-block-start: var(--spacers-dp8);
 }

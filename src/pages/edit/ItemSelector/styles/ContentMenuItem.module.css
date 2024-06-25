@@ -6,7 +6,7 @@
 
 .launchLink {
     display: flex;
-    margin-left: 8px;
+    margin-inline-start: 8px;
     z-index: 10000;
 }
 

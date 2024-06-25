@@ -1,19 +1,19 @@
 .draghandle {
     position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
+    inset-block-end: 0;
+    inset-inline-start: 0;
+    inset-inline-end: 0;
     cursor: ns-resize;
     transition: all ease-out 75ms;
-    height: 7px;
+    block-size: 7px;
 }
 
 .draghandle:after {
     content: '';
     position: absolute;
-    bottom: 0;
-    height: 3px;
-    width: 100%;
+    inset-block-end: 0;
+    block-size: 3px;
+    inline-size: 100%;
     background: var(--colors-white);
 }
 

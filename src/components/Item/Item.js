@@ -65,7 +65,11 @@ export const Item = (props) => {
 
     const GridItem = getGridItem(props.item.type)
 
-    return <GridItem d2={d2} {...props} />
+    return (
+        <div dir={document.dir}>
+            <GridItem d2={d2} {...props} />
+        </div>
+    )
 }
 
 Item.propTypes = {

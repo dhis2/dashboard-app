@@ -2,7 +2,7 @@
     display: inline-block;
     vertical-align: top;
     text-decoration: none;
-    margin-right: 4px;
+    margin-inline-end: 4px;
 }
 .title {
     font-size: 20px;
@@ -10,10 +10,16 @@
     color: var(--colors-grey700);
     cursor: default;
     user-select: text;
-    margin: 0px 0px 0px 10px;
+    margin-block-start: 0px;
+    margin-block-end: 0px;
+    margin-inline-start: 10px;
+    margin-inline-end: 0px;
 }
 .description {
-    margin: 15px 0px 0px 10px;
+    margin-block-start: 15px;
+    margin-block-end: 0px;
+    margin-inline-start: 10px;
+    margin-inline-end: 0px;
     font-size: 14px;
     color: var(--colors-grey700);
 }

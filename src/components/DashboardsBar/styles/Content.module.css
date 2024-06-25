@@ -9,11 +9,14 @@
 .controlsLarge {
     display: inline-flex;
     position: relative;
-    top: 5px;
+    inset-block-start: 5px;
 }
 
 .buttonPadding {
-    padding: 2px var(--spacers-dp8) 0 var(--spacers-dp8);
+    padding-block-start: 2px;
+    padding-block-end: 0;
+    padding-inline-start: var(--spacers-dp8);
+    padding-inline-end: var(--spacers-dp8);
     display: inline-flex;
 }
 
@@ -23,7 +26,7 @@
 }
 
 .chipsContainer {
-    min-height: 40px;
+    min-block-size: 40px;
 }
 
 @media only screen and (max-width: 480px) {
@@ -33,7 +36,7 @@
 
     .controlsSmall {
         display: block;
-        margin-bottom: var(--spacers-dp4);
+        margin-block-end: var(--spacers-dp4);
     }
 
     .controlsLarge {
@@ -44,33 +47,36 @@
         display: flex;
         overflow-x: auto;
         overflow-y: hidden;
-        padding: var(--spacers-dp4) 0 var(--spacers-dp4) var(--spacers-dp4);
+        padding-block-start: var(--spacers-dp4);
+        padding-block-end: var(--spacers-dp4);
+        padding-inline-start: var(--spacers-dp4);
+        padding-inline-end: 0;
     }
 
     .container.expanded {
         display: flex;
         flex-direction: column;
         overflow: hidden;
-        padding-top: var(--spacers-dp12);
-        padding-left: var(--spacers-dp8);
+        padding-block-start: var(--spacers-dp12);
+        padding-inline-start: var(--spacers-dp8);
     }
 
     .expanded .chipsContainer .controls {
-        margin-left: var(--spacers-dp4);
-        margin-right: var(--spacers-dp8);
-        width: 100%;
+        margin-inline-start: var(--spacers-dp4);
+        margin-inline-end: var(--spacers-dp8);
+        inline-size: 100%;
     }
 
     .chipsContainer {
-        margin-bottom: -4px;
-        padding-right: 2px;
-        min-height: 0;
+        margin-block-end: -4px;
+        padding-inline-end: 2px;
+        min-block-size: 0;
     }
 
     .expanded .chipsContainer {
         overflow-x: hidden;
         overflow-y: auto;
-        padding-right: 6px;
+        padding-inline-end: 6px;
         flex: 1;
     }
 

@@ -1,12 +1,12 @@
 .list {
     list-style-type: none;
-    padding-left: 0;
+    padding-inline-start: 0;
 }
 
 .seeAll {
     text-align: center;
     font-size: 13px;
-    margin-bottom: 5px;
+    margin-block-end: 5px;
 }
 
 .sender {
@@ -20,6 +20,6 @@
     color: var(--colors-grey800);
     font-size: 13px;
     line-height: 15px;
-    max-height: 30px;
+    max-block-size: 30px;
     overflow: hidden;
 }

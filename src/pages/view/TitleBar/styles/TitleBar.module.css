@@ -1,5 +1,5 @@
 .container {
-    margin-top: var(--spacers-dp12);
+    margin-block-start: var(--spacers-dp12);
 }
 
 .titleBar {
@@ -13,14 +13,14 @@
     font-size: 21px;
     font-weight: 500;
     color: var(--colors-black);
-    min-width: 50px;
+    min-inline-size: 50px;
     cursor: default;
     user-select: text;
-    top: 7px;
+    inset-block-start: 7px;
 }
 
 @media only screen and (max-width: 480px) {
     .title {
-        top: 3px;
+        inset-block-start: 3px;
     }
 }
