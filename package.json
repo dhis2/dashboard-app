@@ -40,7 +40,7 @@
     },
     "devDependencies": {
         "@dhis2/cli-app-scripts": "^11.6.1",
-        "@dhis2/cli-style": "^10.5.1",
+        "@dhis2/cli-style": "^10.7.3",
         "@dhis2/cypress-commands": "^10.0.6",
         "@dhis2/cypress-plugins": "^10.0.6",
         "@testing-library/jest-dom": "^6.1.2",
@@ -61,7 +61,6 @@
         }
     },
     "resolutions": {
-        "@dhis2/ui": "^9.2.0",
         "i18next-scanner": "^3.1.0"
     }
 }
