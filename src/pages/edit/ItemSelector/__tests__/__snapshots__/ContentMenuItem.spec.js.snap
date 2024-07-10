@@ -3,14 +3,17 @@
 exports[`ContentMenuItem has a LaunchLink when url is provided 1`] = `
 <div>
   <li
-    class="jsx-1930534478 "
+    class="jsx-3192368000 "
     data-test="menu-item-Rainbow Dash"
+    role="presentation"
   >
     <a
-      class="jsx-1930534478"
+      aria-label="[object Object]"
+      class="jsx-3192368000"
+      role="menuitem"
     >
       <span
-        class="jsx-1930534478 icon"
+        class="jsx-3192368000 icon"
       >
         <svg
           color="#6C7787"
@@ -26,7 +29,7 @@ exports[`ContentMenuItem has a LaunchLink when url is provided 1`] = `
         </svg>
       </span>
       <span
-        class="jsx-1930534478 label"
+        class="jsx-3192368000 label"
       >
         <div
           class="menuItem"
@@ -72,14 +75,17 @@ exports[`ContentMenuItem has a LaunchLink when url is provided 1`] = `
 exports[`does not have LaunchLink if no url provided 1`] = `
 <div>
   <li
-    class="jsx-1930534478 "
+    class="jsx-3192368000 "
     data-test="menu-item-Fancy chart"
+    role="presentation"
   >
     <a
-      class="jsx-1930534478"
+      aria-label="[object Object]"
+      class="jsx-3192368000"
+      role="menuitem"
     >
       <span
-        class="jsx-1930534478 icon"
+        class="jsx-3192368000 icon"
       >
         <svg
           color="#6C7787"
@@ -95,7 +101,7 @@ exports[`does not have LaunchLink if no url provided 1`] = `
         </svg>
       </span>
       <span
-        class="jsx-1930534478 label"
+        class="jsx-3192368000 label"
       >
         <div
           class="menuItem"

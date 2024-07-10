@@ -3,14 +3,18 @@
 exports[`renders disabled menu items when offline 1`] = `
 <div>
   <li
-    class="jsx-1930534478 disabled dense"
+    class="jsx-3192368000 disabled dense"
     data-test="dhis2-uicore-menuitem"
+    role="presentation"
   >
     <a
-      class="jsx-1930534478"
+      aria-disabled="true"
+      aria-label="[object Object]"
+      class="jsx-3192368000"
+      role="menuitem"
     >
       <span
-        class="jsx-1930534478 icon"
+        class="jsx-3192368000 icon"
       >
         <svg
           height="16"
@@ -32,7 +36,7 @@ exports[`renders disabled menu items when offline 1`] = `
         </svg>
       </span>
       <span
-        class="jsx-1930534478 label"
+        class="jsx-3192368000 label"
       >
         <span
           class="jsx-3661110597 tooltip notAllowed"
@@ -43,14 +47,18 @@ exports[`renders disabled menu items when offline 1`] = `
     </a>
   </li>
   <li
-    class="jsx-1930534478 disabled dense"
+    class="jsx-3192368000 disabled dense"
     data-test="dhis2-uicore-menuitem"
+    role="presentation"
   >
     <a
-      class="jsx-1930534478"
+      aria-disabled="true"
+      aria-label="[object Object]"
+      class="jsx-3192368000"
+      role="menuitem"
     >
       <span
-        class="jsx-1930534478 icon"
+        class="jsx-3192368000 icon"
       >
         <svg
           height="16"
@@ -65,7 +73,7 @@ exports[`renders disabled menu items when offline 1`] = `
         </svg>
       </span>
       <span
-        class="jsx-1930534478 label"
+        class="jsx-3192368000 label"
       >
         <span
           class="jsx-3661110597 tooltip notAllowed"
@@ -81,14 +89,18 @@ exports[`renders disabled menu items when offline 1`] = `
 exports[`renders menu for active type CHART and type MAP 1`] = `
 <div>
   <li
-    class="jsx-1930534478 dense"
+    class="jsx-3192368000 dense"
     data-test="dhis2-uicore-menuitem"
+    role="presentation"
   >
     <a
-      class="jsx-1930534478"
+      aria-disabled="false"
+      aria-label="[object Object]"
+      class="jsx-3192368000"
+      role="menuitem"
     >
       <span
-        class="jsx-1930534478 icon"
+        class="jsx-3192368000 icon"
       >
         <svg
           height="16"
@@ -103,7 +115,7 @@ exports[`renders menu for active type CHART and type MAP 1`] = `
         </svg>
       </span>
       <span
-        class="jsx-1930534478 label"
+        class="jsx-3192368000 label"
       >
         <span
           class="jsx-3661110597 tooltip"
@@ -114,14 +126,18 @@ exports[`renders menu for active type CHART and type MAP 1`] = `
     </a>
   </li>
   <li
-    class="jsx-1930534478 dense"
+    class="jsx-3192368000 dense"
     data-test="dhis2-uicore-menuitem"
+    role="presentation"
   >
     <a
-      class="jsx-1930534478"
+      aria-disabled="false"
+      aria-label="[object Object]"
+      class="jsx-3192368000"
+      role="menuitem"
     >
       <span
-        class="jsx-1930534478 icon"
+        class="jsx-3192368000 icon"
       >
         <svg
           height="16"
@@ -136,7 +152,7 @@ exports[`renders menu for active type CHART and type MAP 1`] = `
         </svg>
       </span>
       <span
-        class="jsx-1930534478 label"
+        class="jsx-3192368000 label"
       >
         <span
           class="jsx-3661110597 tooltip"
@@ -152,14 +168,18 @@ exports[`renders menu for active type CHART and type MAP 1`] = `
 exports[`renders menu for active type CHART and type REPORT_TABLE 1`] = `
 <div>
   <li
-    class="jsx-1930534478 dense"
+    class="jsx-3192368000 dense"
     data-test="dhis2-uicore-menuitem"
+    role="presentation"
   >
     <a
-      class="jsx-1930534478"
+      aria-disabled="false"
+      aria-label="[object Object]"
+      class="jsx-3192368000"
+      role="menuitem"
     >
       <span
-        class="jsx-1930534478 icon"
+        class="jsx-3192368000 icon"
       >
         <svg
           height="16"
@@ -174,7 +194,7 @@ exports[`renders menu for active type CHART and type REPORT_TABLE 1`] = `
         </svg>
       </span>
       <span
-        class="jsx-1930534478 label"
+        class="jsx-3192368000 label"
       >
         <span
           class="jsx-3661110597 tooltip"
@@ -185,14 +205,18 @@ exports[`renders menu for active type CHART and type REPORT_TABLE 1`] = `
     </a>
   </li>
   <li
-    class="jsx-1930534478 dense"
+    class="jsx-3192368000 dense"
     data-test="dhis2-uicore-menuitem"
+    role="presentation"
   >
     <a
-      class="jsx-1930534478"
+      aria-disabled="false"
+      aria-label="[object Object]"
+      class="jsx-3192368000"
+      role="menuitem"
     >
       <span
-        class="jsx-1930534478 icon"
+        class="jsx-3192368000 icon"
       >
         <svg
           height="16"
@@ -207,7 +231,7 @@ exports[`renders menu for active type CHART and type REPORT_TABLE 1`] = `
         </svg>
       </span>
       <span
-        class="jsx-1930534478 label"
+        class="jsx-3192368000 label"
       >
         <span
           class="jsx-3661110597 tooltip"
@@ -223,14 +247,18 @@ exports[`renders menu for active type CHART and type REPORT_TABLE 1`] = `
 exports[`renders menu for active type EVENT_CHART and type EVENT_REPORT 1`] = `
 <div>
   <li
-    class="jsx-1930534478 dense"
+    class="jsx-3192368000 dense"
     data-test="dhis2-uicore-menuitem"
+    role="presentation"
   >
     <a
-      class="jsx-1930534478"
+      aria-disabled="false"
+      aria-label="[object Object]"
+      class="jsx-3192368000"
+      role="menuitem"
     >
       <span
-        class="jsx-1930534478 icon"
+        class="jsx-3192368000 icon"
       >
         <svg
           height="16"
@@ -245,7 +273,7 @@ exports[`renders menu for active type EVENT_CHART and type EVENT_REPORT 1`] = `
         </svg>
       </span>
       <span
-        class="jsx-1930534478 label"
+        class="jsx-3192368000 label"
       >
         <span
           class="jsx-3661110597 tooltip"
@@ -261,14 +289,18 @@ exports[`renders menu for active type EVENT_CHART and type EVENT_REPORT 1`] = `
 exports[`renders menu for active type EVENT_REPORT and type EVENT_CHART 1`] = `
 <div>
   <li
-    class="jsx-1930534478 dense"
+    class="jsx-3192368000 dense"
     data-test="dhis2-uicore-menuitem"
+    role="presentation"
   >
     <a
-      class="jsx-1930534478"
+      aria-disabled="false"
+      aria-label="[object Object]"
+      class="jsx-3192368000"
+      role="menuitem"
     >
       <span
-        class="jsx-1930534478 icon"
+        class="jsx-3192368000 icon"
       >
         <svg
           height="16"
@@ -290,7 +322,7 @@ exports[`renders menu for active type EVENT_REPORT and type EVENT_CHART 1`] = `
         </svg>
       </span>
       <span
-        class="jsx-1930534478 label"
+        class="jsx-3192368000 label"
       >
         <span
           class="jsx-3661110597 tooltip"
@@ -306,14 +338,18 @@ exports[`renders menu for active type EVENT_REPORT and type EVENT_CHART 1`] = `
 exports[`renders menu for active type MAP and type CHART 1`] = `
 <div>
   <li
-    class="jsx-1930534478 dense"
+    class="jsx-3192368000 dense"
     data-test="dhis2-uicore-menuitem"
+    role="presentation"
   >
     <a
-      class="jsx-1930534478"
+      aria-disabled="false"
+      aria-label="[object Object]"
+      class="jsx-3192368000"
+      role="menuitem"
     >
       <span
-        class="jsx-1930534478 icon"
+        class="jsx-3192368000 icon"
       >
         <svg
           height="16"
@@ -335,7 +371,7 @@ exports[`renders menu for active type MAP and type CHART 1`] = `
         </svg>
       </span>
       <span
-        class="jsx-1930534478 label"
+        class="jsx-3192368000 label"
       >
         <span
           class="jsx-3661110597 tooltip"
@@ -346,14 +382,18 @@ exports[`renders menu for active type MAP and type CHART 1`] = `
     </a>
   </li>
   <li
-    class="jsx-1930534478 dense"
+    class="jsx-3192368000 dense"
     data-test="dhis2-uicore-menuitem"
+    role="presentation"
   >
     <a
-      class="jsx-1930534478"
+      aria-disabled="false"
+      aria-label="[object Object]"
+      class="jsx-3192368000"
+      role="menuitem"
     >
       <span
-        class="jsx-1930534478 icon"
+        class="jsx-3192368000 icon"
       >
         <svg
           height="16"
@@ -368,7 +408,7 @@ exports[`renders menu for active type MAP and type CHART 1`] = `
         </svg>
       </span>
       <span
-        class="jsx-1930534478 label"
+        class="jsx-3192368000 label"
       >
         <span
           class="jsx-3661110597 tooltip"
@@ -384,14 +424,18 @@ exports[`renders menu for active type MAP and type CHART 1`] = `
 exports[`renders menu for active type MAP and type MAP without Thematic layer 1`] = `
 <div>
   <li
-    class="jsx-1930534478 disabled dense"
+    class="jsx-3192368000 disabled dense"
     data-test="dhis2-uicore-menuitem"
+    role="presentation"
   >
     <a
-      class="jsx-1930534478"
+      aria-disabled="true"
+      aria-label="[object Object]"
+      class="jsx-3192368000"
+      role="menuitem"
     >
       <span
-        class="jsx-1930534478 icon"
+        class="jsx-3192368000 icon"
       >
         <svg
           height="16"
@@ -413,7 +457,7 @@ exports[`renders menu for active type MAP and type MAP without Thematic layer 1`
         </svg>
       </span>
       <span
-        class="jsx-1930534478 label"
+        class="jsx-3192368000 label"
       >
         <span
           class="jsx-3661110597 tooltip notAllowed"
@@ -424,14 +468,18 @@ exports[`renders menu for active type MAP and type MAP without Thematic layer 1`
     </a>
   </li>
   <li
-    class="jsx-1930534478 disabled dense"
+    class="jsx-3192368000 disabled dense"
     data-test="dhis2-uicore-menuitem"
+    role="presentation"
   >
     <a
-      class="jsx-1930534478"
+      aria-disabled="true"
+      aria-label="[object Object]"
+      class="jsx-3192368000"
+      role="menuitem"
     >
       <span
-        class="jsx-1930534478 icon"
+        class="jsx-3192368000 icon"
       >
         <svg
           height="16"
@@ -446,7 +494,7 @@ exports[`renders menu for active type MAP and type MAP without Thematic layer 1`
         </svg>
       </span>
       <span
-        class="jsx-1930534478 label"
+        class="jsx-3192368000 label"
       >
         <span
           class="jsx-3661110597 tooltip notAllowed"
@@ -462,14 +510,18 @@ exports[`renders menu for active type MAP and type MAP without Thematic layer 1`
 exports[`renders menu for active type MAP and type MAP without Thematic layer when offline 1`] = `
 <div>
   <li
-    class="jsx-1930534478 disabled dense"
+    class="jsx-3192368000 disabled dense"
     data-test="dhis2-uicore-menuitem"
+    role="presentation"
   >
     <a
-      class="jsx-1930534478"
+      aria-disabled="true"
+      aria-label="[object Object]"
+      class="jsx-3192368000"
+      role="menuitem"
     >
       <span
-        class="jsx-1930534478 icon"
+        class="jsx-3192368000 icon"
       >
         <svg
           height="16"
@@ -491,7 +543,7 @@ exports[`renders menu for active type MAP and type MAP without Thematic layer wh
         </svg>
       </span>
       <span
-        class="jsx-1930534478 label"
+        class="jsx-3192368000 label"
       >
         <span
           class="jsx-3661110597 tooltip notAllowed"
@@ -502,14 +554,18 @@ exports[`renders menu for active type MAP and type MAP without Thematic layer wh
     </a>
   </li>
   <li
-    class="jsx-1930534478 disabled dense"
+    class="jsx-3192368000 disabled dense"
     data-test="dhis2-uicore-menuitem"
+    role="presentation"
   >
     <a
-      class="jsx-1930534478"
+      aria-disabled="true"
+      aria-label="[object Object]"
+      class="jsx-3192368000"
+      role="menuitem"
     >
       <span
-        class="jsx-1930534478 icon"
+        class="jsx-3192368000 icon"
       >
         <svg
           height="16"
@@ -524,7 +580,7 @@ exports[`renders menu for active type MAP and type MAP without Thematic layer wh
         </svg>
       </span>
       <span
-        class="jsx-1930534478 label"
+        class="jsx-3192368000 label"
       >
         <span
           class="jsx-3661110597 tooltip notAllowed"
@@ -540,14 +596,18 @@ exports[`renders menu for active type MAP and type MAP without Thematic layer wh
 exports[`renders menu for active type REPORT_TABLE and type CHART 1`] = `
 <div>
   <li
-    class="jsx-1930534478 dense"
+    class="jsx-3192368000 dense"
     data-test="dhis2-uicore-menuitem"
+    role="presentation"
   >
     <a
-      class="jsx-1930534478"
+      aria-disabled="false"
+      aria-label="[object Object]"
+      class="jsx-3192368000"
+      role="menuitem"
     >
       <span
-        class="jsx-1930534478 icon"
+        class="jsx-3192368000 icon"
       >
         <svg
           height="16"
@@ -569,7 +629,7 @@ exports[`renders menu for active type REPORT_TABLE and type CHART 1`] = `
         </svg>
       </span>
       <span
-        class="jsx-1930534478 label"
+        class="jsx-3192368000 label"
       >
         <span
           class="jsx-3661110597 tooltip"
@@ -580,14 +640,18 @@ exports[`renders menu for active type REPORT_TABLE and type CHART 1`] = `
     </a>
   </li>
   <li
-    class="jsx-1930534478 dense"
+    class="jsx-3192368000 dense"
     data-test="dhis2-uicore-menuitem"
+    role="presentation"
   >
     <a
-      class="jsx-1930534478"
+      aria-disabled="false"
+      aria-label="[object Object]"
+      class="jsx-3192368000"
+      role="menuitem"
     >
       <span
-        class="jsx-1930534478 icon"
+        class="jsx-3192368000 icon"
       >
         <svg
           height="16"
@@ -602,7 +666,7 @@ exports[`renders menu for active type REPORT_TABLE and type CHART 1`] = `
         </svg>
       </span>
       <span
-        class="jsx-1930534478 label"
+        class="jsx-3192368000 label"
       >
         <span
           class="jsx-3661110597 tooltip"
