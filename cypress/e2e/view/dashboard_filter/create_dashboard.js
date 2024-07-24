@@ -83,7 +83,7 @@ When('I add items and save', () => {
     )
 })
 
-Given('I open existing dashboard', () => {
+Given('I open an existing dashboard', () => {
     cy.get(dashboardChipSel, EXTENDED_TIMEOUT)
         .contains(TEST_DASHBOARD_TITLE)
         .click()
