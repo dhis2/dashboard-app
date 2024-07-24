@@ -1,4 +1,4 @@
-import { Given, When, Then } from '@badeball/cypress-cucumber-preprocessor'
+import { When, Then } from '@badeball/cypress-cucumber-preprocessor'
 import {
     dashboardTitleSel,
     dashboardsBarContainerSel,

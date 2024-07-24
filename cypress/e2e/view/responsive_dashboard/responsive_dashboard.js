@@ -1,7 +1,7 @@
 import { When, Then } from '@badeball/cypress-cucumber-preprocessor'
 import { dimensionsModalSel } from '../../../elements/dashboardFilter.js'
 import { gridItemSel, chartSel } from '../../../elements/dashboardItem.js'
-import { titleInputSel, itemMenuSel } from '../../../elements/editDashboard.js'
+import { titleInputSel } from '../../../elements/editDashboard.js'
 import {
     dashboardTitleSel,
     newButtonSel,

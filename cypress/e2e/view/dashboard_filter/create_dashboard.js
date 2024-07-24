@@ -110,10 +110,6 @@ Then(
     }
 )
 
-When('I choose to delete dashboard', () => {
-    cy.get('[data-test="delete-dashboard-button"]').click()
-})
-
 When('I confirm delete', () => {
     cy.get(confirmActionDialogSel).find('button').contains('Delete').click()
 })
