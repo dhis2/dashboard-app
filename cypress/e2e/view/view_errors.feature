@@ -94,7 +94,7 @@ Feature: Errors while in view mode
 
     Scenario: I delete the dashboard that was created for this test suite
         Given I open a dashboard with a chart that will fail
-        Then I delete the dashboard
+        Then I delete the created dashboard
 
 # TODO unflake this flaky test
 # @nonmutating

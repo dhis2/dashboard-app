@@ -127,7 +127,7 @@ Then('the {string} is displayed correctly', (visType) => {
     }
 })
 
-Then('I delete the dashboard', () => {
+Then('I delete the created dashboard', () => {
     //now cleanup
     clickViewActionButton('Edit')
     clickEditActionButton('Delete')
