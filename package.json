@@ -50,10 +50,10 @@
         "@dhis2/cli-style": "^10.5.1",
         "@dhis2/cli-utils-cypress": "^10.0.6",
         "@dhis2/cypress-commands": "^10.0.6",
+        "@dhis2/cypress-plugins": "^10.0.6",
         "@testing-library/jest-dom": "^6.1.2",
         "@testing-library/react": "^12",
         "cypress": "^13.13.1",
-        "cypress-tags": "^1.2.2",
         "d2-manifest": "^1.0.0",
         "eslint-plugin-cypress": "^3.3.0",
         "immutability-helper": "^3.1.1",
@@ -70,5 +70,12 @@
     },
     "resolutions": {
         "@dhis2/ui": "^9.2.0"
+    },
+    "cypress-cucumber-preprocessor": {
+        "stepDefinitions": [
+            "cypress/e2e/common/**/*.{js,ts}",
+            "cypress/e2e/edit/**/*.{js,ts}",
+            "cypress/e2e/view/**/*.{js,ts}"
+        ]
     }
 }

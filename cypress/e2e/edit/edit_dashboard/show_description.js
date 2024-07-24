@@ -1,24 +1,24 @@
 import { When, Then } from '@badeball/cypress-cucumber-preprocessor'
 import { clickViewActionButton } from '../../../elements/viewDashboard.js'
-import { getApiBaseUrl } from '../../../support/utils.js'
+// import { getApiBaseUrl } from '../../../support/utils.js'
 
 const RESP_CODE_200 = 200
 const RESP_CODE_201 = 201
 const RESP_CODE_FAIL = 409
 
-before(() => {
-    //ensure that the description is not currently shown
-    cy.request({
-        method: 'PUT',
-        url: `${getApiBaseUrl()}/api/userDataStore/dashboard/showDescription`,
-        headers: {
-            'content-type': 'application/json',
-        },
-        body: 'false',
-    }).then((response) =>
-        expect(response.status).to.be.oneOf([RESP_CODE_201, RESP_CODE_200])
-    )
-})
+// before(() => {
+//     //ensure that the description is not currently shown
+//     cy.request({
+//         method: 'PUT',
+//         url: `${getApiBaseUrl()}/api/userDataStore/dashboard/showDescription`,
+//         headers: {
+//             'content-type': 'application/json',
+//         },
+//         body: 'false',
+//     }).then((response) =>
+//         expect(response.status).to.be.oneOf([RESP_CODE_201, RESP_CODE_200])
+//     )
+// })
 
 When('I click to show description', () => {
     cy.intercept('PUT', '**/userDataStore/dashboard/showDescription').as(

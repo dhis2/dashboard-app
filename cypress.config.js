@@ -5,20 +5,10 @@ const createEsbuildPlugin = require('@badeball/cypress-cucumber-preprocessor/esb
 const createBundler = require('@bahmutov/cypress-esbuild-preprocessor')
 const { chromeAllowXSiteCookies } = require('@dhis2/cypress-plugins')
 const { defineConfig } = require('cypress')
-const {
-    excludeByVersionTags,
-} = require('./cypress/plugins/excludeByVersionTags.js')
 
 async function setupNodeEvents(on, config) {
     await addCucumberPreprocessorPlugin(on, config)
     chromeAllowXSiteCookies(on, config)
-    excludeByVersionTags(on, config)
-
-    if (!config.env.dhis2InstanceVersion) {
-        throw new Error(
-            'dhis2InstanceVersion is missing. Check the README for more information.'
-        )
-    }
 
     on(
         'file:preprocessor',
@@ -45,10 +35,6 @@ module.exports = defineConfig({
         testIsolation: false,
         // Record video
         video: true,
-        /* Only compress and upload videos for failures.
-         * This will save execution time and reduce the risk
-         * out-of-memory issues on the CI machine */
-        videoUploadOnPasses: false,
         // Enabled to reduce the risk of out-of-memory issues
         experimentalMemoryManagement: true,
         // Set to a low number to reduce the risk of out-of-memory issues
