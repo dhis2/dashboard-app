@@ -1,17 +1,5 @@
-import { Given, Then } from '@badeball/cypress-cucumber-preprocessor'
-import { dashboardTitleSel } from '../../../elements/viewDashboard.js'
+import { Given } from '@badeball/cypress-cucumber-preprocessor'
 import { EXTENDED_TIMEOUT } from '../../../support/utils.js'
-
-// Scenario: Dashboard id is invalid
-Given('I type an invalid dashboard id in the browser url', () => {
-    cy.visit('#/invalid', EXTENDED_TIMEOUT)
-})
-Then('a message displays informing that the dashboard is not found', () => {
-    cy.contains('Requested dashboard not found', EXTENDED_TIMEOUT).should(
-        'be.visible'
-    )
-    cy.get(dashboardTitleSel).should('not.exist')
-})
 
 //Scenario: edit Dashboard id is invalid
 Given('I type an invalid edit dashboard id in the browser url', () => {

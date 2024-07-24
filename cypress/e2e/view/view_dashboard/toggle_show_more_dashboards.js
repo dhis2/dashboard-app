@@ -29,10 +29,6 @@ When('I toggle show more dashboards', () => {
     cy.get(showMoreLessSel).click()
 })
 
-Given('I type an invalid dashboard id in the browser url', () => {
-    cy.visit('#/invalid', EXTENDED_TIMEOUT)
-})
-
 Then('a message displays informing that the dashboard is not found', () => {
     cy.contains('Requested dashboard not found', EXTENDED_TIMEOUT).should(
         'be.visible'

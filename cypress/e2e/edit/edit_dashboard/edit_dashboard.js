@@ -7,7 +7,6 @@ import {
 import {
     confirmActionDialogSel,
     titleInputSel,
-    itemMenuSel,
     clickEditActionButton,
 } from '../../../elements/editDashboard.js'
 import {
@@ -48,13 +47,6 @@ Scenario: I create a new dashboard
 
 When('dashboard title is added', () => {
     cy.get(titleInputSel).type(TEST_DASHBOARD_TITLE)
-})
-
-When('I close the item selector', () => {
-    //close modal
-    cy.get('[data-test="dhis2-uicore-layer"]').click('topLeft')
-
-    cy.get(itemMenuSel).should('not.exist')
 })
 
 When('dashboard is saved', () => {
@@ -103,10 +95,6 @@ Given('I open existing dashboard', () => {
     cy.get(dashboardTitleSel)
         .should('be.visible')
         .and('contain', TEST_DASHBOARD_TITLE)
-})
-
-When('I choose to delete dashboard', () => {
-    clickEditActionButton('Delete')
 })
 
 /*

@@ -50,13 +50,6 @@ Then('the wide screen view is shown', () => {
     cy.get('button.small').contains('More').should('not.be.visible')
 })
 
-When('I close the item selector', () => {
-    //close modal
-    cy.get('[data-test="dhis2-uicore-layer"]').click('topLeft')
-
-    cy.get(itemMenuSel).should('not.exist')
-})
-
 Then('the small screen edit view is shown', () => {
     //no controlbar
     cy.contains('Save changes').should('not.be.visible')

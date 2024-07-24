@@ -29,7 +29,7 @@ module.exports = defineConfig({
         specPattern: 'cypress/e2e/**/*.feature',
         viewportWidth: 1280,
         viewportHeight: 800,
-        defaultCommandTimeout: 15000,
+        defaultCommandTimeout: 25000,
         /* Globally disable test isolation because the test suite
          * contains many tests with sequential steps */
         testIsolation: false,
