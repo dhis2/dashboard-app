@@ -22,9 +22,12 @@ import {
     createDashboardTitle,
 } from '../../../support/utils.js'
 
-beforeEach(() => {
-    goOnline()
-})
+// TODO - once the offline tests are enabled, goOnline needs to be called in the specific
+// tests when needed rather than a beforeEach since this runs before every test
+// regardless of test file
+// beforeEach(() => {
+//     goOnline()
+// })
 
 const CACHED = 'cached'
 const UNCACHED = 'uncached'
