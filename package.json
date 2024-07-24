@@ -70,12 +70,5 @@
     },
     "resolutions": {
         "@dhis2/ui": "^9.2.0"
-    },
-    "cypress-cucumber-preprocessor": {
-        "stepDefinitions": [
-            "cypress/e2e/common/**/*.{js,ts}",
-            "cypress/e2e/edit/**/*.{js,ts}",
-            "cypress/e2e/view/**/*.{js,ts}"
-        ]
     }
 }
