@@ -1,4 +1,4 @@
-eature: Item context menu
+Feature: Item context menu
 
     # FIXME
     # @nonmutating
