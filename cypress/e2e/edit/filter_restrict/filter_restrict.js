@@ -127,7 +127,7 @@ When('I click Confirm', () => {
 Scenario: I change Filter Restrictions and the changes do not persist if I click 'Exit without saving'
 */
 
-Then('the dashboard displays in view mode', () => {
+Then('dashboard displays in view mode', () => {
     cy.get(dashboardTitleSel)
         .should('be.visible')
         .and('contain', TEST_DASHBOARD_TITLE)

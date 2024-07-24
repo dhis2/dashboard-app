@@ -91,21 +91,24 @@ Given('I open an existing dashboard', () => {
 
 // Some map visualization load very slowly:
 // https://dhis2.atlassian.net/browse/DHIS2-14365
-Then('the dashboard displays in view mode', () => {
-    cy.get(dashboardTitleSel)
-        .should('be.visible')
-        .and('contain', TEST_DASHBOARD_TITLE)
-    // check for a map canvas and a highcharts element
-    cy.get(`${gridItemSel}.VISUALIZATION`)
-        .getIframeBody()
-        .find(chartSel, EXTENDED_TIMEOUT)
-        .should('be.visible')
+Then(
+    'the dashboard displays in view mode and visualizations are visible',
+    () => {
+        cy.get(dashboardTitleSel)
+            .should('be.visible')
+            .and('contain', TEST_DASHBOARD_TITLE)
+        // check for a map canvas and a highcharts element
+        cy.get(`${gridItemSel}.VISUALIZATION`)
+            .getIframeBody()
+            .find(chartSel, EXTENDED_TIMEOUT)
+            .should('be.visible')
 
-    cy.get(`${gridItemSel}.MAP`)
-        .getIframeBody()
-        .find(mapSel, EXTENDED_TIMEOUT)
-        .should('be.visible')
-})
+        cy.get(`${gridItemSel}.MAP`)
+            .getIframeBody()
+            .find(mapSel, EXTENDED_TIMEOUT)
+            .should('be.visible')
+    }
+)
 
 When('I choose to delete dashboard', () => {
     cy.get('[data-test="delete-dashboard-button"]').click()

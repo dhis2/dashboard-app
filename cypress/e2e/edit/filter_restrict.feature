@@ -53,7 +53,7 @@ Feature: Editing Filter Restrictions
         And I click Confirm
         And I click Exit without saving
         # And I confirm I want to discard changes
-        Then the dashboard displays in view mode
+        Then dashboard displays in view mode
         When I choose to edit dashboard
         And I click on Filter settings
         Then Filter Restrictions are not restricted
@@ -79,7 +79,7 @@ Feature: Editing Filter Restrictions
         And I click Confirm
         And I save the dashboard
         Then Add Filter button is not visible
-        And the dashboard displays in view mode
+        And dashboard displays in view mode
         When I choose to edit dashboard
         And I delete the dashboard
         Then different dashboard displays in view mode
