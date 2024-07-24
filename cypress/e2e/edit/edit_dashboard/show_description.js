@@ -6,6 +6,9 @@ const RESP_CODE_200 = 200
 const RESP_CODE_201 = 201
 const RESP_CODE_FAIL = 409
 
+// TODO - once the offline tests are enabled, goOnline needs to be called in the specific
+// tests when needed rather than a beforeEach since this runs before every test
+// regardless of test file
 // before(() => {
 //     //ensure that the description is not currently shown
 //     cy.request({

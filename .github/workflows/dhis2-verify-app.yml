@@ -128,7 +128,7 @@ jobs:
                   echo "Spec=${{ join(matrix.spec-group.tests, ',') }}"
 
             - name: End-to-End tests
-              uses: cypress-io/github-action@v2
+              uses: cypress-io/github-action@v5
               with:
                   start: ${{ env.SERVER_START_CMD }}
                   wait-on: ${{ env.SERVER_URL }}
