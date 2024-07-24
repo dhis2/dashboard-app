@@ -12,6 +12,8 @@
         "@dhis2/ui": "^9.2.0",
         "@krakenjs/post-robot": "^11.0.0",
         "classnames": "^2.3.2",
+        "cypress": "^13.13.1",
+        "cypress-tags": "^1.2.2",
         "d2": "^31.10.0",
         "d2-utilizr": "^0.2.16",
         "i18next": "^20.3.5",
@@ -45,16 +47,17 @@
     "devDependencies": {
         "@dhis2/cli-app-scripts": "^10.3.10",
         "@dhis2/cli-style": "^10.5.1",
-        "@dhis2/cli-utils-cypress": "^7.0.1",
-        "@dhis2/cypress-commands": "^7.0.1",
+        "@dhis2/cli-utils-cypress": "^10.0.6",
+        "@dhis2/cypress-commands": "^10.0.6",
         "@testing-library/jest-dom": "^6.1.2",
         "@testing-library/react": "^12",
         "d2-manifest": "^1.0.0",
-        "eslint-plugin-cypress": "^2.14.0",
+        "eslint-plugin-cypress": "^3.3.0",
         "immutability-helper": "^3.1.1",
         "patch-package": "^7",
         "postinstall-postinstall": "^2.1.0",
-        "redux-mock-store": "^1.5.4"
+        "redux-mock-store": "^1.5.4",
+        "start-server-and-test": "^1.14.0"
     },
     "jest": {
         "moduleNameMapper": {
