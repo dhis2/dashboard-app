@@ -21,7 +21,7 @@ REACT_APP_DHIS2_BASE_URL=http://localhost:8080
 
 ##### api authentication: REACT_APP_DHIS2_AUTHORIZATION
 
-In order for maps, event reports and event charts to display in development mode, you also need to provide the authenticaion credentials for the api. The following example is the base64 encoded value for the username/password combination of `admin:district`:
+In order for event reports and event charts to display in development mode, you also need to provide the authenticaion credentials for the api. The following example is the base64 encoded value for the username/password combination of `admin:district`:
 
 ```
 REACT_APP_DHIS2_AUTHORIZATION=Basic YWRtaW46ZGlzdHJpY3Q=
