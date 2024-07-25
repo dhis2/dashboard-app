@@ -1,6 +1,5 @@
 import { When, Then } from '@badeball/cypress-cucumber-preprocessor'
 import {
-    dashboardTitleSel,
     dashboardsBarContainerSel,
     showMoreLessSel,
 } from '../../../elements/viewDashboard.js'
@@ -29,12 +28,6 @@ When('I toggle show more dashboards', () => {
     cy.get(showMoreLessSel).click()
 })
 
-Then('a message displays informing that the dashboard is not found', () => {
-    cy.contains('Requested dashboard not found', EXTENDED_TIMEOUT).should(
-        'be.visible'
-    )
-    cy.get(dashboardTitleSel).should('not.exist')
-})
 Then('the control bar should be at collapsed height', () => {
     cy.get(dashboardsBarContainerSel, EXTENDED_TIMEOUT)
         .invoke('height')

@@ -1,4 +1,4 @@
-import { When, Then } from '@badeball/cypress-cucumber-preprocessor'
+import { When } from '@badeball/cypress-cucumber-preprocessor'
 import { clickViewActionButton } from '../../../elements/viewDashboard.js'
 // import { getApiBaseUrl } from '../../../support/utils.js'
 
@@ -57,14 +57,3 @@ When('clicking to show description fails', () => {
         .its('response.statusCode')
         .should('eq', RESP_CODE_FAIL)
 })
-
-Then(
-    'a warning message is displayed stating that starring dashboard failed',
-    () => {
-        cy.get('[data-test="dhis2-uicore-alertbar"]')
-            .should('be.visible')
-            .should('have.class', 'critical')
-
-        cy.contains('Failed to show description').should('be.visible')
-    }
-)
