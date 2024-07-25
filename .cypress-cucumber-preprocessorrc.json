@@ -1,10 +1,6 @@
 {
     "nonGlobalStepDefinitions": true,
     "e2e": {
-        "stepDefinitions": [
-            "cypress/e2e/common/**/*.{js,ts}",
-            "cypress/e2e/edit/**/*.{js,ts}",
-            "cypress/e2e/view/**/*.{js,ts}"
-        ]
+        "stepDefinitions": ["cypress/e2e/**/*.{js,ts}"]
     }
 }
