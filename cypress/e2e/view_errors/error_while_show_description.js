@@ -1,12 +1,11 @@
 import { When, Then } from '@badeball/cypress-cucumber-preprocessor'
-// import { getApiBaseUrl } from '../../../support/utils.js'
 
-// const RESP_CODE_200 = 200
-// const RESP_CODE_201 = 201
 const RESP_CODE_FAIL = 409
 
 // Error scenario
 
+// TODO We do not want this to run at the start of the suite. It should only run
+// before the first scenario that needs it.
 // before(() => {
 //     //first ensure that the description is not currently shown
 //     cy.request({
@@ -17,7 +16,7 @@ const RESP_CODE_FAIL = 409
 //         },
 //         body: 'false',
 //     }).then((response) =>
-//         expect(response.status).to.be.oneOf([RESP_CODE_201, RESP_CODE_200])
+//         expect(response.status).to.be.oneOf(200, 201)
 //     )
 // })
 

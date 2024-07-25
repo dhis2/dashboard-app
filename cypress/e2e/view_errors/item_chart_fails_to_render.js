@@ -4,12 +4,7 @@ import {
     filterDimensionsPanelSel,
     filterBadgeSel,
 } from '../../elements/dashboardFilter.js'
-import {
-    gridItemSel,
-    // chartSel,
-    // tableSel,
-    itemMenuButtonSel,
-} from '../../elements/dashboardItem.js'
+import { gridItemSel, itemMenuButtonSel } from '../../elements/dashboardItem.js'
 import {
     clickEditActionButton,
     confirmActionDialogSel,
@@ -57,6 +52,7 @@ When(
 )
 
 Then('an error message is displayed on the item', () => {
+    // FIXME
     // cy.get(`${gridItemSel}.VISUALIZATION`)
     //     .first()
     //     .contains('There was an error loading data for this item')
@@ -83,6 +79,7 @@ Then('an error message not including a link is displayed on the item', () => {
 
     cy.contains('Open this item in Data Visualizer').should('not.exist')
 
+    // FIXME
     // cy.get(`${gridItemSel}.VISUALIZATION`)
     //     .first()
     //     .find('iframe')
@@ -108,6 +105,7 @@ When('I remove the filter', () => {
     cy.wait(4000) // eslint-disable-line cypress/no-unnecessary-waiting
 })
 
+// FIXME
 // Then('the {string} is displayed correctly', (visType) => {
 //     if (visType === 'chart') {
 //         cy.get(`${gridItemSel}.VISUALIZATION`)

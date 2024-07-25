@@ -61,7 +61,7 @@ Feature: Errors while in view mode
         When I click to preview the print layout
         Then the print layout displays for "Delivery" dashboard
         And the items missing type are displayed with a warning
-
+# FIXME
 # Scenario: Item visualization fails when filter applied [DHIS2-11303]
 #     Given I create a dashboard with a chart that will fail
 #     When I apply a "Diagnosis" filter of type "Burns"
@@ -92,6 +92,7 @@ Feature: Errors while in view mode
 #     When I remove the filter
 #     Then the "chart" is displayed correctly
 
+# FIXME
 # Scenario: I delete the dashboard that was created for this test suite
 #     Given I open a dashboard with a chart that will fail
 #     Then I delete the created dashboard

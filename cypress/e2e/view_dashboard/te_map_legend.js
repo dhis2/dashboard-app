@@ -1,10 +1,6 @@
 import { Given, When, Then } from '@badeball/cypress-cucumber-preprocessor'
 import { dashboards } from '../../assets/backends/sierraLeone_236.js'
-import {
-    getDashboardItem,
-    // gridItemSel,
-    // mapSel,
-} from '../../elements/dashboardItem.js'
+import { getDashboardItem } from '../../elements/dashboardItem.js'
 import {
     dashboardTitleSel,
     dashboardChipSel,
@@ -22,6 +18,7 @@ Given('I open the Cases Malaria dashboard', () => {
     })
 
     cy.get(dashboardTitleSel).should('be.visible').and('contain', title)
+    // FIXME
     // cy.get(`${gridItemSel}.MAP`)
     //     .first()
     //     .getIframeBody()

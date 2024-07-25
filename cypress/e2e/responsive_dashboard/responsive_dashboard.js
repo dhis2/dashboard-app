@@ -100,6 +100,7 @@ Then('the {string} dashboard displays in default view mode', (title) => {
     })
 
     cy.get(dashboardTitleSel).should('be.visible').and('contain', title)
+    // FIXME
     // cy.get(`${gridItemSel}.VISUALIZATION`)
     //     .first()
     //     .getIframeBody()
