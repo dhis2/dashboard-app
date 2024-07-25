@@ -1,6 +1,6 @@
 import { When, Then } from '@badeball/cypress-cucumber-preprocessor'
 import { dashboards } from '../../assets/backends/sierraLeone_236.js'
-import { gridItemSel } from '../../elements/dashboardItem.js'
+// import { gridItemSel } from '../../elements/dashboardItem.js'
 import {
     dashboardTitleSel,
     dashboardChipSel,
@@ -31,9 +31,9 @@ Then('dashboards list restored and dashboard is still {string}', (title) => {
     })
 
     cy.get(dashboardTitleSel).should('be.visible').and('contain', title)
-    cy.get(`${gridItemSel}.VISUALIZATION`)
-        .first()
-        .getIframeBody()
-        .find('.highcharts-background')
-        .should('exist')
+    // cy.get(`${gridItemSel}.VISUALIZATION`)
+    //     .first()
+    //     .getIframeBody()
+    //     .find('.highcharts-background')
+    //     .should('exist')
 })

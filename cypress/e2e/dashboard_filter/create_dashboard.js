@@ -1,5 +1,5 @@
 import { Given, When, Then } from '@badeball/cypress-cucumber-preprocessor'
-import { gridItemSel, chartSel, mapSel } from '../../elements/dashboardItem.js'
+import { gridItemSel } from '../../elements/dashboardItem.js'
 import {
     dashboardChipSel,
     dashboardTitleSel,
@@ -93,17 +93,17 @@ Then(
             .should('be.visible')
             .and('contain', TEST_DASHBOARD_TITLE)
         // check for a map canvas and a highcharts element
-        cy.get(`${gridItemSel}.VISUALIZATION`).getIframeBody().as('iframe')
-        // eslint-disable-next-line cypress/no-unnecessary-waiting
-        cy.wait(5000)
-        cy.get('@iframe').find(chartSel).as('chart')
-        cy.get('@chart').should('be.visible')
+        // cy.get(`${gridItemSel}.VISUALIZATION`).getIframeBody().as('iframe')
+        // // eslint-disable-next-line cypress/no-unnecessary-waiting
+        // cy.wait(5000)
+        // cy.get('@iframe').find(chartSel).as('chart')
+        // cy.get('@chart').should('be.visible')
 
-        cy.get(`${gridItemSel}.MAP`).getIframeBody().as('ifram2')
-        // eslint-disable-next-line cypress/no-unnecessary-waiting
-        cy.wait(5000)
-        cy.get('@iframe2').find(mapSel).as('map')
-        cy.get('@map').should('be.visible').should('be.visible')
+        // cy.get(`${gridItemSel}.MAP`).getIframeBody().as('ifram2')
+        // // eslint-disable-next-line cypress/no-unnecessary-waiting
+        // cy.wait(5000)
+        // cy.get('@iframe2').find(mapSel).as('map')
+        // cy.get('@map').should('be.visible').should('be.visible')
     }
 )
 

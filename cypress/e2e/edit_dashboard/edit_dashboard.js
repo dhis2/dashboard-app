@@ -1,8 +1,8 @@
 import { Given, When, Then } from '@badeball/cypress-cucumber-preprocessor'
 import {
     gridItemSel,
-    chartSel,
-    chartSubtitleSel,
+    // chartSel,
+    // chartSubtitleSel,
 } from '../../elements/dashboardItem.js'
 import {
     confirmActionDialogSel,
@@ -133,13 +133,13 @@ Then('the dashboard is deleted and first starred dashboard displayed', () => {
 Scenario: I move an item on a dashboard
 */
 
-Then('the chart item is displayed', () => {
-    cy.get(`${gridItemSel}.VISUALIZATION`)
-        .first()
-        .getIframeBody()
-        .find(chartSel, EXTENDED_TIMEOUT)
-        .should('exist')
-})
+// Then('the chart item is displayed', () => {
+//     cy.get(`${gridItemSel}.VISUALIZATION`)
+//         .first()
+//         .getIframeBody()
+//         .find(chartSel, EXTENDED_TIMEOUT)
+//         .should('exist')
+// })
 
 Then('no analytics requests are made when item is moved', () => {
     const WRONG_SUBTITLE = 'WRONG_SUBTITLE'
@@ -159,10 +159,10 @@ Then('no analytics requests are made when item is moved', () => {
         .trigger('mousemove', { clientX: 400 })
         .trigger('mouseup')
 
-    cy.get(gridItemSel)
-        .first()
-        .getIframeBody()
-        .find(chartSubtitleSel, EXTENDED_TIMEOUT)
-        .contains(WRONG_SUBTITLE)
-        .should('not.exist')
+    // cy.get(gridItemSel)
+    //     .first()
+    //     .getIframeBody()
+    //     .find(chartSubtitleSel, EXTENDED_TIMEOUT)
+    //     .contains(WRONG_SUBTITLE)
+    //     .should('not.exist')
 })

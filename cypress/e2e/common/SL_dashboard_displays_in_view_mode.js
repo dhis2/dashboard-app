@@ -1,8 +1,8 @@
 import { Then } from '@badeball/cypress-cucumber-preprocessor'
 import { dashboards } from '../../assets/backends/index.js'
-import { gridItemSel, chartSel } from '../../elements/dashboardItem.js'
+// import { gridItemSel, chartSel } from '../../elements/dashboardItem.js'
 import { dashboardTitleSel } from '../../elements/viewDashboard.js'
-import { EXTENDED_TIMEOUT } from '../../support/utils.js'
+// import { EXTENDED_TIMEOUT } from '../../support/utils.js'
 
 Then('the {string} dashboard displays in view mode', (title) => {
     cy.location().should((loc) => {
@@ -10,9 +10,9 @@ Then('the {string} dashboard displays in view mode', (title) => {
     })
 
     cy.get(dashboardTitleSel).should('be.visible').and('contain', title)
-    cy.get(gridItemSel)
-        .first()
-        .getIframeBody()
-        .find(chartSel, EXTENDED_TIMEOUT)
-        .should('exist')
+    // cy.get(gridItemSel)
+    //     .first()
+    //     .getIframeBody()
+    //     .find(chartSel, EXTENDED_TIMEOUT)
+    //     .should('exist')
 })

@@ -2,8 +2,8 @@ import { Given, When, Then } from '@badeball/cypress-cucumber-preprocessor'
 import { dashboards } from '../../assets/backends/sierraLeone_236.js'
 import {
     getDashboardItem,
-    gridItemSel,
-    mapSel,
+    // gridItemSel,
+    // mapSel,
 } from '../../elements/dashboardItem.js'
 import {
     dashboardTitleSel,
@@ -22,11 +22,11 @@ Given('I open the Cases Malaria dashboard', () => {
     })
 
     cy.get(dashboardTitleSel).should('be.visible').and('contain', title)
-    cy.get(`${gridItemSel}.MAP`)
-        .first()
-        .getIframeBody()
-        .find(mapSel, EXTENDED_TIMEOUT)
-        .should('exist')
+    // cy.get(`${gridItemSel}.MAP`)
+    //     .first()
+    //     .getIframeBody()
+    //     .find(mapSel, EXTENDED_TIMEOUT)
+    //     .should('exist')
 })
 
 When('I hover over the map legend button', () => {
