@@ -93,16 +93,16 @@ Then(
             .should('be.visible')
             .and('contain', TEST_DASHBOARD_TITLE)
         // check for a map canvas and a highcharts element
-        cy.get(`${gridItemSel}.VISUALIZATION`)
-            .getIframeBody()
-            .find(chartSel, EXTENDED_TIMEOUT)
-            .as('chart')
+        cy.get(`${gridItemSel}.VISUALIZATION`).getIframeBody().as('iframe')
+        // eslint-disable-next-line cypress/no-unnecessary-waiting
+        cy.wait(5000)
+        cy.get('@iframe').find(chartSel).as('chart')
         cy.get('@chart').should('be.visible')
 
-        cy.get(`${gridItemSel}.MAP`)
-            .getIframeBody()
-            .find(mapSel, EXTENDED_TIMEOUT)
-            .as('map')
+        cy.get(`${gridItemSel}.MAP`).getIframeBody().as('ifram2')
+        // eslint-disable-next-line cypress/no-unnecessary-waiting
+        cy.wait(5000)
+        cy.get('@iframe2').find(mapSel).as('map')
         cy.get('@map').should('be.visible').should('be.visible')
     }
 )
