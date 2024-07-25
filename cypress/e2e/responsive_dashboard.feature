@@ -5,8 +5,8 @@ Feature: Small screen dashboard
         Given I open the "Delivery" dashboard
 # When I go to small screen
 # Then the small screen view is shown
-# When I restore the wide screen
-# Then the wide screen view is shown
+        When I restore the wide screen
+        Then the wide screen view is shown
 
 # @nonmutating
 # Scenario: I am editing an existing dashboard
