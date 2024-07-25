@@ -125,5 +125,5 @@ Feature: Creating, editing and deleting dashboard
         And I choose to delete dashboard
         Then the confirm delete dialog is displayed
         When I confirm delete
-        Then different dashboard displays in view mode
+        Then different valid dashboard displays in view mode
         And the dashboard is deleted and first starred dashboard displayed

@@ -82,4 +82,4 @@ Feature: Editing Filter Restrictions
         And dashboard displays in view mode
         When I choose to edit dashboard
         And I delete the dashboard
-        Then different dashboard displays in view mode
+        Then another dashboard displays in view mode

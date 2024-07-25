@@ -96,12 +96,14 @@ Then(
         cy.get(`${gridItemSel}.VISUALIZATION`)
             .getIframeBody()
             .find(chartSel, EXTENDED_TIMEOUT)
-            .should('be.visible')
+            .as('chart')
+        cy.get('@chart').should('be.visible')
 
         cy.get(`${gridItemSel}.MAP`)
             .getIframeBody()
             .find(mapSel, EXTENDED_TIMEOUT)
-            .should('be.visible')
+            .as('map')
+        cy.get('@map').should('be.visible').should('be.visible')
     }
 )
 

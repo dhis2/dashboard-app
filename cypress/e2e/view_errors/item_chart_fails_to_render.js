@@ -96,7 +96,7 @@ When('I view as chart', () => {
 
 When('I view as table', () => {
     cy.get(itemMenuButtonSel).click()
-    cy.contains('View as Table').click()
+    cy.contains('View as Pivot table').click()
 })
 
 When('I remove the filter', () => {

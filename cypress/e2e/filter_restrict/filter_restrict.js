@@ -176,7 +176,7 @@ When('I delete the dashboard', () => {
     cy.get(confirmActionDialogSel).find('button').contains('Delete').click()
 })
 
-Then('different dashboard displays in view mode', () => {
+Then('another dashboard displays in view mode', () => {
     cy.get(dashboardTitleSel)
         .should('be.visible')
         .and('not.contain', TEST_DASHBOARD_TITLE)

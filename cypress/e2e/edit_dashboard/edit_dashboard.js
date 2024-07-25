@@ -66,7 +66,7 @@ Then('the dashboard displays in view mode', () => {
         .and('contain', TEST_DASHBOARD_TITLE)
 })
 
-Then('different dashboard displays in view mode', () => {
+Then('different valid dashboard displays in view mode', () => {
     cy.location().should((loc) => {
         const currentRoute = getRouteFromHash(loc.hash)
 
