@@ -4,7 +4,6 @@ import {
     chartSel,
     mapSel,
 } from '../../../elements/dashboardItem.js'
-import { confirmActionDialogSel } from '../../../elements/editDashboard.js'
 import {
     dashboardChipSel,
     dashboardTitleSel,
@@ -109,10 +108,6 @@ Then(
             .should('be.visible')
     }
 )
-
-When('I confirm delete', () => {
-    cy.get(confirmActionDialogSel).find('button').contains('Delete').click()
-})
 
 Then('different dashboard displays in view mode', () => {
     cy.get(dashboardTitleSel)
