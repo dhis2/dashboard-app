@@ -21,16 +21,16 @@ Then('the chart dashboard item displays as a chart', () => {
     getDashboardItem(chartItemUid)
         .getIframeBody()
         .find(chartSel, EXTENDED_TIMEOUT)
-        .should('exist')
-        .and('be.visible')
+        .as('chart')
+    cy.get('@chart').should('exist').and('be.visible')
 })
 
 Then('the table dashboard item displays as a table', () => {
     getDashboardItem(tableItemUid)
         .getIframeBody()
         .find(tableSel, EXTENDED_TIMEOUT)
-        .should('exist')
-        .and('be.visible')
+        .as('table')
+    cy.get('@table').should('exist').should('exist').and('be.visible')
 })
 
 /*
@@ -39,15 +39,15 @@ Scenario: View chart as table
 
 When('I click View As Table on a chart dashboard item', () => {
     clickMenuButton(chartItemUid)
-    cy.contains('View as Table').click()
+    cy.contains('View as Pivot table').click()
 })
 
 Then('the chart dashboard item displays as a table', () => {
     getDashboardItem(chartItemUid)
         .getIframeBody()
         .find(tableSel, EXTENDED_TIMEOUT)
-        .should('exist')
-        .and('be.visible')
+        .as('vis')
+    cy.get('@vis').should('exist').should('exist').and('be.visible')
 })
 
 /*
@@ -63,8 +63,8 @@ Then('the chart dashboard item displays as a map', () => {
     getDashboardItem(chartItemUid)
         .getIframeBody()
         .find(mapSel, EXTENDED_TIMEOUT)
-        .should('exist')
-        .and('be.visible')
+        .as('vis')
+    cy.get('@vis').should('exist').should('exist').and('be.visible')
 })
 
 /*
@@ -80,6 +80,6 @@ Then('the table dashboard item displays as a chart', () => {
     getDashboardItem(tableItemUid)
         .getIframeBody()
         .find(chartSel, EXTENDED_TIMEOUT)
-        .should('exist')
-        .and('be.visible')
+        .as('vis')
+    cy.get('@vis').should('exist').and('be.visible')
 })

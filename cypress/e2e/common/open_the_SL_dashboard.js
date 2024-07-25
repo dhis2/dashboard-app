@@ -19,5 +19,6 @@ Given('I open the {string} dashboard', (title) => {
         .first()
         .getIframeBody()
         .find(chartSel, EXTENDED_TIMEOUT)
-        .should('exist')
+        .as('vis')
+    cy.get('@vis').should('exist')
 })

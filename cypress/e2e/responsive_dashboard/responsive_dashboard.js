@@ -104,7 +104,8 @@ Then('the {string} dashboard displays in default view mode', (title) => {
         .first()
         .getIframeBody()
         .find(chartSel, EXTENDED_TIMEOUT)
-        .should('be.visible')
+        .as('vis')
+    cy.get('@vis').should('be.visible')
 })
 
 // Scenario: I change the url to 'edit' while in small screen
