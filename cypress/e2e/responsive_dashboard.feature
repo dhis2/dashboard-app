@@ -8,9 +8,9 @@ Feature: Small screen dashboard
                 When I restore the wide screen
                 Then the wide screen view is shown
 
-# @nonmutating
-# Scenario: I am editing an existing dashboard
-#     Given I open the "Delivery" dashboard
+        @nonmutating
+        Scenario: I am editing an existing dashboard
+                Given I open the "Delivery" dashboard
 #     When I choose to edit dashboard
 #     And dashboard title is changed
 #     And dashboard items are added
