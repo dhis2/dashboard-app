@@ -21,17 +21,17 @@ Feature: Small screen dashboard
                 Then the wide screen edit view is shown
                 And my changes are still there
 
-# @nonmutating
-# Scenario: I am creating a new dashboard
-#     Given I start a new dashboard
-#     And dashboard title is changed
-#     And dashboard items are added
-#     And I close the item selector
-#     When I go to small screen
-#     Then the small screen edit view is shown
-#     When I restore the wide screen
-#     Then the wide screen edit view is shown
-#     And my changes are still there
+        @nonmutating
+        Scenario: I am creating a new dashboard
+                Given I start a new dashboard
+                And dashboard title is changed
+                And dashboard items are added
+                And I close the item selector
+                When I go to small screen
+                Then the small screen edit view is shown
+                When I restore the wide screen
+                Then the wide screen edit view is shown
+                And my changes are still there
 
 # @nonutating
 # Scenario: I change the url to new while in small screen
