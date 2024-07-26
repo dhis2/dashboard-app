@@ -59,9 +59,9 @@ Then('the Organisation unit filter is applied to the dashboard', () => {
         .contains(`Organisation unit: ${OU}`)
         .should('be.visible')
 
-    cy.get(innerScrollContainerSel).scrollTo('bottom')
-    cy.get(`${gridItemSel}.VISUALIZATION`)
-        .getIframeBody()
+    // cy.get(innerScrollContainerSel).scrollTo('bottom')
+    cy.get(`${gridItemSel}.VISUALIZATION`).getIframeBody().as('iframeBody')
+    cy.get('@iframeBody')
         .find(chartXAxisLabelSel, EXTENDED_TIMEOUT)
         .as('chartXAxisLabelSel')
         .scrollIntoView()
