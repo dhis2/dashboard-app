@@ -11,15 +11,15 @@ Feature: Small screen dashboard
         @nonmutating
         Scenario: I am editing an existing dashboard
                 Given I open the "Delivery" dashboard
-#     When I choose to edit dashboard
-#     And dashboard title is changed
-#     And dashboard items are added
-#     And I close the item selector
-#     When I go to small screen
-#     Then the small screen edit view is shown
-#     When I restore the wide screen
-#     Then the wide screen edit view is shown
-#     And my changes are still there
+                When I choose to edit dashboard
+                And dashboard title is changed
+                And dashboard items are added
+                And I close the item selector
+                When I go to small screen
+                Then the small screen edit view is shown
+                When I restore the wide screen
+                Then the wide screen edit view is shown
+                And my changes are still there
 
 # @nonmutating
 # Scenario: I am creating a new dashboard
