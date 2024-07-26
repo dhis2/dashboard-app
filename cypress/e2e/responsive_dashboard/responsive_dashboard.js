@@ -99,7 +99,9 @@ Then('the {string} dashboard displays in default view mode', (title) => {
         expect(loc.hash).to.equal('#/')
     })
 
-    cy.get(dashboardTitleSel).should('be.visible').and('contain', title)
+    cy.get(dashboardTitleSel)
+        .should('be.visible')
+        .and('contain', `${title} broken`)
 
     cy.get(`${gridItemSel}.VISUALIZATION`).first().getIframeBody().as('iframe')
     cy.get('@iframe').find(chartSel, EXTENDED_TIMEOUT).as('vis')
