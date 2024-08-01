@@ -2434,21 +2434,6 @@
     workbox-build "^6.1.5"
     workbox-webpack-plugin "^6.5.4"
 
-"@dhis2/cli-helpers-engine@^2.3.0":
-  version "2.4.0"
-  resolved "https://registry.yarnpkg.com/@dhis2/cli-helpers-engine/-/cli-helpers-engine-2.4.0.tgz#1609d358088f0616fb400aa9f90fc8bb57d4b196"
-  integrity sha512-SRcN3s/sQTkd5VUbWAs2+UeYtJ0zLdj4F/RkrL8x2/RX/79vIxvryqBom4FFw/meY0c2GDpXgrpKNQcST/OHBQ==
-  dependencies:
-    chalk "^3.0.0"
-    cross-spawn "^7.0.3"
-    find-up "^5.0.0"
-    fs-extra "^8.0.1"
-    inquirer "^7.3.3"
-    request "^2.88.0"
-    tar "^4.4.8"
-    update-notifier "^3.0.0"
-    yargs "^13.1.0"
-
 "@dhis2/cli-helpers-engine@^3.0.0", "@dhis2/cli-helpers-engine@^3.2.0":
   version "3.2.1"
   resolved "https://registry.yarnpkg.com/@dhis2/cli-helpers-engine/-/cli-helpers-engine-3.2.1.tgz#80d3f5b50ae223e5ed3f91550c81c30c3d7741a7"
@@ -2487,13 +2472,6 @@
     prettier "^2.4.1"
     semver "^7.3.5"
     yargs "^16.2.0"
-
-"@dhis2/cli-utils-cypress@^10.0.6":
-  version "10.0.6"
-  resolved "https://registry.yarnpkg.com/@dhis2/cli-utils-cypress/-/cli-utils-cypress-10.0.6.tgz#916d92d32098f24679bf0f4b6b8bd98c51159a97"
-  integrity sha512-cOey0v4QE1ZagVgnG0C7yj1bL8p5AVtdb498HbNBbL0Us78pbDBQFYfxoQk88o3E1LvIK48ueJtaADNXfOr80A==
-  dependencies:
-    "@dhis2/cli-helpers-engine" "^2.3.0"
 
 "@dhis2/cypress-commands@^10.0.6":
   version "10.0.6"

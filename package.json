@@ -48,7 +48,6 @@
         "@cypress/webpack-preprocessor": "^6.0.2",
         "@dhis2/cli-app-scripts": "^10.3.10",
         "@dhis2/cli-style": "^10.5.1",
-        "@dhis2/cli-utils-cypress": "^10.0.6",
         "@dhis2/cypress-commands": "^10.0.6",
         "@dhis2/cypress-plugins": "^10.0.6",
         "@testing-library/jest-dom": "^6.1.2",
