@@ -28,7 +28,7 @@ const createGroups = (files, numberOfGroups = 8) => {
     return groups.map((group, index) => ({ id: index + 1, tests: group }))
 }
 
-const cypressSpecsPath = './cypress/integration'
+const cypressSpecsPath = './cypress/e2e'
 const specs = getAllFiles(cypressSpecsPath)
 const groupedSpecs = createGroups(specs)
 

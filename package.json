@@ -38,23 +38,29 @@
         "test": "d2-app-scripts test",
         "validate-push": "CI=true yarn test",
         "postinstall": "patch-package",
-        "cypress:start": "BROWSER=none yarn start",
-        "cy:open": "d2-utils-cypress open --appStart 'yarn cypress:start'",
-        "cy:run": "d2-utils-cypress run --appStart 'yarn cypress:start'"
+        "cy:start": "BROWSER=none yarn start",
+        "cy:open": "start-server-and-test 'yarn cy:start' http://localhost:3000 'yarn cypress open --e2e'",
+        "cy:run": "start-server-and-test 'yarn cy:start' http://localhost:3000 'yarn cypress run --browser chrome headless'"
     },
     "devDependencies": {
+        "@badeball/cypress-cucumber-preprocessor": "^20.1.0",
+        "@bahmutov/cypress-esbuild-preprocessor": "^2.2.1",
+        "@cypress/webpack-preprocessor": "^6.0.2",
         "@dhis2/cli-app-scripts": "^10.3.10",
         "@dhis2/cli-style": "^10.5.1",
-        "@dhis2/cli-utils-cypress": "^7.0.1",
-        "@dhis2/cypress-commands": "^7.0.1",
+        "@dhis2/cypress-commands": "^10.0.6",
+        "@dhis2/cypress-plugins": "^10.0.6",
         "@testing-library/jest-dom": "^6.1.2",
         "@testing-library/react": "^12",
+        "cypress": "^13.13.1",
         "d2-manifest": "^1.0.0",
-        "eslint-plugin-cypress": "^2.14.0",
+        "eslint-plugin-cypress": "^3.3.0",
         "immutability-helper": "^3.1.1",
+        "import": "^0.0.6",
         "patch-package": "^7",
         "postinstall-postinstall": "^2.1.0",
-        "redux-mock-store": "^1.5.4"
+        "redux-mock-store": "^1.5.4",
+        "start-server-and-test": "^1.14.0"
     },
     "jest": {
         "moduleNameMapper": {
