@@ -1,12 +1,11 @@
 .container {
-    margin: 2px;
-    padding: 0 var(--spacers-dp16);
-    border-radius: 4px;
+    padding: var(--spacers-dp8);
+    border-radius: 5px;
     color: var(--colors-white);
-    background-color: #212934;
-    height: 36px;
+    background-color: var(--colors-grey900);
     display: flex;
     align-items: center;
+    gap: var(--spacers-dp12);
 }
 
 .badge {
@@ -28,7 +27,6 @@
     padding: 0;
     font-size: 12px;
     text-decoration: underline;
-    margin-left: var(--spacers-dp24);
     cursor: pointer;
 }
 

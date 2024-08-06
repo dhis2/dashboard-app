@@ -46,14 +46,6 @@ jest.mock(
 )
 
 jest.mock(
-    '../FilterBar/FilterBar',
-    () =>
-        function MockFilterBar() {
-            return <div>MockFilterBar</div>
-        }
-)
-
-jest.mock(
     '../ItemGrid',
     () =>
         function MockItemGrid() {

@@ -30,6 +30,7 @@ import { sGetNamedItemFilters } from '../../../reducers/itemFilters.js'
 import { sGetSelected } from '../../../reducers/selected.js'
 import { sGetShowDescription } from '../../../reducers/showDescription.js'
 import { ROUTE_START_PATH } from '../../start/index.js'
+import FilterBar from '../FilterBar/FilterBar.js'
 import { apiStarDashboard } from './apiStarDashboard.js'
 import FilterSelector from './FilterSelector.js'
 import StarDashboardButton from './StarDashboardButton.js'
@@ -215,7 +216,8 @@ const ViewActions = ({
     const getMoreButton = (className, useSmall) => (
         <DropdownButton
             className={className}
-            small={useSmall}
+            small
+            secondary
             open={useSmall ? moreOptionsSmallIsOpen : moreOptionsIsOpen}
             disabledWhenOffline={false}
             onClick={() => toggleMoreOptions(useSmall)}
@@ -229,6 +231,7 @@ const ViewActions = ({
     return (
         <>
             <div className={classes.actions}>
+                <FilterBar />
                 <StarDashboardButton
                     starred={starred}
                     onClick={onToggleStarredDashboard}
@@ -237,6 +240,8 @@ const ViewActions = ({
                     {userAccess.update ? (
                         <OfflineTooltip>
                             <Button
+                                small
+                                secondary
                                 disabled={offline}
                                 className={classes.editButton}
                                 onClick={() => setRedirectUrl(`${id}/edit`)}
@@ -248,6 +253,8 @@ const ViewActions = ({
                     {userAccess.manage ? (
                         <OfflineTooltip>
                             <Button
+                                small
+                                secondary
                                 disabled={offline}
                                 className={classes.shareButton}
                                 onClick={onToggleSharingDialog}

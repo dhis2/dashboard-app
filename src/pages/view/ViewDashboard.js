@@ -24,7 +24,6 @@ import { sGetDashboardById } from '../../reducers/dashboards.js'
 import { sGetPassiveViewRegistered } from '../../reducers/passiveViewRegistered.js'
 import { sGetSelectedId } from '../../reducers/selected.js'
 import { ROUTE_START_PATH } from '../start/index.js'
-import FilterBar from './FilterBar/FilterBar.js'
 import ItemGrid from './ItemGrid.js'
 import classes from './styles/ViewDashboard.module.css'
 import TitleBar from './TitleBar/TitleBar.js'
@@ -151,7 +150,6 @@ const ViewDashboard = (props) => {
         ) : (
             <>
                 <TitleBar />
-                <FilterBar />
                 <ItemGrid />
             </>
         )

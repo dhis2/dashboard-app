@@ -1,3 +1,6 @@
+.buttonWrapper {
+    display: inline-flex;
+}
 .arrow {
     margin-left: var(--spacers-dp12);
 }
