@@ -33,13 +33,11 @@ jest.mock('@dhis2/app-runtime', () => ({
     useCacheableSection: jest.fn(),
 }))
 
-jest.mock('@dhis2/app-runtime-adapter-d2', () => ({
-    useD2: () => ({
-        d2: {
-            currentUser: {
-                username: 'rainbowDash',
-                id: 'r3nb0d5h',
-            },
+jest.mock('@dhis2/analytics', () => ({
+    useCachedDataQuery: () => ({
+        currentUser: {
+            username: 'rainbowDash',
+            id: 'r3nb0d5h',
         },
     }),
 }))
