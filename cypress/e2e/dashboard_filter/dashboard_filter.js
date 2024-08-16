@@ -25,8 +25,8 @@ Then('the Period filter is applied to the dashboard', () => {
     cy.get(filterBadgeSel).contains(`Period: ${PERIOD}`).should('be.visible')
 
     // check the CHART
-    cy.get(`${gridItemSel}.VISUALIZATION`)
-        .getIframeBody()
+    cy.get(`${gridItemSel}.VISUALIZATION`).getIframeBody().as('iframeBody')
+    cy.get('@iframeBody')
         .find(`${chartSubtitleSel} > title`, EXTENDED_TIMEOUT)
         .invoke('text')
         .then((text) => {
@@ -39,12 +39,12 @@ Then('the Period filter is applied to the dashboard', () => {
     // TODO - restore the normal EXTENDED_TIMEOUT when
     // slow loading of this map has been fixes
     // https://dhis2.atlassian.net/browse/DHIS2-14365
-    cy.get(`${gridItemSel}.MAP`)
-        .getIframeBody()
+    cy.get(`${gridItemSel}.MAP`).getIframeBody().as('iframeBodyMap')
+    cy.get('@iframeBodyMap')
         .find('.dhis2-map-legend-button', { timeout: 85000 })
         .trigger('mouseover')
-    cy.get(`${gridItemSel}.MAP`)
-        .getIframeBody()
+    cy.get(`${gridItemSel}.MAP`).getIframeBody().as('iframeBodyMap2')
+    cy.get('@iframeBodyMap2')
         .find('.dhis2-map-legend-period', EXTENDED_TIMEOUT)
         .contains(PERIOD)
         .should('be.visible')
@@ -80,8 +80,8 @@ Then('the Facility Type filter is applied to the dashboard', () => {
         .should('be.visible')
 
     cy.get(innerScrollContainerSel).scrollTo('top')
-    cy.get(`${gridItemSel}.VISUALIZATION`)
-        .getIframeBody()
+    cy.get(`${gridItemSel}.VISUALIZATION`).getIframeBody().as('iframeBody')
+    cy.get('@iframeBody')
         .find(chartSubtitleSel, EXTENDED_TIMEOUT)
         .as('chartSubtitleSel')
         .scrollIntoView()
