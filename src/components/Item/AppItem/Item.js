@@ -33,60 +33,64 @@ const AppItem = ({ dashboardMode, item, itemFilters }) => {
         appDetails?.settings?.dashboardWidget?.hideTitle &&
         dashboardMode !== EDIT
 
-    const iframeSrc = getIframeSrc(appDetails, item, itemFilters)
+    if (appDetails) {
+        const iframeSrc = getIframeSrc(appDetails, item, itemFilters)
 
-    return iframeSrc ? (
-        <>
-            {!hideTitle && (
-                <>
-                    <ItemHeader
-                        title={appDetails.name}
-                        itemId={item.id}
-                        dashboardMode={dashboardMode}
-                        isShortened={item.shortened}
+        return (
+            <>
+                {!hideTitle && (
+                    <>
+                        <ItemHeader
+                            title={appDetails.name}
+                            itemId={item.id}
+                            dashboardMode={dashboardMode}
+                            isShortened={item.shortened}
+                        />
+                        <Divider margin={`0 0 ${spacers.dp4} 0`} />
+                    </>
+                )}
+                {appDetails.appType === 'APP' ? (
+                    // new plugins
+                    <Plugin
+                        pluginSource={iframeSrc}
+                        dashboardItemId={item.id}
+                        cacheId={`${dashboardId}-${item.id}`}
+                        isParentCached={isCached}
                     />
-                    <Divider margin={`0 0 ${spacers.dp4} 0`} />
-                </>
-            )}
-            {appDetails.appType === 'APP' ? (
-                // new plugins
-                <Plugin
-                    pluginSource={iframeSrc}
-                    dashboardItemId={item.id}
-                    cacheId={`${dashboardId}-${item.id}`}
-                    isParentCached={isCached}
-                />
-            ) : (
-                // legacy widgets
-                <iframe
-                    title={appDetails.name}
-                    src={iframeSrc}
-                    className={
-                        !hideTitle
-                            ? 'dashboard-item-content'
-                            : 'dashboard-item-content-hidden-title'
-                    }
-                    style={{ border: 'none' }}
-                />
-            )}
-        </>
-    ) : (
-        <>
-            <ItemHeader title={`${appKey} app not found`} />
-            <Divider margin={`0 0 ${spacers.dp4} 0`} />
-            <div
-                className="dashboard-item-content"
-                style={{
-                    display: 'flex',
-                    justifyContent: 'center',
-                    alignItems: 'center',
-                    height: '90%',
-                }}
-            >
-                <IconQuestion24 color={colors.grey500} />
-            </div>
-        </>
-    )
+                ) : (
+                    // legacy widgets
+                    <iframe
+                        title={appDetails.name}
+                        src={iframeSrc}
+                        className={
+                            !hideTitle
+                                ? 'dashboard-item-content'
+                                : 'dashboard-item-content-hidden-title'
+                        }
+                        style={{ border: 'none' }}
+                    />
+                )}
+            </>
+        )
+    } else {
+        return (
+            <>
+                <ItemHeader title={`${appKey} app not found`} />
+                <Divider margin={`0 0 ${spacers.dp4} 0`} />
+                <div
+                    className="dashboard-item-content"
+                    style={{
+                        display: 'flex',
+                        justifyContent: 'center',
+                        alignItems: 'center',
+                        height: '90%',
+                    }}
+                >
+                    <IconQuestion24 color={colors.grey500} />
+                </div>
+            </>
+        )
+    }
 }
 
 AppItem.propTypes = {
