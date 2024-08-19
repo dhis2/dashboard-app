@@ -104,7 +104,8 @@ class Item extends Component {
             ) {
                 await apiPostDataStatistics(
                     getDataStatisticsName(this.props.item.type),
-                    getVisualizationId(this.props.item)
+                    getVisualizationId(this.props.item),
+                    this.props.engine
                 )
             }
         } catch (e) {
@@ -329,6 +330,7 @@ Item.propTypes = {
     activeType: PropTypes.string,
     apps: PropTypes.array,
     dashboardMode: PropTypes.string,
+    engine: PropTypes.object,
     gridWidth: PropTypes.number,
     isEditing: PropTypes.bool,
     isRecording: PropTypes.bool,
