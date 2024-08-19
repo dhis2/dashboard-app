@@ -31,6 +31,7 @@ jest.mock('@dhis2/ui', () => {
 jest.mock('@dhis2/app-runtime', () => ({
     useDhis2ConnectionStatus: () => ({ isConnected: true }),
     useCacheableSection: jest.fn(),
+    useDataEngine: jest.fn(),
 }))
 
 jest.mock('@dhis2/analytics', () => ({

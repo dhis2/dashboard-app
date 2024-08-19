@@ -40,6 +40,7 @@ jest.mock('@dhis2/app-runtime', () => ({
         isCached: false,
         recordingState: 'default',
     })),
+    useDataEngine: jest.fn(),
 }))
 
 test('minimized DashboardsBar has Show more/less button', () => {

@@ -24,6 +24,7 @@ jest.mock('@dhis2/app-runtime', () => ({
         isCached: false,
         recordingState: 'default',
     })),
+    useDataEngine: jest.fn(),
 }))
 
 jest.mock('../../../api/fetchDashboard')
