@@ -12,17 +12,7 @@ import configureStore from './configureStore.js'
 import './locales/index.js'
 
 const d2Config = {
-    schemas: [
-        // 'visualization',
-        // 'map',
-        // 'report',
-        // 'eventChart',
-        // 'eventReport',
-        // 'eventVisualization',
-        // 'dashboard',
-        // 'organisationUnit',
-        // 'userGroup',
-    ],
+    schemas: [],
 }
 
 // TODO: ER and EV plugins require the auth header in development mode.
