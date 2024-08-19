@@ -1,7 +1,7 @@
 import { FILTER_ORG_UNIT } from '../../../actions/itemFilters.js'
 import { getPluginOverrides } from '../../../modules/localStorage.js'
 
-export const getIframeSrc = (appDetails, item, itemFilters) => {
+export const getIframeSrc = (appDetails = {}, item, itemFilters) => {
     switch (appDetails.appType) {
         case 'APP': {
             // check if there is an override for the plugin

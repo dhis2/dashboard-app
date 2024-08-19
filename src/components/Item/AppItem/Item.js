@@ -34,58 +34,61 @@ const AppItem = ({ dashboardMode, item, itemFilters, apps, isFullscreen }) => {
         appDetails?.settings?.dashboardWidget?.hideTitle &&
         dashboardMode !== EDIT
 
-    const iframeSrc = getIframeSrc(appDetails, item, itemFilters)
+    if (appDetails) {
+        const iframeSrc = getIframeSrc(appDetails, item, itemFilters)
 
-    return iframeSrc ? (
-        <>
-            {!hideTitle && (
-                <>
-                    <ItemHeader
-                        title={appDetails.name}
-                        itemId={item.id}
-                        dashboardMode={dashboardMode}
-                        isShortened={item.shortened}
+        return (
+            <>
+                {!hideTitle && (
+                    <>
+                        <ItemHeader
+                            title={appDetails.name}
+                            itemId={item.id}
+                            dashboardMode={dashboardMode}
+                            isShortened={item.shortened}
+                        />
+                        <Divider margin={`0 0 ${spacers.dp4} 0`} />
+                    </>
+                )}
+                {appDetails.appType === 'APP' ? (
+                    // new plugins
+                    <Plugin
+                        pluginSource={iframeSrc}
+                        dashboardItemId={item.id}
+                        cacheId={`${dashboardId}-${item.id}`}
+                        isParentCached={isCached}
                     />
-                    <Divider margin={`0 0 ${spacers.dp4} 0`} />
-                </>
-            )}
-
-            {appDetails.appType === 'APP' ? (
-                // new plugins
-                <Plugin
-                    pluginSource={iframeSrc}
-                    dashboardItemId={item.id}
-                    cacheId={`${dashboardId}-${item.id}`}
-                    isParentCached={isCached}
+                ) : (
+                    // legacy widgets
+                    <iframe
+                        title={appDetails.name}
+                        src={iframeSrc}
+                        className={cx(styles.content, {
+                            [styles.hiddenTitle]: hideTitle,
+                            [styles.fullscreen]: isFullscreen,
+                        })}
+                        style={{ border: 'none' }}
+                    />
+                )}
+            </>
+        )
+    } else {
+        return (
+            <>
+                <ItemHeader
+                    title={i18n.t('{{appKey}} app not found', { appKey })}
                 />
-            ) : (
-                // legacy widgets
-                <iframe
-                    title={appDetails.name}
-                    src={iframeSrc}
-                    className={cx(styles.content, {
-                    [styles.hiddenTitle]: hideTitle,
-                    [styles.fullscreen]: isFullscreen,
-                })}
-                    style={{ border: 'none' }}
-                />
-            )}
-        </>
-    ) : (
-        <>
-            <ItemHeader
-                title={i18n.t('{{appKey}} app not found', { appKey })}
-            />
-            <Divider margin={`0 0 ${spacers.dp4} 0`} />
-            <div
-                className={cx(styles.content, styles.centered, {
-                    [styles.fullscreen]: isFullscreen,
-                })}
-            >
-                <IconQuestion24 color={colors.grey500} />
-            </div>
-        </>
-    )
+                <Divider margin={`0 0 ${spacers.dp4} 0`} />
+                <div
+                    className={cx(styles.content, styles.centered, {
+                        [styles.fullscreen]: isFullscreen,
+                    })}
+                >
+                    <IconQuestion24 color={colors.grey500} />
+                </div>
+            </>
+        )
+    }
 }
 
 AppItem.propTypes = {
