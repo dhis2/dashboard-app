@@ -51,10 +51,11 @@ const AppItem = ({ dashboardMode, item, itemFilters, apps, isFullscreen }) => {
                     </>
                 )}
                 {appDetails.appType === 'APP' ? (
-                    // new plugins
+                    // modern plugins
                     <Plugin
                         pluginSource={iframeSrc}
                         dashboardItemId={item.id}
+                        dashboardItemFilters={itemFilters}
                         cacheId={`${dashboardId}-${item.id}`}
                         isParentCached={isCached}
                     />
