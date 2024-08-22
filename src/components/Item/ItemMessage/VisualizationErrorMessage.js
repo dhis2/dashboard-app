@@ -1,6 +1,6 @@
 import { useConfig } from '@dhis2/app-runtime'
 import i18n from '@dhis2/d2-i18n'
-import { colors } from '@dhis2/ui'
+import { Cover, colors } from '@dhis2/ui'
 import PropTypes from 'prop-types'
 import React from 'react'
 import { isPrintMode } from '../../../modules/dashboardModes.js'
@@ -34,13 +34,13 @@ const VisualizationErrorMessage = ({
     )}`
 
     return (
-        <div className={classes.center}>
+        <Cover>
             {getErrorIcon()}
-            <p className={classes.errorMessage}>
+            <span>
                 {i18n.t('There was an error loading data for this item')}
-            </p>
+            </span>
             {!isPrintMode(dashboardMode) ? (
-                <p className={classes.appLink}>
+                <span className={classes.appLink}>
                     <a
                         onClick={(e) => e.stopPropagation()}
                         target="_blank"
@@ -51,9 +51,9 @@ const VisualizationErrorMessage = ({
                             appName: getAppName(itemType),
                         })}
                     </a>
-                </p>
+                </span>
             ) : null}
-        </div>
+        </Cover>
     )
 }
 
