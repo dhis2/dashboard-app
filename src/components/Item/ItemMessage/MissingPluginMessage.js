@@ -2,11 +2,10 @@ import i18n from '@dhis2/d2-i18n'
 import { Center } from '@dhis2/ui'
 import PropTypes from 'prop-types'
 import React from 'react'
-import { isPrintMode } from '../../../../modules/dashboardModes.js'
-import { getAppName } from '../../../../modules/itemTypes.js'
-import classes from './styles/VisualizationErrorMessage.module.css'
+import { isPrintMode } from '../../../modules/dashboardModes.js'
+import classes from './styles/ItemMessage.module.css'
 
-const MissingPluginMessage = ({ itemType, dashboardMode }) => {
+const MissingPluginMessage = ({ dashboardMode, pluginName }) => {
     return (
         <Center>
             <p className={classes.errorMessage}>
@@ -21,9 +20,9 @@ const MissingPluginMessage = ({ itemType, dashboardMode }) => {
                         href="/dhis-web-app-management/index.html#/app-hub"
                     >
                         {i18n.t(
-                            'Install the {{appName}} app from the App Hub',
+                            'Install the {{pluginName}} plugin from the App Hub',
                             {
-                                appName: getAppName(itemType),
+                                pluginName,
                             }
                         )}
                     </a>
@@ -35,7 +34,7 @@ const MissingPluginMessage = ({ itemType, dashboardMode }) => {
 
 MissingPluginMessage.propTypes = {
     dashboardMode: PropTypes.string,
-    itemType: PropTypes.string,
+    pluginName: PropTypes.string,
 }
 
 export default MissingPluginMessage

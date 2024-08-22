@@ -1,7 +1,7 @@
 // eslint-disable-next-line import/no-unresolved
 import { Plugin } from '@dhis2/app-runtime/experimental'
 import { useD2 } from '@dhis2/app-runtime-adapter-d2'
-import { Divider, colors, spacers, IconQuestion24 } from '@dhis2/ui'
+import { Divider, spacers } from '@dhis2/ui'
 import PropTypes from 'prop-types'
 import React from 'react'
 import { connect, useSelector } from 'react-redux'
@@ -13,6 +13,7 @@ import {
 } from '../../../reducers/itemFilters.js'
 import { sGetSelectedId } from '../../../reducers/selected.js'
 import ItemHeader from '../ItemHeader/ItemHeader.js'
+import MissingPluginMessage from '../ItemMessage/MissingPluginMessage.js'
 import { getIframeSrc } from './getIframeSrc.js'
 
 const AppItem = ({ dashboardMode, item, itemFilters }) => {
@@ -74,21 +75,10 @@ const AppItem = ({ dashboardMode, item, itemFilters }) => {
         )
     } else {
         return (
-            <>
-                <ItemHeader title={`${appKey} app not found`} />
-                <Divider margin={`0 0 ${spacers.dp4} 0`} />
-                <div
-                    className="dashboard-item-content"
-                    style={{
-                        display: 'flex',
-                        justifyContent: 'center',
-                        alignItems: 'center',
-                        height: '90%',
-                    }}
-                >
-                    <IconQuestion24 color={colors.grey500} />
-                </div>
-            </>
+            <MissingPluginMessage
+                pluginName={item.appKey}
+                dashboardMode={dashboardMode}
+            />
         )
     }
 }
