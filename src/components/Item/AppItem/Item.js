@@ -1,7 +1,6 @@
 // eslint-disable-next-line import/no-unresolved
 import { Plugin } from '@dhis2/app-runtime/experimental'
-import i18n from '@dhis2/d2-i18n'
-import { Divider, colors, spacers, IconQuestion24 } from '@dhis2/ui'
+import { Divider, spacers } from '@dhis2/ui'
 import cx from 'classnames'
 import PropTypes from 'prop-types'
 import React from 'react'
@@ -14,6 +13,7 @@ import {
 } from '../../../reducers/itemFilters.js'
 import { sGetSelectedId } from '../../../reducers/selected.js'
 import ItemHeader from '../ItemHeader/ItemHeader.js'
+import MissingPluginMessage from '../ItemMessage/MissingPluginMessage.js'
 import { getIframeSrc } from './getIframeSrc.js'
 import styles from './styles/AppItem.module.css'
 
@@ -74,19 +74,10 @@ const AppItem = ({ dashboardMode, item, itemFilters, apps, isFullscreen }) => {
         )
     } else {
         return (
-            <>
-                <ItemHeader
-                    title={i18n.t('{{appKey}} app not found', { appKey })}
-                />
-                <Divider margin={`0 0 ${spacers.dp4} 0`} />
-                <div
-                    className={cx(styles.content, styles.centered, {
-                        [styles.fullscreen]: isFullscreen,
-                    })}
-                >
-                    <IconQuestion24 color={colors.grey500} />
-                </div>
-            </>
+            <MissingPluginMessage
+                pluginName={item.appKey}
+                dashboardMode={dashboardMode}
+            />
         )
     }
 }

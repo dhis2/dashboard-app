@@ -11,6 +11,7 @@ import {
     CHART,
     REPORT_TABLE,
     VISUALIZATION,
+    getAppName,
 } from '../../../../modules/itemTypes.js'
 import { getPluginOverrides } from '../../../../modules/localStorage.js'
 import { useCacheableSection } from '../../../../modules/useCacheableSection.js'
@@ -20,10 +21,10 @@ import {
     sGetIframePluginStatus,
 } from '../../../../reducers/iframePluginStatus.js'
 import { useUserSettings } from '../../../UserSettingsProvider.js'
-import MissingPluginMessage from './MissingPluginMessage.js'
+import MissingPluginMessage from '../../ItemMessage/MissingPluginMessage.js'
+import VisualizationErrorMessage from '../../ItemMessage/VisualizationErrorMessage.js'
 import { getPluginLaunchUrl } from './plugin.js'
 import classes from './styles/IframePlugin.module.css'
-import VisualizationErrorMessage from './VisualizationErrorMessage.js'
 
 const IframePlugin = ({
     activeType,
@@ -121,7 +122,7 @@ const IframePlugin = ({
         return error === 'missing-plugin' ? (
             <div style={style}>
                 <MissingPluginMessage
-                    itemType={itemType}
+                    pluginName={getAppName(itemType)}
                     dashboardMode={dashboardMode}
                 />
             </div>
