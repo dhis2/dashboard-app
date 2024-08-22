@@ -6,24 +6,18 @@ Feature: Dashboard filter
         Then the dashboard displays in view mode and visualizations are visible
         When I add a "Period" filter
         Then the Period filter is applied to the dashboard
+
+    Scenario: I add a Organisation unit filter
+        Given I open an existing dashboard
+        Then the dashboard displays in view mode and visualizations are visible
         When I add a "Organisation unit" filter
         Then the Organisation unit filter is applied to the dashboard
+
+    Scenario: I add a Facility Type filter
+        Given I open an existing dashboard
+        Then the dashboard displays in view mode and visualizations are visible
         When I add a "Facility Type" filter
         Then the Facility Type filter is applied to the dashboard
-
-
-
-# Scenario: I add a Organisation unit filter
-#     Given I open an existing dashboard
-#     Then the dashboard displays in view mode and visualizations are visible
-#     When I add a "Organisation unit" filter
-#     Then the Organisation unit filter is applied to the dashboard
-
-# Scenario: I add a Facility Type filter
-#     Given I open an existing dashboard
-#     Then the dashboard displays in view mode and visualizations are visible
-#     When I add a "Facility Type" filter
-#     Then the Facility Type filter is applied to the dashboard
 
     Scenario: I add a Org unit group filter
         Given I open an existing dashboard
