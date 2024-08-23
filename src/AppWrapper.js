@@ -49,10 +49,6 @@ const providerDataTransformation = ({ rootOrgUnits, apps, currentUser }) => {
         lineListingAppVersion: lineListingApp.version || '0.0.0',
         currentUser,
         apps,
-        nameProperty:
-            currentUser.settings.keyAnalysisDisplayProperty === 'name'
-                ? 'displayName'
-                : 'displayShortName',
     }
 }
 
