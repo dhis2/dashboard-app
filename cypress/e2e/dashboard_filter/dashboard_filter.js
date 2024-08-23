@@ -1,4 +1,4 @@
-import { Then } from '@badeball/cypress-cucumber-preprocessor'
+import { Then, When } from '@badeball/cypress-cucumber-preprocessor'
 import {
     filterBadgeSel,
     dimensionsModalSel,
@@ -125,4 +125,12 @@ Then('the Org unit group filter is applied to the dashboard', () => {
 
 Then('the filter modal is opened', () => {
     cy.get(dimensionsModalSel).should('be.visible')
+})
+
+When('I remove the {string} filter', () => {
+    cy.get(filterBadgeSel).find('button').contains('Remove').click()
+})
+
+Then('the filter is removed from the dashboard', () => {
+    cy.get(filterBadgeSel).should('not.exist')
 })
