@@ -48,6 +48,7 @@ jobs:
               run: npx semantic-release
               env:
                   GITHUB_TOKEN: ${{ secrets.DHIS2_BOT_GITHUB_TOKEN }}
+                  DEBUG: '*'
 
             - name: Publish to AppHub
               run: yarn run d2-app-scripts publish
