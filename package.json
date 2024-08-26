@@ -50,6 +50,9 @@
         "@dhis2/cli-style": "^10.5.1",
         "@dhis2/cypress-commands": "^10.0.6",
         "@dhis2/cypress-plugins": "^10.0.6",
+        "@semantic-release/changelog": "^6",
+        "@semantic-release/exec": "^6",
+        "@semantic-release/git": "^10",
         "@testing-library/jest-dom": "^6.1.2",
         "@testing-library/react": "^12",
         "cypress": "^13.13.1",
@@ -60,6 +63,7 @@
         "patch-package": "^7",
         "postinstall-postinstall": "^2.1.0",
         "redux-mock-store": "^1.5.4",
+        "semantic-release": "^20",
         "start-server-and-test": "^1.14.0"
     },
     "jest": {
