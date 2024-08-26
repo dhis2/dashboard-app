@@ -12,17 +12,7 @@ import configureStore from './configureStore.js'
 import './locales/index.js'
 
 const d2Config = {
-    schemas: [
-        'visualization',
-        'map',
-        'report',
-        'eventChart',
-        'eventReport',
-        'eventVisualization',
-        'dashboard',
-        'organisationUnit',
-        'userGroup',
-    ],
+    schemas: [],
 }
 
 // TODO: ER and EV plugins require the auth header in development mode.
@@ -44,13 +34,21 @@ const query = {
     apps: {
         resource: 'apps',
     },
+    currentUser: {
+        resource: 'me',
+        params: {
+            fields: 'id,username,displayName~rename(name),authorities,settings[keyAnalysisDisplayProperty]',
+        },
+    },
 }
 
-const providerDataTransformation = ({ rootOrgUnits, apps }) => {
+const providerDataTransformation = ({ rootOrgUnits, apps, currentUser }) => {
     const lineListingApp = apps.find((app) => app.key === 'line-listing') || {}
     return {
         rootOrgUnits: rootOrgUnits.organisationUnits,
         lineListingAppVersion: lineListingApp.version || '0.0.0',
+        currentUser,
+        apps,
     }
 }
 

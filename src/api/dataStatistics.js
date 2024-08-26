@@ -1,5 +1,3 @@
-import { getInstance } from 'd2'
-
 export const apiGetDataStatistics = async (dataEngine, username) => {
     const getDataStatisticsQuery = {
         resource: 'dataStatistics/favorites',
@@ -21,9 +19,19 @@ export const apiGetDataStatistics = async (dataEngine, username) => {
     }
 }
 
-export const apiPostDataStatistics = async (eventType, id) => {
-    const d2 = await getInstance()
-    const url = `dataStatistics?eventType=${eventType}&favorite=${id}`
-
-    d2.Api.getApi().post(url)
+const POST_DATA_STATISTICS_QUERY = {
+    resource: 'dataStatistics',
+    type: 'create',
+    params: ({ eventType, favorite }) => ({
+        eventType,
+        favorite,
+    }),
 }
+
+export const apiPostDataStatistics = async (eventType, favorite, engine) =>
+    await engine.mutate(POST_DATA_STATISTICS_QUERY, {
+        variables: {
+            eventType,
+            favorite,
+        },
+    })

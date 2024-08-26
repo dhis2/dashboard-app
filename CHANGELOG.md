@@ -1,3 +1,12 @@
+## [100.2.4](https://github.com/dhis2/dashboard-app/compare/v100.2.3...v100.2.4) (2024-08-26)
+
+
+### Bug Fixes
+
+* add missing dependencies for semantic-release ([#3062](https://github.com/dhis2/dashboard-app/issues/3062)) ([9fe6ae5](https://github.com/dhis2/dashboard-app/commit/9fe6ae524e965df083e6b6cacce2c9ec76ebb815))
+* display correct app version in dhis2 and updated workflows ([#3061](https://github.com/dhis2/dashboard-app/issues/3061)) ([69b8425](https://github.com/dhis2/dashboard-app/commit/69b8425d93073ef90f8df0238b412273f02ccb62))
+* stop fetching schemas and replace d2 with dataEngine ([#3056](https://github.com/dhis2/dashboard-app/issues/3056)) ([49428c6](https://github.com/dhis2/dashboard-app/commit/49428c66104a358a8ffaef1d18de995b0fec470f))
+
 ## [100.2.3](https://github.com/dhis2/dashboard-app/compare/v100.2.2...v100.2.3) (2024-06-17)
 
 
