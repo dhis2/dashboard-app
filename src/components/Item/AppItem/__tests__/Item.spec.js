@@ -1,11 +1,18 @@
-import { useD2 } from '@dhis2/app-runtime-adapter-d2'
 import { render } from '@testing-library/react'
 import React from 'react'
 import { Provider } from 'react-redux'
 import configureMockStore from 'redux-mock-store'
 import Item from '../Item.js'
 
-jest.mock('@dhis2/app-runtime-adapter-d2')
+jest.mock('@dhis2/analytics', () => ({
+    useCachedDataQuery: () => ({
+        currentUser: {
+            username: 'rainbowDash',
+            id: 'r3nb0d5h',
+        },
+    }),
+    getDimensionById: jest.fn(),
+}))
 
 jest.mock('@dhis2/ui', () => {
     const originalModule = jest.requireActual('@dhis2/ui')
@@ -41,29 +48,23 @@ const itemWithoutTitle = {
     shortened: false,
 }
 
-useD2.mockReturnValue({
-    d2: {
-        system: {
-            installedApps: [
-                {
-                    key: 'scorecard',
-                    name: 'Scorecard',
-                    launchUrl: 'launchurl',
-                },
-                {
-                    key: 'noTitle',
-                    name: 'No Title',
-                    launchUrl: 'launchurl',
-                    settings: {
-                        dashboardWidget: {
-                            hideTitle: true,
-                        },
-                    },
-                },
-            ],
+const apps = [
+    {
+        key: 'scorecard',
+        name: 'Scorecard',
+        launchUrl: 'launchurl',
+    },
+    {
+        key: 'noTitle',
+        name: 'No Title',
+        launchUrl: 'launchurl',
+        settings: {
+            dashboardWidget: {
+                hideTitle: true,
+            },
         },
     },
-})
+]
 
 test('renders a valid App item in view mode', () => {
     const store = {
@@ -71,7 +72,7 @@ test('renders a valid App item in view mode', () => {
     }
     const { container } = render(
         <Provider store={mockStore(store)}>
-            <Item item={item} dashboardMode={'view'} />
+            <Item item={item} dashboardMode={'view'} apps={apps} />
         </Provider>
     )
     expect(container).toMatchSnapshot()
@@ -86,7 +87,7 @@ test('renders a valid App item with filter in view mode', () => {
 
     const { container } = render(
         <Provider store={mockStore(store)}>
-            <Item item={item} dashboardMode={'view'} />
+            <Item item={item} dashboardMode={'view'} apps={apps} />
         </Provider>
     )
     expect(container).toMatchSnapshot()
@@ -101,7 +102,7 @@ test('renders a valid App item with filter in edit mode', () => {
 
     const { container } = render(
         <Provider store={mockStore(store)}>
-            <Item item={item} dashboardMode={'edit'} />
+            <Item item={item} dashboardMode={'edit'} apps={apps} />
         </Provider>
     )
     expect(container).toMatchSnapshot()
@@ -114,7 +115,7 @@ test('renders a valid App item without title in view mode if specified in app se
 
     const { container } = render(
         <Provider store={mockStore(store)}>
-            <Item item={itemWithoutTitle} dashboardMode={'view'} />
+            <Item item={itemWithoutTitle} dashboardMode={'view'} apps={apps} />
         </Provider>
     )
     expect(container).toMatchSnapshot()
@@ -127,7 +128,7 @@ test('renders a valid App item with title in edit mode irrespective of app setti
 
     const { container } = render(
         <Provider store={mockStore(store)}>
-            <Item item={itemWithoutTitle} dashboardMode={'edit'} />
+            <Item item={itemWithoutTitle} dashboardMode={'edit'} apps={apps} />
         </Provider>
     )
     expect(container).toMatchSnapshot()
@@ -148,7 +149,7 @@ test('renders an invalid App item', () => {
 
     const { container } = render(
         <Provider store={mockStore(store)}>
-            <Item item={invalidItem} dashboardMode={'edit'} />
+            <Item item={invalidItem} dashboardMode={'edit'} apps={apps} />
         </Provider>
     )
     expect(container).toMatchSnapshot()

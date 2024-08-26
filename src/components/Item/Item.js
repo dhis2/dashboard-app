@@ -1,4 +1,5 @@
-import { useD2 } from '@dhis2/app-runtime-adapter-d2'
+import { useCachedDataQuery } from '@dhis2/analytics'
+import { useDataEngine } from '@dhis2/app-runtime'
 import PropTypes from 'prop-types'
 import React from 'react'
 import {
@@ -61,11 +62,11 @@ const getGridItem = (type) => {
 }
 
 export const Item = (props) => {
-    const { d2 } = useD2()
-
+    const { apps } = useCachedDataQuery()
+    const engine = useDataEngine()
     const GridItem = getGridItem(props.item.type)
 
-    return <GridItem d2={d2} {...props} />
+    return <GridItem apps={apps} {...props} engine={engine} />
 }
 
 Item.propTypes = {

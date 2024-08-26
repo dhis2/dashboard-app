@@ -104,7 +104,8 @@ class Item extends Component {
             ) {
                 await apiPostDataStatistics(
                     getDataStatisticsName(this.props.item.type),
-                    getVisualizationId(this.props.item)
+                    getVisualizationId(this.props.item),
+                    this.props.engine
                 )
             }
         } catch (e) {
@@ -208,7 +209,7 @@ class Item extends Component {
         const activeType = this.getActiveType()
 
         const actionButtons =
-            pluginIsAvailable(activeType || item.type, this.props.d2) &&
+            pluginIsAvailable(activeType || item.type, this.props.apps) &&
             isViewMode(dashboardMode) ? (
                 <ItemContextMenu
                     item={item}
@@ -327,8 +328,9 @@ class Item extends Component {
 
 Item.propTypes = {
     activeType: PropTypes.string,
-    d2: PropTypes.object,
+    apps: PropTypes.array,
     dashboardMode: PropTypes.string,
+    engine: PropTypes.object,
     gridWidth: PropTypes.number,
     isEditing: PropTypes.bool,
     isRecording: PropTypes.bool,

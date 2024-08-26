@@ -4,16 +4,14 @@ import { Provider } from 'react-redux'
 import configureMockStore from 'redux-mock-store'
 import Visualization from '../Visualization.js'
 
-jest.mock('@dhis2/app-runtime-adapter-d2', () => {
-    return {
-        useD2: jest.fn(() => ({
-            d2: {
-                currentUser: { username: 'rainbowDash' },
-                system: { installedApps: {} },
-            },
-        })),
-    }
-})
+jest.mock('@dhis2/analytics', () => ({
+    useCachedDataQuery: () => ({
+        currentUser: {
+            username: 'rainbowDash',
+            id: 'r3nb0d5h',
+        },
+    }),
+}))
 
 jest.mock(
     '../LegacyPlugin',
