@@ -1,3 +1,10 @@
+## [100.2.5](https://github.com/dhis2/dashboard-app/compare/v100.2.4...v100.2.5) (2024-08-27)
+
+
+### Bug Fixes
+
+* event chart and event report interpretations was showing an error ([#3071](https://github.com/dhis2/dashboard-app/issues/3071)) ([c074cbf](https://github.com/dhis2/dashboard-app/commit/c074cbf90db4d7d14446cb88fbd9382d926b567e))
+
 ## [100.2.4](https://github.com/dhis2/dashboard-app/compare/v100.2.3...v100.2.4) (2024-08-26)
 
 
