@@ -21,8 +21,7 @@ jobs:
             ${{ !github.event.push.repository.fork &&
             github.actor != 'dependabot[bot]' &&
             !contains(github.event.head_commit.message, '[skip ci]') &&
-            !contains(github.event.head_commit.message, '[skip release]') &&
-            !startsWith(github.event.head_commit.message, 'chore') }}
+            !contains(github.event.head_commit.message, '[skip release]') }}
         steps:
             - name: Print GitHub event context
               run: echo "$GITHUB_EVENT" | jq '.'
@@ -115,7 +114,7 @@ jobs:
                               "type": "section",
                               "text": {
                                 "type": "mrkdwn",
-                                "text": "Link to <https://github.com/dhis2/dashboard-app/actions/workflows/dhis2-verify-app.yml?query=branch%3Amaster+is%3Asuccess|build>"
+                                "text": "Link to <https://github.com/dhis2/dashboard-app/actions/workflows/release.yml?query=branch%3Amaster+is%3Asuccess|build>"
                               }
                             }
                           ]
@@ -131,13 +130,13 @@ jobs:
                   channel-id: ${{ secrets.SLACK_CHANNEL_ID }}
                   payload: |
                       {
-                          "text": ":small_red_triangle_down: :dashboard-app: Dashboard release <https://github.com/dhis2/dashboard-app/actions/workflows/dhis2-verify-app.yml?query=branch%3Amaster+is%3Afailure|failed>",
+                          "text": ":small_red_triangle_down: :dashboard-app: Dashboard release <https://github.com/dhis2/dashboard-app/actions/workflows/release.yml?query=branch%3Amaster+is%3Afailure|failed>",
                           "blocks": [
                             {
                               "type": "section",
                               "text": {
                                 "type": "mrkdwn",
-                                "text": ":small_red_triangle_down: :dashboard-app: Dashboard release <https://github.com/dhis2/dashboard-app/actions/workflows/dhis2-verify-app.yml?query=branch%3Amaster+is%3Afailure|failed>"
+                                "text": ":small_red_triangle_down: :dashboard-app: Dashboard release <https://github.com/dhis2/dashboard-app/actions/workflows/release.yml?query=branch%3Amaster+is%3Afailure|failed>"
                               }
                             }
                           ]
