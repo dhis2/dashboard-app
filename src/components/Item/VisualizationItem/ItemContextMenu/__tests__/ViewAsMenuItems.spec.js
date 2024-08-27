@@ -41,9 +41,28 @@ test('renders menu for active type MAP and type CHART', async () => {
         },
     })
 
-    const { container } = render(<ViewAsMenuItems {...props} />)
+    const { queryByText } = render(<ViewAsMenuItems {...props} />)
 
-    expect(container).toMatchSnapshot()
+    expect(queryByText('View as Map')).toBeNull()
+    expect(queryByText('View as Chart')).toBeTruthy()
+    expect(queryByText('View as Pivot table')).toBeTruthy()
+})
+
+test('renders menu for active type CHART and type MAP', async () => {
+    useDhis2ConnectionStatus.mockImplementation(jest.fn(() => online))
+    const props = Object.assign({}, defaultProps, {
+        type: MAP,
+        activeType: CHART,
+        visualization: {
+            mapViews: [{ layer: 'thematic' }],
+        },
+    })
+
+    const { queryByText } = render(<ViewAsMenuItems {...props} />)
+
+    expect(queryByText('View as Map')).toBeTruthy()
+    expect(queryByText('View as Chart')).toBeNull()
+    expect(queryByText('View as Pivot table')).toBeTruthy()
 })
 
 test('renders disabled menu items when offline', () => {
@@ -58,22 +77,11 @@ test('renders disabled menu items when offline', () => {
     })
 
     const { container } = render(<ViewAsMenuItems {...props} />)
-    expect(container).toMatchSnapshot()
-})
 
-test('renders menu for active type CHART and type MAP', async () => {
-    useDhis2ConnectionStatus.mockImplementation(jest.fn(() => online))
-    const props = Object.assign({}, defaultProps, {
-        type: MAP,
-        activeType: CHART,
-        visualization: {
-            mapViews: [{ layer: 'thematic' }],
-        },
+    const listItems = container.querySelectorAll('li')
+    listItems.forEach((listItem) => {
+        expect(listItem.getAttribute('class')).toContain('disabled')
     })
-
-    const { container } = render(<ViewAsMenuItems {...props} />)
-
-    expect(container).toMatchSnapshot()
 })
 
 test('renders menu for active type MAP and type MAP without Thematic layer', async () => {
@@ -86,9 +94,17 @@ test('renders menu for active type MAP and type MAP without Thematic layer', asy
         },
     })
 
-    const { container } = render(<ViewAsMenuItems {...props} />)
+    const { container, queryByText } = render(<ViewAsMenuItems {...props} />)
 
-    expect(container).toMatchSnapshot()
+    expect(queryByText('View as Map')).toBeNull()
+    expect(queryByText('View as Chart')).toBeTruthy()
+    expect(queryByText('View as Pivot table')).toBeTruthy()
+
+    const listItems = container.querySelectorAll('li')
+    expect(listItems).toHaveLength(2)
+    listItems.forEach((listItem) => {
+        expect(listItem.getAttribute('class')).toContain('disabled')
+    })
 })
 
 test('renders menu for active type MAP and type MAP without Thematic layer when offline', async () => {
@@ -101,9 +117,17 @@ test('renders menu for active type MAP and type MAP without Thematic layer when 
         },
     })
 
-    const { container } = render(<ViewAsMenuItems {...props} />)
+    const { container, queryByText } = render(<ViewAsMenuItems {...props} />)
 
-    expect(container).toMatchSnapshot()
+    expect(queryByText('View as Map')).toBeNull()
+    expect(queryByText('View as Chart')).toBeTruthy()
+    expect(queryByText('View as Pivot table')).toBeTruthy()
+
+    const listItems = container.querySelectorAll('li')
+    expect(listItems).toHaveLength(2)
+    listItems.forEach((listItem) => {
+        expect(listItem.getAttribute('class')).toContain('disabled')
+    })
 })
 
 test('renders menu for active type REPORT_TABLE and type CHART', async () => {
@@ -114,9 +138,11 @@ test('renders menu for active type REPORT_TABLE and type CHART', async () => {
         visualization: { type: 'COLUMN' },
     })
 
-    const { container } = render(<ViewAsMenuItems {...props} />)
+    const { queryByText } = render(<ViewAsMenuItems {...props} />)
 
-    expect(container).toMatchSnapshot()
+    expect(queryByText('View as Map')).toBeTruthy()
+    expect(queryByText('View as Chart')).toBeTruthy()
+    expect(queryByText('View as Pivot table')).toBeNull()
 })
 
 test('renders menu for active type CHART and type REPORT_TABLE', async () => {
@@ -127,9 +153,11 @@ test('renders menu for active type CHART and type REPORT_TABLE', async () => {
         visualization: { type: 'PIVOT_TABLE' },
     })
 
-    const { container } = render(<ViewAsMenuItems {...props} />)
+    const { queryByText } = render(<ViewAsMenuItems {...props} />)
 
-    expect(container).toMatchSnapshot()
+    expect(queryByText('View as Map')).toBeTruthy()
+    expect(queryByText('View as Chart')).toBeNull()
+    expect(queryByText('View as Pivot table')).toBeTruthy()
 })
 
 test('renders menu for active type EVENT_REPORT and type EVENT_CHART', async () => {
@@ -140,9 +168,11 @@ test('renders menu for active type EVENT_REPORT and type EVENT_CHART', async () 
         visualization: {},
     })
 
-    const { container } = render(<ViewAsMenuItems {...props} />)
+    const { queryByText } = render(<ViewAsMenuItems {...props} />)
 
-    expect(container).toMatchSnapshot()
+    expect(queryByText('View as Map')).toBeNull()
+    expect(queryByText('View as Chart')).toBeTruthy()
+    expect(queryByText('View as Pivot table')).toBeNull()
 })
 
 test('renders menu for active type EVENT_CHART and type EVENT_REPORT', async () => {
@@ -153,7 +183,9 @@ test('renders menu for active type EVENT_CHART and type EVENT_REPORT', async () 
         visualization: {},
     })
 
-    const { container } = render(<ViewAsMenuItems {...props} />)
+    const { queryByText } = render(<ViewAsMenuItems {...props} />)
 
-    expect(container).toMatchSnapshot()
+    expect(queryByText('View as Map')).toBeNull()
+    expect(queryByText('View as Chart')).toBeNull()
+    expect(queryByText('View as Pivot table')).toBeTruthy()
 })
