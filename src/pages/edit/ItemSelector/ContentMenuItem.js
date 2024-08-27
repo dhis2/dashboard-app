@@ -13,6 +13,7 @@ const LaunchLink = ({ url }) => (
         target="_blank"
         rel="noopener noreferrer"
         href={url}
+        aria-label={i18n.t('Open visualization in new tab')}
     >
         <IconLaunch16 color={colors.grey700} />
     </a>
