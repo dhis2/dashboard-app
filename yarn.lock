@@ -2317,45 +2317,45 @@
   dependencies:
     prop-types "^15.7.2"
 
-"@dhis2/app-runtime@^3.10.2", "@dhis2/app-runtime@^3.9.0":
-  version "3.10.2"
-  resolved "https://registry.yarnpkg.com/@dhis2/app-runtime/-/app-runtime-3.10.2.tgz#e82639bd68234bdeaf2f6d3c256dcdfcdd267da2"
-  integrity sha512-GiftKk8ZTXlPElXAgVJn41Vj6E1vEGTPGrjrqU7j41ZTYsg+tUcCkISNt1woe5l7E+8+y+9Fy4bgqSsBOAEUvg==
+"@dhis2/app-runtime@^3.10.6", "@dhis2/app-runtime@^3.9.0":
+  version "3.10.6"
+  resolved "https://registry.yarnpkg.com/@dhis2/app-runtime/-/app-runtime-3.10.6.tgz#10add0b8a2e1de06777e6e78c681a3a8f15ba058"
+  integrity sha512-WfC+AHkw0V3V3/wyLPHoTyAf8i4btLl/R2nMBVs3NEXLwA9mekG/gXs7AEPnK2/p6FVoqXMDwJHEH2b8Iw4UFw==
   dependencies:
-    "@dhis2/app-service-alerts" "3.10.2"
-    "@dhis2/app-service-config" "3.10.2"
-    "@dhis2/app-service-data" "3.10.2"
-    "@dhis2/app-service-offline" "3.10.2"
-    "@dhis2/app-service-plugin" "3.10.2"
+    "@dhis2/app-service-alerts" "3.10.6"
+    "@dhis2/app-service-config" "3.10.6"
+    "@dhis2/app-service-data" "3.10.6"
+    "@dhis2/app-service-offline" "3.10.6"
+    "@dhis2/app-service-plugin" "3.10.6"
 
-"@dhis2/app-service-alerts@3.10.2":
-  version "3.10.2"
-  resolved "https://registry.yarnpkg.com/@dhis2/app-service-alerts/-/app-service-alerts-3.10.2.tgz#0e07c3530606f81ab998a20f2c478600b6027a77"
-  integrity sha512-2IqaawnlOzYVJLBF2AKVQJ4cuxJNZD7FK0XE0XOv1WwFs70h6bp23MQueIJ/QHxLo7lamE0FC22m4diM4P0CuA==
+"@dhis2/app-service-alerts@3.10.6":
+  version "3.10.6"
+  resolved "https://registry.yarnpkg.com/@dhis2/app-service-alerts/-/app-service-alerts-3.10.6.tgz#47e65d7ed57a4bd801a513b0f71d0ed2839ea363"
+  integrity sha512-2r9IUBp5Z5zuSqjTEWpt+rx7tP5AqrtkPJ8ZVOKW5YBn1DB4bQ5ti9GOevHM4othr7Mrmt22UADPgfEkfc7XzQ==
 
-"@dhis2/app-service-config@3.10.2":
-  version "3.10.2"
-  resolved "https://registry.yarnpkg.com/@dhis2/app-service-config/-/app-service-config-3.10.2.tgz#be52676068e31cdb1fe3f8ddabb8153e1cd6e3e6"
-  integrity sha512-Crw7Tx4yg4qWw3qYxNCIye77IaY2HUYyDmDKPVVWzgmrcSGxpunv/NtsUg12pxrVfVLnqlH9L6AF9A6hO0afmw==
+"@dhis2/app-service-config@3.10.6":
+  version "3.10.6"
+  resolved "https://registry.yarnpkg.com/@dhis2/app-service-config/-/app-service-config-3.10.6.tgz#bf952156329ab48d6da407522c6e06072fdf896a"
+  integrity sha512-Z/rSBjCc8kP78QYhKNyGoCafGfwpqMDg8mV2x/H6CavgEicOa+qHX3bkKV6+fC9Sw2FnsWHRemxYRkgbW/BD3g==
 
-"@dhis2/app-service-data@3.10.2":
-  version "3.10.2"
-  resolved "https://registry.yarnpkg.com/@dhis2/app-service-data/-/app-service-data-3.10.2.tgz#e94d45d87cab5e156decfe9e92e3153e5df68ba0"
-  integrity sha512-+ESLrVEDQKXBaQmpaCq78RonkqJM2BliykaO4QBeOc4ilWohaqYajue1Ntg4uV2KrdkCylBdMDwGYjsak0G7hg==
+"@dhis2/app-service-data@3.10.6":
+  version "3.10.6"
+  resolved "https://registry.yarnpkg.com/@dhis2/app-service-data/-/app-service-data-3.10.6.tgz#2f3f522b4a5a8c8d531f8901cca502323e566042"
+  integrity sha512-9RH3Dn0shcVdF7itgKy9cK3yMEcyP5xXjNzYPGzWf+3q9aGlzjh22pHE4p+C9OV+SeVO2q+5GcNOk7rdZvS+Cg==
   dependencies:
     react-query "^3.13.11"
 
-"@dhis2/app-service-offline@3.10.2":
-  version "3.10.2"
-  resolved "https://registry.yarnpkg.com/@dhis2/app-service-offline/-/app-service-offline-3.10.2.tgz#082279b7045e702c2eecda751d762225313156b0"
-  integrity sha512-bTp+CCRbyKt/0QADj0O6wLNWhi+6QDkjt2+sfpv3M8oKcftjaQDqedVoypZRA0nqvSdVL2ehtTzqMrrxu6jtZQ==
+"@dhis2/app-service-offline@3.10.6":
+  version "3.10.6"
+  resolved "https://registry.yarnpkg.com/@dhis2/app-service-offline/-/app-service-offline-3.10.6.tgz#e1d83520bb292fc51b24eab65d05e1c9fa1e2ad6"
+  integrity sha512-179QXdUOFgPPIOhY5HD+C6GzzJDvhR8GW7jXT4LtjCeO/4EbA3r9sycyrYpLZL66GtpGHkeV5g4slxM1t+63cw==
   dependencies:
     lodash "^4.17.21"
 
-"@dhis2/app-service-plugin@3.10.2":
-  version "3.10.2"
-  resolved "https://registry.yarnpkg.com/@dhis2/app-service-plugin/-/app-service-plugin-3.10.2.tgz#09de64ee59017c86c8dab96a0d2ca0d915ae9d31"
-  integrity sha512-FqR6ILmvAXT2n1SzCZknT+5jJRdajg1dBegWAu3xqZXAntsM4wvFLCx6EtjS5LO2Kga9VZ+TJmVr2UFX1330CQ==
+"@dhis2/app-service-plugin@3.10.6":
+  version "3.10.6"
+  resolved "https://registry.yarnpkg.com/@dhis2/app-service-plugin/-/app-service-plugin-3.10.6.tgz#1c6792b6d051c4b3301d76d083c3364424140a83"
+  integrity sha512-um4ONieW+xpWfagt+QNF4ZtzzFpm8KeA9tlBomamOfhGIpi9mkCWtaY0Mw2IUWO+d0Uh4cfmeQV6w6jOX6xJzw==
   dependencies:
     post-robot "^10.0.46"
 
@@ -16040,8 +16040,16 @@ string-natural-compare@^3.0.1:
   resolved "https://registry.yarnpkg.com/string-natural-compare/-/string-natural-compare-3.0.1.tgz#7a42d58474454963759e8e8b7ae63d71c1e7fdf4"
   integrity sha512-n3sPwynL1nwKi3WJ6AIsClwBMa0zTi54fn2oLU6ndfTSIO05xaznjSf15PcBZU6FNWbmN5Q6cxT4V5hGvB4taw==
 
-"string-width-cjs@npm:string-width@^4.2.0", "string-width@^1.0.2 || 2 || 3 || 4", string-width@^4.2.3:
-  name string-width-cjs
+"string-width-cjs@npm:string-width@^4.2.0":
+  version "4.2.3"
+  resolved "https://registry.yarnpkg.com/string-width/-/string-width-4.2.3.tgz#269c7117d27b05ad2e536830a8ec895ef9c6d010"
+  integrity sha512-wKyQRQpjJ0sIp62ErSZdGsjMJWsap5oRNihHhu6G7JVO/9jIB6UyevL+tXuOqrng8j/cxKTWyWUwvSTriiZz/g==
+  dependencies:
+    emoji-regex "^8.0.0"
+    is-fullwidth-code-point "^3.0.0"
+    strip-ansi "^6.0.1"
+
+"string-width@^1.0.2 || 2 || 3 || 4", string-width@^4.2.3:
   version "4.2.3"
   resolved "https://registry.yarnpkg.com/string-width/-/string-width-4.2.3.tgz#269c7117d27b05ad2e536830a8ec895ef9c6d010"
   integrity sha512-wKyQRQpjJ0sIp62ErSZdGsjMJWsap5oRNihHhu6G7JVO/9jIB6UyevL+tXuOqrng8j/cxKTWyWUwvSTriiZz/g==
@@ -16149,7 +16157,14 @@ stringify-object@^3.3.0:
     is-obj "^1.0.1"
     is-regexp "^1.0.0"
 
-"strip-ansi-cjs@npm:strip-ansi@^6.0.1", strip-ansi@6.0.1, strip-ansi@^6.0.0, strip-ansi@^6.0.1:
+"strip-ansi-cjs@npm:strip-ansi@^6.0.1":
+  version "6.0.1"
+  resolved "https://registry.yarnpkg.com/strip-ansi/-/strip-ansi-6.0.1.tgz#9e26c63d30f53443e9489495b2105d37b67a85d9"
+  integrity sha512-Y38VPSHcqkFrCpFnQ9vuSXmquuv5oXOKpGeT6aGrr3o3Gc9AlVa6JBfUSOCnbxGGZF+/0ooI7KrPuUSztUdU5A==
+  dependencies:
+    ansi-regex "^5.0.1"
+
+strip-ansi@6.0.1, strip-ansi@^6.0.0, strip-ansi@^6.0.1:
   version "6.0.1"
   resolved "https://registry.yarnpkg.com/strip-ansi/-/strip-ansi-6.0.1.tgz#9e26c63d30f53443e9489495b2105d37b67a85d9"
   integrity sha512-Y38VPSHcqkFrCpFnQ9vuSXmquuv5oXOKpGeT6aGrr3o3Gc9AlVa6JBfUSOCnbxGGZF+/0ooI7KrPuUSztUdU5A==
@@ -17798,8 +17813,7 @@ workerpool@^6.5.1:
   resolved "https://registry.yarnpkg.com/workerpool/-/workerpool-6.5.1.tgz#060f73b39d0caf97c6db64da004cd01b4c099544"
   integrity sha512-Fs4dNYcsdpYSAfVxhnl1L5zTksjvOJxtC5hzMNl+1t9B8hTJTdKDyZ5ju7ztgPy+ft9tBFXoOlDNiOT9WUXZlA==
 
-"wrap-ansi-cjs@npm:wrap-ansi@^7.0.0", wrap-ansi@^7.0.0:
-  name wrap-ansi-cjs
+"wrap-ansi-cjs@npm:wrap-ansi@^7.0.0":
   version "7.0.0"
   resolved "https://registry.yarnpkg.com/wrap-ansi/-/wrap-ansi-7.0.0.tgz#67e145cff510a6a6984bdf1152911d69d2eb9e43"
   integrity sha512-YVGIj2kamLSTxw6NsZjoBxfSwsn0ycdesmc4p+Q21c5zPuZ1pl+NfxVdxPtdHvmNVOQ6XSYG4AUtyt/Fi7D16Q==
@@ -17821,6 +17835,15 @@ wrap-ansi@^6.2.0:
   version "6.2.0"
   resolved "https://registry.yarnpkg.com/wrap-ansi/-/wrap-ansi-6.2.0.tgz#e9393ba07102e6c91a3b221478f0257cd2856e53"
   integrity sha512-r6lPcBGxZXlIcymEu7InxDMhdW0KDxpLgoFLcguasxCaJ/SOIZwINatK9KY/tf+ZrlywOKU0UDj3ATXUBfxJXA==
+  dependencies:
+    ansi-styles "^4.0.0"
+    string-width "^4.1.0"
+    strip-ansi "^6.0.0"
+
+wrap-ansi@^7.0.0:
+  version "7.0.0"
+  resolved "https://registry.yarnpkg.com/wrap-ansi/-/wrap-ansi-7.0.0.tgz#67e145cff510a6a6984bdf1152911d69d2eb9e43"
+  integrity sha512-YVGIj2kamLSTxw6NsZjoBxfSwsn0ycdesmc4p+Q21c5zPuZ1pl+NfxVdxPtdHvmNVOQ6XSYG4AUtyt/Fi7D16Q==
   dependencies:
     ansi-styles "^4.0.0"
     string-width "^4.1.0"
