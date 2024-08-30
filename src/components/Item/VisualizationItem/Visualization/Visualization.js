@@ -33,8 +33,7 @@ const Visualization = ({
     activeType,
     item,
     itemFilters,
-    availableHeight,
-    availableWidth,
+    style,
     gridWidth,
     dashboardMode,
     originalType,
@@ -45,22 +44,6 @@ const Visualization = ({
     const dashboardId = useSelector(sGetSelectedId)
     const { isDisconnected: offline } = useDhis2ConnectionStatus()
     const { lineListingAppVersion, apps } = useCachedDataQuery()
-
-    // NOTE:
-    // The following is all memoized because the IframePlugin (and potentially others)
-    // are wrapped in React.memo() to avoid unnecessary re-renders
-    // The main problem here was `item` which changes height when the interpretations panel is toggled
-    // causing all the chain of components to re-render.
-    // The only dependency using `item` is `item.id` which doesn't change so the memoized plugin props
-    // should also always be the same regardless of the `item` details.
-
-    const style = useMemo(
-        () => ({
-            height: availableHeight,
-            width: availableWidth || undefined,
-        }),
-        [availableHeight, availableWidth]
-    )
 
     const visualizationConfig = useMemo(() => {
         if (originalType === EVENT_VISUALIZATION) {
@@ -233,6 +216,7 @@ Visualization.propTypes = {
     itemFilters: PropTypes.object,
     originalType: PropTypes.string,
     showNoFiltersOverlay: PropTypes.bool,
+    style: PropTypes.object,
     visualization: PropTypes.object,
     onClickNoFiltersOverlay: PropTypes.func,
 }
