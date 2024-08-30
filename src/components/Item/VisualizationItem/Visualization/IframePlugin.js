@@ -162,6 +162,7 @@ const IframePlugin = ({
             {iframeSrc ? (
                 <Plugin
                     pluginSource={iframeSrc}
+                    hasFixedDimensions={true}
                     width={style.width}
                     height={style.height}
                     {...pluginProps}
