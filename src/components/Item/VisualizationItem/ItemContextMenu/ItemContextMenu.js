@@ -31,7 +31,7 @@ import { isSmallScreen } from '../../../../modules/smallScreen.js'
 import MenuItem from '../../../MenuItemWithTooltip.js'
 import { useSystemSettings } from '../../../SystemSettingsProvider.js'
 import { useWindowDimensions } from '../../../WindowDimensionsProvider.js'
-import { isElementFullscreen } from '../isElementFullscreen.js'
+import { isElementFullscreen } from '../../isElementFullscreen.js'
 import ViewAsMenuItems from './ViewAsMenuItems.js'
 
 const ItemContextMenu = (props) => {

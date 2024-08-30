@@ -19,6 +19,7 @@ import {
     PAGEBREAK,
     PRINT_TITLE_PAGE,
 } from '../../modules/itemTypes.js'
+import { WindowDimensionsCtx } from '../WindowDimensionsProvider.js'
 import AppItem from './AppItem/Item.js'
 import ListItem from './ListItem/Item.js'
 import MessagesItem from './MessagesItem/Item.js'
@@ -65,7 +66,17 @@ export const Item = (props) => {
 
     const GridItem = getGridItem(props.item.type)
 
-    return <GridItem d2={d2} {...props} />
+    return (
+        <WindowDimensionsCtx.Consumer>
+            {(windowDimensions) => (
+                <GridItem
+                    d2={d2}
+                    windowDimensions={windowDimensions}
+                    {...props}
+                />
+            )}
+        </WindowDimensionsCtx.Consumer>
+    )
 }
 
 Item.propTypes = {

@@ -12,12 +12,7 @@ import { acSetItemActiveType } from '../../../actions/itemActiveTypes.js'
 import { acAddVisualization } from '../../../actions/visualizations.js'
 import { apiPostDataStatistics } from '../../../api/dataStatistics.js'
 import { apiFetchVisualization } from '../../../api/fetchVisualization.js'
-import {
-    isEditMode,
-    isPrintMode,
-    isViewMode,
-} from '../../../modules/dashboardModes.js'
-import { getItemHeightPx } from '../../../modules/gridUtil.js'
+import { isEditMode, isViewMode } from '../../../modules/dashboardModes.js'
 import {
     getVisualizationId,
     getVisualizationName,
@@ -37,14 +32,13 @@ import {
 } from '../../../reducers/itemFilters.js'
 import { sGetVisualization } from '../../../reducers/visualizations.js'
 import { SystemSettingsCtx } from '../../SystemSettingsProvider.js'
-import { WindowDimensionsCtx } from '../../WindowDimensionsProvider.js'
+import { getAvailableDimensions } from '../getAvailableDimensions.js'
+import { getGridItemElement } from '../getGridItemElement.js'
+import { isElementFullscreen } from '../isElementFullscreen.js'
 import ItemHeader from '../ItemHeader/ItemHeader.js'
 import FatalErrorBoundary from './FatalErrorBoundary.js'
-import { getGridItemElement } from './getGridItemElement.js'
-import { isElementFullscreen } from './isElementFullscreen.js'
 import ItemContextMenu from './ItemContextMenu/ItemContextMenu.js'
 import ItemFooter from './ItemFooter.js'
-import memoizeOne from './memoizeOne.js'
 import { pluginIsAvailable } from './Visualization/plugin.js'
 import Visualization from './Visualization/Visualization.js'
 
@@ -61,30 +55,6 @@ class Item extends Component {
 
         this.contentRef = React.createRef()
         this.headerRef = React.createRef()
-
-        const style = window.getComputedStyle(document.documentElement)
-        this.itemContentPadding = parseInt(
-            style.getPropertyValue('--item-content-padding').replace('px', '')
-        )
-
-        this.itemHeaderTotalMargin =
-            parseInt(
-                style
-                    .getPropertyValue('--item-header-margin-top')
-                    .replace('px', '')
-            ) +
-            parseInt(
-                style
-                    .getPropertyValue('--item-header-margin-bottom')
-                    .replace('px', '')
-            )
-
-        this.memoizedGetContentHeight = memoizeOne(
-            (calculatedHeight, measuredHeight, preferMeasured) =>
-                preferMeasured
-                    ? measuredHeight || calculatedHeight
-                    : calculatedHeight
-        )
     }
 
     async componentDidMount() {
@@ -165,44 +135,13 @@ class Item extends Component {
         return this.props.activeType || getItemTypeForVis(this.props.item)
     }
 
-    getAvailableHeight = ({ width, height }) => {
-        if (isElementFullscreen(this.props.item.id)) {
-            return (
-                height -
-                this.headerRef.current.clientHeight -
-                this.itemHeaderTotalMargin -
-                this.itemContentPadding
-            )
-        }
-
-        const calculatedHeight =
-            getItemHeightPx(this.props.item, width) -
-            this.headerRef.current.clientHeight -
-            this.itemHeaderTotalMargin -
-            this.itemContentPadding
-
-        return this.memoizedGetContentHeight(
-            calculatedHeight,
-            this.contentRef ? this.contentRef.offsetHeight : null,
-            isEditMode(this.props.dashboardMode) ||
-                isPrintMode(this.props.dashboardMode)
-        )
-    }
-
-    getAvailableWidth = () => {
-        const rect = getGridItemElement(
-            this.props.item.id
-        )?.getBoundingClientRect()
-
-        return rect && rect.width - this.itemContentPadding * 2
-    }
-
     onFatalError = () => {
         this.setState({ loadItemFailed: true })
     }
 
     render() {
-        const { item, dashboardMode, itemFilters } = this.props
+        const { item, dashboardMode, itemFilters, windowDimensions } =
+            this.props
         const { showFooter, showNoFiltersOverlay } = this.state
         const originalType = getItemTypeForVis(item)
         const activeType = this.getActiveType()
@@ -287,33 +226,32 @@ class Item extends Component {
                 >
                     <div
                         className="dashboard-item-content"
-                        ref={(ref) => (this.contentRef = ref)}
+                        ref={this.contentRef}
                     >
                         {this.state.configLoaded && (
-                            <WindowDimensionsCtx.Consumer>
-                                {(dimensions) => (
-                                    <Visualization
-                                        item={item}
-                                        visualization={this.props.visualization}
-                                        originalType={originalType}
-                                        activeType={activeType}
-                                        itemFilters={itemFilters}
-                                        availableHeight={this.getAvailableHeight(
-                                            dimensions
-                                        )}
-                                        availableWidth={this.getAvailableWidth()}
-                                        gridWidth={this.props.gridWidth}
-                                        dashboardMode={dashboardMode}
-                                        showNoFiltersOverlay={Boolean(
-                                            Object.keys(itemFilters).length &&
-                                                showNoFiltersOverlay
-                                        )}
-                                        onClickNoFiltersOverlay={
-                                            this.onClickNoFiltersOverlay
-                                        }
-                                    />
+                            <Visualization
+                                item={item}
+                                visualization={this.props.visualization}
+                                originalType={originalType}
+                                activeType={activeType}
+                                itemFilters={itemFilters}
+                                style={getAvailableDimensions({
+                                    item,
+                                    headerRef: this.headerRef,
+                                    contentRef: this.contentRef,
+                                    dashboardMode,
+                                    windowDimensions,
+                                })}
+                                gridWidth={this.props.gridWidth}
+                                dashboardMode={dashboardMode}
+                                showNoFiltersOverlay={Boolean(
+                                    Object.keys(itemFilters).length &&
+                                        showNoFiltersOverlay
                                 )}
-                            </WindowDimensionsCtx.Consumer>
+                                onClickNoFiltersOverlay={
+                                    this.onClickNoFiltersOverlay
+                                }
+                            />
                         )}
                     </div>
                 </FatalErrorBoundary>
@@ -338,6 +276,7 @@ Item.propTypes = {
     setVisualization: PropTypes.func,
     settings: PropTypes.object,
     visualization: PropTypes.object,
+    windowDimensions: PropTypes.object,
     onToggleItemExpanded: PropTypes.func,
 }
 
