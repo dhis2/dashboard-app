@@ -61,3 +61,44 @@
 .react-resizable-handle {
     background: none;
 }
+<<<<<<< HEAD
+=======
+
+/* dashboard item - content */
+
+.dashboard-item-content {
+    margin: 0 var(--item-content-padding) var(--item-content-padding);
+    overflow: auto;
+}
+
+.dashboard-item-content-hidden-title {
+    margin: 5px 4px 4px;
+    overflow: auto;
+}
+
+.TEXT .dashboard-item-content {
+    padding-bottom: var(--item-content-padding);
+}
+
+.EVENT_REPORT .dashboard-item-content {
+    position: relative;
+}
+
+.APP .dashboard-item-content,
+.CHART .dashboard-item-content,
+.VISUALIZATION .dashboard-item-content,
+.MAP .dashboard-item-content,
+.EVENT_CHART .dashboard-item-content,
+.EVENT_VISUALIZATION .dashboard-item-content {
+    position: relative;
+    overflow: hidden;
+}
+
+.react-grid-item.edit .dashboard-item-content,
+.react-grid-item.RESOURCES .dashboard-item-content,
+.react-grid-item.TEXT .dashboard-item-content,
+.react-grid-item.MESSAGES .dashboard-item-content,
+.react-grid-item.APP .dashboard-item-content-hidden-title {
+    flex: 1;
+}
+>>>>>>> d3a3bad8 (refactor: pass width/height to AppItem to fix resize/refresh issue (DHIS2-17947))
