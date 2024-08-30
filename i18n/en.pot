@@ -5,8 +5,8 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1)\n"
-"POT-Creation-Date: 2024-03-19T12:31:03.302Z\n"
-"PO-Revision-Date: 2024-03-19T12:31:03.302Z\n"
+"POT-Creation-Date: 2024-08-27T14:14:53.348Z\n"
+"PO-Revision-Date: 2024-08-27T14:14:53.348Z\n"
 
 msgid "Untitled dashboard"
 msgstr "Untitled dashboard"
@@ -31,6 +31,18 @@ msgstr "Remove this item"
 
 msgid "This item has been shortened to fit on one page"
 msgstr "This item has been shortened to fit on one page"
+
+msgid "The plugin for rendering this item is not available"
+msgstr "The plugin for rendering this item is not available"
+
+msgid "Install the {{pluginName}} plugin from the App Hub"
+msgstr "Install the {{pluginName}} plugin from the App Hub"
+
+msgid "There was an error loading data for this item"
+msgstr "There was an error loading data for this item"
+
+msgid "Open this item in {{appName}}"
+msgstr "Open this item in {{appName}}"
 
 msgid "Remove"
 msgstr "Remove"
@@ -116,12 +128,6 @@ msgstr "View as Map"
 msgid "There was a problem loading interpretations for this item"
 msgstr "There was a problem loading interpretations for this item"
 
-msgid "The plugin for rendering this item is not available"
-msgstr "The plugin for rendering this item is not available"
-
-msgid "Install the {{appName}} app from the App Hub"
-msgstr "Install the {{appName}} app from the App Hub"
-
 msgid "No data to display"
 msgstr "No data to display"
 
@@ -142,12 +148,6 @@ msgstr "Maps with Earth Engine layers cannot be displayed when offline"
 
 msgid "Unable to load the plugin for this item"
 msgstr "Unable to load the plugin for this item"
-
-msgid "There was an error loading data for this item"
-msgstr "There was an error loading data for this item"
-
-msgid "Open this item in {{appName}}"
-msgstr "Open this item in {{appName}}"
 
 msgid "Not available offline"
 msgstr "Not available offline"
