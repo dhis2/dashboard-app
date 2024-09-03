@@ -1,9 +1,8 @@
 import i18n from '@dhis2/d2-i18n'
 import cx from 'classnames'
-import PropTypes from 'prop-types'
 import React, { useState, useEffect } from 'react'
 import { Responsive as ResponsiveReactGridLayout } from 'react-grid-layout'
-import { connect } from 'react-redux'
+import { useSelector } from 'react-redux'
 import { Item } from '../../components/Item/Item.js'
 import NoContentMessage from '../../components/NoContentMessage.js'
 import ProgressiveLoadingContainer from '../../components/ProgressiveLoadingContainer.js'
@@ -34,7 +33,9 @@ import classes from './styles/ItemGrid.module.css'
 const EXPANDED_HEIGHT = 19
 const EXPANDED_HEIGHT_SM = 15
 
-const ResponsiveItemGrid = ({ dashboardId, dashboardItems }) => {
+const ResponsiveItemGrid = () => {
+    const dashboardId = useSelector(sGetSelectedId)
+    const dashboardItems = useSelector(sGetSelectedDashboardItems)
     const { width } = useWindowDimensions()
     const [expandedItems, setExpandedItems] = useState({})
     const [displayItems, setDisplayItems] = useState(dashboardItems)
@@ -45,6 +46,22 @@ const ResponsiveItemGrid = ({ dashboardId, dashboardItems }) => {
     const firstOfTypes = getFirstOfTypes(dashboardItems)
 
     useEffect(() => {
+        const getItemsWithAdjustedHeight = (items) =>
+            items.map((item) => {
+                const expandedItem = expandedItems[item.id]
+
+                if (expandedItem && expandedItem === true) {
+                    const expandedHeight = isSmallScreen(width)
+                        ? EXPANDED_HEIGHT_SM
+                        : EXPANDED_HEIGHT
+                    return Object.assign({}, item, {
+                        h: item.h + expandedHeight,
+                        smallOriginalH: getProportionalHeight(item, width),
+                    })
+                }
+
+                return item
+            })
         setLayoutSm(
             getItemsWithAdjustedHeight(getSmallLayout(dashboardItems, width))
         )
@@ -67,23 +84,6 @@ const ResponsiveItemGrid = ({ dashboardId, dashboardItems }) => {
         newExpandedItems[clickedId] = !isExpanded
         setExpandedItems(newExpandedItems)
     }
-
-    const getItemsWithAdjustedHeight = (items) =>
-        items.map((item) => {
-            const expandedItem = expandedItems[item.id]
-
-            if (expandedItem && expandedItem === true) {
-                const expandedHeight = isSmallScreen(width)
-                    ? EXPANDED_HEIGHT_SM
-                    : EXPANDED_HEIGHT
-                return Object.assign({}, item, {
-                    h: item.h + expandedHeight,
-                    smallOriginalH: getProportionalHeight(item, width),
-                })
-            }
-
-            return item
-        })
 
     const getItemComponent = (item) => {
         if (!layoutSm.length) {
@@ -157,14 +157,4 @@ const ResponsiveItemGrid = ({ dashboardId, dashboardItems }) => {
     )
 }
 
-ResponsiveItemGrid.propTypes = {
-    dashboardId: PropTypes.string,
-    dashboardItems: PropTypes.array,
-}
-
-const mapStateToProps = (state) => ({
-    dashboardItems: sGetSelectedDashboardItems(state),
-    dashboardId: sGetSelectedId(state),
-})
-
-export default connect(mapStateToProps)(ResponsiveItemGrid)
+export default ResponsiveItemGrid
