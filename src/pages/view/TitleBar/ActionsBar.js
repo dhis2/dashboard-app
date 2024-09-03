@@ -18,6 +18,7 @@ import { connect } from 'react-redux'
 import { Link, Redirect } from 'react-router-dom'
 import { acSetDashboardStarred } from '../../../actions/dashboards.js'
 import { acClearItemFilters } from '../../../actions/itemFilters.js'
+import { acSetPresentDashboard } from '../../../actions/presentDashboard.js'
 import { acSetShowDescription } from '../../../actions/showDescription.js'
 import { apiPostShowDescription } from '../../../api/description.js'
 import ConfirmActionDialog from '../../../components/ConfirmActionDialog.js'
@@ -41,6 +42,7 @@ const ViewActions = ({
     showDescription,
     starred,
     setDashboardStarred,
+    setPresentDashboard,
     updateShowDescription,
     removeAllFilters,
     restrictFilters,
@@ -260,6 +262,15 @@ const ViewActions = ({
                         allowedFilters={allowedFilters}
                         restrictFilters={restrictFilters}
                     />
+                    <OfflineTooltip>
+                        <Button
+                            disabled={offline}
+                            className={classes.presentButton}
+                            onClick={() => setPresentDashboard(true)}
+                        >
+                            {i18n.t('Present')}
+                        </Button>
+                    </OfflineTooltip>
                     {getMoreButton(classes.moreButton, false)}
                     {getMoreButton(classes.moreButtonSmall, true)}
                 </div>
@@ -294,6 +305,7 @@ ViewActions.propTypes = {
     removeAllFilters: PropTypes.func,
     restrictFilters: PropTypes.bool,
     setDashboardStarred: PropTypes.func,
+    setPresentDashboard: PropTypes.func,
     showDescription: PropTypes.bool,
     starred: PropTypes.bool,
     updateShowDescription: PropTypes.func,
@@ -314,6 +326,7 @@ const mapStateToProps = (state) => {
 
 export default connect(mapStateToProps, {
     setDashboardStarred: acSetDashboardStarred,
+    setPresentDashboard: acSetPresentDashboard,
     removeAllFilters: acClearItemFilters,
     updateShowDescription: acSetShowDescription,
 })(ViewActions)

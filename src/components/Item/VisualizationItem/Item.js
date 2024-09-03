@@ -203,7 +203,7 @@ class Item extends Component {
     }
 
     render() {
-        const { item, dashboardMode, itemFilters } = this.props
+        const { item, dashboardMode, itemFilters, isFS } = this.props
         const { showFooter, showNoFiltersOverlay } = this.state
         const originalType = getItemTypeForVis(item)
         const activeType = this.getActiveType()
@@ -295,6 +295,7 @@ class Item extends Component {
                                 {(dimensions) => (
                                     <Visualization
                                         item={item}
+                                        isFS={isFS}
                                         visualization={this.props.visualization}
                                         originalType={originalType}
                                         activeType={activeType}
@@ -333,6 +334,7 @@ Item.propTypes = {
     engine: PropTypes.object,
     gridWidth: PropTypes.number,
     isEditing: PropTypes.bool,
+    isFS: PropTypes.bool,
     isRecording: PropTypes.bool,
     item: PropTypes.object,
     itemFilters: PropTypes.object,

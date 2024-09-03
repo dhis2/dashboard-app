@@ -1,9 +1,12 @@
 import i18n from '@dhis2/d2-i18n'
 import cx from 'classnames'
-import React, { useState, useEffect } from 'react'
+import sortBy from 'lodash/sortBy.js'
+import React, { useState, useEffect, useRef } from 'react'
 import { Responsive as ResponsiveReactGridLayout } from 'react-grid-layout'
-import { useSelector } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
+import { acSetPresentDashboard } from '../../actions/presentDashboard.js'
 import { Item } from '../../components/Item/Item.js'
+import { getGridItemElement } from '../../components/Item/VisualizationItem/getGridItemElement.js'
 import NoContentMessage from '../../components/NoContentMessage.js'
 import ProgressiveLoadingContainer from '../../components/ProgressiveLoadingContainer.js'
 import { useWindowDimensions } from '../../components/WindowDimensionsProvider.js'
@@ -24,6 +27,7 @@ import {
 } from '../../modules/gridUtil.js'
 import { getBreakpoint, isSmallScreen } from '../../modules/smallScreen.js'
 import { useCacheableSection } from '../../modules/useCacheableSection.js'
+import { sGetPresentDashboard } from '../../reducers/presentDashboard.js'
 import {
     sGetSelectedId,
     sGetSelectedDashboardItems,
@@ -34,8 +38,11 @@ const EXPANDED_HEIGHT = 19
 const EXPANDED_HEIGHT_SM = 15
 
 const ResponsiveItemGrid = () => {
+    const dispatch = useDispatch()
     const dashboardId = useSelector(sGetSelectedId)
     const dashboardItems = useSelector(sGetSelectedDashboardItems)
+    const isPresentMode = useSelector(sGetPresentDashboard)
+
     const { width } = useWindowDimensions()
     const [expandedItems, setExpandedItems] = useState({})
     const [displayItems, setDisplayItems] = useState(dashboardItems)
@@ -44,6 +51,10 @@ const ResponsiveItemGrid = () => {
     const [forceLoad, setForceLoad] = useState(false)
     const { recordingState } = useCacheableSection(dashboardId)
     const firstOfTypes = getFirstOfTypes(dashboardItems)
+
+    // for slideshow
+    const [fsItemIndex, setFsItemIndex] = useState(null)
+    const sItems = useRef([])
 
     useEffect(() => {
         const getItemsWithAdjustedHeight = (items) =>
@@ -73,6 +84,65 @@ const ResponsiveItemGrid = () => {
             setForceLoad(true)
         }
     }, [recordingState])
+
+    useEffect(() => {
+        const sortedItems = sortBy(displayItems, ['y', 'x'])
+        sItems.current = sortedItems
+    }, [displayItems])
+
+    useEffect(() => {
+        if (isPresentMode && document.fullscreenElement === null) {
+            setFsItemIndex(0)
+            const el = getGridItemElement(sItems.current[0].id)
+            el.requestFullscreen()
+        }
+    }, [isPresentMode])
+
+    useEffect(() => {
+        const handleKeyDown = (event) => {
+            if (document.fullscreenElement) {
+                let nextElementIndex
+
+                if (event.key === 'ArrowRight' || event.key === 'ArrowDown') {
+                    nextElementIndex = fsItemIndex + 1
+                } else if (
+                    event.key === 'ArrowLeft' ||
+                    event.key === 'ArrowUp'
+                ) {
+                    if (fsItemIndex === null || fsItemIndex === 0) {
+                        nextElementIndex = sItems.current.length - 1
+                    } else {
+                        nextElementIndex = fsItemIndex - 1
+                    }
+                }
+                const el = getGridItemElement(
+                    sItems.current[nextElementIndex].id
+                )
+                setFsItemIndex(nextElementIndex)
+                el.requestFullscreen()
+            }
+        }
+
+        const handleFullscreenChange = () => {
+            if (!document.fullscreenElement) {
+                dispatch(acSetPresentDashboard(false))
+                setFsItemIndex(null)
+            }
+        }
+
+        // Attach the event listener to the window object
+        window.addEventListener('keydown', handleKeyDown)
+        document.addEventListener('fullscreenchange', handleFullscreenChange)
+
+        // Clean up the event listener when the component is unmounted
+        return () => {
+            window.removeEventListener('keydown', handleKeyDown)
+            document.removeEventListener(
+                'fullscreenchange',
+                handleFullscreenChange
+            )
+        }
+    }, [fsItemIndex, dispatch])
 
     const onToggleItemExpanded = (clickedId) => {
         const isExpanded =
@@ -111,6 +181,12 @@ const ResponsiveItemGrid = () => {
                     dashboardMode={VIEW}
                     isRecording={forceLoad}
                     onToggleItemExpanded={onToggleItemExpanded}
+                    isFS={
+                        !!(
+                            Number.isInteger(fsItemIndex) &&
+                            sItems.current[fsItemIndex].id === item.id
+                        )
+                    }
                 />
             </ProgressiveLoadingContainer>
         )
