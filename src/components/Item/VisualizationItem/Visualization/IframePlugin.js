@@ -1,7 +1,7 @@
+import { useCachedDataQuery } from '@dhis2/analytics'
 import { useConfig } from '@dhis2/app-runtime'
 // eslint-disable-next-line import/no-unresolved
 import { Plugin } from '@dhis2/app-runtime/experimental'
-import { useD2 } from '@dhis2/app-runtime-adapter-d2'
 import { CenteredContent, CircularLoader } from '@dhis2/ui'
 import PropTypes from 'prop-types'
 import React, { useCallback, useEffect, useMemo, useState } from 'react'
@@ -38,12 +38,10 @@ const IframePlugin = ({
 }) => {
     const dispatch = useDispatch()
     const iframePluginStatus = useSelector(sGetIframePluginStatus, shallowEqual)
-
-    const { d2 } = useD2()
     const { baseUrl } = useConfig()
-
     const { userSettings } = useUserSettings()
     const [error, setError] = useState(null)
+    const { apps } = useCachedDataQuery()
 
     // When this mounts, check if the dashboard is recording
     const { isCached } = useCacheableSection(dashboardId)
@@ -104,14 +102,14 @@ const IframePlugin = ({
 
         // 2. check if there is an installed app for the pluginType
         // and use its plugin launch URL
-        const pluginLaunchUrl = getPluginLaunchUrl(pluginType, d2, baseUrl)
+        const pluginLaunchUrl = getPluginLaunchUrl(pluginType, apps, baseUrl)
 
         if (pluginLaunchUrl) {
             return pluginLaunchUrl
         }
 
         setError('missing-plugin')
-    }, [d2, baseUrl, pluginType])
+    }, [apps, baseUrl, pluginType])
 
     const iframeSrc = getIframeSrc()
 

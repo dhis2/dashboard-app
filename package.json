@@ -1,12 +1,12 @@
 {
     "name": "dashboard-app",
-    "version": "100.2.3",
+    "version": "100.2.5",
     "description": "DHIS2 Dashboard app",
     "private": true,
     "license": "BSD-3-Clause",
     "dependencies": {
-        "@dhis2/analytics": "^26.7.0",
         "@dhis2/app-runtime": "^3.10.6",
+        "@dhis2/analytics": "^26.8.2",
         "@dhis2/app-runtime-adapter-d2": "^1.1.0",
         "classnames": "^2.3.2",
         "d2": "^31.10.0",
@@ -46,6 +46,9 @@
         "@dhis2/cli-style": "^10.7.3",
         "@dhis2/cypress-commands": "^10.0.6",
         "@dhis2/cypress-plugins": "^10.0.6",
+        "@semantic-release/changelog": "^6",
+        "@semantic-release/exec": "^6",
+        "@semantic-release/git": "^10",
         "@testing-library/jest-dom": "^6.1.2",
         "@testing-library/react": "^12",
         "cypress": "^13.13.1",
@@ -56,6 +59,7 @@
         "patch-package": "^7",
         "postinstall-postinstall": "^2.1.0",
         "redux-mock-store": "^1.5.4",
+        "semantic-release": "^20",
         "start-server-and-test": "^1.14.0"
     },
     "jest": {

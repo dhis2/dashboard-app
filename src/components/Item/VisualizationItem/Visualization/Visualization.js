@@ -1,6 +1,5 @@
 import { useCachedDataQuery } from '@dhis2/analytics'
 import { useDhis2ConnectionStatus } from '@dhis2/app-runtime'
-import { useD2 } from '@dhis2/app-runtime-adapter-d2'
 import i18n from '@dhis2/d2-i18n'
 import { Button, Cover, IconInfo24, colors } from '@dhis2/ui'
 import uniqueId from 'lodash/uniqueId.js'
@@ -48,11 +47,14 @@ const Visualization = ({
     onClickNoFiltersOverlay,
     ...rest
 }) => {
-    const { d2 } = useD2()
     const dashboardId = useSelector(sGetSelectedId)
     const { isDisconnected: offline } = useDhis2ConnectionStatus()
-    const { dataVisualizerAppVersion, lineListingAppVersion, mapsAppVersion } =
-        useCachedDataQuery()
+    const {
+        dataVisualizerAppVersion,
+        lineListingAppVersion,
+        mapsAppVersion,
+        apps,
+    } = useCachedDataQuery()
 
     // NOTE:
     // The following is all memoized because the IframePlugin (and potentially others)
@@ -208,7 +210,7 @@ const Visualization = ({
             )
         }
         default: {
-            return !pluginIsAvailable(activeType || item.type, d2) ? (
+            return !pluginIsAvailable(activeType || item.type, apps) ? (
                 <PluginWarningMessage
                     style={style}
                     message={i18n.t('Unable to load the plugin for this item')}

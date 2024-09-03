@@ -1,4 +1,4 @@
-import { useDhis2ConnectionStatus } from '@dhis2/app-runtime'
+import { useDhis2ConnectionStatus, useDataEngine } from '@dhis2/app-runtime'
 import { Chip as UiChip, colors, IconStarFilled24 } from '@dhis2/ui'
 import cx from 'classnames'
 import debounce from 'lodash/debounce.js'
@@ -13,6 +13,7 @@ import classes from './styles/Chip.module.css'
 const Chip = ({ starred, selected, label, dashboardId, onClick }) => {
     const { lastUpdated } = useCacheableSection(dashboardId)
     const { isConnected: online } = useDhis2ConnectionStatus()
+    const engine = useDataEngine()
     const chipProps = {
         selected,
     }
@@ -25,7 +26,7 @@ const Chip = ({ starred, selected, label, dashboardId, onClick }) => {
         )
     }
     const debouncedPostStatistics = debounce(
-        () => apiPostDataStatistics('DASHBOARD_VIEW', dashboardId),
+        () => apiPostDataStatistics('DASHBOARD_VIEW', dashboardId, engine),
         500
     )
 
