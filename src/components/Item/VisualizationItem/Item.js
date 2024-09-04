@@ -133,7 +133,7 @@ class Item extends Component {
 
     onClickNoFiltersOverlay = () =>
         this.setState({ showNoFiltersOverlay: false })
-    ß
+
     onToggleFooter = () => {
         this.setState(
             { showFooter: !this.state.showFooter },
