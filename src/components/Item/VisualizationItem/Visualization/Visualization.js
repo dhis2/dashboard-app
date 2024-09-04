@@ -1,16 +1,19 @@
 import { useCachedDataQuery } from '@dhis2/analytics'
 import { useDhis2ConnectionStatus } from '@dhis2/app-runtime'
-import { useD2 } from '@dhis2/app-runtime-adapter-d2'
 import i18n from '@dhis2/d2-i18n'
-import { Button, Cover, IconInfo24, IconWarning24, colors } from '@dhis2/ui'
+import { Button, Cover, IconInfo24, colors } from '@dhis2/ui'
 import uniqueId from 'lodash/uniqueId.js'
 import PropTypes from 'prop-types'
 import React, { useMemo } from 'react'
 import { useSelector } from 'react-redux'
 import {
+    isDVVersionCompatible,
     isLLVersionCompatible,
+    isMapsVersionCompatible,
+    minDVVersion,
     minLLVersion,
-} from '../../../../modules/isLLVersionCompatible.js'
+    minMapsVersion,
+} from '../../../../modules/isAppVersionCompatible.js'
 import {
     VISUALIZATION,
     EVENT_VISUALIZATION,
@@ -24,6 +27,7 @@ import getVisualizationConfig from './getVisualizationConfig.js'
 import IframePlugin from './IframePlugin.js'
 import LegacyPlugin from './LegacyPlugin.js'
 import { pluginIsAvailable } from './plugin.js'
+import { PluginWarningMessage } from './PluginWarningMessage.js'
 import classes from './styles/Visualization.module.css'
 
 const mapHasEELayer = (visualization) =>
@@ -42,10 +46,14 @@ const Visualization = ({
     onClickNoFiltersOverlay,
     ...rest
 }) => {
-    const { d2 } = useD2()
     const dashboardId = useSelector(sGetSelectedId)
     const { isDisconnected: offline } = useDhis2ConnectionStatus()
-    const { lineListingAppVersion } = useCachedDataQuery()
+    const {
+        dataVisualizerAppVersion,
+        lineListingAppVersion,
+        mapsAppVersion,
+        apps,
+    } = useCachedDataQuery()
 
     const visualizationConfig = useMemo(() => {
         if (originalType === EVENT_VISUALIZATION) {
@@ -87,34 +95,10 @@ const Visualization = ({
 
     if (!visualization) {
         return (
-            <div style={style}>
-                <Cover>
-                    <div className={classes.messageContent}>
-                        <IconWarning24 color={colors.grey500} />
-                        {i18n.t('No data to display')}
-                    </div>
-                </Cover>
-            </div>
-        )
-    }
-
-    if (
-        activeType === EVENT_VISUALIZATION &&
-        !isLLVersionCompatible(lineListingAppVersion)
-    ) {
-        return (
-            <div style={style}>
-                <Cover>
-                    <div className={classes.messageContent}>
-                        <IconWarning24 color={colors.grey500} />
-                        {i18n.t(
-                            `Install Line Listing app version ${minLLVersion.join(
-                                '.'
-                            )} or higher in order to display this item.`
-                        )}
-                    </div>
-                </Cover>
-            </div>
+            <PluginWarningMessage
+                style={style}
+                message={i18n.t('No data to display')}
+            />
         )
     }
 
@@ -122,15 +106,24 @@ const Visualization = ({
         case CHART:
         case REPORT_TABLE:
         case VISUALIZATION: {
-            return (
+            return isDVVersionCompatible(dataVisualizerAppVersion) ? (
                 <IframePlugin
                     visualization={visualizationConfig}
                     {...iFramePluginProps}
                 />
+            ) : (
+                <PluginWarningMessage
+                    style={style}
+                    message={i18n.t(
+                        `Install Data Visualizer app ${minDVVersion.join(
+                            '.'
+                        )} or higher in order to display this item.`
+                    )}
+                />
             )
         }
         case EVENT_VISUALIZATION: {
-            return (
+            return isLLVersionCompatible(lineListingAppVersion) ? (
                 <>
                     {showNoFiltersOverlay ? (
                         <div style={style}>
@@ -156,43 +149,55 @@ const Visualization = ({
                         {...iFramePluginProps}
                     />
                 </>
+            ) : (
+                <PluginWarningMessage
+                    style={style}
+                    message={i18n.t(
+                        `Install Line Listing app ${minLLVersion.join(
+                            '.'
+                        )} or higher in order to display this item.`
+                    )}
+                />
             )
         }
         case MAP: {
-            return offline && mapHasEELayer(visualizationConfig) ? (
-                <div style={style}>
-                    <Cover>
-                        <div className={classes.messageContent}>
-                            <IconInfo24 color={colors.grey500} />
-                            <span>
-                                {i18n.t(
-                                    'Maps with Earth Engine layers cannot be displayed when offline'
-                                )}
-                            </span>
-                        </div>
-                    </Cover>
-                </div>
+            return isMapsVersionCompatible(mapsAppVersion) ? (
+                offline && mapHasEELayer(visualizationConfig) ? (
+                    <div style={style}>
+                        <Cover>
+                            <div className={classes.messageContent}>
+                                <IconInfo24 color={colors.grey500} />
+                                <span>
+                                    {i18n.t(
+                                        'Maps with Earth Engine layers cannot be displayed when offline'
+                                    )}
+                                </span>
+                            </div>
+                        </Cover>
+                    </div>
+                ) : (
+                    <IframePlugin
+                        visualization={visualizationConfig}
+                        {...iFramePluginProps}
+                    />
+                )
             ) : (
-                <IframePlugin
-                    visualization={visualizationConfig}
-                    {...iFramePluginProps}
+                <PluginWarningMessage
+                    style={style}
+                    message={i18n.t(
+                        `Install Maps app ${minMapsVersion.join(
+                            '.'
+                        )} or higher in order to display this item.`
+                    )}
                 />
             )
         }
         default: {
-            return !pluginIsAvailable(activeType || item.type, d2) ? (
-                <div style={style}>
-                    <Cover>
-                        <div className={classes.messageContent}>
-                            <IconWarning24 color={colors.grey500} />
-                            <span>
-                                {i18n.t(
-                                    'Unable to load the plugin for this item'
-                                )}
-                            </span>
-                        </div>
-                    </Cover>
-                </div>
+            return !pluginIsAvailable(activeType || item.type, apps) ? (
+                <PluginWarningMessage
+                    style={style}
+                    message={i18n.t('Unable to load the plugin for this item')}
+                />
             ) : (
                 <LegacyPlugin
                     item={item}

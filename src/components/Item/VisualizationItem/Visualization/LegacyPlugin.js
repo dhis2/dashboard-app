@@ -47,7 +47,6 @@ const LegacyPlugin = ({
                     auth: d2.Api.getApi().defaultHeaders.Authorization,
                 },
                 activeType,
-                d2,
                 options,
             })
         }

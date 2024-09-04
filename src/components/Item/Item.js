@@ -1,4 +1,5 @@
-import { useD2 } from '@dhis2/app-runtime-adapter-d2'
+import { useCachedDataQuery } from '@dhis2/analytics'
+import { useDataEngine } from '@dhis2/app-runtime'
 import PropTypes from 'prop-types'
 import React from 'react'
 import {
@@ -62,15 +63,16 @@ const getGridItem = (type) => {
 }
 
 export const Item = (props) => {
-    const { d2 } = useD2()
-
+    const { apps } = useCachedDataQuery()
+    const engine = useDataEngine()
     const GridItem = getGridItem(props.item.type)
 
     return (
         <WindowDimensionsCtx.Consumer>
             {(windowDimensions) => (
                 <GridItem
-                    d2={d2}
+                    apps={apps}
+                    engine={engine}
                     windowDimensions={windowDimensions}
                     {...props}
                 />

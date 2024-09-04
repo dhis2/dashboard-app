@@ -1,6 +1,5 @@
 // eslint-disable-next-line import/no-unresolved
 import { Plugin } from '@dhis2/app-runtime/experimental'
-import { useD2 } from '@dhis2/app-runtime-adapter-d2'
 import { Divider, spacers } from '@dhis2/ui'
 import PropTypes from 'prop-types'
 import React, { useMemo, useRef } from 'react'
@@ -17,8 +16,13 @@ import ItemHeader from '../ItemHeader/ItemHeader.js'
 import MissingPluginMessage from '../ItemMessage/MissingPluginMessage.js'
 import { getIframeSrc } from './getIframeSrc.js'
 
-const AppItem = ({ dashboardMode, windowDimensions, item, itemFilters }) => {
-    const { d2 } = useD2()
+const AppItem = ({
+    dashboardMode,
+    windowDimensions,
+    item,
+    itemFilters,
+    apps,
+}) => {
     const contentRef = useRef()
     const headerRef = useRef()
     const dashboardId = useSelector(sGetSelectedId)
@@ -30,7 +34,7 @@ const AppItem = ({ dashboardMode, windowDimensions, item, itemFilters }) => {
     const appKey = item.appKey
 
     if (appKey) {
-        appDetails = d2.system.installedApps.find((app) => app.key === appKey)
+        appDetails = apps.find((app) => app.key === appKey)
     }
 
     const pluginProps = useMemo(
@@ -123,6 +127,7 @@ const AppItem = ({ dashboardMode, windowDimensions, item, itemFilters }) => {
 }
 
 AppItem.propTypes = {
+    apps: PropTypes.array,
     dashboardMode: PropTypes.string,
     item: PropTypes.object,
     itemFilters: PropTypes.object,
