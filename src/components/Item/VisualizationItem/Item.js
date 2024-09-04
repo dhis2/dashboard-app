@@ -32,11 +32,10 @@ import {
 } from '../../../reducers/itemFilters.js'
 import { sGetVisualization } from '../../../reducers/visualizations.js'
 import { SystemSettingsCtx } from '../../SystemSettingsProvider.js'
+import FatalErrorBoundary from '../FatalErrorBoundary.js'
+import { isFullscreenSupported, onToggleFullscreen } from '../fullscreenUtil.js'
 import { getAvailableDimensions } from '../getAvailableDimensions.js'
-import { getGridItemElement } from '../getGridItemElement.js'
-import { isElementFullscreen } from '../isElementFullscreen.js'
 import ItemHeader from '../ItemHeader/ItemHeader.js'
-import FatalErrorBoundary from './FatalErrorBoundary.js'
 import ItemContextMenu from './ItemContextMenu/ItemContextMenu.js'
 import ItemFooter from './ItemFooter.js'
 import { pluginIsAvailable } from './Visualization/plugin.js'
@@ -94,28 +93,8 @@ class Item extends Component {
         }
     }
 
-    isFullscreenSupported = () => {
-        const el = getGridItemElement(this.props.item.id)
-        return !!(el?.requestFullscreen || el?.webkitRequestFullscreen)
-    }
-
     onClickNoFiltersOverlay = () =>
         this.setState({ showNoFiltersOverlay: false })
-
-    onToggleFullscreen = () => {
-        if (!isElementFullscreen(this.props.item.id)) {
-            const el = getGridItemElement(this.props.item.id)
-            if (el?.requestFullscreen) {
-                el.requestFullscreen()
-            } else if (el?.webkitRequestFullscreen) {
-                el.webkitRequestFullscreen()
-            }
-        } else {
-            document.exitFullscreen
-                ? document.exitFullscreen()
-                : document.webkitExitFullscreen()
-        }
-    }
 
     onToggleFooter = () => {
         this.setState(
@@ -155,10 +134,10 @@ class Item extends Component {
                     visualization={this.props.visualization}
                     onSelectActiveType={this.setActiveType}
                     onToggleFooter={this.onToggleFooter}
-                    onToggleFullscreen={this.onToggleFullscreen}
+                    onToggleFullscreen={() => onToggleFullscreen(item.id)}
                     activeType={activeType}
                     activeFooter={showFooter}
-                    fullscreenSupported={this.isFullscreenSupported()}
+                    fullscreenSupported={isFullscreenSupported(item.id)}
                     loadItemFailed={this.state.loadItemFailed}
                 />
             ) : null
