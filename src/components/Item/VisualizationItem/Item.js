@@ -36,10 +36,10 @@ import {
 import { sGetSlideshow } from '../../../reducers/slideshow.js'
 import { sGetVisualization } from '../../../reducers/visualizations.js'
 import { SystemSettingsCtx } from '../../SystemSettingsProvider.js'
+import FatalErrorBoundary from '../FatalErrorBoundary.js'
+import { isFullscreenSupported } from '../fullscreenUtil.js'
 import { getAvailableDimensions } from '../getAvailableDimensions.js'
-import { getGridItemElement } from '../getGridItemElement.js'
 import ItemHeader from '../ItemHeader/ItemHeader.js'
-import FatalErrorBoundary from './FatalErrorBoundary.js'
 import ItemContextMenu from './ItemContextMenu/ItemContextMenu.js'
 import ItemFooter from './ItemFooter.js'
 import styles from './styles/Item.module.css'
@@ -98,11 +98,6 @@ class Item extends Component {
         }
     }
 
-    isFullscreenSupported = () => {
-        const el = getGridItemElement(this.props.item.id)
-        return !!(el?.requestFullscreen || el?.webkitRequestFullscreen)
-    }
-
     onClickNoFiltersOverlay = () =>
         this.setState({ showNoFiltersOverlay: false })
 
@@ -156,7 +151,7 @@ class Item extends Component {
                     enterFullscreen={() => setSlideshow(sortIndex)}
                     activeType={activeType}
                     activeFooter={showFooter}
-                    fullscreenSupported={this.isFullscreenSupported()}
+                    fullscreenSupported={isFullscreenSupported(item.id)}
                     loadItemFailed={this.state.loadItemFailed}
                 />
             ) : null

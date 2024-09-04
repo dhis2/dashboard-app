@@ -1,5 +1,6 @@
 import { isEditMode, isPrintMode } from '../../modules/dashboardModes.js'
 import { getItemHeightPx } from '../../modules/gridUtil.js'
+import { isElementFullscreen } from './fullscreenUtil.js'
 import { getGridItemElement } from './getGridItemElement.js'
 import memoizeOne from './memoizeOne.js'
 
