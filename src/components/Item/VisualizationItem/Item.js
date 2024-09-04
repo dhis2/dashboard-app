@@ -4,11 +4,12 @@ import {
     DIMENSION_ID_ORGUNIT,
 } from '@dhis2/analytics'
 import i18n from '@dhis2/d2-i18n'
-import { Tag, Tooltip } from '@dhis2/ui'
+import { Button, Tag, Tooltip } from '@dhis2/ui'
 import PropTypes from 'prop-types'
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { acSetItemActiveType } from '../../../actions/itemActiveTypes.js'
+import { acSetPresentDashboard } from '../../../actions/presentDashboard.js'
 import { acAddVisualization } from '../../../actions/visualizations.js'
 import { apiPostDataStatistics } from '../../../api/dataStatistics.js'
 import { apiFetchVisualization } from '../../../api/fetchVisualization.js'
@@ -35,6 +36,7 @@ import {
     sGetItemFiltersRoot,
     DEFAULT_STATE_ITEM_FILTERS,
 } from '../../../reducers/itemFilters.js'
+import { sGetPresentDashboard } from '../../../reducers/presentDashboard.js'
 import { sGetVisualization } from '../../../reducers/visualizations.js'
 import { SystemSettingsCtx } from '../../SystemSettingsProvider.js'
 import { WindowDimensionsCtx } from '../../WindowDimensionsProvider.js'
@@ -131,22 +133,7 @@ class Item extends Component {
 
     onClickNoFiltersOverlay = () =>
         this.setState({ showNoFiltersOverlay: false })
-
-    onToggleFullscreen = () => {
-        if (!isElementFullscreen(this.props.item.id)) {
-            const el = getGridItemElement(this.props.item.id)
-            if (el?.requestFullscreen) {
-                el.requestFullscreen()
-            } else if (el?.webkitRequestFullscreen) {
-                el.webkitRequestFullscreen()
-            }
-        } else {
-            document.exitFullscreen
-                ? document.exitFullscreen()
-                : document.webkitExitFullscreen()
-        }
-    }
-
+    ß
     onToggleFooter = () => {
         this.setState(
             { showFooter: !this.state.showFooter },
@@ -203,7 +190,16 @@ class Item extends Component {
     }
 
     render() {
-        const { item, dashboardMode, itemFilters, isFS } = this.props
+        const {
+            item,
+            dashboardMode,
+            itemFilters,
+            isFS,
+            setPresent,
+            sortPosition,
+            numSortItems,
+            exitFullscreen,
+        } = this.props
         const { showFooter, showNoFiltersOverlay } = this.state
         const originalType = getItemTypeForVis(item)
         const activeType = this.getActiveType()
@@ -216,11 +212,13 @@ class Item extends Component {
                     visualization={this.props.visualization}
                     onSelectActiveType={this.setActiveType}
                     onToggleFooter={this.onToggleFooter}
-                    onToggleFullscreen={this.onToggleFullscreen}
+                    enterFullscreen={() => setPresent(sortPosition - 1)}
+                    exitFullscreen={exitFullscreen}
                     activeType={activeType}
                     activeFooter={showFooter}
                     fullscreenSupported={this.isFullscreenSupported()}
                     loadItemFailed={this.state.loadItemFailed}
+                    isFS={isFS}
                 />
             ) : null
 
@@ -319,6 +317,17 @@ class Item extends Component {
                         )}
                     </div>
                 </FatalErrorBoundary>
+                {isFS && (
+                    <>
+                        <Button onClick={this.props.prevItem}>
+                            {i18n.t('Previous')}
+                        </Button>
+                        <span>{`${sortPosition}/${numSortItems}`}</span>
+                        <Button onClick={this.props.nextItem}>
+                            {i18n.t('Next')}
+                        </Button>
+                    </>
+                )}
                 {isViewMode(dashboardMode) && showFooter ? (
                     <ItemFooter item={item} />
                 ) : null}
@@ -332,15 +341,21 @@ Item.propTypes = {
     apps: PropTypes.array,
     dashboardMode: PropTypes.string,
     engine: PropTypes.object,
+    exitFullscreen: PropTypes.func,
     gridWidth: PropTypes.number,
     isEditing: PropTypes.bool,
     isFS: PropTypes.bool,
     isRecording: PropTypes.bool,
     item: PropTypes.object,
     itemFilters: PropTypes.object,
+    nextItem: PropTypes.func,
+    numSortItems: PropTypes.number,
+    prevItem: PropTypes.func,
     setActiveType: PropTypes.func,
+    setPresent: PropTypes.func,
     setVisualization: PropTypes.func,
     settings: PropTypes.object,
+    sortPosition: PropTypes.number,
     visualization: PropTypes.object,
     onToggleItemExpanded: PropTypes.func,
 }
@@ -364,12 +379,14 @@ const mapStateToProps = (state, ownProps) => {
             state,
             getVisualizationId(ownProps.item)
         ),
+        presentDashboard: sGetPresentDashboard(state),
     }
 }
 
 const mapDispatchToProps = {
     setActiveType: acSetItemActiveType,
     setVisualization: acAddVisualization,
+    setPresent: acSetPresentDashboard,
 }
 
 const ItemWithSettings = (props) => (

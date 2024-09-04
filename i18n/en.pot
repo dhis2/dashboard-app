@@ -5,8 +5,8 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1)\n"
-"POT-Creation-Date: 2024-09-03T11:14:05.234Z\n"
-"PO-Revision-Date: 2024-09-03T11:14:05.235Z\n"
+"POT-Creation-Date: 2024-09-04T09:41:55.706Z\n"
+"PO-Revision-Date: 2024-09-04T09:41:55.707Z\n"
 
 msgid "Untitled dashboard"
 msgstr "Untitled dashboard"
@@ -79,6 +79,12 @@ msgstr "Some filters not applied"
 
 msgid "There was a problem loading this dashboard item"
 msgstr "There was a problem loading this dashboard item"
+
+msgid "Previous"
+msgstr "Previous"
+
+msgid "Next"
+msgstr "Next"
 
 msgid "Hide details and interpretations"
 msgstr "Hide details and interpretations"
@@ -529,8 +535,8 @@ msgstr "Edit"
 msgid "Share"
 msgstr "Share"
 
-msgid "Present"
-msgstr "Present"
+msgid "Slideshow"
+msgstr "Slideshow"
 
 msgid "Clear dashboard filters?"
 msgstr "Clear dashboard filters?"

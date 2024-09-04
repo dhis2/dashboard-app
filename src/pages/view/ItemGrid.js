@@ -1,7 +1,7 @@
 import i18n from '@dhis2/d2-i18n'
 import cx from 'classnames'
 import sortBy from 'lodash/sortBy.js'
-import React, { useState, useEffect, useRef } from 'react'
+import React, { useState, useEffect, useRef, useCallback } from 'react'
 import { Responsive as ResponsiveReactGridLayout } from 'react-grid-layout'
 import { useDispatch, useSelector } from 'react-redux'
 import { acSetPresentDashboard } from '../../actions/presentDashboard.js'
@@ -41,7 +41,6 @@ const ResponsiveItemGrid = () => {
     const dispatch = useDispatch()
     const dashboardId = useSelector(sGetSelectedId)
     const dashboardItems = useSelector(sGetSelectedDashboardItems)
-    const isPresentMode = useSelector(sGetPresentDashboard)
 
     const { width } = useWindowDimensions()
     const [expandedItems, setExpandedItems] = useState({})
@@ -53,8 +52,9 @@ const ResponsiveItemGrid = () => {
     const firstOfTypes = getFirstOfTypes(dashboardItems)
 
     // for slideshow
-    const [fsItemIndex, setFsItemIndex] = useState(null)
     const sItems = useRef([])
+    const fsItemStartingIndex = useSelector(sGetPresentDashboard)
+    const [fsItemIndex, setFsItemIndex] = useState(null)
 
     useEffect(() => {
         const getItemsWithAdjustedHeight = (items) =>
@@ -87,46 +87,63 @@ const ResponsiveItemGrid = () => {
 
     useEffect(() => {
         const sortedItems = sortBy(displayItems, ['y', 'x'])
+        // TODO - remove the spacer and message items
         sItems.current = sortedItems
     }, [displayItems])
 
+    // Handle Present button or Item Fullscreen button clicked
     useEffect(() => {
-        if (isPresentMode && document.fullscreenElement === null) {
-            setFsItemIndex(0)
-            const el = getGridItemElement(sItems.current[0].id)
-            el.requestFullscreen()
+        if (Number.isInteger(fsItemStartingIndex)) {
+            setFsItemIndex(fsItemStartingIndex)
+        } else {
+            setFsItemIndex(null)
         }
-    }, [isPresentMode])
+    }, [fsItemStartingIndex])
 
+    // Starts or ends fullscreen mode
+    useEffect(() => {
+        if (Number.isInteger(fsItemIndex) && sItems.current[fsItemIndex]) {
+            const el = getGridItemElement(sItems.current[fsItemIndex].id)
+            setFsItemIndex(fsItemIndex)
+            el.requestFullscreen()
+        } else {
+            if (document.fullscreenElement) {
+                document.exitFullscreen()
+            }
+        }
+    }, [fsItemIndex, dispatch])
+
+    const nextItem = useCallback(() => {
+        if (fsItemIndex === sItems.current.length - 1) {
+            setFsItemIndex(0)
+        } else {
+            setFsItemIndex(fsItemIndex + 1)
+        }
+    }, [fsItemIndex])
+
+    const prevItem = useCallback(() => {
+        if (fsItemIndex === 0) {
+            setFsItemIndex(sItems.current.length - 1)
+        } else {
+            setFsItemIndex(fsItemIndex - 1)
+        }
+    }, [fsItemIndex])
+
+    // This effect handles the keyboard navigation for the fullscreen mode
     useEffect(() => {
         const handleKeyDown = (event) => {
             if (document.fullscreenElement) {
-                let nextElementIndex
-
-                if (event.key === 'ArrowRight' || event.key === 'ArrowDown') {
-                    nextElementIndex = fsItemIndex + 1
-                } else if (
-                    event.key === 'ArrowLeft' ||
-                    event.key === 'ArrowUp'
-                ) {
-                    if (fsItemIndex === null || fsItemIndex === 0) {
-                        nextElementIndex = sItems.current.length - 1
-                    } else {
-                        nextElementIndex = fsItemIndex - 1
-                    }
+                if (event.key === 'ArrowRight') {
+                    nextItem()
+                } else if (event.key === 'ArrowLeft') {
+                    prevItem()
                 }
-                const el = getGridItemElement(
-                    sItems.current[nextElementIndex].id
-                )
-                setFsItemIndex(nextElementIndex)
-                el.requestFullscreen()
             }
         }
 
         const handleFullscreenChange = () => {
             if (!document.fullscreenElement) {
-                dispatch(acSetPresentDashboard(false))
-                setFsItemIndex(null)
+                dispatch(acSetPresentDashboard(null))
             }
         }
 
@@ -142,7 +159,7 @@ const ResponsiveItemGrid = () => {
                 handleFullscreenChange
             )
         }
-    }, [fsItemIndex, dispatch])
+    }, [dispatch, nextItem, prevItem])
 
     const onToggleItemExpanded = (clickedId) => {
         const isExpanded =
@@ -164,6 +181,10 @@ const ResponsiveItemGrid = () => {
             item.firstOfType = true
         }
 
+        // item.sortPosition =
+        //     sItems.current.findIndex((i) => i.id === item.id) + 1
+        // item.numSortItems = sItems.current.length
+
         return (
             <ProgressiveLoadingContainer
                 key={item.i}
@@ -184,9 +205,16 @@ const ResponsiveItemGrid = () => {
                     isFS={
                         !!(
                             Number.isInteger(fsItemIndex) &&
-                            sItems.current[fsItemIndex].id === item.id
+                            sItems.current[fsItemIndex]?.id === item.id
                         )
                     }
+                    sortPosition={
+                        sItems.current.findIndex((i) => i.id === item.id) + 1
+                    }
+                    numSortItems={sItems.current.length}
+                    nextItem={nextItem}
+                    prevItem={prevItem}
+                    exitFullscreen={() => dispatch(acSetPresentDashboard(null))}
                 />
             </ProgressiveLoadingContainer>
         )

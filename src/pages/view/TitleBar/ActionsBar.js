@@ -258,19 +258,19 @@ const ViewActions = ({
                             </Button>
                         </OfflineTooltip>
                     ) : null}
-                    <FilterSelector
-                        allowedFilters={allowedFilters}
-                        restrictFilters={restrictFilters}
-                    />
                     <OfflineTooltip>
                         <Button
                             disabled={offline}
                             className={classes.presentButton}
-                            onClick={() => setPresentDashboard(true)}
+                            onClick={() => setPresentDashboard(0)}
                         >
-                            {i18n.t('Present')}
+                            {i18n.t('Slideshow')}
                         </Button>
                     </OfflineTooltip>
+                    <FilterSelector
+                        allowedFilters={allowedFilters}
+                        restrictFilters={restrictFilters}
+                    />
                     {getMoreButton(classes.moreButton, false)}
                     {getMoreButton(classes.moreButtonSmall, true)}
                 </div>

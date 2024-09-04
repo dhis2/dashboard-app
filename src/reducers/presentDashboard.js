@@ -1,6 +1,6 @@
 export const SET_PRESENT_DASHBOARD = 'SET_PRESENT_DASHBOARD'
 
-export default (state = false, action) => {
+export default (state = null, action) => {
     switch (action.type) {
         case SET_PRESENT_DASHBOARD: {
             return action.value
