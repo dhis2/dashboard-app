@@ -3,7 +3,7 @@ import React from 'react'
 import { Provider } from 'react-redux'
 import configureMockStore from 'redux-mock-store'
 import WindowDimensionsProvider from '../../../WindowDimensionsProvider.js'
-import Item from '../../Item.js'
+import { Item } from '../../Item.js'
 
 jest.mock('@dhis2/analytics', () => ({
     useCachedDataQuery: () => ({
