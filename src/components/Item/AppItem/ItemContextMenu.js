@@ -10,7 +10,7 @@ import {
     IconMore24,
 } from '@dhis2/ui'
 import PropTypes from 'prop-types'
-import React, { useState, createRef } from 'react'
+import React, { useRef, useState } from 'react'
 import { isSmallScreen } from '../../../modules/smallScreen.js'
 import MenuItem from '../../MenuItemWithTooltip.js'
 import { useSystemSettings } from '../../SystemSettingsProvider.js'
@@ -25,6 +25,7 @@ export const ItemContextMenu = ({
     onToggleFullscreen,
     loadItemFailed,
 }) => {
+    const buttonRef = useRef()
     const [menuIsOpen, setMenuIsOpen] = useState(false)
     const { width } = useWindowDimensions()
 
@@ -39,19 +40,15 @@ export const ItemContextMenu = ({
         return null
     }
 
-    const toggleFullscreen = () => {
-        onToggleFullscreen()
-        closeMenu()
-    }
-
     const openMenu = () => {
         setMenuIsOpen(true)
     }
     const closeMenu = () => setMenuIsOpen(false)
 
-    console.log('AppItem', item)
-
-    const buttonRef = createRef()
+    const toggleFullscreen = () => {
+        onToggleFullscreen()
+        closeMenu()
+    }
 
     return isElementFullscreen(item.id) ? (
         <Button small secondary onClick={onToggleFullscreen}>

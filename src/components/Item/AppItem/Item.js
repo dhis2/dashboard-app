@@ -53,7 +53,11 @@ const AppItem = ({ dashboardMode, windowDimensions, item, apps }) => {
         () => ({
             dashboardItemId: item.id,
             dashboardItemFilters: itemFilters,
-            setDashboardItemDetails: setItemDetails,
+            // Edit mode does not have the hamburger menu.
+            // Don't assume the plugin checks for this function before calling it
+            setDashboardItemDetails: isViewMode(dashboardMode)
+                ? setItemDetails
+                : Function.prototype,
             cacheId: `${dashboardId}-${item.id}`,
             isParentCached: isCached,
         }),
@@ -79,11 +83,15 @@ const AppItem = ({ dashboardMode, windowDimensions, item, apps }) => {
                   })
                 : {}
 
+        // we need width and height in order for resizing to work properly with the platform's plugin components
+        if (!(style.width && style.height)) {
+            return null
+        }
+
         return appDetails?.appType === 'APP' ? (
             // modern plugins
             <Plugin
                 pluginSource={iframeSrc}
-                hasFixedDimensions={true}
                 width={style.width}
                 height={style.height}
                 {...pluginProps}
