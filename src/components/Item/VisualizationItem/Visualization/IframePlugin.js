@@ -21,6 +21,7 @@ import {
     sGetIframePluginStatus,
 } from '../../../../reducers/iframePluginStatus.js'
 import { useUserSettings } from '../../../UserSettingsProvider.js'
+import { isElementFullscreen } from '../isElementFullscreen.js'
 import MissingPluginMessage from './MissingPluginMessage.js'
 import { getPluginLaunchUrl } from './plugin.js'
 import classes from './styles/IframePlugin.module.css'
@@ -36,7 +37,7 @@ const IframePlugin = ({
     itemId,
     itemType,
     isFirstOfType,
-    isFS,
+    // isFS,
 }) => {
     const dispatch = useDispatch()
     const iframePluginStatus = useSelector(sGetIframePluginStatus)
@@ -233,6 +234,8 @@ const IframePlugin = ({
         )
     }
 
+    const isFS = isElementFullscreen(itemId)
+
     const width = isFS ? '100%' : style.width || '100%'
     const height = isFS ? '90vh' : style.height || '100%' // TODO - get the height right for FS
 
@@ -244,6 +247,8 @@ const IframePlugin = ({
                     src={iframeSrc}
                     // preserve dimensions if provided
                     style={{
+                        // width: style.width || '100%',
+                        // height: style.height || '100%',
                         width,
                         height,
                         border: 'none',
@@ -259,7 +264,7 @@ IframePlugin.propTypes = {
     dashboardId: PropTypes.string,
     dashboardMode: PropTypes.string,
     filterVersion: PropTypes.string,
-    isFS: PropTypes.bool,
+    // isFS: PropTypes.bool,
     isFirstOfType: PropTypes.bool,
     itemId: PropTypes.string,
     itemType: PropTypes.string,

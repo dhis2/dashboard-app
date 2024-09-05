@@ -194,7 +194,7 @@ class Item extends Component {
             item,
             dashboardMode,
             itemFilters,
-            isFS,
+            // isFS,
             setPresent,
             sortPosition,
             numSortItems,
@@ -218,7 +218,7 @@ class Item extends Component {
                     activeFooter={showFooter}
                     fullscreenSupported={this.isFullscreenSupported()}
                     loadItemFailed={this.state.loadItemFailed}
-                    isFS={isFS}
+                    // isFS={isFS}
                 />
             ) : null
 
@@ -293,7 +293,7 @@ class Item extends Component {
                                 {(dimensions) => (
                                     <Visualization
                                         item={item}
-                                        isFS={isFS}
+                                        // isFS={isFS}
                                         visualization={this.props.visualization}
                                         originalType={originalType}
                                         activeType={activeType}
@@ -317,7 +317,7 @@ class Item extends Component {
                         )}
                     </div>
                 </FatalErrorBoundary>
-                {isFS && (
+                {isElementFullscreen(item.id) && (
                     <>
                         <Button onClick={this.props.prevItem}>
                             {i18n.t('Previous')}
@@ -344,7 +344,7 @@ Item.propTypes = {
     exitFullscreen: PropTypes.func,
     gridWidth: PropTypes.number,
     isEditing: PropTypes.bool,
-    isFS: PropTypes.bool,
+    // isFS: PropTypes.bool,
     isRecording: PropTypes.bool,
     item: PropTypes.object,
     itemFilters: PropTypes.object,

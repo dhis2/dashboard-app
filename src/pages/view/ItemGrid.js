@@ -94,38 +94,56 @@ const ResponsiveItemGrid = () => {
     // Handle Present button or Item Fullscreen button clicked
     useEffect(() => {
         if (Number.isInteger(fsItemStartingIndex)) {
+            const el = getGridItemElement(
+                sItems.current[fsItemStartingIndex].id
+            )
+            console.log('jj set starting fs element', el)
+            el.requestFullscreen()
             setFsItemIndex(fsItemStartingIndex)
         } else {
-            setFsItemIndex(null)
+            console.log('jj document.exitFS here')
+            document.exitFullscreen().then(() => {
+                setFsItemIndex(null)
+            })
         }
     }, [fsItemStartingIndex])
 
-    // Starts or ends fullscreen mode
-    useEffect(() => {
-        if (Number.isInteger(fsItemIndex) && sItems.current[fsItemIndex]) {
-            const el = getGridItemElement(sItems.current[fsItemIndex].id)
-            setFsItemIndex(fsItemIndex)
-            el.requestFullscreen()
-        } else {
-            if (document.fullscreenElement) {
-                document.exitFullscreen()
-            }
+    const exitFullscreen = () => {
+        if (document.fullscreenElement) {
+            console.log('jj document.exitFullscreen')
+            document.exitFullscreen().then(() => {
+                dispatch(acSetPresentDashboard(null))
+            })
         }
-    }, [fsItemIndex, dispatch])
+    }
 
     const nextItem = useCallback(() => {
         if (fsItemIndex === sItems.current.length - 1) {
-            setFsItemIndex(0)
+            const el = getGridItemElement(sItems.current[0].id)
+            el.requestFullscreen().then(() => {
+                setFsItemIndex(0)
+            })
         } else {
-            setFsItemIndex(fsItemIndex + 1)
+            const el = getGridItemElement(sItems.current[fsItemIndex + 1].id)
+            el.requestFullscreen().then(() => {
+                setFsItemIndex(fsItemIndex + 1)
+            })
         }
     }, [fsItemIndex])
 
     const prevItem = useCallback(() => {
         if (fsItemIndex === 0) {
-            setFsItemIndex(sItems.current.length - 1)
+            const el = getGridItemElement(
+                sItems.current[sItems.current.length - 1].id
+            )
+            el.requestFullscreen().then(() => {
+                setFsItemIndex(sItems.current.length - 1)
+            })
         } else {
-            setFsItemIndex(fsItemIndex - 1)
+            const el = getGridItemElement(sItems.current[fsItemIndex - 1].id)
+            el.requestFullscreen().then(() => {
+                setFsItemIndex(fsItemIndex - 1)
+            })
         }
     }, [fsItemIndex])
 
@@ -142,7 +160,9 @@ const ResponsiveItemGrid = () => {
         }
 
         const handleFullscreenChange = () => {
+            console.log('jj handleFullscreenChange', document.fullscreenElement)
             if (!document.fullscreenElement) {
+                setFsItemIndex(null)
                 dispatch(acSetPresentDashboard(null))
             }
         }
@@ -181,10 +201,6 @@ const ResponsiveItemGrid = () => {
             item.firstOfType = true
         }
 
-        // item.sortPosition =
-        //     sItems.current.findIndex((i) => i.id === item.id) + 1
-        // item.numSortItems = sItems.current.length
-
         return (
             <ProgressiveLoadingContainer
                 key={item.i}
@@ -202,19 +218,19 @@ const ResponsiveItemGrid = () => {
                     dashboardMode={VIEW}
                     isRecording={forceLoad}
                     onToggleItemExpanded={onToggleItemExpanded}
-                    isFS={
-                        !!(
-                            Number.isInteger(fsItemIndex) &&
-                            sItems.current[fsItemIndex]?.id === item.id
-                        )
-                    }
+                    // isFS={
+                    //     !!(
+                    //         Number.isInteger(fsItemIndex) &&
+                    //         sItems.current[fsItemIndex]?.id === item.id
+                    //     )
+                    // }
                     sortPosition={
                         sItems.current.findIndex((i) => i.id === item.id) + 1
                     }
                     numSortItems={sItems.current.length}
                     nextItem={nextItem}
                     prevItem={prevItem}
-                    exitFullscreen={() => dispatch(acSetPresentDashboard(null))}
+                    exitFullscreen={exitFullscreen}
                 />
             </ProgressiveLoadingContainer>
         )
@@ -234,6 +250,7 @@ const ResponsiveItemGrid = () => {
         )
     }
 
+    console.log('jj render ItemGrid with fsItemIndex:', fsItemIndex)
     return (
         <ResponsiveReactGridLayout
             className={classes.grid}

@@ -31,6 +31,7 @@ import { isSmallScreen } from '../../../../modules/smallScreen.js'
 import MenuItem from '../../../MenuItemWithTooltip.js'
 import { useSystemSettings } from '../../../SystemSettingsProvider.js'
 import { useWindowDimensions } from '../../../WindowDimensionsProvider.js'
+import { isElementFullscreen } from '../isElementFullscreen.js'
 import ViewAsMenuItems from './ViewAsMenuItems.js'
 
 const ItemContextMenu = (props) => {
@@ -99,7 +100,7 @@ const ItemContextMenu = (props) => {
         getVisualizationId(item)
     )}`
 
-    return props.isFS ? (
+    return isElementFullscreen(item.id) ? (
         <Button small secondary onClick={props.exitFullscreen}>
             <span data-testid="exit-fullscreen-button">
                 <IconFullscreenExit16 color={colors.grey600} />
@@ -181,7 +182,7 @@ ItemContextMenu.propTypes = {
     enterFullscreen: PropTypes.func,
     exitFullscreen: PropTypes.func,
     fullscreenSupported: PropTypes.bool,
-    isFS: PropTypes.bool,
+    // isFS: PropTypes.bool,
     item: PropTypes.object,
     loadItemFailed: PropTypes.bool,
     visualization: PropTypes.object,
