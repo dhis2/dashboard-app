@@ -1,8 +1,7 @@
 .actions {
     display: flex;
     align-items: center;
-    gap: var(--spacers-dp8);
-    padding: 0 var(--spacers-dp8);
+    gap: 4px;
 }
 
 .strip {

@@ -23,12 +23,14 @@ const ViewTitleBar = ({
                 >
                     {displayName}
                 </span>
-                <ActionsBar />
+                <div className={classes.infoGroup}>
+                    {<LastUpdatedTag id={id} />}
+                    <ActionsBar />
+                </div>
             </div>
             {showDescription && (
                 <Description description={displayDescription} />
             )}
-            {<LastUpdatedTag id={id} />}
         </div>
     )
 }

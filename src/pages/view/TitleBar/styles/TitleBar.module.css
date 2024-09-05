@@ -1,8 +1,9 @@
 .container {
     /* margin-top: var(--spacers-dp12); */
     background: var(--colors-white);
-    border-bottom: 1px solid var(--colors-grey300);
-    padding: var(--spacers-dp12) var(--spacers-dp16) var(--spacers-dp8);
+    border-bottom: 1px solid var(--colors-grey400);
+    padding: var(--spacers-dp8) var(--spacers-dp8) var(--spacers-dp8)
+        var(--spacers-dp16);
     position: sticky;
     top: 0;
     z-index: 10;
@@ -17,8 +18,16 @@
 
 .title {
     position: relative;
-    font-size: 18px;
+    font-size: 17px;
     font-weight: 500;
     color: var(--colors-grey900);
     user-select: text;
+}
+
+.infoGroup {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 4px;
+    flex-wrap: wrap-reverse;
 }
