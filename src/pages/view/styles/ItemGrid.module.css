@@ -1,3 +1,68 @@
 .grid {
     margin-top: var(--spacers-dp16);
 }
+
+.fscreen>.grid {
+    margin-top: 0
+}
+
+#fullscreen-container {
+    position: relative
+}
+
+.fscreen {
+    cursor: pointer;
+}
+
+#fullscreen-container.fscreen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1000;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.fullscreenNav {
+    display: none;
+}
+
+.hideItem {
+    display: none;
+}
+
+.fscreenItem {
+    width: 100% !important;
+    height: 100vh !important;
+    transform: none !important;
+}
+
+.fullscreenNav.fscreen {
+    display: flex;
+    justify-content: center;
+    position: absolute;
+    bottom: 50px;
+    z-index: 1000;
+    width: 100%;
+}
+
+.buttons {
+    padding: var(--spacers-dp4);
+    background-color: var(--colors-grey800);
+    color: var(--colors-white);
+}
+
+.buttons button {
+    cursor: pointer;
+    color: var(--colors-white);
+}
+
+.fullscreenNav button {
+    border: none;
+    background-color: transparent;
+
+}

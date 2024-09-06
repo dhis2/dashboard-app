@@ -4,7 +4,7 @@ import {
     DIMENSION_ID_ORGUNIT,
 } from '@dhis2/analytics'
 import i18n from '@dhis2/d2-i18n'
-import { Button, Tag, Tooltip } from '@dhis2/ui'
+import { Tag, Tooltip } from '@dhis2/ui'
 import PropTypes from 'prop-types'
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
@@ -43,7 +43,6 @@ import { WindowDimensionsCtx } from '../../WindowDimensionsProvider.js'
 import ItemHeader from '../ItemHeader/ItemHeader.js'
 import FatalErrorBoundary from './FatalErrorBoundary.js'
 import { getGridItemElement } from './getGridItemElement.js'
-import { isElementFullscreen } from './isElementFullscreen.js'
 import ItemContextMenu from './ItemContextMenu/ItemContextMenu.js'
 import ItemFooter from './ItemFooter.js'
 import memoizeOne from './memoizeOne.js'
@@ -153,16 +152,7 @@ class Item extends Component {
         return this.props.activeType || getItemTypeForVis(this.props.item)
     }
 
-    getAvailableHeight = ({ width, height }) => {
-        if (isElementFullscreen(this.props.item.id)) {
-            return (
-                height -
-                this.headerRef.current.clientHeight -
-                this.itemHeaderTotalMargin -
-                this.itemContentPadding
-            )
-        }
-
+    getAvailableHeight = ({ width }) => {
         const calculatedHeight =
             getItemHeightPx(this.props.item, width) -
             this.headerRef.current.clientHeight -
@@ -194,10 +184,9 @@ class Item extends Component {
             item,
             dashboardMode,
             itemFilters,
-            // isFS,
+            isFS,
             setPresent,
             sortPosition,
-            numSortItems,
             exitFullscreen,
         } = this.props
         const { showFooter, showNoFiltersOverlay } = this.state
@@ -206,7 +195,8 @@ class Item extends Component {
 
         const actionButtons =
             pluginIsAvailable(activeType || item.type, this.props.apps) &&
-            isViewMode(dashboardMode) ? (
+            isViewMode(dashboardMode) &&
+            isFS !== true ? (
                 <ItemContextMenu
                     item={item}
                     visualization={this.props.visualization}
@@ -292,7 +282,7 @@ class Item extends Component {
                                 {(dimensions) => (
                                     <Visualization
                                         item={item}
-                                        // isFS={isFS}
+                                        isFS={isFS}
                                         visualization={this.props.visualization}
                                         originalType={originalType}
                                         activeType={activeType}
@@ -332,13 +322,10 @@ Item.propTypes = {
     exitFullscreen: PropTypes.func,
     gridWidth: PropTypes.number,
     isEditing: PropTypes.bool,
-    // isFS: PropTypes.bool,
+    isFS: PropTypes.bool,
     isRecording: PropTypes.bool,
     item: PropTypes.object,
     itemFilters: PropTypes.object,
-    nextItem: PropTypes.func,
-    numSortItems: PropTypes.number,
-    prevItem: PropTypes.func,
     setActiveType: PropTypes.func,
     setPresent: PropTypes.func,
     setVisualization: PropTypes.func,

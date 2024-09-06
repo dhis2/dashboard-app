@@ -1,4 +1,5 @@
 import i18n from '@dhis2/d2-i18n'
+import { IconChevronRight16, IconChevronLeft16, colors } from '@dhis2/ui'
 import cx from 'classnames'
 import sortBy from 'lodash/sortBy.js'
 import React, { useState, useEffect, useRef, useCallback } from 'react'
@@ -6,7 +7,6 @@ import { Responsive as ResponsiveReactGridLayout } from 'react-grid-layout'
 import { useDispatch, useSelector } from 'react-redux'
 import { acSetPresentDashboard } from '../../actions/presentDashboard.js'
 import { Item } from '../../components/Item/Item.js'
-import { getGridItemElement } from '../../components/Item/VisualizationItem/getGridItemElement.js'
 import NoContentMessage from '../../components/NoContentMessage.js'
 import ProgressiveLoadingContainer from '../../components/ProgressiveLoadingContainer.js'
 import { useWindowDimensions } from '../../components/WindowDimensionsProvider.js'
@@ -95,15 +95,10 @@ const ResponsiveItemGrid = () => {
     // Handle Present button or Item Fullscreen button clicked
     useEffect(() => {
         if (Number.isInteger(fsItemStartingIndex)) {
-            // const el = getGridItemElement(
-            //     sItems.current[fsItemStartingIndex].id
-            // )
             const el = fsElement?.current
-            console.log('jj set starting fs element', el)
             el?.requestFullscreen()
             setFsItemIndex(fsItemStartingIndex)
         } else {
-            console.log('jj document.exitFS here')
             document.exitFullscreen().then(() => {
                 setFsItemIndex(null)
             })
@@ -112,7 +107,6 @@ const ResponsiveItemGrid = () => {
 
     const exitFullscreen = () => {
         if (document.fullscreenElement) {
-            console.log('jj document.exitFullscreen')
             document.exitFullscreen().then(() => {
                 dispatch(acSetPresentDashboard(null))
             })
@@ -120,34 +114,18 @@ const ResponsiveItemGrid = () => {
     }
 
     const nextItem = useCallback(() => {
-        // const el = fsElement.current
         if (fsItemIndex === sItems.current.length - 1) {
-            // const el = getGridItemElement(sItems.current[0].id)
-            // el?.requestFullscreen().then(() => {
             setFsItemIndex(0)
-            // })
         } else {
-            // const el = getGridItemElement(sItems.current[fsItemIndex + 1].id)
-            // el?.requestFullscreen().then(() => {
             setFsItemIndex(fsItemIndex + 1)
-            // })
         }
     }, [fsItemIndex])
 
     const prevItem = useCallback(() => {
-        // const el = fsElement.current
         if (fsItemIndex === 0) {
-            // const el = getGridItemElement(
-            //     sItems.current[sItems.current.length - 1].id
-            // )
-            // el?.requestFullscreen().then(() => {
             setFsItemIndex(sItems.current.length - 1)
-            // })
         } else {
-            // const el = getGridItemElement(sItems.current[fsItemIndex - 1].id)
-            // el.requestFullscreen().then(() => {
             setFsItemIndex(fsItemIndex - 1)
-            // })
         }
     }, [fsItemIndex])
 
@@ -164,7 +142,6 @@ const ResponsiveItemGrid = () => {
         }
 
         const handleFullscreenChange = () => {
-            console.log('jj handleFullscreenChange', document.fullscreenElement)
             if (!document.fullscreenElement) {
                 setFsItemIndex(null)
                 dispatch(acSetPresentDashboard(null))
@@ -205,13 +182,21 @@ const ResponsiveItemGrid = () => {
             item.firstOfType = true
         }
 
+        const isFS = Number.isInteger(fsItemIndex)
+            ? sItems.current[fsItemIndex].id === item.id
+            : null
+
         return (
             <ProgressiveLoadingContainer
                 key={item.i}
                 className={cx(
                     item.type,
                     'view',
-                    getGridItemDomElementClassName(item.id)
+                    getGridItemDomElementClassName(item.id),
+                    {
+                        [classes.hideItem]: isFS === false,
+                        [classes.fscreenItem]: isFS,
+                    }
                 )}
                 itemId={item.id}
                 forceLoad={forceLoad}
@@ -222,16 +207,10 @@ const ResponsiveItemGrid = () => {
                     dashboardMode={VIEW}
                     isRecording={forceLoad}
                     onToggleItemExpanded={onToggleItemExpanded}
-                    // isFS={
-                    //     !!(
-                    //         Number.isInteger(fsItemIndex) &&
-                    //         sItems.current[fsItemIndex]?.id === item.id
-                    //     )
-                    // }
+                    isFS={isFS}
                     sortPosition={
                         sItems.current.findIndex((i) => i.id === item.id) + 1
                     }
-                    numSortItems={sItems.current.length}
                     nextItem={nextItem}
                     prevItem={prevItem}
                     exitFullscreen={exitFullscreen}
@@ -254,51 +233,55 @@ const ResponsiveItemGrid = () => {
         )
     }
 
-    console.log('jj render ItemGrid with fsItemIndex:', fsItemIndex)
-
     return (
         <div
             id="fullscreeen-container"
-            className={classes.fullscreenWrapper}
+            className={cx(classes.fullscreenWrapper, {
+                [classes.fscreen]: Number.isInteger(fsItemIndex),
+            })}
             ref={fsElement}
         >
-            {Number.isInteger(fsItemIndex) ? (
-                <>
-                    <span>Fullscreen container</span>
-                    <div className={classes.fullscreenContainer}>
-                        {getItemComponent(sItems.current[fsItemIndex])}
-                    </div>
-                    <div className={classes.fullscreenNav}>
-                        <button onClick={prevItem}>Prev</button>
-                        <button onClick={nextItem}>Next</button>
-                        <button onClick={exitFullscreen}>Exit</button>
-                    </div>
-                </>
-            ) : (
-                <ResponsiveReactGridLayout
-                    className={classes.grid}
-                    rowHeight={GRID_ROW_HEIGHT_PX}
-                    width={getGridWidth(width)}
-                    cols={{ lg: GRID_COLUMNS, sm: SM_SCREEN_GRID_COLUMNS }}
-                    breakpoints={{
-                        lg: getBreakpoint(),
-                        sm: 0,
-                    }}
-                    layouts={{ lg: displayItems, sm: layoutSm }}
-                    compactType={GRID_COMPACT_TYPE}
-                    margin={isSmallScreen(width) ? MARGIN_SM_PX : MARGIN_PX}
-                    containerPadding={{
-                        lg: GRID_PADDING_PX,
-                        sm: GRID_PADDING_PX,
-                    }}
-                    isDraggable={false}
-                    isResizable={false}
-                    draggableCancel="input,textarea"
-                    onWidthChange={onWidthChanged}
-                >
-                    {getItemComponents(displayItems)}
-                </ResponsiveReactGridLayout>
-            )}
+            <ResponsiveReactGridLayout
+                className={classes.grid}
+                rowHeight={GRID_ROW_HEIGHT_PX}
+                width={getGridWidth(width)}
+                cols={{ lg: GRID_COLUMNS, sm: SM_SCREEN_GRID_COLUMNS }}
+                breakpoints={{
+                    lg: getBreakpoint(),
+                    sm: 0,
+                }}
+                layouts={{ lg: displayItems, sm: layoutSm }}
+                compactType={GRID_COMPACT_TYPE}
+                margin={isSmallScreen(width) ? MARGIN_SM_PX : MARGIN_PX}
+                containerPadding={{
+                    lg: GRID_PADDING_PX,
+                    sm: GRID_PADDING_PX,
+                }}
+                isDraggable={false}
+                isResizable={false}
+                draggableCancel="input,textarea"
+                onWidthChange={onWidthChanged}
+            >
+                {getItemComponents(displayItems)}
+            </ResponsiveReactGridLayout>
+            <span
+                className={cx(classes.fullscreenNav, {
+                    [classes.fscreen]: Number.isInteger(fsItemIndex),
+                })}
+            >
+                <div className={classes.buttons}>
+                    <button onClick={prevItem}>
+                        <IconChevronLeft16 color={colors.white} />
+                    </button>
+                    <span>{` ${fsItemIndex + 1} / ${
+                        sItems.current.length
+                    } `}</span>
+                    <button onClick={nextItem}>
+                        <IconChevronRight16 color={colors.white} />
+                    </button>
+                    <button onClick={exitFullscreen}>Exit</button>
+                </div>
+            </span>
         </div>
     )
 }
