@@ -211,9 +211,6 @@ const ResponsiveItemGrid = () => {
                     sortPosition={
                         sItems.current.findIndex((i) => i.id === item.id) + 1
                     }
-                    nextItem={nextItem}
-                    prevItem={prevItem}
-                    exitFullscreen={exitFullscreen}
                 />
             </ProgressiveLoadingContainer>
         )

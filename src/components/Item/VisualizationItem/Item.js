@@ -187,7 +187,6 @@ class Item extends Component {
             isFS,
             setPresent,
             sortPosition,
-            exitFullscreen,
         } = this.props
         const { showFooter, showNoFiltersOverlay } = this.state
         const originalType = getItemTypeForVis(item)
@@ -203,7 +202,6 @@ class Item extends Component {
                     onSelectActiveType={this.setActiveType}
                     onToggleFooter={this.onToggleFooter}
                     enterFullscreen={() => setPresent(sortPosition - 1)}
-                    exitFullscreen={exitFullscreen}
                     activeType={activeType}
                     activeFooter={showFooter}
                     fullscreenSupported={this.isFullscreenSupported()}
@@ -319,7 +317,6 @@ Item.propTypes = {
     apps: PropTypes.array,
     dashboardMode: PropTypes.string,
     engine: PropTypes.object,
-    exitFullscreen: PropTypes.func,
     gridWidth: PropTypes.number,
     isEditing: PropTypes.bool,
     isFS: PropTypes.bool,
