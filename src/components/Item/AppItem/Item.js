@@ -10,6 +10,7 @@ import {
     isEditMode,
     isViewMode,
 } from '../../../modules/dashboardModes.js'
+import { APP } from '../../../modules/itemTypes.js'
 import { useCacheableSection } from '../../../modules/useCacheableSection.js'
 import {
     sGetItemFiltersRoot,
@@ -63,7 +64,7 @@ const AppItem = ({ dashboardMode, windowDimensions, item, apps, sortIndex, isFul
             cacheId: `${dashboardId}-${item.id}`,
             isParentCached: isCached,
         }),
-        [dashboardId, item.id, isCached, itemFilters]
+        [dashboardId, dashboardMode, item.id, isCached, itemFilters]
     )
 
     // See DHIS2-9605
@@ -91,7 +92,7 @@ const AppItem = ({ dashboardMode, windowDimensions, item, apps, sortIndex, isFul
             return null
         }
 
-        return appDetails?.appType === 'APP' ? (
+        return appDetails?.appType === APP ? (
             // modern plugins
             <Plugin
                 pluginSource={iframeSrc}
