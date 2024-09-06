@@ -23,11 +23,3 @@
     color: var(--colors-grey900);
     user-select: text;
 }
-
-.infoGroup {
-    display: flex;
-    align-items: center;
-    justify-content: flex-end;
-    gap: 4px;
-    flex-wrap: wrap-reverse;
-}

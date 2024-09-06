@@ -5,15 +5,9 @@ import { sGetSelected } from '../../../reducers/selected.js'
 import { sGetShowDescription } from '../../../reducers/showDescription.js'
 import ActionsBar from './ActionsBar.js'
 import Description from './Description.js'
-import LastUpdatedTag from './LastUpdatedTag.js'
 import classes from './styles/TitleBar.module.css'
 
-const ViewTitleBar = ({
-    id,
-    displayName,
-    displayDescription,
-    showDescription,
-}) => {
+const ViewTitleBar = ({ displayName, displayDescription, showDescription }) => {
     return (
         <div className={classes.container}>
             <div className={classes.titleBar} data-test="title-bar">
@@ -23,10 +17,7 @@ const ViewTitleBar = ({
                 >
                     {displayName}
                 </span>
-                <div className={classes.infoGroup}>
-                    {<LastUpdatedTag id={id} />}
-                    <ActionsBar />
-                </div>
+                <ActionsBar />
             </div>
             {showDescription && (
                 <Description description={displayDescription} />
@@ -38,7 +29,6 @@ const ViewTitleBar = ({
 ViewTitleBar.propTypes = {
     displayDescription: PropTypes.string,
     displayName: PropTypes.string,
-    id: PropTypes.string,
     showDescription: PropTypes.bool,
 }
 

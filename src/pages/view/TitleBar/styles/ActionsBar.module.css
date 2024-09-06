@@ -1,13 +1,17 @@
 .actions {
     display: flex;
     align-items: center;
+    justify-content: flex-end;
+    flex-wrap: wrap-reverse;
     gap: 4px;
 }
 
 .strip {
     display: flex;
     align-items: center;
+    justify-content: flex-end;
     gap: var(--spacers-dp4);
+    flex-wrap: wrap;
 }
 
 .strip .moreButtonSmall {

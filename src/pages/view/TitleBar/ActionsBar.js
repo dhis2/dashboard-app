@@ -9,7 +9,7 @@ import {
     Button,
     FlyoutMenu,
     colors,
-    IconMore24,
+    IconMore16,
     SharingDialog,
 } from '@dhis2/ui'
 import PropTypes from 'prop-types'
@@ -33,6 +33,7 @@ import { ROUTE_START_PATH } from '../../start/index.js'
 import FilterBar from '../FilterBar/FilterBar.js'
 import { apiStarDashboard } from './apiStarDashboard.js'
 import FilterSelector from './FilterSelector.js'
+import LastUpdatedTag from './LastUpdatedTag.js'
 import StarDashboardButton from './StarDashboardButton.js'
 import classes from './styles/ActionsBar.module.css'
 
@@ -221,7 +222,7 @@ const ViewActions = ({
             open={useSmall ? moreOptionsSmallIsOpen : moreOptionsIsOpen}
             disabledWhenOffline={false}
             onClick={() => toggleMoreOptions(useSmall)}
-            icon={<IconMore24 color={colors.grey700} />}
+            icon={<IconMore16 color={colors.grey700} />}
             component={getMoreMenu()}
         >
             {i18n.t('More')}
@@ -232,11 +233,13 @@ const ViewActions = ({
         <>
             <div className={classes.actions}>
                 <FilterBar />
-                <StarDashboardButton
-                    starred={starred}
-                    onClick={onToggleStarredDashboard}
-                />
+
                 <div className={classes.strip}>
+                    {<LastUpdatedTag id={id} />}
+                    <StarDashboardButton
+                        starred={starred}
+                        onClick={onToggleStarredDashboard}
+                    />
                     {userAccess.update ? (
                         <OfflineTooltip>
                             <Button

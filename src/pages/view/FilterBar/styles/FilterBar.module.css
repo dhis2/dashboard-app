@@ -1,6 +1,6 @@
 .bar {
     display: flex;
-    justify-content: center;
+    justify-content: flex-end;
     flex-wrap: wrap;
     gap: var(--spacers-dp4);
 }
