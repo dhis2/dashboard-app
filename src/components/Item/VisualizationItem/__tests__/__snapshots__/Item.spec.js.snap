@@ -1,5 +1,67 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Visualization/Item renders edit mode 1`] = `<div />`;
+exports[`Visualization/Item renders edit mode 1`] = `
+<div>
+  <div
+    class="itemHeaderWrap"
+  >
+    <p
+      class="itemTitle"
+    >
+      Fancy Chart
+    </p>
+    <div
+      class="itemHeaderRightWrap"
+    >
+      <div
+        class="itemActionsWrap"
+      >
+        <div
+          class="DeleteItemButton"
+        />
+      </div>
+    </div>
+  </div>
+  <div
+    class="dashboard-item-content"
+  >
+    <div
+      activetype="CHART"
+      class="visualization"
+      item="[object Object]"
+      itemfilters="[object Object]"
+    />
+  </div>
+</div>
+`;
 
-exports[`Visualization/Item renders view mode 1`] = `<div />`;
+exports[`Visualization/Item renders view mode 1`] = `
+<div>
+  <div
+    class="itemHeaderWrap"
+  >
+    <p
+      class="itemTitle"
+    >
+      Fancy Chart
+    </p>
+    <div
+      class="itemHeaderRightWrap"
+    >
+      <div
+        class="itemActionsWrap"
+      />
+    </div>
+  </div>
+  <div
+    class="dashboard-item-content"
+  >
+    <div
+      activetype="CHART"
+      class="visualization"
+      item="[object Object]"
+      itemfilters="[object Object]"
+    />
+  </div>
+</div>
+`;

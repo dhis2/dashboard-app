@@ -2,6 +2,8 @@ import { render } from '@testing-library/react'
 import React from 'react'
 import { Provider } from 'react-redux'
 import configureMockStore from 'redux-mock-store'
+import { APP } from '../../../../modules/itemTypes.js'
+import SystemSettingsProvider from '../../../SystemSettingsProvider.js'
 import WindowDimensionsProvider from '../../../WindowDimensionsProvider.js'
 import { Item } from '../../Item.js'
 
@@ -11,19 +13,25 @@ jest.mock('@dhis2/analytics', () => ({
             {
                 key: 'scorecard',
                 name: 'Scorecard',
+                appType: 'DASHBOARD_WIDGET',
                 launchUrl: 'launchurl',
-                pluginLaunchUrl: 'pluginLaunchUrl',
             },
             {
                 key: 'noTitle',
                 name: 'No Title',
                 launchUrl: 'launchurl',
-                pluginLaunchUrl: 'pluginLaunchUrl',
+                appType: 'DASHBOARD_WIDGET',
                 settings: {
                     dashboardWidget: {
                         hideTitle: true,
                     },
                 },
+            },
+            {
+                key: 'new-dashboard-plugin',
+                name: 'New dashboard plugin',
+                appType: 'APP',
+                pluginLaunchUrl: 'pluginLaunchUrl',
             },
         ],
         currentUser: {
@@ -34,6 +42,12 @@ jest.mock('@dhis2/analytics', () => ({
     getDimensionById: jest.fn(),
 }))
 
+jest.mock('@dhis2/app-runtime', () => ({
+    ...jest.requireActual('@dhis2/app-runtime'),
+    useCacheableSection: jest.fn,
+}))
+
+jest.mock('../../../SystemSettingsProvider')
 jest.mock(
     '../../ItemHeader/DeleteItemButton.js',
     () =>
@@ -45,26 +59,39 @@ jest.mock(
 const mockStore = configureMockStore()
 
 const item = {
-    appKey: 'scorecard',
+    type: APP,
+    appKey: 'new-dashboard-plugin',
     id: 'rainbowdash',
     shortened: false,
 }
 
 const itemWithoutTitle = {
+    type: APP,
     appKey: 'noTitle',
     id: 'twilightsparkle',
+    shortened: false,
+}
+
+const itemLegacyWidget = {
+    type: APP,
+    appKey: 'scorecard',
+    id: 'applejack',
     shortened: false,
 }
 
 test('renders a valid App item in view mode', () => {
     const store = {
         itemFilters: {},
+        editDashboard: {},
+        selected: { id: 'some-dashboard' },
     }
     const { container } = render(
         <Provider store={mockStore(store)}>
-            <WindowDimensionsProvider>
-                <Item item={item} dashboardMode={'view'} />
-            </WindowDimensionsProvider>
+            <SystemSettingsProvider>
+                <WindowDimensionsProvider>
+                    <Item item={item} dashboardMode={'view'} />
+                </WindowDimensionsProvider>
+            </SystemSettingsProvider>
         </Provider>
     )
     expect(container).toMatchSnapshot()
@@ -75,13 +102,16 @@ test('renders a valid App item with filter in view mode', () => {
         itemFilters: {
             ou: [{ path: '/rainbow' }],
         },
+        selected: { id: 'some-dashboard' },
     }
 
     const { container } = render(
         <Provider store={mockStore(store)}>
-            <WindowDimensionsProvider>
-                <Item item={item} dashboardMode={'view'} />
-            </WindowDimensionsProvider>
+            <SystemSettingsProvider>
+                <WindowDimensionsProvider>
+                    <Item item={item} dashboardMode={'view'} />
+                </WindowDimensionsProvider>
+            </SystemSettingsProvider>
         </Provider>
     )
     expect(container).toMatchSnapshot()
@@ -91,14 +121,20 @@ test('renders a valid App item with filter in edit mode', () => {
     const store = {
         itemFilters: {
             ou: [{ path: '/rainbow' }],
+            editDashboard: {
+                id: item.id,
+            },
         },
+        selected: { id: 'some-dashboard' },
     }
 
     const { container } = render(
         <Provider store={mockStore(store)}>
-            <WindowDimensionsProvider>
-                <Item item={item} dashboardMode={'edit'} />
-            </WindowDimensionsProvider>
+            <SystemSettingsProvider>
+                <WindowDimensionsProvider>
+                    <Item item={item} dashboardMode={'edit'} />
+                </WindowDimensionsProvider>
+            </SystemSettingsProvider>
         </Provider>
     )
     expect(container).toMatchSnapshot()
@@ -107,13 +143,16 @@ test('renders a valid App item with filter in edit mode', () => {
 test('renders a valid App item without title in view mode if specified in app settings', () => {
     const store = {
         itemFilters: {},
+        selected: { id: 'some-dashboard' },
     }
 
     const { container } = render(
         <Provider store={mockStore(store)}>
-            <WindowDimensionsProvider>
-                <Item item={itemWithoutTitle} dashboardMode={'view'} />
-            </WindowDimensionsProvider>
+            <SystemSettingsProvider>
+                <WindowDimensionsProvider>
+                    <Item item={itemWithoutTitle} dashboardMode={'view'} />
+                </WindowDimensionsProvider>
+            </SystemSettingsProvider>
         </Provider>
     )
     expect(container).toMatchSnapshot()
@@ -122,13 +161,37 @@ test('renders a valid App item without title in view mode if specified in app se
 test('renders a valid App item with title in edit mode irrespective of app settings', () => {
     const store = {
         itemFilters: {},
+        editDashboard: {
+            id: itemWithoutTitle.id,
+        },
+        selected: { id: 'some-dashboard' },
     }
 
     const { container } = render(
         <Provider store={mockStore(store)}>
-            <WindowDimensionsProvider>
-                <Item item={itemWithoutTitle} dashboardMode={'edit'} />
-            </WindowDimensionsProvider>
+            <SystemSettingsProvider>
+                <WindowDimensionsProvider>
+                    <Item item={itemWithoutTitle} dashboardMode={'edit'} />
+                </WindowDimensionsProvider>
+            </SystemSettingsProvider>
+        </Provider>
+    )
+    expect(container).toMatchSnapshot()
+})
+
+test('renders a valid legacy widget item', () => {
+    const store = {
+        itemFilters: {},
+        editDashboard: {},
+        selected: { id: 'some-dashboard' },
+    }
+    const { container } = render(
+        <Provider store={mockStore(store)}>
+            <SystemSettingsProvider>
+                <WindowDimensionsProvider>
+                    <Item item={itemLegacyWidget} dashboardMode={'view'} />
+                </WindowDimensionsProvider>
+            </SystemSettingsProvider>
         </Provider>
     )
     expect(container).toMatchSnapshot()
@@ -139,9 +202,11 @@ test('renders an invalid App item', () => {
         itemFilters: {
             ou: [{ path: '/rainbow' }],
         },
+        selected: { id: 'some-dashboard' },
     }
 
     const invalidItem = {
+        type: APP,
         appKey: 'unknownApp',
         id: 'unknown',
         shortened: false,
@@ -149,9 +214,11 @@ test('renders an invalid App item', () => {
 
     const { container } = render(
         <Provider store={mockStore(store)}>
-            <WindowDimensionsProvider>
-                <Item item={invalidItem} dashboardMode={'edit'} />
-            </WindowDimensionsProvider>
+            <SystemSettingsProvider>
+                <WindowDimensionsProvider>
+                    <Item item={invalidItem} dashboardMode={'edit'} />
+                </WindowDimensionsProvider>
+            </SystemSettingsProvider>
         </Provider>
     )
     expect(container).toMatchSnapshot()
