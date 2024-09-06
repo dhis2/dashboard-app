@@ -218,7 +218,6 @@ class Item extends Component {
                     activeFooter={showFooter}
                     fullscreenSupported={this.isFullscreenSupported()}
                     loadItemFailed={this.state.loadItemFailed}
-                    // isFS={isFS}
                 />
             ) : null
 
@@ -317,17 +316,6 @@ class Item extends Component {
                         )}
                     </div>
                 </FatalErrorBoundary>
-                {isElementFullscreen(item.id) && (
-                    <>
-                        <Button onClick={this.props.prevItem}>
-                            {i18n.t('Previous')}
-                        </Button>
-                        <span>{`${sortPosition}/${numSortItems}`}</span>
-                        <Button onClick={this.props.nextItem}>
-                            {i18n.t('Next')}
-                        </Button>
-                    </>
-                )}
                 {isViewMode(dashboardMode) && showFooter ? (
                     <ItemFooter item={item} />
                 ) : null}

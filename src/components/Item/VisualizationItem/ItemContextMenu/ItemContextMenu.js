@@ -100,13 +100,14 @@ const ItemContextMenu = (props) => {
         getVisualizationId(item)
     )}`
 
-    return isElementFullscreen(item.id) ? (
-        <Button small secondary onClick={props.exitFullscreen}>
-            <span data-testid="exit-fullscreen-button">
-                <IconFullscreenExit16 color={colors.grey600} />
-            </span>
-        </Button>
-    ) : (
+    // return isElementFullscreen(item.id) ? (
+    //     <Button small secondary onClick={props.exitFullscreen}>
+    //         <span data-testid="exit-fullscreen-button">
+    //             <IconFullscreenExit16 color={colors.grey600} />
+    //         </span>
+    //     </Button>
+    // ) : (
+    return (
         <>
             <div ref={buttonRef}>
                 <Button

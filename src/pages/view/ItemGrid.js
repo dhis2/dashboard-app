@@ -55,6 +55,7 @@ const ResponsiveItemGrid = () => {
     const sItems = useRef([])
     const fsItemStartingIndex = useSelector(sGetPresentDashboard)
     const [fsItemIndex, setFsItemIndex] = useState(null)
+    const fsElement = useRef(null)
 
     useEffect(() => {
         const getItemsWithAdjustedHeight = (items) =>
@@ -94,11 +95,12 @@ const ResponsiveItemGrid = () => {
     // Handle Present button or Item Fullscreen button clicked
     useEffect(() => {
         if (Number.isInteger(fsItemStartingIndex)) {
-            const el = getGridItemElement(
-                sItems.current[fsItemStartingIndex].id
-            )
+            // const el = getGridItemElement(
+            //     sItems.current[fsItemStartingIndex].id
+            // )
+            const el = fsElement?.current
             console.log('jj set starting fs element', el)
-            el.requestFullscreen()
+            el?.requestFullscreen()
             setFsItemIndex(fsItemStartingIndex)
         } else {
             console.log('jj document.exitFS here')
@@ -118,32 +120,34 @@ const ResponsiveItemGrid = () => {
     }
 
     const nextItem = useCallback(() => {
+        // const el = fsElement.current
         if (fsItemIndex === sItems.current.length - 1) {
-            const el = getGridItemElement(sItems.current[0].id)
-            el.requestFullscreen().then(() => {
-                setFsItemIndex(0)
-            })
+            // const el = getGridItemElement(sItems.current[0].id)
+            // el?.requestFullscreen().then(() => {
+            setFsItemIndex(0)
+            // })
         } else {
-            const el = getGridItemElement(sItems.current[fsItemIndex + 1].id)
-            el.requestFullscreen().then(() => {
-                setFsItemIndex(fsItemIndex + 1)
-            })
+            // const el = getGridItemElement(sItems.current[fsItemIndex + 1].id)
+            // el?.requestFullscreen().then(() => {
+            setFsItemIndex(fsItemIndex + 1)
+            // })
         }
     }, [fsItemIndex])
 
     const prevItem = useCallback(() => {
+        // const el = fsElement.current
         if (fsItemIndex === 0) {
-            const el = getGridItemElement(
-                sItems.current[sItems.current.length - 1].id
-            )
-            el.requestFullscreen().then(() => {
-                setFsItemIndex(sItems.current.length - 1)
-            })
+            // const el = getGridItemElement(
+            //     sItems.current[sItems.current.length - 1].id
+            // )
+            // el?.requestFullscreen().then(() => {
+            setFsItemIndex(sItems.current.length - 1)
+            // })
         } else {
-            const el = getGridItemElement(sItems.current[fsItemIndex - 1].id)
-            el.requestFullscreen().then(() => {
-                setFsItemIndex(fsItemIndex - 1)
-            })
+            // const el = getGridItemElement(sItems.current[fsItemIndex - 1].id)
+            // el.requestFullscreen().then(() => {
+            setFsItemIndex(fsItemIndex - 1)
+            // })
         }
     }, [fsItemIndex])
 
@@ -251,30 +255,51 @@ const ResponsiveItemGrid = () => {
     }
 
     console.log('jj render ItemGrid with fsItemIndex:', fsItemIndex)
+
     return (
-        <ResponsiveReactGridLayout
-            className={classes.grid}
-            rowHeight={GRID_ROW_HEIGHT_PX}
-            width={getGridWidth(width)}
-            cols={{ lg: GRID_COLUMNS, sm: SM_SCREEN_GRID_COLUMNS }}
-            breakpoints={{
-                lg: getBreakpoint(),
-                sm: 0,
-            }}
-            layouts={{ lg: displayItems, sm: layoutSm }}
-            compactType={GRID_COMPACT_TYPE}
-            margin={isSmallScreen(width) ? MARGIN_SM_PX : MARGIN_PX}
-            containerPadding={{
-                lg: GRID_PADDING_PX,
-                sm: GRID_PADDING_PX,
-            }}
-            isDraggable={false}
-            isResizable={false}
-            draggableCancel="input,textarea"
-            onWidthChange={onWidthChanged}
+        <div
+            id="fullscreeen-container"
+            className={classes.fullscreenWrapper}
+            ref={fsElement}
         >
-            {getItemComponents(displayItems)}
-        </ResponsiveReactGridLayout>
+            {Number.isInteger(fsItemIndex) ? (
+                <>
+                    <span>Fullscreen container</span>
+                    <div className={classes.fullscreenContainer}>
+                        {getItemComponent(sItems.current[fsItemIndex])}
+                    </div>
+                    <div className={classes.fullscreenNav}>
+                        <button onClick={prevItem}>Prev</button>
+                        <button onClick={nextItem}>Next</button>
+                        <button onClick={exitFullscreen}>Exit</button>
+                    </div>
+                </>
+            ) : (
+                <ResponsiveReactGridLayout
+                    className={classes.grid}
+                    rowHeight={GRID_ROW_HEIGHT_PX}
+                    width={getGridWidth(width)}
+                    cols={{ lg: GRID_COLUMNS, sm: SM_SCREEN_GRID_COLUMNS }}
+                    breakpoints={{
+                        lg: getBreakpoint(),
+                        sm: 0,
+                    }}
+                    layouts={{ lg: displayItems, sm: layoutSm }}
+                    compactType={GRID_COMPACT_TYPE}
+                    margin={isSmallScreen(width) ? MARGIN_SM_PX : MARGIN_PX}
+                    containerPadding={{
+                        lg: GRID_PADDING_PX,
+                        sm: GRID_PADDING_PX,
+                    }}
+                    isDraggable={false}
+                    isResizable={false}
+                    draggableCancel="input,textarea"
+                    onWidthChange={onWidthChanged}
+                >
+                    {getItemComponents(displayItems)}
+                </ResponsiveReactGridLayout>
+            )}
+        </div>
     )
 }
 
