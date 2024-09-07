@@ -260,7 +260,7 @@ msgid ""
 msgstr ""
 
 msgid "No, stay here"
-msgstr ""
+msgstr "ບໍ່, ຢູ່ໜ້ານີ້"
 
 msgid "Yes, discard changes"
 msgstr "ຕົກລົງ, ຍົກເລີກການປ່ຽນແປງ"
@@ -417,7 +417,7 @@ msgid ""
 msgstr ""
 
 msgid "Getting started"
-msgstr ""
+msgstr "ເລີ່ມຕົ້ນ"
 
 msgid "Search for and open saved dashboards from the top bar."
 msgstr ""
