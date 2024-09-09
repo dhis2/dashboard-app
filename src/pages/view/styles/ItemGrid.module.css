@@ -32,7 +32,7 @@
 }
 
 .hideItem {
-    display: none;
+    display: none !important;
 }
 
 .fscreenItem {
