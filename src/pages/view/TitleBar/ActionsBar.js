@@ -24,6 +24,7 @@ import { apiPostShowDescription } from '../../../api/description.js'
 import ConfirmActionDialog from '../../../components/ConfirmActionDialog.js'
 import DropdownButton from '../../../components/DropdownButton/DropdownButton.js'
 import MenuItem from '../../../components/MenuItemWithTooltip.js'
+import { useSystemSettings } from '../../../components/SystemSettingsProvider.js'
 import { useCacheableSection } from '../../../modules/useCacheableSection.js'
 import { orObject } from '../../../modules/util.js'
 import { sGetDashboardStarred } from '../../../reducers/dashboards.js'
@@ -59,6 +60,7 @@ const ViewActions = ({
     const { isDisconnected: offline } = useDhis2ConnectionStatus()
     const { lastUpdated, isCached, startRecording, remove } =
         useCacheableSection(id)
+    const { allowVisFullscreen } = useSystemSettings().systemSettings
 
     const { show } = useAlert(
         ({ msg }) => msg,
@@ -258,15 +260,17 @@ const ViewActions = ({
                             </Button>
                         </OfflineTooltip>
                     ) : null}
-                    <OfflineTooltip>
-                        <Button
-                            disabled={offline}
-                            className={classes.presentButton}
-                            onClick={() => setPresentDashboard(0)}
-                        >
-                            {i18n.t('Slideshow')}
-                        </Button>
-                    </OfflineTooltip>
+                    {allowVisFullscreen ? (
+                        <OfflineTooltip>
+                            <Button
+                                disabled={offline}
+                                className={classes.presentButton}
+                                onClick={() => setPresentDashboard(0)}
+                            >
+                                {i18n.t('Slideshow')}
+                            </Button>
+                        </OfflineTooltip>
+                    ) : null}
                     <FilterSelector
                         allowedFilters={allowedFilters}
                         restrictFilters={restrictFilters}
