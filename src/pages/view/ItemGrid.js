@@ -1,5 +1,5 @@
 import i18n from '@dhis2/d2-i18n'
-import { IconChevronRight16, IconChevronLeft16, colors } from '@dhis2/ui'
+import { IconChevronRight24, IconChevronLeft24, colors } from '@dhis2/ui'
 import cx from 'classnames'
 import sortBy from 'lodash/sortBy.js'
 import React, { useState, useEffect, useRef, useCallback } from 'react'
@@ -57,6 +57,8 @@ const ResponsiveItemGrid = () => {
     const fsItemStartingIndex = useSelector(sGetPresentDashboard)
     const [fsItemIndex, setFsItemIndex] = useState(null)
     const fsElement = useRef(null)
+    const hideControlsTimeout = useRef(null)
+    const controlsRef = useRef(null)
 
     useEffect(() => {
         const getItemsWithAdjustedHeight = (items) =>
@@ -100,20 +102,23 @@ const ResponsiveItemGrid = () => {
             const el = fsElement?.current
             el?.requestFullscreen()
             setFsItemIndex(fsItemStartingIndex)
-        } else {
+        } else if (document.fullscreenElement) {
             document.exitFullscreen().then(() => {
                 setFsItemIndex(null)
             })
+        } else {
+            setFsItemIndex(null)
         }
     }, [fsItemStartingIndex])
 
-    const exitFullscreen = () => {
-        if (document.fullscreenElement) {
-            document.exitFullscreen().then(() => {
-                dispatch(acSetPresentDashboard(null))
-            })
-        }
-    }
+    // TODO - this is for an eventual Exit button
+    // const exitFullscreen = () => {
+    //     if (document.fullscreenElement) {
+    //         document.exitFullscreen().then(() => {
+    //             dispatch(acSetPresentDashboard(null))
+    //         })
+    //     }
+    // }
 
     const nextItem = useCallback(() => {
         if (fsItemIndex === sItems.current.length - 1) {
@@ -121,6 +126,7 @@ const ResponsiveItemGrid = () => {
         } else {
             setFsItemIndex(fsItemIndex + 1)
         }
+        showControls()
     }, [fsItemIndex])
 
     const prevItem = useCallback(() => {
@@ -129,7 +135,16 @@ const ResponsiveItemGrid = () => {
         } else {
             setFsItemIndex(fsItemIndex - 1)
         }
+        showControls()
     }, [fsItemIndex])
+
+    const showControls = () => {
+        clearTimeout(hideControlsTimeout.current)
+        controlsRef.current?.classList.add(classes.visible)
+        hideControlsTimeout.current = setTimeout(() => {
+            controlsRef.current?.classList.remove(classes.visible)
+        }, 1000)
+    }
 
     // This effect handles the keyboard navigation for the fullscreen mode
     useEffect(() => {
@@ -154,6 +169,8 @@ const ResponsiveItemGrid = () => {
         window.addEventListener('keydown', handleKeyDown)
         document.addEventListener('fullscreenchange', handleFullscreenChange)
 
+        document.addEventListener('mousemove', showControls)
+
         // Clean up the event listener when the component is unmounted
         return () => {
             window.removeEventListener('keydown', handleKeyDown)
@@ -161,6 +178,7 @@ const ResponsiveItemGrid = () => {
                 'fullscreenchange',
                 handleFullscreenChange
             )
+            document.removeEventListener('mousemove', showControls)
         }
     }, [dispatch, nextItem, prevItem])
 
@@ -263,24 +281,24 @@ const ResponsiveItemGrid = () => {
             >
                 {getItemComponents(displayItems)}
             </ResponsiveReactGridLayout>
-            <span
-                className={cx(classes.fullscreenNav, {
-                    [classes.fscreen]: Number.isInteger(fsItemIndex),
-                })}
-            >
-                <div className={classes.buttons}>
+            {Number.isInteger(fsItemIndex) && (
+                <div
+                    className={cx(classes.controls, {
+                        [classes.visible]: true,
+                    })}
+                    ref={controlsRef}
+                >
                     <button onClick={prevItem}>
-                        <IconChevronLeft16 color={colors.white} />
+                        <IconChevronLeft24 color={colors.white} />
                     </button>
-                    <span>{` ${fsItemIndex + 1} / ${
-                        sItems.current.length
-                    } `}</span>
+                    <span className={classes.pageCounter}>{`${
+                        fsItemIndex + 1
+                    } / ${sItems.current.length}`}</span>
                     <button onClick={nextItem}>
-                        <IconChevronRight16 color={colors.white} />
+                        <IconChevronRight24 color={colors.white} />
                     </button>
-                    <button onClick={exitFullscreen}>Exit</button>
                 </div>
-            </span>
+            )}
         </div>
     )
 }

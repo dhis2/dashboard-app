@@ -10,10 +10,6 @@
     position: relative
 }
 
-.fscreen {
-    cursor: pointer;
-}
-
 #fullscreen-container.fscreen {
     position: fixed;
     top: 0;
@@ -27,10 +23,6 @@
     align-items: center;
 }
 
-.fullscreenNav {
-    display: none;
-}
-
 .hideItem {
     display: none !important;
 }
@@ -41,28 +33,60 @@
     transform: none !important;
 }
 
-.fullscreenNav.fscreen {
+/* Control buttons */
+.fullscreenNav {
+    display: none;
+}
+
+.fullscreenNav.visible {
     display: flex;
     justify-content: center;
-    position: absolute;
-    bottom: 50px;
-    z-index: 1000;
+    position: fixed;
+        bottom: 20px;
+        z-index: 10;
     width: 100%;
 }
 
-.buttons {
-    padding: var(--spacers-dp4);
-    background-color: var(--colors-grey800);
-    color: var(--colors-white);
+.controls {
+    background: #202124;
+    padding: 8px;
+    border-radius: 5px;
+    position: fixed;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.5s;
+    z-index: 10;
 }
 
-.buttons button {
-    cursor: pointer;
-    color: var(--colors-white);
+.controls.visible {
+    opacity: 1;
+    visibility: visible;
 }
 
-.fullscreenNav button {
+.controls button {
+    color: var(--colors-white);
+    background-color: #000;
+    background: #000;
+    border-radius: 3px;
     border: none;
-    background-color: transparent;
+        width: 32px;
+            height: 32px;
+            padding: 4px;
+            cursor: pointer;
+        }
 
+.pageCounter {
+    font-family: "Roboto", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    color: white;
+    font-size: 14px;
+    margin: 0 10px;
+    user-select: none;
 }

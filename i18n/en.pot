@@ -5,8 +5,8 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1)\n"
-"POT-Creation-Date: 2024-09-09T13:19:23.392Z\n"
-"PO-Revision-Date: 2024-09-09T13:19:23.393Z\n"
+"POT-Creation-Date: 2024-09-09T15:15:02.457Z\n"
+"PO-Revision-Date: 2024-09-09T15:15:02.458Z\n"
 
 msgid "Untitled dashboard"
 msgstr "Untitled dashboard"
@@ -62,12 +62,6 @@ msgstr "Text box"
 msgid "Add text here"
 msgstr "Add text here"
 
-msgid "Open in {{appName}}"
-msgstr "Open in {{appName}}"
-
-msgid "View fullscreen"
-msgstr "View fullscreen"
-
 msgid "Back to all interpretations"
 msgstr "Back to all interpretations"
 
@@ -94,6 +88,9 @@ msgstr "Show details and interpretations"
 
 msgid "Open in {{appName}} app"
 msgstr "Open in {{appName}} app"
+
+msgid "View fullscreen"
+msgstr "View fullscreen"
 
 msgid "This map can't be displayed as a chart"
 msgstr "This map can't be displayed as a chart"
