@@ -36,7 +36,6 @@ const IframePlugin = ({
     itemId,
     itemType,
     isFirstOfType,
-    isFS,
 }) => {
     const dispatch = useDispatch()
     const iframePluginStatus = useSelector(sGetIframePluginStatus)
@@ -233,19 +232,6 @@ const IframePlugin = ({
         )
     }
 
-    const width = isFS ? '100%' : style.width || '100%'
-    const height = isFS ? '100vh' : style.height || '100%'
-    // TODO - get the height right for FS that includes space for header
-    // here's the implementation from Item.js
-    // if (isFS) {
-    //     return (
-    //         height -
-    //         this.headerRef.current.clientHeight -
-    //         this.itemHeaderTotalMargin -
-    //         this.itemContentPadding
-    //     )
-    // }
-
     return (
         <div className={classes.wrapper}>
             {iframeSrc ? (
@@ -254,8 +240,8 @@ const IframePlugin = ({
                     src={iframeSrc}
                     // preserve dimensions if provided
                     style={{
-                        width,
-                        height,
+                        width: style.width || '100%',
+                        height: style.height || '100%',
                         border: 'none',
                     }}
                 ></iframe>
@@ -269,7 +255,6 @@ IframePlugin.propTypes = {
     dashboardId: PropTypes.string,
     dashboardMode: PropTypes.string,
     filterVersion: PropTypes.string,
-    isFS: PropTypes.bool,
     isFirstOfType: PropTypes.bool,
     itemId: PropTypes.string,
     itemType: PropTypes.string,

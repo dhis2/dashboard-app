@@ -171,6 +171,7 @@ const Visualization = ({
                     <IframePlugin
                         visualization={visualizationConfig}
                         {...iFramePluginProps}
+                        isFS={isFS}
                     />
                 </>
             )

@@ -49,6 +49,8 @@ import memoizeOne from './memoizeOne.js'
 import { pluginIsAvailable } from './Visualization/plugin.js'
 import Visualization from './Visualization/Visualization.js'
 
+const MIN_CLIENT_HEIGHT = 16
+
 class Item extends Component {
     state = {
         showFooter: false,
@@ -153,6 +155,13 @@ class Item extends Component {
     }
 
     getAvailableHeight = ({ width }) => {
+        if (this.props.isFS) {
+            const totalHeaderHeight =
+                (this.headerRef.current.clientHeight || MIN_CLIENT_HEIGHT) +
+                this.itemHeaderTotalMargin +
+                this.itemContentPadding
+            return `calc(100vh - ${totalHeaderHeight}px)`
+        }
         const calculatedHeight =
             getItemHeightPx(this.props.item, width) -
             this.headerRef.current.clientHeight -
@@ -168,6 +177,9 @@ class Item extends Component {
     }
 
     getAvailableWidth = () => {
+        if (this.props.isFS) {
+            return '100%'
+        }
         const rect = getGridItemElement(
             this.props.item.id
         )?.getBoundingClientRect()
