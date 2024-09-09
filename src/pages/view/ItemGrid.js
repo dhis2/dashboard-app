@@ -25,6 +25,7 @@ import {
     getGridWidth,
     getProportionalHeight,
 } from '../../modules/gridUtil.js'
+import { SPACER, MESSAGES } from '../../modules/itemTypes.js'
 import { getBreakpoint, isSmallScreen } from '../../modules/smallScreen.js'
 import { useCacheableSection } from '../../modules/useCacheableSection.js'
 import { sGetPresentDashboard } from '../../reducers/presentDashboard.js'
@@ -87,8 +88,9 @@ const ResponsiveItemGrid = () => {
     }, [recordingState])
 
     useEffect(() => {
-        const sortedItems = sortBy(displayItems, ['y', 'x'])
-        // TODO - remove the spacer and message items
+        const sortedItems = sortBy(displayItems, ['y', 'x']).filter(
+            (i) => [SPACER, MESSAGES].indexOf(i.type) === -1
+        )
         sItems.current = sortedItems
     }, [displayItems])
 
