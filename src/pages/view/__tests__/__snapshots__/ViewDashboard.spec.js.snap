@@ -17,11 +17,12 @@ exports[`ViewDashboard renders dashboard 1`] = `
       <div>
         TitleBar
       </div>
-      <div>
-        MockFilterBar
-      </div>
-      <div>
-        MockItemGrid
+      <div
+        class="contentGrid"
+      >
+        <div>
+          MockItemGrid
+        </div>
       </div>
     </div>
   </div>
