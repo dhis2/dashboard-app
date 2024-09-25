@@ -15,6 +15,10 @@
     display: none;
 }
 
+.contentGrid {
+    padding: 0 var(--spacers-dp16);
+}
+
 @media only screen and (max-height: 480px), only screen and (max-width: 480px) {
     .cover {
         display: block;
