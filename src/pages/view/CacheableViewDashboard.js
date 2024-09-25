@@ -1,5 +1,5 @@
+import { useCachedDataQuery } from '@dhis2/analytics'
 import { CacheableSection } from '@dhis2/app-runtime'
-import { useD2 } from '@dhis2/app-runtime-adapter-d2'
 import i18n from '@dhis2/d2-i18n'
 import isEmpty from 'lodash/isEmpty.js'
 import PropTypes from 'prop-types'
@@ -23,7 +23,7 @@ const CacheableViewDashboard = ({
     dashboardsIsEmpty,
 }) => {
     const [dashboardsBarExpanded, setDashboardsBarExpanded] = useState(false)
-    const { d2 } = useD2()
+    const { currentUser } = useCachedDataQuery()
 
     if (!dashboardsLoaded) {
         return <LoadingMask />
@@ -51,14 +51,14 @@ const CacheableViewDashboard = ({
         )
     }
 
-    const cacheSectionId = getCacheableSectionId(d2.currentUser.id, id)
+    const cacheSectionId = getCacheableSectionId(currentUser.id, id)
 
     return (
         <CacheableSection id={cacheSectionId} loadingMask={<LoadingMask />}>
             <ViewDashboard
                 key={cacheSectionId}
                 requestedId={id}
-                username={d2.currentUser.username}
+                username={currentUser.username}
             />
         </CacheableSection>
     )

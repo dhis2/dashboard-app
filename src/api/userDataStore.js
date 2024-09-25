@@ -5,7 +5,7 @@ export const NAMESPACE = 'dashboard'
 export const hasDashboardNamespace = async (d2) =>
     await d2.currentUser.dataStore.has(NAMESPACE)
 
-export const getNamespace = async (d2) => {
+const getNamespace = async (d2) => {
     const hasNamespace = await hasDashboardNamespace(d2)
 
     return hasNamespace

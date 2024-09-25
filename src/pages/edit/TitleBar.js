@@ -1,5 +1,5 @@
 import { OfflineTooltip } from '@dhis2/analytics'
-import { useOnlineStatus } from '@dhis2/app-runtime'
+import { useDhis2ConnectionStatus } from '@dhis2/app-runtime'
 import i18n from '@dhis2/d2-i18n'
 import { InputField, TextAreaField, Radio, Button } from '@dhis2/ui'
 import PropTypes from 'prop-types'
@@ -37,7 +37,7 @@ const EditTitleBar = ({
     onChangeDescription,
     onSaveLayout,
 }) => {
-    const { offline } = useOnlineStatus()
+    const { isDisconnected: offline } = useDhis2ConnectionStatus()
 
     const updateTitle = (_, e) => {
         onChangeTitle(e.target.value)

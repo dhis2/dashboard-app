@@ -8,23 +8,23 @@ import { apiPostDataStatistics } from '../../../api/dataStatistics.js'
 import { apiFetchDashboard } from '../../../api/fetchDashboard.js'
 import ViewDashboard from '../ViewDashboard.js'
 
-jest.mock('@dhis2/app-runtime-adapter-d2', () => ({
-    useD2: () => ({
-        d2: {
-            currentUser: {
-                username: 'rainbowDash',
-                id: 'r3nb0d5h',
-            },
+jest.mock('@dhis2/analytics', () => ({
+    useCachedDataQuery: () => ({
+        currentUser: {
+            username: 'rainbowDash',
+            id: 'r3nb0d5h',
         },
     }),
+    getDimensionById: jest.fn(),
 }))
 
 jest.mock('@dhis2/app-runtime', () => ({
-    useOnlineStatus: jest.fn(() => ({ online: true })),
+    useDhis2ConnectionStatus: jest.fn(() => ({ isConnected: true })),
     useCacheableSection: jest.fn(() => ({
         isCached: false,
         recordingState: 'default',
     })),
+    useDataEngine: jest.fn(),
 }))
 
 jest.mock('../../../api/fetchDashboard')

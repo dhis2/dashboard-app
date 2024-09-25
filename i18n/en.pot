@@ -5,8 +5,8 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1)\n"
-"POT-Creation-Date: 2021-12-21T08:20:25.327Z\n"
-"PO-Revision-Date: 2021-12-21T08:20:25.327Z\n"
+"POT-Creation-Date: 2024-03-19T12:31:03.302Z\n"
+"PO-Revision-Date: 2024-03-19T12:31:03.302Z\n"
 
 msgid "Untitled dashboard"
 msgstr "Untitled dashboard"
@@ -56,11 +56,26 @@ msgstr "Spacer"
 msgid "Use a spacer to create empty vertical space between other dashboard items."
 msgstr "Use a spacer to create empty vertical space between other dashboard items."
 
-msgid "Text item"
-msgstr "Text item"
+msgid "Text box"
+msgstr "Text box"
 
 msgid "Add text here"
 msgstr "Add text here"
+
+msgid "Back to all interpretations"
+msgstr "Back to all interpretations"
+
+msgid "Filters are not applied to line list dashboard items"
+msgstr "Filters are not applied to line list dashboard items"
+
+msgid "Filters not applied"
+msgstr "Filters not applied"
+
+msgid "Only Period and Organisation unit filters can be applied to this item"
+msgstr "Only Period and Organisation unit filters can be applied to this item"
+
+msgid "Some filters not applied"
+msgstr "Some filters not applied"
 
 msgid "There was a problem loading this dashboard item"
 msgstr "There was a problem loading this dashboard item"
@@ -80,14 +95,20 @@ msgstr "View fullscreen"
 msgid "This map can't be displayed as a chart"
 msgstr "This map can't be displayed as a chart"
 
+msgid "This map can't be displayed as a pivot table"
+msgstr "This map can't be displayed as a pivot table"
+
+msgid "This visualization can't be displayed as a pivot table"
+msgstr "This visualization can't be displayed as a pivot table"
+
+msgid "This visualization can't be displayed as a map"
+msgstr "This visualization can't be displayed as a map"
+
 msgid "View as Chart"
 msgstr "View as Chart"
 
-msgid "This map can't be displayed as a table"
-msgstr "This map can't be displayed as a table"
-
-msgid "View as Table"
-msgstr "View as Table"
+msgid "View as Pivot table"
+msgstr "View as Pivot table"
 
 msgid "View as Map"
 msgstr "View as Map"
@@ -95,14 +116,32 @@ msgstr "View as Map"
 msgid "There was a problem loading interpretations for this item"
 msgstr "There was a problem loading interpretations for this item"
 
+msgid "The plugin for rendering this item is not available"
+msgstr "The plugin for rendering this item is not available"
+
+msgid "Install the {{appName}} app from the App Hub"
+msgstr "Install the {{appName}} app from the App Hub"
+
+msgid "No data to display"
+msgstr "No data to display"
+
+msgid ""
+"Install Line Listing app version ${minLLVersion.join(\n"
+"                                '.'\n"
+"                            )} or higher in order to display this item."
+msgstr ""
+"Install Line Listing app version ${minLLVersion.join(\n"
+"                                '.'\n"
+"                            )} or higher in order to display this item."
+
+msgid "Show without filters"
+msgstr "Show without filters"
+
 msgid "Maps with Earth Engine layers cannot be displayed when offline"
 msgstr "Maps with Earth Engine layers cannot be displayed when offline"
 
 msgid "Unable to load the plugin for this item"
 msgstr "Unable to load the plugin for this item"
-
-msgid "No data to display"
-msgstr "No data to display"
 
 msgid "There was an error loading data for this item"
 msgstr "There was an error loading data for this item"
@@ -130,6 +169,9 @@ msgstr "Event reports"
 
 msgid "Event charts"
 msgstr "Event charts"
+
+msgid "Line lists"
+msgstr "Line lists"
 
 msgid "Apps"
 msgstr "Apps"
@@ -294,9 +336,6 @@ msgstr "Cannot search for dashboard items while offline"
 
 msgid "Additional items"
 msgstr "Additional items"
-
-msgid "Text box"
-msgstr "Text box"
 
 msgid "Dashboard layout"
 msgstr "Dashboard layout"

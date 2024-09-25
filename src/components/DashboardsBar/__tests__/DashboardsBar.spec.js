@@ -11,13 +11,11 @@ import DashboardsBar, {
     MAX_ROW_COUNT,
 } from '../DashboardsBar.js'
 
-jest.mock('@dhis2/app-runtime-adapter-d2', () => ({
-    useD2: () => ({
-        d2: {
-            currentUser: {
-                username: 'rainbowDash',
-                id: 'r3nb0d5h',
-            },
+jest.mock('@dhis2/analytics', () => ({
+    useCachedDataQuery: () => ({
+        currentUser: {
+            username: 'rainbowDash',
+            id: 'r3nb0d5h',
         },
     }),
 }))
@@ -37,11 +35,12 @@ const dashboards = {
 }
 
 jest.mock('@dhis2/app-runtime', () => ({
-    useOnlineStatus: () => ({ online: true }),
+    useDhis2ConnectionStatus: () => ({ isConnected: true }),
     useCacheableSection: jest.fn(() => ({
         isCached: false,
         recordingState: 'default',
     })),
+    useDataEngine: jest.fn(),
 }))
 
 test('minimized DashboardsBar has Show more/less button', () => {

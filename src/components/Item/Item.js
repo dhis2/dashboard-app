@@ -1,3 +1,5 @@
+import { useCachedDataQuery } from '@dhis2/analytics'
+import { useDataEngine } from '@dhis2/app-runtime'
 import PropTypes from 'prop-types'
 import React from 'react'
 import {
@@ -8,6 +10,7 @@ import {
     MAP,
     EVENT_CHART,
     EVENT_REPORT,
+    EVENT_VISUALIZATION,
     MESSAGES,
     REPORTS,
     RESOURCES,
@@ -35,6 +38,7 @@ const getGridItem = (type) => {
         case MAP:
         case EVENT_CHART:
         case EVENT_REPORT:
+        case EVENT_VISUALIZATION:
             return VisualizationItem
         case MESSAGES:
             return MessagesItem
@@ -58,9 +62,11 @@ const getGridItem = (type) => {
 }
 
 export const Item = (props) => {
+    const { apps } = useCachedDataQuery()
+    const engine = useDataEngine()
     const GridItem = getGridItem(props.item.type)
 
-    return <GridItem {...props} />
+    return <GridItem apps={apps} {...props} engine={engine} />
 }
 
 Item.propTypes = {

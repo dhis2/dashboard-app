@@ -4,26 +4,28 @@ import { Provider } from 'react-redux'
 import configureMockStore from 'redux-mock-store'
 import Visualization from '../Visualization.js'
 
+jest.mock('@dhis2/analytics', () => ({
+    useCachedDataQuery: () => ({
+        currentUser: {
+            username: 'rainbowDash',
+            id: 'r3nb0d5h',
+        },
+    }),
+}))
+
 jest.mock(
-    '../DataVisualizerPlugin',
+    '../LegacyPlugin',
     () =>
-        function MockVisualizationPlugin() {
-            return <div className="visualization-plugin" />
+        function MockLegacyPlugin() {
+            return <div className="legacy-plugin" />
         }
 )
 
 jest.mock(
-    '../MapPlugin',
+    '../IframePlugin',
     () =>
-        function MockMapPlugin() {
-            return <div className="map-plugin" />
-        }
-)
-jest.mock(
-    '../DefaultPlugin',
-    () =>
-        function MockDefaultPlugin() {
-            return <div className="default-plugin" />
+        function MockIframePlugin() {
+            return <div className="iframe-plugin" />
         }
 )
 
@@ -31,6 +33,9 @@ const mockStore = configureMockStore()
 const DEFAULT_STORE_WITH_ONE_ITEM = {
     visualizations: { rainbowVis: { rows: [], columns: [], filters: [] } },
     itemFilters: {},
+    selected: {
+        id: 'test-dashboard',
+    },
 }
 
 test('renders a MapPlugin when activeType is MAP', () => {
@@ -105,24 +110,6 @@ test('renders active type MAP rather than original type REPORT_TABLE', () => {
     expect(container).toMatchSnapshot()
 })
 
-test('renders active type REPORT_TABLE rather than original type MAP', () => {
-    const { container } = render(
-        <Provider store={mockStore(DEFAULT_STORE_WITH_ONE_ITEM)}>
-            <Visualization
-                item={{
-                    id: 'rainbow',
-                    type: 'MAP',
-                    map: { id: 'rainbowVis' },
-                }}
-                activeType="REPORT_TABLE"
-                itemFilters={{}}
-                availableHeight={500}
-            />
-        </Provider>
-    )
-    expect(container).toMatchSnapshot()
-})
-
 test('renders a DefaultPlugin when activeType is EVENT_CHART', () => {
     const { container } = render(
         <Provider store={mockStore(DEFAULT_STORE_WITH_ONE_ITEM)}>
@@ -162,6 +149,10 @@ test('renders a DefaultPlugin when activeType is EVENT_REPORT', () => {
 test('renders NoVisMessage when no visualization', () => {
     const store = {
         visualizations: {},
+        itemFilters: {},
+        selected: {
+            id: 'test-dashboard',
+        },
     }
     const { container } = render(
         <Provider store={mockStore(store)}>

@@ -24,6 +24,7 @@ jest.mock(
         }
 )
 
+/* eslint-disable react/prop-types, react/no-unknown-property */
 jest.mock(
     '../Visualization/Visualization',
     () =>
@@ -31,16 +32,17 @@ jest.mock(
             return (
                 <div
                     className="visualization"
-                    item={props.item} //eslint-disable-line react/prop-types
-                    activetype={props.activeType} //eslint-disable-line react/prop-types
-                    itemfilters={props.itemFilters} //eslint-disable-line react/prop-types
-                    availableheight={props.availableheight} //eslint-disable-line react/prop-types
-                    availablewidth={props.availablewidth} //eslint-disable-line react/prop-types
-                    gridwidth={props.gridWidth} //eslint-disable-line react/prop-types
+                    item={props.item}
+                    activetype={props.activeType}
+                    itemfilters={props.itemFilters}
+                    availableheight={props.availableheight}
+                    availablewidth={props.availablewidth}
+                    gridwidth={props.gridWidth}
                 />
             )
         }
 )
+/* eslint-enable react/prop-types, react/no-unknown-property */
 
 const mockStore = configureMockStore()
 

@@ -8,9 +8,20 @@ import { apiFetchDashboards } from '../../api/fetchAllDashboards.js'
 import App from '../App.js'
 import { useSystemSettings } from '../SystemSettingsProvider.js'
 
-jest.mock('@dhis2/analytics')
+jest.mock('@dhis2/analytics', () => ({
+    useCachedDataQuery: () => ({
+        currentUser: {
+            username: 'rainbowDash',
+            id: 'r3nb0d5h',
+        },
+    }),
+    getDimensionById: jest.fn(),
+}))
 jest.mock('@dhis2/app-runtime', () => ({
-    useOnlineStatus: jest.fn(() => ({ online: true, offline: false })),
+    useDhis2ConnectionStatus: jest.fn(() => ({
+        isConnected: true,
+        isDisconnected: false,
+    })),
     useDataEngine: jest.fn(() => ({ query: Function.prototype })),
     useCacheableSection: jest.fn,
 }))
@@ -49,15 +60,6 @@ jest.mock(
         }
 )
 
-jest.mock('@dhis2/app-runtime-adapter-d2', () => {
-    return {
-        useD2: jest.fn(() => ({
-            d2: {
-                currentUser: { username: 'rainbowDash' },
-            },
-        })),
-    }
-})
 jest.mock('../../pages/view', () => {
     return {
         ViewDashboard: function Mock() {

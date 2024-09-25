@@ -1,4 +1,10 @@
+import {
+    VIS_TYPE_OUTLIER_TABLE,
+    DIMENSION_ID_PERIOD,
+    DIMENSION_ID_ORGUNIT,
+} from '@dhis2/analytics'
 import i18n from '@dhis2/d2-i18n'
+import { Tag, Tooltip } from '@dhis2/ui'
 import PropTypes from 'prop-types'
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
@@ -19,6 +25,9 @@ import {
 import {
     getDataStatisticsName,
     getItemTypeForVis,
+    CHART,
+    EVENT_VISUALIZATION,
+    VISUALIZATION,
 } from '../../../modules/itemTypes.js'
 import { sGetIsEditing } from '../../../reducers/editDashboard.js'
 import { sGetItemActiveType } from '../../../reducers/itemActiveTypes.js'
@@ -44,6 +53,7 @@ class Item extends Component {
         showFooter: false,
         configLoaded: false,
         loadItemFailed: false,
+        showNoFiltersOverlay: this.props.item?.type === EVENT_VISUALIZATION,
     }
 
     constructor(props) {
@@ -78,9 +88,13 @@ class Item extends Component {
     }
 
     async componentDidMount() {
-        this.props.setVisualization(
-            await apiFetchVisualization(this.props.item)
-        )
+        // Avoid refetching the visualization already in the Redux store
+        // when the same dashboard item is added again.
+        // This also solves a flashing of all the "duplicated" dashboard items.
+        !this.props.visualization.id &&
+            this.props.setVisualization(
+                await apiFetchVisualization(this.props.item)
+            )
 
         try {
             if (
@@ -90,7 +104,8 @@ class Item extends Component {
             ) {
                 await apiPostDataStatistics(
                     getDataStatisticsName(this.props.item.type),
-                    getVisualizationId(this.props.item)
+                    getVisualizationId(this.props.item),
+                    this.props.engine
                 )
             }
         } catch (e) {
@@ -100,10 +115,22 @@ class Item extends Component {
         this.setState({ configLoaded: true })
     }
 
+    componentDidUpdate(prevProps) {
+        if (
+            this.props.isRecording &&
+            this.props.isRecording !== prevProps.isRecording
+        ) {
+            apiFetchVisualization(this.props.item)
+        }
+    }
+
     isFullscreenSupported = () => {
         const el = getGridItemElement(this.props.item.id)
         return !!(el?.requestFullscreen || el?.webkitRequestFullscreen)
     }
+
+    onClickNoFiltersOverlay = () =>
+        this.setState({ showNoFiltersOverlay: false })
 
     onToggleFullscreen = () => {
         if (!isElementFullscreen(this.props.item.id)) {
@@ -177,11 +204,12 @@ class Item extends Component {
 
     render() {
         const { item, dashboardMode, itemFilters } = this.props
-        const { showFooter } = this.state
+        const { showFooter, showNoFiltersOverlay } = this.state
+        const originalType = getItemTypeForVis(item)
         const activeType = this.getActiveType()
 
         const actionButtons =
-            pluginIsAvailable(activeType || item.type) &&
+            pluginIsAvailable(activeType || item.type, this.props.apps) &&
             isViewMode(dashboardMode) ? (
                 <ItemContextMenu
                     item={item}
@@ -196,6 +224,51 @@ class Item extends Component {
                 />
             ) : null
 
+        const getTags = (item) => {
+            if (isViewMode(dashboardMode) && Object.keys(itemFilters).length) {
+                switch (activeType) {
+                    case EVENT_VISUALIZATION: {
+                        return !showNoFiltersOverlay ? (
+                            <Tooltip
+                                content={i18n.t(
+                                    'Filters are not applied to line list dashboard items'
+                                )}
+                            >
+                                <Tag negative>
+                                    {i18n.t('Filters not applied')}
+                                </Tag>
+                            </Tooltip>
+                        ) : null
+                    }
+                    case CHART:
+                    case VISUALIZATION: {
+                        return item.type === VISUALIZATION &&
+                            item.visualization.type ===
+                                VIS_TYPE_OUTLIER_TABLE &&
+                            Object.keys(itemFilters).some(
+                                (filter) =>
+                                    ![
+                                        DIMENSION_ID_ORGUNIT,
+                                        DIMENSION_ID_PERIOD,
+                                    ].includes(filter)
+                            ) ? (
+                            <Tooltip
+                                content={i18n.t(
+                                    'Only Period and Organisation unit filters can be applied to this item'
+                                )}
+                            >
+                                <Tag negative>
+                                    {i18n.t('Some filters not applied')}
+                                </Tag>
+                            </Tooltip>
+                        ) : null
+                    }
+                }
+            }
+
+            return null
+        }
+
         return (
             <>
                 <ItemHeader
@@ -205,6 +278,7 @@ class Item extends Component {
                     ref={this.headerRef}
                     dashboardMode={dashboardMode}
                     isShortened={item.shortened}
+                    tags={getTags(item)}
                 />
                 <FatalErrorBoundary
                     message={i18n.t(
@@ -221,6 +295,8 @@ class Item extends Component {
                                 {(dimensions) => (
                                     <Visualization
                                         item={item}
+                                        visualization={this.props.visualization}
+                                        originalType={originalType}
                                         activeType={activeType}
                                         itemFilters={itemFilters}
                                         availableHeight={this.getAvailableHeight(
@@ -229,6 +305,13 @@ class Item extends Component {
                                         availableWidth={this.getAvailableWidth()}
                                         gridWidth={this.props.gridWidth}
                                         dashboardMode={dashboardMode}
+                                        showNoFiltersOverlay={Boolean(
+                                            Object.keys(itemFilters).length &&
+                                                showNoFiltersOverlay
+                                        )}
+                                        onClickNoFiltersOverlay={
+                                            this.onClickNoFiltersOverlay
+                                        }
                                     />
                                 )}
                             </WindowDimensionsCtx.Consumer>
@@ -245,9 +328,12 @@ class Item extends Component {
 
 Item.propTypes = {
     activeType: PropTypes.string,
+    apps: PropTypes.array,
     dashboardMode: PropTypes.string,
+    engine: PropTypes.object,
     gridWidth: PropTypes.number,
     isEditing: PropTypes.bool,
+    isRecording: PropTypes.bool,
     item: PropTypes.object,
     itemFilters: PropTypes.object,
     setActiveType: PropTypes.func,

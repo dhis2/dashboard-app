@@ -1,4 +1,4 @@
-import { useD2 } from '@dhis2/app-runtime-adapter-d2'
+import { useCachedDataQuery } from '@dhis2/analytics'
 import { CssVariables } from '@dhis2/ui'
 import PropTypes from 'prop-types'
 import React, { useEffect } from 'react'
@@ -26,8 +26,8 @@ import 'react-resizable/css/styles.css'
 import './styles/ItemGrid.css'
 
 const App = (props) => {
-    const { d2 } = useD2()
     const { systemSettings } = useSystemSettings()
+    const { currentUser } = useCachedDataQuery()
 
     useEffect(() => {
         props.fetchDashboards()
@@ -60,7 +60,7 @@ const App = (props) => {
                                 ) : (
                                     <ViewDashboard
                                         {...props}
-                                        username={d2.currentUser.username}
+                                        username={currentUser.username}
                                     />
                                 )
                             }
@@ -70,7 +70,7 @@ const App = (props) => {
                             path={ROUTE_START_PATH}
                             render={() => (
                                 <LandingPage
-                                    username={d2.currentUser.username}
+                                    username={currentUser.username}
                                     onMount={props.resetState}
                                 />
                             )}
@@ -86,7 +86,7 @@ const App = (props) => {
                             render={(props) => (
                                 <ViewDashboard
                                     {...props}
-                                    username={d2.currentUser.username}
+                                    username={currentUser.username}
                                 />
                             )}
                         />

@@ -12,16 +12,7 @@ import configureStore from './configureStore.js'
 import './locales/index.js'
 
 const d2Config = {
-    schemas: [
-        'visualization',
-        'map',
-        'report',
-        'eventChart',
-        'eventReport',
-        'dashboard',
-        'organisationUnit',
-        'userGroup',
-    ],
+    schemas: [],
 }
 
 // TODO: ER and EV plugins require the auth header in development mode.
@@ -40,11 +31,26 @@ const query = {
             paging: false,
         },
     },
+    apps: {
+        resource: 'apps',
+    },
+    currentUser: {
+        resource: 'me',
+        params: {
+            fields: 'id,username,displayName~rename(name),authorities,settings[keyAnalysisDisplayProperty]',
+        },
+    },
 }
 
-const providerDataTransformation = ({ rootOrgUnits }) => ({
-    rootOrgUnits: rootOrgUnits.organisationUnits,
-})
+const providerDataTransformation = ({ rootOrgUnits, apps, currentUser }) => {
+    const lineListingApp = apps.find((app) => app.key === 'line-listing') || {}
+    return {
+        rootOrgUnits: rootOrgUnits.organisationUnits,
+        lineListingAppVersion: lineListingApp.version || '0.0.0',
+        currentUser,
+        apps,
+    }
+}
 
 const AppWrapper = () => {
     const dataEngine = useDataEngine()
@@ -55,7 +61,7 @@ const AppWrapper = () => {
                 query={query}
                 dataTransformation={providerDataTransformation}
             >
-                <D2Shim d2Config={d2Config} i18nRoot="./i18n">
+                <D2Shim d2Config={d2Config}>
                     {({ d2 }) => {
                         if (!d2) {
                             // TODO: Handle errors in d2 initialization

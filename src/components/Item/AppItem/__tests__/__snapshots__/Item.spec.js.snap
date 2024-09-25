@@ -10,6 +10,9 @@ exports[`renders a valid App item in view mode 1`] = `
     >
       Scorecard
     </p>
+    <div
+      class="itemHeaderRightWrap"
+    />
   </div>
   <div
     class="ui-Divider"
@@ -33,11 +36,15 @@ exports[`renders a valid App item with filter in edit mode 1`] = `
       Scorecard
     </p>
     <div
-      class="itemActionsWrap"
+      class="itemHeaderRightWrap"
     >
       <div
-        class="DeleteItemButton"
-      />
+        class="itemActionsWrap"
+      >
+        <div
+          class="DeleteItemButton"
+        />
+      </div>
     </div>
   </div>
   <div
@@ -61,6 +68,9 @@ exports[`renders a valid App item with filter in view mode 1`] = `
     >
       Scorecard
     </p>
+    <div
+      class="itemHeaderRightWrap"
+    />
   </div>
   <div
     class="ui-Divider"
@@ -84,11 +94,15 @@ exports[`renders a valid App item with title in edit mode irrespective of app se
       No Title
     </p>
     <div
-      class="itemActionsWrap"
+      class="itemHeaderRightWrap"
     >
       <div
-        class="DeleteItemButton"
-      />
+        class="itemActionsWrap"
+      >
+        <div
+          class="DeleteItemButton"
+        />
+      </div>
     </div>
   </div>
   <div
@@ -122,6 +136,9 @@ exports[`renders an invalid App item 1`] = `
     >
       unknownApp app not found
     </p>
+    <div
+      class="itemHeaderRightWrap"
+    />
   </div>
   <div
     class="ui-Divider"

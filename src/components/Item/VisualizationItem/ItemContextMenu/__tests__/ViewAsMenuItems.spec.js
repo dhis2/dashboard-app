@@ -1,4 +1,4 @@
-import { useOnlineStatus } from '@dhis2/app-runtime'
+import { useDhis2ConnectionStatus } from '@dhis2/app-runtime'
 import { render } from '@testing-library/react'
 import React from 'react'
 import {
@@ -11,17 +11,20 @@ import {
 import ViewAsMenuItems from '../ViewAsMenuItems.js'
 
 jest.mock('@dhis2/app-runtime', () => ({
-    useOnlineStatus: jest.fn(() => ({ online: true, offline: false })),
+    useDhis2ConnectionStatus: jest.fn(() => ({
+        isConnected: true,
+        isDisconnected: false,
+    })),
 }))
 
 const offline = {
-    online: false,
-    offline: true,
+    isConnected: false,
+    isDisconnected: true,
 }
 
 const online = {
-    online: true,
-    offline: false,
+    isConnected: true,
+    isDisconnected: false,
 }
 
 const defaultProps = {
@@ -29,10 +32,13 @@ const defaultProps = {
 }
 
 test('renders menu for active type MAP and type CHART', async () => {
-    useOnlineStatus.mockImplementation(jest.fn(() => online))
+    useDhis2ConnectionStatus.mockImplementation(jest.fn(() => online))
     const props = Object.assign({}, defaultProps, {
         type: CHART,
         activeType: MAP,
+        visualization: {
+            type: 'COLUMN',
+        },
     })
 
     const { container } = render(<ViewAsMenuItems {...props} />)
@@ -41,11 +47,14 @@ test('renders menu for active type MAP and type CHART', async () => {
 })
 
 test('renders disabled menu items when offline', () => {
-    useOnlineStatus.mockImplementation(jest.fn(() => offline))
+    useDhis2ConnectionStatus.mockImplementation(jest.fn(() => offline))
 
     const props = Object.assign({}, defaultProps, {
         type: CHART,
         activeType: MAP,
+        visualization: {
+            type: 'COLUMN',
+        },
     })
 
     const { container } = render(<ViewAsMenuItems {...props} />)
@@ -53,7 +62,7 @@ test('renders disabled menu items when offline', () => {
 })
 
 test('renders menu for active type CHART and type MAP', async () => {
-    useOnlineStatus.mockImplementation(jest.fn(() => online))
+    useDhis2ConnectionStatus.mockImplementation(jest.fn(() => online))
     const props = Object.assign({}, defaultProps, {
         type: MAP,
         activeType: CHART,
@@ -68,7 +77,7 @@ test('renders menu for active type CHART and type MAP', async () => {
 })
 
 test('renders menu for active type MAP and type MAP without Thematic layer', async () => {
-    useOnlineStatus.mockImplementation(jest.fn(() => online))
+    useDhis2ConnectionStatus.mockImplementation(jest.fn(() => online))
     const props = Object.assign({}, defaultProps, {
         type: MAP,
         activeType: MAP,
@@ -83,7 +92,7 @@ test('renders menu for active type MAP and type MAP without Thematic layer', asy
 })
 
 test('renders menu for active type MAP and type MAP without Thematic layer when offline', async () => {
-    useOnlineStatus.mockImplementation(jest.fn(() => offline))
+    useDhis2ConnectionStatus.mockImplementation(jest.fn(() => offline))
     const props = Object.assign({}, defaultProps, {
         type: MAP,
         activeType: MAP,
@@ -98,11 +107,11 @@ test('renders menu for active type MAP and type MAP without Thematic layer when 
 })
 
 test('renders menu for active type REPORT_TABLE and type CHART', async () => {
-    useOnlineStatus.mockImplementation(jest.fn(() => online))
+    useDhis2ConnectionStatus.mockImplementation(jest.fn(() => online))
     const props = Object.assign({}, defaultProps, {
         type: CHART,
         activeType: REPORT_TABLE,
-        visualization: {},
+        visualization: { type: 'COLUMN' },
     })
 
     const { container } = render(<ViewAsMenuItems {...props} />)
@@ -111,11 +120,11 @@ test('renders menu for active type REPORT_TABLE and type CHART', async () => {
 })
 
 test('renders menu for active type CHART and type REPORT_TABLE', async () => {
-    useOnlineStatus.mockImplementation(jest.fn(() => online))
+    useDhis2ConnectionStatus.mockImplementation(jest.fn(() => online))
     const props = Object.assign({}, defaultProps, {
         type: REPORT_TABLE,
         activeType: CHART,
-        visualization: {},
+        visualization: { type: 'PIVOT_TABLE' },
     })
 
     const { container } = render(<ViewAsMenuItems {...props} />)
@@ -124,7 +133,7 @@ test('renders menu for active type CHART and type REPORT_TABLE', async () => {
 })
 
 test('renders menu for active type EVENT_REPORT and type EVENT_CHART', async () => {
-    useOnlineStatus.mockImplementation(jest.fn(() => online))
+    useDhis2ConnectionStatus.mockImplementation(jest.fn(() => online))
     const props = Object.assign({}, defaultProps, {
         type: EVENT_CHART,
         activeType: EVENT_REPORT,
@@ -137,7 +146,7 @@ test('renders menu for active type EVENT_REPORT and type EVENT_CHART', async () 
 })
 
 test('renders menu for active type EVENT_CHART and type EVENT_REPORT', async () => {
-    useOnlineStatus.mockImplementation(jest.fn(() => online))
+    useDhis2ConnectionStatus.mockImplementation(jest.fn(() => online))
     const props = Object.assign({}, defaultProps, {
         type: EVENT_REPORT,
         activeType: EVENT_CHART,

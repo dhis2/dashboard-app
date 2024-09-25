@@ -1,6 +1,7 @@
 import PropTypes from 'prop-types'
 import React from 'react'
 
+/* eslint-disable react/no-unknown-property */
 export function ArrowDown({ className }) {
     return (
         <svg
@@ -51,3 +52,5 @@ export function ArrowUp({ className }) {
 ArrowUp.propTypes = {
     className: PropTypes.string,
 }
+
+/* eslint-enable react/no-unknown-property */

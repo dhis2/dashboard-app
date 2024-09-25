@@ -9,6 +9,7 @@ import NoContentMessage from '../../components/NoContentMessage.js'
 import ProgressiveLoadingContainer from '../../components/ProgressiveLoadingContainer.js'
 import { useWindowDimensions } from '../../components/WindowDimensionsProvider.js'
 import { VIEW } from '../../modules/dashboardModes.js'
+import { getFirstOfTypes } from '../../modules/getFirstOfType.js'
 import { getGridItemDomElementClassName } from '../../modules/getGridItemDomElementClassName.js'
 import {
     GRID_ROW_HEIGHT_PX,
@@ -30,8 +31,8 @@ import {
 } from '../../reducers/selected.js'
 import classes from './styles/ItemGrid.module.css'
 
-const EXPANDED_HEIGHT = 17
-const EXPANDED_HEIGHT_SM = 13
+const EXPANDED_HEIGHT = 19
+const EXPANDED_HEIGHT_SM = 15
 
 const ResponsiveItemGrid = ({ dashboardId, dashboardItems }) => {
     const { width } = useWindowDimensions()
@@ -41,6 +42,7 @@ const ResponsiveItemGrid = ({ dashboardId, dashboardItems }) => {
     const [gridWidth, setGridWidth] = useState(0)
     const [forceLoad, setForceLoad] = useState(false)
     const { recordingState } = useCacheableSection(dashboardId)
+    const firstOfTypes = getFirstOfTypes(dashboardItems)
 
     useEffect(() => {
         setLayoutSm(
@@ -88,6 +90,10 @@ const ResponsiveItemGrid = ({ dashboardId, dashboardItems }) => {
             return <div key={item.i} />
         }
 
+        if (firstOfTypes.includes(item.id)) {
+            item.firstOfType = true
+        }
+
         return (
             <ProgressiveLoadingContainer
                 key={item.i}
@@ -103,6 +109,7 @@ const ResponsiveItemGrid = ({ dashboardId, dashboardItems }) => {
                     item={item}
                     gridWidth={gridWidth}
                     dashboardMode={VIEW}
+                    isRecording={forceLoad}
                     onToggleItemExpanded={onToggleItemExpanded}
                 />
             </ProgressiveLoadingContainer>

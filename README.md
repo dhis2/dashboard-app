@@ -9,19 +9,9 @@ Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
 #### Configuration
 
-Two environment variables need to be set for running dashboards-app in development mode. It is recommended to set these environment variables in a `.env` or `.env.local` file.
-
-##### api base url: REACT_APP_DHIS2_BASE_URL
-
-The api base url points to a running DHIS2 instance. This can be for example `http://localhost:8080`.
-
-```
-REACT_APP_DHIS2_BASE_URL=http://localhost:8080
-```
-
 ##### api authentication: REACT_APP_DHIS2_AUTHORIZATION
 
-In order for maps, event reports and event charts to display in development mode, you also need to provide the authenticaion credentials for the api. The following example is the base64 encoded value for the username/password combination of `admin:district`:
+In order for event reports and event charts to display in development mode, you need to set up the REACT_APP_DHIS2_AUTHORIZATION environment variable. The following example is the base64 encoded value for the username/password combination of `admin:district`:
 
 ```
 REACT_APP_DHIS2_AUTHORIZATION=Basic YWRtaW46ZGlzdHJpY3Q=
@@ -31,25 +21,25 @@ REACT_APP_DHIS2_AUTHORIZATION=Basic YWRtaW46ZGlzdHJpY3Q=
 
 #### Configuration
 
-Additional environment variables are needed in order to run the Cypress e2e tests. It is recommended to define these in the same place as the REACT_APP_DHIS2_BASE_URL env var (for example. `.env`). REACT_APP_DHIS2_BASE_URL and CYPRESS_DHIS2_BASE_URL must match.
+Additional environment variables are needed in order to run the Cypress e2e tests. You can configure these in a local file `cypress.env.json`
 
 ```
-REACT_APP_DHIS2_BASE_URL=http://localhost:8080
-CYPRESS_DHIS2_BASE_URL=http://localhost:8080
-CYPRESS_DHIS2_USERNAME=admin
-CYPRESS_DHIS2_PASSWORD=district
+{
+    "dhis2BaseUrl": "https://test.e2e.dhis2.org/analytics-2.41",
+    "dhis2InstanceVersion": "2.41",
+    "dhis2Username": "admin",
+    "dhis2Password": "district"
+}
 ```
 
 #### Run the e2e tests
 
 The following commands can be used to run the tests:
 
-| Command             |  Backend   | Environment |        Tests |
-| ------------------- | :--------: | ----------: | -----------: |
-| `yarn cy:open-live` | API server |  Cypress UI |          All |
-| `yarn cy:run-live`  | API server |    Headless |          All |
-| `yarn cy:open-stub` |  Fixtures  |  Cypress UI | Non-mutating |
-| `yarn cy:run-stub`  |  Fixtures  |    Headless | Non-mutating |
+| Comman         | Environment | Tests |
+| -------------- | ----------: | ----: |
+| `yarn cy:open` |  Cypress UI |   All |
+| `yarn cy:run`  |    Headless |   All |
 
 ### `yarn test`
 
@@ -62,6 +52,15 @@ See the section about [running tests](https://platform.dhis2.nu/#/scripts/test) 
 Builds the app for production to the `build` folder.<br />. This command is run by the continuous integration server.
 
 See the [building](https://platform.dhis2.nu/#/scripts/build) section for more information.
+
+## Conditional E2E Test Recording
+
+To record e2e tests in Cypress Cloud, you can use one of the following methods based on your needs:
+
+-   **Commit Message**: Include `[e2e record]` in your commit messages to activate recording.
+-   **GitHub Labels**: Apply the `e2e record` label to your pull request to trigger recording.
+
+This setup helps in managing Cypress Cloud credits more efficiently, ensuring recordings are only made when explicitly required.
 
 ## Learn More
 

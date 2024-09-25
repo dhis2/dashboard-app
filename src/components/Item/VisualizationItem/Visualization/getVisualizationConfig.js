@@ -12,6 +12,10 @@ const getWithoutId = (object) => ({
 })
 
 const getVisualizationConfig = (visualization, originalType, activeType) => {
+    if (originalType === activeType) {
+        return visualization
+    }
+
     if (originalType === MAP && originalType !== activeType) {
         const thematicMapViews = getThematicMapViews(visualization)
 

@@ -1,9 +1,6 @@
 # testing
 /coverage
 
-# documentation
-docs/*
-
 # misc
 .DS_Store
 .env*.local
@@ -33,3 +30,4 @@ build
 cypress.env.json
 cypress/screenshots
 cypress/videos
+cypress/downloads

@@ -15,7 +15,10 @@ jest.mock('../../../../SystemSettingsProvider', () => {
 })
 
 jest.mock('@dhis2/app-runtime', () => ({
-    useOnlineStatus: jest.fn(() => ({ online: true, offline: false })),
+    useDhis2ConnectionStatus: jest.fn(() => ({
+        isConnected: true,
+        isDisconnected: false,
+    })),
     useConfig: jest.fn(() => ({ baseUrl: 'dhis2' })),
 }))
 
@@ -56,7 +59,7 @@ test('renders just the button when menu closed', () => {
     expect(getByRole('button')).toBeTruthy()
     expect(queryByText('View as Map')).toBeNull()
     expect(queryByText('View as Chart')).toBeNull()
-    expect(queryByText('View as Table')).toBeNull()
+    expect(queryByText('View as Pivot table')).toBeNull()
     expect(queryByTestId('divider')).toBeNull()
     expect(queryByText('Open in Data Visualizer app')).toBeNull()
     expect(queryByText('Show details and interpretations')).toBeNull()
@@ -110,7 +113,7 @@ test('renders popover menu for BAR chart', async () => {
     await waitFor(() => {
         expect(queryByText('View as Map')).toBeTruthy()
         expect(queryByText('View as Chart')).toBeNull()
-        expect(queryByText('View as Table')).toBeTruthy()
+        expect(queryByText('View as Pivot table')).toBeTruthy()
         expect(queryByTestId('divider')).toBeTruthy()
         expect(queryByText('Open in Data Visualizer app')).toBeTruthy()
         expect(queryByText('Show details and interpretations')).toBeTruthy()
@@ -137,7 +140,7 @@ test('renders popover menu for SINGLE_VALUE chart', async () => {
     await waitFor(() => {
         expect(queryByText('View as Map')).toBeNull()
         expect(queryByText('View as Chart')).toBeNull()
-        expect(queryByText('View as Table')).toBeNull()
+        expect(queryByText('View as Pivot table')).toBeNull()
         expect(queryByTestId('divider')).toBeNull()
         expect(queryByText('Open in Data Visualizer app')).toBeTruthy()
         expect(queryByText('Show details and interpretations')).toBeTruthy()
@@ -164,7 +167,7 @@ test('renders popover menu for YEAR_OVER_YEAR_LINE chart', async () => {
     await waitFor(() => {
         expect(queryByText('View as Map')).toBeNull()
         expect(queryByText('View as Chart')).toBeNull()
-        expect(queryByText('View as Table')).toBeNull()
+        expect(queryByText('View as Pivot table')).toBeNull()
         expect(queryByTestId('divider')).toBeNull()
         expect(queryByText('Open in Data Visualizer app')).toBeTruthy()
         expect(queryByText('Show details and interpretations')).toBeTruthy()
@@ -191,7 +194,7 @@ test('renders popover menu for GAUGE chart', async () => {
     await waitFor(() => {
         expect(queryByText('View as Map')).toBeNull()
         expect(queryByText('View as Chart')).toBeNull()
-        expect(queryByText('View as Table')).toBeNull()
+        expect(queryByText('View as Pivot table')).toBeNull()
         expect(queryByTestId('divider')).toBeNull()
         expect(queryByText('Open in Data Visualizer app')).toBeTruthy()
         expect(queryByText('Show details and interpretations')).toBeTruthy()
@@ -218,7 +221,7 @@ test('renders popover menu for PIE chart', async () => {
     await waitFor(() => {
         expect(queryByText('View as Map')).toBeNull()
         expect(queryByText('View as Chart')).toBeNull()
-        expect(queryByText('View as Table')).toBeNull()
+        expect(queryByText('View as Pivot table')).toBeNull()
         expect(queryByTestId('divider')).toBeNull()
         expect(queryByText('Open in Data Visualizer app')).toBeTruthy()
         expect(queryByText('Show details and interpretations')).toBeTruthy()
@@ -249,7 +252,7 @@ test('renders popover menu for PIVOT_TABLE', async () => {
     await waitFor(() => {
         expect(queryByText('View as Map')).toBeTruthy()
         expect(queryByText('View as Chart')).toBeTruthy()
-        expect(queryByText('View as Table')).toBeNull()
+        expect(queryByText('View as Pivot table')).toBeNull()
         expect(queryByTestId('divider')).toBeTruthy()
         expect(queryByText('Open in Data Visualizer app')).toBeTruthy()
         expect(queryByText('Show details and interpretations')).toBeTruthy()
@@ -278,7 +281,7 @@ test('renders popover menu for MAP', async () => {
     await waitFor(() => {
         expect(queryByText('View as Map')).toBeNull()
         expect(queryByText('View as Chart')).toBeTruthy()
-        expect(queryByText('View as Table')).toBeTruthy()
+        expect(queryByText('View as Pivot table')).toBeTruthy()
         expect(queryByTestId('divider')).toBeTruthy()
         expect(queryByText('Open in Maps app')).toBeTruthy()
         expect(queryByText('Show details and interpretations')).toBeTruthy()
@@ -376,7 +379,7 @@ test('renders only View in App when item load failed', async () => {
     await waitFor(() => {
         expect(queryByText('View as Map')).toBeNull()
         expect(queryByText('View as Chart')).toBeNull()
-        expect(queryByText('View as Table')).toBeNull()
+        expect(queryByText('View as Pivot table')).toBeNull()
         expect(queryByTestId('divider')).toBeNull()
         expect(queryByText('Open in Maps app')).toBeTruthy()
         expect(queryByText('Show details and interpretations')).toBeNull()
@@ -464,7 +467,7 @@ test('renders correct options for BAR in small screen', async () => {
     await waitFor(() => {
         expect(queryByText('View as Map')).toBeTruthy()
         expect(queryByText('View as Chart')).toBeNull()
-        expect(queryByText('View as Table')).toBeTruthy()
+        expect(queryByText('View as Pivot table')).toBeTruthy()
         expect(queryByTestId('divider')).toBeTruthy()
         expect(queryByText('Open in Data Visualizer app')).toBeNull()
         expect(queryByText('Show details and interpretations')).toBeTruthy()
@@ -495,7 +498,7 @@ test('renders correct options for PIE in small screen', async () => {
     await waitFor(() => {
         expect(queryByText('View as Map')).toBeNull()
         expect(queryByText('View as Chart')).toBeNull()
-        expect(queryByText('View as Table')).toBeNull()
+        expect(queryByText('View as Pivot table')).toBeNull()
         expect(queryByTestId('divider')).toBeNull()
         expect(queryByText('Open in Data Visualizer app')).toBeNull()
         expect(queryByText('Show details and interpretations')).toBeTruthy()
