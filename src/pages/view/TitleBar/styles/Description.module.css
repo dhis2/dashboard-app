@@ -1,13 +1,14 @@
 .desc {
-    color: var(--colors-grey700);
+    color: var(--colors-grey800);
 }
 
 .noDesc {
-    color: #888;
+    color: var(--colors-grey600);
 }
 
 .descContainer {
+    margin-block-start: var(--spacers-dp8);
+    padding: 0 var(--spacers-dp16);
     font-size: 14px;
-    padding-top: 5px;
-    padding-bottom: 5px;
+    line-height: 18px;
 }

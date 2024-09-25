@@ -1,7 +1,7 @@
 import { DimensionsPanel } from '@dhis2/analytics'
 import { useDhis2ConnectionStatus } from '@dhis2/app-runtime'
 import i18n from '@dhis2/d2-i18n'
-import { Card, colors, IconFilter24 } from '@dhis2/ui'
+import { Card, colors, IconFilter16 } from '@dhis2/ui'
 import isEmpty from 'lodash/isEmpty.js'
 import PropTypes from 'prop-types'
 import React, { useState } from 'react'
@@ -62,10 +62,12 @@ const FilterSelector = (props) => {
         <>
             <span className={classes.buttonContainer}>
                 <DropdownButton
+                    small
+                    secondary
                     open={filterDialogIsOpen}
                     disabled={offline}
                     onClick={toggleFilterDialogIsOpen}
-                    icon={<IconFilter24 color={colors.grey700} />}
+                    icon={<IconFilter16 color={colors.grey700} />}
                     component={getFilterSelector()}
                 >
                     {i18n.t('Add filter')}

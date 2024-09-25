@@ -1,13 +1,33 @@
 .star {
-    margin: 0 0 0 var(--spacers-dp4);
-    padding: 0;
-    border: none;
-    position: relative;
-    top: 1px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 3px;
+    padding: 4px;
     background: transparent;
+    border: none;
     outline: none;
     cursor: pointer;
+    position: relative;
+    top: 2px;
 }
 .star:disabled {
     cursor: not-allowed;
+}
+.star:hover {
+    background: var(--colors-grey300);
+}
+.starIcon {
+    width: 16px;
+    height: 16px;
+    display: block;
+}
+.starIcon svg {
+    color: var(--colors-grey700);
+}
+.star:hover .starIcon svg {
+    color: var(--colors-grey800);
+}
+.star:active .starIcon svg {
+    color: var(--colors-grey900);
 }
