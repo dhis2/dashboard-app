@@ -66,11 +66,7 @@ export const Item = (props) => {
     const engine = useDataEngine()
     const GridItem = getGridItem(props.item.type)
 
-    return (
-        <div dir={document.dir}>
-            <GridItem apps={apps} {...props} engine={engine} />
-        </div>
-    )
+    return <GridItem apps={apps} {...props} engine={engine} />
 }
 
 Item.propTypes = {
