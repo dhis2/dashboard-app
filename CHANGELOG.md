@@ -1,3 +1,10 @@
+# [100.3.0](https://github.com/dhis2/dashboard-app/compare/v100.2.5...v100.3.0) (2024-09-26)
+
+
+### Features
+
+* improve support for right-to-left languages in Dashboard app ([#2985](https://github.com/dhis2/dashboard-app/issues/2985)) ([9b3b585](https://github.com/dhis2/dashboard-app/commit/9b3b58535592dfab1db7056abe5617311db3da75)), closes [ui#1448](https://github.com/ui/issues/1448) [app-platform#825](https://github.com/app-platform/issues/825) [cli-style#464](https://github.com/cli-style/issues/464)
+
 ## [100.2.5](https://github.com/dhis2/dashboard-app/compare/v100.2.4...v100.2.5) (2024-08-27)
 
 
