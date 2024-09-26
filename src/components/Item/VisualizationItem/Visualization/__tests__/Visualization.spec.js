@@ -38,7 +38,7 @@ const DEFAULT_STORE_WITH_ONE_ITEM = {
     },
 }
 
-test('renders a MapPlugin when activeType is MAP', () => {
+test('renders a VisualizationPlugin when activeType is MAP', () => {
     const { container } = render(
         <Provider store={mockStore(DEFAULT_STORE_WITH_ONE_ITEM)}>
             <Visualization
@@ -84,24 +84,6 @@ test('renders a VisualizationPlugin for REPORT_TABLE', () => {
                     visualization: { id: 'rainbowVis', type: 'PIVOT_TABLE' },
                 }}
                 activeType="REPORT_TABLE"
-                itemFilters={{}}
-                availableHeight={500}
-            />
-        </Provider>
-    )
-    expect(container).toMatchSnapshot()
-})
-
-test('renders active type MAP rather than original type REPORT_TABLE', () => {
-    const { container } = render(
-        <Provider store={mockStore(DEFAULT_STORE_WITH_ONE_ITEM)}>
-            <Visualization
-                item={{
-                    id: 'rainbow',
-                    type: 'VISUALIZATION',
-                    visualization: { id: 'rainbowVis', type: 'PIVOT_TABLE' },
-                }}
-                activeType="MAP"
                 itemFilters={{}}
                 availableHeight={500}
             />

@@ -34,8 +34,8 @@ const defaultProps = {
 test('renders menu for active type MAP and type CHART', async () => {
     useDhis2ConnectionStatus.mockImplementation(jest.fn(() => online))
     const props = Object.assign({}, defaultProps, {
-        type: CHART,
         activeType: MAP,
+        type: CHART,
         visualization: {
             type: 'COLUMN',
         },
@@ -51,8 +51,8 @@ test('renders menu for active type MAP and type CHART', async () => {
 test('renders menu for active type CHART and type MAP', async () => {
     useDhis2ConnectionStatus.mockImplementation(jest.fn(() => online))
     const props = Object.assign({}, defaultProps, {
-        type: MAP,
         activeType: CHART,
+        type: MAP,
         visualization: {
             mapViews: [{ layer: 'thematic' }],
         },
@@ -87,8 +87,8 @@ test('renders disabled menu items when offline', () => {
 test('renders menu for active type MAP and type MAP without Thematic layer', async () => {
     useDhis2ConnectionStatus.mockImplementation(jest.fn(() => online))
     const props = Object.assign({}, defaultProps, {
-        type: MAP,
         activeType: MAP,
+        type: MAP,
         visualization: {
             mapViews: [{ layer: 'earthEngine' }],
         },
@@ -110,8 +110,8 @@ test('renders menu for active type MAP and type MAP without Thematic layer', asy
 test('renders menu for active type MAP and type MAP without Thematic layer when offline', async () => {
     useDhis2ConnectionStatus.mockImplementation(jest.fn(() => offline))
     const props = Object.assign({}, defaultProps, {
-        type: MAP,
         activeType: MAP,
+        type: MAP,
         visualization: {
             mapViews: [{ layer: 'earthEngine' }],
         },
@@ -133,8 +133,8 @@ test('renders menu for active type MAP and type MAP without Thematic layer when 
 test('renders menu for active type REPORT_TABLE and type CHART', async () => {
     useDhis2ConnectionStatus.mockImplementation(jest.fn(() => online))
     const props = Object.assign({}, defaultProps, {
-        type: CHART,
         activeType: REPORT_TABLE,
+        type: CHART,
         visualization: { type: 'COLUMN' },
     })
 
@@ -148,8 +148,8 @@ test('renders menu for active type REPORT_TABLE and type CHART', async () => {
 test('renders menu for active type CHART and type REPORT_TABLE', async () => {
     useDhis2ConnectionStatus.mockImplementation(jest.fn(() => online))
     const props = Object.assign({}, defaultProps, {
-        type: REPORT_TABLE,
         activeType: CHART,
+        type: REPORT_TABLE,
         visualization: { type: 'PIVOT_TABLE' },
     })
 
@@ -163,8 +163,8 @@ test('renders menu for active type CHART and type REPORT_TABLE', async () => {
 test('renders menu for active type EVENT_REPORT and type EVENT_CHART', async () => {
     useDhis2ConnectionStatus.mockImplementation(jest.fn(() => online))
     const props = Object.assign({}, defaultProps, {
-        type: EVENT_CHART,
         activeType: EVENT_REPORT,
+        type: EVENT_CHART,
         visualization: {},
     })
 
@@ -178,8 +178,8 @@ test('renders menu for active type EVENT_REPORT and type EVENT_CHART', async () 
 test('renders menu for active type EVENT_CHART and type EVENT_REPORT', async () => {
     useDhis2ConnectionStatus.mockImplementation(jest.fn(() => online))
     const props = Object.assign({}, defaultProps, {
-        type: EVENT_REPORT,
         activeType: EVENT_CHART,
+        type: EVENT_REPORT,
         visualization: {},
     })
 
