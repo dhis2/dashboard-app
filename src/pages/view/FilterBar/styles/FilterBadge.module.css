@@ -1,10 +1,13 @@
 .container {
     margin: 2px;
-    padding: 0 var(--spacers-dp16);
+    padding-block-start: 0;
+    padding-block-end: 0;
+    padding-inline-start: var(--spacers-dp16);
+    padding-inline-end: var(--spacers-dp16);
     border-radius: 4px;
     color: var(--colors-white);
     background-color: #212934;
-    height: 36px;
+    block-size: 36px;
     display: flex;
     align-items: center;
 }
@@ -28,7 +31,7 @@
     padding: 0;
     font-size: 12px;
     text-decoration: underline;
-    margin-left: var(--spacers-dp24);
+    margin-inline-start: var(--spacers-dp24);
     cursor: pointer;
 }
 

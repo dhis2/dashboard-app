@@ -1,6 +1,6 @@
 .searchArea {
-    width: 200px;
-    height: 30px;
+    inline-size: 200px;
+    block-size: 30px;
     position: relative;
     align-items: center;
     display: inline-flex;
@@ -10,8 +10,8 @@
 .input {
     font-size: 14px;
     border: none;
-    width: 100%;
-    min-width: 0;
+    inline-size: 100%;
+    min-inline-size: 0;
     margin: 0;
 }
 
@@ -25,11 +25,11 @@
 
 .searchArea::before {
     content: '\00a0';
-    left: 0;
-    right: 0;
-    bottom: 0;
+    inset-inline-start: 0;
+    inset-inline-end: 0;
+    inset-block-end: 0;
     position: absolute;
-    border-bottom: 1px solid var(--colors-grey400);
+    border-block-end: 1px solid var(--colors-grey400);
     pointer-events: none;
 }
 
@@ -39,11 +39,11 @@
 
 .searchArea::after {
     content: '';
-    left: 0;
-    right: 0;
-    bottom: 0;
+    inset-inline-start: 0;
+    inset-inline-end: 0;
+    inset-block-end: 0;
     position: absolute;
-    border-bottom: 1px solid var(--colors-grey500);
+    border-block-end: 1px solid var(--colors-grey500);
     transform: scaleX(0);
     pointer-events: none;
 }
@@ -51,7 +51,10 @@
 .searchButton {
     border: none;
     background-color: transparent;
-    padding: 0 6px 0 0;
+    padding-block-start: 0;
+    padding-block-end: 0;
+    padding-inline-start: 0;
+    padding-inline-end: 6px;
 }
 
 .searchButton:hover {
@@ -63,25 +66,25 @@
 }
 
 .searchIconContainer {
-    height: 0.01em;
-    max-height: 2em;
+    block-size: 0.01em;
+    max-block-size: 2em;
     align-items: center;
-    margin-right: 8px;
-    margin-bottom: 16px;
+    margin-inline-end: 8px;
+    margin-block-end: 16px;
 }
 
 .clearButtonContainer {
-    height: 0.01em;
-    max-height: 2em;
+    block-size: 0.01em;
+    max-block-size: 2em;
     display: flex;
     align-items: center;
-    margin-left: 8px;
+    margin-inline-start: 8px;
 }
 
 @media only screen and (max-width: 480px) {
     .input {
-        width: 100%;
-        padding-bottom: 2px;
+        inline-size: 100%;
+        padding-block-end: 2px;
     }
 
     /* collapsed controlbar */
@@ -91,15 +94,15 @@
 
     .collapsed .searchButton {
         display: inline;
-        padding-top: 8px;
+        padding-block-start: 8px;
     }
 
     /* expanded controlbar */
 
     .expanded .searchArea {
         display: flex;
-        height: 24px;
-        padding-top: inherit;
-        width: 100%;
+        block-size: 24px;
+        padding-block-start: inherit;
+        inline-size: 100%;
     }
 }

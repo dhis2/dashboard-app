@@ -2,14 +2,14 @@
     text-align: center;
     margin: 5px;
     position: absolute;
-    top: 50%;
-    left: 50%;
+    inset-block-start: 50%;
+    inset-inline-start: 50%;
     transform: translate(-50%, -50%);
 }
 
 .icon {
     vertical-align: middle;
-    margin-right: 3px;
+    margin-inline-end: 3px;
 }
 
 .message {
