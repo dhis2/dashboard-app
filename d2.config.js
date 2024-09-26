@@ -7,6 +7,8 @@ const config = {
 
     minDHIS2Version: '2.40',
 
+    direction: 'auto',
+
     pwa: {
         enabled: true,
         caching: {

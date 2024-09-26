@@ -3,13 +3,16 @@
     align-items: center;
     justify-content: center;
     border-radius: 3px;
-    padding: 4px;
+    padding-block-start: 4px;
+    padding-block-end: 4px;
+    padding-inline-start: 4px;
+    padding-inline-end: 4px;
     background: transparent;
     border: none;
     outline: none;
     cursor: pointer;
     position: relative;
-    top: 2px;
+    inset-block-start: 2px;
 }
 .star:disabled {
     cursor: not-allowed;
@@ -18,8 +21,8 @@
     background: var(--colors-grey300);
 }
 .starIcon {
-    width: 16px;
-    height: 16px;
+    inline-size: 16px;
+    block-size: 16px;
     display: block;
 }
 .starIcon svg {

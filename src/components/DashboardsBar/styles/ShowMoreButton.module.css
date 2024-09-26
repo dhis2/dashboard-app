@@ -1,7 +1,7 @@
 .container {
     display: flex;
     align-items: center;
-    width: 32px;
+    inline-size: 32px;
     flex-shrink: 0;
 }
 
@@ -11,8 +11,8 @@
     border-radius: 3px;
     background: transparent;
     padding: 0px;
-    width: 100%;
-    height: 32px;
+    inline-size: 100%;
+    block-size: 32px;
     display: flex;
     align-items: center;
     justify-content: center;

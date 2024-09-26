@@ -64,24 +64,24 @@ div:-webkit-full-screen {
 div:-webkit-full-screen {
     object-fit: contain;
     position: fixed !important;
-    top: 0px !important;
-    right: 0px !important;
-    bottom: 0px !important;
-    left: 0px !important;
+    inset-block-start: 0px !important;
+    inset-inline-end: 0px !important;
+    inset-block-end: 0px !important;
+    inset-inline-start: 0px !important;
     box-sizing: border-box !important;
-    min-width: 0px !important;
-    max-width: none !important;
-    min-height: 0px !important;
-    max-height: none !important;
-    width: 100% !important;
-    height: 100% !important;
+    min-inline-size: 0px !important;
+    max-inline-size: none !important;
+    min-block-size: 0px !important;
+    max-block-size: none !important;
+    inline-size: 100% !important;
+    block-size: 100% !important;
     transform: none !important;
     margin: 0px !important;
 }
 
 @media print {
     body {
-        width: 100% !important;
+        inline-size: 100% !important;
         padding: 0 !important;
         margin: 0 !important;
         background-color: white;

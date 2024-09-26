@@ -11,4 +11,8 @@
     padding: 0 var(--spacers-dp16);
     font-size: 14px;
     line-height: 18px;
+    padding-block-start: 0;
+    padding-block-end: 0;
+    padding-inline-start: var(--spacers-dp16);
+    padding-inline-end: var(--spacers-dp16);
 }

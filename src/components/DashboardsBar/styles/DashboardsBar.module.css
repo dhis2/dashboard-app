@@ -5,7 +5,7 @@
 .container {
     position: relative;
     background-color: var(--colors-white);
-    border-bottom: 1px solid var(--colors-grey300);
+    border-block-end: 1px solid var(--colors-grey300);
     overflow: hidden;
     box-sizing: border-box;
     flex: none;
@@ -13,9 +13,12 @@
     flex-direction: row;
     justify-content: space-between;
     align-items: flex-start;
-    padding: 6px;
-    height: var(--user-rows-height);
-    width: 100%;
+    padding-block-start: 6px;
+    padding-block-end: 6px;
+    padding-inline-start: 6px;
+    padding-inline-end: 6px;
+    block-size: var(--user-rows-height);
+    inline-size: 100%;
     z-index: 1;
 }
 
@@ -24,7 +27,7 @@
 }
 
 .expanded .container {
-    height: var(--max-rows-height);
+    block-size: var(--max-rows-height);
     z-index: 1999;
     box-shadow: var(--elevations-e400);
 }
@@ -33,7 +36,7 @@
     display: none;
     box-sizing: border-box;
     flex: none;
-    height: var(--user-rows-height);
+    block-size: var(--user-rows-height);
 }
 
 @media only screen and (min-width: 481px) {
@@ -65,7 +68,7 @@
 
     .expanded .spacer {
         display: block;
-        height: var(--min-rows-height);
+        block-size: var(--min-rows-height);
     }
 }
 
@@ -75,14 +78,14 @@
         padding: 6px 0 6px 6px;
     }
     .collapsed .container {
-        height: var(--min-rows-height);
+        block-size: var(--min-rows-height);
     }
 
     .expanded .container {
         position: absolute;
         display: flex;
         flex-direction: row;
-        height: var(--sm-expanded-controlbar-height);
+        block-size: var(--sm-expanded-controlbar-height);
     }
 
     .expanded .content {

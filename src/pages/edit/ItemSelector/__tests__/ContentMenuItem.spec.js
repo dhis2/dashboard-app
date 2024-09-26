@@ -11,9 +11,9 @@ test('ContentMenuItem has a LaunchLink when url is provided', () => {
         onInsert: jest.fn(),
     }
 
-    const { container } = render(<ContentMenuItem {...props} />)
+    const { queryByLabelText } = render(<ContentMenuItem {...props} />)
 
-    expect(container).toMatchSnapshot()
+    expect(queryByLabelText('Open visualization in new tab')).toBeTruthy()
 })
 
 test('does not have LaunchLink if no url provided', () => {
@@ -24,6 +24,7 @@ test('does not have LaunchLink if no url provided', () => {
         visType: 'BAR',
         onInsert: jest.fn(),
     }
-    const { container } = render(<ContentMenuItem {...props} />)
-    expect(container).toMatchSnapshot()
+    const { queryByLabelText } = render(<ContentMenuItem {...props} />)
+
+    expect(queryByLabelText('Open visualization in new tab')).toBeNull()
 })

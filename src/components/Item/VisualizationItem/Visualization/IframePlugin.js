@@ -233,7 +233,7 @@ const IframePlugin = ({
     }
 
     return (
-        <div className={classes.wrapper}>
+        <div className={classes.wrapper} dir={document.dir}>
             {iframeSrc ? (
                 <iframe
                     ref={iframeRef}

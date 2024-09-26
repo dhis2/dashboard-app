@@ -1,6 +1,6 @@
 .container {
     background-color: var(--colors-grey200);
-    padding-bottom: var(--spacers-dp24);
+    padding-block-end: var(--spacers-dp24);
     overflow: auto;
 }
 
