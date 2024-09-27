@@ -17,9 +17,9 @@
     display: flex;
     flex-shrink: 0;
     align-items: center;
-    margin-left: auto;
+    margin-inline-start: auto;
 }
 
 .itemActionsWrap button {
-    margin-left: var(--spacers-dp8);
+    margin-inline-start: var(--spacers-dp8);
 }
