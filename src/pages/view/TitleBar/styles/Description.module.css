@@ -8,7 +8,6 @@
 
 .descContainer {
     margin-block-start: var(--spacers-dp8);
-    padding: 0 var(--spacers-dp16);
     font-size: 14px;
     line-height: 18px;
     padding-block-start: 0;

@@ -4,8 +4,8 @@
     box-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.05);
     padding-block-start: 6px;
     padding-block-end: 6px;
-    padding-inline-start: var(--spacers-dp4);
-    padding-inline-end: var(--spacers-dp8);
+    padding-inline-start: var(--spacers-dp8);
+    padding-inline-end: var(--spacers-dp4);
     position: sticky;
     inset-block-start: 0px;
     z-index: 10;
