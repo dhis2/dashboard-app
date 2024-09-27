@@ -1,0 +1,45 @@
+name: 'dhis2: e2e tests triggered by core'
+
+on:
+    workflow_dispatch:
+        inputs:
+            dhis2_version:
+                description: 'DHIS2 core version'
+                required: true
+            instance_url:
+                description: 'Instance URL'
+                required: true
+
+jobs:
+    setup-matrix:
+        runs-on: ubuntu-latest
+        outputs:
+            matrix: ${{ steps.set-matrix.outputs.specs }}
+        steps:
+            - uses: actions/checkout@v3
+
+            - name: Generate Test matrix
+              id: set-matrix
+              run: |
+                  echo "Generating Test Matrix"
+                  echo "::set-output name=specs::$(node cypress/support/generateTestMatrix.js)"
+
+            - name: Debug spec-group
+              run: |
+                  echo "Matrix output: ${{ steps.set-matrix.outputs.specs }}"
+
+    call-workflow-e2e-prod:
+        needs: setup-matrix
+        uses: dhis2/workflows/.github/workflows/analytics-e2e-tests-triggered-by-core.yml@workflow-dispatch-cypress
+        with:
+            should_record: ${{ contains(github.event.head_commit.message, '[e2e record]') || contains(join(github.event.pull_request.labels.*.name), 'e2e record')}}
+            spec-group: ${{ needs.setup-matrix.outputs.matrix }}
+            instance_url: ${{ github.event.inputs.instance_url }}
+            dhis2_version: ${{ github.event.inputs.dhis2_version }}
+        secrets:
+            username: ${{ secrets.CYPRESS_DHIS2_USERNAME }}
+            password: ${{ secrets.CYPRESS_DHIS2_PASSWORD }}
+            recordkey: ${{ secrets.CYPRESS_RECORD_KEY }}
+            reportportal_api_key: ${{ secrets.REPORTPORTAL_API_KEY }}
+            reportportal_endpoint: ${{ vars.REPORTPORTAL_ENDPOINT }}
+            reportportal_project: ${{ vars.REPORTPORTAL_PROJECT }}
