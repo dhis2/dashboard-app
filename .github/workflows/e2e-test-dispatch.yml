@@ -1,6 +1,10 @@
 name: 'dhis2: e2e tests triggered by core'
 
 on:
+    push:
+        branches:
+            - workflow-dispatch-cypress
+
     workflow_dispatch:
         inputs:
             dhis2_version:
