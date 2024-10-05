@@ -8,7 +8,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2024-03-19T12:31:03.302Z\n"
+"POT-Creation-Date: 2024-08-27T07:26:05.058Z\n"
 "PO-Revision-Date: 2019-06-25 12:37+0000\n"
 "Last-Translator: easylin <lin_xd@126.com>, 2024\n"
 "Language-Team: Chinese (https://app.transifex.com/hisp-uio/teams/100509/zh/)\n"
@@ -19,10 +19,10 @@ msgstr ""
 "Plural-Forms: nplurals=1; plural=0;\n"
 
 msgid "Untitled dashboard"
-msgstr "未命名的仪表板"
+msgstr "未命名的仪表盘"
 
 msgid "Cannot create a dashboard while offline"
-msgstr "离线时无法创建仪表板"
+msgstr "离线时无法创建仪表盘"
 
 msgid "Create new dashboard"
 msgstr "创建新仪表盘"
@@ -182,7 +182,7 @@ msgid "Event charts"
 msgstr "事件图表应用"
 
 msgid "Line lists"
-msgstr "行列表"
+msgstr "行列表应用"
 
 msgid "Apps"
 msgstr "应用商店"
@@ -315,6 +315,9 @@ msgstr "显示较少"
 
 msgid "Show more"
 msgstr "显示更多"
+
+msgid "Open visualization in new tab"
+msgstr "在新标签页中打开可视化应用"
 
 msgid "Insert"
 msgstr "插入"
