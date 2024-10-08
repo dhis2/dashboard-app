@@ -2340,45 +2340,45 @@
   dependencies:
     prop-types "^15.7.2"
 
-"@dhis2/app-runtime@^3.10.6":
-  version "3.10.6"
-  resolved "https://registry.yarnpkg.com/@dhis2/app-runtime/-/app-runtime-3.10.6.tgz#10add0b8a2e1de06777e6e78c681a3a8f15ba058"
-  integrity sha512-WfC+AHkw0V3V3/wyLPHoTyAf8i4btLl/R2nMBVs3NEXLwA9mekG/gXs7AEPnK2/p6FVoqXMDwJHEH2b8Iw4UFw==
+"@dhis2/app-runtime@^3.10.6", "@dhis2/app-runtime@^3.11.0":
+  version "3.11.0"
+  resolved "https://registry.yarnpkg.com/@dhis2/app-runtime/-/app-runtime-3.11.0.tgz#25a6875d28bbb81216108896863ff9a867714800"
+  integrity sha512-svNEs/rSxvln8kAze4mN4eJed2tMPfRyEQjVYBqa2Ynwdad+j7A3ohEWJhNGkDF6WHK2vy6Gf5E5+Xp/55sLAg==
   dependencies:
-    "@dhis2/app-service-alerts" "3.10.6"
-    "@dhis2/app-service-config" "3.10.6"
-    "@dhis2/app-service-data" "3.10.6"
-    "@dhis2/app-service-offline" "3.10.6"
-    "@dhis2/app-service-plugin" "3.10.6"
+    "@dhis2/app-service-alerts" "3.11.0"
+    "@dhis2/app-service-config" "3.11.0"
+    "@dhis2/app-service-data" "3.11.0"
+    "@dhis2/app-service-offline" "3.11.0"
+    "@dhis2/app-service-plugin" "3.11.0"
 
-"@dhis2/app-service-alerts@3.10.6":
-  version "3.10.6"
-  resolved "https://registry.yarnpkg.com/@dhis2/app-service-alerts/-/app-service-alerts-3.10.6.tgz#47e65d7ed57a4bd801a513b0f71d0ed2839ea363"
-  integrity sha512-2r9IUBp5Z5zuSqjTEWpt+rx7tP5AqrtkPJ8ZVOKW5YBn1DB4bQ5ti9GOevHM4othr7Mrmt22UADPgfEkfc7XzQ==
+"@dhis2/app-service-alerts@3.11.0":
+  version "3.11.0"
+  resolved "https://registry.yarnpkg.com/@dhis2/app-service-alerts/-/app-service-alerts-3.11.0.tgz#7fbc26749ecd7fe472bddadebdc0bb17777beefa"
+  integrity sha512-+tUX43XpnGarS102JCcyskbKE3T6cLE0VCI4AzWeleycC4jgc2G9lI2SwTa0w4WwW9IaKR7geLnyc63trytfGA==
 
-"@dhis2/app-service-config@3.10.6":
-  version "3.10.6"
-  resolved "https://registry.yarnpkg.com/@dhis2/app-service-config/-/app-service-config-3.10.6.tgz#bf952156329ab48d6da407522c6e06072fdf896a"
-  integrity sha512-Z/rSBjCc8kP78QYhKNyGoCafGfwpqMDg8mV2x/H6CavgEicOa+qHX3bkKV6+fC9Sw2FnsWHRemxYRkgbW/BD3g==
+"@dhis2/app-service-config@3.11.0":
+  version "3.11.0"
+  resolved "https://registry.yarnpkg.com/@dhis2/app-service-config/-/app-service-config-3.11.0.tgz#9b81a1027b40b6ce8b364e22c7952bca3101a936"
+  integrity sha512-hQshBqY92fkNYJgodI2kY3iJcqQYtadtDCNGss+QdOqiR9+ktFb9Oaxxk52qgNQWFWIAf0WbSpKfMv07nZoJvA==
 
-"@dhis2/app-service-data@3.10.6":
-  version "3.10.6"
-  resolved "https://registry.yarnpkg.com/@dhis2/app-service-data/-/app-service-data-3.10.6.tgz#2f3f522b4a5a8c8d531f8901cca502323e566042"
-  integrity sha512-9RH3Dn0shcVdF7itgKy9cK3yMEcyP5xXjNzYPGzWf+3q9aGlzjh22pHE4p+C9OV+SeVO2q+5GcNOk7rdZvS+Cg==
+"@dhis2/app-service-data@3.11.0":
+  version "3.11.0"
+  resolved "https://registry.yarnpkg.com/@dhis2/app-service-data/-/app-service-data-3.11.0.tgz#f4ea3d2afba39f6a5bfa9d00168cc828aaf3ced4"
+  integrity sha512-8jnJDTJ7aXbspA4N9/Ojh7xGW0kUukz+9Np3spSvoD9yFeHY48HPSxrIYZ2sHcs54lTnevymJe0UMb3ZKw3cRA==
   dependencies:
     react-query "^3.13.11"
 
-"@dhis2/app-service-offline@3.10.6":
-  version "3.10.6"
-  resolved "https://registry.yarnpkg.com/@dhis2/app-service-offline/-/app-service-offline-3.10.6.tgz#e1d83520bb292fc51b24eab65d05e1c9fa1e2ad6"
-  integrity sha512-179QXdUOFgPPIOhY5HD+C6GzzJDvhR8GW7jXT4LtjCeO/4EbA3r9sycyrYpLZL66GtpGHkeV5g4slxM1t+63cw==
+"@dhis2/app-service-offline@3.11.0":
+  version "3.11.0"
+  resolved "https://registry.yarnpkg.com/@dhis2/app-service-offline/-/app-service-offline-3.11.0.tgz#82388483961c98beafb843d92e7f5386e78aa4b0"
+  integrity sha512-hYStrr93cBMooQQio9TmS25pJoRDzWpyTOLph1A7gofp6BdDwFmK+A9CDnw/iktwu3PNvdW1rEWZhY/ijSK/+A==
   dependencies:
     lodash "^4.17.21"
 
-"@dhis2/app-service-plugin@3.10.6":
-  version "3.10.6"
-  resolved "https://registry.yarnpkg.com/@dhis2/app-service-plugin/-/app-service-plugin-3.10.6.tgz#1c6792b6d051c4b3301d76d083c3364424140a83"
-  integrity sha512-um4ONieW+xpWfagt+QNF4ZtzzFpm8KeA9tlBomamOfhGIpi9mkCWtaY0Mw2IUWO+d0Uh4cfmeQV6w6jOX6xJzw==
+"@dhis2/app-service-plugin@3.11.0":
+  version "3.11.0"
+  resolved "https://registry.yarnpkg.com/@dhis2/app-service-plugin/-/app-service-plugin-3.11.0.tgz#3b008e8eb5e73467a5c33ab9e1d030e35e9a613b"
+  integrity sha512-cbL+ApGys6PcMpd584ntA23SmQudzEuqZyFokaEh5tIPXKQA26U3liKS8dtGMafYr8Rqqn7lVizdzrokf1P1ow==
   dependencies:
     post-robot "^10.0.46"
 
