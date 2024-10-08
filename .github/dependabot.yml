@@ -12,11 +12,19 @@ updates:
               update-types:
                   - minor
                   - patch
+          devDependencies:
+              applies-to: version-updates
+              dependency-type: development
+              update-types:
+                  - minor
+                  - patch
           dependencies:
               applies-to: version-updates
+              dependency-type: production
               update-types:
                   - minor
                   - patch
               exclude-patterns:
                   - '*@dhis2*'
                   - '*i18next*'
+                  - 'react-grid-layout'
