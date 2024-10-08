@@ -9,13 +9,12 @@
 .controlsLarge {
     display: inline-flex;
     position: relative;
-    inset-block-start: 5px;
 }
 
 .buttonPadding {
-    padding-block-start: 2px;
+    padding-block-start: 0;
     padding-block-end: 0;
-    padding-inline-start: var(--spacers-dp8);
+    padding-inline-start: 0;
     padding-inline-end: var(--spacers-dp8);
     display: inline-flex;
 }
@@ -26,7 +25,10 @@
 }
 
 .chipsContainer {
-    min-block-size: 40px;
+    min-block-size: 48px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
 }
 
 @media only screen and (max-width: 480px) {
@@ -47,10 +49,6 @@
         display: flex;
         overflow-x: auto;
         overflow-y: hidden;
-        padding-block-start: var(--spacers-dp4);
-        padding-block-end: var(--spacers-dp4);
-        padding-inline-start: var(--spacers-dp4);
-        padding-inline-end: 0;
     }
 
     .container.expanded {
@@ -65,12 +63,6 @@
         margin-inline-start: var(--spacers-dp4);
         margin-inline-end: var(--spacers-dp8);
         inline-size: 100%;
-    }
-
-    .chipsContainer {
-        margin-block-end: -4px;
-        padding-inline-end: 2px;
-        min-block-size: 0;
     }
 
     .expanded .chipsContainer {

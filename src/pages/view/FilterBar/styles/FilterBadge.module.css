@@ -1,13 +1,12 @@
 .container {
-    margin: 2px;
     padding-block-start: 0;
     padding-block-end: 0;
-    padding-inline-start: var(--spacers-dp16);
-    padding-inline-end: var(--spacers-dp16);
+    padding-inline-start: var(--spacers-dp12);
+    padding-inline-end: var(--spacers-dp12);
     border-radius: 4px;
     color: var(--colors-white);
     background-color: #212934;
-    block-size: 36px;
+    block-size: 28px;
     display: flex;
     align-items: center;
 }

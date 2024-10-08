@@ -9,7 +9,7 @@ import {
     Button,
     FlyoutMenu,
     colors,
-    IconMore24,
+    IconMore16,
     SharingDialog,
 } from '@dhis2/ui'
 import PropTypes from 'prop-types'
@@ -32,7 +32,6 @@ import { sGetShowDescription } from '../../../reducers/showDescription.js'
 import { ROUTE_START_PATH } from '../../start/index.js'
 import { apiStarDashboard } from './apiStarDashboard.js'
 import FilterSelector from './FilterSelector.js'
-import StarDashboardButton from './StarDashboardButton.js'
 import classes from './styles/ActionsBar.module.css'
 
 const ViewActions = ({
@@ -215,11 +214,12 @@ const ViewActions = ({
     const getMoreButton = (className, useSmall) => (
         <DropdownButton
             className={className}
-            small={useSmall}
+            small
+            secondary
             open={useSmall ? moreOptionsSmallIsOpen : moreOptionsIsOpen}
             disabledWhenOffline={false}
             onClick={() => toggleMoreOptions(useSmall)}
-            icon={<IconMore24 color={colors.grey700} />}
+            icon={<IconMore16 color={colors.grey700} />}
             component={getMoreMenu()}
         >
             {i18n.t('More')}
@@ -229,14 +229,13 @@ const ViewActions = ({
     return (
         <>
             <div className={classes.actions}>
-                <StarDashboardButton
-                    starred={starred}
-                    onClick={onToggleStarredDashboard}
-                />
+                {/* TODO: move star functionality to TitleBar.js */}
                 <div className={classes.strip}>
                     {userAccess.update ? (
                         <OfflineTooltip>
                             <Button
+                                small
+                                secondary
                                 disabled={offline}
                                 className={classes.editButton}
                                 onClick={() => setRedirectUrl(`${id}/edit`)}
@@ -248,6 +247,8 @@ const ViewActions = ({
                     {userAccess.manage ? (
                         <OfflineTooltip>
                             <Button
+                                small
+                                secondary
                                 disabled={offline}
                                 className={classes.shareButton}
                                 onClick={onToggleSharingDialog}

@@ -1,26 +1,83 @@
 .container {
-    margin-block-start: var(--spacers-dp12);
+    background: var(--colors-white);
+    border-block-end: 1px solid var(--colors-grey400);
+    box-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+    padding-block-start: 6px;
+    padding-block-end: 6px;
+    padding-inline-start: var(--spacers-dp8);
+    padding-inline-end: var(--spacers-dp4);
+    position: sticky;
+    inset-block-start: 0px;
+    z-index: 10;
 }
 
 .titleBar {
     display: flex;
     align-items: flex-start;
-    position: relative;
+    justify-content: space-between;
+    gap: var(--spacers-dp4);
+}
+
+.infoWrap {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--spacers-dp4);
+    flex-shrink: 1;
+    flex-wrap: wrap;
+}
+
+.titleWrap {
+    display: inline;
+    align-items: center;
+    gap: var(--spacers-dp4);
 }
 
 .title {
-    position: relative;
-    font-size: 21px;
+    font-size: 16px;
+    line-height: 19px;
     font-weight: 500;
-    color: var(--colors-black);
-    min-inline-size: 50px;
+    color: var(--colors-grey900);
     cursor: default;
     user-select: text;
-    inset-block-start: 7px;
+    margin-block-start: var(--spacers-dp4);
+    margin-block-end: var(--spacers-dp4);
+    margin-inline-start: var(--spacers-dp4);
+    margin-inline-end: var(--spacers-dp4);
+}
+
+.detailWrap {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    flex-shrink: 1;
+    flex-wrap: wrap-reverse;
+    gap: var(--spacers-dp4);
+}
+
+.innerDetails {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    flex-shrink: 0.5;
+    flex-wrap: wrap;
+    gap: var(--spacers-dp4);
+}
+
+.inlineLastUpdated {
+    display: none;
 }
 
 @media only screen and (max-width: 480px) {
-    .title {
-        inset-block-start: 3px;
+    .inlineLastUpdated {
+        display: block;
+        margin-block-start: var(--spacers-dp8);
+        margin-block-end: 0;
+        margin-inline-start: var(--spacers-dp12);
+        margin-inline-end: 0;
+    }
+
+    .groupedLastUpdated {
+        display: none;
     }
 }

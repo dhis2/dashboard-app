@@ -16,6 +16,10 @@ const Chip = ({ starred, selected, label, dashboardId, onClick }) => {
     const engine = useDataEngine()
     const chipProps = {
         selected,
+        marginLeft: 0,
+        marginRight: 0,
+        marginTop: 0,
+        marginBottom: 0,
     }
 
     if (starred) {

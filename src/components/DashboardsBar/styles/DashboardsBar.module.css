@@ -5,24 +5,21 @@
 .container {
     position: relative;
     background-color: var(--colors-white);
-    box-shadow: rgba(0, 0, 0, 0.2) 0 0 6px 3px;
+    border-block-end: 1px solid var(--colors-grey300);
     overflow: hidden;
     box-sizing: border-box;
     flex: none;
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding-block-start: 6px;
+    padding-block-end: 6px;
+    padding-inline-start: 6px;
+    padding-inline-end: 6px;
     block-size: var(--user-rows-height);
     inline-size: 100%;
     z-index: 1;
-}
-
-.content {
-    padding-block-start: 10px;
-    padding-block-end: 0;
-    padding-inline-start: 6px;
-    padding-inline-end: 6px;
-    overflow: hidden;
-    margin-block-end: 21px; /* to make space for the show more button */
 }
 
 .expanded .content {
@@ -32,6 +29,7 @@
 .expanded .container {
     block-size: var(--max-rows-height);
     z-index: 1999;
+    box-shadow: var(--elevations-e400);
 }
 
 .spacer {
@@ -60,6 +58,7 @@
 
     .collapsed .content {
         flex-wrap: nowrap;
+        overflow-x: scroll;
     }
 
     .expanded .content {
@@ -75,6 +74,9 @@
 
 /* phone LANDSCAPE MODE or small screen */
 @media only screen and (max-height: 480px), only screen and (max-width: 480px) {
+    .container {
+        padding: 6px 0 6px 6px;
+    }
     .collapsed .container {
         block-size: var(--min-rows-height);
     }
@@ -82,7 +84,7 @@
     .expanded .container {
         position: absolute;
         display: flex;
-        flex-direction: column;
+        flex-direction: row;
         block-size: var(--sm-expanded-controlbar-height);
     }
 

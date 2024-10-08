@@ -1,8 +1,8 @@
 :root {
     /* control bar variables */
     --user-rows-count: 1;
-    --controlbar-padding: 31px;
-    --row-height: 40px;
+    --controlbar-padding: 8px;
+    --row-height: 36px;
     --min-rows-height: calc(
         var(--controlbar-padding) + (1 * var(--row-height))
     );
@@ -32,7 +32,7 @@ body {
     margin: 0;
     padding: 0;
     font-family: sans-serif;
-    background-color: #f4f6f8;
+    background-color: var(--colors-grey200);
 }
 
 .app-shell-app {
