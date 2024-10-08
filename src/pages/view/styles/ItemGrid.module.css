@@ -10,7 +10,7 @@
     position: relative;
 }
 
-#fullscreen-container.fscreen {
+#fullscreen-container.isFullscreenMode {
     position: fixed;
     inset-block-start: 0;
     inset-inline-start: 0;
@@ -23,17 +23,17 @@
     align-items: center;
 }
 
-.hideItem {
+.hiddenItem {
     display: none !important;
 }
 
-.fscreenItem {
+.fullscreenItem {
     inline-size: 100% !important;
     block-size: 100vh !important;
     transform: none !important;
 }
 
-.controls {
+.fullscreenControls {
     background: #202124;
     padding: 8px;
     border-radius: 5px;
@@ -49,13 +49,13 @@
     z-index: 10;
 }
 
-.controls:hover,
-.controls.visible {
+.fullscreenControls:hover,
+.fullscreenControls.visible {
     opacity: 1;
     visibility: visible;
 }
 
-.controls button {
+.fullscreenControls button {
     color: var(--colors-white);
     background-color: #000;
     background: #000;

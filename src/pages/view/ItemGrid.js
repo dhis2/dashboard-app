@@ -219,8 +219,8 @@ const ResponsiveItemGrid = () => {
                     'view',
                     getGridItemDomElementClassName(item.id),
                     {
-                        [classes.hideItem]: isFS === false,
-                        [classes.fscreenItem]: isFS,
+                        [classes.hiddenItem]: isFS === false,
+                        [classes.fullscreenItem]: isFS,
                     }
                 )}
                 itemId={item.id}
@@ -259,7 +259,7 @@ const ResponsiveItemGrid = () => {
         <div
             id="fullscreeen-container"
             className={cx(classes.fullscreenWrapper, {
-                [classes.fscreen]: Number.isInteger(fsItemIndex),
+                [classes.isFullscreenMode]: Number.isInteger(fsItemIndex),
             })}
             ref={fsElement}
         >
@@ -289,7 +289,7 @@ const ResponsiveItemGrid = () => {
             {Number.isInteger(fsItemIndex) && (
                 <>
                     <div
-                        className={cx(classes.controls, {
+                        className={cx(classes.fullscreenControls, {
                             [classes.visible]: true,
                         })}
                         ref={controlsRef}
