@@ -33,28 +33,13 @@
     transform: none !important;
 }
 
-/* Control buttons */
-.fullscreenNav {
-    display: none;
-}
-
-.fullscreenNav.visible {
-    display: flex;
-    justify-content: center;
-    position: fixed;
-    inset-block-end: 20px;
-    z-index: 10;
-    inline-size: 100%;
-}
-
 .controls {
     background: #202124;
     padding: 8px;
     border-radius: 5px;
     position: fixed;
-    inset-block-end: 20px;
-    inset-inline-start: 50%;
-    transform: translateX(-50%);
+    inset-block-start: 20px;
+    inset-inline-end: 20px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -64,6 +49,7 @@
     z-index: 10;
 }
 
+.controls:hover,
 .controls.visible {
     opacity: 1;
     visibility: visible;

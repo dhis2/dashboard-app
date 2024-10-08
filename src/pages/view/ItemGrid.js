@@ -1,5 +1,10 @@
 import i18n from '@dhis2/d2-i18n'
-import { IconChevronRight24, IconChevronLeft24, colors } from '@dhis2/ui'
+import {
+    IconChevronRight24,
+    IconChevronLeft24,
+    IconCross24,
+    colors,
+} from '@dhis2/ui'
 import cx from 'classnames'
 import sortBy from 'lodash/sortBy.js'
 import React, { useState, useEffect, useRef, useCallback } from 'react'
@@ -111,14 +116,13 @@ const ResponsiveItemGrid = () => {
         }
     }, [fsItemStartingIndex])
 
-    // TODO - this is for an eventual Exit button
-    // const exitFullscreen = () => {
-    //     if (document.fullscreenElement) {
-    //         document.exitFullscreen().then(() => {
-    //             dispatch(acSetPresentDashboard(null))
-    //         })
-    //     }
-    // }
+    const exitFullscreen = () => {
+        if (document.fullscreenElement) {
+            document.exitFullscreen().then(() => {
+                dispatch(acSetPresentDashboard(null))
+            })
+        }
+    }
 
     const nextItem = useCallback(() => {
         if (fsItemIndex === sItems.current.length - 1) {
@@ -140,6 +144,7 @@ const ResponsiveItemGrid = () => {
 
     const showControls = () => {
         clearTimeout(hideControlsTimeout.current)
+
         controlsRef.current?.classList.add(classes.visible)
         hideControlsTimeout.current = setTimeout(() => {
             controlsRef.current?.classList.remove(classes.visible)
@@ -282,22 +287,27 @@ const ResponsiveItemGrid = () => {
                 {getItemComponents(displayItems)}
             </ResponsiveReactGridLayout>
             {Number.isInteger(fsItemIndex) && (
-                <div
-                    className={cx(classes.controls, {
-                        [classes.visible]: true,
-                    })}
-                    ref={controlsRef}
-                >
-                    <button onClick={prevItem}>
-                        <IconChevronLeft24 color={colors.white} />
-                    </button>
-                    <span className={classes.pageCounter}>{`${
-                        fsItemIndex + 1
-                    } / ${sItems.current.length}`}</span>
-                    <button onClick={nextItem}>
-                        <IconChevronRight24 color={colors.white} />
-                    </button>
-                </div>
+                <>
+                    <div
+                        className={cx(classes.controls, {
+                            [classes.visible]: true,
+                        })}
+                        ref={controlsRef}
+                    >
+                        <button onClick={prevItem}>
+                            <IconChevronLeft24 color={colors.white} />
+                        </button>
+                        <span className={classes.pageCounter}>{`${
+                            fsItemIndex + 1
+                        } / ${sItems.current.length}`}</span>
+                        <button onClick={nextItem}>
+                            <IconChevronRight24 color={colors.white} />
+                        </button>
+                        <button onClick={exitFullscreen}>
+                            <IconCross24 color={colors.white} />
+                        </button>
+                    </div>
+                </>
             )}
         </div>
     )
