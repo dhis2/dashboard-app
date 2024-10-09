@@ -9,6 +9,7 @@ import PropTypes from 'prop-types'
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { acSetItemActiveType } from '../../../actions/itemActiveTypes.js'
+import { acSetPresentDashboard } from '../../../actions/presentDashboard.js'
 import { acAddVisualization } from '../../../actions/visualizations.js'
 import { apiPostDataStatistics } from '../../../api/dataStatistics.js'
 import { apiFetchVisualization } from '../../../api/fetchVisualization.js'
@@ -35,18 +36,20 @@ import {
     sGetItemFiltersRoot,
     DEFAULT_STATE_ITEM_FILTERS,
 } from '../../../reducers/itemFilters.js'
+import { sGetPresentDashboard } from '../../../reducers/presentDashboard.js'
 import { sGetVisualization } from '../../../reducers/visualizations.js'
 import { SystemSettingsCtx } from '../../SystemSettingsProvider.js'
 import { WindowDimensionsCtx } from '../../WindowDimensionsProvider.js'
 import ItemHeader from '../ItemHeader/ItemHeader.js'
 import FatalErrorBoundary from './FatalErrorBoundary.js'
 import { getGridItemElement } from './getGridItemElement.js'
-import { isElementFullscreen } from './isElementFullscreen.js'
 import ItemContextMenu from './ItemContextMenu/ItemContextMenu.js'
 import ItemFooter from './ItemFooter.js'
 import memoizeOne from './memoizeOne.js'
 import { pluginIsAvailable } from './Visualization/plugin.js'
 import Visualization from './Visualization/Visualization.js'
+
+const MIN_CLIENT_HEIGHT = 16
 
 class Item extends Component {
     state = {
@@ -132,21 +135,6 @@ class Item extends Component {
     onClickNoFiltersOverlay = () =>
         this.setState({ showNoFiltersOverlay: false })
 
-    onToggleFullscreen = () => {
-        if (!isElementFullscreen(this.props.item.id)) {
-            const el = getGridItemElement(this.props.item.id)
-            if (el?.requestFullscreen) {
-                el.requestFullscreen()
-            } else if (el?.webkitRequestFullscreen) {
-                el.webkitRequestFullscreen()
-            }
-        } else {
-            document.exitFullscreen
-                ? document.exitFullscreen()
-                : document.webkitExitFullscreen()
-        }
-    }
-
     onToggleFooter = () => {
         this.setState(
             { showFooter: !this.state.showFooter },
@@ -166,16 +154,14 @@ class Item extends Component {
         return this.props.activeType || getItemTypeForVis(this.props.item)
     }
 
-    getAvailableHeight = ({ width, height }) => {
-        if (isElementFullscreen(this.props.item.id)) {
-            return (
-                height -
-                this.headerRef.current.clientHeight -
-                this.itemHeaderTotalMargin -
+    getAvailableHeight = ({ width }) => {
+        if (this.props.isFS) {
+            const totalHeaderHeight =
+                (this.headerRef.current.clientHeight || MIN_CLIENT_HEIGHT) +
+                this.itemHeaderTotalMargin +
                 this.itemContentPadding
-            )
+            return `calc(100vh - ${totalHeaderHeight}px)`
         }
-
         const calculatedHeight =
             getItemHeightPx(this.props.item, width) -
             this.headerRef.current.clientHeight -
@@ -191,6 +177,9 @@ class Item extends Component {
     }
 
     getAvailableWidth = () => {
+        if (this.props.isFS) {
+            return '100%'
+        }
         const rect = getGridItemElement(
             this.props.item.id
         )?.getBoundingClientRect()
@@ -203,20 +192,28 @@ class Item extends Component {
     }
 
     render() {
-        const { item, dashboardMode, itemFilters } = this.props
+        const {
+            item,
+            dashboardMode,
+            itemFilters,
+            isFS,
+            setPresent,
+            sortPosition,
+        } = this.props
         const { showFooter, showNoFiltersOverlay } = this.state
         const originalType = getItemTypeForVis(item)
         const activeType = this.getActiveType()
 
         const actionButtons =
             pluginIsAvailable(activeType || item.type, this.props.apps) &&
-            isViewMode(dashboardMode) ? (
+            isViewMode(dashboardMode) &&
+            isFS !== true ? (
                 <ItemContextMenu
                     item={item}
                     visualization={this.props.visualization}
                     onSelectActiveType={this.setActiveType}
                     onToggleFooter={this.onToggleFooter}
-                    onToggleFullscreen={this.onToggleFullscreen}
+                    enterFullscreen={() => setPresent(sortPosition - 1)}
                     activeType={activeType}
                     activeFooter={showFooter}
                     fullscreenSupported={this.isFullscreenSupported()}
@@ -295,6 +292,7 @@ class Item extends Component {
                                 {(dimensions) => (
                                     <Visualization
                                         item={item}
+                                        isFS={isFS}
                                         visualization={this.props.visualization}
                                         originalType={originalType}
                                         activeType={activeType}
@@ -333,12 +331,15 @@ Item.propTypes = {
     engine: PropTypes.object,
     gridWidth: PropTypes.number,
     isEditing: PropTypes.bool,
+    isFS: PropTypes.bool,
     isRecording: PropTypes.bool,
     item: PropTypes.object,
     itemFilters: PropTypes.object,
     setActiveType: PropTypes.func,
+    setPresent: PropTypes.func,
     setVisualization: PropTypes.func,
     settings: PropTypes.object,
+    sortPosition: PropTypes.number,
     visualization: PropTypes.object,
     onToggleItemExpanded: PropTypes.func,
 }
@@ -362,12 +363,14 @@ const mapStateToProps = (state, ownProps) => {
             state,
             getVisualizationId(ownProps.item)
         ),
+        presentDashboard: sGetPresentDashboard(state),
     }
 }
 
 const mapDispatchToProps = {
     setActiveType: acSetItemActiveType,
     setVisualization: acAddVisualization,
+    setPresent: acSetPresentDashboard,
 }
 
 const ItemWithSettings = (props) => (

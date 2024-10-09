@@ -1,3 +1,78 @@
 .grid {
     margin-block-start: var(--spacers-dp16);
 }
+
+.fscreen > .grid {
+    margin-block-start: 0;
+}
+
+#fullscreen-container {
+    position: relative;
+}
+
+#fullscreen-container.isFullscreenMode {
+    position: fixed;
+    inset-block-start: 0;
+    inset-inline-start: 0;
+    inline-size: 100%;
+    block-size: 100%;
+    z-index: 1000;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.hiddenItem {
+    display: none !important;
+}
+
+.fullscreenItem {
+    inline-size: 100% !important;
+    block-size: 100vh !important;
+    transform: none !important;
+}
+
+.fullscreenControls {
+    background: #202124;
+    padding: 8px;
+    border-radius: 5px;
+    position: fixed;
+    inset-block-start: 20px;
+    inset-inline-end: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.5s;
+    z-index: 10;
+}
+
+.fullscreenControls:hover,
+.fullscreenControls.visible {
+    opacity: 1;
+    visibility: visible;
+}
+
+.fullscreenControls button {
+    color: var(--colors-white);
+    background-color: #000;
+    background: #000;
+    border-radius: 3px;
+    border: none;
+    inline-size: 32px;
+    block-size: 32px;
+    padding: 4px;
+    cursor: pointer;
+}
+
+.pageCounter {
+    font-family: 'Roboto', sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    color: white;
+    font-size: 14px;
+    margin: 0 10px;
+    user-select: none;
+}

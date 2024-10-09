@@ -18,11 +18,13 @@ import { connect } from 'react-redux'
 import { Link, Redirect } from 'react-router-dom'
 import { acSetDashboardStarred } from '../../../actions/dashboards.js'
 import { acClearItemFilters } from '../../../actions/itemFilters.js'
+import { acSetPresentDashboard } from '../../../actions/presentDashboard.js'
 import { acSetShowDescription } from '../../../actions/showDescription.js'
 import { apiPostShowDescription } from '../../../api/description.js'
 import ConfirmActionDialog from '../../../components/ConfirmActionDialog.js'
 import DropdownButton from '../../../components/DropdownButton/DropdownButton.js'
 import MenuItem from '../../../components/MenuItemWithTooltip.js'
+import { useSystemSettings } from '../../../components/SystemSettingsProvider.js'
 import { useCacheableSection } from '../../../modules/useCacheableSection.js'
 import { orObject } from '../../../modules/util.js'
 import { sGetDashboardStarred } from '../../../reducers/dashboards.js'
@@ -41,6 +43,7 @@ const ViewActions = ({
     showDescription,
     starred,
     setDashboardStarred,
+    setPresentDashboard,
     updateShowDescription,
     removeAllFilters,
     restrictFilters,
@@ -57,6 +60,7 @@ const ViewActions = ({
     const { isDisconnected: offline } = useDhis2ConnectionStatus()
     const { lastUpdated, isCached, startRecording, remove } =
         useCacheableSection(id)
+    const { allowVisFullscreen } = useSystemSettings().systemSettings
 
     const { show } = useAlert(
         ({ msg }) => msg,
@@ -256,6 +260,17 @@ const ViewActions = ({
                             </Button>
                         </OfflineTooltip>
                     ) : null}
+                    {allowVisFullscreen ? (
+                        <OfflineTooltip>
+                            <Button
+                                disabled={offline}
+                                className={classes.presentButton}
+                                onClick={() => setPresentDashboard(0)}
+                            >
+                                {i18n.t('Slideshow')}
+                            </Button>
+                        </OfflineTooltip>
+                    ) : null}
                     <FilterSelector
                         allowedFilters={allowedFilters}
                         restrictFilters={restrictFilters}
@@ -294,6 +309,7 @@ ViewActions.propTypes = {
     removeAllFilters: PropTypes.func,
     restrictFilters: PropTypes.bool,
     setDashboardStarred: PropTypes.func,
+    setPresentDashboard: PropTypes.func,
     showDescription: PropTypes.bool,
     starred: PropTypes.bool,
     updateShowDescription: PropTypes.func,
@@ -314,6 +330,7 @@ const mapStateToProps = (state) => {
 
 export default connect(mapStateToProps, {
     setDashboardStarred: acSetDashboardStarred,
+    setPresentDashboard: acSetPresentDashboard,
     removeAllFilters: acClearItemFilters,
     updateShowDescription: acSetShowDescription,
 })(ViewActions)
