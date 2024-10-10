@@ -343,6 +343,9 @@ msgstr "Show fewer"
 msgid "Show more"
 msgstr "Show more"
 
+msgid "Open visualization in new tab"
+msgstr "Open visualization in new tab"
+
 msgid "Insert"
 msgstr "Insert"
 

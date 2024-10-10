@@ -13,8 +13,8 @@ export function ArrowDown({ className }) {
             <style jsx>{`
                 svg {
                     fill: inherit;
-                    height: 12px;
-                    width: 12px;
+                    block-size: 12px;
+                    inline-size: 12px;
                     vertical-align: middle;
                     pointer-events: none;
                 }
@@ -40,8 +40,8 @@ export function ArrowUp({ className }) {
             <style jsx>{`
                 svg {
                     fill: inherit;
-                    height: 12px;
-                    width: 12px;
+                    block-size: 12px;
+                    inline-size: 12px;
                     vertical-align: middle;
                     pointer-events: none;
                 }

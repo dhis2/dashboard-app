@@ -1,5 +1,5 @@
 .appLink {
-    margin-top: var(--spacers-dp8);
+    margin-block-start: var(--spacers-dp8);
 }
 
 .appLink a {

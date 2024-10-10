@@ -1,13 +1,16 @@
 .container {
-    margin-bottom: var(--spacers-dp16);
-    width: 100%;
+    margin-block-end: var(--spacers-dp16);
+    inline-size: 100%;
     color: #3e4a59;
 }
 
 .title {
     font-size: 18px;
     font-weight: 600;
-    margin: var(--spacers-dp16) 0;
+    margin-block-start: var(--spacers-dp16);
+    margin-block-end: var(--spacers-dp16);
+    margin-inline-start: 0;
+    margin-inline-end: 0;
 }
 
 .printSuggestions {
@@ -16,13 +19,19 @@
 }
 
 .printSuggestions li {
-    padding: var(--spacers-dp4) 0;
+    padding-block-start: var(--spacers-dp4);
+    padding-block-end: var(--spacers-dp4);
+    padding-inline-start: 0;
+    padding-inline-end: 0;
 }
 
 .divider {
-    width: var(--a4-landscape-width-px);
-    height: 1px;
-    margin: var(--spacers-dp16) 0;
+    inline-size: var(--a4-landscape-width-px);
+    block-size: 1px;
+    margin-block-start: var(--spacers-dp16);
+    margin-block-end: var(--spacers-dp16);
+    margin-inline-start: 0;
+    margin-inline-end: 0;
     border: 0;
     background-color: var(--colors-grey400);
 }
