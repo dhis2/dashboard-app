@@ -50,6 +50,7 @@ import { pluginIsAvailable } from './Visualization/plugin.js'
 import Visualization from './Visualization/Visualization.js'
 
 const MIN_CLIENT_HEIGHT = 16
+const FS_CONTROLS_BUFFER = 48 // space for the fullscreen controls at bottom
 
 class Item extends Component {
     state = {
@@ -156,11 +157,12 @@ class Item extends Component {
 
     getAvailableHeight = ({ width }) => {
         if (this.props.isFS) {
-            const totalHeaderHeight =
+            const totalNonVisHeight =
                 (this.headerRef.current.clientHeight || MIN_CLIENT_HEIGHT) +
                 this.itemHeaderTotalMargin +
-                this.itemContentPadding
-            return `calc(100vh - ${totalHeaderHeight}px)`
+                this.itemContentPadding +
+                FS_CONTROLS_BUFFER
+            return `calc(100vh - ${totalNonVisHeight}px)`
         }
         const calculatedHeight =
             getItemHeightPx(this.props.item, width) -

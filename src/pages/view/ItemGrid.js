@@ -62,8 +62,6 @@ const ResponsiveItemGrid = () => {
     const fsItemStartingIndex = useSelector(sGetPresentDashboard)
     const [fsItemIndex, setFsItemIndex] = useState(null)
     const fsElement = useRef(null)
-    const hideControlsTimeout = useRef(null)
-    const controlsRef = useRef(null)
 
     useEffect(() => {
         const getItemsWithAdjustedHeight = (items) =>
@@ -130,7 +128,6 @@ const ResponsiveItemGrid = () => {
         } else {
             setFsItemIndex(fsItemIndex + 1)
         }
-        showControls()
     }, [fsItemIndex])
 
     const prevItem = useCallback(() => {
@@ -139,17 +136,7 @@ const ResponsiveItemGrid = () => {
         } else {
             setFsItemIndex(fsItemIndex - 1)
         }
-        showControls()
     }, [fsItemIndex])
-
-    const showControls = () => {
-        clearTimeout(hideControlsTimeout.current)
-
-        controlsRef.current?.classList.add(classes.visible)
-        hideControlsTimeout.current = setTimeout(() => {
-            controlsRef.current?.classList.remove(classes.visible)
-        }, 1000)
-    }
 
     // This effect handles the keyboard navigation for the fullscreen mode
     useEffect(() => {
@@ -174,8 +161,6 @@ const ResponsiveItemGrid = () => {
         window.addEventListener('keydown', handleKeyDown)
         document.addEventListener('fullscreenchange', handleFullscreenChange)
 
-        document.addEventListener('mousemove', showControls)
-
         // Clean up the event listener when the component is unmounted
         return () => {
             window.removeEventListener('keydown', handleKeyDown)
@@ -183,7 +168,6 @@ const ResponsiveItemGrid = () => {
                 'fullscreenchange',
                 handleFullscreenChange
             )
-            document.removeEventListener('mousemove', showControls)
         }
     }, [dispatch, nextItem, prevItem])
 
@@ -264,7 +248,9 @@ const ResponsiveItemGrid = () => {
             ref={fsElement}
         >
             <ResponsiveReactGridLayout
-                className={classes.grid}
+                className={cx(classes.grid, {
+                    [classes.fullscreenGrid]: Number.isInteger(fsItemIndex),
+                })}
                 rowHeight={GRID_ROW_HEIGHT_PX}
                 width={getGridWidth(width)}
                 cols={{ lg: GRID_COLUMNS, sm: SM_SCREEN_GRID_COLUMNS }}
@@ -286,14 +272,10 @@ const ResponsiveItemGrid = () => {
             >
                 {getItemComponents(displayItems)}
             </ResponsiveReactGridLayout>
+
             {Number.isInteger(fsItemIndex) && (
-                <>
-                    <div
-                        className={cx(classes.fullscreenControls, {
-                            [classes.visible]: true,
-                        })}
-                        ref={controlsRef}
-                    >
+                <div className={classes.fsControlsContainer}>
+                    <div className={classes.fullscreenControls}>
                         <button onClick={prevItem}>
                             <IconChevronLeft24 color={colors.white} />
                         </button>
@@ -307,7 +289,7 @@ const ResponsiveItemGrid = () => {
                             <IconCross24 color={colors.white} />
                         </button>
                     </div>
-                </>
+                </div>
             )}
         </div>
     )

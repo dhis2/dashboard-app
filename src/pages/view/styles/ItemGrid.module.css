@@ -2,7 +2,7 @@
     margin-block-start: var(--spacers-dp16);
 }
 
-.fscreen > .grid {
+.fullscreenGrid {
     margin-block-start: 0;
 }
 
@@ -33,26 +33,20 @@
     transform: none !important;
 }
 
+.fsControlsContainer {
+    position: fixed;
+    inset-block-end: 0;
+    inline-size: 100vw;
+    display: flex;
+    justify-content: center;
+}
 .fullscreenControls {
     background: #202124;
     padding: 8px;
     border-radius: 5px;
-    position: fixed;
-    inset-block-start: 20px;
-    inset-inline-end: 20px;
     display: flex;
     align-items: center;
     justify-content: center;
-    opacity: 0;
-    visibility: hidden;
-    transition: opacity 0.5s;
-    z-index: 10;
-}
-
-.fullscreenControls:hover,
-.fullscreenControls.visible {
-    opacity: 1;
-    visibility: visible;
 }
 
 .fullscreenControls button {
