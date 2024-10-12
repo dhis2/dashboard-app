@@ -159,6 +159,7 @@ const IframePlugin = ({
             }
         }
     }, [
+        error,
         recordOnNextLoad,
         pluginProps,
         iframeSrc,
@@ -190,6 +191,7 @@ const IframePlugin = ({
     }, [pluginType, dispatch, visualization, iframePluginStatus, isFirstOfType])
 
     useEffect(() => {
+        prevPluginRef.current = undefined
         setError(null)
     }, [filterVersion, visualization.type])
 
