@@ -9,7 +9,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2024-03-19T12:31:03.302Z\n"
+"POT-Creation-Date: 2024-08-27T07:26:05.058Z\n"
 "PO-Revision-Date: 2019-06-25 12:37+0000\n"
 "Last-Translator: Namwan Chanthavisouk, 2024\n"
 "Language-Team: Lao (https://app.transifex.com/hisp-uio/teams/100509/lo/)\n"
@@ -260,7 +260,7 @@ msgid ""
 msgstr ""
 
 msgid "No, stay here"
-msgstr ""
+msgstr "ບໍ່, ຢູ່ໜ້ານີ້"
 
 msgid "Yes, discard changes"
 msgstr "ຕົກລົງ, ຍົກເລີກການປ່ຽນແປງ"
@@ -309,6 +309,9 @@ msgstr "ສະແດງໜ່ອຍລົງ"
 
 msgid "Show more"
 msgstr "ສະແດງຫຼາຍ"
+
+msgid "Open visualization in new tab"
+msgstr ""
 
 msgid "Insert"
 msgstr "ເພີ່ມເຂົ້າ"
@@ -417,7 +420,7 @@ msgid ""
 msgstr ""
 
 msgid "Getting started"
-msgstr ""
+msgstr "ເລີ່ມຕົ້ນ"
 
 msgid "Search for and open saved dashboards from the top bar."
 msgstr ""
