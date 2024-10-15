@@ -1,7 +1,7 @@
 // TODO handle plugin version matrix in a better way
-export const minDVVersion = [100, 7, 2]
+export const minDVVersion = [100, 8, 1]
 export const minLLVersion = [101, 1, 9]
-export const minMapsVersion = [100, 6, 7]
+export const minMapsVersion = [100, 7, 1]
 
 const isAppVersionCompatible = (version, minVersion) => {
     const [major, minor, patch] = version
