@@ -9,7 +9,7 @@ import PropTypes from 'prop-types'
 import React, { useState } from 'react'
 import { getVisualizationId } from '../../../modules/item.js'
 import { getItemUrl, itemTypeMap } from '../../../modules/itemTypes.js'
-import FatalErrorBoundary from './FatalErrorBoundary.js'
+import FatalErrorBoundary from '../FatalErrorBoundary.js'
 import { InterpretationReplyForm } from './InterpretationReplyForm.js'
 import classes from './styles/ItemFooter.module.css'
 
