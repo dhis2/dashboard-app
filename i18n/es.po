@@ -6,17 +6,17 @@
 # Prabhjot Singh, 2021
 # Viktor Varland <viktor@dhis2.org>, 2021
 # Marta Vila <marta@dhis2.org>, 2023
-# Enzo Nicolas Rossi <enzo@dhis2.org>, 2023
 # Janeth Cruz, 2023
 # Philip Larsen Donnelly, 2024
 # Gabriela Rodriguez <grodriguezcoronado@gmail.com>, 2024
+# Enzo Nicolas Rossi <enzo@dhis2.org>, 2024
 # 
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2024-03-19T12:31:03.302Z\n"
+"POT-Creation-Date: 2024-08-27T07:26:05.058Z\n"
 "PO-Revision-Date: 2019-06-25 12:37+0000\n"
-"Last-Translator: Gabriela Rodriguez <grodriguezcoronado@gmail.com>, 2024\n"
+"Last-Translator: Enzo Nicolas Rossi <enzo@dhis2.org>, 2024\n"
 "Language-Team: Spanish (https://app.transifex.com/hisp-uio/teams/100509/es/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -93,9 +93,11 @@ msgstr "Filtros no aplicados"
 
 msgid "Only Period and Organisation unit filters can be applied to this item"
 msgstr ""
+"A este elemento sólo se le pueden aplicar los filtros Período y Unidad "
+"organizativa."
 
 msgid "Some filters not applied"
-msgstr ""
+msgstr "Algunos filtros no aplicados"
 
 msgid "There was a problem loading this dashboard item"
 msgstr "Ha habido un problema al cargar este elemento del tablero"
@@ -116,19 +118,19 @@ msgid "This map can't be displayed as a chart"
 msgstr "Este mapa no se puede mostrar como gráfico"
 
 msgid "This map can't be displayed as a pivot table"
-msgstr ""
+msgstr "Este mapa no se puede mostrar como una tabla dinámica"
 
 msgid "This visualization can't be displayed as a pivot table"
-msgstr ""
+msgstr "Esta visualización no puede mostrarse como una tabla dinámica"
 
 msgid "This visualization can't be displayed as a map"
-msgstr ""
+msgstr "Esta visualización no puede mostrarse como un mapa"
 
 msgid "View as Chart"
 msgstr "Ver como gráfico"
 
 msgid "View as Pivot table"
-msgstr ""
+msgstr "Ver como tabla dinámica"
 
 msgid "View as Map"
 msgstr "Ver como mapa"
@@ -338,6 +340,9 @@ msgstr "Mostrar menos"
 
 msgid "Show more"
 msgstr "Mostrar más"
+
+msgid "Open visualization in new tab"
+msgstr ""
 
 msgid "Insert"
 msgstr "Insertar"
