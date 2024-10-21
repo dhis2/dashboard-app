@@ -54,6 +54,7 @@ const AppItem = ({ dashboardMode, windowDimensions, item, apps }) => {
         () => ({
             dashboardItemId: item.id,
             dashboardItemFilters: itemFilters,
+            dashboardMode,
             // Edit mode does not have the hamburger menu.
             // Don't assume the plugin checks for this function before calling it
             setDashboardItemDetails: setItemDetails,
