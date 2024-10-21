@@ -8,20 +8,44 @@ exports[`renders a valid App item in view mode 1`] = `
     <p
       class="itemTitle"
     >
-      Scorecard
+      New dashboard plugin
     </p>
     <div
       class="itemHeaderRightWrap"
-    />
+    >
+      <div
+        class="itemActionsWrap"
+      />
+    </div>
   </div>
-  <div
-    class="ui-Divider"
-  />
-  <iframe
-    class="dashboard-item-content"
-    src="launchurl?dashboardItemId=rainbowdash"
-    title="Scorecard"
-  />
+  <p
+    class="container"
+  >
+    <span
+      class="icon"
+    >
+      <svg
+        fill="#6C7787"
+        height="24"
+        viewBox="0 0 24 24"
+        width="24"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M0 0h24v24H0z"
+          fill="none"
+        />
+        <path
+          d="M1 21h22L12 2 1 21zm12-3h-2v-2h2v2zm0-4h-2v-4h2v4z"
+        />
+      </svg>
+    </span>
+    <span
+      class="message"
+    >
+      There was a problem loading this dashboard item
+    </span>
+  </p>
 </div>
 `;
 
@@ -33,7 +57,7 @@ exports[`renders a valid App item with filter in edit mode 1`] = `
     <p
       class="itemTitle"
     >
-      Scorecard
+      New dashboard plugin
     </p>
     <div
       class="itemHeaderRightWrap"
@@ -47,14 +71,34 @@ exports[`renders a valid App item with filter in edit mode 1`] = `
       </div>
     </div>
   </div>
-  <div
-    class="ui-Divider"
-  />
-  <iframe
-    class="dashboard-item-content"
-    src="launchurl?dashboardItemId=rainbowdash"
-    title="Scorecard"
-  />
+  <p
+    class="container"
+  >
+    <span
+      class="icon"
+    >
+      <svg
+        fill="#6C7787"
+        height="24"
+        viewBox="0 0 24 24"
+        width="24"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M0 0h24v24H0z"
+          fill="none"
+        />
+        <path
+          d="M1 21h22L12 2 1 21zm12-3h-2v-2h2v2zm0-4h-2v-4h2v4z"
+        />
+      </svg>
+    </span>
+    <span
+      class="message"
+    >
+      There was a problem loading this dashboard item
+    </span>
+  </p>
 </div>
 `;
 
@@ -66,20 +110,44 @@ exports[`renders a valid App item with filter in view mode 1`] = `
     <p
       class="itemTitle"
     >
-      Scorecard
+      New dashboard plugin
     </p>
     <div
       class="itemHeaderRightWrap"
-    />
+    >
+      <div
+        class="itemActionsWrap"
+      />
+    </div>
   </div>
-  <div
-    class="ui-Divider"
-  />
-  <iframe
-    class="dashboard-item-content"
-    src="launchurl?dashboardItemId=rainbowdash&userOrgUnit=rainbow"
-    title="Scorecard"
-  />
+  <p
+    class="container"
+  >
+    <span
+      class="icon"
+    >
+      <svg
+        fill="#6C7787"
+        height="24"
+        viewBox="0 0 24 24"
+        width="24"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M0 0h24v24H0z"
+          fill="none"
+        />
+        <path
+          d="M1 21h22L12 2 1 21zm12-3h-2v-2h2v2zm0-4h-2v-4h2v4z"
+        />
+      </svg>
+    </span>
+    <span
+      class="message"
+    >
+      There was a problem loading this dashboard item
+    </span>
+  </p>
 </div>
 `;
 
@@ -106,27 +174,44 @@ exports[`renders a valid App item with title in edit mode irrespective of app se
     </div>
   </div>
   <div
-    class="ui-Divider"
-  />
-  <iframe
     class="dashboard-item-content"
-    src="launchurl?dashboardItemId=twilightsparkle"
-    title="No Title"
-  />
+  >
+    <iframe
+      class="dashboard-item-content"
+      src="launchurl?dashboardItemId=twilightsparkle"
+      style="width: 100%; height: 100%;"
+      title="No Title"
+    />
+  </div>
 </div>
 `;
 
 exports[`renders a valid App item without title in view mode if specified in app settings 1`] = `
 <div>
-  <iframe
-    class="dashboard-item-content-hidden-title"
-    src="launchurl?dashboardItemId=twilightsparkle"
-    title="No Title"
-  />
+  <div
+    class="itemHeaderWrap"
+  >
+    <p
+      class="itemTitle"
+    />
+    <div
+      class="itemHeaderRightWrap"
+    />
+  </div>
+  <div
+    class="dashboard-item-content"
+  >
+    <iframe
+      class="dashboard-item-content-hidden-title"
+      src="launchurl?dashboardItemId=twilightsparkle"
+      style="width: 100%; height: 100%;"
+      title="No Title"
+    />
+  </div>
 </div>
 `;
 
-exports[`renders an invalid App item 1`] = `
+exports[`renders a valid legacy widget item 1`] = `
 <div>
   <div
     class="itemHeaderWrap"
@@ -134,31 +219,61 @@ exports[`renders an invalid App item 1`] = `
     <p
       class="itemTitle"
     >
-      unknownApp app not found
+      Scorecard
     </p>
     <div
       class="itemHeaderRightWrap"
     />
   </div>
   <div
-    class="ui-Divider"
-  />
-  <div
     class="dashboard-item-content"
-    style="display: flex; justify-content: center; align-items: center; height: 90%;"
   >
-    <svg
-      color="#a0adba"
-      height="24"
-      viewBox="0 0 24 24"
-      width="24"
-      xmlns="http://www.w3.org/2000/svg"
+    <iframe
+      class="dashboard-item-content"
+      src="launchurl?dashboardItemId=applejack"
+      style="width: 100%; height: 100%;"
+      title="Scorecard"
+    />
+  </div>
+</div>
+`;
+
+exports[`renders an invalid App item 1`] = `
+<div>
+  <div
+    class="jsx-3042342945 "
+    data-test="dhis2-uicore-componentcover"
+  >
+    <div
+      class="messageContent"
     >
-      <path
-        d="M12 2c5.523 0 10 4.477 10 10s-4.477 10-10 10S2 17.523 2 12 6.477 2 12 2zm0 2a8 8 0 100 16 8 8 0 000-16zm0 12a1 1 0 110 2 1 1 0 010-2zm0-10a4 4 0 011.155 7.83l-.155.043V15h-2v-3h1a2 2 0 10-1.995-2.15L10 10H8a4 4 0 014-4z"
-        fill="currentColor"
-      />
-    </svg>
+      <svg
+        color="#a0adba"
+        height="24"
+        viewBox="0 0 24 24"
+        width="24"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M12.847 2.794l.056.102 8.416 17.674a1 1 0 01-.786 1.423l-.117.007H3.584a1 1 0 01-.947-1.322l.044-.108 8.416-17.674a1 1 0 011.75-.102zM12 5.65L5.167 19.999h13.665zM12 17a1 1 0 110 2 1 1 0 010-2zm1-7v6h-2v-6z"
+          fill="currentColor"
+        />
+      </svg>
+      <span>
+        The plugin for rendering this item is not available
+      </span>
+      <span
+        class="appLink"
+      >
+        <a
+          href="/dhis-web-app-management/index.html#/app-hub"
+          rel="noopener noreferrer"
+          target="_blank"
+        >
+          Install the unknownApp plugin from the App Hub
+        </a>
+      </span>
+    </div>
   </div>
 </div>
 `;
