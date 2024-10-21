@@ -12,7 +12,7 @@ const MissingPluginMessage = ({ dashboardMode, pluginName }) => {
                 <IconWarning24 color={colors.grey500} />
                 <span>
                     {i18n.t(
-                        'The plugin for rendering this item is not available'
+                        'The plugin needed to display this item is not available'
                     )}
                 </span>
                 {!isPrintMode(dashboardMode) ? (
