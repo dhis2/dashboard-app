@@ -1,4 +1,4 @@
-import DashboardsBar from '../../components/DashboardsBar/DashboardsBar.js'
-import ViewDashboard from './CacheableViewDashboard.js'
+import DashboardsBar from '../../components/DashboardsBar/DashboardsBar.jsx'
+import ViewDashboard from './CacheableViewDashboard.jsx'
 
 export { ViewDashboard, DashboardsBar }
