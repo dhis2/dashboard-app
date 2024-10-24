@@ -21,12 +21,12 @@ jobs:
         runs-on: ubuntu-latest
         if: "!github.event.push.repository.fork && github.actor != 'dependabot[bot]'"
         steps:
-            - uses: actions/checkout@v2
-            - uses: actions/setup-node@v1
+            - uses: actions/checkout@v4
+            - uses: actions/setup-node@v4
               with:
                   node-version: 18.x
 
-            - uses: c-hive/gha-yarn-cache@v1
+            - uses: c-hive/gha-yarn-cache@v2
             - run: yarn install --frozen-lockfile
 
             - name: Build
@@ -34,7 +34,7 @@ jobs:
 
             - name: Deploy
               id: netlify-deploy
-              uses: nwtgck/actions-netlify@v1.2.2
+              uses: nwtgck/actions-netlify@v3
               timeout-minutes: 1
               with:
                   github-token: ${{ secrets.DHIS2_BOT_GITHUB_TOKEN }}
