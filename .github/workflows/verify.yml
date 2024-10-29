@@ -17,8 +17,8 @@ jobs:
         if: "!contains(github.event.head_commit.message, '[skip ci]')"
 
         steps:
-            - uses: actions/checkout@v2
-            - uses: actions/setup-node@v1
+            - uses: actions/checkout@v4
+            - uses: actions/setup-node@v4
               with:
                   node-version: 14.x
 
@@ -37,8 +37,8 @@ jobs:
         needs: install
         if: "!contains(github.event.head_commit.message, '[skip ci]')"
         steps:
-            - uses: actions/checkout@v2
-            - uses: actions/setup-node@v1
+            - uses: actions/checkout@v4
+            - uses: actions/setup-node@v4
               with:
                   node-version: 14.x
 
@@ -51,7 +51,7 @@ jobs:
             - name: Build
               run: yarn build
 
-            - uses: actions/upload-artifact@v2
+            - uses: actions/upload-artifact@v4
               with:
                   name: app-build
                   path: |
@@ -64,8 +64,8 @@ jobs:
         needs: install
         if: "!contains(github.event.head_commit.message, '[skip ci]')"
         steps:
-            - uses: actions/checkout@v2
-            - uses: actions/setup-node@v1
+            - uses: actions/checkout@v4
+            - uses: actions/setup-node@v4
               with:
                   node-version: 14.x
 
@@ -86,8 +86,8 @@ jobs:
         needs: install
         if: "!contains(github.event.head_commit.message, '[skip ci]')"
         steps:
-            - uses: actions/checkout@v2
-            - uses: actions/setup-node@v1
+            - uses: actions/checkout@v4
+            - uses: actions/setup-node@v4
               with:
                   node-version: 14.x
 
@@ -115,9 +115,9 @@ jobs:
 
         steps:
             - name: Checkout
-              uses: actions/checkout@v2
+              uses: actions/checkout@v4
 
-            - uses: actions/setup-node@v1
+            - uses: actions/setup-node@v4
               with:
                   node-version: 14.x
 
@@ -158,15 +158,15 @@ jobs:
         needs: [build, lint, test, e2e]
         if: "!contains(github.event.head_commit.message, '[skip ci]')"
         steps:
-            - uses: actions/checkout@v2
+            - uses: actions/checkout@v4
               with:
                   token: ${{env.GH_TOKEN}}
 
-            - uses: actions/setup-node@v1
+            - uses: actions/setup-node@v4
               with:
                   node-version: 14.x
 
-            - uses: actions/download-artifact@v2
+            - uses: actions/download-artifact@v4
               with:
                   name: app-build
 
@@ -180,11 +180,11 @@ jobs:
         needs: [publish]
         if: "github.event_name == 'push' && !contains(github.event.head_commit.message, '[skip ci]')"
         steps:
-            - uses: actions/checkout@v2
+            - uses: actions/checkout@v4
               with:
                   token: ${{env.GH_TOKEN}}
 
-            - uses: actions/setup-node@v1
+            - uses: actions/setup-node@v4
               with:
                   node-version: 14.x
 
