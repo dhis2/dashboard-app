@@ -8,8 +8,8 @@ jobs:
     lint-pr-title:
         runs-on: ubuntu-latest
         steps:
-            - uses: actions/checkout@v2
-            - uses: c-hive/gha-yarn-cache@v1
+            - uses: actions/checkout@v4
+            - uses: c-hive/gha-yarn-cache@v2
             - run: yarn install --frozen-lockfile
             - id: commitlint
               run: echo ::set-output name=config_path::$(node -e "process.stdout.write(require('@dhis2/cli-style').config.commitlint)")
@@ -20,13 +20,15 @@ jobs:
     lint-commits:
         runs-on: ubuntu-latest
         steps:
-            - uses: actions/checkout@v2
+            - uses: actions/checkout@v4
               with:
                   fetch-depth: 0
-            - uses: c-hive/gha-yarn-cache@v1
+            - uses: c-hive/gha-yarn-cache@v2
             - run: yarn install --frozen-lockfile
             - id: commitlint
+              # This will return a config file with a .js extensions for @dhis2/cli-style v10
               run: echo ::set-output name=config_path::$(node -e "process.stdout.write(require('@dhis2/cli-style').config.commitlint)")
-            - uses: wagoid/commitlint-github-action@v4
+              # commitlint-github-action@v6+ requires a .mjs extension for the config file, so the highest version we can use is 5
+            - uses: wagoid/commitlint-github-action@v5
               with:
                   configFile: ${{ steps.commitlint.outputs.config_path }}
