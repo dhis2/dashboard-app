@@ -26,5 +26,4 @@ updates:
                   - patch
               exclude-patterns:
                   - '*@dhis2*'
-                  - '*i18next*'
                   - 'react-grid-layout'
