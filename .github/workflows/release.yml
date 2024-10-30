@@ -31,11 +31,11 @@ jobs:
             - name: Print GitHub ref
               run: echo "GITHUB_REF is $GITHUB_REF" and actor is ${{ github.actor }}
 
-            - uses: actions/checkout@v3
+            - uses: actions/checkout@v4
               with:
                   token: ${{ secrets.DHIS2_BOT_GITHUB_TOKEN }}
 
-            - uses: actions/setup-node@v3
+            - uses: actions/setup-node@v4
               with:
                   node-version: 18.x
 
@@ -70,12 +70,12 @@ jobs:
             - name: Extract version
               if: success()
               id: extract_version
-              uses: Saionaro/extract-package-version@v1.2.1
+              uses: Saionaro/extract-package-version@v1.3.0
 
             - name: Send success message to analytics-internal-bot slack channel
               if: success()
               id: slack_success
-              uses: slackapi/slack-github-action@v1.23.0
+              uses: slackapi/slack-github-action@v1.27.0
               with:
                   channel-id: ${{ secrets.SLACK_CHANNEL_ID }}
                   payload: |
@@ -125,7 +125,7 @@ jobs:
             - name: Send failure message to analytics-internal-bot slack channel
               if: ${{ failure() && !cancelled() }}
               id: slack_failure
-              uses: slackapi/slack-github-action@v1.23.0
+              uses: slackapi/slack-github-action@v1.27.0
               with:
                   channel-id: ${{ secrets.SLACK_CHANNEL_ID }}
                   payload: |

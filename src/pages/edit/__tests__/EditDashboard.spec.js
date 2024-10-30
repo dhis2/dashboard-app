@@ -1,7 +1,6 @@
-import { render } from '@testing-library/react'
+import { render, act } from '@testing-library/react'
 import { createMemoryHistory } from 'history'
 import React from 'react'
-import { act } from 'react-dom/test-utils.js'
 import { Provider } from 'react-redux'
 import { Router, Route } from 'react-router-dom'
 import configureMockStore from 'redux-mock-store'
