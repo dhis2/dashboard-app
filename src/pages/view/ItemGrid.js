@@ -276,6 +276,12 @@ const ResponsiveItemGrid = () => {
             {Number.isInteger(fsItemIndex) && (
                 <div className={classes.fsControlsContainer}>
                     <div className={classes.fullscreenControls}>
+                        <button
+                            className={classes.exitButton}
+                            onClick={exitFullscreen}
+                        >
+                            <IconCross24 color={colors.white} />
+                        </button>
                         <button onClick={prevItem}>
                             <IconChevronLeft24 color={colors.white} />
                         </button>
@@ -284,9 +290,6 @@ const ResponsiveItemGrid = () => {
                         } / ${sItems.current.length}`}</span>
                         <button onClick={nextItem}>
                             <IconChevronRight24 color={colors.white} />
-                        </button>
-                        <button onClick={exitFullscreen}>
-                            <IconCross24 color={colors.white} />
                         </button>
                     </div>
                 </div>

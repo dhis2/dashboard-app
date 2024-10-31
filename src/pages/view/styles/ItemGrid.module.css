@@ -39,6 +39,7 @@
     inline-size: 100vw;
     display: flex;
     justify-content: center;
+    background-color: black;
 }
 .fullscreenControls {
     background: #202124;
@@ -50,9 +51,8 @@
 }
 
 .fullscreenControls button {
-    color: var(--colors-white);
-    background-color: #000;
-    background: #000;
+    color: white;
+    background-color: #1f2023;
     border-radius: 3px;
     border: none;
     inline-size: 32px;
@@ -69,4 +69,10 @@
     font-size: 14px;
     margin: 0 10px;
     user-select: none;
+}
+
+.exitButton {
+    position: absolute;
+    inset-block-end: 6px;
+    inset-inline-start: 6px;
 }

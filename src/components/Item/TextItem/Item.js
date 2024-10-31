@@ -1,6 +1,7 @@
 import { RichTextParser, RichTextEditor } from '@dhis2/analytics'
 import i18n from '@dhis2/d2-i18n'
 import { Divider, spacers } from '@dhis2/ui'
+import cx from 'classnames'
 import PropTypes from 'prop-types'
 import React from 'react'
 import { connect } from 'react-redux'
@@ -14,27 +15,19 @@ import {
 import { sGetSelectedDashboardItems } from '../../../reducers/selected.js'
 import ItemHeader from '../ItemHeader/ItemHeader.js'
 import PrintItemInfo from '../ItemHeader/PrintItemInfo.js'
+import classes from './styles/TextItem.module.css'
 
-const style = {
-    textDiv: {
-        padding: '10px',
-        lineHeight: '16px',
-    },
-    textField: {
-        fontSize: '14px',
-        fontStretch: 'normal',
-        margin: '0 auto',
-        display: 'block',
-        lineHeight: '24px',
-    },
-    container: {
-        marginBottom: '20px',
-        marginTop: '20px',
-    },
+const parserTextStyle = {
+    padding: '10px',
+    fontSize: '14px',
+    fontStretch: 'normal',
+    margin: '0 auto',
+    display: 'block',
+    lineHeight: '16px',
 }
 
 const TextItem = (props) => {
-    const { item, dashboardMode, text, acUpdateDashboardItem } = props
+    const { item, dashboardMode, text, isFS, acUpdateDashboardItem } = props
 
     const onChangeText = (text) => {
         const updatedItem = {
@@ -46,11 +39,17 @@ const TextItem = (props) => {
     }
 
     const viewItem = () => {
-        const textDivStyle = Object.assign({}, style.textField, style.textDiv)
         return (
-            <div className="dashboard-item-content" style={style.container}>
-                <RichTextParser style={textDivStyle}>{text}</RichTextParser>
-            </div>
+            <>
+                <div
+                    className={cx(classes.container, 'dashboard-item-content')}
+                >
+                    <RichTextParser style={parserTextStyle}>
+                        {text}
+                    </RichTextParser>
+                </div>
+                {isFS && <div className={classes.fsControlsBuffer} />}
+            </>
         )
     }
 
@@ -77,12 +76,15 @@ const TextItem = (props) => {
     }
 
     const printItem = () => {
-        const textDivStyle = Object.assign({}, style.textField, style.textDiv)
         return (
             <>
                 {props.item.shortened ? <PrintItemInfo /> : null}
-                <div className="dashboard-item-content" style={style.container}>
-                    <RichTextParser style={textDivStyle}>{text}</RichTextParser>
+                <div
+                    className={cx('dashboard-item-content', classes.container)}
+                >
+                    <RichTextParser style={parserTextStyle}>
+                        {text}
+                    </RichTextParser>
                 </div>
             </>
         )
@@ -121,6 +123,7 @@ const mapStateToProps = (state, ownProps) => {
 TextItem.propTypes = {
     acUpdateDashboardItem: PropTypes.func,
     dashboardMode: PropTypes.string,
+    isFS: PropTypes.bool,
     item: PropTypes.object,
     text: PropTypes.string,
 }

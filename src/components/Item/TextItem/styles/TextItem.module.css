@@ -1,0 +1,9 @@
+.container {
+    margin-block: 20px;
+    margin-block-start: 20px;
+}
+
+.fsControlsBuffer {
+    block-size: 48px;
+    inline-size: 100%;
+}
