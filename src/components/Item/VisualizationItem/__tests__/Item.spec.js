@@ -1,6 +1,5 @@
-import { render } from '@testing-library/react'
+import { render, act } from '@testing-library/react'
 import React from 'react'
-import { act } from 'react-dom/test-utils.js'
 import { Provider } from 'react-redux'
 import configureMockStore from 'redux-mock-store'
 import { apiFetchVisualization } from '../../../../api/fetchVisualization.js'
