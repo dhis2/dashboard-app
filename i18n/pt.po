@@ -1,19 +1,20 @@
 # 
 # Translators:
-# phil_dhis2, 2021
+# Philip Larsen Donnelly, 2021
 # Viktor Varland <viktor@dhis2.org>, 2021
 # Gabriela Rodriguez <grodriguezcoronado@gmail.com>, 2021
 # Sheila André <sandre@saudigitus.org>, 2021
 # Fernando Jorge Bade, 2021
 # David Júnior <davidjr.mondlane@gmail.com>, 2022
+# Shelsea Chumaio, 2024
 # 
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
 "POT-Creation-Date: 2022-01-10T14:24:29.926Z\n"
 "PO-Revision-Date: 2019-09-01 20:38+0000\n"
-"Last-Translator: David Júnior <davidjr.mondlane@gmail.com>, 2022\n"
-"Language-Team: Portuguese (https://www.transifex.com/hisp-uio/teams/100509/pt/)\n"
+"Last-Translator: Shelsea Chumaio, 2024\n"
+"Language-Team: Portuguese (https://app.transifex.com/hisp-uio/teams/100509/pt/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -30,10 +31,10 @@ msgid "Cancel"
 msgstr "Cancelar"
 
 msgid "Delete"
-msgstr "Apagar"
+msgstr "Eliminar"
 
 msgid "Delete dashboard"
-msgstr "Excluir painel"
+msgstr "Eliminar o painel de controlo"
 
 msgid ""
 "Deleting dashboard \"{{ dashboardName }}\" will remove it for all users. "
@@ -41,18 +42,18 @@ msgid ""
 "this dashboard?"
 msgstr ""
 "A exclusão do painel \"{{ dashboardName }}\" o removerá para todos os "
-"utilizadores. Essa ação não pode ser desfeita. Tem certeza de que deseja "
+"utilizadores. Essa acção não pode ser desfeita. Tem certeza de que deseja "
 "excluir permanentemente este painel?"
 
 msgid ""
 "Failed to save dashboard. You might be offline or not have access to edit "
 "this dashboard."
 msgstr ""
-"Falha ao salvar o painel. Pode estar offline ou não ter acesso para editar "
+"Falha ao gravar o painel. Pode estar offline ou não ter acesso para editar "
 "este painel."
 
 msgid "Save changes"
-msgstr "Salvar alterações"
+msgstr "Gravar alterações"
 
 msgid "Exit print preview"
 msgstr "Sair da visualização de impressão"
@@ -67,13 +68,13 @@ msgid "Translate"
 msgstr "Traduzir"
 
 msgid "Exit without saving"
-msgstr "Sair sem salvar"
+msgstr "Sair sem gravar"
 
 msgid "Go to dashboards"
-msgstr "Ir para painéis"
+msgstr "Ir para os painéis de controlo"
 
 msgid "Search for a dashboard"
-msgstr "Pesquisar um painel"
+msgstr "Procurar um painel de controlo"
 
 msgid "Show fewer dashboards"
 msgstr "Mostrar menos painéis"
@@ -111,7 +112,7 @@ msgid "Print"
 msgstr "Imprimir"
 
 msgid "dashboard layout"
-msgstr "layout do painel"
+msgstr "Disposição do painel"
 
 msgid "one item per page"
 msgstr "um item por página"
@@ -123,10 +124,11 @@ msgid "For best print results"
 msgstr "Para melhores resultados de impressão"
 
 msgid "Use Chrome or Edge web browser"
-msgstr "Use o navegador da Web Chrome ou Edge"
+msgstr "Use o navegador Chrome ou Edge"
 
 msgid "Wait for all dashboard items to load before printing"
-msgstr "Aguarde o carregamento de todos os itens do painel antes de imprimir"
+msgstr ""
+"Aguardar que todos os itens do painel sejam carregados antes de imprimir"
 
 msgid ""
 "Use A4 landscape paper size and default margin settings in the browser print"
@@ -139,13 +141,13 @@ msgid "{{count}} selected"
 msgid_plural "{{count}} selected"
 msgstr[0] "{{count}} selecionado"
 msgstr[1] "{{count}} selecionado"
-msgstr[2] "{{count}} selecionado"
+msgstr[2] "{{count}} seleccionado"
 
 msgid "Remove"
 msgstr "Remover"
 
 msgid "Delete item"
-msgstr "Excluir item"
+msgstr "Eliminar item"
 
 msgid "This item has been shortened to fit on one page"
 msgstr "Este item foi reduzido para caber em uma página"
@@ -160,7 +162,7 @@ msgid "Item type \"{{type}}\" is not supported"
 msgstr "O tipo de item \"{{type}}\" não é suportado"
 
 msgid "The item type is missing"
-msgstr "O tipo de item está ausente"
+msgstr "O tipo de item está em falta"
 
 msgid "Filters applied"
 msgstr "Filtros aplicados"
@@ -178,7 +180,7 @@ msgid "Text item"
 msgstr "Item de texto"
 
 msgid "Add text here"
-msgstr "Adicione texto aqui"
+msgstr "Adicionar texto aqui"
 
 msgid "There was a problem loading this dashboard item"
 msgstr "Ocorreu um problema ao carregar este item do painel"
@@ -246,16 +248,16 @@ msgid ""
 "                                         as filters. Alternatively, only selected dimensions can\n"
 "                                         be made available on a dashboard."
 msgstr ""
-"Os painéis  podem ser filtrados por dimensões para mudar\n"
-"os dados mostrados. Por padrão, todas as dimensões estão disponíveis\n"
-"como filtros. Em alternativa, apenas as dimensões selecionadas podem\n"
-"ser disponibilizado em um painéis"
+"Os painéis podem ser filtrados por dimensões para alterar\n"
+"                                         os dados mostrados. Por padrão, todas as dimensões estão disponíveis\n"
+"                                         como filtros. Em alternativa, apenas as dimensões seleccionadas podem\n"
+"                                         seleccionadas podem ser disponibilizadas num painel."
 
 msgid "Available Filters"
 msgstr "Filtros disponíveis"
 
 msgid "Selected Filters"
-msgstr "Filtros selecionados"
+msgstr "Filtros seleccionados"
 
 msgid "There are no items on this dashboard"
 msgstr "Não há itens neste painel"
@@ -300,7 +302,7 @@ msgid "Unstar dashboard"
 msgstr "Remover estrela do painel"
 
 msgid "Star dashboard"
-msgstr "Painel estrela"
+msgstr "Painel marcado como favorito"
 
 msgid "Failed to unstar the dashboard"
 msgstr "Falha ao remover a estrela do painel"
@@ -315,10 +317,10 @@ msgid "Edit"
 msgstr "Editar"
 
 msgid "Share"
-msgstr "Partilha"
+msgstr "Partilhar"
 
 msgid "Dashboard layout"
-msgstr "Layout do painel"
+msgstr "Disposição do painel"
 
 msgid "One item per page"
 msgstr "Um item por página"
@@ -330,7 +332,7 @@ msgid "Visualizations"
 msgstr "Visualizações"
 
 msgid "Pivot tables"
-msgstr "Tabelas Pivô"
+msgstr "Tabelas dinâmicas"
 
 msgid "Charts"
 msgstr "Gráficos"
