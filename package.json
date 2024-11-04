@@ -64,7 +64,8 @@
     },
     "jest": {
         "moduleNameMapper": {
-            "^.+\\.(css|sass|scss)$": "identity-obj-proxy"
+            "^.+\\.(css|sass|scss)$": "identity-obj-proxy",
+            "@dhis2/app-runtime/experimental": "<rootDir>/node_modules/@dhis2/app-runtime/build/cjs/experimental.js"
         }
     }
 }

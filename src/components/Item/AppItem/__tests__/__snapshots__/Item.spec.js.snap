@@ -18,34 +18,9 @@ exports[`renders a valid App item in view mode 1`] = `
       />
     </div>
   </div>
-  <p
-    class="container"
-  >
-    <span
-      class="icon"
-    >
-      <svg
-        fill="#6C7787"
-        height="24"
-        viewBox="0 0 24 24"
-        width="24"
-        xmlns="http://www.w3.org/2000/svg"
-      >
-        <path
-          d="M0 0h24v24H0z"
-          fill="none"
-        />
-        <path
-          d="M1 21h22L12 2 1 21zm12-3h-2v-2h2v2zm0-4h-2v-4h2v4z"
-        />
-      </svg>
-    </span>
-    <span
-      class="message"
-    >
-      There was a problem loading this dashboard item
-    </span>
-  </p>
+  <div
+    class="dashboard-item-content"
+  />
 </div>
 `;
 
@@ -71,34 +46,9 @@ exports[`renders a valid App item with filter in edit mode 1`] = `
       </div>
     </div>
   </div>
-  <p
-    class="container"
-  >
-    <span
-      class="icon"
-    >
-      <svg
-        fill="#6C7787"
-        height="24"
-        viewBox="0 0 24 24"
-        width="24"
-        xmlns="http://www.w3.org/2000/svg"
-      >
-        <path
-          d="M0 0h24v24H0z"
-          fill="none"
-        />
-        <path
-          d="M1 21h22L12 2 1 21zm12-3h-2v-2h2v2zm0-4h-2v-4h2v4z"
-        />
-      </svg>
-    </span>
-    <span
-      class="message"
-    >
-      There was a problem loading this dashboard item
-    </span>
-  </p>
+  <div
+    class="dashboard-item-content"
+  />
 </div>
 `;
 
@@ -120,34 +70,9 @@ exports[`renders a valid App item with filter in view mode 1`] = `
       />
     </div>
   </div>
-  <p
-    class="container"
-  >
-    <span
-      class="icon"
-    >
-      <svg
-        fill="#6C7787"
-        height="24"
-        viewBox="0 0 24 24"
-        width="24"
-        xmlns="http://www.w3.org/2000/svg"
-      >
-        <path
-          d="M0 0h24v24H0z"
-          fill="none"
-        />
-        <path
-          d="M1 21h22L12 2 1 21zm12-3h-2v-2h2v2zm0-4h-2v-4h2v4z"
-        />
-      </svg>
-    </span>
-    <span
-      class="message"
-    >
-      There was a problem loading this dashboard item
-    </span>
-  </p>
+  <div
+    class="dashboard-item-content"
+  />
 </div>
 `;
 
@@ -175,14 +100,7 @@ exports[`renders a valid App item with title in edit mode irrespective of app se
   </div>
   <div
     class="dashboard-item-content"
-  >
-    <iframe
-      class="dashboard-item-content"
-      src="launchurl?dashboardItemId=twilightsparkle"
-      style="width: 100%; height: 100%;"
-      title="No Title"
-    />
-  </div>
+  />
 </div>
 `;
 
@@ -200,14 +118,7 @@ exports[`renders a valid App item without title in view mode if specified in app
   </div>
   <div
     class="dashboard-item-content"
-  >
-    <iframe
-      class="dashboard-item-content-hidden-title"
-      src="launchurl?dashboardItemId=twilightsparkle"
-      style="width: 100%; height: 100%;"
-      title="No Title"
-    />
-  </div>
+  />
 </div>
 `;
 
@@ -227,14 +138,7 @@ exports[`renders a valid legacy widget item 1`] = `
   </div>
   <div
     class="dashboard-item-content"
-  >
-    <iframe
-      class="dashboard-item-content"
-      src="launchurl?dashboardItemId=applejack"
-      style="width: 100%; height: 100%;"
-      title="Scorecard"
-    />
-  </div>
+  />
 </div>
 `;
 
@@ -260,13 +164,13 @@ exports[`renders an invalid App item 1`] = `
         />
       </svg>
       <span>
-        The plugin for rendering this item is not available
+        The plugin needed to display this item is not available
       </span>
       <span
         class="appLink"
       >
         <a
-          href="/dhis-web-app-management/index.html#/app-hub"
+          href="../dhis-web-app-management/index.html#/app-hub"
           rel="noopener noreferrer"
           target="_blank"
         >
