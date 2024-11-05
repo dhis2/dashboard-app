@@ -18,12 +18,12 @@ import PrintItemInfo from '../ItemHeader/PrintItemInfo.js'
 import classes from './styles/TextItem.module.css'
 
 const parserTextStyle = {
-    padding: '10px',
-    fontSize: '14px',
+    padding: '24px',
+    fontSize: '18px',
     fontStretch: 'normal',
     margin: '0 auto',
     display: 'block',
-    lineHeight: '16px',
+    lineHeight: '23px',
 }
 
 const TextItem = (props) => {
