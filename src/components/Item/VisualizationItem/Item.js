@@ -50,7 +50,7 @@ import { pluginIsAvailable } from './Visualization/plugin.js'
 import Visualization from './Visualization/Visualization.js'
 
 const MIN_CLIENT_HEIGHT = 16
-const FS_CONTROLS_BUFFER = 48 // space for the fullscreen controls at bottom
+const FS_CONTROLS_BUFFER = 40 // space for the fullscreen controls at bottom
 
 class Item extends Component {
     state = {

@@ -70,7 +70,8 @@
     color: white;
     font-size: 14px;
     margin: 0 8px;
-    min-width: 60px; /* avoid moving buttons for most counts below 999 items */
+    min-inline-size: 60px;
+    /* avoid moving buttons for most counts below 999 items */
     text-align: center;
     user-select: none;
 }

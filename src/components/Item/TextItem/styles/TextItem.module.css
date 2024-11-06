@@ -4,6 +4,6 @@
 }
 
 .fsControlsBuffer {
-    block-size: 48px;
+    block-size: 40px;
     inline-size: 100%;
 }

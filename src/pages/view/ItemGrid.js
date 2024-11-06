@@ -6,11 +6,9 @@ import {
     colors,
 } from '@dhis2/ui'
 import cx from 'classnames'
-import sortBy from 'lodash/sortBy.js'
-import React, { useState, useEffect, useRef, useCallback } from 'react'
+import React, { useState, useEffect } from 'react'
 import { Responsive as ResponsiveReactGridLayout } from 'react-grid-layout'
-import { useDispatch, useSelector } from 'react-redux'
-import { acSetPresentDashboard } from '../../actions/presentDashboard.js'
+import { useSelector } from 'react-redux'
 import { Item } from '../../components/Item/Item.js'
 import NoContentMessage from '../../components/NoContentMessage.js'
 import ProgressiveLoadingContainer from '../../components/ProgressiveLoadingContainer.js'
@@ -30,10 +28,9 @@ import {
     getGridWidth,
     getProportionalHeight,
 } from '../../modules/gridUtil.js'
-import { SPACER, MESSAGES } from '../../modules/itemTypes.js'
 import { getBreakpoint, isSmallScreen } from '../../modules/smallScreen.js'
 import { useCacheableSection } from '../../modules/useCacheableSection.js'
-import { sGetPresentDashboard } from '../../reducers/presentDashboard.js'
+import useFullscreen from '../../modules/useFullscreen.js'
 import {
     sGetSelectedId,
     sGetSelectedDashboardItems,
@@ -44,10 +41,8 @@ const EXPANDED_HEIGHT = 19
 const EXPANDED_HEIGHT_SM = 15
 
 const ResponsiveItemGrid = () => {
-    const dispatch = useDispatch()
     const dashboardId = useSelector(sGetSelectedId)
     const dashboardItems = useSelector(sGetSelectedDashboardItems)
-
     const { width } = useWindowDimensions()
     const [expandedItems, setExpandedItems] = useState({})
     const [displayItems, setDisplayItems] = useState(dashboardItems)
@@ -57,11 +52,14 @@ const ResponsiveItemGrid = () => {
     const { recordingState } = useCacheableSection(dashboardId)
     const firstOfTypes = getFirstOfTypes(dashboardItems)
 
-    // for slideshow
-    const sItems = useRef([])
-    const fsItemStartingIndex = useSelector(sGetPresentDashboard)
-    const [fsItemIndex, setFsItemIndex] = useState(null)
-    const fsElement = useRef(null)
+    const {
+        fsItemIndex,
+        fsElement,
+        exitFullscreen,
+        nextItem,
+        prevItem,
+        sortedItems,
+    } = useFullscreen(displayItems)
 
     useEffect(() => {
         const getItemsWithAdjustedHeight = (items) =>
@@ -92,85 +90,6 @@ const ResponsiveItemGrid = () => {
         }
     }, [recordingState])
 
-    useEffect(() => {
-        const sortedItems = sortBy(displayItems, ['y', 'x']).filter(
-            (i) => [SPACER, MESSAGES].indexOf(i.type) === -1
-        )
-        sItems.current = sortedItems
-    }, [displayItems])
-
-    // Handle Present button or Item Fullscreen button clicked
-    useEffect(() => {
-        if (Number.isInteger(fsItemStartingIndex)) {
-            const el = fsElement?.current
-            el?.requestFullscreen()
-            setFsItemIndex(fsItemStartingIndex)
-        } else if (document.fullscreenElement) {
-            document.exitFullscreen().then(() => {
-                setFsItemIndex(null)
-            })
-        } else {
-            setFsItemIndex(null)
-        }
-    }, [fsItemStartingIndex])
-
-    const exitFullscreen = () => {
-        if (document.fullscreenElement) {
-            document.exitFullscreen().then(() => {
-                dispatch(acSetPresentDashboard(null))
-            })
-        }
-    }
-
-    const nextItem = useCallback(() => {
-        if (fsItemIndex === sItems.current.length - 1) {
-            setFsItemIndex(0)
-        } else {
-            setFsItemIndex(fsItemIndex + 1)
-        }
-    }, [fsItemIndex])
-
-    const prevItem = useCallback(() => {
-        if (fsItemIndex === 0) {
-            setFsItemIndex(sItems.current.length - 1)
-        } else {
-            setFsItemIndex(fsItemIndex - 1)
-        }
-    }, [fsItemIndex])
-
-    // This effect handles the keyboard navigation for the fullscreen mode
-    useEffect(() => {
-        const handleKeyDown = (event) => {
-            if (document.fullscreenElement) {
-                if (event.key === 'ArrowRight') {
-                    nextItem()
-                } else if (event.key === 'ArrowLeft') {
-                    prevItem()
-                }
-            }
-        }
-
-        const handleFullscreenChange = () => {
-            if (!document.fullscreenElement) {
-                setFsItemIndex(null)
-                dispatch(acSetPresentDashboard(null))
-            }
-        }
-
-        // Attach the event listener to the window object
-        window.addEventListener('keydown', handleKeyDown)
-        document.addEventListener('fullscreenchange', handleFullscreenChange)
-
-        // Clean up the event listener when the component is unmounted
-        return () => {
-            window.removeEventListener('keydown', handleKeyDown)
-            document.removeEventListener(
-                'fullscreenchange',
-                handleFullscreenChange
-            )
-        }
-    }, [dispatch, nextItem, prevItem])
-
     const onToggleItemExpanded = (clickedId) => {
         const isExpanded =
             typeof expandedItems[clickedId] === 'boolean'
@@ -192,7 +111,7 @@ const ResponsiveItemGrid = () => {
         }
 
         const isFS = Number.isInteger(fsItemIndex)
-            ? sItems.current[fsItemIndex].id === item.id
+            ? sortedItems[fsItemIndex].id === item.id
             : null
 
         return (
@@ -218,7 +137,7 @@ const ResponsiveItemGrid = () => {
                     onToggleItemExpanded={onToggleItemExpanded}
                     isFS={isFS}
                     sortPosition={
-                        sItems.current.findIndex((i) => i.id === item.id) + 1
+                        sortedItems.findIndex((i) => i.id === item.id) + 1
                     }
                 />
             </ProgressiveLoadingContainer>
@@ -287,7 +206,7 @@ const ResponsiveItemGrid = () => {
                         </button>
                         <span className={classes.pageCounter}>{`${
                             fsItemIndex + 1
-                        } / ${sItems.current.length}`}</span>
+                        } / ${sortedItems.length}`}</span>
                         <button onClick={nextItem}>
                             <IconChevronRight24 color={colors.white} />
                         </button>
