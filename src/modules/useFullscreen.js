@@ -7,22 +7,22 @@ import { SPACER, MESSAGES } from './itemTypes.js'
 
 const useFullscreen = (displayItems) => {
     const dispatch = useDispatch()
-    const sItems = useRef([])
+    const sortedItems = useRef([])
     const fsItemStartingIndex = useSelector(sGetPresentDashboard)
     const [fsItemIndex, setFsItemIndex] = useState(null)
-    const fsElement = useRef(null)
+    const fsElementRef = useRef(null)
 
     useEffect(() => {
-        const sortedItems = sortBy(displayItems, ['y', 'x']).filter(
+        const sItems = sortBy(displayItems, ['y', 'x']).filter(
             (i) => [SPACER, MESSAGES].indexOf(i.type) === -1
         )
-        sItems.current = sortedItems
+        sortedItems.current = sItems
     }, [displayItems])
 
     // Handle Present button or Item Fullscreen button clicked
     useEffect(() => {
         if (Number.isInteger(fsItemStartingIndex)) {
-            const el = fsElement?.current
+            const el = fsElementRef?.current
             el?.requestFullscreen()
             setFsItemIndex(fsItemStartingIndex)
         } else if (document.fullscreenElement) {
@@ -43,7 +43,7 @@ const useFullscreen = (displayItems) => {
     }
 
     const nextItem = useCallback(() => {
-        if (fsItemIndex === sItems.current.length - 1) {
+        if (fsItemIndex === sortedItems.current.length - 1) {
             setFsItemIndex(0)
         } else {
             setFsItemIndex(fsItemIndex + 1)
@@ -52,7 +52,7 @@ const useFullscreen = (displayItems) => {
 
     const prevItem = useCallback(() => {
         if (fsItemIndex === 0) {
-            setFsItemIndex(sItems.current.length - 1)
+            setFsItemIndex(sortedItems.current.length - 1)
         } else {
             setFsItemIndex(fsItemIndex - 1)
         }
@@ -93,11 +93,11 @@ const useFullscreen = (displayItems) => {
 
     return {
         fsItemIndex,
-        fsElement,
+        fsElementRef,
         exitFullscreen,
         nextItem,
         prevItem,
-        sortedItems: sItems.current,
+        sortedItems: sortedItems.current,
     }
 }
 

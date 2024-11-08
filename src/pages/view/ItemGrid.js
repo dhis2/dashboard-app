@@ -54,7 +54,7 @@ const ResponsiveItemGrid = () => {
 
     const {
         fsItemIndex,
-        fsElement,
+        fsElementRef,
         exitFullscreen,
         nextItem,
         prevItem,
@@ -164,7 +164,7 @@ const ResponsiveItemGrid = () => {
             className={cx(classes.fullscreenWrapper, {
                 [classes.isFullscreenMode]: Number.isInteger(fsItemIndex),
             })}
-            ref={fsElement}
+            ref={fsElementRef}
         >
             <ResponsiveReactGridLayout
                 className={cx(classes.grid, {
