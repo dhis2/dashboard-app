@@ -10,7 +10,9 @@ import {
 import ItemHeader from '../ItemHeader/ItemHeader.js'
 import { getIframeSrc } from './getIframeSrc.js'
 
-const AppItem = ({ dashboardMode, item, itemFilters, apps }) => {
+const FS_CONTROLS_BUFFER = '40px' // space for the fullscreen controls at bottom
+
+const AppItem = ({ dashboardMode, item, itemFilters, apps, isFS }) => {
     let appDetails
 
     const appKey = item.appKey
@@ -46,6 +48,7 @@ const AppItem = ({ dashboardMode, item, itemFilters, apps }) => {
                 }
                 style={{ border: 'none' }}
             />
+            {isFS && <div style={{ height: FS_CONTROLS_BUFFER }} />}
         </>
     ) : (
         <>
@@ -69,6 +72,7 @@ const AppItem = ({ dashboardMode, item, itemFilters, apps }) => {
 AppItem.propTypes = {
     apps: PropTypes.array,
     dashboardMode: PropTypes.string,
+    isFS: PropTypes.bool,
     item: PropTypes.object,
     itemFilters: PropTypes.object,
 }
