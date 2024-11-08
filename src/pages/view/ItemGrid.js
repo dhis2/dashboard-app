@@ -127,7 +127,7 @@ const ResponsiveItemGrid = () => {
                     }
                 )}
                 itemId={item.id}
-                forceLoad={forceLoad}
+                forceLoad={forceLoad || Number.isInteger(fsItemIndex)}
             >
                 <Item
                     item={item}
