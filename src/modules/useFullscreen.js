@@ -3,7 +3,7 @@ import { useState, useEffect, useRef, useCallback } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import { acSetPresentDashboard } from '../actions/presentDashboard.js'
 import { sGetPresentDashboard } from '../reducers/presentDashboard.js'
-import { SPACER, MESSAGES } from './itemTypes.js'
+import { itemTypeSupportsFullscreen } from './itemTypes.js'
 
 const useFullscreen = (displayItems) => {
     const dispatch = useDispatch()
@@ -13,8 +13,8 @@ const useFullscreen = (displayItems) => {
     const fsElementRef = useRef(null)
 
     useEffect(() => {
-        const sItems = sortBy(displayItems, ['y', 'x']).filter(
-            (i) => [SPACER, MESSAGES].indexOf(i.type) === -1
+        const sItems = sortBy(displayItems, ['y', 'x']).filter((i) =>
+            itemTypeSupportsFullscreen(i.type)
         )
         sortedItems.current = sItems
     }, [displayItems])

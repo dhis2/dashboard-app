@@ -5,8 +5,8 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1)\n"
-"POT-Creation-Date: 2024-09-09T15:15:02.457Z\n"
-"PO-Revision-Date: 2024-09-09T15:15:02.458Z\n"
+"POT-Creation-Date: 2024-11-08T18:16:23.173Z\n"
+"PO-Revision-Date: 2024-11-08T18:16:23.174Z\n"
 
 msgid "Untitled dashboard"
 msgstr "Untitled dashboard"
@@ -525,6 +525,9 @@ msgstr "Close dashboard"
 
 msgid "More"
 msgstr "More"
+
+msgid "No dashboard items with fullscreen support"
+msgstr "No dashboard items with fullscreen support"
 
 msgid "Edit"
 msgstr "Edit"

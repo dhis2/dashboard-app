@@ -25,6 +25,7 @@ import ConfirmActionDialog from '../../../components/ConfirmActionDialog.js'
 import DropdownButton from '../../../components/DropdownButton/DropdownButton.js'
 import MenuItem from '../../../components/MenuItemWithTooltip.js'
 import { useSystemSettings } from '../../../components/SystemSettingsProvider.js'
+import { itemTypeSupportsFullscreen } from '../../../modules/itemTypes.js'
 import { useCacheableSection } from '../../../modules/useCacheableSection.js'
 import { orObject } from '../../../modules/util.js'
 import { sGetDashboardStarred } from '../../../reducers/dashboards.js'
@@ -49,6 +50,7 @@ const ViewActions = ({
     restrictFilters,
     allowedFilters,
     filtersLength,
+    dashboardItems,
 }) => {
     const [moreOptionsSmallIsOpen, setMoreOptionsSmallIsOpen] = useState(false)
     const [moreOptionsIsOpen, setMoreOptionsIsOpen] = useState(false)
@@ -136,6 +138,10 @@ const ViewActions = ({
         setSharingDialogIsOpen(!sharingDialogIsOpen)
 
     const userAccess = orObject(access)
+
+    const hasSlideshowItems = dashboardItems?.some(
+        (i) => itemTypeSupportsFullscreen(i.type) || false
+    )
 
     const getMoreMenu = () => (
         <FlyoutMenu>
@@ -230,6 +236,11 @@ const ViewActions = ({
         </DropdownButton>
     )
 
+    const content =
+        !offline && !hasSlideshowItems
+            ? i18n.t('No dashboard items with fullscreen support')
+            : null
+
     return (
         <>
             <div className={classes.actions}>
@@ -261,9 +272,12 @@ const ViewActions = ({
                         </OfflineTooltip>
                     ) : null}
                     {allowVisFullscreen ? (
-                        <OfflineTooltip>
+                        <OfflineTooltip
+                            content={content}
+                            disabled={offline || !hasSlideshowItems}
+                        >
                             <Button
-                                disabled={offline}
+                                disabled={offline || !hasSlideshowItems}
                                 className={classes.presentButton}
                                 onClick={() => setPresentDashboard(0)}
                             >
@@ -304,6 +318,7 @@ const ViewActions = ({
 ViewActions.propTypes = {
     access: PropTypes.object,
     allowedFilters: PropTypes.array,
+    dashboardItems: PropTypes.array,
     filtersLength: PropTypes.number,
     id: PropTypes.string,
     removeAllFilters: PropTypes.func,
