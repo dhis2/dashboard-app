@@ -238,7 +238,7 @@ const ViewActions = ({
 
     const content =
         !offline && !hasSlideshowItems
-            ? i18n.t('No dashboard items with fullscreen support')
+            ? i18n.t('No dashboard items to show in slideshow')
             : null
 
     return (
