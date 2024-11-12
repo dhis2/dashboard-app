@@ -1,7 +1,6 @@
 import { RichTextParser, RichTextEditor } from '@dhis2/analytics'
 import i18n from '@dhis2/d2-i18n'
 import { Divider, spacers } from '@dhis2/ui'
-import cx from 'classnames'
 import PropTypes from 'prop-types'
 import React from 'react'
 import { connect } from 'react-redux'
@@ -17,13 +16,26 @@ import ItemHeader from '../ItemHeader/ItemHeader.js'
 import PrintItemInfo from '../ItemHeader/PrintItemInfo.js'
 import classes from './styles/TextItem.module.css'
 
-const parserTextStyle = {
+const fsTextStyle = {
     padding: '24px',
     fontSize: '18px',
     fontStretch: 'normal',
     margin: '0 auto',
     display: 'block',
     lineHeight: '23px',
+}
+
+const parserTextStyle = {
+    padding: '10px',
+    fontSize: '14px',
+    fontStretch: 'normal',
+    margin: '0 auto',
+    display: 'block',
+    lineHeight: '16px',
+}
+
+const containerStyle = {
+    marginBlock: '20px',
 }
 
 const TextItem = (props) => {
@@ -42,9 +54,12 @@ const TextItem = (props) => {
         return (
             <>
                 <div
-                    className={cx(classes.container, 'dashboard-item-content')}
+                    className="dashboard-item-content"
+                    style={isFS ? {} : containerStyle}
                 >
-                    <RichTextParser style={parserTextStyle}>
+                    <RichTextParser
+                        style={isFS ? fsTextStyle : parserTextStyle}
+                    >
                         {text}
                     </RichTextParser>
                 </div>
@@ -79,9 +94,7 @@ const TextItem = (props) => {
         return (
             <>
                 {props.item.shortened ? <PrintItemInfo /> : null}
-                <div
-                    className={cx('dashboard-item-content', classes.container)}
-                >
+                <div className="dashboard-item-content" style={containerStyle}>
                     <RichTextParser style={parserTextStyle}>
                         {text}
                     </RichTextParser>

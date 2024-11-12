@@ -82,6 +82,9 @@
     padding-block-end: var(--item-content-padding);
 }
 
+.fullscreenItem.TEXT .dashboard-item-content {
+    padding-block-end: 0;
+}
 .EVENT_REPORT .dashboard-item-content {
     position: relative;
 }
