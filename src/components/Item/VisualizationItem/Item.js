@@ -160,8 +160,9 @@ class Item extends Component {
             const totalNonVisHeight =
                 (this.headerRef.current.clientHeight || MIN_CLIENT_HEIGHT) +
                 this.itemHeaderTotalMargin +
-                this.itemContentPadding +
+                (this.props.isFS ? 0 : this.itemContentPadding) +
                 FS_CONTROLS_BUFFER
+
             return `calc(100vh - ${totalNonVisHeight}px)`
         }
         const calculatedHeight =
@@ -186,7 +187,10 @@ class Item extends Component {
             this.props.item.id
         )?.getBoundingClientRect()
 
-        return rect && rect.width - this.itemContentPadding * 2
+        return (
+            rect &&
+            rect.width - (this.props.isFS ? 0 : this.itemContentPadding * 2)
+        )
     }
 
     onFatalError = () => {
