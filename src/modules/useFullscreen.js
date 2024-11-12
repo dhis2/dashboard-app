@@ -19,7 +19,7 @@ const useFullscreen = (displayItems) => {
         sortedItems.current = sItems
     }, [displayItems])
 
-    // Handle Present button or Item Fullscreen button clicked
+    // Handle Slideshow button or Item Fullscreen button clicked
     useEffect(() => {
         if (Number.isInteger(fsItemStartingIndex)) {
             const el = fsElementRef?.current
