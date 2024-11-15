@@ -54,7 +54,6 @@ const IframePlugin = ({
     const onError = () => setError('plugin')
     const onInstallationStatusChange = useCallback(
         (installationStatus) => {
-            console.log('DS installation status change', installationStatus)
             if (isFirstOfType) {
                 dispatch(
                     acAddIframePluginStatus({
