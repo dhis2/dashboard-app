@@ -57,16 +57,6 @@ const ViewDashboard = ({
     }, [clearEditDashboard, clearPrintDashboard])
 
     useEffect(() => {
-        setLoaded(false)
-
-        Array.from(
-            document.getElementsByClassName('dashboard-scroll-container')
-        ).forEach((container) => {
-            container.scroll(0, 0)
-        })
-    }, [requestedId])
-
-    useEffect(() => {
         if (!passiveViewRegistered && online) {
             apiPostDataStatistics('PASSIVE_DASHBOARD_VIEW', requestedId, engine)
                 .then(() => {
