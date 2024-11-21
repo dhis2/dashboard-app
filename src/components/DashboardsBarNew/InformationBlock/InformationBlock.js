@@ -6,9 +6,9 @@ import { sGetShowDescription } from '../../../reducers/showDescription.js'
 import ActionsBar from './ActionsBar.js'
 import Description from './Description.js'
 import LastUpdatedTag from './LastUpdatedTag.js'
-import classes from './styles/TitleBar.module.css'
+import classes from './styles/InformationBlock.module.css'
 
-const ViewTitleBar = ({
+const InformationBlock = ({
     id,
     displayName,
     displayDescription,
@@ -33,7 +33,7 @@ const ViewTitleBar = ({
     )
 }
 
-ViewTitleBar.propTypes = {
+InformationBlock.propTypes = {
     displayDescription: PropTypes.string,
     displayName: PropTypes.string,
     id: PropTypes.string,
@@ -49,4 +49,4 @@ const mapStateToProps = (state) => {
     }
 }
 
-export default connect(mapStateToProps)(ViewTitleBar)
+export default connect(mapStateToProps)(InformationBlock)
