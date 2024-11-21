@@ -3,14 +3,14 @@ import { Input, Menu, MenuItem } from '@dhis2/ui'
 import React, { useCallback, useMemo, useEffect, useRef } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { useHistory } from 'react-router-dom'
-import { acSetDashboardsFilter } from '../../actions/dashboardsFilter.js'
-import { sGetDashboardsSortedByStarred } from '../../reducers/dashboards.js'
-import { sGetDashboardsFilter } from '../../reducers/dashboardsFilter.js'
-import { sGetSelectedId } from '../../reducers/selected.js'
-import { DashboardMenuItemLabel } from './DashboardMenuItemLabel.js'
-import styles from './styles/DashboardsMenu.module.css'
+import { acSetDashboardsFilter } from '../../../actions/dashboardsFilter.js'
+import { sGetDashboardsSortedByStarred } from '../../../reducers/dashboards.js'
+import { sGetDashboardsFilter } from '../../../reducers/dashboardsFilter.js'
+import { sGetSelectedId } from '../../../reducers/selected.js'
+import { NavigationMenuItemLabel } from './NavigationMenuItemLabel.js'
+import styles from './styles/NavigationMenu.module.css'
 
-export const DashboardsMenu = () => {
+export const NavigationMenu = () => {
     const dispatch = useDispatch()
     const history = useHistory()
     const scrollBoxRef = useRef(null)
@@ -80,7 +80,7 @@ export const DashboardsMenu = () => {
                                 }}
                                 key={dashboard.id}
                                 label={
-                                    <DashboardMenuItemLabel
+                                    <NavigationMenuItemLabel
                                         displayName={dashboard.displayName}
                                         availableOffline={true}
                                         starred={dashboard.starred}

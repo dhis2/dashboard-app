@@ -14,8 +14,7 @@ import React from 'react'
 import { useSelector } from 'react-redux'
 import { useHistory } from 'react-router-dom'
 import { sGetSelected } from '../../reducers/selected.js'
-import { DashboardsMenu } from './DashboardsMenu.js'
-import { IconNavigation } from './IconNavigation.js'
+import { IconNavigation, NavigationMenu } from './NavigationMenu/index.js'
 import styles from './styles/DashboardsBar.module.css'
 
 export const DashboardsBar = ({ external, offline }) => {
@@ -35,7 +34,7 @@ export const DashboardsBar = ({ external, offline }) => {
                     icon={<IconNavigation />}
                     secondary
                     small
-                    component={<DashboardsMenu />}
+                    component={<NavigationMenu />}
                 >
                     {i18n.t('Dashboards')}
                 </DropdownButton>

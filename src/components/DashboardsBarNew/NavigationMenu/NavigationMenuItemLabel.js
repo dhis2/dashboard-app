@@ -1,9 +1,9 @@
 import { IconDownload16, IconStarFilled16 } from '@dhis2/ui'
 import PropTypes from 'prop-types'
 import React from 'react'
-import styles from './styles/DashboardMenuItemLabel.module.css'
+import styles from './styles/NavigationMenuItemLabel.module.css'
 
-export const DashboardMenuItemLabel = ({
+export const NavigationMenuItemLabel = ({
     displayName,
     starred,
     availableOffline,
@@ -17,7 +17,7 @@ export const DashboardMenuItemLabel = ({
     )
 }
 
-DashboardMenuItemLabel.propTypes = {
+NavigationMenuItemLabel.propTypes = {
     displayName: PropTypes.string.isRequired,
     availableOffline: PropTypes.bool,
     starred: PropTypes.bool,
