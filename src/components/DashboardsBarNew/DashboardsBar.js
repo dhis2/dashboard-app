@@ -14,6 +14,7 @@ import React from 'react'
 import { useSelector } from 'react-redux'
 import { useHistory } from 'react-router-dom'
 import { sGetSelected } from '../../reducers/selected.js'
+import InformationBlock from './InformationBlock/InformationBlock.js'
 import { IconNavigation, NavigationMenu } from './NavigationMenu/index.js'
 import styles from './styles/DashboardsBar.module.css'
 
@@ -39,6 +40,7 @@ export const DashboardsBar = ({ external, offline }) => {
                     {i18n.t('Dashboards')}
                 </DropdownButton>
             </div>
+            <InformationBlock />
             <div className={styles.blockInformation}>
                 <div className={styles.informationTitle}>
                     <span className={styles.dashboardTitle}>
