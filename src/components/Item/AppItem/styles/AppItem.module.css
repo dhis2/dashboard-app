@@ -1,0 +1,33 @@
+.dashboardItemContent {
+    margin-block-start: 0;
+    margin-block-end: var(--item-content-padding);
+    margin-inline-start: var(--item-content-padding);
+    margin-inline-end: var(--item-content-padding);
+    overflow: auto;
+    flex: 1;
+}
+
+.hiddenTitle {
+    margin-block-start: 5px;
+    margin-block-end: 4px;
+    margin-inline-start: 4px;
+    margin-inline-end: 4px;
+}
+
+.fs {
+    margin-block-start: 0;
+    margin-block-end: 0;
+    margin-inline-start: 0;
+    margin-inline-end: 0;
+}
+
+.fsControlsBuffer {
+    block-size: 40px;
+}
+
+.centered {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    block-size: 90%;
+}

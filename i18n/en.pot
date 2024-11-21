@@ -5,8 +5,8 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1)\n"
-"POT-Creation-Date: 2024-11-12T15:09:25.555Z\n"
-"PO-Revision-Date: 2024-11-12T15:09:25.556Z\n"
+"POT-Creation-Date: 2024-11-21T14:44:35.575Z\n"
+"PO-Revision-Date: 2024-11-21T14:44:35.577Z\n"
 
 msgid "Untitled dashboard"
 msgstr "Untitled dashboard"
@@ -25,6 +25,9 @@ msgstr "Show fewer dashboards"
 
 msgid "Show more dashboards"
 msgstr "Show more dashboards"
+
+msgid "{{appKey}} app not found"
+msgstr "{{appKey}} app not found"
 
 msgid "Remove this item"
 msgstr "Remove this item"

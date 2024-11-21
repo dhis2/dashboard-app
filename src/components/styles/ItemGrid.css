@@ -70,13 +70,6 @@
     margin-inline-start: 0;
     margin-inline-end: 0;
 }
-.dashboard-item-content-hidden-title {
-    margin-block-start: 5px;
-    margin-block-end: 4px;
-    margin-inline-start: 4px;
-    margin-inline-end: 4px;
-    overflow: auto;
-}
 
 .TEXT .dashboard-item-content {
     padding-block-end: var(--item-content-padding);
@@ -101,8 +94,6 @@
 .react-grid-item.edit .dashboard-item-content,
 .react-grid-item.RESOURCES .dashboard-item-content,
 .react-grid-item.TEXT .dashboard-item-content,
-.react-grid-item.MESSAGES .dashboard-item-content,
-.react-grid-item.APP .dashboard-item-content,
-.react-grid-item.APP .dashboard-item-content-hidden-title {
+.react-grid-item.MESSAGES .dashboard-item-content {
     flex: 1;
 }

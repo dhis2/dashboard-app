@@ -1,4 +1,6 @@
+import i18n from '@dhis2/d2-i18n'
 import { Divider, colors, spacers, IconQuestion24 } from '@dhis2/ui'
+import cx from 'classnames'
 import PropTypes from 'prop-types'
 import React from 'react'
 import { connect } from 'react-redux'
@@ -9,8 +11,7 @@ import {
 } from '../../../reducers/itemFilters.js'
 import ItemHeader from '../ItemHeader/ItemHeader.js'
 import { getIframeSrc } from './getIframeSrc.js'
-
-const FS_CONTROLS_BUFFER = '40px' // space for the fullscreen controls at bottom
+import styles from './styles/AppItem.module.css'
 
 const AppItem = ({ dashboardMode, item, itemFilters, apps, isFS }) => {
     let appDetails
@@ -41,27 +42,24 @@ const AppItem = ({ dashboardMode, item, itemFilters, apps, isFS }) => {
             <iframe
                 title={appDetails.name}
                 src={getIframeSrc(appDetails, item, itemFilters)}
-                className={
-                    !hideTitle
-                        ? 'dashboard-item-content'
-                        : 'dashboard-item-content-hidden-title'
-                }
+                className={cx(styles.dashboardItemContent, {
+                    [styles.hiddenTitle]: hideTitle,
+                    [styles.fs]: isFS,
+                })}
                 style={{ border: 'none' }}
             />
-            {isFS && <div style={{ height: FS_CONTROLS_BUFFER }} />}
+            {isFS && <div className={styles.fsControlsBuffer} />}
         </>
     ) : (
         <>
-            <ItemHeader title={`${appKey} app not found`} />
+            <ItemHeader
+                title={i18n.t('{{appKey}} app not found', { appKey })}
+            />
             <Divider margin={`0 0 ${spacers.dp4} 0`} />
             <div
-                className="dashboard-item-content"
-                style={{
-                    display: 'flex',
-                    justifyContent: 'center',
-                    alignItems: 'center',
-                    height: '90%',
-                }}
+                className={cx(styles.dashboardItemContent, styles.centered, {
+                    [styles.fs]: isFS,
+                })}
             >
                 <IconQuestion24 color={colors.grey500} />
             </div>
