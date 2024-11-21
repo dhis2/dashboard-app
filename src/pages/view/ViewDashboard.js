@@ -64,7 +64,13 @@ const ViewDashboard = ({
                 })
                 .catch((error) => console.info(error))
         }
-    }, [passiveViewRegistered, engine])
+    }, [
+        engine,
+        online,
+        passiveViewRegistered,
+        registerPassiveView,
+        requestedId,
+    ])
 
     useEffect(() => {
         const loadDashboard = async () => {
