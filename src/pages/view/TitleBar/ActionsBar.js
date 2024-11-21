@@ -18,8 +18,8 @@ import { connect } from 'react-redux'
 import { Link, Redirect } from 'react-router-dom'
 import { acSetDashboardStarred } from '../../../actions/dashboards.js'
 import { acClearItemFilters } from '../../../actions/itemFilters.js'
-import { acSetPresentDashboard } from '../../../actions/presentDashboard.js'
 import { acSetShowDescription } from '../../../actions/showDescription.js'
+import { acSetSlideshow } from '../../../actions/slideshow.js'
 import { apiPostShowDescription } from '../../../api/description.js'
 import ConfirmActionDialog from '../../../components/ConfirmActionDialog.js'
 import DropdownButton from '../../../components/DropdownButton/DropdownButton.js'
@@ -44,7 +44,7 @@ const ViewActions = ({
     showDescription,
     starred,
     setDashboardStarred,
-    setPresentDashboard,
+    setSlideshow,
     updateShowDescription,
     removeAllFilters,
     restrictFilters,
@@ -278,8 +278,8 @@ const ViewActions = ({
                         >
                             <Button
                                 disabled={offline || !hasSlideshowItems}
-                                className={classes.presentButton}
-                                onClick={() => setPresentDashboard(0)}
+                                className={classes.slideshowButton}
+                                onClick={() => setSlideshow(0)}
                             >
                                 {i18n.t('Slideshow')}
                             </Button>
@@ -324,7 +324,7 @@ ViewActions.propTypes = {
     removeAllFilters: PropTypes.func,
     restrictFilters: PropTypes.bool,
     setDashboardStarred: PropTypes.func,
-    setPresentDashboard: PropTypes.func,
+    setSlideshow: PropTypes.func,
     showDescription: PropTypes.bool,
     starred: PropTypes.bool,
     updateShowDescription: PropTypes.func,
@@ -345,7 +345,7 @@ const mapStateToProps = (state) => {
 
 export default connect(mapStateToProps, {
     setDashboardStarred: acSetDashboardStarred,
-    setPresentDashboard: acSetPresentDashboard,
+    setSlideshow: acSetSlideshow,
     removeAllFilters: acClearItemFilters,
     updateShowDescription: acSetShowDescription,
 })(ViewActions)

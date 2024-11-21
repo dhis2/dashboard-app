@@ -9,7 +9,7 @@ import PropTypes from 'prop-types'
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { acSetItemActiveType } from '../../../actions/itemActiveTypes.js'
-import { acSetPresentDashboard } from '../../../actions/presentDashboard.js'
+import { acSetSlideshow } from '../../../actions/slideshow.js'
 import { acAddVisualization } from '../../../actions/visualizations.js'
 import { apiPostDataStatistics } from '../../../api/dataStatistics.js'
 import { apiFetchVisualization } from '../../../api/fetchVisualization.js'
@@ -36,7 +36,7 @@ import {
     sGetItemFiltersRoot,
     DEFAULT_STATE_ITEM_FILTERS,
 } from '../../../reducers/itemFilters.js'
-import { sGetPresentDashboard } from '../../../reducers/presentDashboard.js'
+import { sGetSlideshow } from '../../../reducers/slideshow.js'
 import { sGetVisualization } from '../../../reducers/visualizations.js'
 import { SystemSettingsCtx } from '../../SystemSettingsProvider.js'
 import { WindowDimensionsCtx } from '../../WindowDimensionsProvider.js'
@@ -203,7 +203,7 @@ class Item extends Component {
             dashboardMode,
             itemFilters,
             isFS,
-            setPresent,
+            setSlideshow,
             sortPosition,
         } = this.props
         const { showFooter, showNoFiltersOverlay } = this.state
@@ -219,7 +219,7 @@ class Item extends Component {
                     visualization={this.props.visualization}
                     onSelectActiveType={this.setActiveType}
                     onToggleFooter={this.onToggleFooter}
-                    enterFullscreen={() => setPresent(sortPosition - 1)}
+                    enterFullscreen={() => setSlideshow(sortPosition - 1)}
                     activeType={activeType}
                     activeFooter={showFooter}
                     fullscreenSupported={this.isFullscreenSupported()}
@@ -342,7 +342,7 @@ Item.propTypes = {
     item: PropTypes.object,
     itemFilters: PropTypes.object,
     setActiveType: PropTypes.func,
-    setPresent: PropTypes.func,
+    setSlideshow: PropTypes.func,
     setVisualization: PropTypes.func,
     settings: PropTypes.object,
     sortPosition: PropTypes.number,
@@ -369,14 +369,14 @@ const mapStateToProps = (state, ownProps) => {
             state,
             getVisualizationId(ownProps.item)
         ),
-        presentDashboard: sGetPresentDashboard(state),
+        slideshow: sGetSlideshow(state),
     }
 }
 
 const mapDispatchToProps = {
     setActiveType: acSetItemActiveType,
     setVisualization: acAddVisualization,
-    setPresent: acSetPresentDashboard,
+    setSlideshow: acSetSlideshow,
 }
 
 const ItemWithSettings = (props) => (

@@ -19,7 +19,7 @@
 
 @media only screen and (max-width: 480px) {
     .strip .editButton,
-    .strip .presentButton,
+    .strip .slideshowButton,
     .strip .shareButton {
         display: none;
     }

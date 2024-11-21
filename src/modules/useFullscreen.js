@@ -1,17 +1,18 @@
 import sortBy from 'lodash/sortBy.js'
 import { useState, useEffect, useRef, useCallback } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
-import { acSetPresentDashboard } from '../actions/presentDashboard.js'
-import { sGetPresentDashboard } from '../reducers/presentDashboard.js'
+import { acSetSlideshow } from '../actions/slideshow.js'
+import { sGetSlideshow } from '../reducers/slideshow.js'
 import { itemTypeSupportsFullscreen } from './itemTypes.js'
 
 const useFullscreen = (displayItems) => {
     const dispatch = useDispatch()
     const sortedItems = useRef([])
-    const fsItemStartingIndex = useSelector(sGetPresentDashboard)
+    const fsItemStartingIndex = useSelector(sGetSlideshow)
     const [fsItemIndex, setFsItemIndex] = useState(null)
     const fsElementRef = useRef(null)
 
+    // Sort items into order on dashboard, and filter out items that don't support fullscreen
     useEffect(() => {
         const sItems = sortBy(displayItems, ['y', 'x']).filter((i) =>
             itemTypeSupportsFullscreen(i.type)
@@ -37,7 +38,7 @@ const useFullscreen = (displayItems) => {
     const exitFullscreen = () => {
         if (document.fullscreenElement) {
             document.exitFullscreen().then(() => {
-                dispatch(acSetPresentDashboard(null))
+                dispatch(acSetSlideshow(null))
             })
         }
     }
@@ -58,7 +59,7 @@ const useFullscreen = (displayItems) => {
         }
     }, [fsItemIndex])
 
-    // This effect handles the keyboard navigation for the fullscreen mode
+    // This effect handles the keyboard navigation for the slideshow
     useEffect(() => {
         const handleKeyDown = (event) => {
             if (document.fullscreenElement) {
@@ -73,7 +74,7 @@ const useFullscreen = (displayItems) => {
         const handleFullscreenChange = () => {
             if (!document.fullscreenElement) {
                 setFsItemIndex(null)
-                dispatch(acSetPresentDashboard(null))
+                dispatch(acSetSlideshow(null))
             }
         }
 
@@ -81,7 +82,6 @@ const useFullscreen = (displayItems) => {
         window.addEventListener('keydown', handleKeyDown)
         document.addEventListener('fullscreenchange', handleFullscreenChange)
 
-        // Clean up the event listener when the component is unmounted
         return () => {
             window.removeEventListener('keydown', handleKeyDown)
             document.removeEventListener(

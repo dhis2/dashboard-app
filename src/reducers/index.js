@@ -10,10 +10,10 @@ import itemActiveTypes from './itemActiveTypes.js'
 import itemFilters from './itemFilters.js'
 import messages from './messages.js'
 import passiveViewRegistered from './passiveViewRegistered.js'
-import presentDashboard from './presentDashboard.js'
 import printDashboard from './printDashboard.js'
 import selected from './selected.js'
 import showDescription from './showDescription.js'
+import slideshow from './slideshow.js'
 import visualizations from './visualizations.js'
 
 export default combineReducers({
@@ -30,7 +30,7 @@ export default combineReducers({
     activeModalDimension,
     passiveViewRegistered,
     showDescription,
-    presentDashboard,
+    slideshow,
     itemActiveTypes,
     iframePluginStatus,
 })
