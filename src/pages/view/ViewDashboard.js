@@ -54,7 +54,7 @@ const ViewDashboard = ({
         setHeaderbarVisible(true)
         clearEditDashboard()
         clearPrintDashboard()
-    }, [])
+    }, [clearEditDashboard, clearPrintDashboard])
 
     useEffect(() => {
         setLoaded(false)
