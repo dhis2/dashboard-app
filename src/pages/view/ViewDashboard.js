@@ -16,6 +16,7 @@ import {
 import { apiPostDataStatistics } from '../../api/dataStatistics.js'
 import DashboardContainer from '../../components/DashboardContainer.js'
 import DashboardsBar from '../../components/DashboardsBar/DashboardsBar.js'
+import { DashboardsBar as DashboardsBarNew } from '../../components/DashboardsBarNew/DashboardsBar.js'
 import LoadingMask from '../../components/LoadingMask.js'
 import Notice from '../../components/Notice.js'
 import { setHeaderbarVisible } from '../../modules/setHeaderbarVisible.js'
@@ -172,6 +173,7 @@ const ViewDashboard = (props) => {
                     expanded={controlbarExpanded}
                     onExpandedChanged={onExpandedChanged}
                 />
+                <DashboardsBarNew />
                 <DashboardContainer covered={controlbarExpanded}>
                     {controlbarExpanded && (
                         <div

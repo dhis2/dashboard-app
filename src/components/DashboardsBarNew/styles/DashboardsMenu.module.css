@@ -1,0 +1,38 @@
+.container {
+    min-inline-size: 480px;
+    max-inline-size: 720px;
+    border: 1px solid var(--colors-grey200);
+    border-radius: 3px;
+    box-shadow: var(--elevations-e300);
+    background-color: var(--colors-white);
+}
+.filterWrap {
+    padding-block: 8px 4px;
+    padding-inline: 8px;
+}
+.scrollbox {
+    /* On larger screens set the max to 100px and if there is
+     * less space available restrict the max height to the window
+     * height. Main header is 48px and dashboards-bar is 45px, so
+     * this will leave some space below as well */
+    max-block-size: min(1000px, calc(100vh - 300px));
+    overflow-y: auto;
+}
+.selectedItem {
+    background-color: var(--colors-teal600) !important;
+    color: var(--colors-white) !important;
+}
+.noItems {
+    color: var(--colors-grey700);
+    font-size: 13px;
+    line-height: 16px;
+    padding-block: 8px;
+    padding-inline: 24px;
+    text-align: center;
+}
+.noDashboardsAvailable {
+    height: 200px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
