@@ -30,19 +30,30 @@ import ItemGrid from './ItemGrid.js'
 import classes from './styles/ViewDashboard.module.css'
 import TitleBar from './TitleBar/TitleBar.js'
 
-const ViewDashboard = (props) => {
+const ViewDashboard = ({
+    clearEditDashboard,
+    clearPrintDashboard,
+    currentId,
+    fetchDashboard,
+    passiveViewRegistered,
+    registerPassiveView,
+    requestedDashboardName,
+    requestedId,
+    setSelectedAsOffline,
+    username,
+}) => {
     const [controlbarExpanded, setControlbarExpanded] = useState(false)
     const [loadingMessage, setLoadingMessage] = useState(null)
     const [loaded, setLoaded] = useState(false)
     const [loadFailed, setLoadFailed] = useState(false)
     const { isConnected: online } = useDhis2ConnectionStatus()
-    const { isCached } = useCacheableSection(props.requestedId)
+    const { isCached } = useCacheableSection(requestedId)
     const engine = useDataEngine()
 
     useEffect(() => {
         setHeaderbarVisible(true)
-        props.clearEditDashboard()
-        props.clearPrintDashboard()
+        clearEditDashboard()
+        clearPrintDashboard()
     }, [])
 
     useEffect(() => {
@@ -53,29 +64,25 @@ const ViewDashboard = (props) => {
         ).forEach((container) => {
             container.scroll(0, 0)
         })
-    }, [props.requestedId])
+    }, [requestedId])
 
     useEffect(() => {
-        if (!props.passiveViewRegistered && online) {
-            apiPostDataStatistics(
-                'PASSIVE_DASHBOARD_VIEW',
-                props.requestedId,
-                engine
-            )
+        if (!passiveViewRegistered && online) {
+            apiPostDataStatistics('PASSIVE_DASHBOARD_VIEW', requestedId, engine)
                 .then(() => {
-                    props.registerPassiveView()
+                    registerPassiveView()
                 })
                 .catch((error) => console.info(error))
         }
-    }, [props.passiveViewRegistered, engine])
+    }, [passiveViewRegistered, engine])
 
     useEffect(() => {
         const loadDashboard = async () => {
             const alertTimeout = setTimeout(() => {
-                if (props.requestedDashboardName) {
+                if (requestedDashboardName) {
                     setLoadingMessage(
                         i18n.t('Loading dashboard – {{name}}', {
-                            name: props.requestedDashboardName,
+                            name: requestedDashboardName,
                         })
                     )
                 } else {
@@ -84,7 +91,7 @@ const ViewDashboard = (props) => {
             }, 500)
 
             try {
-                await props.fetchDashboard(props.requestedId, props.username)
+                await fetchDashboard(requestedId, username)
                 setLoaded(true)
                 setLoadFailed(false)
                 setLoadingMessage(null)
@@ -94,29 +101,25 @@ const ViewDashboard = (props) => {
                 setLoadFailed(true)
                 setLoadingMessage(null)
                 clearTimeout(alertTimeout)
-                props.setSelectedAsOffline(props.requestedId, props.username)
+                setSelectedAsOffline(requestedId, username)
             }
         }
 
         const requestedIsAvailable = online || isCached
-        const switchingDashboard = props.requestedId !== props.currentId
+        const switchingDashboard = requestedId !== currentId
 
         if (requestedIsAvailable && !loaded) {
             loadDashboard()
         } else if (!requestedIsAvailable && switchingDashboard) {
             setLoaded(false)
-            props.setSelectedAsOffline(props.requestedId, props.username)
+            setSelectedAsOffline(requestedId, username)
         }
-    }, [props.requestedId, props.currentId, loaded, online])
+    }, [requestedId, currentId, loaded, online])
 
     const onExpandedChanged = (expanded) => setControlbarExpanded(expanded)
 
     const getContent = () => {
-        if (
-            !online &&
-            !isCached &&
-            (props.requestedId !== props.currentId || !loaded)
-        ) {
+        if (!online && !isCached && (requestedId !== currentId || !loaded)) {
             return (
                 <Notice
                     title={i18n.t('Offline')}
@@ -152,7 +155,7 @@ const ViewDashboard = (props) => {
             )
         }
 
-        return props.requestedId !== props.currentId ? (
+        return requestedId !== currentId ? (
             <LoadingMask />
         ) : (
             <>
