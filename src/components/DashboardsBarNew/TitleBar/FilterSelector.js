@@ -10,7 +10,7 @@ import {
     acClearActiveModalDimension,
     acSetActiveModalDimension,
 } from '../../../actions/activeModalDimension.js'
-import DropdownButton from '../../../components/DropdownButton/DropdownButton.js'
+import DropdownButton from '../../DropdownButton/DropdownButton.js'
 import useDimensions from '../../../modules/useDimensions.js'
 import { sGetActiveModalDimension } from '../../../reducers/activeModalDimension.js'
 import { sGetItemFiltersRoot } from '../../../reducers/itemFilters.js'
