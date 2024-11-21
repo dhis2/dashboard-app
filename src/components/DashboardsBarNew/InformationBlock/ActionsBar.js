@@ -1,36 +1,29 @@
 import { OfflineTooltip } from '@dhis2/analytics'
-import {
-    useDataEngine,
-    useAlert,
-    useDhis2ConnectionStatus,
-} from '@dhis2/app-runtime'
+import { useDhis2ConnectionStatus } from '@dhis2/app-runtime'
 import i18n from '@dhis2/d2-i18n'
 import {
     Button,
     FlyoutMenu,
     colors,
-    IconMore24,
+    IconMore16,
     SharingDialog,
 } from '@dhis2/ui'
 import PropTypes from 'prop-types'
-import React, { useState } from 'react'
+import React, { useCallback, useState } from 'react'
 import { connect } from 'react-redux'
 import { Link, Redirect } from 'react-router-dom'
-import { acSetDashboardStarred } from '../../../actions/dashboards.js'
 import { acClearItemFilters } from '../../../actions/itemFilters.js'
 import { acSetShowDescription } from '../../../actions/showDescription.js'
 import { apiPostShowDescription } from '../../../api/description.js'
 import { useCacheableSection } from '../../../modules/useCacheableSection.js'
 import { orObject } from '../../../modules/util.js'
 import { ROUTE_START_PATH } from '../../../pages/start/index.js'
-import { sGetDashboardStarred } from '../../../reducers/dashboards.js'
 import { sGetNamedItemFilters } from '../../../reducers/itemFilters.js'
 import { sGetSelected } from '../../../reducers/selected.js'
 import { sGetShowDescription } from '../../../reducers/showDescription.js'
 import ConfirmActionDialog from '../../ConfirmActionDialog.js'
 import DropdownButton from '../../DropdownButton/DropdownButton.js'
 import MenuItem from '../../MenuItemWithTooltip.js'
-import { apiStarDashboard } from './apiStarDashboard.js'
 import FilterSelector from './FilterSelector.js'
 import classes from './styles/ActionsBar.module.css'
 
@@ -39,96 +32,64 @@ const ViewActions = ({
     access,
     showDescription,
     starred,
-    setDashboardStarred,
+    toggleDashboardStarred,
+    showAlert,
     updateShowDescription,
     removeAllFilters,
     restrictFilters,
     allowedFilters,
     filtersLength,
 }) => {
-    const [moreOptionsSmallIsOpen, setMoreOptionsSmallIsOpen] = useState(false)
     const [moreOptionsIsOpen, setMoreOptionsIsOpen] = useState(false)
     const [sharingDialogIsOpen, setSharingDialogIsOpen] = useState(false)
     const [confirmCacheDialogIsOpen, setConfirmCacheDialogIsOpen] =
         useState(false)
     const [redirectUrl, setRedirectUrl] = useState(null)
-    const dataEngine = useDataEngine()
     const { isDisconnected: offline } = useDhis2ConnectionStatus()
     const { lastUpdated, isCached, startRecording, remove } =
         useCacheableSection(id)
 
-    const { show } = useAlert(
-        ({ msg }) => msg,
-        ({ isCritical }) =>
-            isCritical ? { critical: true } : { warning: true }
-    )
-
-    const toggleMoreOptions = (small) =>
-        small
-            ? setMoreOptionsSmallIsOpen(!moreOptionsSmallIsOpen)
-            : setMoreOptionsIsOpen(!moreOptionsIsOpen)
-
-    const closeMoreOptions = () => {
-        setMoreOptionsSmallIsOpen(false)
-        setMoreOptionsIsOpen(false)
-    }
-
-    if (redirectUrl) {
-        return <Redirect to={redirectUrl} />
-    }
-
-    const onRecordError = () => {
-        show({
+    const onRecordError = useCallback(() => {
+        showAlert({
             msg: i18n.t(
                 "The dashboard couldn't be made available offline. Try again."
             ),
             isCritical: true,
         })
-    }
+    }, [showAlert])
 
-    const onCacheDashboardConfirmed = () => {
+    const onCacheDashboardConfirmed = useCallback(() => {
         setConfirmCacheDialogIsOpen(false)
         removeAllFilters()
         startRecording({
             onError: onRecordError,
         })
-    }
+    }, [onRecordError, removeAllFilters, startRecording])
 
-    const onRemoveFromOffline = () => {
-        closeMoreOptions()
+    const onRemoveFromOffline = useCallback(() => {
+        setMoreOptionsIsOpen(false)
         lastUpdated && remove()
-    }
+    }, [lastUpdated, remove])
 
-    const onAddToOffline = () => {
-        closeMoreOptions()
+    const onAddToOffline = useCallback(() => {
+        setMoreOptionsIsOpen(false)
         return filtersLength
             ? setConfirmCacheDialogIsOpen(true)
             : startRecording({
                   onError: onRecordError,
               })
-    }
+    }, [filtersLength, onRecordError, startRecording])
 
-    const onToggleShowDescription = () => {
+    const onToggleShowDescription = useCallback(() => {
         updateShowDescription(!showDescription)
-        closeMoreOptions()
+        setMoreOptionsIsOpen(false)
         !offline && apiPostShowDescription(!showDescription)
-    }
+    }, [offline, showDescription, updateShowDescription])
 
-    const onToggleStarredDashboard = () =>
-        apiStarDashboard(dataEngine, id, !starred)
-            .then(() => {
-                setDashboardStarred(id, !starred)
-                closeMoreOptions()
-            })
-            .catch(() => {
-                const msg = starred
-                    ? i18n.t('Failed to unstar the dashboard')
-                    : i18n.t('Failed to star the dashboard')
-                show({ msg, isCritical: false })
-            })
-
-    const onToggleSharingDialog = () =>
-        setSharingDialogIsOpen(!sharingDialogIsOpen)
+    const onToggleSharingDialog = useCallback(
+        () => setSharingDialogIsOpen(!sharingDialogIsOpen),
+        [sharingDialogIsOpen]
+    )
 
     const userAccess = orObject(access)
 
@@ -165,7 +126,7 @@ const ViewActions = ({
                         ? i18n.t('Unstar dashboard')
                         : i18n.t('Star dashboard')
                 }
-                onClick={onToggleStarredDashboard}
+                onClick={toggleDashboardStarred}
             />
             <MenuItem
                 dense
@@ -211,53 +172,53 @@ const ViewActions = ({
         </FlyoutMenu>
     )
 
-    const getMoreButton = (className, useSmall) => (
-        <DropdownButton
-            className={className}
-            small={useSmall}
-            open={useSmall ? moreOptionsSmallIsOpen : moreOptionsIsOpen}
-            disabledWhenOffline={false}
-            onClick={() => toggleMoreOptions(useSmall)}
-            icon={<IconMore24 color={colors.grey700} />}
-            component={getMoreMenu()}
-        >
-            {i18n.t('More')}
-        </DropdownButton>
-    )
+    if (redirectUrl) {
+        return <Redirect to={redirectUrl} />
+    }
 
     return (
         <>
             <div className={classes.actions}>
-                <div className={classes.strip}>
-                    {userAccess.update ? (
-                        <OfflineTooltip>
-                            <Button
-                                disabled={offline}
-                                className={classes.editButton}
-                                onClick={() => setRedirectUrl(`${id}/edit`)}
-                            >
-                                {i18n.t('Edit')}
-                            </Button>
-                        </OfflineTooltip>
-                    ) : null}
-                    {userAccess.manage ? (
-                        <OfflineTooltip>
-                            <Button
-                                disabled={offline}
-                                className={classes.shareButton}
-                                onClick={onToggleSharingDialog}
-                            >
-                                {i18n.t('Share')}
-                            </Button>
-                        </OfflineTooltip>
-                    ) : null}
-                    <FilterSelector
-                        allowedFilters={allowedFilters}
-                        restrictFilters={restrictFilters}
-                    />
-                    {getMoreButton(classes.moreButton, false)}
-                    {getMoreButton(classes.moreButtonSmall, true)}
-                </div>
+                {userAccess.update ? (
+                    <OfflineTooltip>
+                        <Button
+                            secondary
+                            small
+                            disabled={offline}
+                            className={classes.editButton}
+                            onClick={() => setRedirectUrl(`${id}/edit`)}
+                        >
+                            {i18n.t('Edit')}
+                        </Button>
+                    </OfflineTooltip>
+                ) : null}
+                {userAccess.manage ? (
+                    <OfflineTooltip>
+                        <Button
+                            secondary
+                            small
+                            disabled={offline}
+                            className={classes.shareButton}
+                            onClick={onToggleSharingDialog}
+                        >
+                            {i18n.t('Share')}
+                        </Button>
+                    </OfflineTooltip>
+                ) : null}
+                <FilterSelector
+                    allowedFilters={allowedFilters}
+                    restrictFilters={restrictFilters}
+                />
+                <DropdownButton
+                    className={classes.more}
+                    secondary
+                    small
+                    open={moreOptionsIsOpen}
+                    disabledWhenOffline={false}
+                    onClick={() => setMoreOptionsIsOpen(!moreOptionsIsOpen)}
+                    icon={<IconMore16 color={colors.grey700} />}
+                    component={getMoreMenu()}
+                />
             </div>
             {id && sharingDialogIsOpen && (
                 <SharingDialog
@@ -288,9 +249,10 @@ ViewActions.propTypes = {
     id: PropTypes.string,
     removeAllFilters: PropTypes.func,
     restrictFilters: PropTypes.bool,
-    setDashboardStarred: PropTypes.func,
+    showAlert: PropTypes.func,
     showDescription: PropTypes.bool,
     starred: PropTypes.bool,
+    toggleDashboardStarred: PropTypes.func,
     updateShowDescription: PropTypes.func,
 }
 
@@ -300,15 +262,11 @@ const mapStateToProps = (state) => {
     return {
         ...dashboard,
         filtersLength: sGetNamedItemFilters(state).length,
-        starred: dashboard.id
-            ? sGetDashboardStarred(state, dashboard.id)
-            : false,
         showDescription: sGetShowDescription(state),
     }
 }
 
 export default connect(mapStateToProps, {
-    setDashboardStarred: acSetDashboardStarred,
     removeAllFilters: acClearItemFilters,
     updateShowDescription: acSetShowDescription,
 })(ViewActions)

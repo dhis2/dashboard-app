@@ -53,7 +53,11 @@ const InformationBlock = ({
                     <LastUpdatedTag id={id} />
                 </div>
             </div>
-            <ActionsBar />
+            <ActionsBar
+                toggleDashboardStarred={toggleDashboardStarred}
+                starred={starred}
+                showAlert={showAlert}
+            />
         </div>
     )
 }

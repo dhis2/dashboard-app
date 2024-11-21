@@ -10,10 +10,10 @@ import {
     acClearActiveModalDimension,
     acSetActiveModalDimension,
 } from '../../../actions/activeModalDimension.js'
-import DropdownButton from '../../DropdownButton/DropdownButton.js'
 import useDimensions from '../../../modules/useDimensions.js'
 import { sGetActiveModalDimension } from '../../../reducers/activeModalDimension.js'
 import { sGetItemFiltersRoot } from '../../../reducers/itemFilters.js'
+import DropdownButton from '../../DropdownButton/DropdownButton.js'
 import FilterDialog from './FilterDialog.js'
 import classes from './styles/FilterSelector.module.css'
 
@@ -62,13 +62,15 @@ const FilterSelector = (props) => {
         <>
             <span className={classes.buttonContainer}>
                 <DropdownButton
+                    secondary
+                    small
                     open={filterDialogIsOpen}
                     disabled={offline}
                     onClick={toggleFilterDialogIsOpen}
                     icon={<IconFilter24 color={colors.grey700} />}
                     component={getFilterSelector()}
                 >
-                    {i18n.t('Add filter')}
+                    {i18n.t('Filter')}
                 </DropdownButton>
             </span>
             {!isEmpty(props.dimension) ? (
