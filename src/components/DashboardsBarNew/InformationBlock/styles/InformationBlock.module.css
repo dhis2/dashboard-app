@@ -1,22 +1,28 @@
 .container {
-    margin-block-start: var(--spacers-dp12);
+    display: flex;
+    justify-content: space-between;
+    flex-grow: 1;
 }
 
-.titleBar {
+.titleContainer {
     display: flex;
-    align-items: flex-start;
-    position: relative;
+    align-items: center;
+    padding: var(--spacers-dp8) var(--spacers-dp8) var(--spacers-dp8)
+        var(--spacers-dp12);
+    margin: 0;
+    gap: var(--spacers-dp4);
 }
 
 .title {
-    position: relative;
-    font-size: 21px;
+    font-family: 'Roboto';
+    font-size: 16px;
+    line-height: 19px;
     font-weight: 500;
-    color: var(--colors-black);
-    min-inline-size: 50px;
-    cursor: default;
-    user-select: text;
-    inset-block-start: 7px;
+    color: var(--colors-grey900);
+}
+.tagContainer {
+    align-self: flex-start;
+    margin-top: 2px;
 }
 
 @media only screen and (max-width: 480px) {

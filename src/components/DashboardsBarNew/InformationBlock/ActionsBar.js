@@ -32,7 +32,6 @@ import DropdownButton from '../../DropdownButton/DropdownButton.js'
 import MenuItem from '../../MenuItemWithTooltip.js'
 import { apiStarDashboard } from './apiStarDashboard.js'
 import FilterSelector from './FilterSelector.js'
-import StarDashboardButton from './StarDashboardButton.js'
 import classes from './styles/ActionsBar.module.css'
 
 const ViewActions = ({
@@ -229,10 +228,6 @@ const ViewActions = ({
     return (
         <>
             <div className={classes.actions}>
-                <StarDashboardButton
-                    starred={starred}
-                    onClick={onToggleStarredDashboard}
-                />
                 <div className={classes.strip}>
                     {userAccess.update ? (
                         <OfflineTooltip>
