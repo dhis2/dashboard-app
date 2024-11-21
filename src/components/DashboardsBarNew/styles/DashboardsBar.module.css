@@ -33,39 +33,6 @@
     font-weight: 500;
     color: var(--colors-grey900);
 }
-button.actionButtonStar {
-    align-self: flex-start;
-    margin-top: 1px;
-    border: 0;
-    background: transparent;
-    padding: var(--spacers-dp4);
-    border-radius: 3px;
-    color: var(--colors-grey600);
-}
-button.actionButtonStar:hover {
-    background: var(--colors-grey200);
-    color: var(--colors-grey800);
-}
-button.actionButtonStar:active {
-    background: var(--colors-grey300);
-    color: var(--colors-grey900);
-}
-button.actionButtonStar:focus {
-    outline: 3px solid var(--colors-blue600);
-    outline-offset: -3px;
-}
-/* Prevent focus styles when mouse clicking */
-button.actionButtonStar:focus:not(:focus-visible) {
-    outline: none;
-    text-decoration: none;
-}
-
-/* Prevent focus styles on active and disabled buttons */
-button.actionButtonStar:active:focus,
-button.actionButtonStar:disabled:focus {
-    outline: none;
-    text-decoration: none;
-}
 
 .tagContainer {
     align-self: flex-start;
