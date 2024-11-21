@@ -8,7 +8,6 @@ import { ROUTE_START_PATH } from '../start/index.js'
 import FilterBar from './FilterBar/FilterBar.js'
 import ItemGrid from './ItemGrid.js'
 import classes from './styles/ViewDashboard.module.css'
-import TitleBar from './TitleBar/TitleBar.js'
 
 export const ViewDashboardContent = ({ loading, loaded, loadFailed }) => {
     if (loading) {
@@ -29,7 +28,6 @@ export const ViewDashboardContent = ({ loading, loaded, loadFailed }) => {
     if (loaded) {
         return (
             <>
-                <TitleBar />
                 <FilterBar />
                 <ItemGrid />
             </>
