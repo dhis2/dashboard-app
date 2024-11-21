@@ -14,6 +14,7 @@
 .react-grid-item.edit,
 .react-grid-item.EVENT_VISUALIZATION,
 .react-grid-item.RESOURCES,
+.react-grid-item.REPORTS,
 .react-grid-item.TEXT,
 .react-grid-item.MESSAGES,
 .react-grid-item.APP {
@@ -93,6 +94,7 @@
 
 .react-grid-item.edit .dashboard-item-content,
 .react-grid-item.RESOURCES .dashboard-item-content,
+.react-grid-item.REPORTS .dashboard-item-content,
 .react-grid-item.TEXT .dashboard-item-content,
 .react-grid-item.MESSAGES .dashboard-item-content {
     flex: 1;

@@ -1,6 +1,7 @@
 import { useConfig } from '@dhis2/app-runtime'
 import i18n from '@dhis2/d2-i18n'
 import { Divider, IconFileDocument16, colors, spacers } from '@dhis2/ui'
+import cx from 'classnames'
 import PropTypes from 'prop-types'
 import React from 'react'
 import { connect } from 'react-redux'
@@ -22,7 +23,7 @@ const getContentItems = (item) =>
             array.findIndex((el) => el.id === item.id) === index
     )
 
-const ListItem = ({ item, dashboardMode, removeItem, updateItem }) => {
+const ListItem = ({ item, dashboardMode, removeItem, updateItem, isFS }) => {
     const { baseUrl } = useConfig()
     const contentItems = getContentItems(item)
 
@@ -75,7 +76,11 @@ const ListItem = ({ item, dashboardMode, removeItem, updateItem }) => {
             />
             <Divider margin={`0 0 ${spacers.dp4} 0`} />
             <div className="dashboard-item-content">
-                <ul className={classes.list}>
+                <ul
+                    className={cx(classes.list, {
+                        [classes.isFS]: isFS,
+                    })}
+                >
                     {contentItems.map((contentItem) => (
                         <li className={classes.item} key={contentItem.id}>
                             <span className={classes.itemContent}>
@@ -86,12 +91,14 @@ const ListItem = ({ item, dashboardMode, removeItem, updateItem }) => {
                     ))}
                 </ul>
             </div>
+            {isFS && <div className={classes.fsControlsBuffer} />}
         </>
     )
 }
 
 ListItem.propTypes = {
     dashboardMode: PropTypes.string,
+    isFS: PropTypes.bool,
     item: PropTypes.object,
     removeItem: PropTypes.func,
     updateItem: PropTypes.func,

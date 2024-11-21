@@ -34,3 +34,13 @@
     outline: none;
     color: var(--colors-red800);
 }
+
+.fsControlsBuffer {
+    block-size: 40px;
+    inline-size: 100%;
+}
+
+.isFS {
+    padding-inline-start: 24px;
+    padding-inline-end: 24px;
+}
