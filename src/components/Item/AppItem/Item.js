@@ -41,13 +41,16 @@ const AppItem = ({ dashboardMode, windowDimensions, item, apps }) => {
     const appDetails =
         item?.appKey && apps.find((app) => app.key === item.appKey)
 
-    const [{ itemTitle, appUrl }, setItemDetails] = useReducer(
+    const [{ itemTitle, appUrl, onRemove }, setItemDetails] = useReducer(
         (state, newState) => ({
             ...state,
             ...newState,
-            appUrl: `${appDetails?.launchUrl}${newState.appUrl}`, // hack, should the plugin send an absolute URL?!
+            appUrl: `${appDetails?.launchUrl}${newState.appUrl}`,
         }),
-        { itemTitle: appDetails?.name, appUrl: appDetails?.launchUrl }
+        {
+            itemTitle: appDetails?.name,
+            appUrl: appDetails?.launchUrl,
+        }
     )
 
     const pluginProps = useMemo(
@@ -143,6 +146,7 @@ const AppItem = ({ dashboardMode, windowDimensions, item, apps }) => {
                     itemId={item.id}
                     dashboardMode={dashboardMode}
                     isShortened={item.shortened}
+                    onDelete={onRemove}
                 />
                 <FatalErrorBoundary
                     message={i18n.t(
