@@ -40,7 +40,6 @@ const Visualization = ({
     originalType,
     showNoFiltersOverlay,
     onClickNoFiltersOverlay,
-    isFS,
     ...rest
 }) => {
     const dashboardId = useSelector(sGetSelectedId)
@@ -142,7 +141,6 @@ const Visualization = ({
                 <IframePlugin
                     visualization={visualizationConfig}
                     {...iFramePluginProps}
-                    isFS={isFS}
                 />
             )
         }
@@ -171,7 +169,6 @@ const Visualization = ({
                     <IframePlugin
                         visualization={visualizationConfig}
                         {...iFramePluginProps}
-                        isFS={isFS}
                     />
                 </>
             )
@@ -194,7 +191,6 @@ const Visualization = ({
                 <IframePlugin
                     visualization={visualizationConfig}
                     {...iFramePluginProps}
-                    isFS={isFS}
                 />
             )
         }
@@ -233,7 +229,6 @@ Visualization.propTypes = {
     availableWidth: PropTypes.number,
     dashboardMode: PropTypes.string,
     gridWidth: PropTypes.number,
-    isFS: PropTypes.bool,
     item: PropTypes.object,
     itemFilters: PropTypes.object,
     originalType: PropTypes.string,
