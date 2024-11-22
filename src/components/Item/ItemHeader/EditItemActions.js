@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types'
 import React from 'react'
-import { connect } from 'react-redux'
+import { useSelector, useDispatch } from 'react-redux'
 import {
     acRemoveDashboardItem,
     tSetDashboardItems,
@@ -12,7 +12,25 @@ import {
 import DeleteItemButton from './DeleteItemButton.js'
 import classes from './styles/ItemHeader.module.css'
 
-const EditItemActions = ({ itemId, onDeleteItem }) => {
+const EditItemActions = ({ itemId, onDelete }) => {
+    const dispatch = useDispatch()
+    const columns = useSelector(sGetLayoutColumns)
+    const dashboardItems = useSelector(sGetEditDashboardItems)
+
+    const onDeleteItem = (itemId) => {
+        onDelete()
+            .catch((e) => {
+                console.warn('Error in the onRemove plugin callback', e)
+            })
+            .finally(() => {
+                if (!columns.length || dashboardItems.length === 1) {
+                    dispatch(acRemoveDashboardItem(itemId))
+                } else {
+                    dispatch(tSetDashboardItems(null, itemId))
+                }
+            })
+    }
+
     return (
         <div className={classes.itemActionsWrap}>
             <DeleteItemButton onClick={() => onDeleteItem(itemId)} />
@@ -20,22 +38,13 @@ const EditItemActions = ({ itemId, onDeleteItem }) => {
     )
 }
 
+EditItemActions.defaultProps = {
+    onDelete: () => Promise.resolve(),
+}
+
 EditItemActions.propTypes = {
     itemId: PropTypes.string,
-    onDeleteItem: PropTypes.func,
+    onDelete: PropTypes.func,
 }
 
-const mapDispatchToProps = {
-    onDeleteItem: (itemId) => (dispatch, getState) => {
-        const columns = sGetLayoutColumns(getState())
-        const dashboardItems = sGetEditDashboardItems(getState())
-
-        if (!columns.length || dashboardItems.length === 1) {
-            dispatch(acRemoveDashboardItem(itemId))
-        } else {
-            dispatch(tSetDashboardItems(null, itemId))
-        }
-    },
-}
-
-export default connect(null, mapDispatchToProps)(EditItemActions)
+export default EditItemActions
