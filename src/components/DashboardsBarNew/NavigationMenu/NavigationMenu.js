@@ -37,8 +37,9 @@ export const NavigationMenu = () => {
 
     useEffect(() => {
         scrollBoxRef.current
-            .querySelector(`.${styles.selectedItem}`)
-            .scrollIntoView({
+            ?.getElementsByClassName(styles.selectedItem)
+            ?.item(0)
+            ?.scrollIntoView({
                 behavior: 'smooth',
                 block: 'end',
                 inline: 'nearest',
