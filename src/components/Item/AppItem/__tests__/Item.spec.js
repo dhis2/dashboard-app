@@ -119,6 +119,7 @@ test('renders a valid App item with filter in view mode', () => {
 
 test('renders a valid App item with filter in edit mode', () => {
     const store = {
+        editDashboard: {},
         itemFilters: {
             ou: [{ path: '/rainbow' }],
             editDashboard: {
