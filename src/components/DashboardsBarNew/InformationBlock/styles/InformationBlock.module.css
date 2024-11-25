@@ -7,8 +7,7 @@
 .titleContainer {
     display: flex;
     align-items: center;
-    padding: var(--spacers-dp8) var(--spacers-dp8) var(--spacers-dp8)
-        var(--spacers-dp12);
+    padding: 0 var(--spacers-dp8) 0 var(--spacers-dp12);
     gap: var(--spacers-dp4);
 }
 

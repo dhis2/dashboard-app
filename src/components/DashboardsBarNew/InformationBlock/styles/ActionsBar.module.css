@@ -1,7 +1,7 @@
 .actions {
     display: flex;
     gap: var(--spacers-dp4);
-    padding: var(--spacers-dp8) var(--spacers-dp8) var(--spacers-dp8) 0;
+    padding: 0 var(--spacers-dp8);
 }
 
 @media only screen and (max-width: 480px) {

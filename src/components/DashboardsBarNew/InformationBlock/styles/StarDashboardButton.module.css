@@ -1,12 +1,13 @@
 .star {
-    align-self: flex-start;
-    margin-top: 1px;
+    display: flex;
     border: 0;
     background: transparent;
     padding: var(--spacers-dp4);
     border-radius: 3px;
     color: var(--colors-grey600);
     cursor: pointer;
+    align-items: center;
+    justify-content: center;
 }
 .star:hover {
     background: var(--colors-grey200);
@@ -32,4 +33,9 @@
     outline: none;
     text-decoration: none;
     cursor: not-allowed;
+}
+.iconWrap {
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }

@@ -3,6 +3,7 @@
     border-block-end: 1px solid var(--colors-grey400);
     display: flex;
     justify-content: space-between;
+    align-items: center;
 }
 
 .blockCreationNavigation {

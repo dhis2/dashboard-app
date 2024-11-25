@@ -43,6 +43,7 @@ const StarDashboardButton = ({ starred, onClick }) => {
                     data-test={
                         starred ? 'dashboard-starred' : 'dashboard-unstarred'
                     }
+                    className={classes.iconWrap}
                 >
                     <StarIcon color={colors.grey600} />
                 </span>
