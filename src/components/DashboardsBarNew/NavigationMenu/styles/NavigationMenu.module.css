@@ -17,6 +17,7 @@
      * this will leave some space below as well */
     max-block-size: min(1000px, calc(100vh - 300px));
     overflow-y: auto;
+    scroll-behavior: smooth;
 }
 .selectedItem {
     background-color: var(--colors-teal600) !important;
