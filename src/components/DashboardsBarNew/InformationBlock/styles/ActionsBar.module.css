@@ -4,10 +4,6 @@
     padding: var(--spacers-dp8) var(--spacers-dp8) var(--spacers-dp8) 0;
 }
 
-.link {
-    text-decoration: none;
-}
-
 @media only screen and (max-width: 480px) {
     .editButton,
     .shareButton {

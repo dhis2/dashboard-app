@@ -11,7 +11,7 @@ import {
 import PropTypes from 'prop-types'
 import React, { useCallback, useState } from 'react'
 import { connect } from 'react-redux'
-import { Link, Redirect } from 'react-router-dom'
+import { useHistory, Redirect } from 'react-router-dom'
 import { acClearItemFilters } from '../../../actions/itemFilters.js'
 import { acSetShowDescription } from '../../../actions/showDescription.js'
 import { apiPostShowDescription } from '../../../api/description.js'
@@ -40,6 +40,7 @@ const ViewActions = ({
     allowedFilters,
     filtersLength,
 }) => {
+    const history = useHistory()
     const [moreOptionsIsOpen, setMoreOptionsIsOpen] = useState(false)
     const [sharingDialogIsOpen, setSharingDialogIsOpen] = useState(false)
     const [confirmCacheDialogIsOpen, setConfirmCacheDialogIsOpen] =
@@ -162,13 +163,12 @@ const ViewActions = ({
                     dataTest="print-oipp-menu-item"
                 />
             </MenuItem>
-            <Link to={ROUTE_START_PATH} className={classes.link}>
-                <MenuItem
-                    dense
-                    disabledWhenOffline={false}
-                    label={i18n.t('Close dashboard')}
-                />
-            </Link>
+            <MenuItem
+                dense
+                disabledWhenOffline={false}
+                label={i18n.t('Close dashboard')}
+                onClick={() => history.push(ROUTE_START_PATH)}
+            />
         </FlyoutMenu>
     )
 
