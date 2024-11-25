@@ -1,5 +1,5 @@
 .star {
-    display: flex;
+    display: inline-flex;
     border: 0;
     background: transparent;
     padding: var(--spacers-dp4);

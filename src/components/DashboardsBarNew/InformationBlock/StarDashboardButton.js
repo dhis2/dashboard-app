@@ -32,23 +32,25 @@ const StarDashboardButton = ({ starred, onClick }) => {
     }
 
     return (
-        <button
-            className={classes.star}
-            disabled={!online}
-            onClick={handleOnClick}
-            data-test="button-star-dashboard"
-        >
-            <Tooltip content={tooltipContent}>
-                <span
+        <Tooltip content={tooltipContent}>
+            {({ onMouseOver, onMouseOut, onFocus, onBlur, ref }) => (
+                <button
+                    onMouseOver={onMouseOver}
+                    onMouseOut={onMouseOut}
+                    onFocus={onFocus.onFocus}
+                    onBlur={onBlur.onBlur}
+                    ref={ref}
                     data-test={
                         starred ? 'dashboard-starred' : 'dashboard-unstarred'
                     }
-                    className={classes.iconWrap}
+                    className={classes.star}
+                    disabled={!online}
+                    onClick={handleOnClick}
                 >
                     <StarIcon color={colors.grey600} />
-                </span>
-            </Tooltip>
-        </button>
+                </button>
+            )}
+        </Tooltip>
     )
 }
 
