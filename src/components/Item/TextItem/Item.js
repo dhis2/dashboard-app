@@ -1,6 +1,7 @@
 import { RichTextParser, RichTextEditor } from '@dhis2/analytics'
 import i18n from '@dhis2/d2-i18n'
 import { Divider, spacers } from '@dhis2/ui'
+import cx from 'classnames'
 import PropTypes from 'prop-types'
 import React from 'react'
 import { connect } from 'react-redux'
@@ -34,10 +35,6 @@ const parserTextStyle = {
     lineHeight: '16px',
 }
 
-const containerStyle = {
-    marginBlock: '20px',
-}
-
 const TextItem = (props) => {
     const { item, dashboardMode, text, isFS, acUpdateDashboardItem } = props
 
@@ -54,8 +51,9 @@ const TextItem = (props) => {
         return (
             <>
                 <div
-                    className="dashboard-item-content"
-                    style={isFS ? {} : containerStyle}
+                    className={cx(classes.content, {
+                        [classes.fullscreen]: isFS,
+                    })}
                 >
                     <RichTextParser
                         style={isFS ? fsTextStyle : parserTextStyle}
@@ -77,7 +75,7 @@ const TextItem = (props) => {
                     dashboardMode={dashboardMode}
                 />
                 <Divider margin={`0 0 ${spacers.dp4} 0`} />
-                <div className="dashboard-item-content">
+                <div className={cx(classes.content, classes.edit)}>
                     <RichTextEditor
                         onChange={onChangeText}
                         inputPlaceholder={i18n.t('Add text here')}
@@ -94,7 +92,7 @@ const TextItem = (props) => {
         return (
             <>
                 {props.item.shortened ? <PrintItemInfo /> : null}
-                <div className="dashboard-item-content" style={containerStyle}>
+                <div className={classes.content}>
                     <RichTextParser style={parserTextStyle}>
                         {text}
                     </RichTextParser>

@@ -42,9 +42,9 @@ const AppItem = ({ dashboardMode, item, itemFilters, apps, isFS }) => {
             <iframe
                 title={appDetails.name}
                 src={getIframeSrc(appDetails, item, itemFilters)}
-                className={cx(styles.dashboardItemContent, {
+                className={cx(styles.content, {
                     [styles.hiddenTitle]: hideTitle,
-                    [styles.fs]: isFS,
+                    [styles.fullscreen]: isFS,
                 })}
                 style={{ border: 'none' }}
             />
@@ -57,8 +57,8 @@ const AppItem = ({ dashboardMode, item, itemFilters, apps, isFS }) => {
             />
             <Divider margin={`0 0 ${spacers.dp4} 0`} />
             <div
-                className={cx(styles.dashboardItemContent, styles.centered, {
-                    [styles.fs]: isFS,
+                className={cx(styles.content, styles.centered, {
+                    [styles.fullscreen]: isFS,
                 })}
             >
                 <IconQuestion24 color={colors.grey500} />

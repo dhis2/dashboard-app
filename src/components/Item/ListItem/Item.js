@@ -26,6 +26,11 @@ const getContentItems = (item) =>
 const ListItem = ({ item, dashboardMode, removeItem, updateItem, isFS }) => {
     const { baseUrl } = useConfig()
     const contentItems = getContentItems(item)
+    // create array of 60 items with the index+1 in the name
+    // const contentItems = Array.from({ length: 60 }, (_, i) => ({
+    //     id: i,
+    //     name: `Item ${i + 1}`,
+    // }))
 
     const updateDashboardItem = (content) => {
         const listItemType = itemTypeMap[item.type].propName
@@ -75,12 +80,12 @@ const ListItem = ({ item, dashboardMode, removeItem, updateItem, isFS }) => {
                 isShortened={item.shortened}
             />
             <Divider margin={`0 0 ${spacers.dp4} 0`} />
-            <div className="dashboard-item-content">
-                <ul
-                    className={cx(classes.list, {
-                        [classes.isFS]: isFS,
-                    })}
-                >
+            <div
+                className={cx(classes.content, {
+                    [classes.fullscreen]: isFS,
+                })}
+            >
+                <ul className={classes.list}>
                     {contentItems.map((contentItem) => (
                         <li className={classes.item} key={contentItem.id}>
                             <span className={classes.itemContent}>

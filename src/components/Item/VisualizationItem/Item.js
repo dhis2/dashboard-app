@@ -5,6 +5,7 @@ import {
 } from '@dhis2/analytics'
 import i18n from '@dhis2/d2-i18n'
 import { Tag, Tooltip } from '@dhis2/ui'
+import cx from 'classnames'
 import PropTypes from 'prop-types'
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
@@ -29,6 +30,7 @@ import {
     CHART,
     EVENT_VISUALIZATION,
     VISUALIZATION,
+    EVENT_REPORT,
 } from '../../../modules/itemTypes.js'
 import { sGetIsEditing } from '../../../reducers/editDashboard.js'
 import { sGetItemActiveType } from '../../../reducers/itemActiveTypes.js'
@@ -46,6 +48,7 @@ import { getGridItemElement } from './getGridItemElement.js'
 import ItemContextMenu from './ItemContextMenu/ItemContextMenu.js'
 import ItemFooter from './ItemFooter.js'
 import memoizeOne from './memoizeOne.js'
+import styles from './styles/Item.module.css'
 import { pluginIsAvailable } from './Visualization/plugin.js'
 import Visualization from './Visualization/Visualization.js'
 
@@ -290,7 +293,12 @@ class Item extends Component {
                     onFatalError={this.onFatalError}
                 >
                     <div
-                        className="dashboard-item-content"
+                        className={cx(activeType, styles.content, {
+                            [styles.fullscreen]: isFS,
+                            [styles.overflowHidden]:
+                                activeType !== EVENT_REPORT,
+                            [styles.edit]: isEditMode(dashboardMode),
+                        })}
                         ref={(ref) => (this.contentRef = ref)}
                     >
                         {this.state.configLoaded && (

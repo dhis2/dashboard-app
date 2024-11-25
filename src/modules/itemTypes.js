@@ -183,7 +183,7 @@ export const itemTypeMap = {
         pluralTitle: i18n.t('Users'),
         appUrl: (id) =>
             `dhis-web-dashboard-integration/profile.action?id=${id}`,
-        supportsFullscreen: true,
+        supportsFullscreen: false,
     },
     [TEXT]: {
         id: TEXT,

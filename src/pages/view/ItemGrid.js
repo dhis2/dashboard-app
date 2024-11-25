@@ -120,7 +120,6 @@ const ResponsiveItemGrid = () => {
                 className={cx(
                     item.type,
                     'view',
-                    { fullscreenItem: isFS },
                     getGridItemDomElementClassName(item.id),
                     {
                         [classes.hiddenItem]: isFS === false,

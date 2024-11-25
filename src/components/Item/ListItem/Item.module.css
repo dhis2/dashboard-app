@@ -40,7 +40,15 @@
     inline-size: 100%;
 }
 
-.isFS {
-    padding-inline-start: 24px;
-    padding-inline-end: 24px;
+.content {
+    composes: content from '../styles/Item.module.css';
+    flex: 1;
+}
+
+.fullscreen .list {
+    padding-inline: 24px;
+}
+
+.fullscreen {
+    composes: fullscreen from '../styles/Item.module.css';
 }
