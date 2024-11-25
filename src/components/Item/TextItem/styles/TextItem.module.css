@@ -18,6 +18,7 @@
 .fullscreen {
     composes: fullscreen from '../../styles/Item.module.css';
     padding-block-end: 0;
+    margin-block: 0;
 }
 .edit {
     margin-block-start: 0;
