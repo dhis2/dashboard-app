@@ -218,7 +218,9 @@ const ViewActions = ({
                     onClick={() => setMoreOptionsIsOpen(!moreOptionsIsOpen)}
                     icon={<IconMore16 color={colors.grey700} />}
                     component={getMoreMenu()}
-                />
+                >
+                    <wbr />
+                </DropdownButton>
             </div>
             {id && sharingDialogIsOpen && (
                 <SharingDialog
