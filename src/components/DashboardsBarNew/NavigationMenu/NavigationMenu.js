@@ -82,8 +82,8 @@ export const NavigationMenu = () => {
                                 key={dashboard.id}
                                 label={
                                     <NavigationMenuItemLabel
+                                        id={dashboard.id}
                                         displayName={dashboard.displayName}
-                                        availableOffline={true}
                                         starred={dashboard.starred}
                                     />
                                 }

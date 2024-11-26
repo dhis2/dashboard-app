@@ -49,9 +49,7 @@ const InformationBlock = ({
                     starred={starred}
                     onClick={toggleDashboardStarred}
                 />
-                <div className={classes.tagContainer}>
-                    <LastUpdatedTag id={id} />
-                </div>
+                <LastUpdatedTag id={id} />
             </div>
             <ActionsBar
                 toggleDashboardStarred={toggleDashboardStarred}
