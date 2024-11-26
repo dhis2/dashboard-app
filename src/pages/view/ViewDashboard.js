@@ -24,6 +24,7 @@ import { useCacheableSection } from '../../modules/useCacheableSection.js'
 import { sGetDashboardById } from '../../reducers/dashboards.js'
 import { sGetPassiveViewRegistered } from '../../reducers/passiveViewRegistered.js'
 import { sGetSelectedId } from '../../reducers/selected.js'
+import { Description } from './Description.js'
 import classes from './styles/ViewDashboard.module.css'
 import { ViewDashboardContent } from './ViewDashboardContent.js'
 
@@ -143,6 +144,7 @@ const ViewDashboard = ({
             />
             <DashboardsBarNew />
             <DashboardContainer covered={false}>
+                <Description />
                 <ViewDashboardContent
                     loading={loading}
                     loaded={loaded}
