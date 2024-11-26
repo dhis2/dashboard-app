@@ -127,7 +127,7 @@ const ResponsiveItemGrid = () => {
                     }
                 )}
                 itemId={item.id}
-                forceLoad={forceLoad || Number.isInteger(fsItemIndex)}
+                forceLoad={forceLoad || Number.isInteger(fsItemIndex)} // TODO only forceLoad if Slideshow was clicked
             >
                 <Item
                     item={item}
@@ -159,13 +159,7 @@ const ResponsiveItemGrid = () => {
     }
 
     return (
-        <div
-            id="fullscreeen-container"
-            className={cx(classes.fullscreenWrapper, {
-                [classes.isFullscreenMode]: Number.isInteger(fsItemIndex),
-            })}
-            ref={fsElementRef}
-        >
+        <div ref={fsElementRef}>
             <ResponsiveReactGridLayout
                 className={cx(classes.grid, {
                     [classes.fullscreenGrid]: Number.isInteger(fsItemIndex),

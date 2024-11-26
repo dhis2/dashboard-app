@@ -63,6 +63,7 @@ const AppItem = ({ dashboardMode, item, itemFilters, apps, isFS }) => {
             >
                 <IconQuestion24 color={colors.grey500} />
             </div>
+            {isFS && <div className={styles.fsControlsBuffer} />}
         </>
     )
 }

@@ -6,23 +6,6 @@
     margin-block-start: 0;
 }
 
-#fullscreen-container {
-    position: relative;
-}
-
-#fullscreen-container.isFullscreenMode {
-    position: fixed;
-    inset-block-start: 0;
-    inset-inline-start: 0;
-    inline-size: 100%;
-    block-size: 100%;
-    z-index: 1000;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-}
-
 .hiddenItem {
     display: none !important;
 }

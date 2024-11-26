@@ -15,9 +15,9 @@ import {
 import { sGetSelectedDashboardItems } from '../../../reducers/selected.js'
 import ItemHeader from '../ItemHeader/ItemHeader.js'
 import PrintItemInfo from '../ItemHeader/PrintItemInfo.js'
-import classes from './styles/TextItem.module.css'
+import styles from './styles/TextItem.module.css'
 
-const fsTextStyle = {
+const fullscreenStyle = {
     padding: '24px',
     fontSize: '18px',
     fontStretch: 'normal',
@@ -26,7 +26,7 @@ const fsTextStyle = {
     lineHeight: '23px',
 }
 
-const parserTextStyle = {
+const viewStyle = {
     padding: '10px',
     fontSize: '14px',
     fontStretch: 'normal',
@@ -51,17 +51,15 @@ const TextItem = (props) => {
         return (
             <>
                 <div
-                    className={cx(classes.content, {
-                        [classes.fullscreen]: isFS,
+                    className={cx(styles.content, {
+                        [styles.fullscreen]: isFS,
                     })}
                 >
-                    <RichTextParser
-                        style={isFS ? fsTextStyle : parserTextStyle}
-                    >
+                    <RichTextParser style={isFS ? fullscreenStyle : viewStyle}>
                         {text}
                     </RichTextParser>
                 </div>
-                {isFS && <div className={classes.fsControlsBuffer} />}
+                {isFS && <div className={styles.fsControlsBuffer} />}
             </>
         )
     }
@@ -75,7 +73,7 @@ const TextItem = (props) => {
                     dashboardMode={dashboardMode}
                 />
                 <Divider margin={`0 0 ${spacers.dp4} 0`} />
-                <div className={cx(classes.content, classes.edit)}>
+                <div className={cx(styles.content, styles.edit)}>
                     <RichTextEditor
                         onChange={onChangeText}
                         inputPlaceholder={i18n.t('Add text here')}
@@ -92,10 +90,8 @@ const TextItem = (props) => {
         return (
             <>
                 {props.item.shortened ? <PrintItemInfo /> : null}
-                <div className={classes.content}>
-                    <RichTextParser style={parserTextStyle}>
-                        {text}
-                    </RichTextParser>
+                <div className={styles.content}>
+                    <RichTextParser style={viewStyle}>{text}</RichTextParser>
                 </div>
             </>
         )
