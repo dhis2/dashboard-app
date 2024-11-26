@@ -27,7 +27,7 @@ import MenuItem from '../../MenuItemWithTooltip.js'
 import FilterSelector from './FilterSelector.js'
 import classes from './styles/ActionsBar.module.css'
 
-const ViewActions = ({
+const ActionsBar = ({
     id,
     access,
     showDescription,
@@ -244,7 +244,7 @@ const ViewActions = ({
     )
 }
 
-ViewActions.propTypes = {
+ActionsBar.propTypes = {
     access: PropTypes.object,
     allowedFilters: PropTypes.array,
     filtersLength: PropTypes.number,
@@ -271,4 +271,4 @@ const mapStateToProps = (state) => {
 export default connect(mapStateToProps, {
     removeAllFilters: acClearItemFilters,
     updateShowDescription: acSetShowDescription,
-})(ViewActions)
+})(ActionsBar)
