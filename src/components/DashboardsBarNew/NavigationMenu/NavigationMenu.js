@@ -1,22 +1,18 @@
 import i18n from '@dhis2/d2-i18n'
-import { Input, Menu, MenuItem } from '@dhis2/ui'
+import { Input, Menu } from '@dhis2/ui'
 import cx from 'classnames'
 import React, { useCallback, useMemo, useEffect, useRef } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { useHistory } from 'react-router-dom'
 import { acSetDashboardsFilter } from '../../../actions/dashboardsFilter.js'
 import { sGetDashboardsSortedByStarred } from '../../../reducers/dashboards.js'
 import { sGetDashboardsFilter } from '../../../reducers/dashboardsFilter.js'
-import { sGetSelectedId } from '../../../reducers/selected.js'
-import { NavigationMenuItemLabel } from './NavigationMenuItemLabel.js'
+import { NavigationMenuItem } from './NavigationMenuItem.js'
 import styles from './styles/NavigationMenu.module.css'
 
 export const NavigationMenu = () => {
     const dispatch = useDispatch()
-    const history = useHistory()
     const scrollBoxRef = useRef(null)
     const dashboards = useSelector(sGetDashboardsSortedByStarred)
-    const selectedId = useSelector(sGetSelectedId)
     const filterText = useSelector(sGetDashboardsFilter)
     const onFilterChange = useCallback(
         ({ value }) => {
@@ -74,26 +70,16 @@ export const NavigationMenu = () => {
                             {i18n.t('No dashboards found')}
                         </li>
                     ) : (
-                        filteredDashboards.map((dashboard) => (
-                            <MenuItem
-                                onClick={() => {
-                                    history.push(`/${dashboard.id}`)
-                                }}
-                                key={dashboard.id}
-                                label={
-                                    <NavigationMenuItemLabel
-                                        id={dashboard.id}
-                                        displayName={dashboard.displayName}
-                                        starred={dashboard.starred}
-                                    />
-                                }
-                                className={
-                                    dashboard.id === selectedId
-                                        ? styles.selectedItem
-                                        : undefined
-                                }
-                            />
-                        ))
+                        filteredDashboards.map(
+                            ({ displayName, id, starred }) => (
+                                <NavigationMenuItem
+                                    displayName={displayName}
+                                    id={id}
+                                    starred={starred}
+                                    key={id}
+                                />
+                            )
+                        )
                     )}
                 </Menu>
             </div>
