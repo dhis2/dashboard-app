@@ -159,11 +159,11 @@ class Item extends Component {
     }
 
     getAvailableHeight = ({ width }) => {
-        if (this.props.isFS) {
+        if (this.props.isFullscreen) {
             const totalNonVisHeight =
                 (this.headerRef.current.clientHeight || MIN_CLIENT_HEIGHT) +
                 this.itemHeaderTotalMargin +
-                (this.props.isFS ? 0 : this.itemContentPadding) +
+                (this.props.isFullscreen ? 0 : this.itemContentPadding) +
                 FS_CONTROLS_BUFFER
 
             return `calc(100vh - ${totalNonVisHeight}px)`
@@ -183,7 +183,7 @@ class Item extends Component {
     }
 
     getAvailableWidth = () => {
-        if (this.props.isFS) {
+        if (this.props.isFullscreen) {
             return '100%'
         }
         const rect = getGridItemElement(
@@ -192,7 +192,8 @@ class Item extends Component {
 
         return (
             rect &&
-            rect.width - (this.props.isFS ? 0 : this.itemContentPadding * 2)
+            rect.width -
+                (this.props.isFullscreen ? 0 : this.itemContentPadding * 2)
         )
     }
 
@@ -205,7 +206,7 @@ class Item extends Component {
             item,
             dashboardMode,
             itemFilters,
-            isFS,
+            isFullscreen,
             setSlideshow,
             sortPosition,
         } = this.props
@@ -216,7 +217,7 @@ class Item extends Component {
         const actionButtons =
             pluginIsAvailable(activeType || item.type, this.props.apps) &&
             isViewMode(dashboardMode) &&
-            isFS !== true ? (
+            isFullscreen !== true ? (
                 <ItemContextMenu
                     item={item}
                     visualization={this.props.visualization}
@@ -294,7 +295,7 @@ class Item extends Component {
                 >
                     <div
                         className={cx(activeType, styles.content, {
-                            [styles.fullscreen]: isFS,
+                            [styles.fullscreen]: isFullscreen,
                             [styles.overflowHidden]:
                                 activeType !== EVENT_REPORT,
                             [styles.edit]: isEditMode(dashboardMode),
@@ -344,7 +345,7 @@ Item.propTypes = {
     engine: PropTypes.object,
     gridWidth: PropTypes.number,
     isEditing: PropTypes.bool,
-    isFS: PropTypes.bool,
+    isFullscreen: PropTypes.bool,
     isRecording: PropTypes.bool,
     item: PropTypes.object,
     itemFilters: PropTypes.object,

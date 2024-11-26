@@ -36,7 +36,8 @@ const viewStyle = {
 }
 
 const TextItem = (props) => {
-    const { item, dashboardMode, text, isFS, acUpdateDashboardItem } = props
+    const { item, dashboardMode, text, isFullscreen, acUpdateDashboardItem } =
+        props
 
     const onChangeText = (text) => {
         const updatedItem = {
@@ -52,14 +53,16 @@ const TextItem = (props) => {
             <>
                 <div
                     className={cx(styles.content, {
-                        [styles.fullscreen]: isFS,
+                        [styles.fullscreen]: isFullscreen,
                     })}
                 >
-                    <RichTextParser style={isFS ? fullscreenStyle : viewStyle}>
+                    <RichTextParser
+                        style={isFullscreen ? fullscreenStyle : viewStyle}
+                    >
                         {text}
                     </RichTextParser>
                 </div>
-                {isFS && <div className={styles.fsControlsBuffer} />}
+                {isFullscreen && <div className={styles.fsControlsBuffer} />}
             </>
         )
     }
@@ -130,7 +133,7 @@ const mapStateToProps = (state, ownProps) => {
 TextItem.propTypes = {
     acUpdateDashboardItem: PropTypes.func,
     dashboardMode: PropTypes.string,
-    isFS: PropTypes.bool,
+    isFullscreen: PropTypes.bool,
     item: PropTypes.object,
     text: PropTypes.string,
 }

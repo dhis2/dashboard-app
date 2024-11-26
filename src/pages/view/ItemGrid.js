@@ -110,7 +110,7 @@ const ResponsiveItemGrid = () => {
             item.firstOfType = true
         }
 
-        const isFS = Number.isInteger(fsItemIndex)
+        const isFullscreen = Number.isInteger(fsItemIndex)
             ? sortedItems[fsItemIndex].id === item.id
             : null
 
@@ -122,12 +122,12 @@ const ResponsiveItemGrid = () => {
                     'view',
                     getGridItemDomElementClassName(item.id),
                     {
-                        [classes.hiddenItem]: isFS === false,
-                        [classes.fullscreenItem]: isFS,
+                        [classes.hiddenItem]: isFullscreen === false,
+                        [classes.fullscreenItem]: isFullscreen,
                     }
                 )}
                 itemId={item.id}
-                forceLoad={forceLoad || Number.isInteger(fsItemIndex)} // TODO only forceLoad if Slideshow was clicked
+                forceLoad={forceLoad} // TODO only forceLoad if Slideshow was clicked
             >
                 <Item
                     item={item}
@@ -135,7 +135,7 @@ const ResponsiveItemGrid = () => {
                     dashboardMode={VIEW}
                     isRecording={forceLoad}
                     onToggleItemExpanded={onToggleItemExpanded}
-                    isFS={isFS}
+                    isFullscreen={isFullscreen}
                     sortPosition={
                         sortedItems.findIndex((i) => i.id === item.id) + 1
                     }

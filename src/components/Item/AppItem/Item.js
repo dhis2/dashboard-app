@@ -13,7 +13,7 @@ import ItemHeader from '../ItemHeader/ItemHeader.js'
 import { getIframeSrc } from './getIframeSrc.js'
 import styles from './styles/AppItem.module.css'
 
-const AppItem = ({ dashboardMode, item, itemFilters, apps, isFS }) => {
+const AppItem = ({ dashboardMode, item, itemFilters, apps, isFullscreen }) => {
     let appDetails
 
     const appKey = item.appKey
@@ -44,11 +44,11 @@ const AppItem = ({ dashboardMode, item, itemFilters, apps, isFS }) => {
                 src={getIframeSrc(appDetails, item, itemFilters)}
                 className={cx(styles.content, {
                     [styles.hiddenTitle]: hideTitle,
-                    [styles.fullscreen]: isFS,
+                    [styles.fullscreen]: isFullscreen,
                 })}
                 style={{ border: 'none' }}
             />
-            {isFS && <div className={styles.fsControlsBuffer} />}
+            {isFullscreen && <div className={styles.fsControlsBuffer} />}
         </>
     ) : (
         <>
@@ -58,12 +58,12 @@ const AppItem = ({ dashboardMode, item, itemFilters, apps, isFS }) => {
             <Divider margin={`0 0 ${spacers.dp4} 0`} />
             <div
                 className={cx(styles.content, styles.centered, {
-                    [styles.fullscreen]: isFS,
+                    [styles.fullscreen]: isFullscreen,
                 })}
             >
                 <IconQuestion24 color={colors.grey500} />
             </div>
-            {isFS && <div className={styles.fsControlsBuffer} />}
+            {isFullscreen && <div className={styles.fsControlsBuffer} />}
         </>
     )
 }
@@ -71,7 +71,7 @@ const AppItem = ({ dashboardMode, item, itemFilters, apps, isFS }) => {
 AppItem.propTypes = {
     apps: PropTypes.array,
     dashboardMode: PropTypes.string,
-    isFS: PropTypes.bool,
+    isFullscreen: PropTypes.bool,
     item: PropTypes.object,
     itemFilters: PropTypes.object,
 }

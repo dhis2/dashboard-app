@@ -23,7 +23,13 @@ const getContentItems = (item) =>
             array.findIndex((el) => el.id === item.id) === index
     )
 
-const ListItem = ({ item, dashboardMode, removeItem, updateItem, isFS }) => {
+const ListItem = ({
+    item,
+    dashboardMode,
+    removeItem,
+    updateItem,
+    isFullscreen,
+}) => {
     const { baseUrl } = useConfig()
     const contentItems = getContentItems(item)
     // create array of 60 items with the index+1 in the name
@@ -82,7 +88,7 @@ const ListItem = ({ item, dashboardMode, removeItem, updateItem, isFS }) => {
             <Divider margin={`0 0 ${spacers.dp4} 0`} />
             <div
                 className={cx(classes.content, {
-                    [classes.fullscreen]: isFS,
+                    [classes.fullscreen]: isFullscreen,
                 })}
             >
                 <ul className={classes.list}>
@@ -96,14 +102,14 @@ const ListItem = ({ item, dashboardMode, removeItem, updateItem, isFS }) => {
                     ))}
                 </ul>
             </div>
-            {isFS && <div className={classes.fsControlsBuffer} />}
+            {isFullscreen && <div className={classes.fsControlsBuffer} />}
         </>
     )
 }
 
 ListItem.propTypes = {
     dashboardMode: PropTypes.string,
-    isFS: PropTypes.bool,
+    isFullscreen: PropTypes.bool,
     item: PropTypes.object,
     removeItem: PropTypes.func,
     updateItem: PropTypes.func,
