@@ -1,5 +1,6 @@
 import i18n from '@dhis2/d2-i18n'
 import { Input, Menu, MenuItem } from '@dhis2/ui'
+import cx from 'classnames'
 import React, { useCallback, useMemo, useEffect, useRef } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { useHistory } from 'react-router-dom'
@@ -48,10 +49,9 @@ export const NavigationMenu = () => {
 
     if (dashboards.length === 0) {
         return (
-            <div className={styles.container}>
-                <div className={styles.noDashboardsAvailable}>
-                    {i18n.t('No dashboards available')}
-                </div>
+            <div className={cx(styles.container, styles.noDashboardsAvailable)}>
+                <p>{i18n.t('No dashboards available.')}</p>
+                <p>{i18n.t('Create a new dashboard using the + button.')}</p>
             </div>
         )
     }

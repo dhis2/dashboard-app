@@ -32,8 +32,13 @@
     text-align: center;
 }
 .noDashboardsAvailable {
-    height: 200px;
+    height: 240px;
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
+}
+.noDashboardsAvailable > p {
+    font-size: 14px;
+    color: var(--colors-grey700);
 }
