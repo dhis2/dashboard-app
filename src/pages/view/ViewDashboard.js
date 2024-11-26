@@ -17,8 +17,7 @@ import {
 } from '../../actions/selected.js'
 import { apiPostDataStatistics } from '../../api/dataStatistics.js'
 import DashboardContainer from '../../components/DashboardContainer.js'
-import DashboardsBar from '../../components/DashboardsBar/DashboardsBar.js'
-import { DashboardsBar as DashboardsBarNew } from '../../components/DashboardsBarNew/DashboardsBar.js'
+import { DashboardsBar } from '../../components/DashboardsBarNew/DashboardsBar.js'
 import { setHeaderbarVisible } from '../../modules/setHeaderbarVisible.js'
 import { useCacheableSection } from '../../modules/useCacheableSection.js'
 import { sGetDashboardById } from '../../reducers/dashboards.js'
@@ -136,13 +135,7 @@ const ViewDashboard = ({
             className={cx(classes.container, 'dashboard-scroll-container')}
             data-test="outer-scroll-container"
         >
-            <DashboardsBar
-                expanded={false}
-                onExpandedChanged={() => {
-                    console.log('On expanded change')
-                }}
-            />
-            <DashboardsBarNew />
+            <DashboardsBar />
             <DashboardContainer covered={false}>
                 <Description />
                 <ViewDashboardContent

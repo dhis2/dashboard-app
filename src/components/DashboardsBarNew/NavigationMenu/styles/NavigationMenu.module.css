@@ -11,11 +11,12 @@
     padding-inline: 8px;
 }
 .scrollbox {
-    /* On larger screens set the max to 100px and if there is
-     * less space available restrict the max height to the window
-     * height. Main header is 48px and dashboards-bar is 45px, so
-     * this will leave some space below as well */
-    max-block-size: min(1000px, calc(100vh - 300px));
+    /* On larger screens the max is restricted to 1000px and if
+     * there is less space available, the max height is restricted
+     * to the window height. Main header is 48px, dashboards-bar
+     * is 45px and the filter-wrap is 52px, so 100vh - 160px ensures
+    * 15px of whitespace is visible below the menu. */
+    max-block-size: min(1000px, calc(100vh - 160px));
     overflow-y: auto;
     scroll-behavior: smooth;
 }
