@@ -19,10 +19,6 @@
     overflow-y: auto;
     scroll-behavior: smooth;
 }
-.selectedItem {
-    background-color: var(--colors-teal600) !important;
-    color: var(--colors-white) !important;
-}
 .noItems {
     color: var(--colors-grey700);
     font-size: 13px;
