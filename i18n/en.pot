@@ -5,8 +5,8 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1)\n"
-"POT-Creation-Date: 2024-11-25T12:22:04.676Z\n"
-"PO-Revision-Date: 2024-11-25T12:22:04.676Z\n"
+"POT-Creation-Date: 2024-11-26T10:11:47.239Z\n"
+"PO-Revision-Date: 2024-11-26T10:11:47.239Z\n"
 
 msgid "Untitled dashboard"
 msgstr "Untitled dashboard"
@@ -28,6 +28,33 @@ msgstr "Show more dashboards"
 
 msgid "Dashboards"
 msgstr "Dashboards"
+
+msgid "Edit"
+msgstr "Edit"
+
+msgid "Share"
+msgstr "Share"
+
+msgid "No description"
+msgstr "No description"
+
+msgid "Cancel"
+msgstr "Cancel"
+
+msgid "Confirm"
+msgstr "Confirm"
+
+msgid "Filter"
+msgstr "Filter"
+
+msgid "Failed to unstar the dashboard"
+msgstr "Failed to unstar the dashboard"
+
+msgid "Failed to star the dashboard"
+msgstr "Failed to star the dashboard"
+
+msgid "Offline data last updated {{time}}"
+msgstr "Offline data last updated {{time}}"
 
 msgid "The dashboard couldn't be made available offline. Try again."
 msgstr "The dashboard couldn't be made available offline. Try again."
@@ -65,12 +92,6 @@ msgstr "One item per page"
 msgid "Close dashboard"
 msgstr "Close dashboard"
 
-msgid "Edit"
-msgstr "Edit"
-
-msgid "Share"
-msgstr "Share"
-
 msgid "Clear dashboard filters?"
 msgstr "Clear dashboard filters?"
 
@@ -86,27 +107,6 @@ msgstr "No, cancel"
 
 msgid "Yes, clear filters and sync"
 msgstr "Yes, clear filters and sync"
-
-msgid "No description"
-msgstr "No description"
-
-msgid "Cancel"
-msgstr "Cancel"
-
-msgid "Confirm"
-msgstr "Confirm"
-
-msgid "Filter"
-msgstr "Filter"
-
-msgid "Failed to unstar the dashboard"
-msgstr "Failed to unstar the dashboard"
-
-msgid "Failed to star the dashboard"
-msgstr "Failed to star the dashboard"
-
-msgid "Offline data last updated {{time}}"
-msgstr "Offline data last updated {{time}}"
 
 msgid "Cannot unstar this dashboard while offline"
 msgstr "Cannot unstar this dashboard while offline"
