@@ -299,6 +299,7 @@ class Item extends Component {
                             [styles.overflowHidden]:
                                 activeType !== EVENT_REPORT,
                             [styles.edit]: isEditMode(dashboardMode),
+                            [styles.print]: isPrintMode(dashboardMode),
                         })}
                         ref={(ref) => (this.contentRef = ref)}
                     >

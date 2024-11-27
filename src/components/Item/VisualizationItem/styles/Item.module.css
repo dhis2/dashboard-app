@@ -11,6 +11,7 @@
     overflow: hidden;
 }
 
-.edit {
+.edit,
+.print {
     flex: 1;
 }
