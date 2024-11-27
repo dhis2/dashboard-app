@@ -14,8 +14,3 @@
     margin-block-start: 0;
     margin-block-end: var(--item-content-padding);
 }
-
-.fsControlsBuffer {
-    block-size: 40px;
-    inline-size: 100%;
-}

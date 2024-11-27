@@ -35,11 +35,6 @@
     color: var(--colors-red800);
 }
 
-.fsControlsBuffer {
-    block-size: 40px;
-    inline-size: 100%;
-}
-
 .content {
     composes: content from '../styles/Item.module.css';
     flex: 1;

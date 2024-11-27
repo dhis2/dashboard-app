@@ -13,10 +13,6 @@
     composes: fullscreen from '../../styles/Item.module.css';
 }
 
-.fsControlsBuffer {
-    block-size: 40px;
-}
-
 .centered {
     display: flex;
     justify-content: center;

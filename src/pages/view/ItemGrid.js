@@ -115,7 +115,7 @@ const ResponsiveItemGrid = () => {
             ? sortedItems[fsItemIndex].id === item.id
             : null
 
-        // const nextPrevItemIsFullscreen = isFullscreenMode
+        // Force load next and previous items in fullscreen mode
         const nextFSItemIndex =
             fsItemIndex === sortedItems.length - 1 ? 0 : fsItemIndex + 1
         const prevFSItemIndex =
