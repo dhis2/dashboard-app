@@ -134,8 +134,9 @@ const ResponsiveItemGrid = () => {
                     'view',
                     getGridItemDomElementClassName(item.id),
                     {
+                        [classes.fullscreenItem]: isFullscreenMode,
                         [classes.hiddenItem]: itemIsFullscreen === false,
-                        [classes.fullscreenItem]: itemIsFullscreen,
+                        [classes.displayedItem]: itemIsFullscreen,
                     }
                 )}
                 itemId={item.id}
