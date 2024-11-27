@@ -59,6 +59,7 @@ const ResponsiveItemGrid = () => {
         nextItem,
         prevItem,
         sortedItems,
+        isFullscreenMode,
     } = useFullscreen(displayItems)
 
     useEffect(() => {
@@ -110,9 +111,20 @@ const ResponsiveItemGrid = () => {
             item.firstOfType = true
         }
 
-        const isFullscreen = Number.isInteger(fsItemIndex)
+        const itemIsFullscreen = isFullscreenMode
             ? sortedItems[fsItemIndex].id === item.id
             : null
+
+        // const nextPrevItemIsFullscreen = isFullscreenMode
+        const nextFSItemIndex =
+            fsItemIndex === sortedItems.length - 1 ? 0 : fsItemIndex + 1
+        const prevFSItemIndex =
+            fsItemIndex === 0 ? sortedItems.length - 1 : fsItemIndex - 1
+
+        const itemIsNextPrevFullscreen =
+            isFullscreenMode &&
+            (sortedItems[nextFSItemIndex].id === item.id ||
+                sortedItems[prevFSItemIndex].id === item.id)
 
         return (
             <ProgressiveLoadingContainer
@@ -122,12 +134,14 @@ const ResponsiveItemGrid = () => {
                     'view',
                     getGridItemDomElementClassName(item.id),
                     {
-                        [classes.hiddenItem]: isFullscreen === false,
-                        [classes.fullscreenItem]: isFullscreen,
+                        [classes.hiddenItem]: itemIsFullscreen === false,
+                        [classes.fullscreenItem]: itemIsFullscreen,
                     }
                 )}
                 itemId={item.id}
-                forceLoad={forceLoad} // TODO only forceLoad if Slideshow was clicked
+                forceLoad={
+                    forceLoad || itemIsFullscreen || itemIsNextPrevFullscreen
+                }
             >
                 <Item
                     item={item}
@@ -135,7 +149,7 @@ const ResponsiveItemGrid = () => {
                     dashboardMode={VIEW}
                     isRecording={forceLoad}
                     onToggleItemExpanded={onToggleItemExpanded}
-                    isFullscreen={isFullscreen}
+                    isFullscreen={itemIsFullscreen}
                     sortPosition={
                         sortedItems.findIndex((i) => i.id === item.id) + 1
                     }
@@ -162,7 +176,7 @@ const ResponsiveItemGrid = () => {
         <div ref={fsElementRef}>
             <ResponsiveReactGridLayout
                 className={cx(classes.grid, {
-                    [classes.fullscreenGrid]: Number.isInteger(fsItemIndex),
+                    [classes.fullscreenGrid]: isFullscreenMode,
                 })}
                 rowHeight={GRID_ROW_HEIGHT_PX}
                 width={getGridWidth(width)}
@@ -186,7 +200,7 @@ const ResponsiveItemGrid = () => {
                 {getItemComponents(displayItems)}
             </ResponsiveReactGridLayout>
 
-            {Number.isInteger(fsItemIndex) && (
+            {isFullscreenMode && (
                 <div className={classes.fsControlsContainer}>
                     <div className={classes.fullscreenControls}>
                         <button

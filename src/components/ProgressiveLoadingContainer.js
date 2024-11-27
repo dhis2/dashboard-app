@@ -14,6 +14,7 @@ class ProgressiveLoadingContainer extends Component {
         className: PropTypes.string,
         debounceMs: PropTypes.number,
         forceLoad: PropTypes.bool,
+        fullsreenMode: PropTypes.bool,
         itemId: PropTypes.string,
         style: PropTypes.object,
     }
@@ -21,6 +22,7 @@ class ProgressiveLoadingContainer extends Component {
         debounceMs: defaultDebounceMs,
         bufferFactor: defaultBufferFactor,
         forceLoad: false,
+        fullsreenMode: false,
     }
 
     state = {
@@ -40,6 +42,10 @@ class ProgressiveLoadingContainer extends Component {
         if (this.forceLoad && !this.state.shouldLoad) {
             this.setState({ shouldLoad: true })
             this.removeHandler()
+            return
+        }
+
+        if (this.props.fullsreenMode) {
             return
         }
 

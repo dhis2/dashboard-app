@@ -98,6 +98,7 @@ const useFullscreen = (displayItems) => {
         nextItem,
         prevItem,
         sortedItems: sortedItems.current,
+        isFullscreenMode: fsItemIndex !== null,
     }
 }
 
