@@ -62,7 +62,6 @@ const TextItem = (props) => {
                         {text}
                     </RichTextParser>
                 </div>
-                {isFullscreen && <div className={styles.fsControlsBuffer} />}
             </>
         )
     }

@@ -11,17 +11,17 @@ import {
 } from '../../../actions/editDashboard.js'
 import { isEditMode } from '../../../modules/dashboardModes.js'
 import { itemTypeMap, getItemUrl } from '../../../modules/itemTypes.js'
-import { orArray } from '../../../modules/util.js'
+// import { orArray } from '../../../modules/util.js'
 import ItemHeader from '../ItemHeader/ItemHeader.js'
 import classes from './Item.module.css'
 
 const getItemTitle = (item) => itemTypeMap[item.type].pluralTitle
 
-const getContentItems = (item) =>
-    orArray(item[itemTypeMap[item.type].propName]).filter(
-        (item, index, array) =>
-            array.findIndex((el) => el.id === item.id) === index
-    )
+// const getContentItems = (item) =>
+//     orArray(item[itemTypeMap[item.type].propName]).filter(
+//         (item, index, array) =>
+//             array.findIndex((el) => el.id === item.id) === index
+//     )
 
 const ListItem = ({
     item,
@@ -31,12 +31,12 @@ const ListItem = ({
     isFullscreen,
 }) => {
     const { baseUrl } = useConfig()
-    const contentItems = getContentItems(item)
+    // const contentItems = getContentItems(item)
     // create array of 60 items with the index+1 in the name
-    // const contentItems = Array.from({ length: 60 }, (_, i) => ({
-    //     id: i,
-    //     name: `Item ${i + 1}`,
-    // }))
+    const contentItems = Array.from({ length: 60 }, (_, i) => ({
+        id: i,
+        name: `Item ${i + 1}`,
+    }))
 
     const updateDashboardItem = (content) => {
         const listItemType = itemTypeMap[item.type].propName
@@ -102,7 +102,6 @@ const ListItem = ({
                     ))}
                 </ul>
             </div>
-            {isFullscreen && <div className={classes.fsControlsBuffer} />}
         </>
     )
 }

@@ -12,7 +12,7 @@
 
 .fullscreenItem {
     inline-size: 100% !important;
-    block-size: 100vh !important;
+    block-size: calc(100vh - 40px) !important;
     transform: none !important;
 }
 

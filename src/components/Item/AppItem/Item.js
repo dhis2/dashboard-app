@@ -48,7 +48,6 @@ const AppItem = ({ dashboardMode, item, itemFilters, apps, isFullscreen }) => {
                 })}
                 style={{ border: 'none' }}
             />
-            {isFullscreen && <div className={styles.fsControlsBuffer} />}
         </>
     ) : (
         <>
@@ -63,7 +62,6 @@ const AppItem = ({ dashboardMode, item, itemFilters, apps, isFullscreen }) => {
             >
                 <IconQuestion24 color={colors.grey500} />
             </div>
-            {isFullscreen && <div className={styles.fsControlsBuffer} />}
         </>
     )
 }
