@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types'
 import React, { useEffect } from 'react'
-import { DashboardsBar } from '../../components/DashboardsBarNew/DashboardsBar.js'
+import DashboardsBar from '../../components/DashboardsBar/index.js'
 import StartScreen from './StartScreen.js'
 
 const LandingPage = ({ username, onMount }) => {

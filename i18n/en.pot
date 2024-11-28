@@ -5,26 +5,11 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1)\n"
-"POT-Creation-Date: 2024-11-26T15:41:22.294Z\n"
-"PO-Revision-Date: 2024-11-26T15:41:22.297Z\n"
+"POT-Creation-Date: 2024-11-28T16:32:58.551Z\n"
+"PO-Revision-Date: 2024-11-28T16:32:58.551Z\n"
 
 msgid "Untitled dashboard"
 msgstr "Untitled dashboard"
-
-msgid "Cannot create a dashboard while offline"
-msgstr "Cannot create a dashboard while offline"
-
-msgid "Create new dashboard"
-msgstr "Create new dashboard"
-
-msgid "Search for a dashboard"
-msgstr "Search for a dashboard"
-
-msgid "Show fewer dashboards"
-msgstr "Show fewer dashboards"
-
-msgid "Show more dashboards"
-msgstr "Show more dashboards"
 
 msgid "Dashboards"
 msgstr "Dashboards"
@@ -119,6 +104,9 @@ msgstr "No dashboards available."
 
 msgid "Create a new dashboard using the + button."
 msgstr "Create a new dashboard using the + button."
+
+msgid "Search for a dashboard"
+msgstr "Search for a dashboard"
 
 msgid "No dashboards found"
 msgstr "No dashboards found"
