@@ -39,6 +39,10 @@ const InformationBlock = ({
         [dataEngine, id, setDashboardStarred, showAlert, starred]
     )
 
+    if (!id) {
+        return null
+    }
+
     return (
         <div className={classes.container}>
             <div className={classes.titleContainer} data-test="title-bar">
