@@ -5,11 +5,11 @@ import React from 'react'
 import { Provider } from 'react-redux'
 import { Router } from 'react-router-dom'
 import configureMockStore from 'redux-mock-store'
-import WindowDimensionsProvider from '../../../components/WindowDimensionsProvider.js'
+import WindowDimensionsProvider from '../../WindowDimensionsProvider.js'
 import DashboardsBar, {
     MIN_ROW_COUNT,
     MAX_ROW_COUNT,
-} from '../DashboardsBar.js'
+} from '../../DashboardsBar/DashboardsBar.js'
 
 jest.mock('@dhis2/analytics', () => ({
     useCachedDataQuery: () => ({
