@@ -5,13 +5,13 @@ import { acSetSlideshow } from '../actions/slideshow.js'
 import { sGetSlideshow } from '../reducers/slideshow.js'
 import { itemTypeSupportsFullscreen } from './itemTypes.js'
 
-const useFullscreen = (displayItems) => {
+const useSlideshow = (displayItems) => {
     const dispatch = useDispatch()
     const sortedItems = useRef([])
-    const fsItemStartingIndex = useSelector(sGetSlideshow)
-    const [fsItemIndex, setFsItemIndex] = useState(null)
-    const [isPreFullscreen, setIsPreFullscreen] = useState(false)
-    const fsElementRef = useRef(null)
+    const itemStartingIndex = useSelector(sGetSlideshow)
+    const [itemIndex, setItemIndex] = useState(null)
+    const [isPreSlideshow, setIsPreSlideshow] = useState(false)
+    const slideshowElementRef = useRef(null)
 
     // Sort items into order on dashboard
     // and filter out items that don't support fullscreen
@@ -25,41 +25,41 @@ const useFullscreen = (displayItems) => {
     // Slideshow button or Item "View fullscreen" menu clicked
     // Fullscreen Exit button or ESC key pressed
     useEffect(() => {
-        if (Number.isInteger(fsItemStartingIndex)) {
-            const el = fsElementRef?.current
-            setIsPreFullscreen(true)
+        if (Number.isInteger(itemStartingIndex)) {
+            const el = slideshowElementRef?.current
+            setIsPreSlideshow(true)
             el?.requestFullscreen({ navigationUI: 'show' })
             setTimeout(() => {
-                setFsItemIndex(fsItemStartingIndex)
-                setIsPreFullscreen(false)
+                setItemIndex(itemStartingIndex)
+                setIsPreSlideshow(false)
             }, 200)
         } else {
-            setFsItemIndex(null)
+            setItemIndex(null)
         }
-    }, [fsItemStartingIndex])
+    }, [itemStartingIndex])
 
     // Exit button clicked
-    const exitFullscreen = () => {
+    const exitSlideshow = () => {
         if (document.fullscreenElement) {
-            document.exitFullscreen()
+            document.exitSlideshow()
         }
     }
 
     const nextItem = useCallback(() => {
-        if (fsItemIndex === sortedItems.current.length - 1) {
-            setFsItemIndex(0)
+        if (itemIndex === sortedItems.current.length - 1) {
+            setItemIndex(0)
         } else {
-            setFsItemIndex(fsItemIndex + 1)
+            setItemIndex(itemIndex + 1)
         }
-    }, [fsItemIndex])
+    }, [itemIndex])
 
     const prevItem = useCallback(() => {
-        if (fsItemIndex === 0) {
-            setFsItemIndex(sortedItems.current.length - 1)
+        if (itemIndex === 0) {
+            setItemIndex(sortedItems.current.length - 1)
         } else {
-            setFsItemIndex(fsItemIndex - 1)
+            setItemIndex(itemIndex - 1)
         }
-    }, [fsItemIndex])
+    }, [itemIndex])
 
     // Handle keyboard navigation for the slideshow
     useEffect(() => {
@@ -93,15 +93,15 @@ const useFullscreen = (displayItems) => {
     }, [dispatch, nextItem, prevItem])
 
     return {
-        fsItemIndex,
-        fsElementRef,
-        exitFullscreen,
+        slideshowItemIndex: itemIndex,
+        slideshowElementRef,
+        exitSlideshow,
         nextItem,
         prevItem,
         sortedItems: sortedItems.current,
-        isFullscreenView: fsItemIndex !== null,
-        isPreFullscreen,
+        isSlideshowView: itemIndex !== null,
+        isPreSlideshow,
     }
 }
 
-export default useFullscreen
+export default useSlideshow

@@ -30,7 +30,7 @@ import {
 } from '../../modules/gridUtil.js'
 import { getBreakpoint, isSmallScreen } from '../../modules/smallScreen.js'
 import { useCacheableSection } from '../../modules/useCacheableSection.js'
-import useFullscreen from '../../modules/useFullscreen.js'
+import useFullscreen from '../../modules/useSlideshow.js'
 import {
     sGetSelectedId,
     sGetSelectedDashboardItems,
@@ -39,30 +39,28 @@ import classes from './styles/ItemGrid.module.css'
 
 const EXPANDED_HEIGHT = 19
 const EXPANDED_HEIGHT_SM = 15
-const EMPTY_EXPANDED_ITEMS = {}
-const EMPTY_SMALL_LAYOUT = []
 
 const ResponsiveItemGrid = () => {
     const dashboardId = useSelector(sGetSelectedId)
     const dashboardItems = useSelector(sGetSelectedDashboardItems)
     const { width } = useWindowDimensions()
-    const [expandedItems, setExpandedItems] = useState(EMPTY_EXPANDED_ITEMS)
+    const [expandedItems, setExpandedItems] = useState({})
     const [displayItems, setDisplayItems] = useState(dashboardItems)
-    const [layoutSm, setLayoutSm] = useState(EMPTY_SMALL_LAYOUT)
+    const [layoutSm, setLayoutSm] = useState([])
     const [gridWidth, setGridWidth] = useState(0)
     const [forceLoad, setForceLoad] = useState(false)
     const { recordingState } = useCacheableSection(dashboardId)
     const firstOfTypes = getFirstOfTypes(dashboardItems)
 
     const {
-        fsItemIndex,
-        fsElementRef,
-        exitFullscreen,
+        slideshowItemIndex,
+        slideshowElementRef,
+        exitSlideshow,
         nextItem,
         prevItem,
         sortedItems,
-        isFullscreenView,
-        isPreFullscreen,
+        isSlideshowView,
+        isPreSlideshow,
     } = useFullscreen(displayItems)
 
     useEffect(() => {
@@ -114,20 +112,24 @@ const ResponsiveItemGrid = () => {
             item.firstOfType = true
         }
 
-        const itemIsFullscreen = isFullscreenView
-            ? sortedItems[fsItemIndex].id === item.id
+        const itemIsFullscreen = isSlideshowView
+            ? sortedItems[slideshowItemIndex].id === item.id
             : null
 
-        // Force load next and previous items in fullscreen mode
-        const nextFSItemIndex =
-            fsItemIndex === sortedItems.length - 1 ? 0 : fsItemIndex + 1
-        const prevFSItemIndex =
-            fsItemIndex === 0 ? sortedItems.length - 1 : fsItemIndex - 1
+        // Force load next and previous items for slideshow view
+        const nextslideshowItemIndex =
+            slideshowItemIndex === sortedItems.length - 1
+                ? 0
+                : slideshowItemIndex + 1
+        const prevslideshowItemIndex =
+            slideshowItemIndex === 0
+                ? sortedItems.length - 1
+                : slideshowItemIndex - 1
 
         const itemIsNextPrevFullscreen =
-            isFullscreenView &&
-            (sortedItems[nextFSItemIndex].id === item.id ||
-                sortedItems[prevFSItemIndex].id === item.id)
+            isSlideshowView &&
+            (sortedItems[nextslideshowItemIndex].id === item.id ||
+                sortedItems[prevslideshowItemIndex].id === item.id)
 
         return (
             <ProgressiveLoadingContainer
@@ -138,10 +140,10 @@ const ResponsiveItemGrid = () => {
                     getGridItemDomElementClassName(item.id),
                     {
                         [classes.fullscreenItem]:
-                            isPreFullscreen || isFullscreenView,
+                            isPreSlideshow || isSlideshowView,
                         [classes.hiddenItem]: itemIsFullscreen === false,
                         [classes.displayedItem]: itemIsFullscreen,
-                        [classes.preFullscreen]: isPreFullscreen,
+                        [classes.preFullscreen]: isPreSlideshow,
                     }
                 )}
                 itemId={item.id}
@@ -179,10 +181,10 @@ const ResponsiveItemGrid = () => {
     }
 
     return (
-        <div ref={fsElementRef}>
+        <div ref={slideshowElementRef}>
             <ResponsiveReactGridLayout
                 className={cx(classes.grid, {
-                    [classes.fullscreenGrid]: isFullscreenView,
+                    [classes.fullscreenGrid]: isSlideshowView,
                 })}
                 rowHeight={GRID_ROW_HEIGHT_PX}
                 width={getGridWidth(width)}
@@ -206,12 +208,12 @@ const ResponsiveItemGrid = () => {
                 {getItemComponents(displayItems)}
             </ResponsiveReactGridLayout>
 
-            {isFullscreenView && (
+            {isSlideshowView && (
                 <div className={classes.fullscreenControlsContainer}>
                     <div className={classes.fullscreenControls}>
                         <button
                             className={classes.exitButton}
-                            onClick={exitFullscreen}
+                            onClick={exitSlideshow}
                         >
                             <IconCross24 color={colors.white} />
                         </button>
@@ -219,7 +221,7 @@ const ResponsiveItemGrid = () => {
                             <IconChevronLeft24 color={colors.white} />
                         </button>
                         <span className={classes.pageCounter}>{`${
-                            fsItemIndex + 1
+                            slideshowItemIndex + 1
                         } / ${sortedItems.length}`}</span>
                         <button onClick={nextItem}>
                             <IconChevronRight24 color={colors.white} />
