@@ -3,7 +3,7 @@ import {
     useDataEngine,
     useDhis2ConnectionStatus,
 } from '@dhis2/app-runtime'
-import { IconStarFilled16, MenuItem } from '@dhis2/ui'
+import { IconStarFilled16, MenuItem, colors } from '@dhis2/ui'
 import debounce from 'lodash/debounce.js'
 import PropTypes from 'prop-types'
 import React, { useCallback } from 'react'
@@ -40,7 +40,7 @@ export const NavigationMenuItem = ({ displayName, id, starred }) => {
             key={id}
             label={
                 <span className={styles.container}>
-                    {starred && <IconStarFilled16 />}
+                    {starred && <IconStarFilled16 color={colors.grey500} />}
                     <span style={styles.displayname}>{displayName}</span>
                     {!!lastUpdated && <IconOfflineSaved />}
                 </span>
