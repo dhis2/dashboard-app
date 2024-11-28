@@ -16,6 +16,7 @@ export const DashboardsBar = () => {
                     secondary
                     small
                     icon={<IconAdd16 />}
+                    className={styles.createDashboardButton}
                 />
                 <DropdownButton
                     icon={<IconNavigation />}
@@ -23,7 +24,9 @@ export const DashboardsBar = () => {
                     small
                     component={<NavigationMenu />}
                 >
-                    {i18n.t('Dashboards')}
+                    <span className={styles.navMenuButtonText}>
+                        {i18n.t('Dashboards')}
+                    </span>
                 </DropdownButton>
             </div>
             <InformationBlock />

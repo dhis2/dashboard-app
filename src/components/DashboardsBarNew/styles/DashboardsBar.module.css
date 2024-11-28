@@ -14,3 +14,10 @@
         var(--spacers-dp8);
     border-inline-end: 1px solid var(--colors-grey400);
 }
+
+@media only screen and (max-width: 480px) {
+    .createDashboardButton,
+    .navMenuButtonText {
+        display: none;
+    }
+}

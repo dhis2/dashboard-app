@@ -40,3 +40,16 @@
     font-size: 14px;
     color: var(--colors-grey700);
 }
+
+@media only screen and (max-width: 480px) {
+    .container {
+        min-inline-size: 320px;
+        max-inline-size: 460px;
+    }
+    .scrollbox {
+        /* 176px instead of 152px is needed because the online-status
+         * indicator is is showing below the main header and this has
+         * a height of 24px. */
+        max-block-size: calc(100vh - 176px);
+    }
+}
