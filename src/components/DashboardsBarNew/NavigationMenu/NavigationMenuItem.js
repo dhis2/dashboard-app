@@ -11,7 +11,7 @@ import { useSelector } from 'react-redux'
 import { useHistory } from 'react-router-dom'
 import { apiPostDataStatistics } from '../../../api/dataStatistics.js'
 import { sGetSelectedId } from '../../../reducers/selected.js'
-import { IconOfflineSaved } from './IconOfflineSaved.js'
+import { IconOfflineSaved } from '../../IconOfflineSaved.js'
 import styles from './styles/NavigationMenuItem.module.css'
 
 export const NavigationMenuItem = ({ displayName, id, starred }) => {
