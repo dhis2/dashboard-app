@@ -56,6 +56,7 @@ export const NavigationMenu = () => {
         <div className={styles.container}>
             <div className={styles.filterWrap}>
                 <Input
+                    dense
                     type="search"
                     placeholder={i18n.t('Search for a dashboard')}
                     value={filterText}

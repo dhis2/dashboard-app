@@ -14,9 +14,10 @@
     /* On larger screens the max is restricted to 1000px and if
      * there is less space available, the max height is restricted
      * to the window height. Main header is 48px, dashboards-bar
-     * is 45px and the filter-wrap is 52px, so 100vh - 160px ensures
-    * 15px of whitespace is visible below the menu. */
-    max-block-size: min(1000px, calc(100vh - 160px));
+     * is 45px and the filter-wrap is 44px, so total height above
+     * is 137px so 100vh - 152px ensures that 15px of whitespace
+     * is visible below the menu. */
+    max-block-size: min(1000px, calc(100vh - 152px));
     overflow-y: auto;
     scroll-behavior: smooth;
 }

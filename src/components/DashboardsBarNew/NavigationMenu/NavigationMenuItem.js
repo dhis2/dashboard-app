@@ -35,6 +35,7 @@ export const NavigationMenuItem = ({ displayName, id, starred }) => {
 
     return (
         <MenuItem
+            dense
             onClick={handleClick}
             key={id}
             label={
