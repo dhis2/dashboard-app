@@ -1,6 +1,6 @@
 import { useDhis2ConnectionStatus } from '@dhis2/app-runtime'
 import i18n from '@dhis2/d2-i18n'
-import { Tooltip } from '@dhis2/ui'
+import { IconCross16, Tooltip } from '@dhis2/ui'
 import cx from 'classnames'
 import PropTypes from 'prop-types'
 import React from 'react'
@@ -26,8 +26,8 @@ const FilterBadge = ({ dashboardId, filter, openFilterModal, onRemove }) => {
 
     return (
         <div className={classes.container} data-test="dashboard-filter-badge">
-            <span
-                className={classes.badge}
+            <button
+                className={cx(classes.button, classes.filterButton)}
                 onClick={() =>
                     openFilterModal({
                         id: filter.id,
@@ -36,31 +36,28 @@ const FilterBadge = ({ dashboardId, filter, openFilterModal, onRemove }) => {
                 }
             >
                 {filterText}
-            </span>
-            <span className={classes.badgeSmall}>{filterText}</span>
+            </button>
             <Tooltip
                 content={i18n.t('Cannot remove filters while offline')}
                 openDelay={200}
                 closeDelay={100}
+                className={classes.tooltip}
             >
-                {({ onMouseOver, onMouseOut, ref }) => (
-                    <span
-                        className={cx(
-                            classes.span,
-                            notAllowed && classes.notAllowed
-                        )}
+                {({ onFocus, onBlur, onMouseOver, onMouseOut, ref }) => (
+                    <button
+                        className={cx(classes.button, classes.removeButton, {
+                            [classes.notAllowed]: notAllowed,
+                        })}
+                        onFocus={onFocus}
+                        onBlur={onBlur}
                         onMouseOver={() => notAllowed && onMouseOver()}
                         onMouseOut={() => notAllowed && onMouseOut()}
                         ref={ref}
+                        disabled={notAllowed}
+                        onClick={() => onRemove(filter.id)}
                     >
-                        <button
-                            disabled={notAllowed}
-                            className={classes.removeButton}
-                            onClick={() => onRemove(filter.id)}
-                        >
-                            {i18n.t('Remove')}
-                        </button>
-                    </span>
+                        <IconCross16 />
+                    </button>
                 )}
             </Tooltip>
         </div>

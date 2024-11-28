@@ -5,6 +5,7 @@ import { Link } from 'react-router-dom'
 import LoadingMask from '../../components/LoadingMask.js'
 import Notice from '../../components/Notice.js'
 import { ROUTE_START_PATH } from '../start/index.js'
+import { Description } from './Description.js'
 import FilterBar from './FilterBar/FilterBar.js'
 import ItemGrid from './ItemGrid.js'
 import classes from './styles/ViewDashboard.module.css'
@@ -28,6 +29,7 @@ export const ViewDashboardContent = ({ loading, loaded, loadFailed }) => {
     if (loaded) {
         return (
             <>
+                <Description />
                 <FilterBar />
                 <ItemGrid />
             </>
