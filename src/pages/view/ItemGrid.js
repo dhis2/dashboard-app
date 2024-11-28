@@ -39,14 +39,16 @@ import classes from './styles/ItemGrid.module.css'
 
 const EXPANDED_HEIGHT = 19
 const EXPANDED_HEIGHT_SM = 15
+const EMPTY_EXPANDED_ITEMS = {}
+const EMPTY_SMALL_LAYOUT = []
 
 const ResponsiveItemGrid = () => {
     const dashboardId = useSelector(sGetSelectedId)
     const dashboardItems = useSelector(sGetSelectedDashboardItems)
     const { width } = useWindowDimensions()
-    const [expandedItems, setExpandedItems] = useState({})
+    const [expandedItems, setExpandedItems] = useState(EMPTY_EXPANDED_ITEMS)
     const [displayItems, setDisplayItems] = useState(dashboardItems)
-    const [layoutSm, setLayoutSm] = useState([])
+    const [layoutSm, setLayoutSm] = useState(EMPTY_SMALL_LAYOUT)
     const [gridWidth, setGridWidth] = useState(0)
     const [forceLoad, setForceLoad] = useState(false)
     const { recordingState } = useCacheableSection(dashboardId)
@@ -59,7 +61,8 @@ const ResponsiveItemGrid = () => {
         nextItem,
         prevItem,
         sortedItems,
-        isFullscreenMode,
+        isFullscreenView,
+        isPreFullscreen,
     } = useFullscreen(displayItems)
 
     useEffect(() => {
@@ -111,7 +114,7 @@ const ResponsiveItemGrid = () => {
             item.firstOfType = true
         }
 
-        const itemIsFullscreen = isFullscreenMode
+        const itemIsFullscreen = isFullscreenView
             ? sortedItems[fsItemIndex].id === item.id
             : null
 
@@ -122,7 +125,7 @@ const ResponsiveItemGrid = () => {
             fsItemIndex === 0 ? sortedItems.length - 1 : fsItemIndex - 1
 
         const itemIsNextPrevFullscreen =
-            isFullscreenMode &&
+            isFullscreenView &&
             (sortedItems[nextFSItemIndex].id === item.id ||
                 sortedItems[prevFSItemIndex].id === item.id)
 
@@ -134,9 +137,11 @@ const ResponsiveItemGrid = () => {
                     'view',
                     getGridItemDomElementClassName(item.id),
                     {
-                        [classes.fullscreenItem]: isFullscreenMode,
+                        [classes.fullscreenItem]:
+                            isPreFullscreen || isFullscreenView,
                         [classes.hiddenItem]: itemIsFullscreen === false,
                         [classes.displayedItem]: itemIsFullscreen,
+                        [classes.preFullscreen]: isPreFullscreen,
                     }
                 )}
                 itemId={item.id}
@@ -177,7 +182,7 @@ const ResponsiveItemGrid = () => {
         <div ref={fsElementRef}>
             <ResponsiveReactGridLayout
                 className={cx(classes.grid, {
-                    [classes.fullscreenGrid]: isFullscreenMode,
+                    [classes.fullscreenGrid]: isFullscreenView,
                 })}
                 rowHeight={GRID_ROW_HEIGHT_PX}
                 width={getGridWidth(width)}
@@ -201,8 +206,8 @@ const ResponsiveItemGrid = () => {
                 {getItemComponents(displayItems)}
             </ResponsiveReactGridLayout>
 
-            {isFullscreenMode && (
-                <div className={classes.fsControlsContainer}>
+            {isFullscreenView && (
+                <div className={classes.fullscreenControlsContainer}>
                     <div className={classes.fullscreenControls}>
                         <button
                             className={classes.exitButton}

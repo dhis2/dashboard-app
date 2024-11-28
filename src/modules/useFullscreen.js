@@ -10,9 +10,11 @@ const useFullscreen = (displayItems) => {
     const sortedItems = useRef([])
     const fsItemStartingIndex = useSelector(sGetSlideshow)
     const [fsItemIndex, setFsItemIndex] = useState(null)
+    const [isPreFullscreen, setIsPreFullscreen] = useState(false)
     const fsElementRef = useRef(null)
 
-    // Sort items into order on dashboard, and filter out items that don't support fullscreen
+    // Sort items into order on dashboard
+    // and filter out items that don't support fullscreen
     useEffect(() => {
         const sItems = sortBy(displayItems, ['y', 'x']).filter((i) =>
             itemTypeSupportsFullscreen(i.type)
@@ -20,26 +22,26 @@ const useFullscreen = (displayItems) => {
         sortedItems.current = sItems
     }, [displayItems])
 
-    // Handle Slideshow button or Item Fullscreen button clicked
+    // Slideshow button or Item "View fullscreen" menu clicked
+    // Fullscreen Exit button or ESC key pressed
     useEffect(() => {
         if (Number.isInteger(fsItemStartingIndex)) {
             const el = fsElementRef?.current
-            el?.requestFullscreen()
-            setFsItemIndex(fsItemStartingIndex)
-        } else if (document.fullscreenElement) {
-            document.exitFullscreen().then(() => {
-                setFsItemIndex(null)
-            })
+            setIsPreFullscreen(true)
+            el?.requestFullscreen({ navigationUI: 'show' })
+            setTimeout(() => {
+                setFsItemIndex(fsItemStartingIndex)
+                setIsPreFullscreen(false)
+            }, 200)
         } else {
             setFsItemIndex(null)
         }
     }, [fsItemStartingIndex])
 
+    // Exit button clicked
     const exitFullscreen = () => {
         if (document.fullscreenElement) {
-            document.exitFullscreen().then(() => {
-                dispatch(acSetSlideshow(null))
-            })
+            document.exitFullscreen()
         }
     }
 
@@ -59,7 +61,7 @@ const useFullscreen = (displayItems) => {
         }
     }, [fsItemIndex])
 
-    // This effect handles the keyboard navigation for the slideshow
+    // Handle keyboard navigation for the slideshow
     useEffect(() => {
         const handleKeyDown = (event) => {
             if (document.fullscreenElement) {
@@ -73,7 +75,6 @@ const useFullscreen = (displayItems) => {
 
         const handleFullscreenChange = () => {
             if (!document.fullscreenElement) {
-                setFsItemIndex(null)
                 dispatch(acSetSlideshow(null))
             }
         }
@@ -98,7 +99,8 @@ const useFullscreen = (displayItems) => {
         nextItem,
         prevItem,
         sortedItems: sortedItems.current,
-        isFullscreenMode: fsItemIndex !== null,
+        isFullscreenView: fsItemIndex !== null,
+        isPreFullscreen,
     }
 }
 

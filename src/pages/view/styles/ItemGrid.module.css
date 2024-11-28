@@ -1,5 +1,6 @@
 .grid {
     margin-block-start: var(--spacers-dp16);
+    background-color: #f4f6f8;
 }
 
 .fullscreenGrid {
@@ -13,7 +14,8 @@
     transform: none !important;
 }
 
-.hiddenItem {
+.hiddenItem,
+.preFullscreen {
     opacity: 0;
 }
 
@@ -21,9 +23,8 @@
     opacity: 1;
     transition-delay: 100ms !important;
     transition-property: opacity !important;
-    z-index: 10;
 }
-.fsControlsContainer {
+.fullscreenControlsContainer {
     position: fixed;
     inset-block-end: 0;
     inline-size: 100vw;
