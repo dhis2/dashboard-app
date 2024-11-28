@@ -1,8 +1,4 @@
-import {
-    useCacheableSection,
-    useDataEngine,
-    useDhis2ConnectionStatus,
-} from '@dhis2/app-runtime'
+import { useDataEngine, useDhis2ConnectionStatus } from '@dhis2/app-runtime'
 import { IconStarFilled16, MenuItem, colors } from '@dhis2/ui'
 import debounce from 'lodash/debounce.js'
 import PropTypes from 'prop-types'
@@ -10,6 +6,7 @@ import React, { useCallback } from 'react'
 import { useSelector } from 'react-redux'
 import { useHistory } from 'react-router-dom'
 import { apiPostDataStatistics } from '../../../api/dataStatistics.js'
+import { useCacheableSection } from '../../../modules/useCacheableSection.js'
 import { sGetSelectedId } from '../../../reducers/selected.js'
 import { IconOfflineSaved } from '../../IconOfflineSaved.js'
 import styles from './styles/NavigationMenuItem.module.css'
