@@ -174,12 +174,13 @@ class Item extends Component {
             this.itemHeaderTotalMargin -
             this.itemContentPadding
 
-        return this.memoizedGetContentHeight(
+        const adjustedHeight = this.memoizedGetContentHeight(
             calculatedHeight,
             this.contentRef ? this.contentRef.offsetHeight : null,
             isEditMode(this.props.dashboardMode) ||
                 isPrintMode(this.props.dashboardMode)
         )
+        return `${adjustedHeight}px`
     }
 
     getAvailableWidth = () => {
@@ -190,11 +191,9 @@ class Item extends Component {
             this.props.item.id
         )?.getBoundingClientRect()
 
-        return (
-            rect &&
-            rect.width -
-                (this.props.isFullscreen ? 0 : this.itemContentPadding * 2)
-        )
+        return rect
+            ? `${rect.width - this.itemContentPadding * 2}px`
+            : undefined
     }
 
     onFatalError = () => {

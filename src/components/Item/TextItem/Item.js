@@ -50,19 +50,17 @@ const TextItem = (props) => {
 
     const viewItem = () => {
         return (
-            <>
-                <div
-                    className={cx(styles.content, {
-                        [styles.fullscreen]: isFullscreen,
-                    })}
+            <div
+                className={cx(styles.content, {
+                    [styles.fullscreen]: isFullscreen,
+                })}
+            >
+                <RichTextParser
+                    style={isFullscreen ? fullscreenStyle : viewStyle}
                 >
-                    <RichTextParser
-                        style={isFullscreen ? fullscreenStyle : viewStyle}
-                    >
-                        {text}
-                    </RichTextParser>
-                </div>
-            </>
+                    {text}
+                </RichTextParser>
+            </div>
         )
     }
 
