@@ -191,9 +191,7 @@ class Item extends Component {
             this.props.item.id
         )?.getBoundingClientRect()
 
-        return rect
-            ? `${rect.width - this.itemContentPadding * 2}px`
-            : undefined
+        return rect && `${rect.width - this.itemContentPadding * 2}px`
     }
 
     onFatalError = () => {
