@@ -5,13 +5,12 @@ import { acSetSlideshow } from '../../actions/slideshow.js'
 import { itemTypeSupportsFullscreen } from '../../modules/itemTypes.js'
 import { sGetSlideshow } from '../../reducers/slideshow.js'
 
-const useSlideshow = (displayItems) => {
+const useSlideshow = (displayItems, slideshowElementRef) => {
     const dispatch = useDispatch()
     const sortedItems = useRef([])
     const firstItemIndex = useSelector(sGetSlideshow)
     const [itemIndex, setItemIndex] = useState(null)
     const [isPreSlideshow, setIsPreSlideshow] = useState(false)
-    const slideshowElementRef = useRef(null)
 
     // Sort items into order on dashboard
     // and filter out items that don't support fullscreen
@@ -36,7 +35,7 @@ const useSlideshow = (displayItems) => {
         } else {
             setItemIndex(null)
         }
-    }, [firstItemIndex])
+    }, [firstItemIndex, slideshowElementRef])
 
     // Exit button clicked
     const exitSlideshow = () => {
@@ -99,7 +98,6 @@ const useSlideshow = (displayItems) => {
         nextItem,
         prevItem,
         sortedItems: sortedItems.current,
-        isSlideshowView: itemIndex !== null,
         isPreSlideshow,
     }
 }

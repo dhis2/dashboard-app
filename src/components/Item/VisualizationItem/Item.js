@@ -208,7 +208,7 @@ class Item extends Component {
             itemFilters,
             isFullscreen,
             setSlideshow,
-            sortPosition,
+            sortIndex,
         } = this.props
         const { showFooter, showNoFiltersOverlay } = this.state
         const originalType = getItemTypeForVis(item)
@@ -223,7 +223,7 @@ class Item extends Component {
                     visualization={this.props.visualization}
                     onSelectActiveType={this.setActiveType}
                     onToggleFooter={this.onToggleFooter}
-                    enterFullscreen={() => setSlideshow(sortPosition - 1)}
+                    enterFullscreen={() => setSlideshow(sortIndex)}
                     activeType={activeType}
                     activeFooter={showFooter}
                     fullscreenSupported={this.isFullscreenSupported()}
@@ -354,7 +354,7 @@ Item.propTypes = {
     setSlideshow: PropTypes.func,
     setVisualization: PropTypes.func,
     settings: PropTypes.object,
-    sortPosition: PropTypes.number,
+    sortIndex: PropTypes.number,
     visualization: PropTypes.object,
     onToggleItemExpanded: PropTypes.func,
 }

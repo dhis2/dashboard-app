@@ -1,0 +1,50 @@
+.container {
+    position: fixed;
+    inset-block-end: 0;
+    inline-size: 100vw;
+    display: flex;
+    justify-content: center;
+    background-color: black;
+}
+
+.controls {
+    padding: 4px;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.controls button {
+    color: white;
+    background-color: #171819;
+    border-radius: 3px;
+    border: none;
+    inline-size: 32px;
+    block-size: 32px;
+    padding: 4px;
+    cursor: pointer;
+}
+
+.ontrols button:hover {
+    background-color: #202124;
+}
+
+.pageCounter {
+    font-family: 'Roboto', sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    color: white;
+    font-size: 14px;
+    margin: 0 8px;
+    min-inline-size: 60px;
+    /* avoid moving buttons for most counts below 999 items */
+    text-align: center;
+    user-select: none;
+}
+
+.exitButton {
+    position: absolute;
+    inset-block-end: 4px;
+    inset-inline-start: 4px;
+}

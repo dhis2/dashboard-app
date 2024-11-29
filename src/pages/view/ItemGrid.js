@@ -1,12 +1,6 @@
 import i18n from '@dhis2/d2-i18n'
-import {
-    IconChevronRight24,
-    IconChevronLeft24,
-    IconCross24,
-    colors,
-} from '@dhis2/ui'
 import cx from 'classnames'
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useRef } from 'react'
 import { Responsive as ResponsiveReactGridLayout } from 'react-grid-layout'
 import { useSelector } from 'react-redux'
 import { Item } from '../../components/Item/Item.js'
@@ -34,6 +28,7 @@ import {
     sGetSelectedId,
     sGetSelectedDashboardItems,
 } from '../../reducers/selected.js'
+import SlideshowControlbar from './SlideshowControlbar.js'
 import classes from './styles/ItemGrid.module.css'
 import useSlideshow from './useSlideshow.js'
 
@@ -51,17 +46,18 @@ const ResponsiveItemGrid = () => {
     const [forceLoad, setForceLoad] = useState(false)
     const { recordingState } = useCacheableSection(dashboardId)
     const firstOfTypes = getFirstOfTypes(dashboardItems)
+    const slideshowElementRef = useRef(null)
 
     const {
         slideshowItemIndex,
-        slideshowElementRef,
+        sortedItems,
+        isPreSlideshow,
         exitSlideshow,
         nextItem,
         prevItem,
-        sortedItems,
-        isSlideshowView,
-        isPreSlideshow,
-    } = useSlideshow(displayItems)
+    } = useSlideshow(displayItems, slideshowElementRef)
+
+    const isSlideshowView = slideshowItemIndex !== null
 
     useEffect(() => {
         const getItemsWithAdjustedHeight = (items) =>
@@ -158,9 +154,7 @@ const ResponsiveItemGrid = () => {
                     isRecording={forceLoad}
                     onToggleItemExpanded={onToggleItemExpanded}
                     isFullscreen={itemIsFullscreen}
-                    sortPosition={
-                        sortedItems.findIndex((i) => i.id === item.id) + 1
-                    }
+                    sortIndex={sortedItems.findIndex((i) => i.id === item.id)}
                 />
             </ProgressiveLoadingContainer>
         )
@@ -207,27 +201,14 @@ const ResponsiveItemGrid = () => {
             >
                 {getItemComponents(displayItems)}
             </ResponsiveReactGridLayout>
-
             {isSlideshowView && (
-                <div className={classes.slideshowControlsContainer}>
-                    <div className={classes.slideshowControls}>
-                        <button
-                            className={classes.exitButton}
-                            onClick={exitSlideshow}
-                        >
-                            <IconCross24 color={colors.white} />
-                        </button>
-                        <button onClick={prevItem}>
-                            <IconChevronLeft24 color={colors.white} />
-                        </button>
-                        <span className={classes.pageCounter}>{`${
-                            slideshowItemIndex + 1
-                        } / ${sortedItems.length}`}</span>
-                        <button onClick={nextItem}>
-                            <IconChevronRight24 color={colors.white} />
-                        </button>
-                    </div>
-                </div>
+                <SlideshowControlbar
+                    slideshowItemIndex={slideshowItemIndex}
+                    exitSlideshow={exitSlideshow}
+                    nextItem={nextItem}
+                    prevItem={prevItem}
+                    numItems={sortedItems.length}
+                />
             )}
         </div>
     )
