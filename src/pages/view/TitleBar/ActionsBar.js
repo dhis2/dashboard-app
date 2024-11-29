@@ -280,6 +280,7 @@ const ViewActions = ({
                                 disabled={offline || !hasSlideshowItems}
                                 className={classes.slideshowButton}
                                 onClick={() => setSlideshow(0)}
+                                dataTest="enter-slideshow-button"
                             >
                                 {i18n.t('Slideshow')}
                             </Button>

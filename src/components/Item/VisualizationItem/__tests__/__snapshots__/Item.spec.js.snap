@@ -23,7 +23,7 @@ exports[`Visualization/Item renders edit mode 1`] = `
     </div>
   </div>
   <div
-    class="dashboard-item-content"
+    class="CHART content overflowHidden edit"
   >
     <div
       activetype="CHART"
@@ -54,7 +54,7 @@ exports[`Visualization/Item renders view mode 1`] = `
     </div>
   </div>
   <div
-    class="dashboard-item-content"
+    class="CHART content overflowHidden"
   >
     <div
       activetype="CHART"

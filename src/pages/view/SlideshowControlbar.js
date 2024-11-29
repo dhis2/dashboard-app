@@ -18,7 +18,11 @@ const SlideshowControlbar = ({
     return (
         <div className={styles.container}>
             <div className={styles.controls}>
-                <button className={styles.exitButton} onClick={exitSlideshow}>
+                <button
+                    className={styles.exitButton}
+                    onClick={exitSlideshow}
+                    data-test="slideshow-exit-button"
+                >
                     <IconCross24 color={colors.white} />
                 </button>
                 <button onClick={prevItem}>
