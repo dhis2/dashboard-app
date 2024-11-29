@@ -3,7 +3,7 @@
     background-color: #f4f6f8;
 }
 
-.fullscreenGrid {
+.slideshowGrid {
     margin-block-start: 0;
     background-color: var(--colors-white);
 }
@@ -24,7 +24,7 @@
     transition-delay: 100ms !important;
     transition-property: opacity !important;
 }
-.fullscreenControlsContainer {
+.slideshowControlsContainer {
     position: fixed;
     inset-block-end: 0;
     inline-size: 100vw;
@@ -32,7 +32,7 @@
     justify-content: center;
     background-color: black;
 }
-.fullscreenControls {
+.slideshowControls {
     padding: 4px;
     border-radius: 5px;
     display: flex;
@@ -40,7 +40,7 @@
     justify-content: center;
 }
 
-.fullscreenControls button {
+.slideshowControls button {
     color: white;
     background-color: #171819;
     border-radius: 3px;
@@ -50,7 +50,7 @@
     padding: 4px;
     cursor: pointer;
 }
-.fullscreenControls button:hover {
+.slideshowControls button:hover {
     background-color: #202124;
 }
 

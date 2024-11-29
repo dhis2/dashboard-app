@@ -30,12 +30,12 @@ import {
 } from '../../modules/gridUtil.js'
 import { getBreakpoint, isSmallScreen } from '../../modules/smallScreen.js'
 import { useCacheableSection } from '../../modules/useCacheableSection.js'
-import useFullscreen from '../../modules/useSlideshow.js'
 import {
     sGetSelectedId,
     sGetSelectedDashboardItems,
 } from '../../reducers/selected.js'
 import classes from './styles/ItemGrid.module.css'
+import useSlideshow from './useSlideshow.js'
 
 const EXPANDED_HEIGHT = 19
 const EXPANDED_HEIGHT_SM = 15
@@ -61,7 +61,7 @@ const ResponsiveItemGrid = () => {
         sortedItems,
         isSlideshowView,
         isPreSlideshow,
-    } = useFullscreen(displayItems)
+    } = useSlideshow(displayItems)
 
     useEffect(() => {
         const getItemsWithAdjustedHeight = (items) =>
@@ -184,7 +184,7 @@ const ResponsiveItemGrid = () => {
         <div ref={slideshowElementRef}>
             <ResponsiveReactGridLayout
                 className={cx(classes.grid, {
-                    [classes.fullscreenGrid]: isSlideshowView,
+                    [classes.slideshowGrid]: isSlideshowView,
                 })}
                 rowHeight={GRID_ROW_HEIGHT_PX}
                 width={getGridWidth(width)}
@@ -209,8 +209,8 @@ const ResponsiveItemGrid = () => {
             </ResponsiveReactGridLayout>
 
             {isSlideshowView && (
-                <div className={classes.fullscreenControlsContainer}>
-                    <div className={classes.fullscreenControls}>
+                <div className={classes.slideshowControlsContainer}>
+                    <div className={classes.slideshowControls}>
                         <button
                             className={classes.exitButton}
                             onClick={exitSlideshow}

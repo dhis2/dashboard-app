@@ -217,7 +217,7 @@ class Item extends Component {
         const actionButtons =
             pluginIsAvailable(activeType || item.type, this.props.apps) &&
             isViewMode(dashboardMode) &&
-            isFullscreen !== true ? (
+            !isFullscreen ? (
                 <ItemContextMenu
                     item={item}
                     visualization={this.props.visualization}

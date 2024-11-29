@@ -1,14 +1,14 @@
 import sortBy from 'lodash/sortBy.js'
 import { useState, useEffect, useRef, useCallback } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
-import { acSetSlideshow } from '../actions/slideshow.js'
-import { sGetSlideshow } from '../reducers/slideshow.js'
-import { itemTypeSupportsFullscreen } from './itemTypes.js'
+import { acSetSlideshow } from '../../actions/slideshow.js'
+import { itemTypeSupportsFullscreen } from '../../modules/itemTypes.js'
+import { sGetSlideshow } from '../../reducers/slideshow.js'
 
 const useSlideshow = (displayItems) => {
     const dispatch = useDispatch()
     const sortedItems = useRef([])
-    const itemStartingIndex = useSelector(sGetSlideshow)
+    const firstItemIndex = useSelector(sGetSlideshow)
     const [itemIndex, setItemIndex] = useState(null)
     const [isPreSlideshow, setIsPreSlideshow] = useState(false)
     const slideshowElementRef = useRef(null)
@@ -25,23 +25,23 @@ const useSlideshow = (displayItems) => {
     // Slideshow button or Item "View fullscreen" menu clicked
     // Fullscreen Exit button or ESC key pressed
     useEffect(() => {
-        if (Number.isInteger(itemStartingIndex)) {
+        if (Number.isInteger(firstItemIndex)) {
             const el = slideshowElementRef?.current
             setIsPreSlideshow(true)
             el?.requestFullscreen({ navigationUI: 'show' })
             setTimeout(() => {
-                setItemIndex(itemStartingIndex)
+                setItemIndex(firstItemIndex)
                 setIsPreSlideshow(false)
             }, 200)
         } else {
             setItemIndex(null)
         }
-    }, [itemStartingIndex])
+    }, [firstItemIndex])
 
     // Exit button clicked
     const exitSlideshow = () => {
         if (document.fullscreenElement) {
-            document.exitSlideshow()
+            document.exitFullscreen()
         }
     }
 
