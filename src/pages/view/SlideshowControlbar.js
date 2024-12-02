@@ -25,13 +25,14 @@ const SlideshowControlbar = ({
                 >
                     <IconCross24 color={colors.white} />
                 </button>
-                <button onClick={prevItem}>
+                <button onClick={prevItem} data-test="slideshow-prev-button">
                     <IconChevronLeft24 color={colors.white} />
                 </button>
-                <span className={styles.pageCounter}>{`${
-                    slideshowItemIndex + 1
-                } / ${numItems}`}</span>
-                <button onClick={nextItem}>
+                <span
+                    className={styles.pageCounter}
+                    data-test="slideshow-page-counter"
+                >{`${slideshowItemIndex + 1} / ${numItems}`}</span>
+                <button onClick={nextItem} data-test="slideshow-next-button">
                     <IconChevronRight24 color={colors.white} />
                 </button>
             </div>
