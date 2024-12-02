@@ -2,7 +2,13 @@
 import { Plugin } from '@dhis2/app-runtime/experimental'
 import i18n from '@dhis2/d2-i18n'
 import PropTypes from 'prop-types'
-import React, { useMemo, useReducer, useRef, useState } from 'react'
+import React, {
+    useCallback,
+    useMemo,
+    useReducer,
+    useRef,
+    useState,
+} from 'react'
 import { useSelector } from 'react-redux'
 import {
     EDIT,
@@ -20,13 +26,15 @@ import FatalErrorBoundary from '../FatalErrorBoundary.js'
 import { isFullscreenSupported, onToggleFullscreen } from '../fullscreenUtil.js'
 import { getAvailableDimensions } from '../getAvailableDimensions.js'
 import ItemHeader from '../ItemHeader/ItemHeader.js'
+import itemHeaderClasses from '../ItemHeader/styles/ItemHeader.module.css'
 import MissingPluginMessage from '../ItemMessage/MissingPluginMessage.js'
 import { getIframeSrc } from './getIframeSrc.js'
 import { ItemContextMenu } from './ItemContextMenu.js'
 
 const AppItem = ({ dashboardMode, windowDimensions, item, apps }) => {
-    const contentRef = useRef()
-    const headerRef = useRef()
+    const contentRef = useRef(null)
+    const headerRef = useRef(null)
+    const [isMounted, setIsMounted] = useState(false)
     const dashboardId = useSelector(sGetSelectedId)
     let itemFilters = useSelector(sGetItemFiltersRoot)
 
@@ -71,6 +79,22 @@ const AppItem = ({ dashboardMode, windowDimensions, item, apps }) => {
     const hideTitle =
         appDetails?.settings?.dashboardWidget?.hideTitle &&
         dashboardMode !== EDIT
+
+    const onElementMount = (node) => {
+        if (node === null || (headerRef.current && contentRef.current)) {
+            return
+        }
+
+        if (node.classList.contains(itemHeaderClasses.itemHeaderWrap)) {
+            headerRef.current = node
+        } else if (node.classList.contains('dashboard-item-content')) {
+            contentRef.current = node
+        }
+
+        if (headerRef.current && contentRef.current) {
+            setIsMounted(true)
+        }
+    }
 
     const renderPlugin = (iframeSrc) => {
         // style must be computed at runtime.
@@ -140,7 +164,7 @@ const AppItem = ({ dashboardMode, windowDimensions, item, apps }) => {
         return (
             <>
                 <ItemHeader
-                    ref={headerRef}
+                    ref={onElementMount}
                     title={hideTitle ? '' : itemTitle}
                     actionButtons={actionButtons}
                     itemId={item.id}
@@ -154,8 +178,11 @@ const AppItem = ({ dashboardMode, windowDimensions, item, apps }) => {
                     )}
                     onFatalError={onFatalError}
                 >
-                    <div className="dashboard-item-content" ref={contentRef}>
-                        {renderPlugin(iframeSrc)}
+                    <div
+                        className="dashboard-item-content"
+                        ref={onElementMount}
+                    >
+                        {isMounted && renderPlugin(iframeSrc)}
                     </div>
                 </FatalErrorBoundary>
             </>
