@@ -80,7 +80,7 @@ const AppItem = ({ dashboardMode, windowDimensions, item, apps }) => {
         appDetails?.settings?.dashboardWidget?.hideTitle &&
         dashboardMode !== EDIT
 
-    const onElementMount = (node) => {
+    const onElementMount = useCallback((node) => {
         if (node === null || (headerRef.current && contentRef.current)) {
             return
         }
@@ -94,7 +94,7 @@ const AppItem = ({ dashboardMode, windowDimensions, item, apps }) => {
         if (headerRef.current && contentRef.current) {
             setIsMounted(true)
         }
-    }
+    }, [])
 
     const renderPlugin = (iframeSrc) => {
         // style must be computed at runtime.
