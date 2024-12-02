@@ -1,12 +1,18 @@
-.actions {
+.actions,
+.hideOnSmallScreen {
     display: flex;
     gap: var(--spacers-dp4);
-    padding: 0 var(--spacers-dp8);
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+}
+
+.actions {
+    padding-right: var(--spacers-dp8);
 }
 
 @media only screen and (max-width: 480px) {
-    .actions .editButton,
-    .actions .shareButton {
+    .hideOnSmallScreen {
         display: none;
     }
 }

@@ -179,36 +179,38 @@ const ActionsBar = ({
     return (
         <>
             <div className={classes.actions}>
-                {userAccess.update ? (
-                    <OfflineTooltip>
-                        <Button
-                            secondary
-                            small
-                            disabled={offline}
-                            className={classes.editButton}
-                            onClick={() => setRedirectUrl(`${id}/edit`)}
-                        >
-                            {i18n.t('Edit')}
-                        </Button>
-                    </OfflineTooltip>
-                ) : null}
-                {userAccess.manage ? (
-                    <OfflineTooltip>
-                        <Button
-                            secondary
-                            small
-                            disabled={offline}
-                            className={classes.shareButton}
-                            onClick={onToggleSharingDialog}
-                        >
-                            {i18n.t('Share')}
-                        </Button>
-                    </OfflineTooltip>
-                ) : null}
-                <FilterSelector
-                    allowedFilters={allowedFilters}
-                    restrictFilters={restrictFilters}
-                />
+                <div className={classes.hideOnSmallScreen}>
+                    {userAccess.update ? (
+                        <OfflineTooltip>
+                            <Button
+                                secondary
+                                small
+                                disabled={offline}
+                                className={classes.editButton}
+                                onClick={() => setRedirectUrl(`${id}/edit`)}
+                            >
+                                {i18n.t('Edit')}
+                            </Button>
+                        </OfflineTooltip>
+                    ) : null}
+                    {userAccess.manage ? (
+                        <OfflineTooltip>
+                            <Button
+                                secondary
+                                small
+                                disabled={offline}
+                                className={classes.shareButton}
+                                onClick={onToggleSharingDialog}
+                            >
+                                {i18n.t('Share')}
+                            </Button>
+                        </OfflineTooltip>
+                    ) : null}
+                    <FilterSelector
+                        allowedFilters={allowedFilters}
+                        restrictFilters={restrictFilters}
+                    />
+                </div>
                 <DropdownButton
                     className={classes.more}
                     secondary

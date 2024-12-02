@@ -15,7 +15,6 @@ import { sGetActiveModalDimension } from '../../../reducers/activeModalDimension
 import { sGetItemFiltersRoot } from '../../../reducers/itemFilters.js'
 import DropdownButton from '../../DropdownButton/DropdownButton.js'
 import FilterDialog from './FilterDialog.js'
-import classes from './styles/FilterSelector.module.css'
 
 const FilterSelector = (props) => {
     const [filterDialogIsOpen, setFilterDialogIsOpen] = useState(false)
@@ -60,19 +59,17 @@ const FilterSelector = (props) => {
 
     return props.restrictFilters && !props.allowedFilters?.length ? null : (
         <>
-            <span className={classes.buttonContainer}>
-                <DropdownButton
-                    secondary
-                    small
-                    open={filterDialogIsOpen}
-                    disabled={offline}
-                    onClick={toggleFilterDialogIsOpen}
-                    icon={<IconFilter24 color={colors.grey700} />}
-                    component={getFilterSelector()}
-                >
-                    {i18n.t('Filter')}
-                </DropdownButton>
-            </span>
+            <DropdownButton
+                secondary
+                small
+                open={filterDialogIsOpen}
+                disabled={offline}
+                onClick={toggleFilterDialogIsOpen}
+                icon={<IconFilter24 color={colors.grey700} />}
+                component={getFilterSelector()}
+            >
+                {i18n.t('Filter')}
+            </DropdownButton>
             {!isEmpty(props.dimension) ? (
                 <FilterDialog
                     dimension={props.dimension}
