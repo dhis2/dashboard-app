@@ -186,7 +186,6 @@ const ActionsBar = ({
                                 secondary
                                 small
                                 disabled={offline}
-                                className={classes.editButton}
                                 onClick={() => setRedirectUrl(`${id}/edit`)}
                             >
                                 {i18n.t('Edit')}
@@ -199,7 +198,6 @@ const ActionsBar = ({
                                 secondary
                                 small
                                 disabled={offline}
-                                className={classes.shareButton}
                                 onClick={onToggleSharingDialog}
                             >
                                 {i18n.t('Share')}
