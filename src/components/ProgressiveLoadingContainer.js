@@ -14,7 +14,7 @@ class ProgressiveLoadingContainer extends Component {
         className: PropTypes.string,
         debounceMs: PropTypes.number,
         forceLoad: PropTypes.bool,
-        fullsreenMode: PropTypes.bool,
+        fullsreenView: PropTypes.bool,
         itemId: PropTypes.string,
         style: PropTypes.object,
     }
@@ -22,7 +22,7 @@ class ProgressiveLoadingContainer extends Component {
         debounceMs: defaultDebounceMs,
         bufferFactor: defaultBufferFactor,
         forceLoad: false,
-        fullsreenMode: false,
+        fullsreenView: false,
     }
 
     state = {
@@ -45,7 +45,9 @@ class ProgressiveLoadingContainer extends Component {
             return
         }
 
-        if (this.props.fullsreenMode) {
+        // when in fullscreen view, load is not based on
+        // position relative to viewport but instead on forceLoad only
+        if (this.props.fullsreenView) {
             return
         }
 

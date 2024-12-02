@@ -174,13 +174,13 @@ class Item extends Component {
             this.itemHeaderTotalMargin -
             this.itemContentPadding
 
-        const adjustedHeight = this.memoizedGetContentHeight(
+        const height = this.memoizedGetContentHeight(
             calculatedHeight,
             this.contentRef ? this.contentRef.offsetHeight : null,
             isEditMode(this.props.dashboardMode) ||
                 isPrintMode(this.props.dashboardMode)
         )
-        return `${adjustedHeight}px`
+        return `${height}px`
     }
 
     getAvailableWidth = () => {

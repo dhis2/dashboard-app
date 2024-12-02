@@ -146,6 +146,7 @@ const ResponsiveItemGrid = () => {
                 forceLoad={
                     forceLoad || itemIsFullscreen || itemIsNextPrevFullscreen
                 }
+                fullscreenView={isSlideshowView}
             >
                 <Item
                     item={item}
