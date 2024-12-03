@@ -8,11 +8,16 @@
     background-color: var(--colors-white);
 }
 
+/* react-grid-layout uses width and height instead
+   off css logical properties, so these are the properties
+   that need to be overridden */
+/* stylelint-disable csstools/use-logical */
 .fullscreenItem {
-    inline-size: 100% !important;
-    block-size: calc(100vh - 40px) !important;
+    width: 100% !important;
+    height: calc(100vh - 40px) !important;
     transform: none !important;
 }
+/* stylelint-enable csstools/use-logical */
 
 .hiddenItem,
 .preFullscreen {
@@ -23,4 +28,5 @@
     opacity: 1;
     transition-delay: 100ms !important;
     transition-property: opacity !important;
+    z-index: 10 !important;
 }
