@@ -1,0 +1,126 @@
+import { useCacheableSection } from '@dhis2/app-runtime'
+import { render, fireEvent } from '@testing-library/react'
+import { createMemoryHistory } from 'history'
+import React from 'react'
+import { Provider } from 'react-redux'
+import { Router, useHistory } from 'react-router-dom'
+import { createStore } from 'redux'
+import { NavigationMenuItem } from '../NavigationMenuItem.js'
+
+jest.mock('@dhis2/app-runtime', () => ({
+    useDhis2ConnectionStatus: () => ({ isConnected: true }),
+    useCacheableSection: jest.fn(),
+    useDataEngine: jest.fn(),
+}))
+
+jest.mock('@dhis2/analytics', () => ({
+    useCachedDataQuery: () => ({
+        currentUser: {
+            username: 'rainbowDash',
+            id: 'r3nb0d5h',
+        },
+    }),
+}))
+
+jest.mock('react-router-dom', () => ({
+    ...jest.requireActual('react-router-dom'),
+    useHistory: jest.fn(),
+}))
+
+const mockOfflineDashboard = {
+    lastUpdated: 'Jan 10',
+}
+
+const mockNonOfflineDashboard = {
+    lastUpdated: null,
+}
+
+const defaultProps = {
+    starred: false,
+    displayName: 'Rainbow Dash',
+    id: 'rainbowdash',
+}
+
+const selectedId = 'theselectedid'
+
+const defaultStoreFn = () => ({
+    selected: {
+        id: selectedId,
+    },
+})
+
+test('renders an inactive MenuItem for a dashboard', () => {
+    useCacheableSection.mockImplementation(() => mockNonOfflineDashboard)
+    const mockStore = createStore(defaultStoreFn)
+    const { container } = render(
+        <Provider store={mockStore}>
+            <Router history={createMemoryHistory()}>
+                <NavigationMenuItem {...defaultProps} />
+            </Router>
+        </Provider>
+    )
+    expect(container.querySelector('.container').childNodes).toHaveLength(1)
+})
+
+test('renders an inactive MenuItem with a star icon, for a starred dashboard', () => {
+    useCacheableSection.mockImplementation(() => mockNonOfflineDashboard)
+    const mockStore = createStore(defaultStoreFn)
+    const { container, getByTestId } = render(
+        <Provider store={mockStore}>
+            <Router history={createMemoryHistory()}>
+                <NavigationMenuItem {...defaultProps} starred={true} />
+            </Router>
+        </Provider>
+    )
+
+    expect(container.querySelector('.container').childNodes).toHaveLength(2)
+    expect(getByTestId('starred-dashboard')).toBeTruthy()
+})
+
+test('renders an inactive MenuItem with an offline icon for a cached dashboard', () => {
+    useCacheableSection.mockImplementation(() => mockOfflineDashboard)
+    const mockStore = createStore(defaultStoreFn)
+    const { getByTestId, container } = render(
+        <Provider store={mockStore}>
+            <Router history={createMemoryHistory()}>
+                <NavigationMenuItem {...defaultProps} />
+            </Router>
+        </Provider>
+    )
+    expect(container.querySelector('.container').childNodes).toHaveLength(2)
+    expect(getByTestId('dashboard-saved-offline')).toBeTruthy()
+})
+
+test('renders an active MenuItem for the currently selected dashboard', () => {
+    useCacheableSection.mockImplementation(() => mockNonOfflineDashboard)
+    const mockStore = createStore(defaultStoreFn)
+    const { getByTestId, container } = render(
+        <Provider store={mockStore}>
+            <Router history={createMemoryHistory()}>
+                <NavigationMenuItem {...defaultProps} id={selectedId} />
+            </Router>
+        </Provider>
+    )
+
+    expect(container.querySelector('.container').childNodes).toHaveLength(1)
+    expect(getByTestId('dhis2-uicore-menuitem')).toBeTruthy()
+})
+
+test('Navigates to the related menu item when an item is clicked', () => {
+    useCacheableSection.mockImplementation(() => mockNonOfflineDashboard)
+    const historyPushMock = jest.fn()
+    useHistory.mockImplementation(() => ({
+        push: historyPushMock,
+    }))
+    const mockStore = createStore(defaultStoreFn)
+    const { getByText } = render(
+        <Provider store={mockStore}>
+            <Router history={createMemoryHistory()}>
+                <NavigationMenuItem {...defaultProps} />
+            </Router>
+        </Provider>
+    )
+    fireEvent.click(getByText(defaultProps.displayName))
+    expect(historyPushMock).toHaveBeenCalledTimes(1)
+    expect(historyPushMock).toHaveBeenCalledWith(`/${defaultProps.id}`)
+})

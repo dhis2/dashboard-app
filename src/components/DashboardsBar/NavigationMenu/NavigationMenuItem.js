@@ -37,11 +37,17 @@ export const NavigationMenuItem = ({ displayName, id, starred }) => {
             key={id}
             label={
                 <span className={styles.container}>
-                    {starred && <IconStarFilled16 color={colors.grey500} />}
-                    <span style={styles.displayname}>{displayName}</span>
+                    {starred && (
+                        <IconStarFilled16
+                            dataTest="starred-dashboard"
+                            color={colors.grey500}
+                        />
+                    )}
+                    <span className={styles.displayName}>{displayName}</span>
                     {!!lastUpdated && <IconOfflineSaved />}
                 </span>
             }
+            ariaLabel={displayName}
             className={id === selectedId ? styles.selectedItem : undefined}
         />
     )

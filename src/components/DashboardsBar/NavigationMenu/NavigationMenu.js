@@ -67,7 +67,7 @@ export const NavigationMenu = () => {
             <div ref={scrollBoxRef} className={styles.scrollbox}>
                 <Menu dense>
                     {filteredDashboards.length === 0 ? (
-                        <li className={styles.noItems}>
+                        <li role="listitem" className={styles.noItems}>
                             {i18n.t('No dashboards found')}
                         </li>
                     ) : (
