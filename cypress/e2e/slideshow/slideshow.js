@@ -38,6 +38,11 @@ Then('item 1 is shown in fullscreen', () => {
     assertItemIsNotVisible(2)
 
     cy.getByDataTest('slideshow-page-counter').should('have.text', '1 / 11')
+
+    // visible item does not have context menu button
+    getDashboardItem(sortedDashboardItemIds[0])
+        .findByDataTest('dashboarditem-menu-button')
+        .should('not.exist')
 })
 
 When('I click the exit slideshow button', () => {
@@ -51,6 +56,15 @@ Then('the normal view is shown', () => {
     assertItemIsVisible(0)
     assertItemIsVisible(1)
     assertItemIsVisible(2)
+
+    // items have context menu button
+    getDashboardItem(sortedDashboardItemIds[0])
+        .findByDataTest('dashboarditem-menu-button')
+        .should('be.visible')
+
+    getDashboardItem(sortedDashboardItemIds[1])
+        .findByDataTest('dashboarditem-menu-button')
+        .should('be.visible')
 })
 
 // When I click the next slide button
