@@ -7,8 +7,8 @@
     composes: fullscreen from '../../styles/Item.module.css';
 }
 
-.overflowHidden {
-    overflow: hidden;
+.scrollbox {
+    overflow: auto;
 }
 
 .edit,

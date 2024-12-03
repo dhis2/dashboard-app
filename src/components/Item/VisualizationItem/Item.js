@@ -293,8 +293,7 @@ class Item extends Component {
                     <div
                         className={cx(activeType, styles.content, {
                             [styles.fullscreen]: isFullscreen,
-                            [styles.overflowHidden]:
-                                activeType !== EVENT_REPORT,
+                            [styles.scrollbox]: activeType === EVENT_REPORT,
                             [styles.edit]: isEditMode(dashboardMode),
                             [styles.print]: isPrintMode(dashboardMode),
                         })}
