@@ -8,7 +8,7 @@ describe('getIframeSrc', () => {
     it('no ou filter', () => {
         const ouFilter = []
 
-        const src = getIframeSrc(appDetails, dashboardItem, { ou: ouFilter })
+        const src = getIframeSrc(dashboardItem, { ou: ouFilter }, appDetails)
         expect(src).toEqual(expectedSrc)
     })
 
@@ -26,7 +26,7 @@ describe('getIframeSrc', () => {
             },
         ]
 
-        const src = getIframeSrc(appDetails, dashboardItem, { ou: ouFilter })
+        const src = getIframeSrc(dashboardItem, { ou: ouFilter }, appDetails)
         expect(src).toEqual(
             `${expectedSrc}&userOrgUnit=fdc6uOvgoji,lc3eMKXaEfw`
         )
@@ -45,7 +45,7 @@ describe('getIframeSrc', () => {
             },
         ]
 
-        const src = getIframeSrc(appDetails, dashboardItem, { ou: ouFilter })
+        const src = getIframeSrc(dashboardItem, { ou: ouFilter }, appDetails)
         expect(src).toEqual(
             `${expectedSrc}&userOrgUnit=OU_GROUP-b0EsAxm8Nge,lc3eMKXaEfw`
         )
@@ -64,7 +64,7 @@ describe('getIframeSrc', () => {
             },
         ]
 
-        const src = getIframeSrc(appDetails, dashboardItem, { ou: ouFilter })
+        const src = getIframeSrc(dashboardItem, { ou: ouFilter }, appDetails)
         expect(src).toEqual(
             `${expectedSrc}&userOrgUnit=LEVEL-m9lBJogzE95,fdc6uOvgoji`
         )
@@ -78,7 +78,7 @@ describe('getIframeSrc', () => {
             },
         ]
 
-        const src = getIframeSrc(appDetails, dashboardItem, { ou: ouFilter })
+        const src = getIframeSrc(dashboardItem, { ou: ouFilter }, appDetails)
         expect(src).toEqual(`${expectedSrc}&userOrgUnit=USER_ORGUNIT`)
     })
 
@@ -98,7 +98,7 @@ describe('getIframeSrc', () => {
             },
         ]
 
-        const src = getIframeSrc(appDetails, dashboardItem, { ou: ouFilter })
+        const src = getIframeSrc(dashboardItem, { ou: ouFilter }, appDetails)
         expect(src).toEqual(
             `${expectedSrc}&userOrgUnit=USER_ORGUNIT_CHILDREN,USER_ORGUNIT_GRANDCHILDREN,USER_ORGUNIT`
         )
