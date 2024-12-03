@@ -147,7 +147,7 @@ const AppItem = ({ dashboardMode, windowDimensions, item, apps }) => {
     }
 
     if (appDetails) {
-        const iframeSrc = getIframeSrc(appDetails, item, itemFilters)
+        const iframeSrc = getIframeSrc(item, itemFilters, appDetails)
 
         const actionButtons =
             appDetails.pluginLaunchUrl && isViewMode(dashboardMode) ? (
