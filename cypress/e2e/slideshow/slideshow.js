@@ -6,7 +6,7 @@ import {
 
 const sortedDashboardItemIds = ['GaVhJpqABYX', 'qXsjttMYuoZ', 'Rwb3oXJ3bZ9']
 
-const assertItemIsFullscreen = (slideshowItemIndex) => {
+const assertItemIsVisible = (slideshowItemIndex) => {
     getDashboardItem(sortedDashboardItemIds[slideshowItemIndex]).should(
         'have.css',
         'opacity',
@@ -33,7 +33,7 @@ Then('item 1 is shown in fullscreen', () => {
     getSlideshowExitButton().should('be.visible')
 
     // check that only the first item is shown
-    assertItemIsFullscreen(0)
+    assertItemIsVisible(0)
     assertItemIsNotVisible(1)
     assertItemIsNotVisible(2)
 
@@ -48,6 +48,9 @@ Then('the normal view is shown', () => {
     getSlideshowExitButton().should('not.exist')
 
     // check that multiple items are shown
+    assertItemIsVisible(0)
+    assertItemIsVisible(1)
+    assertItemIsVisible(2)
 })
 
 // When I click the next slide button
@@ -58,7 +61,7 @@ When('I click the next slide button', () => {
 // Then the next slide is shown
 Then('item 2 is shown in fullscreen', () => {
     assertItemIsNotVisible(0)
-    assertItemIsFullscreen(1)
+    assertItemIsVisible(1)
     assertItemIsNotVisible(2)
 
     cy.getByDataTest('slideshow-page-counter').should('have.text', '2 / 11')
