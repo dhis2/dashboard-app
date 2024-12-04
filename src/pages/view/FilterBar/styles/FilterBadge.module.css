@@ -14,7 +14,11 @@
     cursor: pointer;
 }
 
-.button:hover:not(.notAllowed) {
+.button:disabled {
+    cursor: not-allowed;
+}
+
+.button:hover:not(:disabled) {
     background-color: var(--colors-grey800);
 }
 
@@ -28,8 +32,4 @@
     padding-inline: 4px 6px;
     border-start-end-radius: 4px;
     border-end-end-radius: 4px;
-}
-
-.removeButton.notAllowed {
-    cursor: not-allowed;
 }
