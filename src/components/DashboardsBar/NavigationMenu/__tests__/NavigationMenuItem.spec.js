@@ -82,7 +82,7 @@ test('renders an inactive MenuItem with a star icon, for a starred dashboard', (
     )
 
     expect(container.querySelector('.container').childNodes).toHaveLength(2)
-    expect(getByTestId('starred-dashboard')).toBeTruthy()
+    expect(getByTestId('starred-dashboard')).toBeVisible()
 })
 
 test('renders an inactive MenuItem with an offline icon for a cached dashboard', () => {
@@ -96,7 +96,7 @@ test('renders an inactive MenuItem with an offline icon for a cached dashboard',
         </Provider>
     )
     expect(container.querySelector('.container').childNodes).toHaveLength(2)
-    expect(getByTestId('dashboard-saved-offline')).toBeTruthy()
+    expect(getByTestId('dashboard-saved-offline')).toBeVisible()
 })
 
 test('renders an active MenuItem for the currently selected dashboard', () => {
@@ -111,7 +111,7 @@ test('renders an active MenuItem for the currently selected dashboard', () => {
     )
 
     expect(container.querySelector('.container').childNodes).toHaveLength(1)
-    expect(getByTestId('dhis2-uicore-menuitem')).toBeTruthy()
+    expect(getByTestId('dhis2-uicore-menuitem')).toBeVisible()
 })
 
 test('Navigates to the related menu item when an item is clicked', () => {

@@ -67,8 +67,10 @@ test('renders a notification if no dashboards are available', () => {
         </Provider>
     )
 
-    expect(getByText('No dashboards available.')).toBeTruthy()
-    expect(getByText('Create a new dashboard using the + button.')).toBeTruthy()
+    expect(getByText('No dashboards available.')).toBeVisible()
+    expect(
+        getByText('Create a new dashboard using the + button.')
+    ).toBeVisible()
 })
 
 test('renders a placeholder list item if no dashboards meet the filter criteria', () => {
@@ -81,6 +83,8 @@ test('renders a placeholder list item if no dashboards meet the filter criteria'
             </Router>
         </Provider>
     )
-    expect(getByPlaceholderText('Search for a dashboard').value).toBe(filterStr)
-    expect(getByText('No dashboards found')).toBeTruthy()
+    expect(getByPlaceholderText('Search for a dashboard')).toHaveValue(
+        filterStr
+    )
+    expect(getByText('No dashboards found')).toBeVisible()
 })
