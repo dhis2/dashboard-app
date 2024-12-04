@@ -202,7 +202,7 @@ const ResponsiveItemGrid = () => {
             >
                 {getItemComponents(displayItems)}
             </ResponsiveReactGridLayout>
-            {isSlideshowView && (
+            {isSlideshowView && !isPreSlideshow && (
                 <SlideshowControlbar
                     slideshowItemIndex={slideshowItemIndex}
                     exitSlideshow={exitSlideshow}
