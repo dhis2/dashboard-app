@@ -1,14 +1,18 @@
-import { useCacheableSection } from '@dhis2/app-runtime'
+import {
+    useCacheableSection,
+    useDhis2ConnectionStatus,
+} from '@dhis2/app-runtime'
 import { render, fireEvent } from '@testing-library/react'
 import { createMemoryHistory } from 'history'
 import React from 'react'
 import { Provider } from 'react-redux'
 import { Router, useHistory } from 'react-router-dom'
 import { createStore } from 'redux'
+import { apiPostDataStatistics } from '../../../../api/dataStatistics.js'
 import { NavigationMenuItem } from '../NavigationMenuItem.js'
 
 jest.mock('@dhis2/app-runtime', () => ({
-    useDhis2ConnectionStatus: () => ({ isConnected: true }),
+    useDhis2ConnectionStatus: jest.fn(() => ({ isConnected: true })),
     useCacheableSection: jest.fn(),
     useDataEngine: jest.fn(),
 }))
@@ -25,6 +29,10 @@ jest.mock('@dhis2/analytics', () => ({
 jest.mock('react-router-dom', () => ({
     ...jest.requireActual('react-router-dom'),
     useHistory: jest.fn(),
+}))
+
+jest.mock('../../../../api/dataStatistics.js', () => ({
+    apiPostDataStatistics: jest.fn(),
 }))
 
 const mockOfflineDashboard = {
@@ -121,6 +129,52 @@ test('Navigates to the related menu item when an item is clicked', () => {
         </Provider>
     )
     fireEvent.click(getByText(defaultProps.displayName))
+    expect(historyPushMock).toHaveBeenCalledTimes(1)
+    expect(historyPushMock).toHaveBeenCalledWith(`/${defaultProps.id}`)
+})
+
+it('Posts data statistics if connected', () => {
+    jest.useFakeTimers()
+    const apiPostDataStatisticsMock = jest.fn()
+    apiPostDataStatistics.mockImplementation(apiPostDataStatisticsMock)
+    const mockStore = createStore(defaultStoreFn)
+    const { getByText } = render(
+        <Provider store={mockStore}>
+            <Router history={createMemoryHistory()}>
+                <NavigationMenuItem {...defaultProps} />
+            </Router>
+        </Provider>
+    )
+    fireEvent.click(getByText(defaultProps.displayName))
+    jest.runAllTimers()
+    expect(apiPostDataStatisticsMock).toHaveBeenCalledWith(
+        'DASHBOARD_VIEW',
+        'rainbowdash',
+        undefined
+    )
+})
+
+it('does not post data statistics if not connected', async () => {
+    useDhis2ConnectionStatus.mockReturnValue({ isConnected: false })
+    const historyPushMock = jest.fn()
+    useHistory.mockImplementation(() => ({
+        push: historyPushMock,
+    }))
+    jest.useFakeTimers()
+    const apiPostDataStatisticsMock = jest.fn()
+    apiPostDataStatistics.mockImplementation(apiPostDataStatisticsMock)
+    const mockStore = createStore(defaultStoreFn)
+    const { getByText } = render(
+        <Provider store={mockStore}>
+            <Router history={createMemoryHistory()}>
+                <NavigationMenuItem {...defaultProps} />
+            </Router>
+        </Provider>
+    )
+    fireEvent.click(getByText(defaultProps.displayName))
+    jest.runAllTimers()
+    expect(apiPostDataStatisticsMock).not.toHaveBeenCalled()
+    // Navigation should still work
     expect(historyPushMock).toHaveBeenCalledTimes(1)
     expect(historyPushMock).toHaveBeenCalledWith(`/${defaultProps.id}`)
 })
