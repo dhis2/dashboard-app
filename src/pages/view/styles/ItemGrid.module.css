@@ -3,16 +3,15 @@
     background-color: #f4f6f8;
 }
 
-.slideshowGrid {
-    margin-block-start: 0;
-    background-color: var(--colors-white);
-}
-
 /* react-grid-layout uses width and height instead
    of css logical properties,
    so these are the properties
    that need to be overridden */
 /* stylelint-disable csstools/use-logical */
+.slideshowGrid {
+    margin-block-start: 0;
+    height: calc(100vh - 40px) !important;
+}
 .fullscreenItem {
     width: 100% !important;
     height: calc(100vh - 40px) !important;
