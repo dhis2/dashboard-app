@@ -90,6 +90,3 @@ jobs:
             username: ${{ secrets.CYPRESS_DHIS2_USERNAME }}
             password: ${{ secrets.CYPRESS_DHIS2_PASSWORD }}
             recordkey: ${{ secrets.CYPRESS_RECORD_KEY }}
-            reportportal_api_key: ${{ secrets.REPORTPORTAL_API_KEY }}
-            reportportal_endpoint: ${{ vars.REPORTPORTAL_ENDPOINT }}
-            reportportal_project: ${{ vars.REPORTPORTAL_PROJECT }}
