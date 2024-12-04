@@ -1,5 +1,5 @@
 import sortBy from 'lodash/sortBy.js'
-import { useState, useEffect, useRef, useCallback } from 'react'
+import { useState, useEffect, useMemo, useCallback } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import { acSetSlideshow } from '../../actions/slideshow.js'
 import { itemTypeSupportsFullscreen } from '../../modules/itemTypes.js'
@@ -7,19 +7,19 @@ import { sGetSlideshow } from '../../reducers/slideshow.js'
 
 const useSlideshow = (displayItems, slideshowElementRef) => {
     const dispatch = useDispatch()
-    const sortedItems = useRef([])
     const firstItemIndex = useSelector(sGetSlideshow)
     const [itemIndex, setItemIndex] = useState(null)
     const [isPreSlideshow, setIsPreSlideshow] = useState(false)
 
     // Sort items into order on dashboard
     // and filter out items that don't support fullscreen
-    useEffect(() => {
-        const sItems = sortBy(displayItems, ['y', 'x']).filter((i) =>
-            itemTypeSupportsFullscreen(i.type)
-        )
-        sortedItems.current = sItems
-    }, [displayItems])
+    const sortedItems = useMemo(
+        () =>
+            sortBy(displayItems, ['y', 'x']).filter((item) =>
+                itemTypeSupportsFullscreen(item.type)
+            ),
+        [displayItems]
+    )
 
     // Slideshow button or Item "View fullscreen" menu clicked
     // Fullscreen Exit button or ESC key pressed
@@ -45,20 +45,20 @@ const useSlideshow = (displayItems, slideshowElementRef) => {
     }
 
     const nextItem = useCallback(() => {
-        if (itemIndex === sortedItems.current.length - 1) {
+        if (itemIndex === sortedItems.length - 1) {
             setItemIndex(0)
         } else {
             setItemIndex(itemIndex + 1)
         }
-    }, [itemIndex])
+    }, [itemIndex, sortedItems])
 
     const prevItem = useCallback(() => {
         if (itemIndex === 0) {
-            setItemIndex(sortedItems.current.length - 1)
+            setItemIndex(sortedItems.length - 1)
         } else {
             setItemIndex(itemIndex - 1)
         }
-    }, [itemIndex])
+    }, [itemIndex, sortedItems])
 
     // Handle keyboard navigation for the slideshow
     useEffect(() => {
@@ -97,7 +97,7 @@ const useSlideshow = (displayItems, slideshowElementRef) => {
         exitSlideshow,
         nextItem,
         prevItem,
-        sortedItems: sortedItems.current,
+        sortedItems,
         isPreSlideshow,
     }
 }

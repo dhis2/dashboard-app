@@ -9,7 +9,8 @@
 }
 
 /* react-grid-layout uses width and height instead
-   off css logical properties, so these are the properties
+   of css logical properties,
+   so these are the properties
    that need to be overridden */
 /* stylelint-disable csstools/use-logical */
 .fullscreenItem {
