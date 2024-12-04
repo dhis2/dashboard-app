@@ -19,18 +19,10 @@ jobs:
         runs-on: ubuntu-latest
         if: >
             ${{ !github.event.push.repository.fork &&
-            github.actor != 'dependabot[bot]' &&
-            !contains(github.event.head_commit.message, '[skip ci]') &&
-            !contains(github.event.head_commit.message, '[skip release]') }}
+            github.actor != 'dependabot[bot]' }}
+        outputs:
+            build_exists: ${{ steps.check_build.outputs.build_exists }}
         steps:
-            - name: Print GitHub event context
-              run: echo "$GITHUB_EVENT" | jq '.'
-              env:
-                  GITHUB_EVENT: ${{ toJson(github.event) }}
-
-            - name: Print GitHub ref
-              run: echo "GITHUB_REF is $GITHUB_REF" and actor is ${{ github.actor }}
-
             - uses: actions/checkout@v4
               with:
                   token: ${{ secrets.DHIS2_BOT_GITHUB_TOKEN }}
@@ -47,33 +39,39 @@ jobs:
               run: npx semantic-release
               env:
                   GITHUB_TOKEN: ${{ secrets.DHIS2_BOT_GITHUB_TOKEN }}
-                  DEBUG: '@semantic-release/commit-analyzer'
+
+            - name: Set build_exists output
+              id: check_build
+              run: |
+                  if ls build/bundle/dashboard-*.zip 1> /dev/null 2>&1; then
+                      echo "build_exists=yes" >> $GITHUB_OUTPUT
+                  else
+                      echo "build_exists=no" >> $GITHUB_OUTPUT
+                  fi
 
             - name: Publish to AppHub
+              if: ${{ steps.check_build.outputs.build_exists == 'yes' }}
               run: yarn run d2-app-scripts publish
 
     report-release-result:
         runs-on: ubuntu-latest
         needs: release
-        if: >
-            ${{ !github.event.push.repository.fork &&
-            github.actor != 'dependabot[bot]' &&
-            !contains(github.event.head_commit.message, '[skip ci]') &&
-            !contains(github.event.head_commit.message, '[skip release]') }}
+        if: ${{ always() }}
         steps:
             - name: Checkout code
+              if: ${{ needs.release.outputs.build_exists == 'yes' && success() }}
               uses: actions/checkout@v4
               with:
                   ref: master
                   fetch-depth: 0
 
             - name: Extract version
-              if: success()
+              if: ${{ needs.release.outputs.build_exists == 'yes' && success() }}
               id: extract_version
               uses: Saionaro/extract-package-version@v1.3.0
 
             - name: Send success message to analytics-internal-bot slack channel
-              if: success()
+              if: ${{ needs.release.outputs.build_exists == 'yes' && success() }}
               id: slack_success
               uses: slackapi/slack-github-action@v1.27.0
               with:
