@@ -111,6 +111,7 @@ const ItemContextMenu = (props) => {
             <div ref={buttonRef}>
                 <Button
                     small
+                    title={i18n.t('Open menu')}
                     secondary
                     onClick={openMenu}
                     dataTest="dashboarditem-menu-button"
@@ -137,9 +138,7 @@ const ItemContextMenu = (props) => {
                                     (allowVisOpenInApp &&
                                         !isSmallScreen(width)) ||
                                     fullscreenAllowed) && (
-                                    <span data-test="divider">
-                                        <Divider />
-                                    </span>
+                                    <Divider dataTest="divider" />
                                 )}
                             </>
                         )}
