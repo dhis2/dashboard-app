@@ -102,7 +102,7 @@ const ItemContextMenu = (props) => {
 
     return isElementFullscreen(item.id) ? (
         <Button small secondary onClick={props.onToggleFullscreen}>
-            <span data-testid="exit-fullscreen-button">
+            <span data-test="exit-fullscreen-button">
                 <IconFullscreenExit16 color={colors.grey600} />
             </span>
         </Button>
@@ -137,7 +137,7 @@ const ItemContextMenu = (props) => {
                                     (allowVisOpenInApp &&
                                         !isSmallScreen(width)) ||
                                     fullscreenAllowed) && (
-                                    <span data-testid="divider">
+                                    <span data-test="divider">
                                         <Divider />
                                     </span>
                                 )}
