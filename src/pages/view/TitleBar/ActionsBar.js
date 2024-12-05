@@ -236,10 +236,11 @@ const ViewActions = ({
         </DropdownButton>
     )
 
-    const content =
-        !offline && !hasSlideshowItems
-            ? i18n.t('No dashboard items to show in slideshow')
-            : null
+    const slideshowTooltipContent = !hasSlideshowItems
+        ? i18n.t('No dashboard items to show in slideshow')
+        : offline && !isCached
+        ? i18n.t('Not available offline')
+        : null
 
     return (
         <>
@@ -273,11 +274,12 @@ const ViewActions = ({
                     ) : null}
                     {allowVisFullscreen ? (
                         <OfflineTooltip
-                            content={content}
-                            disabled={offline || !hasSlideshowItems}
+                            content={slideshowTooltipContent}
+                            disabled={!!slideshowTooltipContent}
+                            disabledWhenOffline={false}
                         >
                             <Button
-                                disabled={offline || !hasSlideshowItems}
+                                disabled={!!slideshowTooltipContent}
                                 className={classes.slideshowButton}
                                 onClick={() => setSlideshow(0)}
                                 dataTest="enter-slideshow-button"
