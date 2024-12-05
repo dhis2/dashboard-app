@@ -1,10 +1,9 @@
 .container {
-    margin: 2px;
-    padding: 0 var(--spacers-dp16);
+    padding: 0 var(--spacers-dp12);
     border-radius: 4px;
     color: var(--colors-white);
     background-color: #212934;
-    height: 36px;
+    height: 28px;
     display: flex;
     align-items: center;
 }

@@ -1,5 +1,6 @@
 .container {
     background: var(--colors-grey100);
+    padding-inline: var(--spacers-dp16);
 }
 
 .inputWrapper {

@@ -1,8 +1,7 @@
 import i18n from '@dhis2/d2-i18n'
-import { Tooltip } from '@dhis2/ui'
+import { IconChevronDown24, IconChevronUp24, Tooltip } from '@dhis2/ui'
 import PropTypes from 'prop-types'
 import React, { useRef } from 'react'
-import { ChevronDown, ChevronUp } from './assets/icons.js'
 import classes from './styles/ShowMoreButton.module.css'
 
 const ShowMoreButton = ({ onClick, dashboardBarIsExpanded, disabled }) => {
@@ -31,7 +30,7 @@ const ShowMoreButton = ({ onClick, dashboardBarIsExpanded, disabled }) => {
         <div className={classes.container} ref={containerRef}>
             {disabled ? (
                 <div className={classes.disabled}>
-                    <ChevronDown />
+                    <IconChevronDown24 />
                 </div>
             ) : (
                 <Tooltip
@@ -51,9 +50,9 @@ const ShowMoreButton = ({ onClick, dashboardBarIsExpanded, disabled }) => {
                             onMouseOut={onMouseOut}
                         >
                             {dashboardBarIsExpanded ? (
-                                <ChevronUp />
+                                <IconChevronUp24 />
                             ) : (
-                                <ChevronDown />
+                                <IconChevronDown24 />
                             )}
                         </button>
                     )}
