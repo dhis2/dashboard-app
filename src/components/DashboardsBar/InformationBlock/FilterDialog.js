@@ -31,9 +31,9 @@ import {
     acAddItemFilter,
     acRemoveItemFilter,
 } from '../../../actions/itemFilters.js'
+import { sGetItemFiltersRoot } from '../../../reducers/itemFilters.js'
 import { useSystemSettings } from '../../SystemSettingsProvider.js'
 import { useUserSettings } from '../../UserSettingsProvider.js'
-import { sGetItemFiltersRoot } from '../../../reducers/itemFilters.js'
 
 const FilterDialog = ({
     dimension,
