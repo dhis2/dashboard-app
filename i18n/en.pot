@@ -5,8 +5,8 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1)\n"
-"POT-Creation-Date: 2024-12-04T14:46:41.418Z\n"
-"PO-Revision-Date: 2024-12-04T14:46:41.418Z\n"
+"POT-Creation-Date: 2024-12-05T12:50:46.821Z\n"
+"PO-Revision-Date: 2024-12-05T12:50:46.821Z\n"
 
 msgid "Untitled dashboard"
 msgstr "Untitled dashboard"
@@ -173,6 +173,9 @@ msgstr "Hide details and interpretations"
 
 msgid "Show details and interpretations"
 msgstr "Show details and interpretations"
+
+msgid "Open menu"
+msgstr "Open menu"
 
 msgid "Open in {{appName}} app"
 msgstr "Open in {{appName}} app"
