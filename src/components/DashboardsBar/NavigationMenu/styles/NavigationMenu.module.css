@@ -30,7 +30,7 @@
     text-align: center;
 }
 .noDashboardsAvailable {
-    height: 240px;
+    block-size: 240px;
     display: flex;
     flex-direction: column;
     align-items: center;

@@ -3,14 +3,14 @@
     flex-grow: 1;
     align-items: center;
     justify-content: space-between;
-    height: 100%;
+    block-size: 100%;
 }
 
 .titleContainer {
     display: flex;
     align-items: center;
     justify-content: center;
-    height: 100%;
+    block-size: 100%;
     padding: 0 var(--spacers-dp8) 0 var(--spacers-dp12);
     gap: var(--spacers-dp4);
 }

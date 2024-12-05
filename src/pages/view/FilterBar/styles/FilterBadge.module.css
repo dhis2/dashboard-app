@@ -7,7 +7,7 @@
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    height: 24px;
+    block-size: 24px;
     color: var(--colors-white);
     font-size: 13px;
     background-color: var(--colors-grey900);
