@@ -1,6 +1,5 @@
 import { OfflineTooltip } from '@dhis2/analytics'
 import {
-    useDataEngine,
     useAlert,
     useDhis2ConnectionStatus,
 } from '@dhis2/app-runtime'
@@ -16,7 +15,6 @@ import PropTypes from 'prop-types'
 import React, { useState } from 'react'
 import { connect } from 'react-redux'
 import { Link, Redirect } from 'react-router-dom'
-import { acSetDashboardStarred } from '../../../actions/dashboards.js'
 import { acClearItemFilters } from '../../../actions/itemFilters.js'
 import { acSetShowDescription } from '../../../actions/showDescription.js'
 import { apiPostShowDescription } from '../../../api/description.js'
@@ -25,12 +23,10 @@ import DropdownButton from '../../../components/DropdownButton/DropdownButton.js
 import MenuItem from '../../../components/MenuItemWithTooltip.js'
 import { useCacheableSection } from '../../../modules/useCacheableSection.js'
 import { orObject } from '../../../modules/util.js'
-import { sGetDashboardStarred } from '../../../reducers/dashboards.js'
 import { sGetNamedItemFilters } from '../../../reducers/itemFilters.js'
 import { sGetSelected } from '../../../reducers/selected.js'
 import { sGetShowDescription } from '../../../reducers/showDescription.js'
 import { ROUTE_START_PATH } from '../../start/index.js'
-import { apiStarDashboard } from './apiStarDashboard.js'
 import FilterSelector from './FilterSelector.js'
 import classes from './styles/ActionsBar.module.css'
 
@@ -39,7 +35,7 @@ const ViewActions = ({
     access,
     showDescription,
     starred,
-    setDashboardStarred,
+    onToggleStarredDashboard,
     updateShowDescription,
     removeAllFilters,
     restrictFilters,
@@ -52,7 +48,6 @@ const ViewActions = ({
     const [confirmCacheDialogIsOpen, setConfirmCacheDialogIsOpen] =
         useState(false)
     const [redirectUrl, setRedirectUrl] = useState(null)
-    const dataEngine = useDataEngine()
     const { isDisconnected: offline } = useDhis2ConnectionStatus()
     const { lastUpdated, isCached, startRecording, remove } =
         useCacheableSection(id)
@@ -114,19 +109,6 @@ const ViewActions = ({
         !offline && apiPostShowDescription(!showDescription)
     }
 
-    const onToggleStarredDashboard = () =>
-        apiStarDashboard(dataEngine, id, !starred)
-            .then(() => {
-                setDashboardStarred(id, !starred)
-                closeMoreOptions()
-            })
-            .catch(() => {
-                const msg = starred
-                    ? i18n.t('Failed to unstar the dashboard')
-                    : i18n.t('Failed to star the dashboard')
-                show({ msg, isCritical: false })
-            })
-
     const onToggleSharingDialog = () =>
         setSharingDialogIsOpen(!sharingDialogIsOpen)
 
@@ -165,7 +147,7 @@ const ViewActions = ({
                         ? i18n.t('Unstar dashboard')
                         : i18n.t('Star dashboard')
                 }
-                onClick={onToggleStarredDashboard}
+                onClick={() => onToggleStarredDashboard(closeMoreOptions)}
             />
             <MenuItem
                 dense
@@ -229,7 +211,6 @@ const ViewActions = ({
     return (
         <>
             <div className={classes.actions}>
-                {/* TODO: move star functionality to TitleBar.js */}
                 <div className={classes.strip}>
                     {userAccess.update ? (
                         <OfflineTooltip>
@@ -288,13 +269,13 @@ const ViewActions = ({
 }
 
 ViewActions.propTypes = {
+    onToggleStarredDashboard: PropTypes.func.isRequired,
     access: PropTypes.object,
     allowedFilters: PropTypes.array,
     filtersLength: PropTypes.number,
     id: PropTypes.string,
     removeAllFilters: PropTypes.func,
     restrictFilters: PropTypes.bool,
-    setDashboardStarred: PropTypes.func,
     showDescription: PropTypes.bool,
     starred: PropTypes.bool,
     updateShowDescription: PropTypes.func,
@@ -306,15 +287,11 @@ const mapStateToProps = (state) => {
     return {
         ...dashboard,
         filtersLength: sGetNamedItemFilters(state).length,
-        starred: dashboard.id
-            ? sGetDashboardStarred(state, dashboard.id)
-            : false,
         showDescription: sGetShowDescription(state),
     }
 }
 
 export default connect(mapStateToProps, {
-    setDashboardStarred: acSetDashboardStarred,
     removeAllFilters: acClearItemFilters,
     updateShowDescription: acSetShowDescription,
 })(ViewActions)
