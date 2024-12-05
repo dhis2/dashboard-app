@@ -4,6 +4,8 @@ import { EXTENDED_TIMEOUT } from '../support/utils.js'
 
 // Dashboards bar
 export const dashboardChipSel = '[data-test="dashboard-chip"]'
+export const dashboardsNavMenuButtonSel =
+    '[data-test="dashboards-nav-menu-button"]'
 export const newButtonSel = '[data-test="new-button"]'
 export const chipStarSel = '[data-test="dhis2-uicore-chip-icon"]'
 export const dashboardSearchInputSel =

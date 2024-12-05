@@ -9,7 +9,7 @@ import styles from './styles/DashboardsBar.module.css'
 export const DashboardsBar = () => {
     const history = useHistory()
     return (
-        <div className={styles.toolbar}>
+        <div className={styles.toolbar} data-test="title-bar">
             <div className={styles.blockCreationNavigation}>
                 <Button
                     onClick={() => history.push('/new')}
@@ -17,8 +17,10 @@ export const DashboardsBar = () => {
                     small
                     icon={<IconAdd16 />}
                     className={styles.createDashboardButton}
+                    dataTest="new-button"
                 />
                 <DropdownButton
+                    dataTest="dashboards-nav-menu-button"
                     icon={<IconNavigation />}
                     secondary
                     small
