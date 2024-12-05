@@ -1,8 +1,8 @@
 :root {
     /* control bar variables */
     --user-rows-count: 1;
-    --controlbar-padding: 8px;
-    --row-height: 36px;
+    --controlbar-padding: 3px;
+    --row-height: 38px;
     --min-rows-height: calc(
         var(--controlbar-padding) + (1 * var(--row-height))
     );

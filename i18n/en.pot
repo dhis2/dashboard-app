@@ -5,8 +5,8 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1)\n"
-"POT-Creation-Date: 2023-05-10T12:25:45.620Z\n"
-"PO-Revision-Date: 2023-05-10T12:25:45.620Z\n"
+"POT-Creation-Date: 2024-12-04T17:00:46.379Z\n"
+"PO-Revision-Date: 2024-12-04T17:00:46.380Z\n"
 
 msgid "Untitled dashboard"
 msgstr "Untitled dashboard"
@@ -478,12 +478,6 @@ msgstr "Yes, remove filters"
 msgid "The dashboard couldn't be made available offline. Try again."
 msgstr "The dashboard couldn't be made available offline. Try again."
 
-msgid "Failed to unstar the dashboard"
-msgstr "Failed to unstar the dashboard"
-
-msgid "Failed to star the dashboard"
-msgstr "Failed to star the dashboard"
-
 msgid "Remove from offline storage"
 msgstr "Remove from offline storage"
 
@@ -547,6 +541,12 @@ msgstr "Cannot unstar this dashboard while offline"
 
 msgid "Cannot star this dashboard while offline"
 msgstr "Cannot star this dashboard while offline"
+
+msgid "Failed to unstar the dashboard"
+msgstr "Failed to unstar the dashboard"
+
+msgid "Failed to star the dashboard"
+msgstr "Failed to star the dashboard"
 
 msgid "Loading dashboard – {{name}}"
 msgstr "Loading dashboard – {{name}}"
