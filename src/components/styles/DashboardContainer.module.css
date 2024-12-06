@@ -1,5 +1,5 @@
 .container {
-    background-color: #f4f6f8;
+    background-color: var(--colors-grey200);
     padding-inline-start: var(--spacers-dp16);
     padding-inline-end: var(--spacers-dp16);
     padding-block-end: var(--spacers-dp24);
