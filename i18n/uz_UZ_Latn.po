@@ -1,0 +1,560 @@
+# 
+# Translators:
+# Philip Larsen Donnelly, 2024
+# Yury Rogachev <yury@dhis2.org>, 2024
+# 
+msgid ""
+msgstr ""
+"Project-Id-Version: i18next-conv\n"
+"POT-Creation-Date: 2024-03-19T12:31:03.302Z\n"
+"PO-Revision-Date: 2019-06-25 12:37+0000\n"
+"Last-Translator: Yury Rogachev <yury@dhis2.org>, 2024\n"
+"Language-Team: Uzbek (Latin) (https://app.transifex.com/hisp-uio/teams/100509/uz@Latn/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: uz@Latn\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+
+msgid "Untitled dashboard"
+msgstr "Nomsiz boshqaruv paneli"
+
+msgid "Cannot create a dashboard while offline"
+msgstr ""
+
+msgid "Create new dashboard"
+msgstr ""
+
+msgid "Search for a dashboard"
+msgstr "Boshqarish panelida izlash"
+
+msgid "Show fewer dashboards"
+msgstr ""
+
+msgid "Show more dashboards"
+msgstr ""
+
+msgid "Remove this item"
+msgstr ""
+
+msgid "This item has been shortened to fit on one page"
+msgstr "Ushbu element bir sahifaga joylashtirish uchun moslashtirildi"
+
+msgid "Remove"
+msgstr "Olib tashlash"
+
+msgid "Messages"
+msgstr "Xabarlar"
+
+msgid "See all messages"
+msgstr "Barcha xabarlarni koʼrish"
+
+msgid "Item type \"{{type}}\" is not supported"
+msgstr ""
+
+msgid "The item type is missing"
+msgstr ""
+
+msgid "Filters applied"
+msgstr "Filtr qoʼllanildi"
+
+msgid "Spacer"
+msgstr "Boʼsh joy"
+
+msgid ""
+"Use a spacer to create empty vertical space between other dashboard items."
+msgstr ""
+"Monitoring panelida elementlar orasida vertikal boʼsh joy yaratish uchun "
+"boʼsh joy qoldirish funktsiyasidan foydalaning"
+
+msgid "Text box"
+msgstr "Matn joyi"
+
+msgid "Add text here"
+msgstr "Matnni shu yerga qoʼshing"
+
+msgid "Back to all interpretations"
+msgstr "Jami talqinlarga qaytish"
+
+msgid "Filters are not applied to line list dashboard items"
+msgstr ""
+
+msgid "Filters not applied"
+msgstr ""
+
+msgid "Only Period and Organisation unit filters can be applied to this item"
+msgstr ""
+
+msgid "Some filters not applied"
+msgstr ""
+
+msgid "There was a problem loading this dashboard item"
+msgstr "Ushbu panel elementlari yuklanishida muaamoga duch kelindi"
+
+msgid "Hide details and interpretations"
+msgstr ""
+
+msgid "Show details and interpretations"
+msgstr ""
+
+msgid "Open in {{appName}} app"
+msgstr "Ilovada {{appName}} da ochish"
+
+msgid "View fullscreen"
+msgstr ""
+
+msgid "This map can't be displayed as a chart"
+msgstr ""
+
+msgid "This map can't be displayed as a pivot table"
+msgstr ""
+
+msgid "This visualization can't be displayed as a pivot table"
+msgstr ""
+
+msgid "This visualization can't be displayed as a map"
+msgstr ""
+
+msgid "View as Chart"
+msgstr "Diagramma sifatida koʼrish"
+
+msgid "View as Pivot table"
+msgstr ""
+
+msgid "View as Map"
+msgstr "Xarita sifatida koʼrish"
+
+msgid "There was a problem loading interpretations for this item"
+msgstr ""
+
+msgid "The plugin for rendering this item is not available"
+msgstr ""
+
+msgid "Install the {{appName}} app from the App Hub"
+msgstr ""
+
+msgid "No data to display"
+msgstr "Maʼlumot ekranga chiqarilmadi"
+
+msgid ""
+"Install Line Listing app version ${minLLVersion.join(\n"
+"                                '.'\n"
+"                            )} or higher in order to display this item."
+msgstr ""
+
+msgid "Show without filters"
+msgstr ""
+
+msgid "Maps with Earth Engine layers cannot be displayed when offline"
+msgstr ""
+
+msgid "Unable to load the plugin for this item"
+msgstr "Ushbu element uchun plagin yuklanmadi"
+
+msgid "There was an error loading data for this item"
+msgstr ""
+
+msgid "Open this item in {{appName}}"
+msgstr ""
+
+msgid "Not available offline"
+msgstr ""
+
+msgid "Visualizations"
+msgstr "Vizualizatsiya"
+
+msgid "Pivot tables"
+msgstr ""
+
+msgid "Charts"
+msgstr "Diagrammalar"
+
+msgid "Maps"
+msgstr "Xaritalar"
+
+msgid "Event reports"
+msgstr "Hodisalar hisoboti"
+
+msgid "Event charts"
+msgstr "Hodisalar diagrammalarda"
+
+msgid "Line lists"
+msgstr ""
+
+msgid "Apps"
+msgstr "Ilova"
+
+msgid "Reports"
+msgstr "Hisobotlar"
+
+msgid "Resources"
+msgstr "Resurslar"
+
+msgid "Users"
+msgstr "Foydalanuvchilar"
+
+msgid ""
+"Failed to save dashboard. You might be offline or not have access to edit "
+"this dashboard."
+msgstr ""
+
+msgid ""
+"Failed to save dashboard. This code is already being used on another "
+"dashboard."
+msgstr ""
+
+msgid ""
+"Failed to delete dashboard. You might be offline or not have access to edit "
+"this dashboard."
+msgstr ""
+
+msgid "Cannot save this dashboard while offline"
+msgstr ""
+
+msgid "Save changes"
+msgstr "Oʼzgartirishni saqlash"
+
+msgid "Exit print preview"
+msgstr ""
+
+msgid "Print preview"
+msgstr "Chop etishdan avvalgi koʼrik"
+
+msgid "Filter settings"
+msgstr ""
+
+msgid "Translate"
+msgstr "Tarjima qiling"
+
+msgid "Cannot delete this dashboard while offline"
+msgstr ""
+
+msgid "Delete"
+msgstr "Oʼchirib tashlash"
+
+msgid "Exit without saving"
+msgstr "Saqlamasdan chiqish"
+
+msgid "Go to dashboards"
+msgstr "Boshqaruv panellariga oʼtish"
+
+msgid "Delete dashboard"
+msgstr "Boshqaruv panelini oʼchirib tashlash"
+
+msgid ""
+"Deleting dashboard \"{{ dashboardName }}\" will remove it for all users. "
+"This action cannot be undone. Are you sure you want to permanently delete "
+"this dashboard?"
+msgstr ""
+"Panelni oʼchirib tashlash {{ dashboardName }}, uni barcha foydalanuvchilar "
+"uchun oʼchirilishiga olib keladi. Bu harakatni orqaga qaytarib boʼlmaydi. "
+"Haqiqatdan ham ushbu panelni orqaga qaytarib boʼlmaslik sharti bilan "
+"oʼchirib tashlamoqchimisiz?"
+
+msgid "Cancel"
+msgstr "Bekor qilish"
+
+msgid "Discard changes"
+msgstr "Oʼzgartirishlar bekor qilinsin"
+
+msgid ""
+"This dashboard has unsaved changes. Are you sure you want to leave and "
+"discard these unsaved changes?"
+msgstr ""
+
+msgid "No, stay here"
+msgstr "Yoʼq, sahifada qolish"
+
+msgid "Yes, discard changes"
+msgstr ""
+
+msgid "No access"
+msgstr "Kirish huquqi mavjud emas"
+
+msgid "Not supported"
+msgstr ""
+
+msgid ""
+"Editing dashboards on small screens is not supported. Resize your screen to "
+"return to edit mode."
+msgstr ""
+
+msgid "Allow filtering by all dimensions"
+msgstr ""
+
+msgid "Only allow filtering by selected dimensions"
+msgstr ""
+
+msgid "Dashboard filter settings"
+msgstr ""
+
+msgid ""
+"Dashboards can be filtered by dimensions to change\n"
+"                                         the data shown. By default, all dimensions are available\n"
+"                                         as filters. Alternatively, only selected dimensions can\n"
+"                                         be made available on a dashboard."
+msgstr ""
+
+msgid "Available Filters"
+msgstr ""
+
+msgid "Selected Filters"
+msgstr ""
+
+msgid "Confirm"
+msgstr "Tasdiqlang"
+
+msgid "There are no items on this dashboard"
+msgstr "Ushbu boshqaruv panelida elementlar yoʼq"
+
+msgid "Show fewer"
+msgstr "Kamroq koʼrsatish"
+
+msgid "Show more"
+msgstr "Koʼproq koʼrsatilsin"
+
+msgid "Insert"
+msgstr "Kiritish"
+
+msgid "Search for items to add to this dashboard"
+msgstr "Ushbu boshqaruv paneliga kiritish uchun elementlarni qidiring"
+
+msgid "Search for visualizations, reports and more"
+msgstr ""
+
+msgid "Cannot search for dashboard items while offline"
+msgstr ""
+
+msgid "Additional items"
+msgstr "Qoʼshimcha elementlar"
+
+msgid "Dashboard layout"
+msgstr "Boshqaruv paneli maketi"
+
+msgid "Freeflow"
+msgstr ""
+
+msgid "Dashboard items can be placed anywhere, at any size."
+msgstr ""
+
+msgid "Fixed columns"
+msgstr ""
+
+msgid ""
+"Dashboard items are automatically placed within fixed, horizontal columns. "
+"The number of columns can be adjusted."
+msgstr ""
+
+msgid "Number of columns"
+msgstr ""
+
+msgid "Gap size between columns (px)"
+msgstr ""
+
+msgid ""
+"Default height only applies to items added to a dashboard, this setting will"
+" not change existing items"
+msgstr ""
+
+msgid "Default height for items added to dashboard (rows)"
+msgstr ""
+
+msgid "Save layout"
+msgstr ""
+
+msgid "Dashboard title"
+msgstr "Boshqaruv paneli nomlanishi"
+
+msgid "Dashboard code"
+msgstr ""
+
+msgid "Code can't be longer than 50 characters"
+msgstr ""
+
+msgid "Dashboard description"
+msgstr "Boshqaruv paneli tavsifi"
+
+msgid "Layout"
+msgstr "Joylashish tartibi"
+
+msgid "{{count}} columns"
+msgid_plural "{{count}} columns"
+msgstr[0] ""
+
+msgid "Change layout"
+msgstr ""
+
+msgid "Add new items to"
+msgstr ""
+
+msgid "End of dashboard"
+msgstr ""
+
+msgid "Start of dashboard"
+msgstr ""
+
+msgid "Print"
+msgstr "Chop etish"
+
+msgid "dashboard layout"
+msgstr "boshqarish paneli maketi"
+
+msgid "one item per page"
+msgstr "bir sahifada bir element"
+
+msgid "Print Preview"
+msgstr ""
+
+msgid "For best print results"
+msgstr "Bosib chiqarishda (printerda) eng yaxshi natijaga erishish"
+
+msgid "Use Chrome or Edge web browser"
+msgstr "Chrome yoki Edge brauzeridan foydalaning"
+
+msgid "Wait for all dashboard items to load before printing"
+msgstr ""
+"Bosib chiqarishdan oldin boshqarish paneliga barcha elementlarning "
+"yuklanishini kuting"
+
+msgid ""
+"Use A4 landscape paper size, default margin settings and turn on background "
+"graphics in the browser print dialog"
+msgstr ""
+
+msgid "Getting started"
+msgstr "Ish boshlanganida"
+
+msgid "Search for and open saved dashboards from the top bar."
+msgstr ""
+
+msgid ""
+"Click a dashboard chip to open it. Get back to this screen from the \"More\""
+" menu."
+msgstr ""
+
+msgid "Create a new dashboard with the + button."
+msgstr ""
+
+msgid "Your most viewed dashboards"
+msgstr ""
+
+msgid "No dashboards found. Use the + button to create a new dashboard."
+msgstr ""
+"Boshqaruv paneli topilmadi. Yangi boshqaruv panelini yaratish uchun + "
+"tugmasini bosing."
+
+msgid "Requested dashboard not found"
+msgstr "Soʼralgan boshqaruv paneli topilmadi"
+
+msgid "{{count}} selected"
+msgid_plural "{{count}} selected"
+msgstr[0] ""
+
+msgid "Cannot remove filters while offline"
+msgstr ""
+
+msgid "Removing filters while offline"
+msgstr ""
+
+msgid ""
+"Removing this filter while offline will remove all other filters. Do you "
+"want to remove all filters on this dashboard?"
+msgstr ""
+
+msgid "No, cancel"
+msgstr "Yoʼq, bekor qiling"
+
+msgid "Yes, remove filters"
+msgstr ""
+
+msgid "The dashboard couldn't be made available offline. Try again."
+msgstr ""
+
+msgid "Failed to unstar the dashboard"
+msgstr ""
+
+msgid "Failed to star the dashboard"
+msgstr ""
+
+msgid "Remove from offline storage"
+msgstr ""
+
+msgid "Make available offline"
+msgstr ""
+
+msgid "Sync offline data now"
+msgstr ""
+
+msgid "Unstar dashboard"
+msgstr "Boshqaruv panelidagi yulduzcha oʼchiriladi"
+
+msgid "Star dashboard"
+msgstr "Boshqaruv paneliga yulduzcha oʼrnatiladi"
+
+msgid "Hide description"
+msgstr "Tavsifni berkitish"
+
+msgid "Show description"
+msgstr "Tavsifni koʼrsatish"
+
+msgid "One item per page"
+msgstr "Har bir sahifada bitta element"
+
+msgid "Close dashboard"
+msgstr ""
+
+msgid "More"
+msgstr "Koʼproq"
+
+msgid "Edit"
+msgstr "Tahrirlash"
+
+msgid "Share"
+msgstr "Ulashish"
+
+msgid "Clear dashboard filters?"
+msgstr ""
+
+msgid ""
+"A dashboard's filters can’t be saved offline. Do you want to remove the "
+"filters and make this dashboard available offline?"
+msgstr ""
+
+msgid "Yes, clear filters and sync"
+msgstr ""
+
+msgid "No description"
+msgstr "Tavsif yoʼq"
+
+msgid "Add filter"
+msgstr "Filtr kiritish"
+
+msgid "Offline data last updated {{time}}"
+msgstr ""
+
+msgid "Cannot unstar this dashboard while offline"
+msgstr ""
+
+msgid "Cannot star this dashboard while offline"
+msgstr ""
+
+msgid "Loading dashboard – {{name}}"
+msgstr "Boshqaruv paneli yuklanmoqda - {{name}}"
+
+msgid "Loading dashboard"
+msgstr ""
+
+msgid "Offline"
+msgstr "Offlayn"
+
+msgid "This dashboard cannot be loaded while offline."
+msgstr ""
+
+msgid "Go to start page"
+msgstr ""
+
+msgid "Load dashboard failed"
+msgstr ""
+
+msgid "This dashboard could not be loaded. Please try again later."
+msgstr ""

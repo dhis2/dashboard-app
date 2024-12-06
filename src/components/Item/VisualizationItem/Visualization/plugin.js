@@ -24,10 +24,9 @@ const itemTypeToScriptPath = {
 const hasIntegratedPlugin = (type) =>
     [CHART, REPORT_TABLE, VISUALIZATION, MAP].includes(type)
 
-export const getPluginLaunchUrl = (type, d2, baseUrl) => {
+export const getPluginLaunchUrl = (type, apps, baseUrl) => {
     // 1. lookup in api/apps for the "manually installed" app, this can be a new version for a core (bundled) app
     // 2. fallback to default hardcoded path for the core (bundled) apps
-    const apps = d2.system.installedApps
     const appKey = itemTypeMap[type].appKey
 
     const appDetails = appKey && apps.find((app) => app.key === appKey)
@@ -89,13 +88,13 @@ const fetchPlugin = async (type, baseUrl) => {
     return await scriptsPromise
 }
 
-export const pluginIsAvailable = (type, d2) =>
+export const pluginIsAvailable = (type, apps) =>
     hasIntegratedPlugin(type) ||
-    Boolean(getPluginLaunchUrl(type, d2)) ||
+    Boolean(getPluginLaunchUrl(type, apps)) ||
     Boolean(itemTypeToGlobalVariable[type])
 
-const loadPlugin = async ({ type, config, credentials, d2 }) => {
-    if (!pluginIsAvailable(type, d2)) {
+const loadPlugin = async ({ type, config, credentials }) => {
+    if (!pluginIsAvailable(type)) {
         return
     }
 
@@ -117,7 +116,7 @@ const loadPlugin = async ({ type, config, credentials, d2 }) => {
 export const load = async (
     item,
     visualization,
-    { credentials, activeType, d2, options = {} }
+    { credentials, activeType, options = {} }
 ) => {
     const config = {
         ...visualization,
@@ -126,7 +125,7 @@ export const load = async (
     }
 
     const type = activeType || item.type
-    await loadPlugin({ type, config, credentials, d2 })
+    await loadPlugin({ type, config, credentials })
 }
 
 export const unmount = async (item, activeType) => {

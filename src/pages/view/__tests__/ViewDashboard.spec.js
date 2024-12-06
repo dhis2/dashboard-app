@@ -1,6 +1,5 @@
-import { render } from '@testing-library/react'
+import { render, act } from '@testing-library/react'
 import React from 'react'
-import { act } from 'react-dom/test-utils.js'
 import { Provider } from 'react-redux'
 import configureMockStore from 'redux-mock-store'
 import thunk from 'redux-thunk'
@@ -8,15 +7,14 @@ import { apiPostDataStatistics } from '../../../api/dataStatistics.js'
 import { apiFetchDashboard } from '../../../api/fetchDashboard.js'
 import ViewDashboard from '../ViewDashboard.js'
 
-jest.mock('@dhis2/app-runtime-adapter-d2', () => ({
-    useD2: () => ({
-        d2: {
-            currentUser: {
-                username: 'rainbowDash',
-                id: 'r3nb0d5h',
-            },
+jest.mock('@dhis2/analytics', () => ({
+    useCachedDataQuery: () => ({
+        currentUser: {
+            username: 'rainbowDash',
+            id: 'r3nb0d5h',
         },
     }),
+    getDimensionById: jest.fn(),
 }))
 
 jest.mock('@dhis2/app-runtime', () => ({
@@ -25,6 +23,7 @@ jest.mock('@dhis2/app-runtime', () => ({
         isCached: false,
         recordingState: 'default',
     })),
+    useDataEngine: jest.fn(),
 }))
 
 jest.mock('../../../api/fetchDashboard')

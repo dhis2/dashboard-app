@@ -31,8 +31,8 @@ import {
 } from '../../reducers/selected.js'
 import classes from './styles/ItemGrid.module.css'
 
-const EXPANDED_HEIGHT = 17
-const EXPANDED_HEIGHT_SM = 13
+const EXPANDED_HEIGHT = 19
+const EXPANDED_HEIGHT_SM = 15
 
 const ResponsiveItemGrid = ({ dashboardId, dashboardItems }) => {
     const { width } = useWindowDimensions()
@@ -109,6 +109,7 @@ const ResponsiveItemGrid = ({ dashboardId, dashboardItems }) => {
                     item={item}
                     gridWidth={gridWidth}
                     dashboardMode={VIEW}
+                    isRecording={forceLoad}
                     onToggleItemExpanded={onToggleItemExpanded}
                 />
             </ProgressiveLoadingContainer>

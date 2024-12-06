@@ -34,13 +34,35 @@ const defaultProps = {
 test('renders menu for active type MAP and type CHART', async () => {
     useDhis2ConnectionStatus.mockImplementation(jest.fn(() => online))
     const props = Object.assign({}, defaultProps, {
-        type: CHART,
         activeType: MAP,
+        type: CHART,
+        visualization: {
+            type: 'COLUMN',
+        },
     })
 
-    const { container } = render(<ViewAsMenuItems {...props} />)
+    const { queryByText } = render(<ViewAsMenuItems {...props} />)
 
-    expect(container).toMatchSnapshot()
+    expect(queryByText('View as Map')).toBeNull()
+    expect(queryByText('View as Chart')).toBeTruthy()
+    expect(queryByText('View as Pivot table')).toBeTruthy()
+})
+
+test('renders menu for active type CHART and type MAP', async () => {
+    useDhis2ConnectionStatus.mockImplementation(jest.fn(() => online))
+    const props = Object.assign({}, defaultProps, {
+        activeType: CHART,
+        type: MAP,
+        visualization: {
+            mapViews: [{ layer: 'thematic' }],
+        },
+    })
+
+    const { queryByText } = render(<ViewAsMenuItems {...props} />)
+
+    expect(queryByText('View as Map')).toBeTruthy()
+    expect(queryByText('View as Chart')).toBeNull()
+    expect(queryByText('View as Pivot table')).toBeTruthy()
 })
 
 test('renders disabled menu items when offline', () => {
@@ -49,105 +71,121 @@ test('renders disabled menu items when offline', () => {
     const props = Object.assign({}, defaultProps, {
         type: CHART,
         activeType: MAP,
-    })
-
-    const { container } = render(<ViewAsMenuItems {...props} />)
-    expect(container).toMatchSnapshot()
-})
-
-test('renders menu for active type CHART and type MAP', async () => {
-    useDhis2ConnectionStatus.mockImplementation(jest.fn(() => online))
-    const props = Object.assign({}, defaultProps, {
-        type: MAP,
-        activeType: CHART,
         visualization: {
-            mapViews: [{ layer: 'thematic' }],
+            type: 'COLUMN',
         },
     })
 
     const { container } = render(<ViewAsMenuItems {...props} />)
 
-    expect(container).toMatchSnapshot()
+    const listItems = container.querySelectorAll('li')
+    listItems.forEach((listItem) => {
+        expect(listItem.getAttribute('class')).toContain('disabled')
+    })
 })
 
 test('renders menu for active type MAP and type MAP without Thematic layer', async () => {
     useDhis2ConnectionStatus.mockImplementation(jest.fn(() => online))
     const props = Object.assign({}, defaultProps, {
-        type: MAP,
         activeType: MAP,
+        type: MAP,
         visualization: {
             mapViews: [{ layer: 'earthEngine' }],
         },
     })
 
-    const { container } = render(<ViewAsMenuItems {...props} />)
+    const { container, queryByText } = render(<ViewAsMenuItems {...props} />)
 
-    expect(container).toMatchSnapshot()
+    expect(queryByText('View as Map')).toBeNull()
+    expect(queryByText('View as Chart')).toBeTruthy()
+    expect(queryByText('View as Pivot table')).toBeTruthy()
+
+    const listItems = container.querySelectorAll('li')
+    expect(listItems).toHaveLength(2)
+    listItems.forEach((listItem) => {
+        expect(listItem.getAttribute('class')).toContain('disabled')
+    })
 })
 
 test('renders menu for active type MAP and type MAP without Thematic layer when offline', async () => {
     useDhis2ConnectionStatus.mockImplementation(jest.fn(() => offline))
     const props = Object.assign({}, defaultProps, {
-        type: MAP,
         activeType: MAP,
+        type: MAP,
         visualization: {
             mapViews: [{ layer: 'earthEngine' }],
         },
     })
 
-    const { container } = render(<ViewAsMenuItems {...props} />)
+    const { container, queryByText } = render(<ViewAsMenuItems {...props} />)
 
-    expect(container).toMatchSnapshot()
+    expect(queryByText('View as Map')).toBeNull()
+    expect(queryByText('View as Chart')).toBeTruthy()
+    expect(queryByText('View as Pivot table')).toBeTruthy()
+
+    const listItems = container.querySelectorAll('li')
+    expect(listItems).toHaveLength(2)
+    listItems.forEach((listItem) => {
+        expect(listItem.getAttribute('class')).toContain('disabled')
+    })
 })
 
 test('renders menu for active type REPORT_TABLE and type CHART', async () => {
     useDhis2ConnectionStatus.mockImplementation(jest.fn(() => online))
     const props = Object.assign({}, defaultProps, {
-        type: CHART,
         activeType: REPORT_TABLE,
-        visualization: {},
+        type: CHART,
+        visualization: { type: 'COLUMN' },
     })
 
-    const { container } = render(<ViewAsMenuItems {...props} />)
+    const { queryByText } = render(<ViewAsMenuItems {...props} />)
 
-    expect(container).toMatchSnapshot()
+    expect(queryByText('View as Map')).toBeTruthy()
+    expect(queryByText('View as Chart')).toBeTruthy()
+    expect(queryByText('View as Pivot table')).toBeNull()
 })
 
 test('renders menu for active type CHART and type REPORT_TABLE', async () => {
     useDhis2ConnectionStatus.mockImplementation(jest.fn(() => online))
     const props = Object.assign({}, defaultProps, {
-        type: REPORT_TABLE,
         activeType: CHART,
-        visualization: {},
+        type: REPORT_TABLE,
+        visualization: { type: 'PIVOT_TABLE' },
     })
 
-    const { container } = render(<ViewAsMenuItems {...props} />)
+    const { queryByText } = render(<ViewAsMenuItems {...props} />)
 
-    expect(container).toMatchSnapshot()
+    expect(queryByText('View as Map')).toBeTruthy()
+    expect(queryByText('View as Chart')).toBeNull()
+    expect(queryByText('View as Pivot table')).toBeTruthy()
 })
 
 test('renders menu for active type EVENT_REPORT and type EVENT_CHART', async () => {
     useDhis2ConnectionStatus.mockImplementation(jest.fn(() => online))
     const props = Object.assign({}, defaultProps, {
-        type: EVENT_CHART,
         activeType: EVENT_REPORT,
+        type: EVENT_CHART,
         visualization: {},
     })
 
-    const { container } = render(<ViewAsMenuItems {...props} />)
+    const { queryByText } = render(<ViewAsMenuItems {...props} />)
 
-    expect(container).toMatchSnapshot()
+    expect(queryByText('View as Map')).toBeNull()
+    expect(queryByText('View as Chart')).toBeTruthy()
+    expect(queryByText('View as Pivot table')).toBeNull()
 })
 
 test('renders menu for active type EVENT_CHART and type EVENT_REPORT', async () => {
     useDhis2ConnectionStatus.mockImplementation(jest.fn(() => online))
     const props = Object.assign({}, defaultProps, {
-        type: EVENT_REPORT,
         activeType: EVENT_CHART,
+        type: EVENT_REPORT,
         visualization: {},
     })
 
-    const { container } = render(<ViewAsMenuItems {...props} />)
+    const { queryByText } = render(<ViewAsMenuItems {...props} />)
 
-    expect(container).toMatchSnapshot()
+    expect(queryByText('View as Map')).toBeNull()
+    expect(queryByText('View as Chart')).toBeNull()
+    expect(queryByText('View as Pivot table')).toBeTruthy()
 })

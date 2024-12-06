@@ -1,5 +1,5 @@
+import { useCachedDataQuery } from '@dhis2/analytics'
 import { useConfig } from '@dhis2/app-runtime'
-import { useD2 } from '@dhis2/app-runtime-adapter-d2'
 import { CenteredContent, CircularLoader } from '@dhis2/ui'
 import postRobot from '@krakenjs/post-robot'
 import PropTypes from 'prop-types'
@@ -39,13 +39,11 @@ const IframePlugin = ({
 }) => {
     const dispatch = useDispatch()
     const iframePluginStatus = useSelector(sGetIframePluginStatus)
-
-    const { d2 } = useD2()
     const { baseUrl } = useConfig()
-
     const { userSettings } = useUserSettings()
     const iframeRef = useRef()
     const [error, setError] = useState(null)
+    const { apps } = useCachedDataQuery()
 
     // When this mounts, check if the dashboard is recording
     const { isCached, recordingState } = useCacheableSection(dashboardId)
@@ -66,7 +64,7 @@ const IframePlugin = ({
         () => ({
             isVisualizationLoaded: true,
             forDashboard: true,
-            displayProperty: userSettings.displayProperty,
+            displayProperty: userSettings.keyAnalysisDisplayProperty,
             visualization,
             onError,
 
@@ -98,14 +96,14 @@ const IframePlugin = ({
 
         // 2. check if there is an installed app for the pluginType
         // and use its plugin launch URL
-        const pluginLaunchUrl = getPluginLaunchUrl(pluginType, d2, baseUrl)
+        const pluginLaunchUrl = getPluginLaunchUrl(pluginType, apps, baseUrl)
 
         if (pluginLaunchUrl) {
             return pluginLaunchUrl
         }
 
         setError('missing-plugin')
-    }, [d2, baseUrl, pluginType])
+    }, [apps, baseUrl, pluginType])
 
     const iframeSrc = getIframeSrc()
 
@@ -237,7 +235,7 @@ const IframePlugin = ({
     }
 
     return (
-        <div className={classes.wrapper}>
+        <div className={classes.wrapper} dir={document.dir}>
             {iframeSrc ? (
                 <iframe
                     ref={iframeRef}

@@ -1,4 +1,4 @@
-import { useDhis2ConnectionStatus } from '@dhis2/app-runtime'
+import { useDhis2ConnectionStatus, useDataEngine } from '@dhis2/app-runtime'
 import i18n from '@dhis2/d2-i18n'
 import { AlertStack, AlertBar } from '@dhis2/ui'
 import cx from 'classnames'
@@ -36,6 +36,7 @@ const ViewDashboard = (props) => {
     const [loadFailed, setLoadFailed] = useState(false)
     const { isConnected: online } = useDhis2ConnectionStatus()
     const { isCached } = useCacheableSection(props.requestedId)
+    const engine = useDataEngine()
 
     useEffect(() => {
         setHeaderbarVisible(true)
@@ -55,13 +56,17 @@ const ViewDashboard = (props) => {
 
     useEffect(() => {
         if (!props.passiveViewRegistered && online) {
-            apiPostDataStatistics('PASSIVE_DASHBOARD_VIEW', props.requestedId)
+            apiPostDataStatistics(
+                'PASSIVE_DASHBOARD_VIEW',
+                props.requestedId,
+                engine
+            )
                 .then(() => {
                     props.registerPassiveView()
                 })
                 .catch((error) => console.info(error))
         }
-    }, [props.passiveViewRegistered])
+    }, [props.passiveViewRegistered, engine])
 
     useEffect(() => {
         const loadDashboard = async () => {

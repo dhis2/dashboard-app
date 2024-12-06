@@ -3,8 +3,11 @@
 }
 
 .line {
-    margin: -1px 0px 0px;
-    height: 1px;
+    margin-block-start: -1px;
+    margin-block-end: 0px;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    block-size: 1px;
     border: none;
     background-color: var(--colors-grey100);
 }
@@ -16,5 +19,5 @@
 .scrollContainer {
     position: relative;
     overflow-y: auto;
-    height: 334px;
+    block-size: 376px;
 }

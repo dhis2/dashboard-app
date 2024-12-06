@@ -1,0 +1,92 @@
+name: 'verify pr'
+
+on:
+    pull_request:
+        types: ['opened', 'labeled', 'reopened', 'synchronize']
+
+env:
+    GIT_AUTHOR_NAME: '@dhis2-bot'
+    GIT_AUTHOR_EMAIL: 'apps@dhis2.org'
+    GIT_COMMITTER_NAME: '@dhis2-bot'
+    GIT_COMMITTER_EMAIL: 'apps@dhis2.org'
+    GH_TOKEN: ${{secrets.DHIS2_BOT_GITHUB_TOKEN}}
+    CI: true
+
+jobs:
+    setup-matrix:
+        runs-on: ubuntu-latest
+        outputs:
+            matrix: ${{ steps.set-matrix.outputs.specs }}
+        steps:
+            - uses: actions/checkout@v4
+            - name: Generate Test matrix
+              id: set-matrix
+              run: echo "::set-output name=specs::$(node cypress/support/generateTestMatrix.js)"
+
+    build:
+        runs-on: ubuntu-latest
+        steps:
+            - uses: actions/checkout@v4
+            - uses: actions/setup-node@v4
+              with:
+                  node-version: 18.x
+
+            - name: Install
+              run: yarn install --frozen-lockfile
+
+            - name: Build
+              run: yarn d2-app-scripts build
+
+            - uses: actions/upload-artifact@v4
+              with:
+                  name: app-build
+                  path: |
+                      **/build
+                      !**/node_modules
+                  retention-days: 1
+
+    lint:
+        runs-on: ubuntu-latest
+        steps:
+            - uses: actions/checkout@v4
+            - uses: actions/setup-node@v4
+              with:
+                  node-version: 18.x
+
+            - name: Install
+              run: yarn install --frozen-lockfile
+
+            - name: Generate translations
+              run: yarn d2-app-scripts i18n generate
+
+            - name: Lint
+              run: yarn d2-style check
+
+    test:
+        runs-on: ubuntu-latest
+        steps:
+            - uses: actions/checkout@v4
+            - uses: actions/setup-node@v4
+              with:
+                  node-version: 18.x
+
+            - name: Install
+              run: yarn install --frozen-lockfile
+
+            - name: Generate translations
+              run: yarn d2-app-scripts i18n generate
+
+            - name: Test
+              run: yarn d2-app-scripts test
+
+    call-workflow-e2e-prod:
+        if: ${{ !contains(github.event.head_commit.message, '[skip ci]') }}
+        needs: [build, lint, test, setup-matrix]
+        uses: dhis2/workflows/.github/workflows/analytics-e2e-tests-prod.yml@feat/support-hardcoded-dev-version
+        with:
+            should_record: ${{ contains(github.event.head_commit.message, '[e2e record]') || contains(join(github.event.pull_request.labels.*.name), 'e2e record')}}
+            spec-group: ${{ needs.setup-matrix.outputs.matrix }}
+        secrets:
+            username: ${{ secrets.CYPRESS_DHIS2_USERNAME }}
+            password: ${{ secrets.CYPRESS_DHIS2_PASSWORD }}
+            recordkey: ${{ secrets.CYPRESS_RECORD_KEY }}

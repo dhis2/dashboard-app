@@ -1,9 +1,29 @@
 version: 2
 updates:
     - package-ecosystem: npm
-      directory: '/'
+      directory: /
       schedule:
           interval: weekly
-      open-pull-requests-limit: 10
-      target-branch: master
+      open-pull-requests-limit: 5
       versioning-strategy: increase
+      groups:
+          security:
+              applies-to: security-updates
+              update-types:
+                  - minor
+                  - patch
+          devDependencies:
+              applies-to: version-updates
+              dependency-type: development
+              update-types:
+                  - minor
+                  - patch
+          dependencies:
+              applies-to: version-updates
+              dependency-type: production
+              update-types:
+                  - minor
+                  - patch
+              exclude-patterns:
+                  - '*@dhis2*'
+                  - 'react-grid-layout'
