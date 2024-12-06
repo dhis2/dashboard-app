@@ -2,7 +2,7 @@ import { IconDashboardWindow16, colors } from '@dhis2/ui'
 import PropTypes from 'prop-types'
 import React from 'react'
 import { Link } from 'react-router-dom'
-import { OfflineSaved } from '../../components/DashboardsBar/assets/icons.js'
+import { IconOfflineSaved } from '../../components/IconOfflineSaved.js'
 import { useCacheableSection } from '../../modules/useCacheableSection.js'
 import styles from './styles/DashboardLink.module.css'
 
@@ -15,7 +15,7 @@ const DashboardLink = ({ id, name }) => {
                 <IconDashboardWindow16 color={colors.grey600} />
             </span>
             <span>{name}</span>
-            {isCached && <OfflineSaved className={styles.adornment} />}
+            {isCached && <IconOfflineSaved className={styles.adornment} />}
         </Link>
     )
 }

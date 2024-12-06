@@ -14,7 +14,6 @@ jest.mock(
         }
 )
 
-/* eslint-disable react/prop-types, no-unused-vars*/
 jest.mock('@dhis2/ui', () => {
     const originalModule = jest.requireActual('@dhis2/ui')
     // InputField, TextAreaField, Radio,
@@ -39,7 +38,6 @@ jest.mock('@dhis2/ui', () => {
         },
     }
 })
-/* eslint-enable react/prop-types, no-unused-vars */
 
 describe('TitleBar', () => {
     it('renders correctly with name and description', () => {

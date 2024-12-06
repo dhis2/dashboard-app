@@ -1,0 +1,16 @@
+.container {
+    display: flex;
+    gap: 8px;
+}
+.displayName {
+    flex-wrap: wrap;
+}
+.container > :global(svg) {
+    inline-size: 16px;
+    block-size: 16px;
+    flex-shrink: 0;
+}
+.selectedItem {
+    background-color: var(--colors-teal600) !important;
+    color: var(--colors-white) !important;
+}

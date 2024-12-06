@@ -23,6 +23,7 @@ const MenuItemWithTooltip = ({
 
     return (
         <MenuItem
+            ariaLabel={label}
             dense
             disabled={notAllowed}
             label={

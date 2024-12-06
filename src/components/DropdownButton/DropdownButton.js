@@ -17,7 +17,7 @@ const DropdownButton = ({
 
     const ArrowIconComponent = open ? ArrowUp : ArrowDown
     return (
-        <div ref={anchorRef}>
+        <div ref={anchorRef} className={styles.container}>
             <OfflineTooltip disabledWhenOffline={disabledWhenOffline}>
                 <Button onClick={onClick} type="button" {...rest}>
                     {children}

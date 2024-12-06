@@ -5,7 +5,6 @@ import configureMockStore from 'redux-mock-store'
 import WindowDimensionsProvider from '../../../components/WindowDimensionsProvider.js'
 import NewDashboard from '../NewDashboard.js'
 
-/* eslint-disable react/prop-types */
 jest.mock('@dhis2/ui', () => {
     const originalModule = jest.requireActual('@dhis2/ui')
 
@@ -26,7 +25,6 @@ jest.mock('@dhis2/ui', () => {
         },
     }
 })
-/* eslint-enable react/prop-types */
 
 jest.mock(
     '../ActionsBar',
