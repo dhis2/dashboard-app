@@ -139,7 +139,7 @@ const ResponsiveItemGrid = () => {
                             isEnteringSlideshow || isSlideshowView,
                         [classes.hiddenItem]: itemIsFullscreen === false,
                         [classes.displayedItem]: itemIsFullscreen,
-                        [classes.preFullscreen]: isEnteringSlideshow,
+                        [classes.enteringFullscreen]: isEnteringSlideshow,
                     }
                 )}
                 itemId={item.id}
@@ -176,7 +176,10 @@ const ResponsiveItemGrid = () => {
     }
 
     return (
-        <div className={classes.slideshowContainer} ref={slideshowElementRef}>
+        <div
+            className={cx({ [classes.slideshowContainer]: isSlideshowView })}
+            ref={slideshowElementRef}
+        >
             <ResponsiveReactGridLayout
                 className={cx(classes.grid, {
                     [classes.slideshowGrid]: isSlideshowView,

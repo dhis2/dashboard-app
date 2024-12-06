@@ -1,5 +1,6 @@
 .slideshowContainer {
     background-color: #f4f6f8;
+    block-size: 100vh;
 }
 .grid {
     margin-block-start: var(--spacers-dp16);
@@ -17,13 +18,13 @@
 }
 .fullscreenItem {
     width: 100% !important;
-    height: calc(100vh - 40px) !important;
+    height: 100% !important;
     transform: none !important;
 }
 /* stylelint-enable csstools/use-logical */
 
 .hiddenItem,
-.preFullscreen {
+.enteringFullscreen {
     opacity: 0;
 }
 
