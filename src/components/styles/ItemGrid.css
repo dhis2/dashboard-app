@@ -23,6 +23,7 @@
 
 .react-grid-item.edit:hover {
     cursor: move;
+    border-color: #bfcad5;
 }
 
 .react-grid-item.edit.react-resizable-hide {
