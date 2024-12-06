@@ -6,5 +6,6 @@
 }
 
 .empty {
-    color: #888;
+    color: var(--colors-grey600);
+    font-style: italic;
 }
