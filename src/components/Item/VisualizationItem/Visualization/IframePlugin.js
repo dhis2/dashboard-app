@@ -28,7 +28,6 @@ import classes from './styles/IframePlugin.module.css'
 
 const IframePlugin = ({
     activeType,
-    filterVersion,
     style,
     visualization,
     dashboardMode,
@@ -115,7 +114,7 @@ const IframePlugin = ({
 
     useEffect(() => {
         setError(null)
-    }, [filterVersion, visualization.type])
+    }, [visualization.type])
 
     if (error) {
         return error === 'missing-plugin' ? (
@@ -174,7 +173,6 @@ IframePlugin.propTypes = {
     activeType: PropTypes.string,
     dashboardId: PropTypes.string,
     dashboardMode: PropTypes.string,
-    filterVersion: PropTypes.string,
     isFirstOfType: PropTypes.bool,
     itemId: PropTypes.string,
     itemType: PropTypes.string,
