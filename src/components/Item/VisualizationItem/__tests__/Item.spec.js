@@ -5,7 +5,7 @@ import configureMockStore from 'redux-mock-store'
 import { apiFetchVisualization } from '../../../../api/fetchVisualization.js'
 import SystemSettingsProvider from '../../../SystemSettingsProvider.js'
 import WindowDimensionsProvider from '../../../WindowDimensionsProvider.js'
-import Item from '../Item.js'
+import { Item } from '../../Item.js'
 
 jest.mock('../../../../api/fetchVisualization')
 jest.mock('../../../SystemSettingsProvider')
