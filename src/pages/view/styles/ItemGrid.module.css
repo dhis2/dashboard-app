@@ -1,3 +1,6 @@
+.slideshowContainer {
+    background-color: #f4f6f8;
+}
 .grid {
     margin-block-start: var(--spacers-dp16);
     background-color: #f4f6f8;

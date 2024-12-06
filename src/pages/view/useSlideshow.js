@@ -9,7 +9,7 @@ const useSlideshow = (displayItems, slideshowElementRef) => {
     const dispatch = useDispatch()
     const firstItemIndex = useSelector(sGetSlideshow)
     const [itemIndex, setItemIndex] = useState(null)
-    const [isPreSlideshow, setIsPreSlideshow] = useState(false)
+    const [isEnteringSlideshow, setIsEnteringSlideshow] = useState(false)
 
     // Sort items into order on dashboard
     // and filter out items that don't support fullscreen
@@ -26,12 +26,10 @@ const useSlideshow = (displayItems, slideshowElementRef) => {
     useEffect(() => {
         if (Number.isInteger(firstItemIndex)) {
             const el = slideshowElementRef?.current
-            setIsPreSlideshow(true)
-            el?.requestFullscreen({ navigationUI: 'show' })
-            setTimeout(() => {
+            setIsEnteringSlideshow(true)
+            el?.requestFullscreen({ navigationUI: 'show' }).then(() => {
                 setItemIndex(firstItemIndex)
-                setIsPreSlideshow(false)
-            }, 200)
+            })
         } else {
             setItemIndex(null)
         }
@@ -75,6 +73,10 @@ const useSlideshow = (displayItems, slideshowElementRef) => {
         const handleFullscreenChange = () => {
             if (!document.fullscreenElement) {
                 dispatch(acSetSlideshow(null))
+            } else {
+                setTimeout(() => {
+                    setIsEnteringSlideshow(false)
+                }, 200)
             }
         }
 
@@ -98,7 +100,7 @@ const useSlideshow = (displayItems, slideshowElementRef) => {
         nextItem,
         prevItem,
         sortedItems,
-        isPreSlideshow,
+        isEnteringSlideshow,
     }
 }
 

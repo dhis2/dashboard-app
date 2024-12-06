@@ -51,7 +51,7 @@ const ResponsiveItemGrid = () => {
     const {
         slideshowItemIndex,
         sortedItems,
-        isPreSlideshow,
+        isEnteringSlideshow,
         exitSlideshow,
         nextItem,
         prevItem,
@@ -136,10 +136,10 @@ const ResponsiveItemGrid = () => {
                     getGridItemDomElementClassName(item.id),
                     {
                         [classes.fullscreenItem]:
-                            isPreSlideshow || isSlideshowView,
+                            isEnteringSlideshow || isSlideshowView,
                         [classes.hiddenItem]: itemIsFullscreen === false,
                         [classes.displayedItem]: itemIsFullscreen,
-                        [classes.preFullscreen]: isPreSlideshow,
+                        [classes.preFullscreen]: isEnteringSlideshow,
                     }
                 )}
                 itemId={item.id}
@@ -176,7 +176,7 @@ const ResponsiveItemGrid = () => {
     }
 
     return (
-        <div ref={slideshowElementRef}>
+        <div className={classes.slideshowContainer} ref={slideshowElementRef}>
             <ResponsiveReactGridLayout
                 className={cx(classes.grid, {
                     [classes.slideshowGrid]: isSlideshowView,
@@ -202,7 +202,7 @@ const ResponsiveItemGrid = () => {
             >
                 {getItemComponents(displayItems)}
             </ResponsiveReactGridLayout>
-            {isSlideshowView && !isPreSlideshow && (
+            {isSlideshowView && !isEnteringSlideshow && (
                 <SlideshowControlbar
                     slideshowItemIndex={slideshowItemIndex}
                     exitSlideshow={exitSlideshow}
