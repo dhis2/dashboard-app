@@ -35,7 +35,11 @@
 }
 
 .react-grid-item.SPACER.edit {
-    background-color: rgba(255, 255, 255, 0.3);
+    background-color: transparent;
+    border: 1px dashed #bfcad5;
+}
+.react-grid-item.SPACER.edit:hover {
+    border-color: var(--colors-grey500);
 }
 
 .react-grid-item.react-grid-placeholder {
