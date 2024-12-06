@@ -16,7 +16,7 @@ import {
     IconFullscreenExit16,
     IconLaunch16,
     IconMessages16,
-    IconMore24,
+    IconMore16,
 } from '@dhis2/ui'
 import PropTypes from 'prop-types'
 import React, { useState, createRef } from 'react'
@@ -115,7 +115,7 @@ const ItemContextMenu = (props) => {
                     secondary
                     onClick={openMenu}
                     dataTest="dashboarditem-menu-button"
-                    icon={<IconMore24 color={colors.grey700} />}
+                    icon={<IconMore16 color={colors.grey700} />}
                 />
             </div>
             {menuIsOpen && (
