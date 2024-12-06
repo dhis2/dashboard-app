@@ -1,19 +1,20 @@
 # 
 # Translators:
 # Viktor Varland <viktor@dhis2.org>, 2020
-# Sheila André <sandre@saudigitus.org>, 2021
 # Ge Joao <gsimango@saudigitus.org>, 2021
+# Sheila André <sandre@saudigitus.org>, 2021
 # Fernando Jorge Bade, 2021
 # David Júnior <davidjr.mondlane@gmail.com>, 2022
 # Philip Larsen Donnelly, 2024
 # Gabriela Rodriguez <grodriguezcoronado@gmail.com>, 2024
+# Shelsea Chumaio, 2024
 # 
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2024-03-19T12:31:03.302Z\n"
+"POT-Creation-Date: 2024-08-27T07:26:05.058Z\n"
 "PO-Revision-Date: 2019-06-25 12:37+0000\n"
-"Last-Translator: Gabriela Rodriguez <grodriguezcoronado@gmail.com>, 2024\n"
+"Last-Translator: Shelsea Chumaio, 2024\n"
 "Language-Team: Portuguese (https://app.transifex.com/hisp-uio/teams/100509/pt/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -83,15 +84,19 @@ msgstr "Voltar para todas as interpretações"
 
 msgid "Filters are not applied to line list dashboard items"
 msgstr ""
+"Os filtros não são aplicados aos itens do painel de controlo da lista de "
+"linhas"
 
 msgid "Filters not applied"
-msgstr ""
+msgstr "Filtros não aplicados"
 
 msgid "Only Period and Organisation unit filters can be applied to this item"
 msgstr ""
+"Apenas os filtros de unidade Período e Organização podem ser aplicados a "
+"este item"
 
 msgid "Some filters not applied"
-msgstr ""
+msgstr "Alguns filtros não aplicados"
 
 msgid "There was a problem loading this dashboard item"
 msgstr "Ocorreu um problema ao carregar este item do painel"
@@ -112,19 +117,19 @@ msgid "This map can't be displayed as a chart"
 msgstr "Este mapa não pode ser exibido como um gráfico"
 
 msgid "This map can't be displayed as a pivot table"
-msgstr ""
+msgstr "Este mapa não pode ser apresentado como uma tabela dinâmica"
 
 msgid "This visualization can't be displayed as a pivot table"
-msgstr ""
+msgstr "Esta visualização não pode ser exibida como uma tabela dinâmica"
 
 msgid "This visualization can't be displayed as a map"
-msgstr ""
+msgstr "Esta visualização não pode ser apresentada como um mapa"
 
 msgid "View as Chart"
 msgstr "Ver como gráfico"
 
 msgid "View as Pivot table"
-msgstr ""
+msgstr "Ver como tabela dinâmica"
 
 msgid "View as Map"
 msgstr "Ver como mapa"
@@ -133,10 +138,10 @@ msgid "There was a problem loading interpretations for this item"
 msgstr "Ocorreu um problema ao carregar as interpretações para este item"
 
 msgid "The plugin for rendering this item is not available"
-msgstr ""
+msgstr "O plug-in para renderizar este item não está disponível"
 
 msgid "Install the {{appName}} app from the App Hub"
-msgstr ""
+msgstr "Instalar a aplicação {{appName}} a partir do App Hub"
 
 msgid "No data to display"
 msgstr "Nenhum dado para exibir"
@@ -146,12 +151,17 @@ msgid ""
 "                                '.'\n"
 "                            )} or higher in order to display this item."
 msgstr ""
+"Instalar a versão da aplicação Lista de Linhas ${minLLVersion.join(\n"
+"                                '.'\n"
+"                            )} ou superior para exibir este item."
 
 msgid "Show without filters"
-msgstr ""
+msgstr "Mostrar sem filtros"
 
 msgid "Maps with Earth Engine layers cannot be displayed when offline"
-msgstr "Mapas com camadas do Earth Engine não podem ser exibidos off-line"
+msgstr ""
+"Os mapas com camadas do Sistema Terra não podem ser apresentados quando "
+"estão offline"
 
 msgid "Unable to load the plugin for this item"
 msgstr "Não foi possível carregar o plug-in para este item"
@@ -184,7 +194,7 @@ msgid "Event charts"
 msgstr "Gráficos de eventos"
 
 msgid "Line lists"
-msgstr ""
+msgstr "Listas de linhas"
 
 msgid "Apps"
 msgstr "Aplicações"
@@ -243,7 +253,7 @@ msgid "Delete"
 msgstr "Apagar"
 
 msgid "Exit without saving"
-msgstr "Sair sem salvar"
+msgstr "Sair sem gravar"
 
 msgid "Go to dashboards"
 msgstr "Ir para painéis"
@@ -257,7 +267,7 @@ msgid ""
 "this dashboard?"
 msgstr ""
 "A exclusão do painel \"{{ dashboardName }}\" o removerá para todos os "
-"utilizadores. Essa ação não pode ser desfeita. Tem certeza de que deseja "
+"utilizadores. Essa acção não pode ser desfeita. Tem certeza de que deseja "
 "excluir permanentemente este painel?"
 
 msgid "Cancel"
@@ -274,7 +284,7 @@ msgstr ""
 "descartar essas alterações não salvas?"
 
 msgid "No, stay here"
-msgstr "Não, fique aqui"
+msgstr "Não, fica aqui"
 
 msgid "Yes, discard changes"
 msgstr "Sim, descartar alterações"
@@ -319,7 +329,7 @@ msgid "Selected Filters"
 msgstr "Filtros selecionados"
 
 msgid "Confirm"
-msgstr "confirme"
+msgstr "Confirmar"
 
 msgid "There are no items on this dashboard"
 msgstr "Não há itens neste painel"
@@ -329,6 +339,9 @@ msgstr "Mostrar menos"
 
 msgid "Show more"
 msgstr "Mostrar mais"
+
+msgid "Open visualization in new tab"
+msgstr "Abrir a visualização num novo separador"
 
 msgid "Insert"
 msgstr "Inserir"
@@ -346,7 +359,7 @@ msgid "Additional items"
 msgstr "Itens adicionais"
 
 msgid "Dashboard layout"
-msgstr "Layout do painel"
+msgstr "Disposição do painel"
 
 msgid "Freeflow"
 msgstr "Fluxo livre"
@@ -383,7 +396,7 @@ msgid "Default height for items added to dashboard (rows)"
 msgstr "Altura padrão para itens adicionados ao painel (linhas)"
 
 msgid "Save layout"
-msgstr "Salvar layout"
+msgstr "Gravar disposição"
 
 msgid "Dashboard title"
 msgstr "Título do painel"
@@ -398,7 +411,7 @@ msgid "Dashboard description"
 msgstr "Descrição do painel"
 
 msgid "Layout"
-msgstr "Esquema"
+msgstr "Disposição"
 
 msgid "{{count}} columns"
 msgid_plural "{{count}} columns"
@@ -407,7 +420,7 @@ msgstr[1] "{{count}} colunas"
 msgstr[2] "{{count}} colunas"
 
 msgid "Change layout"
-msgstr "Alterar layout"
+msgstr "Alterar disposição"
 
 msgid "Add new items to"
 msgstr "Adicionar novos itens a"
@@ -422,7 +435,7 @@ msgid "Print"
 msgstr "Imprimir"
 
 msgid "dashboard layout"
-msgstr "layout do painel"
+msgstr "Disposição do painel"
 
 msgid "one item per page"
 msgstr "um item por página"
@@ -448,7 +461,7 @@ msgstr ""
 "os gráficos de fundo na caixa de diálogo de impressão do navegador"
 
 msgid "Getting started"
-msgstr "Começando"
+msgstr "Começar"
 
 msgid "Search for and open saved dashboards from the top bar."
 msgstr "Pesquise e abra painéis salvos na barra superior."
@@ -457,14 +470,14 @@ msgid ""
 "Click a dashboard chip to open it. Get back to this screen from the \"More\""
 " menu."
 msgstr ""
-"Clique em um chip do painel para abri-lo. Volte para esta tela a partir do "
-"menu \"Mais\"."
+"Clique numa ficha do painel de controlo para a abrir. Regressar a este ecrã "
+"a partir do menu \"Mais\"."
 
 msgid "Create a new dashboard with the + button."
 msgstr "Crie um novo painel com o botão +."
 
 msgid "Your most viewed dashboards"
-msgstr "Seus painéis mais vistos"
+msgstr "Os seus painéis de controlo mais vistos"
 
 msgid "No dashboards found. Use the + button to create a new dashboard."
 msgstr "Painel não encontrado. Use o botão + para criar um novo painel."
@@ -476,7 +489,7 @@ msgid "{{count}} selected"
 msgid_plural "{{count}} selected"
 msgstr[0] "{{count}} selecionado"
 msgstr[1] "{{count}} selecionado"
-msgstr[2] "{{count}} selecionado"
+msgstr[2] "{{count}} seleccionado"
 
 msgid "Cannot remove filters while offline"
 msgstr "Não é possível remover filtros enquanto estiver off-line"
@@ -519,7 +532,7 @@ msgid "Unstar dashboard"
 msgstr "Remover estrela do painel"
 
 msgid "Star dashboard"
-msgstr "Painel estrela"
+msgstr "Painel de marcado como favorito"
 
 msgid "Hide description"
 msgstr "Ocultar descrição"
@@ -540,7 +553,7 @@ msgid "Edit"
 msgstr "Editar"
 
 msgid "Share"
-msgstr "Partilha"
+msgstr "Partilhar"
 
 msgid "Clear dashboard filters?"
 msgstr "Limpar filtros do painel?"
@@ -549,7 +562,7 @@ msgid ""
 "A dashboard's filters can’t be saved offline. Do you want to remove the "
 "filters and make this dashboard available offline?"
 msgstr ""
-"Os filtros de um painel não podem ser salvos offline. Deseja remover os "
+"Os filtros de um painel não podem ser gravados offline. Deseja remover os "
 "filtros e disponibilizar este painel offline?"
 
 msgid "Yes, clear filters and sync"
@@ -562,7 +575,7 @@ msgid "Add filter"
 msgstr "Adicionar filtros"
 
 msgid "Offline data last updated {{time}}"
-msgstr "Dados offline atualizados pela última vez {{time}}"
+msgstr "Dados offline actualizados pela última vez {{time}}"
 
 msgid "Cannot unstar this dashboard while offline"
 msgstr ""
@@ -582,7 +595,8 @@ msgid "Offline"
 msgstr "Desligado"
 
 msgid "This dashboard cannot be loaded while offline."
-msgstr "Este painel não pode ser carregado enquanto estiver offline."
+msgstr ""
+"Este painel de controlo não pode ser carregado enquanto estiver offline."
 
 msgid "Go to start page"
 msgstr "Ir para a página inicial"
@@ -592,4 +606,5 @@ msgstr "Falha ao carregar o painel"
 
 msgid "This dashboard could not be loaded. Please try again later."
 msgstr ""
-"Este painel não pôde ser carregado. Por favor, tente novamente mais tarde."
+"Não foi possível carregar este painel de controlo. Por favor, tente "
+"novamente mais tarde."
