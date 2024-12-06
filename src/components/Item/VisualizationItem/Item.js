@@ -204,6 +204,7 @@ class Item extends Component {
             dashboardMode,
             itemFilters,
             isFullscreen,
+            isSlideshowView,
             setSlideshow,
             sortIndex,
         } = this.props
@@ -225,6 +226,7 @@ class Item extends Component {
                     activeFooter={showFooter}
                     fullscreenSupported={this.isFullscreenSupported()}
                     loadItemFailed={this.state.loadItemFailed}
+                    tabIndex={isSlideshowView ? -1 : 0}
                 />
             ) : null
 
@@ -344,6 +346,7 @@ Item.propTypes = {
     isEditing: PropTypes.bool,
     isFullscreen: PropTypes.bool,
     isRecording: PropTypes.bool,
+    isSlideshowView: PropTypes.bool,
     item: PropTypes.object,
     itemFilters: PropTypes.object,
     setActiveType: PropTypes.func,
@@ -374,7 +377,7 @@ const mapStateToProps = (state, ownProps) => {
             state,
             getVisualizationId(ownProps.item)
         ),
-        slideshow: sGetSlideshow(state),
+        isSlideshowView: sGetSlideshow(state) !== null,
     }
 }
 

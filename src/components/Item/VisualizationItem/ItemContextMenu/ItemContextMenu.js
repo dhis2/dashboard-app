@@ -107,6 +107,7 @@ const ItemContextMenu = (props) => {
                     onClick={openMenu}
                     dataTest="dashboarditem-menu-button"
                     icon={<IconMore24 color={colors.grey700} />}
+                    tabIndex={props.tabIndex}
                 />
             </div>
             {menuIsOpen && (
@@ -175,6 +176,7 @@ ItemContextMenu.propTypes = {
     fullscreenSupported: PropTypes.bool,
     item: PropTypes.object,
     loadItemFailed: PropTypes.bool,
+    tabIndex: PropTypes.number,
     visualization: PropTypes.object,
     onSelectActiveType: PropTypes.func,
     onToggleFooter: PropTypes.func,
