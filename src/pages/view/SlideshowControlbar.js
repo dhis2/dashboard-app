@@ -15,6 +15,8 @@ const SlideshowControlbar = ({
     prevItem,
     numItems,
 }) => {
+    const navigationDisabled = numItems === 1
+
     return (
         <div className={styles.container}>
             <div className={styles.controls}>
@@ -25,15 +27,31 @@ const SlideshowControlbar = ({
                 >
                     <IconCross24 color={colors.white} />
                 </button>
-                <button onClick={prevItem} data-test="slideshow-prev-button">
-                    <IconChevronLeft24 color={colors.white} />
+                <button
+                    disabled={navigationDisabled}
+                    onClick={prevItem}
+                    data-test="slideshow-prev-button"
+                >
+                    <IconChevronLeft24
+                        color={
+                            navigationDisabled ? colors.grey600 : colors.white
+                        }
+                    />
                 </button>
                 <span
                     className={styles.pageCounter}
                     data-test="slideshow-page-counter"
                 >{`${slideshowItemIndex + 1} / ${numItems}`}</span>
-                <button onClick={nextItem} data-test="slideshow-next-button">
-                    <IconChevronRight24 color={colors.white} />
+                <button
+                    disabled={navigationDisabled}
+                    onClick={nextItem}
+                    data-test="slideshow-next-button"
+                >
+                    <IconChevronRight24
+                        color={
+                            navigationDisabled ? colors.grey600 : colors.white
+                        }
+                    />
                 </button>
             </div>
         </div>

@@ -27,10 +27,13 @@
     cursor: pointer;
 }
 
-.ontrols button:hover {
+.controls button:hover {
     background-color: #202124;
 }
 
+.controls button:disabled {
+    cursor: not-allowed;
+}
 .pageCounter {
     font-family: 'Roboto', sans-serif;
     font-weight: 400;
