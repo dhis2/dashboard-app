@@ -7,10 +7,6 @@ header.hidden {
     flex-direction: column;
 }
 
-.react-grid-item.print .dashboard-item-content {
-    flex: 1;
-}
-
 .react-grid-item.PAGEBREAK.removed {
     display: none !important;
 }

@@ -1,6 +1,7 @@
 import { useConfig } from '@dhis2/app-runtime'
 import i18n from '@dhis2/d2-i18n'
 import { Divider, IconFileDocument16, colors, spacers } from '@dhis2/ui'
+import cx from 'classnames'
 import PropTypes from 'prop-types'
 import React from 'react'
 import { connect } from 'react-redux'
@@ -22,7 +23,13 @@ const getContentItems = (item) =>
             array.findIndex((el) => el.id === item.id) === index
     )
 
-const ListItem = ({ item, dashboardMode, removeItem, updateItem }) => {
+const ListItem = ({
+    item,
+    dashboardMode,
+    removeItem,
+    updateItem,
+    isFullscreen,
+}) => {
     const { baseUrl } = useConfig()
     const contentItems = getContentItems(item)
 
@@ -74,7 +81,11 @@ const ListItem = ({ item, dashboardMode, removeItem, updateItem }) => {
                 isShortened={item.shortened}
             />
             <Divider margin={`0 0 ${spacers.dp4} 0`} />
-            <div className="dashboard-item-content">
+            <div
+                className={cx(classes.content, {
+                    [classes.fullscreen]: isFullscreen,
+                })}
+            >
                 <ul className={classes.list}>
                     {contentItems.map((contentItem) => (
                         <li className={classes.item} key={contentItem.id}>
@@ -92,6 +103,7 @@ const ListItem = ({ item, dashboardMode, removeItem, updateItem }) => {
 
 ListItem.propTypes = {
     dashboardMode: PropTypes.string,
+    isFullscreen: PropTypes.bool,
     item: PropTypes.object,
     removeItem: PropTypes.func,
     updateItem: PropTypes.func,

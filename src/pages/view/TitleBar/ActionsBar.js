@@ -19,10 +19,13 @@ import { Link, Redirect } from 'react-router-dom'
 import { acSetDashboardStarred } from '../../../actions/dashboards.js'
 import { acClearItemFilters } from '../../../actions/itemFilters.js'
 import { acSetShowDescription } from '../../../actions/showDescription.js'
+import { acSetSlideshow } from '../../../actions/slideshow.js'
 import { apiPostShowDescription } from '../../../api/description.js'
 import ConfirmActionDialog from '../../../components/ConfirmActionDialog.js'
 import DropdownButton from '../../../components/DropdownButton/DropdownButton.js'
 import MenuItem from '../../../components/MenuItemWithTooltip.js'
+import { useSystemSettings } from '../../../components/SystemSettingsProvider.js'
+import { itemTypeSupportsFullscreen } from '../../../modules/itemTypes.js'
 import { useCacheableSection } from '../../../modules/useCacheableSection.js'
 import { orObject } from '../../../modules/util.js'
 import { sGetDashboardStarred } from '../../../reducers/dashboards.js'
@@ -41,11 +44,13 @@ const ViewActions = ({
     showDescription,
     starred,
     setDashboardStarred,
+    setSlideshow,
     updateShowDescription,
     removeAllFilters,
     restrictFilters,
     allowedFilters,
     filtersLength,
+    dashboardItems,
 }) => {
     const [moreOptionsSmallIsOpen, setMoreOptionsSmallIsOpen] = useState(false)
     const [moreOptionsIsOpen, setMoreOptionsIsOpen] = useState(false)
@@ -57,6 +62,7 @@ const ViewActions = ({
     const { isDisconnected: offline } = useDhis2ConnectionStatus()
     const { lastUpdated, isCached, startRecording, remove } =
         useCacheableSection(id)
+    const { allowVisFullscreen } = useSystemSettings().systemSettings
 
     const { show } = useAlert(
         ({ msg }) => msg,
@@ -132,6 +138,10 @@ const ViewActions = ({
         setSharingDialogIsOpen(!sharingDialogIsOpen)
 
     const userAccess = orObject(access)
+
+    const hasSlideshowItems = dashboardItems?.some(
+        (i) => itemTypeSupportsFullscreen(i.type) || false
+    )
 
     const getMoreMenu = () => (
         <FlyoutMenu>
@@ -226,6 +236,12 @@ const ViewActions = ({
         </DropdownButton>
     )
 
+    const slideshowTooltipContent = !hasSlideshowItems
+        ? i18n.t('No dashboard items to show in slideshow')
+        : offline && !isCached
+        ? i18n.t('Not available offline')
+        : null
+
     return (
         <>
             <div className={classes.actions}>
@@ -253,6 +269,22 @@ const ViewActions = ({
                                 onClick={onToggleSharingDialog}
                             >
                                 {i18n.t('Share')}
+                            </Button>
+                        </OfflineTooltip>
+                    ) : null}
+                    {allowVisFullscreen ? (
+                        <OfflineTooltip
+                            content={slideshowTooltipContent}
+                            disabled={!!slideshowTooltipContent}
+                            disabledWhenOffline={false}
+                        >
+                            <Button
+                                disabled={!!slideshowTooltipContent}
+                                className={classes.slideshowButton}
+                                onClick={() => setSlideshow(0)}
+                                dataTest="enter-slideshow-button"
+                            >
+                                {i18n.t('Slideshow')}
                             </Button>
                         </OfflineTooltip>
                     ) : null}
@@ -289,11 +321,13 @@ const ViewActions = ({
 ViewActions.propTypes = {
     access: PropTypes.object,
     allowedFilters: PropTypes.array,
+    dashboardItems: PropTypes.array,
     filtersLength: PropTypes.number,
     id: PropTypes.string,
     removeAllFilters: PropTypes.func,
     restrictFilters: PropTypes.bool,
     setDashboardStarred: PropTypes.func,
+    setSlideshow: PropTypes.func,
     showDescription: PropTypes.bool,
     starred: PropTypes.bool,
     updateShowDescription: PropTypes.func,
@@ -314,6 +348,7 @@ const mapStateToProps = (state) => {
 
 export default connect(mapStateToProps, {
     setDashboardStarred: acSetDashboardStarred,
+    setSlideshow: acSetSlideshow,
     removeAllFilters: acClearItemFilters,
     updateShowDescription: acSetShowDescription,
 })(ViewActions)

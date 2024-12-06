@@ -83,7 +83,7 @@ const MessagesItem = ({ messages, item, dashboardMode }) => {
             />
             <Divider margin={`0 0 ${spacers.dp4} 0`} />
             {messages.length > 0 && (
-                <div className="dashboard-item-content">
+                <div className={classes.content}>
                     <ul className={classes.list}>{getMessageItems()}</ul>
                     <div className={classes.seeAll}>
                         <a href={getMessageHref()}>
