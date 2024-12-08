@@ -3,13 +3,14 @@
 # Viktor Varland <viktor@dhis2.org>, 2021
 # Mai Nguyen <thanhmai.jica@gmail.com>, 2021
 # Philip Larsen Donnelly, 2024
+# Em Le <em.hispvietnam@gmail.com>, 2024
 # 
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
 "POT-Creation-Date: 2022-01-10T14:24:29.926Z\n"
 "PO-Revision-Date: 2019-09-01 20:38+0000\n"
-"Last-Translator: Philip Larsen Donnelly, 2024\n"
+"Last-Translator: Em Le <em.hispvietnam@gmail.com>, 2024\n"
 "Language-Team: Vietnamese (https://app.transifex.com/hisp-uio/teams/100509/vi/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -45,6 +46,8 @@ msgid ""
 "Failed to save dashboard. You might be offline or not have access to edit "
 "this dashboard."
 msgstr ""
+"Lưu bảng thông tin không thành công. Có thể bạn đang ngoại tuyến hoặc không "
+"có quyền chỉnh sửa bảng thông tin này."
 
 msgid "Save changes"
 msgstr "Lưu các thay đổi"
@@ -56,7 +59,7 @@ msgid "Print preview"
 msgstr "Xem thử bản in"
 
 msgid "Filter settings"
-msgstr ""
+msgstr "Cài đặt bộ lọc"
 
 msgid "Translate"
 msgstr "Dịch"
@@ -90,6 +93,8 @@ msgid ""
 "Editing dashboards on small screens is not supported. Resize your screen to "
 "return to edit mode."
 msgstr ""
+"Chỉnh sửa bảng thông tin trên màn hình nhỏ không được hỗ trợ. Thay đổi kích "
+"cỡ màn hình của bạn trước khi quay lại chế độ chỉnh sửa."
 
 msgid ""
 "Creating dashboards on small screens is not supported. Resize your screen to"
@@ -147,10 +152,10 @@ msgid "See all messages"
 msgstr "Xem tất cả tin nhắn"
 
 msgid "Item type \"{{type}}\" is not supported"
-msgstr ""
+msgstr "Mục này \" {{type}}\" không được hỗ trợ"
 
 msgid "The item type is missing"
-msgstr ""
+msgstr "Thiếu kiểu cho mục item"
 
 msgid "Filters applied"
 msgstr "Bộ lọc được áp dụng"
@@ -189,7 +194,7 @@ msgid "View as Chart"
 msgstr "Xem dưới dạng biểu đồ"
 
 msgid "This map can't be displayed as a chart"
-msgstr ""
+msgstr "Bản đồ này không thể hiển thị thành một biểu đồ"
 
 msgid "View as Table"
 msgstr "Xem dưới dạng bảng"
@@ -201,7 +206,7 @@ msgid "View as Map"
 msgstr "Xem dưới dạng bản đồ"
 
 msgid "There was a problem loading interpretations for this item"
-msgstr ""
+msgstr "Có vấn đề khi tải diễn giải cho mục này"
 
 msgid "Unable to load the plugin for this item"
 msgstr "Không thể tải plugin cho mục này"
@@ -210,10 +215,10 @@ msgid "No data to display"
 msgstr "Không có dữ liệu hiển thị"
 
 msgid "There was an error loading data for this item"
-msgstr ""
+msgstr "Có lỗi khi tải dữ liệu cho mục này"
 
 msgid "Open this item in {{appName}}"
-msgstr ""
+msgstr "Mở mục này trong 1{{appName}}"
 
 msgid "Confirm"
 msgstr "Xác nhận"
@@ -222,13 +227,13 @@ msgid "Add filter"
 msgstr "Bộ lọc"
 
 msgid "Allow filtering by all dimensions"
-msgstr ""
+msgstr "Cho phép lọc với tất cả các chiều"
 
 msgid "Only allow filtering by selected dimensions"
-msgstr ""
+msgstr "Chỉ cho phép lọc với chiều được chọn"
 
 msgid "Dashboard filter settings"
-msgstr ""
+msgstr "Cài đặt bộ lọc cho bảng thông tin"
 
 msgid ""
 "Dashboards can be filtered by dimensions to change\n"
@@ -236,12 +241,15 @@ msgid ""
 "                                         as filters. Alternatively, only selected dimensions can\n"
 "                                         be made available on a dashboard."
 msgstr ""
+"Bảng thông tin có thể được lọc bởi các chiều để thay đổi dữ liệu hiển thị. "
+"Mặc định, tất cả các chiều được lọc. Ngoài ra, chỉ có các chiều được chọn có"
+" thể được sử dụng trên một bảng thông tin."
 
 msgid "Available Filters"
-msgstr ""
+msgstr "Bộ lọc hiện có"
 
 msgid "Selected Filters"
-msgstr ""
+msgstr "Bộ lọc được chọn"
 
 msgid "There are no items on this dashboard"
 msgstr "Không có mục nào trong bảng điều khiển này"
@@ -289,10 +297,10 @@ msgid "Star dashboard"
 msgstr "Gán dấu sao bảng điều khiển "
 
 msgid "Failed to unstar the dashboard"
-msgstr ""
+msgstr "Không thể bỏ đánh sao bảng thông tin"
 
 msgid "Failed to star the dashboard"
-msgstr ""
+msgstr "Không thể đánh sao bảng thông tin"
 
 msgid "More"
 msgstr "Thêm"
