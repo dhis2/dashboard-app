@@ -4,13 +4,14 @@
 # Mai Nguyen <thanhmai.jica@gmail.com>, 2021
 # Thuy Nguyen <thuynguyen@hispvietnam.org>, 2022
 # Philip Larsen Donnelly, 2024
+# Em Le <em.hispvietnam@gmail.com>, 2024
 # 
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
 "POT-Creation-Date: 2021-10-28T06:43:54.981Z\n"
 "PO-Revision-Date: 2021-09-03 23:41+0000\n"
-"Last-Translator: Philip Larsen Donnelly, 2024\n"
+"Last-Translator: Em Le <em.hispvietnam@gmail.com>, 2024\n"
 "Language-Team: Vietnamese (https://app.transifex.com/hisp-uio/teams/100509/vi/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -22,10 +23,10 @@ msgid "Untitled dashboard"
 msgstr "Bảng điều khiển không có tiêu đề"
 
 msgid "Cannot create a dashboard while offline"
-msgstr ""
+msgstr "Không thể tạo bảng thông tin khi bạn đang ngoại tuyến"
 
 msgid "Create new dashboard"
-msgstr ""
+msgstr "Tạo bảng thông tin mới"
 
 msgid "Search for a dashboard"
 msgstr "Tìm kiếm bảng điều khiển"
@@ -37,7 +38,7 @@ msgid "Show more dashboards"
 msgstr "Hiển thị thêm bảng điều khiển"
 
 msgid "Remove this item"
-msgstr ""
+msgstr "Xóa mục này"
 
 msgid "This item has been shortened to fit on one page"
 msgstr "Mục này đã được rút ngắn để vừa với một trang"
@@ -52,10 +53,10 @@ msgid "See all messages"
 msgstr "Xem tất cả tin nhắn"
 
 msgid "Item type \"{{type}}\" is not supported"
-msgstr ""
+msgstr "Mục này \" {{type}}\" không được hỗ trợ"
 
 msgid "The item type is missing"
-msgstr ""
+msgstr "Thiếu kiểu cho mục item"
 
 msgid "Filters applied"
 msgstr "Bộ lọc được áp dụng"
@@ -79,10 +80,10 @@ msgid "There was a problem loading this dashboard item"
 msgstr "Đã xảy ra sự cố khi tải mục bảng điều khiển này"
 
 msgid "Hide details and interpretations"
-msgstr ""
+msgstr "Ẩn chi tiết và diễn giải"
 
 msgid "Show details and interpretations"
-msgstr ""
+msgstr "Hiện chi tiết và diễn giải"
 
 msgid "Open in {{appName}} app"
 msgstr "Mở trong ứng dụng {{appName}}"
@@ -91,7 +92,7 @@ msgid "View fullscreen"
 msgstr "Xem toàn màn hình"
 
 msgid "This map can't be displayed as a chart"
-msgstr ""
+msgstr "Bản đồ này không thể hiển thị thành một biểu đồ"
 
 msgid "View as Chart"
 msgstr "Xem dưới dạng biểu đồ"
@@ -106,10 +107,10 @@ msgid "View as Map"
 msgstr "Xem dưới dạng bản đồ"
 
 msgid "There was a problem loading interpretations for this item"
-msgstr ""
+msgstr "Có vấn đề khi tải diễn giải cho mục này"
 
 msgid "Maps with Earth Engine layers cannot be displayed when offline"
-msgstr ""
+msgstr "Bản đồ với lớp Earth Engine không hiển thị được khi đang ngoại tuyến"
 
 msgid "Unable to load the plugin for this item"
 msgstr "Không thể tải plugin cho mục này"
@@ -118,13 +119,13 @@ msgid "No data to display"
 msgstr "Không có dữ liệu hiển thị"
 
 msgid "There was an error loading data for this item"
-msgstr ""
+msgstr "Có lỗi khi tải dữ liệu cho mục này"
 
 msgid "Open this item in {{appName}}"
-msgstr ""
+msgstr "Mở mục này trong 1{{appName}}"
 
 msgid "Not available offline"
-msgstr ""
+msgstr "Không có cho ngoại tuyến"
 
 msgid "Visualizations"
 msgstr "Mô hình hóa"
@@ -160,14 +161,18 @@ msgid ""
 "Failed to save dashboard. You might be offline or not have access to edit "
 "this dashboard."
 msgstr ""
+"Lưu bảng thông tin không thành công. Có thể bạn đang ngoại tuyến hoặc không "
+"có quyền chỉnh sửa bảng thông tin này."
 
 msgid ""
 "Failed to delete dashboard. You might be offline or not have access to edit "
 "this dashboard."
 msgstr ""
+"Xóa bảng thông tin không thành công. Có thể bạn đang ngoại tuyến hoặc không "
+"có quyền chỉnh sửa bảng thông tin này."
 
 msgid "Cannot save this dashboard while offline"
-msgstr ""
+msgstr "Không thể lưu khi đang ngoại tuyến."
 
 msgid "Save changes"
 msgstr "Lưu các thay đổi"
@@ -179,13 +184,13 @@ msgid "Print preview"
 msgstr "Xem thử bản in"
 
 msgid "Filter settings"
-msgstr ""
+msgstr "Cài đặt bộ lọc"
 
 msgid "Translate"
 msgstr "Dịch"
 
 msgid "Cannot delete this dashboard while offline"
-msgstr ""
+msgstr "Không thể xóa bảng thông tin này khi đang ngoại tuyến"
 
 msgid "Delete"
 msgstr "Xóa"
@@ -218,12 +223,14 @@ msgid ""
 "This dashboard has unsaved changes. Are you sure you want to leave and "
 "discard these unsaved changes?"
 msgstr ""
+"Bảng thông tin này không được lưu. Bạn có chắc muốn hủy bỏ các thay đổi và "
+"rời đi?"
 
 msgid "No, stay here"
 msgstr "Không, ở lại đây"
 
 msgid "Yes, discard changes"
-msgstr ""
+msgstr "Có, hủy các thay đổi"
 
 msgid "No access"
 msgstr "Không truy cập"
@@ -235,15 +242,17 @@ msgid ""
 "Editing dashboards on small screens is not supported. Resize your screen to "
 "return to edit mode."
 msgstr ""
+"Chỉnh sửa bảng thông tin trên màn hình nhỏ không được hỗ trợ. Thay đổi kích "
+"cỡ màn hình của bạn trước khi quay lại chế độ chỉnh sửa."
 
 msgid "Allow filtering by all dimensions"
-msgstr ""
+msgstr "Cho phép lọc với tất cả các chiều"
 
 msgid "Only allow filtering by selected dimensions"
-msgstr ""
+msgstr "Chỉ cho phép lọc với chiều được chọn"
 
 msgid "Dashboard filter settings"
-msgstr ""
+msgstr "Cài đặt bộ lọc cho bảng thông tin"
 
 msgid ""
 "Dashboards can be filtered by dimensions to change\n"
@@ -251,12 +260,15 @@ msgid ""
 "                                         as filters. Alternatively, only selected dimensions can\n"
 "                                         be made available on a dashboard."
 msgstr ""
+"Bảng thông tin có thể được lọc bởi các chiều để thay đổi dữ liệu hiển thị. "
+"Mặc định, tất cả các chiều được lọc. Ngoài ra, chỉ có các chiều được chọn có"
+" thể được sử dụng trên một bảng thông tin."
 
 msgid "Available Filters"
-msgstr ""
+msgstr "Bộ lọc hiện có"
 
 msgid "Selected Filters"
-msgstr ""
+msgstr "Bộ lọc được chọn"
 
 msgid "Confirm"
 msgstr "Xác nhận"
@@ -277,10 +289,10 @@ msgid "Search for items to add to this dashboard"
 msgstr "Tìm mục để thêm vào bảng điều khiển này"
 
 msgid "Search for visualizations, reports and more"
-msgstr ""
+msgstr "Tìm kiếm biểu đồ, báo cáo và mọi thứ"
 
 msgid "Cannot search for dashboard items while offline"
-msgstr ""
+msgstr "Không thể tìm kiếm danh mục bảng tin khi ngoại tuyến"
 
 msgid "Additional items"
 msgstr "Hạng mục bổ sung"
@@ -292,35 +304,40 @@ msgid "Dashboard layout"
 msgstr "Bố cục bảng điều khiển "
 
 msgid "Freeflow"
-msgstr ""
+msgstr "Sắp xếp tự do"
 
 msgid "Dashboard items can be placed anywhere, at any size."
-msgstr ""
+msgstr "Danh mục bảng thông tin có thể bố cục ở mọi nơi, mọi kích cỡ."
 
 msgid "Fixed columns"
-msgstr ""
+msgstr "Cố định cột"
 
 msgid ""
 "Dashboard items are automatically placed within fixed, horizontal columns. "
 "The number of columns can be adjusted."
 msgstr ""
+"Danh mục bảng thông tin được sắp xếp tự động theo các cột. Có thể thay đổi "
+"số lượng cột."
 
 msgid "Number of columns"
-msgstr ""
+msgstr "Số lượng cột"
 
 msgid "Gap size between columns (px)"
-msgstr ""
+msgstr "Kích thước khoảng cách giữa các cột (px)"
 
 msgid ""
 "Default height only applies to items added to a dashboard, this setting will"
 " not change existing items"
 msgstr ""
+"Chiều cao mặc định chỉ được áp dụng cho các mục đã thêm vào bảng thông tin, "
+"cài đặt này sẽ không thay đổi những mục hiện có."
 
 msgid "Default height for items added to dashboard (rows)"
 msgstr ""
+"Chiều cao mặc định cho các danh mục được thêm vào bảng thông tin (dòng)"
 
 msgid "Save layout"
-msgstr ""
+msgstr "Lưu bố cục"
 
 msgid "Dashboard title"
 msgstr "Tiêu đề bảng điều khiển"
@@ -333,19 +350,19 @@ msgstr "Bố cục"
 
 msgid "{{count}} columns"
 msgid_plural "{{count}} columns"
-msgstr[0] ""
+msgstr[0] "{{count}}cột"
 
 msgid "Change layout"
-msgstr ""
+msgstr "Đổi bố cục"
 
 msgid "Add new items to"
-msgstr ""
+msgstr "Thêm danh mục vào"
 
 msgid "End of dashboard"
-msgstr ""
+msgstr "Kết thúc bảng thông tin"
 
 msgid "Start of dashboard"
-msgstr ""
+msgstr "Bắt đầu bảng thông tin"
 
 msgid "Print"
 msgstr "In"
@@ -372,23 +389,27 @@ msgid ""
 "Use A4 landscape paper size, default margin settings and turn on background "
 "graphics in the browser print dialog"
 msgstr ""
+"Sử dụng khổ giấy ngang A4, cài đặt lề mặc định và bật đồ họa nền trong hộp "
+"thoại in của trình duyệt"
 
 msgid "Getting started"
 msgstr "Bắt đầu"
 
 msgid "Search for and open saved dashboards from the top bar."
-msgstr ""
+msgstr "Tìm kiếm hoặc mở các bảng thông tin đã lưu từ thanh trên cùng"
 
 msgid ""
 "Click a dashboard chip to open it. Get back to this screen from the \"More\""
 " menu."
 msgstr ""
+"Bấm vào biểu tượng bảng thông tin để mở. Quay lại màn hình này từ menu "
+"\"Thêm\"."
 
 msgid "Create a new dashboard with the + button."
-msgstr ""
+msgstr "Tạo mới bảng thông tin với biểu tượng dấu +"
 
 msgid "Your most viewed dashboards"
-msgstr ""
+msgstr "Những bảng thông tin được bạn xem nhiều nhất"
 
 msgid "No dashboards found. Use the + button to create a new dashboard."
 msgstr ""
@@ -402,39 +423,41 @@ msgid_plural "{{count}} selected"
 msgstr[0] "Đã chọn {{count}}"
 
 msgid "Cannot remove filters while offline"
-msgstr ""
+msgstr "Không thể bỏ bộ lọc khi đang ngoại tuyến"
 
 msgid "Removing filters while offline"
-msgstr ""
+msgstr "Bỏ bộ lọc khi đang ngoại tuyến"
 
 msgid ""
 "Removing this filter while offline will remove all other filters. Do you "
 "want to remove all filters on this dashboard?"
 msgstr ""
+"Bỏ bộ lọc này khi đang ngoại tuyến đồng thời bỏ các bộ lọc khác. Bạn có muốn"
+" bỏ tất cả bộ lọc trên bảng thông tin này?"
 
 msgid "No, cancel"
 msgstr "Không"
 
 msgid "Yes, remove filters"
-msgstr ""
+msgstr "Có, bỏ lọc"
 
 msgid "The dashboard couldn't be made available offline. Try again."
-msgstr ""
+msgstr "Bảng thông tin này không thể chuyển sang ngoại tuyến. Hãy thử lại."
 
 msgid "Failed to unstar the dashboard"
-msgstr ""
+msgstr "Không thể bỏ đánh sao bảng thông tin"
 
 msgid "Failed to star the dashboard"
-msgstr ""
+msgstr "Không thể đánh sao bảng thông tin"
 
 msgid "Remove from offline storage"
-msgstr ""
+msgstr "Bỏ lưu trữ ngoại tuyến"
 
 msgid "Make available offline"
-msgstr ""
+msgstr "Bật hỗ trợ ngoại tuyến"
 
 msgid "Sync offline data now"
-msgstr ""
+msgstr "Đồng bộ dữ liệu ngoại tuyến ngay bây giờ"
 
 msgid "Unstar dashboard"
 msgstr "Không gắn dấu sao bảng điều khiển "
@@ -452,7 +475,7 @@ msgid "One item per page"
 msgstr "Một mục trên mỗi trang"
 
 msgid "Close dashboard"
-msgstr ""
+msgstr "Nhân bản bảng thông tin"
 
 msgid "More"
 msgstr "Thêm"
@@ -464,15 +487,17 @@ msgid "Share"
 msgstr "Chia sẻ"
 
 msgid "Clear dashboard filters?"
-msgstr ""
+msgstr "Bỏ bộ lọc bảng thông tin?"
 
 msgid ""
 "A dashboard's filters can’t be saved offline. Do you want to remove the "
 "filters and make this dashboard available offline?"
 msgstr ""
+"Bộ lọc bảng thông tin không thể lưu khi đang ngoại tuyến. Bạn có muốn xóa bộ"
+" lọc và bật chế độ ngoại tuyến cho bảng thông tin này?"
 
 msgid "Yes, clear filters and sync"
-msgstr ""
+msgstr "Vâng, đồng ý xóa bộ lọc và đồng bộ"
 
 msgid "No description"
 msgstr "Không mô tả"
@@ -481,31 +506,31 @@ msgid "Add filter"
 msgstr "Bộ lọc"
 
 msgid "Offline data last updated {{time}}"
-msgstr ""
+msgstr "Dữ liệu ngoại tuyến được cập nhật lần cuối {{time}}"
 
 msgid "Cannot unstar this dashboard while offline"
-msgstr ""
+msgstr "Không thể bỏ đánh sao bảng thông tin khi đang ngoại tuyến"
 
 msgid "Cannot star this dashboard while offline"
-msgstr ""
+msgstr "Không thể đánh sao bảng thông tin khi đang ngoại tuyến"
 
 msgid "Loading dashboard – {{name}}"
 msgstr "Đang bảng điều khiển - {{name}}"
 
 msgid "Loading dashboard"
-msgstr ""
+msgstr "Đang tải bảng thông tin"
 
 msgid "Offline"
 msgstr "Ngoại tuyến"
 
 msgid "This dashboard cannot be loaded while offline."
-msgstr ""
+msgstr "Bảng thông tin này không thể tải khi đang ngoại tuyến"
 
 msgid "Go to start page"
-msgstr ""
+msgstr "Chuyển đến trang bắt đầu"
 
 msgid "Load dashboard failed"
-msgstr ""
+msgstr "Tải bảng thông tin thất bại"
 
 msgid "This dashboard could not be loaded. Please try again later."
-msgstr ""
+msgstr "Bảng thông tin này không thể tải. Hãy thử lại sau."
