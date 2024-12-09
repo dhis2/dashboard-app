@@ -9,11 +9,10 @@
 .controlsLarge {
     display: inline-flex;
     position: relative;
-    top: 5px;
 }
 
 .buttonPadding {
-    padding: 2px var(--spacers-dp8) 0 var(--spacers-dp8);
+    padding: 0 var(--spacers-dp8) 0 0;
     display: inline-flex;
 }
 
@@ -23,7 +22,10 @@
 }
 
 .chipsContainer {
-    min-height: 40px;
+    min-height: 48px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
 }
 
 @media only screen and (max-width: 480px) {
@@ -44,7 +46,6 @@
         display: flex;
         overflow-x: auto;
         overflow-y: hidden;
-        padding: var(--spacers-dp4) 0 var(--spacers-dp4) var(--spacers-dp4);
     }
 
     .container.expanded {
@@ -59,12 +60,6 @@
         margin-left: var(--spacers-dp4);
         margin-right: var(--spacers-dp8);
         width: 100%;
-    }
-
-    .chipsContainer {
-        margin-bottom: -4px;
-        padding-right: 2px;
-        min-height: 0;
     }
 
     .expanded .chipsContainer {
