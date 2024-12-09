@@ -31,7 +31,7 @@ exports[`TitleBar renders correctly when no name or description 1`] = `
         class="ui-TextAreaField"
         label="Dashboard description"
         name="Dashboard description input"
-        rows="6"
+        rows="5"
         value=""
       />
     </div>
@@ -142,7 +142,7 @@ exports[`TitleBar renders correctly with name and description 1`] = `
         class="ui-TextAreaField"
         label="Dashboard description"
         name="Dashboard description input"
-        rows="6"
+        rows="5"
         value="A very colorful pony"
       />
     </div>
