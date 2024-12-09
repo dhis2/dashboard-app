@@ -6,7 +6,6 @@ jest.mock('@dhis2/app-runtime', () => ({
     useDhis2ConnectionStatus: () => ({ isConnected: true }),
 }))
 
-/* eslint-disable react/prop-types, react/no-unknown-property */
 jest.mock('@dhis2/ui', () => {
     const originalModule = jest.requireActual('@dhis2/ui')
 
@@ -30,7 +29,6 @@ jest.mock('@dhis2/ui', () => {
         Button: function Mock({ children }) {
             return <div className="ui-Button">{children}</div>
         },
-        //eslint-disable-next-line no-unused-vars
         Radio: function Mock({ checked, dense, ...props }) {
             return (
                 <div className="ui-Radio" data-checked={checked} {...props} />
@@ -50,7 +48,6 @@ jest.mock('@dhis2/ui', () => {
         },
     }
 })
-/* eslint-enable react/prop-types, react/no-unknown-property */
 
 jest.mock('../../../modules/useDimensions', () => ({
     __esModule: true,

@@ -1,0 +1,18 @@
+.actions,
+.hideOnSmallScreen {
+    display: flex;
+    gap: var(--spacers-dp4);
+    align-items: center;
+    justify-content: center;
+    block-size: 100%;
+}
+
+.actions {
+    padding-inline-end: var(--spacers-dp8);
+}
+
+@media only screen and (max-width: 480px) {
+    .hideOnSmallScreen {
+        display: none;
+    }
+}

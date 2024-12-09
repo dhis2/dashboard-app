@@ -2,6 +2,7 @@ import { Then, When } from '@badeball/cypress-cucumber-preprocessor'
 import {
     filterBadgeSel,
     dimensionsModalSel,
+    filterBadgeDeleteBtnSel,
 } from '../../elements/dashboardFilter.js'
 // import {
 //     gridItemSel,
@@ -22,6 +23,7 @@ Scenario: I add a Period filter
 */
 
 Then('the Period filter is applied to the dashboard', () => {
+    console.log('HENKIE!!!!!!!!!!')
     cy.get(filterBadgeSel).contains(`Period: ${PERIOD}`).should('be.visible')
 
     // check the CHART
@@ -128,7 +130,7 @@ Then('the filter modal is opened', () => {
 })
 
 When('I remove the {string} filter', () => {
-    cy.get(filterBadgeSel).find('button').contains('Remove').click()
+    cy.get(filterBadgeDeleteBtnSel).click()
 })
 
 Then('the filter is removed from the dashboard', () => {

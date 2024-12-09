@@ -1,7 +1,7 @@
 import { Given, When, Then } from '@badeball/cypress-cucumber-preprocessor'
 import { gridItemSel } from '../../elements/dashboardItem.js'
 import {
-    dashboardChipSel,
+    dashboardsNavMenuButtonSel,
     dashboardTitleSel,
 } from '../../elements/viewDashboard.js'
 import {
@@ -79,9 +79,8 @@ When('I add items and save', () => {
 })
 
 Given('I open an existing dashboard', () => {
-    cy.get(dashboardChipSel, EXTENDED_TIMEOUT)
-        .contains(TEST_DASHBOARD_TITLE)
-        .click()
+    cy.get(dashboardsNavMenuButtonSel, EXTENDED_TIMEOUT).click()
+    cy.get('[role="menu"]').find('li').contains(TEST_DASHBOARD_TITLE).click()
 })
 
 // Some map visualization load very slowly:
