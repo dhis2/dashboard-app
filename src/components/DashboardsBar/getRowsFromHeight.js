@@ -5,11 +5,15 @@
     But in order to keep the calculation simple, we'll just use 38px for all rows, while
     subtracting 3px from PADDING_TOP (which is actually 6px)
 */
+const FIRST_ROW_HEIGHT = 35 // 32px chip + 3px gap (only 1/2 of the gap for first row)
 const ROW_HEIGHT = 38 // 32px chip + 6px gap
-const PADDING_TOP = 3
+const PADDING_TOP = 6
 
 export const getRowsFromHeight = (height) => {
-    return Math.abs(Math.round(
-        (height - PADDING_TOP) / ROW_HEIGHT
+    if (height <= PADDING_TOP + FIRST_ROW_HEIGHT) {
+        return 1
+    }
+    return 1 + Math.abs(Math.round(
+        (height - PADDING_TOP - FIRST_ROW_HEIGHT) / ROW_HEIGHT
     ))
 }

@@ -1,16 +1,17 @@
 :root {
-    /* control bar variables */
+    /* dashboards bar variables */
     --user-rows-count: 1;
-    --controlbar-padding: 3px;
-    --row-height: 38px;
+    --dashboardsbar-padding: 6px;
+    --first-row-height: 35px; /* 32px chip height + 6px/2 gap (bottom of chip only) */
+    --row-height: 38px;  /* 32px chip height + 6px gap */
     --min-rows-height: calc(
-        var(--controlbar-padding) + (1 * var(--row-height))
+        var(--dashboardsbar-padding) + (1 * var(--first-row-height))
     );
     --max-rows-height: calc(
-        var(--controlbar-padding) + (10 * var(--row-height))
+        var(--dashboardsbar-padding) + (1 * var(--first-row-height)) + (9 * var(--row-height))
     );
     --user-rows-height: calc(
-        var(--controlbar-padding) + (var(--user-rows-count) * var(--row-height))
+        var(--dashboardsbar-padding) + (1 * var(--first-row-height)) + ((var(--user-rows-count) - 1) * var(--row-height))
     );
     --sm-expanded-controlbar-height: calc(
         (var(--vh, 1vh) * 100) - var(--headerbar-height) - 32px

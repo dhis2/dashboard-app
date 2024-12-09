@@ -6,7 +6,7 @@ test('getRowsFromHeight returns an integer', () => {
 })
 
 const testCases = [
-    { height: 0, rows: 0 },
+    { height: 0, rows: 1 },
     { height: 36, rows: 1 },
     { height: 100, rows: 3 },
     { height: 200, rows: 5 },
