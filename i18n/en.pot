@@ -5,8 +5,8 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1)\n"
-"POT-Creation-Date: 2024-08-27T07:26:05.058Z\n"
-"PO-Revision-Date: 2024-08-27T07:26:05.060Z\n"
+"POT-Creation-Date: 2024-12-10T13:23:21.815Z\n"
+"PO-Revision-Date: 2024-12-10T13:23:21.817Z\n"
 
 msgid "Untitled dashboard"
 msgstr "Untitled dashboard"
@@ -25,6 +25,9 @@ msgstr "Show fewer dashboards"
 
 msgid "Show more dashboards"
 msgstr "Show more dashboards"
+
+msgid "{{appKey}} app not found"
+msgstr "{{appKey}} app not found"
 
 msgid "Remove this item"
 msgstr "Remove this item"
@@ -152,6 +155,12 @@ msgstr "Open this item in {{appName}}"
 msgid "Not available offline"
 msgstr "Not available offline"
 
+msgid "Resources"
+msgstr "Resources"
+
+msgid "Reports"
+msgstr "Reports"
+
 msgid "Visualizations"
 msgstr "Visualizations"
 
@@ -175,12 +184,6 @@ msgstr "Line lists"
 
 msgid "Apps"
 msgstr "Apps"
-
-msgid "Reports"
-msgstr "Reports"
-
-msgid "Resources"
-msgstr "Resources"
 
 msgid "Users"
 msgstr "Users"
@@ -526,11 +529,17 @@ msgstr "Close dashboard"
 msgid "More"
 msgstr "More"
 
+msgid "No dashboard items to show in slideshow"
+msgstr "No dashboard items to show in slideshow"
+
 msgid "Edit"
 msgstr "Edit"
 
 msgid "Share"
 msgstr "Share"
+
+msgid "Slideshow"
+msgstr "Slideshow"
 
 msgid "Clear dashboard filters?"
 msgstr "Clear dashboard filters?"
