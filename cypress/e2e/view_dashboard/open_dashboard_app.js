@@ -1,8 +1,5 @@
 import { When, Then } from '@badeball/cypress-cucumber-preprocessor'
-import {
-    dashboardTitleSel,
-    dashboardChipSel,
-} from '../../elements/viewDashboard.js'
+import { dashboardTitleSel } from '../../elements/viewDashboard.js'
 import { EXTENDED_TIMEOUT } from '../../support/utils.js'
 
 When('I open the dashboard app with the root url', () => {
@@ -13,7 +10,6 @@ When('I open the dashboard app with the root url', () => {
     })
 
     cy.get(dashboardTitleSel).should('be.visible')
-    cy.get(dashboardChipSel, EXTENDED_TIMEOUT).should('be.visible')
 })
 
 Then('the {string} dashboard displays', (title) => {

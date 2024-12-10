@@ -1,9 +1,8 @@
 import { When, Then } from '@badeball/cypress-cucumber-preprocessor'
 import { dashboards } from '../../assets/backends/sierraLeone_236.js'
-import { clickViewActionButton } from '../../elements/viewDashboard.js'
 
 When('I click to preview the print one-item-per-page', () => {
-    clickViewActionButton('More')
+    cy.get('[data-test="more-actions-button"]').click()
     cy.get('[data-test="print-menu-item"]').click()
     cy.get('[data-test="print-oipp-menu-item"]').click()
 })

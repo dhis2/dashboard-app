@@ -1,5 +1,7 @@
 export const filterBadgeSel = '[data-test="dashboard-filter-badge"]'
 
+export const filterBadgeDeleteBtnSel = '[data-test="filter-badge-clear-button"]'
+
 export const filterDimensionsPanelSel = '[data-test="dashboard-filter-popover"]'
 
 export const unselectedItemsSel =

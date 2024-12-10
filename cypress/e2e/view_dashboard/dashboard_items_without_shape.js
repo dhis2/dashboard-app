@@ -1,7 +1,6 @@
 import { Given } from '@badeball/cypress-cucumber-preprocessor'
 import { dashboards } from '../../assets/backends/index.js'
-import { dashboardChipSel } from '../../elements/viewDashboard.js'
-import { EXTENDED_TIMEOUT } from '../../support/utils.js'
+import { getNavigationMenuItem } from '../../elements/navigationMenu.js'
 
 Given('I open the {string} dashboard with shapes removed', (title) => {
     const regex = new RegExp(`dashboards/${dashboards[title].id}`, 'g')
@@ -17,5 +16,5 @@ Given('I open the {string} dashboard with shapes removed', (title) => {
             res.send({ body: res.body })
         })
     })
-    cy.get(dashboardChipSel, EXTENDED_TIMEOUT).contains(title).click()
+    getNavigationMenuItem(title).click()
 })

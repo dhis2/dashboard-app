@@ -9,9 +9,10 @@ import {
     titleInputSel,
     clickEditActionButton,
 } from '../../elements/editDashboard.js'
+import { getNavigationMenuItem } from '../../elements/navigationMenu.js'
 import {
-    dashboardChipSel,
     dashboardTitleSel,
+    dashboardsNavMenuButtonSel,
 } from '../../elements/viewDashboard.js'
 import { EXTENDED_TIMEOUT, createDashboardTitle } from '../../support/utils.js'
 
@@ -79,9 +80,8 @@ Then('different valid dashboard displays in view mode', () => {
 })
 
 Given('I open existing dashboard', () => {
-    cy.get(dashboardChipSel, EXTENDED_TIMEOUT)
-        .contains(TEST_DASHBOARD_TITLE)
-        .click()
+    cy.get(dashboardsNavMenuButtonSel, EXTENDED_TIMEOUT).click()
+    cy.get('[role="menu"]').find('li').contains(TEST_DASHBOARD_TITLE).click()
 
     cy.location().should((loc) => {
         const currentRoute = getRouteFromHash(loc.hash)
@@ -124,8 +124,7 @@ Scenario: I delete a dashboard
 */
 
 Then('the dashboard is deleted and first starred dashboard displayed', () => {
-    cy.get(dashboardChipSel).contains(TEST_DASHBOARD_TITLE).should('not.exist')
-
+    getNavigationMenuItem(TEST_DASHBOARD_TITLE).should('not.exist')
     cy.get(dashboardTitleSel).should('exist').should('not.be.empty')
 })
 

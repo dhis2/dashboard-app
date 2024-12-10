@@ -9,7 +9,6 @@ const mockStore = configureMockStore()
 
 jest.mock('@dhis2/app-runtime')
 
-/* eslint-disable react/prop-types */
 jest.mock('@dhis2/ui', () => {
     const originalModule = jest.requireActual('@dhis2/ui')
 
@@ -24,9 +23,7 @@ jest.mock('@dhis2/ui', () => {
         },
     }
 })
-/* eslint-enable react/prop-types */
 
-/* eslint-disable react/prop-types */
 jest.mock('@dhis2/analytics', () => {
     const originalModule = jest.requireActual('@dhis2/analytics')
 
@@ -44,7 +41,6 @@ jest.mock('@dhis2/analytics', () => {
         }),
     }
 })
-/* eslint-enable react/prop-types */
 
 jest.mock(
     '../FilterSettingsDialog',
@@ -54,7 +50,6 @@ jest.mock(
         }
 )
 
-/* eslint-disable react/prop-types */
 jest.mock(
     '../../../components/ConfirmActionDialog',
     () =>
@@ -62,7 +57,6 @@ jest.mock(
             return open ? <div className="mock-confirm-action-dialog" /> : null
         }
 )
-/* eslint-enable react/prop-types */
 
 jest.mock('@dhis2/app-runtime', () => ({
     useDhis2ConnectionStatus: jest.fn(() => ({
