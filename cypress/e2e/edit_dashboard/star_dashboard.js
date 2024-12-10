@@ -4,11 +4,8 @@ import {
     closeNavigationMenu,
 } from '../../elements/navigationMenu.js'
 import {
-    starSel,
     dashboardStarredSel,
     dashboardUnstarredSel,
-    dashboardChipSel,
-    chipStarSel,
     navMenuItemStarIconSel,
 } from '../../elements/viewDashboard.js'
 import { TEST_DASHBOARD_TITLE } from './edit_dashboard.js'

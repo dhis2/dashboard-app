@@ -11,7 +11,6 @@ import {
 } from '../../elements/editDashboard.js'
 import { getNavigationMenuItem } from '../../elements/navigationMenu.js'
 import {
-    dashboardChipSel,
     dashboardTitleSel,
     dashboardsNavMenuButtonSel,
 } from '../../elements/viewDashboard.js'

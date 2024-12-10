@@ -1,15 +1,8 @@
 import { When, Then } from '@badeball/cypress-cucumber-preprocessor'
-import { dashboards } from '../../assets/backends/sierraLeone_236.js'
-// import { gridItemSel } from '../../elements/dashboardItem.js'
 import {
     getNavigationMenuFilter,
     getNavigationMenu,
 } from '../../elements/navigationMenu.js'
-import {
-    dashboardTitleSel,
-    dashboardChipSel,
-    dashboardSearchInputSel,
-} from '../../elements/viewDashboard.js'
 
 When('I search for dashboards containing {string}', (title) => {
     getNavigationMenuFilter().type(title)
