@@ -6,6 +6,7 @@ import PropTypes from 'prop-types'
 import React from 'react'
 import { connect } from 'react-redux'
 import { acSetActiveModalDimension } from '../../../actions/activeModalDimension.js'
+import { useWindowDimensions } from '../../../components/WindowDimensionsProvider.js'
 import { sGetSelectedId } from '../../../reducers/selected.js'
 import classes from './styles/FilterBadge.module.css'
 
@@ -16,10 +17,15 @@ const getFilterValuesText = (values) =>
 
 const FilterBadge = ({ filter, openFilterModal, onRemove }) => {
     const { isConnected } = useDhis2ConnectionStatus()
+    const { width } = useWindowDimensions()
+    const notAllowed = !isConnected || width <= 480
+    const tooltipContent = !isConnected
+        ? i18n.t('Cannot edit filters while offline')
+        : i18n.t('Cannot edit filters on a small screen')
 
     return (
         <Tooltip
-            content={i18n.t('Cannot edit filters while offline')}
+            content={tooltipContent}
             openDelay={200}
             closeDelay={100}
             className={classes.tooltip}
@@ -28,16 +34,16 @@ const FilterBadge = ({ filter, openFilterModal, onRemove }) => {
                 <div
                     className={classes.container}
                     data-test="dashboard-filter-badge"
-                    onFocus={() => !isConnected && onFocus()}
-                    onBlur={() => !isConnected && onBlur()}
-                    onMouseOver={() => !isConnected && onMouseOver()}
-                    onMouseOut={() => !isConnected && onMouseOut()}
+                    onFocus={() => notAllowed && onFocus()}
+                    onBlur={() => notAllowed && onBlur()}
+                    onMouseOver={() => notAllowed && onMouseOver()}
+                    onMouseOut={() => notAllowed && onMouseOut()}
                     ref={ref}
                 >
                     <button
                         data-test="filter-badge-button"
                         className={cx(classes.button, classes.filterButton)}
-                        disabled={!isConnected}
+                        disabled={notAllowed}
                         onClick={() =>
                             openFilterModal({
                                 id: filter.id,
@@ -50,7 +56,7 @@ const FilterBadge = ({ filter, openFilterModal, onRemove }) => {
                     <button
                         data-test="filter-badge-clear-button"
                         className={cx(classes.button, classes.removeButton)}
-                        disabled={!isConnected}
+                        disabled={notAllowed}
                         onClick={() => onRemove(filter.id)}
                     >
                         <IconCross16 />
