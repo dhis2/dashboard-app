@@ -50,7 +50,7 @@ test('renders a list of dashboard menu items', () => {
     const { getAllByRole } = render(
         <Provider store={mockStore}>
             <Router history={createMemoryHistory()}>
-                <NavigationMenu />
+                <NavigationMenu close={() => {}} />
             </Router>
         </Provider>
     )
@@ -62,7 +62,7 @@ test('renders a notification if no dashboards are available', () => {
     const { getByText } = render(
         <Provider store={mockStore}>
             <Router history={createMemoryHistory()}>
-                <NavigationMenu />
+                <NavigationMenu close={() => {}} />
             </Router>
         </Provider>
     )
@@ -79,7 +79,7 @@ test('renders a placeholder list item if no dashboards meet the filter criteria'
     const { getByText, getByPlaceholderText } = render(
         <Provider store={mockStore}>
             <Router history={createMemoryHistory()}>
-                <NavigationMenu />
+                <NavigationMenu close={() => {}} />
             </Router>
         </Provider>
     )

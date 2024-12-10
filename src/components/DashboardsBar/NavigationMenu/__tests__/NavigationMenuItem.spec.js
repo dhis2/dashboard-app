@@ -47,6 +47,7 @@ const defaultProps = {
     starred: false,
     displayName: 'Rainbow Dash',
     id: 'rainbowdash',
+    close: Function.prototype,
 }
 
 const selectedId = 'theselectedid'
