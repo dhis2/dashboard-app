@@ -1,6 +1,6 @@
 import i18n from '@dhis2/d2-i18n'
 import { Button, IconAdd16, DropdownButton } from '@dhis2/ui'
-import React from 'react'
+import React, { useState } from 'react'
 import { useHistory } from 'react-router-dom'
 import InformationBlock from './InformationBlock/InformationBlock.js'
 import { IconNavigation, NavigationMenu } from './NavigationMenu/index.js'
@@ -8,6 +8,8 @@ import styles from './styles/DashboardsBar.module.css'
 
 export const DashboardsBar = () => {
     const history = useHistory()
+    const [navigationMenuOpen, setNavigationMenuOpen] = useState(false)
+
     return (
         <div className={styles.toolbar} data-test="title-bar">
             <div className={styles.blockCreationNavigation}>
@@ -24,7 +26,13 @@ export const DashboardsBar = () => {
                     icon={<IconNavigation />}
                     secondary
                     small
-                    component={<NavigationMenu />}
+                    onClick={() => setNavigationMenuOpen((open) => !open)}
+                    open={navigationMenuOpen}
+                    component={
+                        <NavigationMenu
+                            close={() => setNavigationMenuOpen(false)}
+                        />
+                    }
                 >
                     <span className={styles.navMenuButtonText}>
                         {i18n.t('Dashboards')}

@@ -11,7 +11,13 @@ import { sGetSelectedId } from '../../../reducers/selected.js'
 import { IconOfflineSaved } from '../../IconOfflineSaved.js'
 import styles from './styles/NavigationMenuItem.module.css'
 
-export const NavigationMenuItem = ({ displayName, id, starred }) => {
+export const NavigationMenuItem = ({
+    close,
+    displayName,
+    id,
+    starred,
+    tabIndex,
+}) => {
     const history = useHistory()
     const { lastUpdated } = useCacheableSection(id)
     const { isConnected } = useDhis2ConnectionStatus()
@@ -24,15 +30,17 @@ export const NavigationMenuItem = ({ displayName, id, starred }) => {
         )
 
         history.push(`/${id}`)
+        close()
 
         if (isConnected) {
             debouncedPostStatistics()
         }
-    }, [engine, history, id, isConnected])
+    }, [close, engine, history, id, isConnected])
 
     return (
         <MenuItem
             dense
+            tabIndex={tabIndex}
             onClick={handleClick}
             key={id}
             label={
@@ -54,7 +62,9 @@ export const NavigationMenuItem = ({ displayName, id, starred }) => {
 }
 
 NavigationMenuItem.propTypes = {
+    close: PropTypes.func.isRequired,
     displayName: PropTypes.string.isRequired,
     id: PropTypes.string.isRequired,
     starred: PropTypes.bool,
+    tabIndex: PropTypes.number,
 }

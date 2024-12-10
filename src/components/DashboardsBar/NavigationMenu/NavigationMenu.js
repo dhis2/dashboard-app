@@ -1,6 +1,7 @@
 import i18n from '@dhis2/d2-i18n'
 import { Input, Menu } from '@dhis2/ui'
 import cx from 'classnames'
+import PropTypes from 'prop-types'
 import React, { useCallback, useMemo, useEffect, useRef } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { acSetDashboardsFilter } from '../../../actions/dashboardsFilter.js'
@@ -9,7 +10,7 @@ import { sGetDashboardsFilter } from '../../../reducers/dashboardsFilter.js'
 import { NavigationMenuItem } from './NavigationMenuItem.js'
 import styles from './styles/NavigationMenu.module.css'
 
-export const NavigationMenu = () => {
+export const NavigationMenu = ({ close }) => {
     const dispatch = useDispatch()
     const scrollBoxRef = useRef(null)
     const dashboards = useSelector(sGetDashboardsSortedByStarred)
@@ -78,6 +79,7 @@ export const NavigationMenu = () => {
                                     id={id}
                                     starred={starred}
                                     key={id}
+                                    close={close}
                                 />
                             )
                         )
@@ -86,4 +88,7 @@ export const NavigationMenu = () => {
             </div>
         </div>
     )
+}
+NavigationMenu.propTypes = {
+    close: PropTypes.func.isRequired,
 }
