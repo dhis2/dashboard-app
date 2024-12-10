@@ -226,7 +226,7 @@ class Item extends Component {
                     activeFooter={showFooter}
                     fullscreenSupported={this.isFullscreenSupported()}
                     loadItemFailed={this.state.loadItemFailed}
-                    tabIndex={isSlideshowView ? -1 : 0}
+                    tabIndex={isSlideshowView ? '-1' : '0'}
                 />
             ) : null
 

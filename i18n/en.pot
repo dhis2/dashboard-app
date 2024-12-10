@@ -5,8 +5,8 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1)\n"
-"POT-Creation-Date: 2024-11-21T14:44:35.575Z\n"
-"PO-Revision-Date: 2024-11-21T14:44:35.577Z\n"
+"POT-Creation-Date: 2024-12-10T13:23:21.815Z\n"
+"PO-Revision-Date: 2024-12-10T13:23:21.817Z\n"
 
 msgid "Untitled dashboard"
 msgstr "Untitled dashboard"
@@ -155,6 +155,12 @@ msgstr "Open this item in {{appName}}"
 msgid "Not available offline"
 msgstr "Not available offline"
 
+msgid "Resources"
+msgstr "Resources"
+
+msgid "Reports"
+msgstr "Reports"
+
 msgid "Visualizations"
 msgstr "Visualizations"
 
@@ -178,12 +184,6 @@ msgstr "Line lists"
 
 msgid "Apps"
 msgstr "Apps"
-
-msgid "Reports"
-msgstr "Reports"
-
-msgid "Resources"
-msgstr "Resources"
 
 msgid "Users"
 msgstr "Users"

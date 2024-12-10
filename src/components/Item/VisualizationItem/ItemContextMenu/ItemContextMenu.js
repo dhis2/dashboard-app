@@ -176,7 +176,7 @@ ItemContextMenu.propTypes = {
     fullscreenSupported: PropTypes.bool,
     item: PropTypes.object,
     loadItemFailed: PropTypes.bool,
-    tabIndex: PropTypes.number,
+    tabIndex: PropTypes.string,
     visualization: PropTypes.object,
     onSelectActiveType: PropTypes.func,
     onToggleFooter: PropTypes.func,
