@@ -134,6 +134,31 @@ test('Navigates to the related menu item when an item is clicked', () => {
     expect(historyPushMock).toHaveBeenCalledWith(`/${defaultProps.id}`)
 })
 
+test('Closes the navigation menu if current dashboard is clicked', () => {
+    useCacheableSection.mockImplementation(() => mockNonOfflineDashboard)
+    const historyPushMock = jest.fn()
+    useHistory.mockImplementation(() => ({
+        push: historyPushMock,
+    }))
+    const mockStore = createStore(defaultStoreFn)
+    const props = {
+        ...defaultProps,
+        id: selectedId,
+        close: jest.fn(),
+    }
+    const { getByText } = render(
+        <Provider store={mockStore}>
+            <Router history={createMemoryHistory()}>
+                <NavigationMenuItem {...props} />
+            </Router>
+        </Provider>
+    )
+    fireEvent.click(getByText(defaultProps.displayName))
+    expect(historyPushMock).toHaveBeenCalledTimes(1)
+    expect(historyPushMock).toHaveBeenCalledWith(`/${selectedId}`)
+    expect(props.close).toHaveBeenCalledTimes(1)
+})
+
 it('Posts data statistics if connected', () => {
     jest.useFakeTimers()
     const apiPostDataStatisticsMock = jest.fn()
@@ -155,7 +180,7 @@ it('Posts data statistics if connected', () => {
     )
 })
 
-it('does not post data statistics if not connected', async () => {
+it('Does not post data statistics if not connected', async () => {
     useDhis2ConnectionStatus.mockReturnValue({ isConnected: false })
     const historyPushMock = jest.fn()
     useHistory.mockImplementation(() => ({
