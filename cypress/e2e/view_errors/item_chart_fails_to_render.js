@@ -41,7 +41,7 @@ Given('I open a dashboard with a chart that will fail', () => {
 When(
     'I apply a {string} filter of type {string}',
     (dimensionType, filterName) => {
-        cy.contains('Add filter').click()
+        cy.contains('Filter').click()
         cy.get(filterDimensionsPanelSel).contains(dimensionType).click()
         cy.get(dimensionsModalSel, EXTENDED_TIMEOUT).should('be.visible')
 

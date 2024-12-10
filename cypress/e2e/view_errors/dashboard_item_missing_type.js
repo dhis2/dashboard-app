@@ -3,6 +3,7 @@ import {
     getDashboardItem,
     clickItemDeleteButton,
 } from '../../elements/dashboardItem.js'
+import { getNavigationMenuItem } from '../../elements/navigationMenu.js'
 import {
     dashboardChipSel,
     dashboardTitleSel,
@@ -38,7 +39,7 @@ const interceptDashboardRequest = () => {
 
 Given('I open the Delivery dashboard with items missing a type', () => {
     interceptDashboardRequest()
-    cy.get(dashboardChipSel, EXTENDED_TIMEOUT).contains('Delivery').click()
+    getNavigationMenuItem('Delivery').click()
     cy.get(dashboardTitleSel).should('be.visible').and('contain', 'Delivery')
 })
 

@@ -1,6 +1,7 @@
 import { Given } from '@badeball/cypress-cucumber-preprocessor'
 import { dashboards } from '../../assets/backends/index.js'
 // import { gridItemSel, chartSel } from '../../elements/dashboardItem.js'
+import { getNavigationMenuItem } from '../../elements/navigationMenu.js'
 import {
     dashboardTitleSel,
     dashboardChipSel,
@@ -8,7 +9,7 @@ import {
 import { EXTENDED_TIMEOUT } from '../../support/utils.js'
 
 Given('I open the {string} dashboard', (title) => {
-    cy.get(dashboardChipSel, EXTENDED_TIMEOUT).contains(title).click()
+    getNavigationMenuItem(title).click()
 
     cy.location().should((loc) => {
         expect(loc.hash).to.equal(dashboards[title].route)

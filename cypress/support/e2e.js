@@ -1,5 +1,6 @@
 // import '@dhis2/cypress-commands'
 import { enableAutoLogin } from '@dhis2/cypress-commands'
+import 'cypress-real-events'
 import './commands.js'
 
 enableAutoLogin()

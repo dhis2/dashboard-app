@@ -13,7 +13,7 @@ When('clicking to star {string} dashboard fails', (title) => {
         statusCode: 409,
     }).as('starDashboardFail')
 
-    cy.get(starSel).click()
+    cy.get(dashboardUnstarredSel).click()
     cy.wait('@starDashboardFail').its('response.statusCode').should('eq', 409)
 })
 
@@ -32,6 +32,4 @@ Then('the {string} dashboard is not starred', (title) => {
     // check for the unfilled star next to the title
     cy.get(dashboardUnstarredSel).should('be.visible')
     cy.get(dashboardStarredSel).should('not.exist')
-
-    cy.get(dashboardChipSel).contains(title).siblings().should('not.exist')
 })

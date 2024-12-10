@@ -54,6 +54,7 @@
         "@testing-library/jest-dom": "^6.6.3",
         "@testing-library/react": "^12",
         "cypress": "^13.13.1",
+        "cypress-real-events": "^1.13.0",
         "d2-manifest": "^1.0.0",
         "eslint-plugin-cypress": "^3.3.0",
         "immutability-helper": "^3.1.1",

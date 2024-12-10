@@ -8,6 +8,7 @@ export const dashboardsNavMenuButtonSel =
     '[data-test="dashboards-nav-menu-button"]'
 export const newButtonSel = '[data-test="new-button"]'
 export const chipStarSel = '[data-test="dhis2-uicore-chip-icon"]'
+export const navMenuItemStarIconSel = '[data-test="starred-dashboard"]'
 export const dashboardSearchInputSel =
     'input:visible[placeholder="Search for a dashboard"]'
 export const showMoreLessSel = '[data-test="showmore-button"]'

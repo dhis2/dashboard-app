@@ -23,7 +23,6 @@ Scenario: I add a Period filter
 */
 
 Then('the Period filter is applied to the dashboard', () => {
-    console.log('HENKIE!!!!!!!!!!')
     cy.get(filterBadgeSel).contains(`Period: ${PERIOD}`).should('be.visible')
 
     // check the CHART

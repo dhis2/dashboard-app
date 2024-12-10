@@ -210,6 +210,7 @@ const ActionsBar = ({
                     />
                 </div>
                 <DropdownButton
+                    dataTest="more-actions-button"
                     className={classes.more}
                     secondary
                     small
