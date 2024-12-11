@@ -157,7 +157,7 @@ const ViewDashboard = (props) => {
             <>
                 <TitleBar />
                 <FilterBar />
-                <ItemGrid />
+                <ItemGrid dashboardIsCached={isCached} />
             </>
         )
     }

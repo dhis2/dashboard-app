@@ -1,5 +1,8 @@
+import { useCachedDataQuery } from '@dhis2/analytics'
+import { useDhis2ConnectionStatus } from '@dhis2/app-runtime'
 import i18n from '@dhis2/d2-i18n'
 import cx from 'classnames'
+import PropTypes from 'prop-types'
 import React, { useState, useEffect, useRef } from 'react'
 import { Responsive as ResponsiveReactGridLayout } from 'react-grid-layout'
 import { useSelector } from 'react-redux'
@@ -35,16 +38,18 @@ import useSlideshow from './useSlideshow.js'
 const EXPANDED_HEIGHT = 19
 const EXPANDED_HEIGHT_SM = 15
 
-const ResponsiveItemGrid = () => {
+const ResponsiveItemGrid = ({ dashboardIsCached }) => {
     const dashboardId = useSelector(sGetSelectedId)
     const dashboardItems = useSelector(sGetSelectedDashboardItems)
     const { width } = useWindowDimensions()
+    const { apps } = useCachedDataQuery()
     const [expandedItems, setExpandedItems] = useState({})
     const [displayItems, setDisplayItems] = useState(dashboardItems)
     const [layoutSm, setLayoutSm] = useState([])
     const [gridWidth, setGridWidth] = useState(0)
     const [forceLoad, setForceLoad] = useState(false)
     const { recordingState } = useCacheableSection(dashboardId)
+    const { isDisconnected: isOffline } = useDhis2ConnectionStatus()
     const firstOfTypes = getFirstOfTypes(dashboardItems)
     const slideshowElementRef = useRef(null)
 
@@ -142,11 +147,14 @@ const ResponsiveItemGrid = () => {
                         [classes.enteringFullscreen]: isEnteringSlideshow,
                     }
                 )}
-                itemId={item.id}
+                item={item}
                 forceLoad={
                     forceLoad || itemIsFullscreen || itemIsNextPrevFullscreen
                 }
                 fullscreenView={isSlideshowView}
+                isOffline={isOffline}
+                dashboardIsCached={dashboardIsCached}
+                apps={apps}
             >
                 <Item
                     item={item}
@@ -216,6 +224,10 @@ const ResponsiveItemGrid = () => {
             )}
         </div>
     )
+}
+
+ResponsiveItemGrid.propTypes = {
+    dashboardIsCached: PropTypes.bool,
 }
 
 export default ResponsiveItemGrid
