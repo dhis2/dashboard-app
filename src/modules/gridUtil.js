@@ -14,15 +14,15 @@ import {
 import { isSmallScreen } from './smallScreen.js'
 
 export const GRID_COMPACT_TYPE = 'vertical' // vertical | horizonal | null
-export const GRID_ROW_HEIGHT_PX = 10
-export const MARGIN_PX = [10, 10]
+export const GRID_ROW_HEIGHT_PX = 16
+export const MARGIN_PX = [4, 4]
 
 const SM_SCREEN_MIN_ITEM_GRID_HEIGHT = 13 // minimum of ~320px
 export const SM_SCREEN_GRID_COLUMNS = 1
 export const MARGIN_SM_PX = [0, 16]
 export const GRID_PADDING_PX = [0, 0]
 // sum of left+right padding of dashboard-wrapper (App.css)
-export const DASHBOARD_WRAPPER_LR_MARGIN_PX = 32
+export const DASHBOARD_WRAPPER_LR_MARGIN_PX = 28
 // make an assumption about the original item w/h ratio
 // assumes grid width of ~1200px at time dashboard was created
 const GRID_COL_WIDTH_PX = 10
