@@ -7,12 +7,14 @@ import React, {
     createContext,
     useContext,
 } from 'react'
+import { detectOsScrollbarWidth } from '../modules/detectOsScrollbarWidth.js'
 import classes from './styles/DashboardContainer.module.css'
 
-const HasScrollbarContext = createContext(undefined)
+const ContainerScrollbarWidthContext = createContext(0)
+const osScrollbarWidth = detectOsScrollbarWidth()
 
 const DashboardContainer = ({ children, covered }) => {
-    const [hasScrollbar, setHasScrollbar] = useState(false)
+    const [scrollbarWidth, setScrollbarWidth] = useState(0)
     const containerRef = useRef(null)
     const contentWrapRef = useRef(null)
 
@@ -26,7 +28,9 @@ const DashboardContainer = ({ children, covered }) => {
              * a scrollbar on the outer scroll-container */
             const isNarrowerThanWindow = window.innerWidth > el.offsetWidth
             const hasInnerScrollbar = el.scrollHeight > el.clientHeight
-            setHasScrollbar(isNarrowerThanWindow || hasInnerScrollbar)
+            setScrollbarWidth(
+                isNarrowerThanWindow || hasInnerScrollbar ? osScrollbarWidth : 0
+            )
         })
         resizeObserver.observe(contentWrapRef.current)
 
@@ -35,6 +39,7 @@ const DashboardContainer = ({ children, covered }) => {
         }
     }, [])
 
+    console.log(scrollbarWidth, osScrollbarWidth)
     return (
         <div
             className={cx(
@@ -46,9 +51,9 @@ const DashboardContainer = ({ children, covered }) => {
             data-test="inner-scroll-container"
         >
             <div ref={contentWrapRef} className={classes.contentWrap}>
-                <HasScrollbarContext.Provider value={hasScrollbar}>
+                <ContainerScrollbarWidthContext.Provider value={scrollbarWidth}>
                     {children}
-                </HasScrollbarContext.Provider>
+                </ContainerScrollbarWidthContext.Provider>
             </div>
         </div>
     )
@@ -59,5 +64,6 @@ DashboardContainer.propTypes = {
     covered: PropTypes.bool,
 }
 
-export const useContainerHasScrollbar = () => useContext(HasScrollbarContext)
+export const useContainerScrollbarWidth = () =>
+    useContext(ContainerScrollbarWidthContext)
 export default DashboardContainer
