@@ -5,7 +5,12 @@
     padding-block-end: var(--spacers-dp12);
     overflow: auto;
 }
-
+.contentWrap {
+    overflow: visible;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+}
 @media only screen and (max-height: 480px) {
     .container {
         overflow: visible;
