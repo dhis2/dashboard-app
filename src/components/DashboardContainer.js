@@ -39,7 +39,6 @@ const DashboardContainer = ({ children, covered }) => {
         }
     }, [])
 
-    console.log(scrollbarWidth, osScrollbarWidth)
     return (
         <div
             className={cx(
