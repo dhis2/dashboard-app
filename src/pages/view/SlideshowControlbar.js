@@ -1,26 +1,13 @@
-import i18n from '@dhis2/d2-i18n'
 import {
     IconChevronRight24,
     IconChevronLeft24,
     IconCross24,
-    Tooltip,
     colors,
 } from '@dhis2/ui'
 import PropTypes from 'prop-types'
 import React from 'react'
-import { useSelector } from 'react-redux'
-import { sGetNamedItemFilters } from '../../reducers/itemFilters.js'
+import { SlideshowFiltersInfo } from './SlideshowFiltersInfo.js'
 import styles from './styles/SlideshowControlbar.module.css'
-
-const getFilterText = (filter) => {
-    return `${filter.name}: ${
-        filter.values.length > 1
-            ? i18n.t('{{count}} selected', {
-                  count: filter.values.length,
-              })
-            : filter.values[0].name
-    }`
-}
 
 const SlideshowControlbar = ({
     slideshowItemIndex,
@@ -29,67 +16,57 @@ const SlideshowControlbar = ({
     prevItem,
     numItems,
 }) => {
-    const filters = useSelector(sGetNamedItemFilters)
     const navigationDisabled = numItems === 1
 
     return (
         <div className={styles.container}>
-            <div>
+            <div className={styles.start}>
                 <button
+                    className={styles.squareButton}
                     onClick={exitSlideshow}
                     data-test="slideshow-exit-button"
                 >
                     <IconCross24 color={colors.white} />
                 </button>
             </div>
-            <div className={styles.controls}>
-                <button
-                    disabled={navigationDisabled}
-                    onClick={prevItem}
-                    data-test="slideshow-prev-button"
-                >
-                    <IconChevronLeft24
-                        color={
-                            navigationDisabled ? colors.grey600 : colors.white
-                        }
-                    />
-                </button>
-                <span
-                    className={styles.pageCounter}
-                    data-test="slideshow-page-counter"
-                >{`${slideshowItemIndex + 1} / ${numItems}`}</span>
-                <button
-                    disabled={navigationDisabled}
-                    onClick={nextItem}
-                    data-test="slideshow-next-button"
-                >
-                    <IconChevronRight24
-                        color={
-                            navigationDisabled ? colors.grey600 : colors.white
-                        }
-                    />
-                </button>
-            </div>
-            <div className={styles.filters}>
-                {filters.map((filter) => (
-                    <Tooltip
-                        content="These are the filters"
-                        key={filter.id}
-                        placement="left"
+            <div className={styles.middle}>
+                <div className={styles.controls}>
+                    <button
+                        className={styles.squareButton}
+                        disabled={navigationDisabled}
+                        onClick={prevItem}
+                        data-test="slideshow-prev-button"
                     >
-                        {({ onMouseOver, ref }) => (
-                            <span
-                                onMouseOver={() => onMouseOver()}
-                                // onMouseOut={() => onMouseOut()}
-                                ref={ref}
-                            >
-                                <span className={styles.filter}>
-                                    {getFilterText(filter)}
-                                </span>
-                            </span>
-                        )}
-                    </Tooltip>
-                ))}
+                        <IconChevronLeft24
+                            color={
+                                navigationDisabled
+                                    ? colors.grey600
+                                    : colors.white
+                            }
+                        />
+                    </button>
+                    <span
+                        className={styles.pageCounter}
+                        data-test="slideshow-page-counter"
+                    >{`${slideshowItemIndex + 1} / ${numItems}`}</span>
+                    <button
+                        className={styles.squareButton}
+                        disabled={navigationDisabled}
+                        onClick={nextItem}
+                        data-test="slideshow-next-button"
+                    >
+                        <IconChevronRight24
+                            color={
+                                navigationDisabled
+                                    ? colors.grey600
+                                    : colors.white
+                            }
+                        />
+                    </button>
+                </div>
+            </div>
+            <div className={styles.end}>
+                <SlideshowFiltersInfo />
             </div>
         </div>
     )

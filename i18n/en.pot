@@ -5,8 +5,8 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1)\n"
-"POT-Creation-Date: 2024-12-10T13:23:21.815Z\n"
-"PO-Revision-Date: 2024-12-10T13:23:21.817Z\n"
+"POT-Creation-Date: 2024-12-12T16:07:57.017Z\n"
+"PO-Revision-Date: 2024-12-12T16:07:57.018Z\n"
 
 msgid "Untitled dashboard"
 msgstr "Untitled dashboard"
@@ -489,6 +489,9 @@ msgstr "No, cancel"
 
 msgid "Yes, remove filters"
 msgstr "Yes, remove filters"
+
+msgid "{{totalFilterCount}} filters active"
+msgstr "{{totalFilterCount}} filters active"
 
 msgid "The dashboard couldn't be made available offline. Try again."
 msgstr "The dashboard couldn't be made available offline. Try again."

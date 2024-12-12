@@ -1,0 +1,30 @@
+.filterButton {
+    padding: 4px;
+    inline-size: auto;
+    border-radius: 3px;
+    color: black;
+    background-color: #f4f6f8;
+}
+
+.popover {
+    border: 1px solid var(--colors-grey400);
+    border-radius: 4px;
+    box-shadow: var(--elevations-e400);
+    padding: var(--spacers-dp8);
+    background-color: var(--colors-white);
+}
+
+.filterSection {
+    margin-block-end: var(--spacers-dp4);
+}
+
+.filterSectionHeader {
+    margin: 0;
+    padding: 0;
+}
+
+.filterSectionList {
+    margin: 0;
+    padding: 0;
+    padding-inline-start: 18px;
+}

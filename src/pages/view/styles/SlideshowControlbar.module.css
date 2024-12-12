@@ -6,23 +6,38 @@
     justify-content: space-between;
     align-items: center;
     background-color: black;
-    block-size: 40px;
+    padding-inline-start: 4px;
+    padding-inline-end: 4px;
+    z-index: 10;
+}
+.start,
+.middle,
+.end {
+    display: flex;
+    align-items: center;
+    width: calc(100% / 3);
 }
 
-.container > :first-child {
-    flex-grow: 1;
-    flex-basis: 0;
-    margin-inline-start: 4px;
+.start {
+    justify-content: start;
 }
+
+.middle {
+    justify-content: center;
+}
+
+.end {
+    justify-content: end;
+}
+
 .container button {
     color: white;
     background-color: #171819;
     border-radius: 3px;
     border: none;
-    inline-size: 32px;
-    block-size: 32px;
     padding: 4px;
     cursor: pointer;
+    flex-grow: 0;
 }
 
 .container button:hover {
@@ -32,6 +47,12 @@
 .container button:disabled {
     cursor: not-allowed;
 }
+
+.container button.squareButton {
+    inline-size: 32px;
+    block-size: 32px;
+}
+
 .controls {
     padding: 4px;
     border-radius: 5px;
@@ -39,6 +60,7 @@
     align-items: center;
     justify-content: center;
 }
+
 .pageCounter {
     font-family: 'Roboto', sans-serif;
     font-weight: 400;
@@ -50,21 +72,4 @@
     /* avoid moving buttons for most counts below 999 items */
     text-align: center;
     user-select: none;
-}
-
-.filters {
-    flex-grow: 1;
-    flex-basis: 0;
-    list-style-type: none;
-    display: flex;
-    justify-content: flex-end;
-    margin-inline-end: 4px;
-    gap: 4px;
-}
-
-.filter {
-    padding: 4px;
-    border-radius: 3px;
-    color: black;
-    background-color: #f4f6f8;
 }
