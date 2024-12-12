@@ -9,7 +9,7 @@
     overflow: visible;
     margin: 0;
     padding: 0;
-    width: 100%;
+    inline-size: 100%;
 }
 @media only screen and (max-height: 480px) {
     .container {
