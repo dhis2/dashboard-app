@@ -9,6 +9,11 @@
     block-size: 40px;
 }
 
+.container> :first-child {
+    flex-grow: 1;
+    flex-basis: 0;
+    margin-inline-start: 4px;
+}
 .container button {
     color: white;
     background-color: #171819;
@@ -45,13 +50,6 @@
     /* avoid moving buttons for most counts below 999 items */
     text-align: center;
     user-select: none;
-}
-
-.exitButton {
-    flex-grow: 1;
-    flex-basis: 0;
-    text-align: start;
-    margin-inline-start: 4px;
 }
 
 .filters {

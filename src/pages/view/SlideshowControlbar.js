@@ -33,13 +33,14 @@ const SlideshowControlbar = ({
 
     return (
         <div className={styles.container}>
-            <button
-                className={styles.exitButton}
-                onClick={exitSlideshow}
-                data-test="slideshow-exit-button"
-            >
-                <IconCross24 color={colors.white} />
-            </button>
+            <div>
+                <button
+                    onClick={exitSlideshow}
+                    data-test="slideshow-exit-button"
+                >
+                    <IconCross24 color={colors.white} />
+                </button>
+            </div>
             <div className={styles.controls}>
                 <button
                     disabled={navigationDisabled}
