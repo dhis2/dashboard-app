@@ -14,14 +14,15 @@ exports[`ViewDashboard renders dashboard 1`] = `
       class="container dashboard-scroll-container"
       data-test="inner-scroll-container"
     >
-      <div>
-        TitleBar
-      </div>
-      <div>
-        MockFilterBar
-      </div>
-      <div>
-        MockItemGrid
+      <div
+        class="contentWrap"
+      >
+        <div>
+          MockFilterBar
+        </div>
+        <div>
+          MockItemGrid
+        </div>
       </div>
     </div>
   </div>
