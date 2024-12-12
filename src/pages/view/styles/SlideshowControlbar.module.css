@@ -3,20 +3,13 @@
     inset-block-end: 0;
     inline-size: 100vw;
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
+    align-items: center;
     background-color: black;
     block-size: 40px;
 }
 
-.controls {
-    padding: 4px;
-    border-radius: 5px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.controls button {
+.container button {
     color: white;
     background-color: #171819;
     border-radius: 3px;
@@ -27,12 +20,19 @@
     cursor: pointer;
 }
 
-.controls button:hover {
+.container button:hover {
     background-color: #202124;
 }
 
-.controls button:disabled {
+.container button:disabled {
     cursor: not-allowed;
+}
+.controls {
+    padding: 4px;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 .pageCounter {
     font-family: 'Roboto', sans-serif;
@@ -48,7 +48,25 @@
 }
 
 .exitButton {
-    position: absolute;
-    inset-block-end: 4px;
-    inset-inline-start: 4px;
+    flex-grow: 1;
+    flex-basis: 0;
+    text-align: start;
+    margin-inline-start: 4px;
+}
+
+.filters {
+    flex-grow: 1;
+    flex-basis: 0;
+    list-style-type: none;
+    display: flex;
+    justify-content: flex-end;
+    margin-inline-end: 4px;
+    gap: 4px;
+}
+
+.filter {
+    padding: 4px;
+    border-radius: 3px;
+    color: black;
+    background-color: #f4f6f8;
 }

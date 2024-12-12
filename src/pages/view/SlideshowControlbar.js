@@ -1,3 +1,4 @@
+import i18n from '@dhis2/d2-i18n'
 import {
     IconChevronRight24,
     IconChevronLeft24,
@@ -6,7 +7,19 @@ import {
 } from '@dhis2/ui'
 import PropTypes from 'prop-types'
 import React from 'react'
+import { useSelector } from 'react-redux'
+import { sGetNamedItemFilters } from '../../reducers/itemFilters.js'
 import styles from './styles/SlideshowControlbar.module.css'
+
+const getFilterText = (filter) => {
+    return `${filter.name}: ${
+        filter.values.length > 1
+            ? i18n.t('{{count}} selected', {
+                  count: filter.values.length,
+              })
+            : filter.values[0].name
+    }`
+}
 
 const SlideshowControlbar = ({
     slideshowItemIndex,
@@ -15,18 +28,19 @@ const SlideshowControlbar = ({
     prevItem,
     numItems,
 }) => {
+    const filters = useSelector(sGetNamedItemFilters)
     const navigationDisabled = numItems === 1
 
     return (
         <div className={styles.container}>
+            <button
+                className={styles.exitButton}
+                onClick={exitSlideshow}
+                data-test="slideshow-exit-button"
+            >
+                <IconCross24 color={colors.white} />
+            </button>
             <div className={styles.controls}>
-                <button
-                    className={styles.exitButton}
-                    onClick={exitSlideshow}
-                    data-test="slideshow-exit-button"
-                >
-                    <IconCross24 color={colors.white} />
-                </button>
                 <button
                     disabled={navigationDisabled}
                     onClick={prevItem}
@@ -54,6 +68,13 @@ const SlideshowControlbar = ({
                     />
                 </button>
             </div>
+            <ul className={styles.filters}>
+                {filters.map((filter) => (
+                    <li key={filter.id} className={styles.filter}>
+                        {getFilterText(filter)}
+                    </li>
+                ))}
+            </ul>
         </div>
     )
 }
