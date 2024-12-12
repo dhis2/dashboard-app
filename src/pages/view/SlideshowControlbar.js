@@ -3,6 +3,7 @@ import {
     IconChevronRight24,
     IconChevronLeft24,
     IconCross24,
+    Tooltip,
     colors,
 } from '@dhis2/ui'
 import PropTypes from 'prop-types'
@@ -69,13 +70,27 @@ const SlideshowControlbar = ({
                     />
                 </button>
             </div>
-            <ul className={styles.filters}>
+            <div className={styles.filters}>
                 {filters.map((filter) => (
-                    <li key={filter.id} className={styles.filter}>
-                        {getFilterText(filter)}
-                    </li>
+                    <Tooltip
+                        content="These are the filters"
+                        key={filter.id}
+                        placement="left"
+                    >
+                        {({ onMouseOver, ref }) => (
+                            <span
+                                onMouseOver={() => onMouseOver()}
+                                // onMouseOut={() => onMouseOut()}
+                                ref={ref}
+                            >
+                                <span className={styles.filter}>
+                                    {getFilterText(filter)}
+                                </span>
+                            </span>
+                        )}
+                    </Tooltip>
                 ))}
-            </ul>
+            </div>
         </div>
     )
 }
