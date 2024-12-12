@@ -21,8 +21,6 @@ const SM_SCREEN_MIN_ITEM_GRID_HEIGHT = 13 // minimum of ~320px
 export const SM_SCREEN_GRID_COLUMNS = 1
 export const MARGIN_SM_PX = [0, 16]
 export const GRID_PADDING_PX = [0, 0]
-// sum of left+right padding of dashboard-wrapper (App.css)
-export const DASHBOARD_WRAPPER_LR_MARGIN_PX = 28
 // make an assumption about the original item w/h ratio
 // assumes grid width of ~1200px at time dashboard was created
 const GRID_COL_WIDTH_PX = 10
@@ -87,15 +85,12 @@ export const withShape = (items = []) => {
     )
 }
 
-export const getGridWidth = (windowWidthPx) =>
-    windowWidthPx - DASHBOARD_WRAPPER_LR_MARGIN_PX
-
 const getGridUnitsForSmFromPx = (hPx) => {
     const gridUnitHeightPx = GRID_ROW_HEIGHT_PX + MARGIN_SM_PX[1]
     return Math.round((hPx + MARGIN_SM_PX[1]) / gridUnitHeightPx)
 }
 
-export const getProportionalHeight = (item, windowWidthPx) => {
+export const getProportionalHeight = (item, gridWidthPx) => {
     // get w/h ratio of the original item
     const wPx = getItemWHPx(item.w, GRID_COL_WIDTH_PX, MARGIN_PX[0])
     const hPx = getItemWHPx(item.h, GRID_ROW_HEIGHT_PX, MARGIN_PX[1])
@@ -104,8 +99,6 @@ export const getProportionalHeight = (item, windowWidthPx) => {
     if (!isVisualizationType(item)) {
         return getGridUnitsForSmFromPx(hPx)
     }
-
-    const gridWidthPx = getGridWidth(windowWidthPx)
 
     // get new height in px based on the ratio
     const newColWidthPx =
