@@ -53,8 +53,10 @@ export const SlideshowFiltersInfo = () => {
                 className={styles.filterButton}
                 onClick={() => setIsOpen(true)}
             >
-                {i18n.t('{{totalFilterCount}} filters active', {
-                    totalFilterCount,
+                {i18n.t('{{count}} filters active', {
+                    count: totalFilterCount,
+                    defaultValue: '{{count}} filter active',
+                    defaultValue_plural: '{{count}} filters active',
                 })}
             </button>
             {isOpen && (

@@ -15,7 +15,7 @@
 .end {
     display: flex;
     align-items: center;
-    width: calc(100% / 3);
+    inline-size: calc(100% / 3);
 }
 
 .start {
@@ -55,7 +55,6 @@
 
 .controls {
     padding: 4px;
-    border-radius: 5px;
     display: flex;
     align-items: center;
     justify-content: center;
