@@ -2304,10 +2304,9 @@
     classnames "^2.3.1"
     prop-types "^15.7.2"
 
-"@dhis2/analytics@^26.8.2":
-  version "26.8.2"
-  resolved "https://registry.yarnpkg.com/@dhis2/analytics/-/analytics-26.8.2.tgz#a7da752009aae277f5e8f485c7c96853ca535543"
-  integrity sha512-mJNr3V0sL7XgK9KssX9dGoO5GiuCcIe8epOtvJ8LPFmbfurNYtCcRANXCtybVe3yKfZshxOgXEYvtVqtZJ8TCg==
+"@dhis2/analytics@git+https://github.com/d2-ci/analytics.git#e398d08e696356908725c8f51f32c30e7cb002ec":
+  version "26.9.4"
+  resolved "git+https://github.com/d2-ci/analytics.git#e398d08e696356908725c8f51f32c30e7cb002ec"
   dependencies:
     "@dhis2/multi-calendar-dates" "^1.2.2"
     "@dnd-kit/core" "^6.0.7"
@@ -2315,7 +2314,7 @@
     "@dnd-kit/utilities" "^3.2.1"
     "@react-hook/debounce" "^4.0.0"
     classnames "^2.3.1"
-    crypto-js "^4.1.1"
+    crypto-js "^4.2.0"
     d2-utilizr "^0.2.16"
     d3-color "^1.2.3"
     highcharts "^10.3.3"
@@ -6628,7 +6627,7 @@ cross-spawn@^7.0.0, cross-spawn@^7.0.2, cross-spawn@^7.0.3:
     shebang-command "^2.0.0"
     which "^2.0.1"
 
-crypto-js@^4.1.1:
+crypto-js@^4.2.0:
   version "4.2.0"
   resolved "https://registry.yarnpkg.com/crypto-js/-/crypto-js-4.2.0.tgz#4d931639ecdfd12ff80e8186dba6af2c2e856631"
   integrity sha512-KALDyEYgpY+Rlob/iriUtjV6d5Eq+Y191A5g4UqLAi8CyGP9N1+FdVbkc1SxKc2r4YAYqG8JzO2KGL+AizD70Q==
