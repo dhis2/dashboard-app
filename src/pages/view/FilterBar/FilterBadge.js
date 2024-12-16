@@ -13,7 +13,11 @@ import classes from './styles/FilterBadge.module.css'
 const getFilterValuesText = (values) =>
     values.length === 1
         ? values[0].name
-        : i18n.t('{{count}} selected', { count: values.length })
+        : i18n.t('{{count}} selected', {
+              count: values.length,
+              defaultValue: '{{count}} selected',
+              defaultValue_plural: '{{count}} selected',
+          })
 
 const EditFilterButton = ({ tooltipContent, filter, openFilterModal }) => {
     const buttonText = `${filter.name}: ${getFilterValuesText(filter.values)}`
