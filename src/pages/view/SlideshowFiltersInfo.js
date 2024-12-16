@@ -53,7 +53,7 @@ export const SlideshowFiltersInfo = () => {
         filterMessage = i18n.t('{{name}} filter applied: {{filter}}', {
             name: filters[0].name,
             filter: filters[0].values[0].name,
-            namespaceSeparator: '>',
+            nsSeparator: '>',
         })
     }
 

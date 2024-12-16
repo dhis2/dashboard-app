@@ -5,8 +5,8 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1)\n"
-"POT-Creation-Date: 2024-12-13T09:34:43.221Z\n"
-"PO-Revision-Date: 2024-12-13T09:34:43.221Z\n"
+"POT-Creation-Date: 2024-12-16T16:09:05.449Z\n"
+"PO-Revision-Date: 2024-12-16T16:09:05.450Z\n"
 
 msgid "Untitled dashboard"
 msgstr "Untitled dashboard"
@@ -489,6 +489,9 @@ msgstr "No, cancel"
 
 msgid "Yes, remove filters"
 msgstr "Yes, remove filters"
+
+msgid "{{name}} filter applied: {{filter}}"
+msgstr "{{name}} filter applied: {{filter}}"
 
 msgid "{{count}} filters active"
 msgid_plural "{{count}} filters active"
