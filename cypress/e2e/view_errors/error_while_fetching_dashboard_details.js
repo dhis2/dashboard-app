@@ -1,8 +1,6 @@
 import { When, Then } from '@badeball/cypress-cucumber-preprocessor'
 
 When('I type a dashboard id in the browser url that fails to load', () => {
-    console.log('TEST RUNS')
-
     cy.intercept('**/dashboards/iMnYyBfSxmM**', {
         statusCode: 500,
         body: 'Oopsie!',
