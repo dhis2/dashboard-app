@@ -79,14 +79,16 @@ test('Has enabled buttons when online', () => {
     expect(getByTestId('filter-badge-clear-button')).toBeEnabled()
 })
 
-test('Has disabled buttons when offline', () => {
-    useDhis2ConnectionStatus.mockImplementation(() => ({ isConnected: false }))
+test('Shows only a disabled edit-filter button when offline', () => {
+    useDhis2ConnectionStatus.mockImplementationOnce(() => ({
+        isConnected: false,
+    }))
     const filter = {
         id: 'ponies',
         name: 'Ponies',
         values: [{ name: 'Twilight Sparkle' }],
     }
-    const { getByTestId } = render(
+    const { getByTestId, queryByTestId } = render(
         <Provider store={createMockStore()}>
             <FilterBadge
                 filter={filter}
@@ -97,11 +99,14 @@ test('Has disabled buttons when offline', () => {
         </Provider>
     )
     expect(getByTestId('filter-badge-button')).toBeDisabled()
-    expect(getByTestId('filter-badge-clear-button')).toBeDisabled()
+    expect(queryByTestId('filter-badge-clear-button')).not.toBeInTheDocument()
 })
 
-test('Has disabled buttons when on small screen', () => {
-    useWindowDimensions.mockImplementation(() => ({ width: 440, height: 780 }))
+test('Shows a disabled edit-filter button and enabled clear-filter when on small screen', () => {
+    useWindowDimensions.mockImplementationOnce(() => ({
+        width: 440,
+        height: 780,
+    }))
     const filter = {
         id: 'ponies',
         name: 'Ponies',
@@ -118,5 +123,5 @@ test('Has disabled buttons when on small screen', () => {
         </Provider>
     )
     expect(getByTestId('filter-badge-button')).toBeDisabled()
-    expect(getByTestId('filter-badge-clear-button')).toBeDisabled()
+    expect(getByTestId('filter-badge-clear-button')).toBeEnabled()
 })

@@ -15,13 +15,25 @@ const getFilterValuesText = (values) =>
         ? values[0].name
         : i18n.t('{{count}} selected', { count: values.length })
 
-const FilterBadge = ({ filter, openFilterModal, onRemove }) => {
-    const { isConnected } = useDhis2ConnectionStatus()
-    const { width } = useWindowDimensions()
-    const notAllowed = !isConnected || width <= 480
-    const tooltipContent = !isConnected
-        ? i18n.t('Cannot edit filters while offline')
-        : i18n.t('Cannot edit filters on a small screen')
+const EditFilterButton = ({ tooltipContent, filter, openFilterModal }) => {
+    const buttonText = `${filter.name}: ${getFilterValuesText(filter.values)}`
+
+    if (!tooltipContent) {
+        return (
+            <button
+                data-test="filter-badge-button"
+                className={cx(classes.button, classes.filterButton)}
+                onClick={() =>
+                    openFilterModal({
+                        id: filter.id,
+                        name: filter.name,
+                    })
+                }
+            >
+                {buttonText}
+            </button>
+        )
+    }
 
     return (
         <Tooltip
@@ -30,40 +42,51 @@ const FilterBadge = ({ filter, openFilterModal, onRemove }) => {
             closeDelay={100}
             className={classes.tooltip}
         >
-            {({ onFocus, onBlur, onMouseOver, onMouseOut, ref }) => (
-                <div
-                    className={classes.container}
-                    data-test="dashboard-filter-badge"
-                    onFocus={() => notAllowed && onFocus()}
-                    onBlur={() => notAllowed && onBlur()}
-                    onMouseOver={() => notAllowed && onMouseOver()}
-                    onMouseOut={() => notAllowed && onMouseOut()}
-                    ref={ref}
+            {(props) => (
+                <button
+                    disabled
+                    data-test="filter-badge-button"
+                    className={cx(classes.button, classes.filterButton)}
+                    {...props}
                 >
-                    <button
-                        data-test="filter-badge-button"
-                        className={cx(classes.button, classes.filterButton)}
-                        disabled={notAllowed}
-                        onClick={() =>
-                            openFilterModal({
-                                id: filter.id,
-                                name: filter.name,
-                            })
-                        }
-                    >
-                        {filter.name}: {getFilterValuesText(filter.values)}
-                    </button>
-                    <button
-                        data-test="filter-badge-clear-button"
-                        className={cx(classes.button, classes.removeButton)}
-                        disabled={notAllowed}
-                        onClick={() => onRemove(filter.id)}
-                    >
-                        <IconCross16 />
-                    </button>
-                </div>
+                    {buttonText}
+                </button>
             )}
         </Tooltip>
+    )
+}
+EditFilterButton.propTypes = {
+    filter: PropTypes.object,
+    openFilterModal: PropTypes.func,
+    tooltipContent: PropTypes.string,
+}
+
+const FilterBadge = ({ filter, openFilterModal, onRemove }) => {
+    const { isConnected } = useDhis2ConnectionStatus()
+    const { width } = useWindowDimensions()
+    const isEditDisabled = !isConnected || width <= 480
+    const tooltipContent = !isConnected
+        ? i18n.t('Cannot edit filters while offline')
+        : i18n.t('Cannot edit filters on a small screen')
+
+    return (
+        <div className={classes.container} data-test="dashboard-filter-badge">
+            <EditFilterButton
+                filter={filter}
+                openFilterModal={openFilterModal}
+                tooltipContent={isEditDisabled ? tooltipContent : null}
+            />
+            {isConnected && (
+                <button
+                    data-test="filter-badge-clear-button"
+                    className={cx(classes.button, classes.removeButton)}
+                    disabled={!isConnected}
+                    onClick={() => onRemove(filter.id)}
+                >
+                    <IconCross16 />
+                </button>
+            )}
+        </div>
     )
 }
 

@@ -28,6 +28,12 @@
     border-end-start-radius: 4px;
 }
 
+.filterButton:only-child {
+    padding-inline-end: 6px;
+    border-start-end-radius: 4px;
+    border-end-end-radius: 4px;
+}
+
 .removeButton {
     padding-inline: 4px 6px;
     border-start-end-radius: 4px;
