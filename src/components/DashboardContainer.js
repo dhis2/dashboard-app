@@ -11,7 +11,7 @@ import classes from './styles/DashboardContainer.module.css'
 
 const ContainerWidthContext = createContext(0)
 
-const DashboardContainer = ({ children, covered }) => {
+const DashboardContainer = ({ children }) => {
     const [containerWidth, setContainerWidth] = useState(0)
     const ref = useRef(null)
 
@@ -28,11 +28,7 @@ const DashboardContainer = ({ children, covered }) => {
 
     return (
         <div
-            className={cx(
-                classes.container,
-                'dashboard-scroll-container',
-                covered && classes.covered
-            )}
+            className={cx(classes.container, 'dashboard-scroll-container')}
             data-test="inner-scroll-container"
         >
             <div ref={ref} className={classes.contentWrap}>
@@ -46,7 +42,6 @@ const DashboardContainer = ({ children, covered }) => {
 
 DashboardContainer.propTypes = {
     children: PropTypes.node,
-    covered: PropTypes.bool,
 }
 
 export const useContainerWidth = () => useContext(ContainerWidthContext)
