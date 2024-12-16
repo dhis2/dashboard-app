@@ -4,6 +4,7 @@ import PropTypes from 'prop-types'
 import React, { useState, useEffect } from 'react'
 import { Responsive as ResponsiveReactGridLayout } from 'react-grid-layout'
 import { connect } from 'react-redux'
+import { useContainerWidth } from '../../components/DashboardContainer.js'
 import { Item } from '../../components/Item/Item.js'
 import NoContentMessage from '../../components/NoContentMessage.js'
 import ProgressiveLoadingContainer from '../../components/ProgressiveLoadingContainer.js'
@@ -20,7 +21,6 @@ import {
     MARGIN_SM_PX,
     GRID_COLUMNS,
     getSmallLayout,
-    getGridWidth,
     getProportionalHeight,
 } from '../../modules/gridUtil.js'
 import { getBreakpoint, isSmallScreen } from '../../modules/smallScreen.js'
@@ -36,6 +36,7 @@ const EXPANDED_HEIGHT_SM = 15
 
 const ResponsiveItemGrid = ({ dashboardId, dashboardItems }) => {
     const { width } = useWindowDimensions()
+    const containerWidth = useContainerWidth()
     const [expandedItems, setExpandedItems] = useState({})
     const [displayItems, setDisplayItems] = useState(dashboardItems)
     const [layoutSm, setLayoutSm] = useState([])
@@ -134,10 +135,10 @@ const ResponsiveItemGrid = ({ dashboardId, dashboardItems }) => {
         <ResponsiveReactGridLayout
             className={classes.grid}
             rowHeight={GRID_ROW_HEIGHT_PX}
-            width={getGridWidth(width)}
+            width={containerWidth}
             cols={{ lg: GRID_COLUMNS, sm: SM_SCREEN_GRID_COLUMNS }}
             breakpoints={{
-                lg: getBreakpoint(),
+                lg: getBreakpoint(containerWidth),
                 sm: 0,
             }}
             layouts={{ lg: displayItems, sm: layoutSm }}

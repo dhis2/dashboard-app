@@ -1,8 +1,6 @@
-import { DASHBOARD_WRAPPER_LR_MARGIN_PX } from './gridUtil.js'
-
 const SMALL_SCREEN_BREAKPOINT = 480
 
 export const isSmallScreen = (width) => width <= SMALL_SCREEN_BREAKPOINT
 
-export const getBreakpoint = () =>
-    SMALL_SCREEN_BREAKPOINT - DASHBOARD_WRAPPER_LR_MARGIN_PX
+export const getBreakpoint = (containerWidth) =>
+    SMALL_SCREEN_BREAKPOINT - (window.innerWidth - containerWidth)
