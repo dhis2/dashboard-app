@@ -135,7 +135,7 @@ const ViewDashboard = ({
             data-test="outer-scroll-container"
         >
             <DashboardsBar />
-            <DashboardContainer covered={false}>
+            <DashboardContainer>
                 <ViewDashboardContent
                     loading={loading}
                     loaded={loaded}
