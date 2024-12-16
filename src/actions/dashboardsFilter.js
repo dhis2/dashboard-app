@@ -10,10 +10,6 @@ export const acSetDashboardsFilter = (value) => ({
     value,
 })
 
-/* TODO: Possibly this action can be removed if we keep a an input
- * with type="search". Clicking the cross in the input will send an
- * an empty string as payload to the onchange handler. So just calling
- * acSetDashboardsFilter on change will be enough */
 export const acClearDashboardsFilter = () => ({
     type: CLEAR_DASHBOARDS_FILTER,
 })
