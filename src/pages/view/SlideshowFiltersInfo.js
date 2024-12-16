@@ -46,20 +46,35 @@ export const SlideshowFiltersInfo = () => {
         return null
     }
 
+    let filterMessage = ''
+    let multipleFilters = true
+    if (filters.length === 1 && filters[0].values.length === 1) {
+        multipleFilters = false
+        filterMessage = i18n.t('{{name}} filter applied: {{filter}}', {
+            name: filters[0].name,
+            filter: filters[0].values[0].name,
+            namespaceSeparator: '>',
+        })
+    }
+
     return (
         <>
-            <button
-                ref={ref}
-                className={styles.filterButton}
-                onClick={() => setIsOpen(true)}
-            >
-                {i18n.t('{{count}} filters active', {
-                    count: totalFilterCount,
-                    defaultValue: '{{count}} filter active',
-                    defaultValue_plural: '{{count}} filters active',
-                })}
-            </button>
-            {isOpen && (
+            {!multipleFilters ? (
+                <span className={styles.singleFilterText}>{filterMessage}</span>
+            ) : (
+                <button
+                    ref={ref}
+                    className={styles.filterButton}
+                    onClick={() => setIsOpen(true)}
+                >
+                    {i18n.t('{{count}} filters active', {
+                        count: totalFilterCount,
+                        defaultValue: '{{count}} filter active',
+                        defaultValue_plural: '{{count}} filters active',
+                    })}
+                </button>
+            )}
+            {isOpen && multipleFilters && (
                 <Layer disablePortal onClick={() => setIsOpen(false)}>
                     <Popper
                         className={styles.popover}
