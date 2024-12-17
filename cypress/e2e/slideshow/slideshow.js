@@ -72,7 +72,6 @@ When('I click the next slide button', () => {
     cy.getByDataTest('slideshow-next-button').realClick()
 })
 
-// Then the next slide is shown
 Then('item 2 is shown in fullscreen', () => {
     assertItemIsNotVisible(0)
     assertItemIsVisible(1)
@@ -88,4 +87,17 @@ When('I click the previous slide button', () => {
 When('I click the fullscreen button on the second item', () => {
     clickMenuButton(sortedDashboardItemIds[1])
     cy.contains('View fullscreen').realClick()
+})
+
+When('I click the fullscreen button on the third item', () => {
+    clickMenuButton(sortedDashboardItemIds[2])
+    cy.contains('View fullscreen').realClick()
+})
+
+Then('item 3 is shown in fullscreen', () => {
+    assertItemIsNotVisible(0)
+    assertItemIsNotVisible(1)
+    assertItemIsVisible(2)
+
+    cy.getByDataTest('slideshow-page-counter').should('have.text', '3 / 11')
 })
