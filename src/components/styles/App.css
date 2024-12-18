@@ -1,21 +1,4 @@
 :root {
-    /* control bar variables */
-    --user-rows-count: 1;
-    --controlbar-padding: 31px;
-    --row-height: 40px;
-    --min-rows-height: calc(
-        var(--controlbar-padding) + (1 * var(--row-height))
-    );
-    --max-rows-height: calc(
-        var(--controlbar-padding) + (10 * var(--row-height))
-    );
-    --user-rows-height: calc(
-        var(--controlbar-padding) + (var(--user-rows-count) * var(--row-height))
-    );
-    --sm-expanded-controlbar-height: calc(
-        (var(--vh, 1vh) * 100) - var(--headerbar-height) - 32px
-    );
-
     /* item variables */
     --item-header-margin-top: 8px;
     --item-header-margin-bottom: 8px;
@@ -32,7 +15,7 @@ body {
     margin: 0;
     padding: 0;
     font-family: sans-serif;
-    background-color: #f4f6f8;
+    background-color: var(--colors-grey200);
 }
 
 .app-shell-app {

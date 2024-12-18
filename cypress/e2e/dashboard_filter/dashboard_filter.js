@@ -2,6 +2,7 @@ import { Then, When } from '@badeball/cypress-cucumber-preprocessor'
 import {
     filterBadgeSel,
     dimensionsModalSel,
+    filterBadgeDeleteBtnSel,
 } from '../../elements/dashboardFilter.js'
 // import {
 //     gridItemSel,
@@ -128,7 +129,7 @@ Then('the filter modal is opened', () => {
 })
 
 When('I remove the {string} filter', () => {
-    cy.get(filterBadgeSel).find('button').contains('Remove').click()
+    cy.get(filterBadgeDeleteBtnSel).click()
 })
 
 Then('the filter is removed from the dashboard', () => {
