@@ -12,6 +12,7 @@ import {
 import { isEditMode } from '../../../modules/dashboardModes.js'
 import { itemTypeMap, getItemUrl } from '../../../modules/itemTypes.js'
 import { orArray } from '../../../modules/util.js'
+import { sGetSlideshow } from '../../../reducers/slideshow.js'
 import ItemHeader from '../ItemHeader/ItemHeader.js'
 import classes from './Item.module.css'
 
@@ -29,6 +30,7 @@ const ListItem = ({
     removeItem,
     updateItem,
     isFullscreen,
+    isSlideshowView,
 }) => {
     const { baseUrl } = useConfig()
     const contentItems = getContentItems(item)
@@ -64,6 +66,7 @@ const ListItem = ({
                     className={classes.link}
                     style={{ color: colors.grey900 }}
                     href={getItemUrl(item.type, contentItem, baseUrl)}
+                    tabIndex={isSlideshowView ? '-1' : '0'}
                 >
                     {contentItem.name}
                 </a>
@@ -104,12 +107,17 @@ const ListItem = ({
 ListItem.propTypes = {
     dashboardMode: PropTypes.string,
     isFullscreen: PropTypes.bool,
+    isSlideshowView: PropTypes.bool,
     item: PropTypes.object,
     removeItem: PropTypes.func,
     updateItem: PropTypes.func,
 }
 
-export default connect(null, {
+const mapStateToProps = (state) => ({
+    isSlideshowView: sGetSlideshow(state) !== null,
+})
+
+export default connect(mapStateToProps, {
     removeItem: acRemoveDashboardItem,
     updateItem: acUpdateDashboardItem,
 })(ListItem)
