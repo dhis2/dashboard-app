@@ -5,6 +5,7 @@ import classes from './styles/HeaderMenuItem.module.css'
 
 const HeaderMenuItem = ({ title }) => (
     <MenuItem
+        ariaLabel={title}
         className={classes.item}
         dense
         key={title}
