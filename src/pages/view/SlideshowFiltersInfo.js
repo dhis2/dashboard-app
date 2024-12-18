@@ -1,5 +1,5 @@
 import i18n from '@dhis2/d2-i18n'
-import { Layer, Popper } from '@dhis2/ui'
+import { Layer, Popper, IconFilter16 } from '@dhis2/ui'
 import PropTypes from 'prop-types'
 import React, { useMemo, useState, useRef } from 'react'
 import { useSelector } from 'react-redux'
@@ -50,7 +50,7 @@ export const SlideshowFiltersInfo = () => {
     let multipleFilters = true
     if (filters.length === 1 && filters[0].values.length === 1) {
         multipleFilters = false
-        filterMessage = i18n.t('{{name}} filter applied: {{filter}}', {
+        filterMessage = i18n.t('{{name}}: {{filter}}', {
             name: filters[0].name,
             filter: filters[0].values[0].name,
             nsSeparator: '>',
@@ -60,13 +60,17 @@ export const SlideshowFiltersInfo = () => {
     return (
         <>
             {!multipleFilters ? (
-                <span className={styles.singleFilterText}>{filterMessage}</span>
+                <span className={styles.singleFilterText}>
+                    <IconFilter16 />
+                    {filterMessage}
+                </span>
             ) : (
                 <button
                     ref={ref}
                     className={styles.filterButton}
                     onClick={() => setIsOpen(true)}
                 >
+                    <IconFilter16 />
                     {i18n.t('{{count}} filters active', {
                         count: totalFilterCount,
                         defaultValue: '{{count}} filter active',
