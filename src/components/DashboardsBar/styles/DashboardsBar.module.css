@@ -8,6 +8,8 @@
 
 .blockCreationNavigation {
     display: flex;
+    height: 100%;
+    align-items: center;
     flex-shrink: 0;
     gap: var(--spacers-dp4);
     padding: var(--spacers-dp8) var(--spacers-dp12) 9px var(--spacers-dp8);
