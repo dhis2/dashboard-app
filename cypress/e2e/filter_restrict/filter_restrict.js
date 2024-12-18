@@ -168,7 +168,7 @@ Scenario: I restrict filters to no dimensions and do not see Add Filter in dashb
 */
 
 Then('Add Filter button is not visible', () => {
-    cy.contains('Filter').should('not.exist')
+    cy.containsExact('Filter').should('not.exist')
 })
 
 When('I delete the dashboard', () => {
