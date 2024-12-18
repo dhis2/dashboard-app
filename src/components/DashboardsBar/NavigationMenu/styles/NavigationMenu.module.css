@@ -1,0 +1,55 @@
+.container {
+    min-inline-size: 480px;
+    max-inline-size: 720px;
+    border: 1px solid var(--colors-grey200);
+    border-radius: 3px;
+    box-shadow: var(--elevations-e300);
+    background-color: var(--colors-white);
+}
+.filterWrap {
+    padding-block: 8px 4px;
+    padding-inline: 8px;
+}
+.scrollbox {
+    /* On larger screens the max is restricted to 1000px and if
+     * there is less space available, the max height is restricted
+     * to the window height. Main header is 48px, dashboards-bar
+     * is 45px and the filter-wrap is 44px, so total height above
+     * is 137px so 100vh - 152px ensures that 15px of whitespace
+     * is visible below the menu. */
+    max-block-size: min(1000px, calc(100vh - 152px));
+    overflow-y: auto;
+    scroll-behavior: smooth;
+}
+.noItems {
+    color: var(--colors-grey700);
+    font-size: 13px;
+    line-height: 16px;
+    padding-block: 8px;
+    padding-inline: 24px;
+    text-align: center;
+}
+.noDashboardsAvailable {
+    block-size: 240px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.noDashboardsAvailable > p {
+    font-size: 14px;
+    color: var(--colors-grey700);
+}
+
+@media only screen and (max-width: 480px) {
+    .container {
+        min-inline-size: 320px;
+        max-inline-size: 460px;
+    }
+    .scrollbox {
+        /* 176px instead of 152px is needed because the online-status
+         * indicator is is showing below the main header and this has
+         * a height of 24px. */
+        max-block-size: calc(100vh - 176px);
+    }
+}

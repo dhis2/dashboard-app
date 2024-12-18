@@ -89,7 +89,7 @@ const EditTitleBar = ({
                     onChange={updateDescription}
                     value={description}
                     dataTest="dashboard-description-input"
-                    rows={6}
+                    rows={5}
                     dense
                 />
             </div>

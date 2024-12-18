@@ -11,7 +11,7 @@ Feature: Viewing dashboards
         Given I open the "Antenatal Care" dashboard
         When I search for dashboards containing "Immun"
         Then Immunization and Immunization data dashboards are choices
-        When I press enter in the search dashboard field
+        When I press tab in the search dashboard field and then enter
         Then the "Immunization" dashboard displays in view mode
 
     @nonmutating
@@ -19,8 +19,6 @@ Feature: Viewing dashboards
         Given I open the "Antenatal Care" dashboard
         When I search for dashboards containing "Noexist"
         Then no dashboards are choices
-        When I press enter in the search dashboard field
-        Then dashboards list restored and dashboard is still "Antenatal Care"
 
     @nonmutating
     Scenario: I view the print layout preview and then print one-item-per-page preview
@@ -38,21 +36,6 @@ Feature: Viewing dashboards
     Scenario: I view a dashboard with items lacking shape
         Given I open the "Delivery" dashboard with shapes removed
         Then the "Delivery" dashboard displays in view mode
-
-    @nonmutating
-    Scenario: I expand the control bar
-        Given I open the "Delivery" dashboard
-        Then the control bar should be at collapsed height
-        When I toggle show more dashboards
-        Then the control bar should be expanded to full height
-
-    @nonmutating
-    Scenario: I expand the control bar when dashboard not found
-        Given I type an invalid dashboard id in the browser url
-        Then a message displays informing that the dashboard is not found
-        And the control bar should be at collapsed height
-        When I toggle show more dashboards
-        Then the control bar should be expanded to full height
 
 # @nonmutating
 # FIXME

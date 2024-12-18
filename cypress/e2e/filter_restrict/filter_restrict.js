@@ -146,7 +146,7 @@ When('I save the dashboard', () => {
 })
 
 When('I click Add Filter', () => {
-    clickViewActionButton('Add filter')
+    clickViewActionButton('Filter')
 })
 
 Then('I see Facility Ownership and no other dimensions', () => {
@@ -168,7 +168,7 @@ Scenario: I restrict filters to no dimensions and do not see Add Filter in dashb
 */
 
 Then('Add Filter button is not visible', () => {
-    cy.contains('Add filter').should('not.exist')
+    cy.containsExact('Filter').should('not.exist')
 })
 
 When('I delete the dashboard', () => {

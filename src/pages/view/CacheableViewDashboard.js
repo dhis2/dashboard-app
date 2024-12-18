@@ -3,9 +3,10 @@ import { CacheableSection } from '@dhis2/app-runtime'
 import i18n from '@dhis2/d2-i18n'
 import isEmpty from 'lodash/isEmpty.js'
 import PropTypes from 'prop-types'
-import React, { useState } from 'react'
+import React, { useEffect } from 'react'
 import { connect } from 'react-redux'
-import DashboardsBar from '../../components/DashboardsBar/DashboardsBar.js'
+import { acClearSelected } from '../../actions/selected.js'
+import DashboardsBar from '../../components/DashboardsBar/index.js'
 import LoadingMask from '../../components/LoadingMask.js'
 import NoContentMessage from '../../components/NoContentMessage.js'
 import getCacheableSectionId from '../../modules/getCacheableSectionId.js'
@@ -15,15 +16,23 @@ import {
     sGetDashboardById,
     sGetDashboardsSortedByStarred,
 } from '../../reducers/dashboards.js'
+import { sGetSelectedId } from '../../reducers/selected.js'
 import ViewDashboard from './ViewDashboard.js'
 
 const CacheableViewDashboard = ({
-    id,
-    dashboardsLoaded,
+    clearSelectedDashboard,
     dashboardsIsEmpty,
+    dashboardsLoaded,
+    id,
+    selectedId,
 }) => {
-    const [dashboardsBarExpanded, setDashboardsBarExpanded] = useState(false)
     const { currentUser } = useCachedDataQuery()
+
+    useEffect(() => {
+        if (id === null && selectedId !== null) {
+            clearSelectedDashboard()
+        }
+    }, [id, selectedId, clearSelectedDashboard])
 
     if (!dashboardsLoaded) {
         return <LoadingMask />
@@ -32,12 +41,7 @@ const CacheableViewDashboard = ({
     if (dashboardsIsEmpty || id === null) {
         return (
             <>
-                <DashboardsBar
-                    expanded={dashboardsBarExpanded}
-                    onExpandedChanged={(expanded) =>
-                        setDashboardsBarExpanded(expanded)
-                    }
-                />
+                <DashboardsBar />
                 <NoContentMessage
                     text={
                         dashboardsIsEmpty
@@ -65,9 +69,11 @@ const CacheableViewDashboard = ({
 }
 
 CacheableViewDashboard.propTypes = {
+    clearSelectedDashboard: PropTypes.func,
     dashboardsIsEmpty: PropTypes.bool,
     dashboardsLoaded: PropTypes.bool,
     id: PropTypes.string,
+    selectedId: PropTypes.string,
 }
 
 const mapStateToProps = (state, ownProps) => {
@@ -88,7 +94,15 @@ const mapStateToProps = (state, ownProps) => {
         dashboardsIsEmpty: isEmpty(dashboards),
         dashboardsLoaded: !sDashboardsIsFetching(state),
         id: dashboardToSelect?.id || null,
+        selectedId: sGetSelectedId(state) || null,
     }
 }
 
-export default connect(mapStateToProps, null)(CacheableViewDashboard)
+const mapDispatchToProps = {
+    clearSelectedDashboard: acClearSelected,
+}
+
+export default connect(
+    mapStateToProps,
+    mapDispatchToProps
+)(CacheableViewDashboard)

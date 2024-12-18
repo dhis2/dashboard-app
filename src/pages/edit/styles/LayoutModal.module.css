@@ -4,18 +4,18 @@
     cursor: pointer;
     padding: var(--spacers-dp16);
     margin-block-end: var(--spacers-dp8);
-    border: 1px solid var(--colors-grey300);
-    border-radius: 3px;
+    border: 1px solid var(--colors-grey400);
+    border-radius: 6px;
 }
 
 .activeOption {
-    border-color: var(--colors-teal400);
-    background: var(--colors-teal050);
+    border-color: var(--colors-teal500);
+    background: var(--colors-teal100);
+    box-shadow: var(--elevations-e100);
 }
 
 .radio {
-    margin-block-start: var(--spacers-dp16);
-    margin-inline-end: var(--spacers-dp8);
+    margin-block-start: var(--spacers-dp12);
 }
 
 .iconWrapper {
@@ -32,21 +32,23 @@
 
 .title {
     margin-block-start: 0;
-    margin-block-end: var(--spacers-dp8);
+    margin-block-end: var(--spacers-dp4);
     margin-inline-start: 0;
     margin-inline-end: 0;
-    font-size: 20px;
+    font-size: 15px;
+    font-weight: 500;
 }
 
 .description {
     margin: 0;
-    font-size: 14px;
+    font-size: 13px;
+    line-height: 18px;
     color: var(--colors-grey700);
 }
 
 .columnOptions {
     display: flex;
-    margin-block-start: var(--spacers-dp16);
+    margin-block-start: var(--spacers-dp8);
 }
 
 .gap {
