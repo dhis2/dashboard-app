@@ -227,6 +227,8 @@ const ActionsBar = ({
                             disabledWhenOffline={false}
                         >
                             <Button
+                                secondary
+                                small
                                 disabled={!!slideshowTooltipContent}
                                 className={classes.slideshowButton}
                                 onClick={() => setSlideshow(0)}
