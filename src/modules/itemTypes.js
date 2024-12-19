@@ -228,7 +228,7 @@ export const getItemUrl = (type, item, baseUrl) => {
 }
 
 export const itemTypeSupportsFullscreen = (type) =>
-    itemTypeMap[type].supportsFullscreen
+    itemTypeMap[type]?.supportsFullscreen
 
 export const getItemIcon = (type) => {
     switch (type) {
