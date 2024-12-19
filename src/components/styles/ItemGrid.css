@@ -14,8 +14,10 @@
 .react-grid-item.edit,
 .react-grid-item.EVENT_VISUALIZATION,
 .react-grid-item.RESOURCES,
+.react-grid-item.REPORTS,
 .react-grid-item.TEXT,
 .react-grid-item.MESSAGES,
+.react-grid-item.EVENT_REPORT,
 .react-grid-item.APP {
     display: flex;
     flex-direction: column;
@@ -58,48 +60,4 @@
 
 .react-resizable-handle {
     background: none;
-}
-
-/* dashboard item - content */
-
-.dashboard-item-content {
-    margin-block-start: 0;
-    margin-block-end: var(--item-content-padding);
-    margin-inline-start: var(--item-content-padding);
-    margin-inline-end: var(--item-content-padding);
-    overflow: auto;
-}
-
-.dashboard-item-content-hidden-title {
-    margin-block-start: 5px;
-    margin-block-end: 4px;
-    margin-inline-start: 4px;
-    margin-inline-end: 4px;
-    overflow: auto;
-}
-
-.TEXT .dashboard-item-content {
-    padding-block-end: var(--item-content-padding);
-}
-
-.EVENT_REPORT .dashboard-item-content {
-    position: relative;
-}
-
-.CHART .dashboard-item-content,
-.VISUALIZATION .dashboard-item-content,
-.MAP .dashboard-item-content,
-.EVENT_CHART .dashboard-item-content,
-.EVENT_VISUALIZATION .dashboard-item-content {
-    position: relative;
-    overflow: hidden;
-}
-
-.react-grid-item.edit .dashboard-item-content,
-.react-grid-item.RESOURCES .dashboard-item-content,
-.react-grid-item.TEXT .dashboard-item-content,
-.react-grid-item.MESSAGES .dashboard-item-content,
-.react-grid-item.APP .dashboard-item-content,
-.react-grid-item.APP .dashboard-item-content-hidden-title {
-    flex: 1;
 }

@@ -1,0 +1,49 @@
+.filterButton {
+    inline-size: auto;
+    display: flex;
+    align-items: center;
+    gap: var(--spacers-dp4);
+    font-size: 14px;
+}
+
+.singleFilterText {
+    display: flex;
+    gap: var(--spacers-dp4);
+    padding: 0px var(--spacers-dp8) 0 0;
+    font-size: 14px;
+    inline-size: auto;
+    color: var(--colors-grey300);
+}
+
+.popover {
+    border: 1px solid #202124;
+    background-color: #171819;
+    border-radius: 6px;
+    box-shadow: var(--elevations-e400);
+    padding: var(--spacers-dp12) var(--spacers-dp12) var(--spacers-dp16);
+    font-size: 13px;
+    color: var(--colors-grey300);
+    min-inline-size: 200px;
+    max-inline-size: 420px;
+    margin-block-end: var(--spacers-dp4);
+}
+
+.filterSection:not(:last-of-type) {
+    margin-block-end: var(--spacers-dp12);
+}
+
+.filterSectionHeader {
+    margin: 0 0 var(--spacers-dp4) 0;
+    font-weight: 500;
+    padding: 0;
+}
+
+.filterSectionList {
+    margin: 0;
+    padding: 0;
+    padding-inline-start: 18px;
+    list-style-type: circle;
+}
+.filterSectionList li:not(:last-of-type) {
+    margin-block-end: 2px;
+}
