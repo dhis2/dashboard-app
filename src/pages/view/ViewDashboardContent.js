@@ -10,7 +10,12 @@ import FilterBar from './FilterBar/FilterBar.js'
 import ItemGrid from './ItemGrid.js'
 import classes from './styles/ViewDashboard.module.css'
 
-export const ViewDashboardContent = ({ loading, loaded, loadFailed }) => {
+export const ViewDashboardContent = ({
+    loading,
+    loaded,
+    loadFailed,
+    isCached,
+}) => {
     if (loading) {
         return <LoadingMask />
     }
@@ -31,7 +36,7 @@ export const ViewDashboardContent = ({ loading, loaded, loadFailed }) => {
             <>
                 <Description />
                 <FilterBar />
-                <ItemGrid />
+                <ItemGrid dashboardIsCached={isCached} />
             </>
         )
     }
@@ -58,6 +63,7 @@ export const ViewDashboardContent = ({ loading, loaded, loadFailed }) => {
 }
 
 ViewDashboardContent.propTypes = {
+    isCached: PropTypes.bool,
     loadFailed: PropTypes.bool,
     loaded: PropTypes.bool,
     loading: PropTypes.bool,

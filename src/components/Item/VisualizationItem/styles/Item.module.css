@@ -1,0 +1,17 @@
+.content {
+    composes: content from '../../styles/Item.module.css';
+    position: relative;
+}
+
+.fullscreen {
+    composes: fullscreen from '../../styles/Item.module.css';
+}
+
+.scrollbox {
+    overflow: auto;
+}
+
+.edit,
+.print {
+    flex: 1;
+}

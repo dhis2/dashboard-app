@@ -1,0 +1,21 @@
+.content {
+    composes: content from '../../styles/Item.module.css';
+    flex: 1;
+}
+
+.hiddenTitle {
+    margin-block-start: 5px;
+    margin-block-end: 4px;
+    margin-inline: 4px;
+}
+
+.fullscreen {
+    composes: fullscreen from '../../styles/Item.module.css';
+}
+
+.centered {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    block-size: 90%;
+}

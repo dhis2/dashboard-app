@@ -5,8 +5,8 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1)\n"
-"POT-Creation-Date: 2024-12-18T12:26:05.212Z\n"
-"PO-Revision-Date: 2024-12-18T12:26:05.212Z\n"
+"POT-Creation-Date: 2024-12-19T11:30:27.893Z\n"
+"PO-Revision-Date: 2024-12-19T11:30:27.893Z\n"
 
 msgid "Untitled dashboard"
 msgstr "Untitled dashboard"
@@ -50,11 +50,20 @@ msgstr "One item per page"
 msgid "Close dashboard"
 msgstr "Close dashboard"
 
+msgid "No dashboard items to show in slideshow"
+msgstr "No dashboard items to show in slideshow"
+
+msgid "Not available offline"
+msgstr "Not available offline"
+
 msgid "Edit"
 msgstr "Edit"
 
 msgid "Share"
 msgstr "Share"
+
+msgid "Slideshow"
+msgstr "Slideshow"
 
 msgid "Clear dashboard filters?"
 msgstr "Clear dashboard filters?"
@@ -110,6 +119,9 @@ msgstr "Search for a dashboard"
 
 msgid "No dashboards found"
 msgstr "No dashboards found"
+
+msgid "{{appKey}} app not found"
+msgstr "{{appKey}} app not found"
 
 msgid "Remove this item"
 msgstr "Remove this item"
@@ -237,8 +249,11 @@ msgstr "There was an error loading data for this item"
 msgid "Open this item in {{appName}}"
 msgstr "Open this item in {{appName}}"
 
-msgid "Not available offline"
-msgstr "Not available offline"
+msgid "Resources"
+msgstr "Resources"
+
+msgid "Reports"
+msgstr "Reports"
 
 msgid "Visualizations"
 msgstr "Visualizations"
@@ -263,12 +278,6 @@ msgstr "Line lists"
 
 msgid "Apps"
 msgstr "Apps"
-
-msgid "Reports"
-msgstr "Reports"
-
-msgid "Resources"
-msgstr "Resources"
 
 msgid "Users"
 msgstr "Users"
@@ -565,6 +574,23 @@ msgstr ""
 
 msgid "Yes, remove filters"
 msgstr "Yes, remove filters"
+
+msgid "Exit slideshow"
+msgstr "Exit slideshow"
+
+msgid "Previous item"
+msgstr "Previous item"
+
+msgid "Next item"
+msgstr "Next item"
+
+msgid "{{name}}: {{filter}}"
+msgstr "{{name}}: {{filter}}"
+
+msgid "{{count}} filters active"
+msgid_plural "{{count}} filters active"
+msgstr[0] "{{count}} filter active"
+msgstr[1] "{{count}} filters active"
 
 msgid "Loading dashboard – {{name}}"
 msgstr "Loading dashboard – {{name}}"

@@ -23,3 +23,9 @@
     max-block-size: 30px;
     overflow: hidden;
 }
+
+.content {
+    composes: content from '../../styles/Item.module.css';
+    flex: 1;
+    overflow: auto;
+}

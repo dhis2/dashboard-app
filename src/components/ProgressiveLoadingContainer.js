@@ -1,26 +1,76 @@
+import i18n from '@dhis2/d2-i18n'
+import { Divider, spacers, CenteredContent } from '@dhis2/ui'
 import debounce from 'lodash/debounce.js'
 import pick from 'lodash/pick.js'
 import PropTypes from 'prop-types'
 import React, { Component } from 'react'
+import { getVisualizationName } from '../modules/item.js'
+import {
+    APP,
+    MESSAGES,
+    RESOURCES,
+    REPORTS,
+    isVisualizationType,
+} from '../modules/itemTypes.js'
+import ItemHeader from './Item/ItemHeader/ItemHeader.js'
 
 const defaultDebounceMs = 100
 const defaultBufferFactor = 0.25
 const observerConfig = { attributes: true, childList: false, subtree: false }
 
+const getItemHeader = ({ item, apps }) => {
+    if (isVisualizationType(item)) {
+        const title = getVisualizationName(item)
+        return <ItemHeader title={title} style={{ minHeight: '31px' }} />
+    }
+
+    let title
+    if ([MESSAGES, RESOURCES, REPORTS].includes(item.type)) {
+        const titleMap = {
+            [MESSAGES]: i18n.t('Messages'),
+            [RESOURCES]: i18n.t('Resources'),
+            [REPORTS]: i18n.t('Reports'),
+        }
+        title = titleMap[item.type]
+    } else if (item.type === APP) {
+        let appDetails
+        const appKey = item.appKey
+
+        if (appKey) {
+            appDetails = apps.find((app) => app.key === appKey)
+        }
+
+        const hideTitle = appDetails?.settings?.dashboardWidget?.hideTitle
+        title = hideTitle ? null : appDetails.name
+    }
+
+    return !title ? null : (
+        <>
+            <ItemHeader title={title} />
+            <Divider margin={`0 0 ${spacers.dp4} 0`} />
+        </>
+    )
+}
+
 class ProgressiveLoadingContainer extends Component {
     static propTypes = {
         children: PropTypes.node.isRequired,
+        item: PropTypes.object.isRequired,
+        apps: PropTypes.array,
         bufferFactor: PropTypes.number,
         className: PropTypes.string,
+        dashboardIsCached: PropTypes.bool,
         debounceMs: PropTypes.number,
         forceLoad: PropTypes.bool,
-        itemId: PropTypes.string,
+        fullsreenView: PropTypes.bool,
+        isOffline: PropTypes.bool,
         style: PropTypes.object,
     }
     static defaultProps = {
         debounceMs: defaultDebounceMs,
         bufferFactor: defaultBufferFactor,
         forceLoad: false,
+        fullsreenView: false,
     }
 
     state = {
@@ -30,6 +80,7 @@ class ProgressiveLoadingContainer extends Component {
     debouncedCheckShouldLoad = null
     handlerOptions = { passive: true }
     observer = null
+    isObserving = null
 
     checkShouldLoad() {
         if (!this.containerRef) {
@@ -39,7 +90,15 @@ class ProgressiveLoadingContainer extends Component {
         // force load item regardless of its position
         if (this.forceLoad && !this.state.shouldLoad) {
             this.setState({ shouldLoad: true })
-            this.removeHandler()
+            if (!this.props.isOffline || this.props.dashboardIsCached) {
+                this.removeHandler()
+            }
+            return
+        }
+
+        // when in fullscreen view, load is not based on
+        // position relative to viewport but instead on forceLoad only
+        if (this.props.fullsreenView) {
             return
         }
 
@@ -52,7 +111,9 @@ class ProgressiveLoadingContainer extends Component {
             rect.top < window.innerHeight + bufferPx
         ) {
             this.setState({ shouldLoad: true })
-            this.removeHandler()
+            if (!this.props.isOffline || this.props.dashboardIsCached) {
+                this.removeHandler()
+            }
         }
     }
 
@@ -84,6 +145,7 @@ class ProgressiveLoadingContainer extends Component {
 
         this.observer = new MutationObserver(mutationCallback)
         this.observer.observe(this.containerRef, observerConfig)
+        this.isObserving = true
     }
 
     removeHandler() {
@@ -98,6 +160,7 @@ class ProgressiveLoadingContainer extends Component {
         })
 
         this.observer.disconnect()
+        this.isObserving = false
     }
 
     componentDidMount() {
@@ -116,9 +179,16 @@ class ProgressiveLoadingContainer extends Component {
     }
 
     render() {
-        const { children, className, style, ...props } = this.props
-
-        const shouldLoad = this.state.shouldLoad || props.forceLoad
+        const {
+            children,
+            className,
+            style,
+            apps,
+            item,
+            dashboardIsCached,
+            isOffline,
+            ...props
+        } = this.props
 
         const eventProps = pick(props, [
             'onMouseDown',
@@ -127,15 +197,38 @@ class ProgressiveLoadingContainer extends Component {
             'onTouchEnd',
         ])
 
+        const renderContent = this.state.shouldLoad || props.forceLoad
+
+        const getContent = () => {
+            if (isOffline && !dashboardIsCached && this.isObserving !== false) {
+                return !renderContent ? null : (
+                    <div
+                        style={{
+                            display: 'flex',
+                            flexDirection: 'column',
+                            height: '100%',
+                        }}
+                    >
+                        {getItemHeader({ item, apps })}
+                        <CenteredContent>
+                            <div>{i18n.t('Not available offline')}</div>
+                        </CenteredContent>
+                    </div>
+                )
+            } else {
+                return renderContent && children
+            }
+        }
+
         return (
             <div
                 ref={(ref) => (this.containerRef = ref)}
                 style={style}
                 className={className}
-                data-test={`dashboarditem-${props.itemId}`}
+                data-test={`dashboarditem-${item.id}`}
                 {...eventProps}
             >
-                {shouldLoad && children}
+                {getContent()}
             </div>
         )
     }

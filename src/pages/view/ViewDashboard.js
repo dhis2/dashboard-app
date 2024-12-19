@@ -137,6 +137,7 @@ const ViewDashboard = ({
             <DashboardsBar />
             <DashboardContainer>
                 <ViewDashboardContent
+                    isCached={isCached}
                     loading={loading}
                     loaded={loaded}
                     loadFailed={loadFailed}

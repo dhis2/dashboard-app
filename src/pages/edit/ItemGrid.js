@@ -60,7 +60,7 @@ const EditItemGrid = ({
                     'edit',
                     getGridItemDomElementClassName(item.id)
                 )}
-                itemId={item.id}
+                item={item}
             >
                 <Item
                     item={item}
