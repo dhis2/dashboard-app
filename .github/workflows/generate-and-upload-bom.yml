@@ -38,7 +38,9 @@ jobs:
                   sudo chmod +x /usr/local/bin/cyclonedx-linux-x64
 
             - name: Generate BOMs
-              run: yarn dlx -q @cyclonedx/yarn-plugin-cyclonedx --output-file bom.json
+              run: |
+                  yarn plugin import https://github.com/CycloneDX/cyclonedx-node-yarn/releases/latest/download/yarn-plugin-cyclonedx.cjs
+                  yarn cyclonedx --output-file bom.jsonn
 
             - name: Upload SBOM to DependencyTrack
               env:
