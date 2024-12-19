@@ -19,6 +19,11 @@ const SlideshowControlbar = ({
 }) => {
     const navigationDisabled = numItems === 1
 
+    const NextArrow =
+        document.dir === 'ltr' ? IconChevronRight24 : IconChevronLeft24
+    const PrevArrow =
+        document.dir === 'ltr' ? IconChevronLeft24 : IconChevronRight24
+
     return (
         <div className={styles.container}>
             <div className={styles.start}>
@@ -32,7 +37,7 @@ const SlideshowControlbar = ({
                 </button>
             </div>
             <div className={styles.middle}>
-                <div className={styles.controls} dir="ltr">
+                <div className={styles.controls}>
                     <button
                         className={styles.squareButton}
                         disabled={navigationDisabled}
@@ -40,7 +45,7 @@ const SlideshowControlbar = ({
                         aria-label={i18n.t('Previous item')}
                         data-test="slideshow-prev-button"
                     >
-                        <IconChevronLeft24
+                        <PrevArrow
                             color={
                                 navigationDisabled
                                     ? colors.grey600
@@ -51,6 +56,7 @@ const SlideshowControlbar = ({
                     <span
                         className={styles.pageCounter}
                         data-test="slideshow-page-counter"
+                        dir="ltr"
                     >{`${slideshowItemIndex + 1} / ${numItems}`}</span>
                     <button
                         className={styles.squareButton}
@@ -59,7 +65,7 @@ const SlideshowControlbar = ({
                         aria-label={i18n.t('Next item')}
                         data-test="slideshow-next-button"
                     >
-                        <IconChevronRight24
+                        <NextArrow
                             color={
                                 navigationDisabled
                                     ? colors.grey600
