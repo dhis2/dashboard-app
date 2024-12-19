@@ -52,9 +52,14 @@ before(() => {
 beforeEach(() => {
     const baseUrl = Cypress.env('dhis2BaseUrl')
     const instanceVersion = Cypress.env('dhis2InstanceVersion')
+    const hideRequestsFromLog = Cypress.env('hideRequestsFromLog')
     const envVariableName = computeEnvVariableName(instanceVersion)
     const { name, value, ...options } = JSON.parse(Cypress.env(envVariableName))
 
+    if (hideRequestsFromLog) {
+        // disable Cypress's default behavior of logging all XMLHttpRequests and fetches
+        cy.intercept({ resourceType: /xhr|fetch/ }, { log: false })
+    }
     localStorage.setItem(LOCAL_STORAGE_KEY, baseUrl)
     cy.setCookie(name, value, options)
 

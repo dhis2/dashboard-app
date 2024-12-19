@@ -1,6 +1,5 @@
 import { combineReducers } from 'redux'
 import activeModalDimension from './activeModalDimension.js'
-import controlBar from './controlBar.js'
 import dashboards from './dashboards.js'
 import dashboardsFilter from './dashboardsFilter.js'
 import dimensions from './dimensions.js'
@@ -20,7 +19,6 @@ export default combineReducers({
     dashboards,
     selected,
     dashboardsFilter,
-    controlBar,
     visualizations,
     messages,
     editDashboard,

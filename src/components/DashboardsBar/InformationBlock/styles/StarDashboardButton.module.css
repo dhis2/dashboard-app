@@ -1,0 +1,47 @@
+.star {
+    display: inline-flex;
+    border: 0;
+    background: transparent;
+    padding: var(--spacers-dp4);
+    border-radius: 3px;
+    color: var(--colors-grey600);
+    cursor: pointer;
+    align-items: center;
+    justify-content: center;
+}
+.star:hover {
+    background: var(--colors-grey200);
+    color: var(--colors-grey800);
+}
+.star:active {
+    background: var(--colors-grey300);
+    color: var(--colors-grey900);
+}
+.star:focus {
+    outline: 3px solid var(--colors-blue600);
+    outline-offset: -3px;
+}
+/* Prevent focus styles when mouse clicking */
+.star:focus:not(:focus-visible) {
+    outline: none;
+    text-decoration: none;
+}
+
+/* Prevent focus styles on active and disabled buttons */
+.star:active:focus,
+.star:disabled:focus {
+    outline: none;
+    text-decoration: none;
+    cursor: not-allowed;
+}
+.iconWrap {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+@media only screen and (max-width: 480px) {
+    button.star {
+        display: none;
+    }
+}

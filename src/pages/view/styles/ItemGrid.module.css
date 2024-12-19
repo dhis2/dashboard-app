@@ -3,7 +3,7 @@
     block-size: 100vh;
 }
 .grid {
-    margin-block-start: var(--spacers-dp16);
+    margin-block-start: var(--spacers-dp8);
     background-color: #f4f6f8;
 }
 

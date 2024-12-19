@@ -11,20 +11,105 @@ msgstr ""
 msgid "Untitled dashboard"
 msgstr "Untitled dashboard"
 
-msgid "Cannot create a dashboard while offline"
-msgstr "Cannot create a dashboard while offline"
+msgid "Dashboards"
+msgstr "Dashboards"
 
-msgid "Create new dashboard"
-msgstr "Create new dashboard"
+msgid "The dashboard couldn't be made available offline. Try again."
+msgstr "The dashboard couldn't be made available offline. Try again."
+
+msgid "Remove from offline storage"
+msgstr "Remove from offline storage"
+
+msgid "Make available offline"
+msgstr "Make available offline"
+
+msgid "Sync offline data now"
+msgstr "Sync offline data now"
+
+msgid "Unstar dashboard"
+msgstr "Unstar dashboard"
+
+msgid "Star dashboard"
+msgstr "Star dashboard"
+
+msgid "Hide description"
+msgstr "Hide description"
+
+msgid "Show description"
+msgstr "Show description"
+
+msgid "Print"
+msgstr "Print"
+
+msgid "Dashboard layout"
+msgstr "Dashboard layout"
+
+msgid "One item per page"
+msgstr "One item per page"
+
+msgid "Close dashboard"
+msgstr "Close dashboard"
+
+msgid "Edit"
+msgstr "Edit"
+
+msgid "Share"
+msgstr "Share"
+
+msgid "Clear dashboard filters?"
+msgstr "Clear dashboard filters?"
+
+msgid ""
+"A dashboard's filters can’t be saved offline. Do you want to remove the "
+"filters and make this dashboard available offline?"
+msgstr ""
+"A dashboard's filters can’t be saved offline. Do you want to remove the "
+"filters and make this dashboard available offline?"
+
+msgid "No, cancel"
+msgstr "No, cancel"
+
+msgid "Yes, clear filters and sync"
+msgstr "Yes, clear filters and sync"
+
+msgid "Cancel"
+msgstr "Cancel"
+
+msgid "Confirm"
+msgstr "Confirm"
+
+msgid "Filter"
+msgstr "Filter"
+
+msgid "Failed to unstar the dashboard"
+msgstr "Failed to unstar the dashboard"
+
+msgid "Failed to star the dashboard"
+msgstr "Failed to star the dashboard"
+
+msgid "Offline data last updated {{timeAgo}}"
+msgstr "Offline data last updated {{timeAgo}}"
+
+msgid "Synced {{timeAgo}}"
+msgstr "Synced {{timeAgo}}"
+
+msgid "Cannot unstar this dashboard while offline"
+msgstr "Cannot unstar this dashboard while offline"
+
+msgid "Cannot star this dashboard while offline"
+msgstr "Cannot star this dashboard while offline"
+
+msgid "No dashboards available."
+msgstr "No dashboards available."
+
+msgid "Create a new dashboard using the + button."
+msgstr "Create a new dashboard using the + button."
 
 msgid "Search for a dashboard"
 msgstr "Search for a dashboard"
 
-msgid "Show fewer dashboards"
-msgstr "Show fewer dashboards"
-
-msgid "Show more dashboards"
-msgstr "Show more dashboards"
+msgid "No dashboards found"
+msgstr "No dashboards found"
 
 msgid "{{appKey}} app not found"
 msgstr "{{appKey}} app not found"
@@ -88,6 +173,9 @@ msgstr "Hide details and interpretations"
 
 msgid "Show details and interpretations"
 msgstr "Show details and interpretations"
+
+msgid "Open menu"
+msgstr "Open menu"
 
 msgid "Open in {{appName}} app"
 msgstr "Open in {{appName}} app"
@@ -251,9 +339,6 @@ msgstr ""
 "This action cannot be undone. Are you sure you want to permanently delete "
 "this dashboard?"
 
-msgid "Cancel"
-msgstr "Cancel"
-
 msgid "Discard changes"
 msgstr "Discard changes"
 
@@ -313,9 +398,6 @@ msgstr "Available Filters"
 msgid "Selected Filters"
 msgstr "Selected Filters"
 
-msgid "Confirm"
-msgstr "Confirm"
-
 msgid "There are no items on this dashboard"
 msgstr "There are no items on this dashboard"
 
@@ -342,9 +424,6 @@ msgstr "Cannot search for dashboard items while offline"
 
 msgid "Additional items"
 msgstr "Additional items"
-
-msgid "Dashboard layout"
-msgstr "Dashboard layout"
 
 msgid "Freeflow"
 msgstr "Freeflow"
@@ -413,9 +492,6 @@ msgstr "End of dashboard"
 msgid "Start of dashboard"
 msgstr "Start of dashboard"
 
-msgid "Print"
-msgstr "Print"
-
 msgid "dashboard layout"
 msgstr "dashboard layout"
 
@@ -466,13 +542,19 @@ msgstr "No dashboards found. Use the + button to create a new dashboard."
 msgid "Requested dashboard not found"
 msgstr "Requested dashboard not found"
 
+msgid "No description"
+msgstr "No description"
+
 msgid "{{count}} selected"
 msgid_plural "{{count}} selected"
 msgstr[0] "{{count}} selected"
 msgstr[1] "{{count}} selected"
 
-msgid "Cannot remove filters while offline"
-msgstr "Cannot remove filters while offline"
+msgid "Cannot edit filters while offline"
+msgstr "Cannot edit filters while offline"
+
+msgid "Cannot edit filters on a small screen"
+msgstr "Cannot edit filters on a small screen"
 
 msgid "Removing filters while offline"
 msgstr "Removing filters while offline"
@@ -483,9 +565,6 @@ msgid ""
 msgstr ""
 "Removing this filter while offline will remove all other filters. Do you "
 "want to remove all filters on this dashboard?"
-
-msgid "No, cancel"
-msgstr "No, cancel"
 
 msgid "Yes, remove filters"
 msgstr "Yes, remove filters"
@@ -592,6 +671,12 @@ msgstr "Loading dashboard – {{name}}"
 msgid "Loading dashboard"
 msgstr "Loading dashboard"
 
+msgid "Load dashboard failed"
+msgstr "Load dashboard failed"
+
+msgid "This dashboard could not be loaded. Please try again later."
+msgstr "This dashboard could not be loaded. Please try again later."
+
 msgid "Offline"
 msgstr "Offline"
 
@@ -600,9 +685,3 @@ msgstr "This dashboard cannot be loaded while offline."
 
 msgid "Go to start page"
 msgstr "Go to start page"
-
-msgid "Load dashboard failed"
-msgstr "Load dashboard failed"
-
-msgid "This dashboard could not be loaded. Please try again later."
-msgstr "This dashboard could not be loaded. Please try again later."
