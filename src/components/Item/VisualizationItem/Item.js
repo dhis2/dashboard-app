@@ -215,7 +215,7 @@ class Item extends Component {
         const actionButtons =
             pluginIsAvailable(activeType || item.type, this.props.apps) &&
             isViewMode(dashboardMode) &&
-            !isFullscreen ? (
+            !isSlideshowView ? (
                 <ItemContextMenu
                     item={item}
                     visualization={this.props.visualization}
@@ -226,7 +226,6 @@ class Item extends Component {
                     activeFooter={showFooter}
                     fullscreenSupported={this.isFullscreenSupported()}
                     loadItemFailed={this.state.loadItemFailed}
-                    tabIndex={isSlideshowView ? '-1' : '0'}
                 />
             ) : null
 
