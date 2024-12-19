@@ -63,9 +63,9 @@ const useSlideshow = (displayItems, slideshowElementRef) => {
         const handleKeyDown = (event) => {
             if (document.fullscreenElement) {
                 if (event.key === 'ArrowRight') {
-                    nextItem()
+                    document.dir === 'ltr' ? nextItem() : prevItem()
                 } else if (event.key === 'ArrowLeft') {
-                    prevItem()
+                    document.dir === 'ltr' ? prevItem() : nextItem()
                 }
             }
         }
