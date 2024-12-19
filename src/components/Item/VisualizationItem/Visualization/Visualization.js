@@ -225,8 +225,8 @@ const Visualization = ({
 
 Visualization.propTypes = {
     activeType: PropTypes.string,
-    availableHeight: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
-    availableWidth: PropTypes.number,
+    availableHeight: PropTypes.string,
+    availableWidth: PropTypes.string,
     dashboardMode: PropTypes.string,
     gridWidth: PropTypes.number,
     item: PropTypes.object,

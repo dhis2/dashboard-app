@@ -1,6 +1,7 @@
 import { useConfig } from '@dhis2/app-runtime'
 import i18n from '@dhis2/d2-i18n'
 import { Divider, IconFileDocument16, colors, spacers } from '@dhis2/ui'
+import cx from 'classnames'
 import PropTypes from 'prop-types'
 import React from 'react'
 import { connect } from 'react-redux'
@@ -11,6 +12,7 @@ import {
 import { isEditMode } from '../../../modules/dashboardModes.js'
 import { itemTypeMap, getItemUrl } from '../../../modules/itemTypes.js'
 import { orArray } from '../../../modules/util.js'
+import { sGetSlideshow } from '../../../reducers/slideshow.js'
 import ItemHeader from '../ItemHeader/ItemHeader.js'
 import classes from './Item.module.css'
 
@@ -22,7 +24,14 @@ const getContentItems = (item) =>
             array.findIndex((el) => el.id === item.id) === index
     )
 
-const ListItem = ({ item, dashboardMode, removeItem, updateItem }) => {
+const ListItem = ({
+    item,
+    dashboardMode,
+    removeItem,
+    updateItem,
+    isFullscreen,
+    isSlideshowView,
+}) => {
     const { baseUrl } = useConfig()
     const contentItems = getContentItems(item)
 
@@ -57,6 +66,7 @@ const ListItem = ({ item, dashboardMode, removeItem, updateItem }) => {
                     className={classes.link}
                     style={{ color: colors.grey900 }}
                     href={getItemUrl(item.type, contentItem, baseUrl)}
+                    tabIndex={isSlideshowView ? '-1' : '0'}
                 >
                     {contentItem.name}
                 </a>
@@ -74,7 +84,11 @@ const ListItem = ({ item, dashboardMode, removeItem, updateItem }) => {
                 isShortened={item.shortened}
             />
             <Divider margin={`0 0 ${spacers.dp4} 0`} />
-            <div className="dashboard-item-content">
+            <div
+                className={cx(classes.content, {
+                    [classes.fullscreen]: isFullscreen,
+                })}
+            >
                 <ul className={classes.list}>
                     {contentItems.map((contentItem) => (
                         <li className={classes.item} key={contentItem.id}>
@@ -92,12 +106,18 @@ const ListItem = ({ item, dashboardMode, removeItem, updateItem }) => {
 
 ListItem.propTypes = {
     dashboardMode: PropTypes.string,
+    isFullscreen: PropTypes.bool,
+    isSlideshowView: PropTypes.bool,
     item: PropTypes.object,
     removeItem: PropTypes.func,
     updateItem: PropTypes.func,
 }
 
-export default connect(null, {
+const mapStateToProps = (state) => ({
+    isSlideshowView: sGetSlideshow(state) !== null,
+})
+
+export default connect(mapStateToProps, {
     removeItem: acRemoveDashboardItem,
     updateItem: acUpdateDashboardItem,
 })(ListItem)
