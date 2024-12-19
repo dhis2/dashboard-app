@@ -23,8 +23,8 @@
     padding: var(--spacers-dp12) var(--spacers-dp12) var(--spacers-dp16);
     font-size: 13px;
     color: var(--colors-grey300);
-    min-width: 200px;
-    max-width: 420px;
+    min-inline-size: 200px;
+    max-inline-size: 420px;
     margin-block-end: var(--spacers-dp4);
 }
 
