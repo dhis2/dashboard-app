@@ -51,6 +51,7 @@ test('Visualization/Item renders view mode', async () => {
         itemActiveTypes: {},
         editDashboard: {},
         visualizations: {},
+        slideshow: null,
     }
 
     const item = {
