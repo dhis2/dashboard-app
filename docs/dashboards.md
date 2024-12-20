@@ -36,7 +36,7 @@ To adjust the Dashboards app to suit your needs, you can:
 
 When viewing dashboards on small screens like mobile phones, the dashboard will adapt to the screen and show all items in a single column. Some options, including editing, filtering and sharing, will not be available.
 
-![](resources/images/dashboard-small-screen.png | width=400)
+<img src="resources/images/dashboard-small-screen.png" alt="Dashboard small screen" width="400">
 
 ### Searching for a dashboard
 
