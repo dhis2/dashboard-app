@@ -14,16 +14,19 @@ import { connect } from 'react-redux'
 import { useHistory, Redirect } from 'react-router-dom'
 import { acClearItemFilters } from '../../../actions/itemFilters.js'
 import { acSetShowDescription } from '../../../actions/showDescription.js'
+import { acSetSlideshow } from '../../../actions/slideshow.js'
 import { apiPostShowDescription } from '../../../api/description.js'
+import ConfirmActionDialog from '../../../components/ConfirmActionDialog.js'
+import DropdownButton from '../../../components/DropdownButton/DropdownButton.js'
+import MenuItem from '../../../components/MenuItemWithTooltip.js'
+import { useSystemSettings } from '../../../components/SystemSettingsProvider.js'
+import { itemTypeSupportsFullscreen } from '../../../modules/itemTypes.js'
 import { useCacheableSection } from '../../../modules/useCacheableSection.js'
 import { orObject } from '../../../modules/util.js'
 import { ROUTE_START_PATH } from '../../../pages/start/index.js'
 import { sGetNamedItemFilters } from '../../../reducers/itemFilters.js'
 import { sGetSelected } from '../../../reducers/selected.js'
 import { sGetShowDescription } from '../../../reducers/showDescription.js'
-import ConfirmActionDialog from '../../ConfirmActionDialog.js'
-import DropdownButton from '../../DropdownButton/DropdownButton.js'
-import MenuItem from '../../MenuItemWithTooltip.js'
 import FilterSelector from './FilterSelector.js'
 import classes from './styles/ActionsBar.module.css'
 
@@ -32,6 +35,7 @@ const ActionsBar = ({
     access,
     showDescription,
     starred,
+    setSlideshow,
     toggleDashboardStarred,
     showAlert,
     updateShowDescription,
@@ -39,6 +43,7 @@ const ActionsBar = ({
     restrictFilters,
     allowedFilters,
     filtersLength,
+    dashboardItems,
 }) => {
     const history = useHistory()
     const [moreOptionsIsOpen, setMoreOptionsIsOpen] = useState(false)
@@ -49,6 +54,7 @@ const ActionsBar = ({
     const { isDisconnected: offline } = useDhis2ConnectionStatus()
     const { lastUpdated, isCached, startRecording, remove } =
         useCacheableSection(id)
+    const { allowVisFullscreen } = useSystemSettings().systemSettings
 
     const onRecordError = useCallback(() => {
         showAlert({
@@ -93,6 +99,10 @@ const ActionsBar = ({
     )
 
     const userAccess = orObject(access)
+
+    const hasSlideshowItems = dashboardItems?.some(
+        (i) => itemTypeSupportsFullscreen(i.type) || false
+    )
 
     const getMoreMenu = () => (
         <FlyoutMenu>
@@ -176,6 +186,12 @@ const ActionsBar = ({
         return <Redirect to={redirectUrl} />
     }
 
+    const slideshowTooltipContent = !hasSlideshowItems
+        ? i18n.t('No dashboard items to show in slideshow')
+        : offline && !isCached
+        ? i18n.t('Not available offline')
+        : null
+
     return (
         <>
             <div className={classes.actions}>
@@ -201,6 +217,24 @@ const ActionsBar = ({
                                 onClick={onToggleSharingDialog}
                             >
                                 {i18n.t('Share')}
+                            </Button>
+                        </OfflineTooltip>
+                    ) : null}
+                    {allowVisFullscreen ? (
+                        <OfflineTooltip
+                            content={slideshowTooltipContent}
+                            disabled={!!slideshowTooltipContent}
+                            disabledWhenOffline={false}
+                        >
+                            <Button
+                                secondary
+                                small
+                                disabled={!!slideshowTooltipContent}
+                                className={classes.slideshowButton}
+                                onClick={() => setSlideshow(0)}
+                                dataTest="enter-slideshow-button"
+                            >
+                                {i18n.t('Slideshow')}
                             </Button>
                         </OfflineTooltip>
                     ) : null}
@@ -248,10 +282,12 @@ const ActionsBar = ({
 ActionsBar.propTypes = {
     access: PropTypes.object,
     allowedFilters: PropTypes.array,
+    dashboardItems: PropTypes.array,
     filtersLength: PropTypes.number,
     id: PropTypes.string,
     removeAllFilters: PropTypes.func,
     restrictFilters: PropTypes.bool,
+    setSlideshow: PropTypes.func,
     showAlert: PropTypes.func,
     showDescription: PropTypes.bool,
     starred: PropTypes.bool,
@@ -270,6 +306,7 @@ const mapStateToProps = (state) => {
 }
 
 export default connect(mapStateToProps, {
+    setSlideshow: acSetSlideshow,
     removeAllFilters: acClearItemFilters,
     updateShowDescription: acSetShowDescription,
 })(ActionsBar)

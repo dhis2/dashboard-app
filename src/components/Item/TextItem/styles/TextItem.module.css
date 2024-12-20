@@ -1,0 +1,16 @@
+.content {
+    composes: content from '../../styles/Item.module.css';
+    margin-block: 20px;
+    padding-block-end: var(--item-content-padding);
+    flex: 1;
+}
+
+.fullscreen {
+    composes: fullscreen from '../../styles/Item.module.css';
+    padding-block-end: 0;
+    margin-block: 0;
+}
+.edit {
+    margin-block-start: 0;
+    margin-block-end: var(--item-content-padding);
+}

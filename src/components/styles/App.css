@@ -39,29 +39,6 @@ table.pivot * {
     background-color: #48a999;
 }
 
-div:fullscreen,
-div:-webkit-full-screen {
-    background-color: white;
-}
-
-div:-webkit-full-screen {
-    object-fit: contain;
-    position: fixed !important;
-    inset-block-start: 0px !important;
-    inset-inline-end: 0px !important;
-    inset-block-end: 0px !important;
-    inset-inline-start: 0px !important;
-    box-sizing: border-box !important;
-    min-inline-size: 0px !important;
-    max-inline-size: none !important;
-    min-block-size: 0px !important;
-    max-block-size: none !important;
-    inline-size: 100% !important;
-    block-size: 100% !important;
-    transform: none !important;
-    margin: 0px !important;
-}
-
 @media print {
     body {
         inline-size: 100% !important;
