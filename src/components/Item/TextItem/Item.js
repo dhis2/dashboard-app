@@ -1,6 +1,7 @@
 import { RichTextParser, RichTextEditor } from '@dhis2/analytics'
 import i18n from '@dhis2/d2-i18n'
 import { Divider, spacers } from '@dhis2/ui'
+import cx from 'classnames'
 import PropTypes from 'prop-types'
 import React from 'react'
 import { connect } from 'react-redux'
@@ -14,27 +15,29 @@ import {
 import { sGetSelectedDashboardItems } from '../../../reducers/selected.js'
 import ItemHeader from '../ItemHeader/ItemHeader.js'
 import PrintItemInfo from '../ItemHeader/PrintItemInfo.js'
+import styles from './styles/TextItem.module.css'
 
-const style = {
-    textDiv: {
-        padding: '10px',
-        lineHeight: '16px',
-    },
-    textField: {
-        fontSize: '14px',
-        fontStretch: 'normal',
-        margin: '0 auto',
-        display: 'block',
-        lineHeight: '24px',
-    },
-    container: {
-        marginBottom: '20px',
-        marginTop: '20px',
-    },
+const fullscreenStyle = {
+    padding: '24px',
+    fontSize: '18px',
+    fontStretch: 'normal',
+    margin: '0 auto',
+    display: 'block',
+    lineHeight: '23px',
+}
+
+const viewStyle = {
+    padding: '10px',
+    fontSize: '14px',
+    fontStretch: 'normal',
+    margin: '0 auto',
+    display: 'block',
+    lineHeight: '16px',
 }
 
 const TextItem = (props) => {
-    const { item, dashboardMode, text, acUpdateDashboardItem } = props
+    const { item, dashboardMode, text, isFullscreen, acUpdateDashboardItem } =
+        props
 
     const onChangeText = (text) => {
         const updatedItem = {
@@ -46,10 +49,17 @@ const TextItem = (props) => {
     }
 
     const viewItem = () => {
-        const textDivStyle = Object.assign({}, style.textField, style.textDiv)
         return (
-            <div className="dashboard-item-content" style={style.container}>
-                <RichTextParser style={textDivStyle}>{text}</RichTextParser>
+            <div
+                className={cx(styles.content, {
+                    [styles.fullscreen]: isFullscreen,
+                })}
+            >
+                <RichTextParser
+                    style={isFullscreen ? fullscreenStyle : viewStyle}
+                >
+                    {text}
+                </RichTextParser>
             </div>
         )
     }
@@ -63,7 +73,7 @@ const TextItem = (props) => {
                     dashboardMode={dashboardMode}
                 />
                 <Divider margin={`0 0 ${spacers.dp4} 0`} />
-                <div className="dashboard-item-content">
+                <div className={cx(styles.content, styles.edit)}>
                     <RichTextEditor
                         onChange={onChangeText}
                         inputPlaceholder={i18n.t('Add text here')}
@@ -77,12 +87,11 @@ const TextItem = (props) => {
     }
 
     const printItem = () => {
-        const textDivStyle = Object.assign({}, style.textField, style.textDiv)
         return (
             <>
                 {props.item.shortened ? <PrintItemInfo /> : null}
-                <div className="dashboard-item-content" style={style.container}>
-                    <RichTextParser style={textDivStyle}>{text}</RichTextParser>
+                <div className={styles.content}>
+                    <RichTextParser style={viewStyle}>{text}</RichTextParser>
                 </div>
             </>
         )
@@ -121,6 +130,7 @@ const mapStateToProps = (state, ownProps) => {
 TextItem.propTypes = {
     acUpdateDashboardItem: PropTypes.func,
     dashboardMode: PropTypes.string,
+    isFullscreen: PropTypes.bool,
     item: PropTypes.object,
     text: PropTypes.string,
 }

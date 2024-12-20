@@ -6,6 +6,7 @@ import React from 'react'
 import { connect } from 'react-redux'
 import { isViewMode } from '../../../modules/dashboardModes.js'
 import { sGetMessagesRoot } from '../../../reducers/messages.js'
+import { sGetSlideshow } from '../../../reducers/slideshow.js'
 import { useUserSettings } from '../../UserSettingsProvider.js'
 import ItemHeader from '../ItemHeader/ItemHeader.js'
 import { getFormattedDate } from './getFormattedDate.js'
@@ -21,7 +22,7 @@ const messageTypes = {
     SYSTEM: 'System',
 }
 
-const MessagesItem = ({ messages, item, dashboardMode }) => {
+const MessagesItem = ({ messages, item, dashboardMode, isSlideshowView }) => {
     const { baseUrl } = useConfig()
     const { userSettings } = useUserSettings()
 
@@ -83,10 +84,13 @@ const MessagesItem = ({ messages, item, dashboardMode }) => {
             />
             <Divider margin={`0 0 ${spacers.dp4} 0`} />
             {messages.length > 0 && (
-                <div className="dashboard-item-content">
+                <div className={classes.content} tabIndex="-1">
                     <ul className={classes.list}>{getMessageItems()}</ul>
                     <div className={classes.seeAll}>
-                        <a href={getMessageHref()}>
+                        <a
+                            href={getMessageHref()}
+                            tabIndex={isSlideshowView ? '-1' : '0'}
+                        >
                             {i18n.t('See all messages')}
                         </a>
                     </div>
@@ -98,6 +102,7 @@ const MessagesItem = ({ messages, item, dashboardMode }) => {
 
 MessagesItem.propTypes = {
     dashboardMode: PropTypes.string,
+    isSlideshowView: PropTypes.bool,
     item: PropTypes.object,
     messages: PropTypes.array,
 }
@@ -105,6 +110,7 @@ MessagesItem.propTypes = {
 const mapStateToProps = (state) => {
     return {
         messages: Object.values(sGetMessagesRoot(state)),
+        isSlideshowView: sGetSlideshow(state) !== null,
     }
 }
 
