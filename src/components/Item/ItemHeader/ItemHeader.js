@@ -17,10 +17,10 @@ const getItemActionsMap = (isShortened) => {
 }
 
 const ItemHeader = React.forwardRef(
-    ({ dashboardMode, title, isShortened, tags, ...rest }, ref) => {
+    ({ dashboardMode, title, isShortened, style, tags, ...rest }, ref) => {
         const Actions = getItemActionsMap(isShortened)[dashboardMode]
         return (
-            <div className={classes.itemHeaderWrap} ref={ref}>
+            <div className={classes.itemHeaderWrap} ref={ref} style={style}>
                 <p className={classes.itemTitle}>{title}</p>
                 <div className={classes.itemHeaderRightWrap}>
                     {tags ? <ViewItemTags tags={tags} /> : null}
@@ -36,6 +36,7 @@ ItemHeader.displayName = 'ItemHeader'
 ItemHeader.propTypes = {
     dashboardMode: PropTypes.string,
     isShortened: PropTypes.bool,
+    style: PropTypes.object,
     tags: PropTypes.node,
     title: PropTypes.string,
 }

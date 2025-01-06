@@ -1,23 +1,16 @@
 import PropTypes from 'prop-types'
-import React, { useEffect, useState } from 'react'
-import DashboardsBar from '../../components/DashboardsBar/DashboardsBar.js'
+import React, { useEffect } from 'react'
+import DashboardsBar from '../../components/DashboardsBar/index.js'
 import StartScreen from './StartScreen.js'
 
 const LandingPage = ({ username, onMount }) => {
-    const [controlbarExpanded, setControlbarExpanded] = useState(false)
-
     useEffect(() => {
         onMount()
     }, [])
 
     return (
         <>
-            <DashboardsBar
-                expanded={controlbarExpanded}
-                onExpandedChanged={(expanded) =>
-                    setControlbarExpanded(expanded)
-                }
-            />
+            <DashboardsBar />
             <StartScreen username={username} />
         </>
     )

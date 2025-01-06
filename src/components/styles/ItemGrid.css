@@ -4,8 +4,8 @@
 }
 .react-grid-item {
     overflow: hidden !important;
-    box-shadow: 0px 0px 3px 0px #999999;
-    background-color: #ffffff;
+    border: 1px solid var(--colors-grey300);
+    background-color: var(--colors-white);
     border-radius: 3px;
     min-block-size: 70px;
     min-inline-size: 70px;
@@ -14,8 +14,10 @@
 .react-grid-item.edit,
 .react-grid-item.EVENT_VISUALIZATION,
 .react-grid-item.RESOURCES,
+.react-grid-item.REPORTS,
 .react-grid-item.TEXT,
 .react-grid-item.MESSAGES,
+.react-grid-item.EVENT_REPORT,
 .react-grid-item.APP {
     display: flex;
     flex-direction: column;
@@ -23,6 +25,7 @@
 
 .react-grid-item.edit:hover {
     cursor: move;
+    border-color: #bfcad5;
 }
 
 .react-grid-item.edit.react-resizable-hide {
@@ -34,7 +37,11 @@
 }
 
 .react-grid-item.SPACER.edit {
-    background-color: rgba(255, 255, 255, 0.3);
+    background-color: transparent;
+    border: 1px dashed #bfcad5;
+}
+.react-grid-item.SPACER.edit:hover {
+    border-color: var(--colors-grey500);
 }
 
 .react-grid-item.react-grid-placeholder {
@@ -53,48 +60,4 @@
 
 .react-resizable-handle {
     background: none;
-}
-
-/* dashboard item - content */
-
-.dashboard-item-content {
-    margin-block-start: 0;
-    margin-block-end: var(--item-content-padding);
-    margin-inline-start: var(--item-content-padding);
-    margin-inline-end: var(--item-content-padding);
-    overflow: auto;
-}
-
-.dashboard-item-content-hidden-title {
-    margin-block-start: 5px;
-    margin-block-end: 4px;
-    margin-inline-start: 4px;
-    margin-inline-end: 4px;
-    overflow: auto;
-}
-
-.TEXT .dashboard-item-content {
-    padding-block-end: var(--item-content-padding);
-}
-
-.EVENT_REPORT .dashboard-item-content {
-    position: relative;
-}
-
-.CHART .dashboard-item-content,
-.VISUALIZATION .dashboard-item-content,
-.MAP .dashboard-item-content,
-.EVENT_CHART .dashboard-item-content,
-.EVENT_VISUALIZATION .dashboard-item-content {
-    position: relative;
-    overflow: hidden;
-}
-
-.react-grid-item.edit .dashboard-item-content,
-.react-grid-item.RESOURCES .dashboard-item-content,
-.react-grid-item.TEXT .dashboard-item-content,
-.react-grid-item.MESSAGES .dashboard-item-content,
-.react-grid-item.APP .dashboard-item-content,
-.react-grid-item.APP .dashboard-item-content-hidden-title {
-    flex: 1;
 }

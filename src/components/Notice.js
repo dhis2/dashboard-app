@@ -14,7 +14,7 @@ const Notice = ({ title, message }) => (
 )
 
 Notice.propTypes = {
-    message: PropTypes.string,
+    message: PropTypes.node,
     title: PropTypes.string,
 }
 

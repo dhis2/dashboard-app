@@ -47,6 +47,10 @@ const CategorizedMenuGroup = ({
         onChangeItemsLimit(type)
     }
 
+    const showFewerMoreLabel = seeMore
+        ? i18n.t('Show fewer')
+        : i18n.t('Show more')
+
     return (
         <>
             <HeaderMenuItem title={title} />
@@ -65,14 +69,13 @@ const CategorizedMenuGroup = ({
             })}
             {hasMore ? (
                 <MenuItem
+                    ariaLabel={showFewerMoreLabel}
                     dense
                     key={`showmore${title}`}
                     onClick={toggleSeeMore}
                     label={
                         <button className={classes.showMoreButton}>
-                            {seeMore
-                                ? i18n.t('Show fewer')
-                                : i18n.t('Show more')}
+                            {showFewerMoreLabel}
                         </button>
                     }
                 />

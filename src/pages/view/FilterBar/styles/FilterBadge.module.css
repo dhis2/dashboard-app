@@ -1,59 +1,41 @@
 .container {
-    margin: 2px;
-    padding-block-start: 0;
-    padding-block-end: 0;
-    padding-inline-start: var(--spacers-dp16);
-    padding-inline-end: var(--spacers-dp16);
-    border-radius: 4px;
-    color: var(--colors-white);
-    background-color: #212934;
-    block-size: 36px;
     display: flex;
-    align-items: center;
 }
 
-.badge {
-    font-size: 13px;
-    cursor: pointer;
-    white-space: nowrap;
-}
-
-.badgeSmall {
-    display: none;
-    font-size: 13px;
-    white-space: nowrap;
-}
-
-.removeButton {
-    background-color: transparent;
-    color: var(--colors-white);
-    border: none;
-    padding: 0;
-    font-size: 12px;
-    text-decoration: underline;
-    margin-inline-start: var(--spacers-dp24);
-    cursor: pointer;
-}
-
-.span {
+.button {
+    all: unset;
     display: inline-flex;
-    pointer-events: all;
+    align-items: center;
+    justify-content: center;
+    block-size: 24px;
+    color: var(--colors-white);
+    font-size: 13px;
+    background-color: var(--colors-grey900);
+    cursor: pointer;
 }
 
-.span > :global(button:disabled) {
-    pointer-events: none;
-}
-
-.notAllowed {
+.button:disabled {
     cursor: not-allowed;
 }
 
-@media only screen and (max-width: 480px) {
-    .badge {
-        display: none;
-    }
+.button:hover:not(:disabled) {
+    background-color: var(--colors-grey800);
+}
 
-    .badgeSmall {
-        display: block;
-    }
+.filterButton {
+    padding-inline: 6px 4px;
+    border-start-start-radius: 4px;
+    border-end-start-radius: 4px;
+}
+
+.filterButton:only-child {
+    padding-inline-end: 6px;
+    border-start-end-radius: 4px;
+    border-end-end-radius: 4px;
+}
+
+.removeButton {
+    padding-inline: 4px 6px;
+    border-start-end-radius: 4px;
+    border-end-end-radius: 4px;
 }

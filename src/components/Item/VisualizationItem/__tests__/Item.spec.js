@@ -23,7 +23,6 @@ jest.mock(
         }
 )
 
-/* eslint-disable react/prop-types, react/no-unknown-property */
 jest.mock(
     '../Visualization/Visualization',
     () =>
@@ -41,7 +40,6 @@ jest.mock(
             )
         }
 )
-/* eslint-enable react/prop-types, react/no-unknown-property */
 
 const mockStore = configureMockStore()
 
@@ -53,6 +51,7 @@ test('Visualization/Item renders view mode', async () => {
         itemActiveTypes: {},
         editDashboard: {},
         visualizations: {},
+        slideshow: null,
     }
 
     const item = {
