@@ -19,11 +19,11 @@ export const MARGIN_PX = [4, 4]
 
 const SM_SCREEN_MIN_ITEM_GRID_HEIGHT = 13 // minimum of ~320px
 export const SM_SCREEN_GRID_COLUMNS = 1
-export const MARGIN_SM_PX = [0, 16]
+export const MARGIN_SM_PX = [4, 4]
 export const GRID_PADDING_PX = [0, 0]
 // make an assumption about the original item w/h ratio
 // assumes grid width of ~1200px at time dashboard was created
-const GRID_COL_WIDTH_PX = 10
+const GRID_COL_WIDTH_PX = 16
 export const GRID_COLUMNS = 60
 
 // Dimensions for getShape
