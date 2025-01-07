@@ -1,8 +1,5 @@
 import { OfflineTooltip } from '@dhis2/analytics'
-import {
-    useAlert,
-    useDhis2ConnectionStatus,
-} from '@dhis2/app-runtime'
+import { useAlert, useDhis2ConnectionStatus } from '@dhis2/app-runtime'
 import i18n from '@dhis2/d2-i18n'
 import {
     Button,

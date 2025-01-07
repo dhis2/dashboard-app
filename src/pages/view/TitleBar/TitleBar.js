@@ -1,7 +1,4 @@
-import {
-    useDataEngine,
-    useAlert,
-} from '@dhis2/app-runtime'
+import { useDataEngine, useAlert } from '@dhis2/app-runtime'
 import i18n from '@dhis2/d2-i18n'
 import PropTypes from 'prop-types'
 import React from 'react'
@@ -25,16 +22,13 @@ const ViewTitleBar = ({
     showDescription,
     starred,
     setDashboardStarred,
-
 }) => {
-
     const dataEngine = useDataEngine()
     const { show } = useAlert(
         ({ msg }) => msg,
         ({ isCritical }) =>
             isCritical ? { critical: true } : { warning: true }
     )
-
 
     const onToggleStarredDashboard = (cb) =>
         apiStarDashboard(dataEngine, id, !starred)
@@ -73,7 +67,12 @@ const ViewTitleBar = ({
                             <div className={classes.groupedLastUpdated}>
                                 {<LastUpdatedTag id={id} />}
                             </div>
-                            <ActionsBar starred={starred} onToggleStarredDashboard={onToggleStarredDashboard} />
+                            <ActionsBar
+                                starred={starred}
+                                onToggleStarredDashboard={
+                                    onToggleStarredDashboard
+                                }
+                            />
                         </div>
                     </div>
                 </div>
