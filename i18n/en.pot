@@ -5,11 +5,14 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1)\n"
-"POT-Creation-Date: 2024-12-04T17:00:46.379Z\n"
-"PO-Revision-Date: 2024-12-04T17:00:46.380Z\n"
+"POT-Creation-Date: 2025-01-06T12:08:21.892Z\n"
+"PO-Revision-Date: 2025-01-06T12:08:21.908Z\n"
 
 msgid "Untitled dashboard"
 msgstr "Untitled dashboard"
+
+msgid "No dashboards found for \"{{filterText}}\""
+msgstr "No dashboards found for \"{{filterText}}\""
 
 msgid "Cannot create a dashboard while offline"
 msgstr "Cannot create a dashboard while offline"
