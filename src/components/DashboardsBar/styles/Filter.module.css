@@ -91,10 +91,13 @@
 
     .collapsed .searchButton {
         display: inline;
-        padding-top: 8px;
+        padding-top: 4px;
     }
 
     /* expanded controlbar */
+    .expanded {
+        flex: 1;
+    }
 
     .expanded .searchArea {
         display: flex;

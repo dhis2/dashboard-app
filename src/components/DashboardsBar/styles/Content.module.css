@@ -22,7 +22,7 @@
 }
 
 .chipsContainer {
-    min-height: 48px;
+    min-height: 32px;
     display: flex;
     flex-wrap: wrap;
     gap: 6px;
@@ -45,8 +45,8 @@
     }
 
     .controlsSmall {
-        display: block;
-        margin-bottom: var(--spacers-dp4);
+        display: flex;
+        justify-content: space-between;
     }
 
     .controlsLarge {
@@ -55,16 +55,15 @@
 
     .container.collapsed {
         display: flex;
-        overflow-x: auto;
-        overflow-y: hidden;
+        overflow: hidden;
     }
 
     .container.expanded {
         display: flex;
         flex-direction: column;
         overflow: hidden;
-        padding-top: var(--spacers-dp12);
-        padding-left: var(--spacers-dp8);
+        padding-top: var(--spacers-dp6);
+        padding-left: var(--spacers-dp6);
     }
 
     .expanded .chipsContainer .controls {
@@ -81,9 +80,9 @@
     }
 
     .collapsed .chipsContainer {
-        overflow-x: auto;
         overflow-y: hidden;
         display: flex;
         flex-wrap: nowrap;
+        padding-bottom: 6px;
     }
 }

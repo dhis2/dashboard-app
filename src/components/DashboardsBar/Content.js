@@ -12,6 +12,7 @@ import { sGetSelectedId } from '../../reducers/selected.js'
 import Chip from './Chip.js'
 import Filter from './Filter.js'
 import { getFilteredDashboards } from './getFilteredDashboards.js'
+import ShowMoreButton from './ShowMoreButton.js'
 import classes from './styles/Content.module.css'
 
 const Content = ({
@@ -70,6 +71,12 @@ const Content = ({
                 onSearchClicked={onSearchClicked}
                 expanded={expanded}
             />
+            {expanded && (
+                <ShowMoreButton
+                    onClick={onSearchClicked}
+                    dashboardBarIsExpanded={expanded}
+                />
+            )}
         </div>
     )
 

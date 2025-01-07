@@ -29,18 +29,7 @@
     box-shadow: var(--elevations-e400);
 }
 
-.spacer {
-    display: none;
-    box-sizing: border-box;
-    flex: none;
-    height: var(--user-rows-height);
-}
-
 @media only screen and (min-width: 481px) {
-    .expanded .spacer {
-        display: block;
-    }
-
     .expanded .container {
         position: absolute;
     }
@@ -55,17 +44,12 @@
 
     .collapsed .content {
         flex-wrap: nowrap;
-        overflow-x: scroll;
+        overflow-x: hidden;
     }
 
     .expanded .content {
-        overflow-y: hidden;
+        overflow: hidden;
         flex-direction: column;
-    }
-
-    .expanded .spacer {
-        display: block;
-        height: var(--min-rows-height);
     }
 }
 
@@ -81,7 +65,7 @@
     .expanded .container {
         position: absolute;
         display: flex;
-        flex-direction: row;
+        flex-direction: column;
         height: var(--sm-expanded-controlbar-height);
     }
 

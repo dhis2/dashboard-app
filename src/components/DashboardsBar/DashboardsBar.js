@@ -110,17 +110,18 @@ const DashboardsBar = ({
                         expanded={expanded}
                     />
                 </div>
-                <ShowMoreButton
-                    onClick={memoizedToggleExpanded}
-                    dashboardBarIsExpanded={expanded}
-                    disabled={!expanded && userRows === MAX_ROW_COUNT}
-                />
+                {!expanded && (
+                    <ShowMoreButton
+                        onClick={memoizedToggleExpanded}
+                        dashboardBarIsExpanded={expanded}
+                        disabled={!expanded && userRows === MAX_ROW_COUNT}
+                    />
+                )}
                 <DragHandle
                     setDragging={setDragging}
                     onHeightChanged={setMouseYPos}
                 />
             </div>
-            <div className={classes.spacer} />
         </div>
     )
 }
