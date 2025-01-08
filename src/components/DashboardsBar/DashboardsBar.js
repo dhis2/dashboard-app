@@ -11,6 +11,7 @@ import { connect } from 'react-redux'
 import { acSetControlBarUserRows } from '../../actions/controlBar.js'
 import { apiPostControlBarRows } from '../../api/controlBar.js'
 import { useWindowDimensions } from '../../components/WindowDimensionsProvider.js'
+import { isSmallScreen } from '../../modules/smallScreen.js'
 import { sGetControlBarUserRows } from '../../reducers/controlBar.js'
 import Content from './Content.js'
 import DragHandle from './DragHandle.js'
@@ -31,7 +32,7 @@ const DashboardsBar = ({
     const [mouseYPos, setMouseYPos] = useState(0)
     const userRowsChanged = useRef(false)
     const ref = createRef()
-    const { height } = useWindowDimensions()
+    const { width, height } = useWindowDimensions()
 
     const rootElement = document.documentElement
 
@@ -110,7 +111,7 @@ const DashboardsBar = ({
                         expanded={expanded}
                     />
                 </div>
-                {!expanded && (
+                {(!expanded || !isSmallScreen(width)) && (
                     <ShowMoreButton
                         onClick={memoizedToggleExpanded}
                         dashboardBarIsExpanded={expanded}

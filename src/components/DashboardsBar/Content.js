@@ -6,9 +6,11 @@ import PropTypes from 'prop-types'
 import React, { useState } from 'react'
 import { connect } from 'react-redux'
 import { Redirect, withRouter } from 'react-router-dom'
+import { isSmallScreen } from '../../modules/smallScreen.js'
 import { sGetAllDashboards } from '../../reducers/dashboards.js'
 import { sGetDashboardsFilter } from '../../reducers/dashboardsFilter.js'
 import { sGetSelectedId } from '../../reducers/selected.js'
+import { useWindowDimensions } from '../WindowDimensionsProvider.js'
 import Chip from './Chip.js'
 import Filter from './Filter.js'
 import { getFilteredDashboards } from './getFilteredDashboards.js'
@@ -26,6 +28,7 @@ const Content = ({
 }) => {
     const [redirectUrl, setRedirectUrl] = useState(null)
     const { isDisconnected: offline } = useDhis2ConnectionStatus()
+    const { width } = useWindowDimensions()
 
     const onSelectDashboard = () => {
         const id = getFilteredDashboards(dashboards, filterText)[0]?.id
@@ -71,7 +74,7 @@ const Content = ({
                 onSearchClicked={onSearchClicked}
                 expanded={expanded}
             />
-            {expanded && (
+            {expanded && isSmallScreen(width) && (
                 <ShowMoreButton
                     onClick={onSearchClicked}
                     dashboardBarIsExpanded={expanded}

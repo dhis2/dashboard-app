@@ -19,16 +19,16 @@
     z-index: 1;
 }
 
-.expanded .content {
-    overflow-y: auto;
-}
-
 .expanded .container {
     height: var(--max-rows-height);
     z-index: 1999;
     box-shadow: var(--elevations-e400);
 }
 
+.expanded .content {
+    height: 100%;
+    overflow-y: auto;
+}
 @media only screen and (min-width: 481px) {
     .expanded .container {
         position: absolute;
@@ -40,6 +40,7 @@
         padding: 0;
         display: flex;
         flex-wrap: wrap;
+        width: 100%;
     }
 
     .collapsed .content {
@@ -49,6 +50,7 @@
 
     .expanded .content {
         overflow: hidden;
+        height: auto;
         flex-direction: column;
     }
 }
