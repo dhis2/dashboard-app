@@ -6,6 +6,7 @@ import PropTypes from 'prop-types'
 import React, { useState, useEffect, useRef } from 'react'
 import { Responsive as ResponsiveReactGridLayout } from 'react-grid-layout'
 import { useSelector } from 'react-redux'
+import { useContainerWidth } from '../../components/DashboardContainer.js'
 import { Item } from '../../components/Item/Item.js'
 import NoContentMessage from '../../components/NoContentMessage.js'
 import ProgressiveLoadingContainer from '../../components/ProgressiveLoadingContainer.js'
@@ -22,7 +23,6 @@ import {
     MARGIN_SM_PX,
     GRID_COLUMNS,
     getSmallLayout,
-    getGridWidth,
     getProportionalHeight,
 } from '../../modules/gridUtil.js'
 import { getBreakpoint, isSmallScreen } from '../../modules/smallScreen.js'
@@ -42,6 +42,7 @@ const ResponsiveItemGrid = ({ dashboardIsCached }) => {
     const dashboardId = useSelector(sGetSelectedId)
     const dashboardItems = useSelector(sGetSelectedDashboardItems)
     const { width } = useWindowDimensions()
+    const containerWidth = useContainerWidth()
     const { apps } = useCachedDataQuery()
     const [expandedItems, setExpandedItems] = useState({})
     const [displayItems, setDisplayItems] = useState(dashboardItems)
@@ -193,10 +194,10 @@ const ResponsiveItemGrid = ({ dashboardIsCached }) => {
                     [classes.slideshowGrid]: isSlideshowView,
                 })}
                 rowHeight={GRID_ROW_HEIGHT_PX}
-                width={getGridWidth(width)}
+                width={containerWidth}
                 cols={{ lg: GRID_COLUMNS, sm: SM_SCREEN_GRID_COLUMNS }}
                 breakpoints={{
-                    lg: getBreakpoint(),
+                    lg: getBreakpoint(containerWidth),
                     sm: 0,
                 }}
                 layouts={{ lg: displayItems, sm: layoutSm }}

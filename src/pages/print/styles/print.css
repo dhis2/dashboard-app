@@ -15,7 +15,7 @@ header.hidden {
     inline-size: calc(var(--a4-landscape-width-px) + 18px) !important;
     border: none !important;
     box-shadow: none !important;
-    background-color: #f4f6f8;
+    background-color: var(--colors-grey200);
 }
 
 .react-grid-item.PAGEBREAK::before {

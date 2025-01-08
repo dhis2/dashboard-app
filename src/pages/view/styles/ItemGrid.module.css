@@ -1,10 +1,10 @@
 .slideshowContainer {
-    background-color: #f4f6f8;
+    background-color: var(--colors-grey200);
     block-size: 100vh;
 }
 .grid {
     margin-block-start: var(--spacers-dp8);
-    background-color: #f4f6f8;
+    background-color: var(--colors-grey200);
 }
 
 /* react-grid-layout uses width and height instead
