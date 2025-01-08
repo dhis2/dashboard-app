@@ -1,11 +1,13 @@
-import { useDhis2ConnectionStatus, useDataEngine } from '@dhis2/app-runtime'
+import {
+    useAlert,
+    useDhis2ConnectionStatus,
+    useDataEngine,
+} from '@dhis2/app-runtime'
 import i18n from '@dhis2/d2-i18n'
-import { AlertStack, AlertBar } from '@dhis2/ui'
 import cx from 'classnames'
 import PropTypes from 'prop-types'
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useCallback, useRef } from 'react'
 import { connect } from 'react-redux'
-import { Link } from 'react-router-dom'
 import { acClearEditDashboard } from '../../actions/editDashboard.js'
 import { acSetPassiveViewRegistered } from '../../actions/passiveViewRegistered.js'
 import { acClearPrintDashboard } from '../../actions/printDashboard.js'
@@ -15,191 +17,139 @@ import {
 } from '../../actions/selected.js'
 import { apiPostDataStatistics } from '../../api/dataStatistics.js'
 import DashboardContainer from '../../components/DashboardContainer.js'
-import DashboardsBar from '../../components/DashboardsBar/DashboardsBar.js'
-import LoadingMask from '../../components/LoadingMask.js'
-import Notice from '../../components/Notice.js'
+import DashboardsBar from '../../components/DashboardsBar/index.js'
 import { setHeaderbarVisible } from '../../modules/setHeaderbarVisible.js'
 import { useCacheableSection } from '../../modules/useCacheableSection.js'
 import { sGetDashboardById } from '../../reducers/dashboards.js'
 import { sGetPassiveViewRegistered } from '../../reducers/passiveViewRegistered.js'
 import { sGetSelectedId } from '../../reducers/selected.js'
-import { ROUTE_START_PATH } from '../start/index.js'
-import FilterBar from './FilterBar/FilterBar.js'
-import ItemGrid from './ItemGrid.js'
 import classes from './styles/ViewDashboard.module.css'
-import TitleBar from './TitleBar/TitleBar.js'
+import { ViewDashboardContent } from './ViewDashboardContent.js'
 
-const ViewDashboard = (props) => {
-    const [controlbarExpanded, setControlbarExpanded] = useState(false)
-    const [loadingMessage, setLoadingMessage] = useState(null)
+const ViewDashboard = ({
+    clearEditDashboard,
+    clearPrintDashboard,
+    fetchDashboard,
+    passiveViewRegistered,
+    registerPassiveView,
+    requestedDashboardName,
+    requestedId,
+    setSelectedAsOffline,
+    username,
+}) => {
+    const alertTimeoutRef = useRef(null)
+    const [loading, setLoading] = useState(false)
     const [loaded, setLoaded] = useState(false)
     const [loadFailed, setLoadFailed] = useState(false)
     const { isConnected: online } = useDhis2ConnectionStatus()
-    const { isCached } = useCacheableSection(props.requestedId)
+    const { isCached } = useCacheableSection(requestedId)
     const engine = useDataEngine()
+    const { show: showAlert, hide: hideAlert } = useAlert(
+        ({ message }) => message
+    )
+    const loadDashboard = useCallback(async () => {
+        setLoading(true)
+
+        alertTimeoutRef.current = setTimeout(() => {
+            const message = requestedDashboardName
+                ? i18n.t('Loading dashboard – {{name}}', {
+                      name: requestedDashboardName,
+                  })
+                : i18n.t('Loading dashboard')
+            showAlert({ message })
+        }, 500)
+
+        try {
+            await fetchDashboard(requestedId, username)
+            setLoaded(true)
+        } catch (e) {
+            setLoadFailed(true)
+            setSelectedAsOffline(requestedId, username)
+        } finally {
+            setLoading(false)
+            clearTimeout(alertTimeoutRef.current)
+        }
+    }, [
+        fetchDashboard,
+        requestedDashboardName,
+        requestedId,
+        setSelectedAsOffline,
+        showAlert,
+        username,
+    ])
 
     useEffect(() => {
-        setHeaderbarVisible(true)
-        props.clearEditDashboard()
-        props.clearPrintDashboard()
-    }, [])
+        if (!loading && !loaded && !loadFailed) {
+            setHeaderbarVisible(true)
+            clearEditDashboard()
+            clearPrintDashboard()
+            if (online || isCached) {
+                loadDashboard()
+            } else {
+                setSelectedAsOffline(requestedId, username)
+            }
+        }
+    }, [
+        clearEditDashboard,
+        clearPrintDashboard,
+        isCached,
+        loadDashboard,
+        loaded,
+        loadFailed,
+        loading,
+        online,
+        requestedId,
+        setSelectedAsOffline,
+        username,
+    ])
 
     useEffect(() => {
-        setLoaded(false)
-
-        Array.from(
-            document.getElementsByClassName('dashboard-scroll-container')
-        ).forEach((container) => {
-            container.scroll(0, 0)
-        })
-    }, [props.requestedId])
-
-    useEffect(() => {
-        if (!props.passiveViewRegistered && online) {
-            apiPostDataStatistics(
-                'PASSIVE_DASHBOARD_VIEW',
-                props.requestedId,
-                engine
-            )
+        if (!passiveViewRegistered && online) {
+            apiPostDataStatistics('PASSIVE_DASHBOARD_VIEW', requestedId, engine)
                 .then(() => {
-                    props.registerPassiveView()
+                    registerPassiveView()
                 })
                 .catch((error) => console.info(error))
         }
-    }, [props.passiveViewRegistered, engine])
+    }, [
+        engine,
+        online,
+        passiveViewRegistered,
+        registerPassiveView,
+        requestedId,
+    ])
 
-    useEffect(() => {
-        const loadDashboard = async () => {
-            const alertTimeout = setTimeout(() => {
-                if (props.requestedDashboardName) {
-                    setLoadingMessage(
-                        i18n.t('Loading dashboard – {{name}}', {
-                            name: props.requestedDashboardName,
-                        })
-                    )
-                } else {
-                    setLoadingMessage(i18n.t('Loading dashboard'))
-                }
-            }, 500)
-
-            try {
-                await props.fetchDashboard(props.requestedId, props.username)
-                setLoaded(true)
-                setLoadFailed(false)
-                setLoadingMessage(null)
-                clearTimeout(alertTimeout)
-            } catch (e) {
-                setLoaded(false)
-                setLoadFailed(true)
-                setLoadingMessage(null)
-                clearTimeout(alertTimeout)
-                props.setSelectedAsOffline(props.requestedId, props.username)
-            }
-        }
-
-        const requestedIsAvailable = online || isCached
-        const switchingDashboard = props.requestedId !== props.currentId
-
-        if (requestedIsAvailable && !loaded) {
-            loadDashboard()
-        } else if (!requestedIsAvailable && switchingDashboard) {
-            setLoaded(false)
-            props.setSelectedAsOffline(props.requestedId, props.username)
-        }
-    }, [props.requestedId, props.currentId, loaded, online])
-
-    const onExpandedChanged = (expanded) => setControlbarExpanded(expanded)
-
-    const getContent = () => {
-        if (
-            !online &&
-            !isCached &&
-            (props.requestedId !== props.currentId || !loaded)
-        ) {
-            return (
-                <Notice
-                    title={i18n.t('Offline')}
-                    message={
-                        <>
-                            <p>
-                                {i18n.t(
-                                    'This dashboard cannot be loaded while offline.'
-                                )}
-                            </p>
-                            <div>
-                                <Link
-                                    to={ROUTE_START_PATH}
-                                    className={classes.link}
-                                >
-                                    {i18n.t('Go to start page')}
-                                </Link>
-                            </div>
-                        </>
-                    }
-                />
-            )
-        }
-
-        if (loadFailed) {
-            return (
-                <Notice
-                    title={i18n.t('Load dashboard failed')}
-                    message={i18n.t(
-                        'This dashboard could not be loaded. Please try again later.'
-                    )}
-                />
-            )
-        }
-
-        return props.requestedId !== props.currentId ? (
-            <LoadingMask />
-        ) : (
-            <>
-                <TitleBar />
-                <FilterBar />
-                <ItemGrid />
-            </>
-        )
-    }
+    /* Cleanup effect: Hide current alert and prevent pending alert
+     * from showing after the component unmounts due to navigation */
+    useEffect(
+        () => () => {
+            hideAlert()
+            clearTimeout(alertTimeoutRef.current)
+        },
+        [hideAlert]
+    )
 
     return (
-        <>
-            <div
-                className={cx(classes.container, 'dashboard-scroll-container')}
-                data-test="outer-scroll-container"
-            >
-                <DashboardsBar
-                    expanded={controlbarExpanded}
-                    onExpandedChanged={onExpandedChanged}
+        <div
+            className={cx(classes.container, 'dashboard-scroll-container')}
+            data-test="outer-scroll-container"
+        >
+            <DashboardsBar />
+            <DashboardContainer>
+                <ViewDashboardContent
+                    isCached={isCached}
+                    loading={loading}
+                    loaded={loaded}
+                    loadFailed={loadFailed}
                 />
-                <DashboardContainer covered={controlbarExpanded}>
-                    {controlbarExpanded && (
-                        <div
-                            className={classes.cover}
-                            onClick={() => setControlbarExpanded(false)}
-                        />
-                    )}
-                    {getContent()}
-                </DashboardContainer>
-            </div>
-            <AlertStack>
-                {loadingMessage && (
-                    <AlertBar
-                        onHidden={() => setLoadingMessage(null)}
-                        permanent
-                    >
-                        {loadingMessage}
-                    </AlertBar>
-                )}
-            </AlertStack>
-        </>
+            </DashboardContainer>
+        </div>
     )
 }
 
 ViewDashboard.propTypes = {
     clearEditDashboard: PropTypes.func,
     clearPrintDashboard: PropTypes.func,
-    currentId: PropTypes.string,
     fetchDashboard: PropTypes.func,
     passiveViewRegistered: PropTypes.bool,
     registerPassiveView: PropTypes.func,

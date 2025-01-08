@@ -15,11 +15,15 @@ exports[`NewDashboard renders dashboard 1`] = `
       class="container dashboard-scroll-container"
       data-test="inner-scroll-container"
     >
-      <div>
-        TitleBar
-      </div>
-      <div>
-        ItemGrid
+      <div
+        class="contentWrap"
+      >
+        <div>
+          TitleBar
+        </div>
+        <div>
+          ItemGrid
+        </div>
       </div>
     </div>
   </div>

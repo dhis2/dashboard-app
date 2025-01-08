@@ -5,11 +5,11 @@
     "private": true,
     "license": "BSD-3-Clause",
     "dependencies": {
-        "@dhis2/analytics": "^26.8.2",
+        "@dhis2/analytics": "git+https://github.com/d2-ci/analytics.git#e398d08e696356908725c8f51f32c30e7cb002ec",
         "@dhis2/app-runtime": "^3.10.6",
         "@dhis2/app-runtime-adapter-d2": "^1.1.0",
         "@dhis2/d2-i18n": "^1.1.3",
-        "@dhis2/ui": "^9.11.3",
+        "@dhis2/ui": "^10.1.4",
         "@krakenjs/post-robot": "^11.0.0",
         "classnames": "^2.3.2",
         "d2": "^31.10.0",
@@ -51,9 +51,10 @@
         "@semantic-release/changelog": "^6",
         "@semantic-release/exec": "^6",
         "@semantic-release/git": "^10",
-        "@testing-library/jest-dom": "^6.1.2",
+        "@testing-library/jest-dom": "^6.6.3",
         "@testing-library/react": "^12",
         "cypress": "^13.13.1",
+        "cypress-real-events": "^1.13.0",
         "d2-manifest": "^1.0.0",
         "eslint-plugin-cypress": "^3.3.0",
         "immutability-helper": "^3.1.1",
@@ -61,12 +62,19 @@
         "patch-package": "^7",
         "postinstall-postinstall": "^2.1.0",
         "redux-mock-store": "^1.5.4",
+        "resize-observer-polyfill": "^1.5.1",
         "semantic-release": "^20",
         "start-server-and-test": "^1.14.0"
     },
     "jest": {
         "moduleNameMapper": {
             "^.+\\.(css|sass|scss)$": "identity-obj-proxy"
-        }
+        },
+        "setupFilesAfterEnv": [
+            "<rootDir>/config/testSetup.js"
+        ]
+    },
+    "resolutions": {
+        "@dhis2/ui": "^10.1.4"
     }
 }

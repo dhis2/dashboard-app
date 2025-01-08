@@ -1,3 +1,16 @@
+.content {
+    composes: content from '../styles/Item.module.css';
+    flex: 1;
+    overflow: auto;
+}
+
+.fullscreen {
+    composes: fullscreen from '../styles/Item.module.css';
+}
+
+.fullscreen .list {
+    padding-inline: 24px;
+}
 .list {
     margin-block-start: 10px;
     list-style: none;

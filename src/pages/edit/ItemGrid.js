@@ -5,10 +5,10 @@ import React, { useState } from 'react'
 import { Responsive as ResponsiveReactGridLayout } from 'react-grid-layout'
 import { connect } from 'react-redux'
 import { acUpdateDashboardItemShapes } from '../../actions/editDashboard.js'
+import { useContainerWidth } from '../../components/DashboardContainer.js'
 import { Item } from '../../components/Item/Item.js'
 import NoContentMessage from '../../components/NoContentMessage.js'
 import ProgressiveLoadingContainer from '../../components/ProgressiveLoadingContainer.js'
-import { useWindowDimensions } from '../../components/WindowDimensionsProvider.js'
 import { EDIT } from '../../modules/dashboardModes.js'
 import { getFirstOfTypes } from '../../modules/getFirstOfType.js'
 import { getGridItemDomElementClassName } from '../../modules/getGridItemDomElementClassName.js'
@@ -19,7 +19,6 @@ import {
     GRID_PADDING_PX,
     GRID_COLUMNS,
     hasShape,
-    getGridWidth,
     hasLayout,
 } from '../../modules/gridUtil.js'
 import { getBreakpoint } from '../../modules/smallScreen.js'
@@ -37,8 +36,8 @@ const EditItemGrid = ({
     hasLayout,
     hideGrid,
 }) => {
+    const containerWidth = useContainerWidth()
     const [gridWidth, setGridWidth] = useState({ width: 0 })
-    const { width } = useWindowDimensions()
     const firstOfTypes = getFirstOfTypes(dashboardItems)
 
     const onLayoutChange = (newLayout) => {
@@ -60,7 +59,7 @@ const EditItemGrid = ({
                     'edit',
                     getGridItemDomElementClassName(item.id)
                 )}
-                itemId={item.id}
+                item={item}
             >
                 <Item
                     item={item}
@@ -90,10 +89,10 @@ const EditItemGrid = ({
         <ResponsiveReactGridLayout
             className={classes.grid}
             rowHeight={GRID_ROW_HEIGHT_PX}
-            width={getGridWidth(width)}
+            width={containerWidth}
             cols={{ lg: GRID_COLUMNS }}
             breakpoints={{
-                lg: getBreakpoint(),
+                lg: getBreakpoint(containerWidth),
             }}
             layouts={{ lg: dashboardItems }}
             compactType={GRID_COMPACT_TYPE}
