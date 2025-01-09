@@ -36,7 +36,7 @@ To adjust the Dashboards app to suit your needs, you can:
 
 When viewing dashboards on small screens like mobile phones, the dashboard will adapt to the screen and show all items in a single column. Some options, including editing, filtering and sharing, will not be available.
 
-<img src="resources/images/dashboard-small-screen.png" alt="Dashboard small screen" width="400">
+![Dashboard small screen](resources/images/dashboard-small-screen.png){ .ceneter width=30% }
 
 ### Searching for a dashboard
 
@@ -133,7 +133,7 @@ By default, users will be able to filter dashboard items by any dimension define
 
 To restrict available filters, you can click **Only allow filtering by selected dimensions** and select the filters you wish to allow on the dashboard. Period and Organisation Unit are selected by default but can be removed if desired. When the dashboard is viewed, users will only be able to choose from among the filters selected.
 
-<img src="resources/images/dashboard-filter-settings.png" alt="Dashboard filter settings" width="700">
+![Dashboard filter settings](resources/images/dashboard-filter-settings.png){ .center width=70% }
 
 In order to save updates to filter settings, you need to first click **Confirm** to close the Filter settings dialog and then click **Save changes** to save the dashboard changes.
 
@@ -143,13 +143,13 @@ In order to save updates to filter settings, you need to first click **Confirm**
 
 If you are editing an existing dashboard, then there will be a **Translate** button. Click on this button to open the Translation dialog, which provides a list of languages to translate to, and shows the original dashboard title and description. First choose the language you want to translate for, then fill in the dashboard name and description translation.
 
-<img src="resources/images/dashboard-translation-dialog.png" alt="Dashboard translation dialog" width="700">
+![Dashboard translation dialog](resources/images/dashboard-translation-dialog.png){ .center width=70% }
 
 ### Deleting a dashboard
 
 If you have access to delete the dashboard, then there will be a **Delete** button. When you click the **Delete** button, a confirmation dialog will first be displayed to confirm that you want to delete the dashboard.
 
-<img src="resources/images/dashboard-confirm-delete.png" alt="Dashboard confirm delete" width="400">
+![Dashboard confirm delete](resources/images/dashboard-confirm-delete.png){ .center width=30% }
 
 ## Viewing a dashboard
 
@@ -287,13 +287,13 @@ It is possible to format interpretation text with **bold**, _italic_ by using th
 
 Interpretations are sorted in descending order by date, with the most recent shown on top. Interpretation replies are sorted in ascending order by date, with the oldest shown on top.
 
-<img src="resources/images/dashboard-interpretations.png" alt="Dashboard interpretations" width="600">
+![Dashboard interpretations](resources/images/dashboard-interpretations.png){ .center width=50% }
 
 ## Share the dashboard { #dashboard_sharing }
 
 In order to share the dashboard with users and user groups, click on the **Share** button to the right of the dashboard title to display the _Sharing and access_ dialog.
 
-<img src="resources/images/dashboard-sharing-dialog.png" alt="Dashboard sharing dialog" width="700">
+![Dashboard sharing dialog](resources/images/dashboard-sharing-dialog.png){ .center width=70% }
 
 There are three levels of sharing permissions available for a dashboard:
 
@@ -315,7 +315,7 @@ All dashboards have the _All users_ group set to **No access** by default. The _
 
 To share a dashboard with specific users and user groups, type the name in the input field, choose the desired access level and click on **Give access**.
 
-<img src="resources/images/dashboard-sharing-add-user.png" alt="Dashboard sharing add user" width="700">
+![Dashboard sharing add user](resources/images/dashboard-sharing-add-user.png){ .center width=70% }
 
 You can provide users with the url of the dashboard, allowing them to navigate directly to the dashboard. To get the dashboard url, just open the dashboard in view mode, and copy the browser url. For example, the url to the Antenatal Care dashboard in play.dhis2.org/dev is:
 
@@ -325,4 +325,4 @@ https://play.dhis2.org/dev/dhis-web-dashboard/#/nghVC4wtyzi
 
 To ensure that all charts, maps and tables on the dashboard are shared with the chosen users and user groups, click on the **Apply sharing to dashboard items** button.
 
-<img src="resources/images/dashboard-sharing-cascade-sharing.png" alt="Dashboard cascade sharing" width="700">
+![Dashboard sharing cascade sharing](resources/images/dashboard-sharing-cascade-sharing.png){ .center width=70% }
