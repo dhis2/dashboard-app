@@ -1,19 +1,18 @@
 .container {
-    background-color: #f4f6f8;
-    padding-inline-start: var(--spacers-dp16);
-    padding-inline-end: var(--spacers-dp16);
-    padding-block-end: var(--spacers-dp24);
+    background-color: var(--colors-grey200);
+    padding-inline-start: var(--spacers-dp8);
+    padding-inline-end: var(--spacers-dp8);
+    padding-block-end: var(--spacers-dp12);
     overflow: auto;
 }
-
+.contentWrap {
+    overflow: visible;
+    margin: 0;
+    padding: 0;
+    inline-size: 100%;
+}
 @media only screen and (max-height: 480px) {
     .container {
         overflow: visible;
-    }
-}
-
-@media only screen and (max-height: 480px), only screen and (max-width: 480px) {
-    .covered {
-        overflow: hidden;
     }
 }

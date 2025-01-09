@@ -10,7 +10,7 @@ import {
 describe('withShape', () => {
     it('returns objects with new properties (x, y, w, h)', () => {
         const items = withShape([{}])
-        expect(items).toMatchObject([{ x: 0, y: 0, w: 29, h: 20 }])
+        expect(items).toMatchObject([{ x: 0, y: 0, w: 29, h: 32 }])
     })
 
     it('returns same objects', () => {
@@ -47,17 +47,17 @@ describe('hasShape', () => {
 describe('getProportionalHeight', () => {
     it('returns the proportional height in grid units for 480px', () => {
         const item = { w: 20, h: 20, type: 'CHART' }
-        expect(getProportionalHeight(item, 480)).toEqual(18)
+        expect(getProportionalHeight(item, 480)).toEqual(24)
     })
 
     it('returns the proportional height in grid units for 360px', () => {
         const item = { w: 20, h: 20, type: 'CHART' }
-        expect(getProportionalHeight(item, 360)).toEqual(13)
+        expect(getProportionalHeight(item, 360)).toEqual(18)
     })
 
     it('returns the initial height for non vis type', () => {
         const item = { w: 20, h: 10, type: 'TEXT' }
-        expect(getProportionalHeight(item, 360)).toEqual(8)
+        expect(getProportionalHeight(item, 360)).toEqual(10)
     })
 })
 
@@ -85,7 +85,7 @@ describe('getSmallLayout', () => {
                 x: 0,
                 y: 1,
                 w: SM_SCREEN_GRID_COLUMNS,
-                h: 13,
+                h: 14,
                 type: 'CHART',
                 i: 'C',
             },
@@ -93,7 +93,7 @@ describe('getSmallLayout', () => {
                 x: 0,
                 y: 2,
                 w: SM_SCREEN_GRID_COLUMNS,
-                h: 38,
+                h: 52,
                 type: 'CHART',
                 i: 'B',
             },
@@ -101,7 +101,7 @@ describe('getSmallLayout', () => {
                 x: 0,
                 y: 3,
                 w: SM_SCREEN_GRID_COLUMNS,
-                h: 36,
+                h: 49,
                 type: 'CHART',
                 i: 'E',
             },
@@ -109,7 +109,7 @@ describe('getSmallLayout', () => {
                 x: 0,
                 y: 4,
                 w: SM_SCREEN_GRID_COLUMNS,
-                h: 32,
+                h: 43,
                 type: 'CHART',
                 i: 'D',
             },
@@ -117,7 +117,7 @@ describe('getSmallLayout', () => {
                 x: 0,
                 y: 5,
                 w: SM_SCREEN_GRID_COLUMNS,
-                h: 8,
+                h: 10,
                 type: 'TEXT',
                 i: 'F',
             },

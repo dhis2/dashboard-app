@@ -18,7 +18,7 @@ exports[`renders a valid App item in view mode 1`] = `
     class="ui-Divider"
   />
   <iframe
-    class="dashboard-item-content"
+    class="content"
     src="launchurl?dashboardItemId=rainbowdash"
     title="Scorecard"
   />
@@ -51,7 +51,7 @@ exports[`renders a valid App item with filter in edit mode 1`] = `
     class="ui-Divider"
   />
   <iframe
-    class="dashboard-item-content"
+    class="content"
     src="launchurl?dashboardItemId=rainbowdash"
     title="Scorecard"
   />
@@ -76,7 +76,7 @@ exports[`renders a valid App item with filter in view mode 1`] = `
     class="ui-Divider"
   />
   <iframe
-    class="dashboard-item-content"
+    class="content"
     src="launchurl?dashboardItemId=rainbowdash&userOrgUnit=rainbow"
     title="Scorecard"
   />
@@ -109,7 +109,7 @@ exports[`renders a valid App item with title in edit mode irrespective of app se
     class="ui-Divider"
   />
   <iframe
-    class="dashboard-item-content"
+    class="content"
     src="launchurl?dashboardItemId=twilightsparkle"
     title="No Title"
   />
@@ -119,7 +119,7 @@ exports[`renders a valid App item with title in edit mode irrespective of app se
 exports[`renders a valid App item without title in view mode if specified in app settings 1`] = `
 <div>
   <iframe
-    class="dashboard-item-content-hidden-title"
+    class="content hiddenTitle"
     src="launchurl?dashboardItemId=twilightsparkle"
     title="No Title"
   />
@@ -144,8 +144,7 @@ exports[`renders an invalid App item 1`] = `
     class="ui-Divider"
   />
   <div
-    class="dashboard-item-content"
-    style="display: flex; justify-content: center; align-items: center; height: 90%;"
+    class="content centered"
   >
     <svg
       color="#a0adba"

@@ -52,7 +52,7 @@ jest.mock('../../api/dataStatistics.js', () => {
 })
 
 jest.mock(
-    '../DashboardsBar/DashboardsBar',
+    '../DashboardsBar/index.js',
     () =>
         function MockDashboardsBar() {
             return <div>DashboardsBar</div>

@@ -1,3 +1,36 @@
+.slideshowContainer {
+    background-color: var(--colors-grey200);
+    block-size: 100vh;
+}
 .grid {
-    margin-block-start: var(--spacers-dp16);
+    margin-block-start: var(--spacers-dp8);
+    background-color: var(--colors-grey200);
+}
+
+/* react-grid-layout uses width and height instead
+   of css logical properties,
+   so these are the properties
+   that need to be overridden */
+/* stylelint-disable csstools/use-logical */
+.slideshowGrid {
+    margin-block-start: 0;
+    height: calc(100vh - 40px) !important;
+}
+.fullscreenItem {
+    width: 100% !important;
+    height: 100% !important;
+    transform: none !important;
+}
+/* stylelint-enable csstools/use-logical */
+
+.hiddenItem,
+.enteringFullscreen {
+    opacity: 0;
+}
+
+.displayedItem {
+    opacity: 1;
+    transition-delay: 100ms !important;
+    transition-property: opacity !important;
+    z-index: 10 !important;
 }
