@@ -1,6 +1,7 @@
 import { useDataEngine } from '@dhis2/app-runtime'
 import PropTypes from 'prop-types'
 import React, { useContext, useState, useEffect, createContext } from 'react'
+import { useFetchSuperSetBaseUrl } from '../api/superSetGateway.js'
 import {
     systemSettingsQuery,
     renameSystemSettings,
@@ -12,6 +13,7 @@ export const SystemSettingsCtx = createContext({})
 const SystemSettingsProvider = ({ children }) => {
     const [settings, setSettings] = useState(null)
     const engine = useDataEngine()
+    const fetchSuperSetBaseUrl = useFetchSuperSetBaseUrl()
 
     useEffect(() => {
         async function fetchData() {
@@ -26,14 +28,16 @@ const SystemSettingsProvider = ({ children }) => {
                     },
                 }
             )
+            const resolvedSystemSettings = {
+                ...renameSystemSettings(DEFAULT_SETTINGS),
+                ...renameSystemSettings(systemSettings),
+            }
+            if (resolvedSystemSettings.embeddedDashboardsEnabled) {
+                resolvedSystemSettings.supersetBaseUrl =
+                    await fetchSuperSetBaseUrl()
+            }
 
-            setSettings(
-                Object.assign(
-                    {},
-                    renameSystemSettings(DEFAULT_SETTINGS),
-                    renameSystemSettings(systemSettings)
-                )
-            )
+            setSettings(resolvedSystemSettings)
         }
         fetchData()
     }, [])
