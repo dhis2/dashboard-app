@@ -60,3 +60,11 @@ SystemSettingsProvider.propTypes = {
 export default SystemSettingsProvider
 
 export const useSystemSettings = () => useContext(SystemSettingsCtx)
+export const useHasSuperSetSupport = () => {
+    const { embeddedDashboardsEnabled, supersetBaseUrl } = useSystemSettings()
+    return embeddedDashboardsEnabled && !!supersetBaseUrl
+}
+export const useSupersetBaseUrl = () => {
+    const { supersetBaseUrl } = useSystemSettings()
+    return supersetBaseUrl ?? null
+}
