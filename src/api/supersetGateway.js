@@ -1,7 +1,7 @@
 import { useConfig } from '@dhis2/app-service-config'
 import { useCallback, useMemo } from 'react'
 
-export const useFetchSuperSetBaseUrl = () => {
+export const useFetchSupersetBaseUrl = () => {
     const { baseUrl } = useConfig()
     const url = useMemo(
         () =>
@@ -14,7 +14,7 @@ export const useFetchSuperSetBaseUrl = () => {
         [baseUrl]
     )
 
-    const fetchSuperSetBaseUrl = useCallback(async () => {
+    const fetchSupersetBaseUrl = useCallback(async () => {
         const response = await fetch(url)
         if (!response.ok) {
             throw new Error(`Response status: ${response.status}`)
@@ -24,5 +24,5 @@ export const useFetchSuperSetBaseUrl = () => {
         return data.supersetBaseUrl
     }, [url])
 
-    return fetchSuperSetBaseUrl
+    return fetchSupersetBaseUrl
 }

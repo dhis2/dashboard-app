@@ -1,7 +1,7 @@
 import { useDataEngine } from '@dhis2/app-runtime'
 import PropTypes from 'prop-types'
 import React, { useContext, useState, useEffect, createContext } from 'react'
-import { useFetchSuperSetBaseUrl } from '../api/superSetGateway.js'
+import { useFetchSupersetBaseUrl } from '../api/supersetGateway.js'
 import {
     systemSettingsQuery,
     renameSystemSettings,
@@ -13,7 +13,7 @@ export const SystemSettingsCtx = createContext({})
 const SystemSettingsProvider = ({ children }) => {
     const [settings, setSettings] = useState(null)
     const engine = useDataEngine()
-    const fetchSuperSetBaseUrl = useFetchSuperSetBaseUrl()
+    const fetchSupersetBaseUrl = useFetchSupersetBaseUrl()
 
     useEffect(() => {
         async function fetchData() {
@@ -34,13 +34,13 @@ const SystemSettingsProvider = ({ children }) => {
             }
             if (resolvedSystemSettings.embeddedDashboardsEnabled) {
                 resolvedSystemSettings.supersetBaseUrl =
-                    await fetchSuperSetBaseUrl()
+                    await fetchSupersetBaseUrl()
             }
 
             setSettings(resolvedSystemSettings)
         }
         fetchData()
-    }, [engine, fetchSuperSetBaseUrl])
+    }, [engine, fetchSupersetBaseUrl])
 
     return (
         <SystemSettingsCtx.Provider
@@ -60,7 +60,7 @@ SystemSettingsProvider.propTypes = {
 export default SystemSettingsProvider
 
 export const useSystemSettings = () => useContext(SystemSettingsCtx)
-export const useHasSuperSetSupport = () => {
+export const useHasSupersetSupport = () => {
     const { embeddedDashboardsEnabled, supersetBaseUrl } = useSystemSettings()
     return embeddedDashboardsEnabled && !!supersetBaseUrl
 }
