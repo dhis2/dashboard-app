@@ -40,7 +40,7 @@ const SystemSettingsProvider = ({ children }) => {
             setSettings(resolvedSystemSettings)
         }
         fetchData()
-    }, [])
+    }, [engine, fetchSuperSetBaseUrl])
 
     return (
         <SystemSettingsCtx.Provider
