@@ -19,6 +19,11 @@ Feature: Errors while in view mode
         When I open the "Delivery" dashboard
         Then the "Delivery" dashboard displays in view mode
 
+    @nonmutating
+    Scenario: I navigate to a dashboard that fails to load
+        Given I type a dashboard id in the browser url that fails to load
+        Then a warning message is displayed stating that the dashboard could not be loaded
+
     # @nonmutating
     # Scenario: I navigate to print dashboard that doesn't exist
     #     Given I type an invalid print dashboard id in the browser url

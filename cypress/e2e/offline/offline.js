@@ -212,7 +212,7 @@ Then(
         // edit, sharing, starring, filtering, all options under more
         getViewActionButton('Edit').should('be.disabled')
         getViewActionButton('Share').should('be.disabled')
-        getViewActionButton('Add filter').should('be.disabled')
+        getViewActionButton('Filter').should('be.disabled')
         getViewActionButton('More').should('be.enabled')
 
         checkCorrectMoreOptionsEnabledState(false, cacheState)
