@@ -34,6 +34,7 @@ import {
 import { sGetItemFiltersRoot } from '../../../reducers/itemFilters.js'
 import { useSystemSettings } from '../../SystemSettingsProvider.js'
 import { useUserSettings } from '../../UserSettingsProvider.js'
+import { searchParams } from '../../../reducers/searchparams.js'
 
 const FilterDialog = ({
     dimension,
@@ -46,6 +47,7 @@ const FilterDialog = ({
     const { userSettings } = useUserSettings()
     const { systemSettings } = useSystemSettings()
     const { rootOrgUnits } = useCachedDataQuery()
+    const paramsHandler = searchParams();
 
     const onSelectItems = ({ dimensionId, items }) => {
         setFilters({ [dimensionId]: items })
@@ -60,8 +62,12 @@ const FilterDialog = ({
                 id,
                 value: [...filterItems],
             })
+            console.log("Added Item Filter")
+            paramsHandler.addSearchParamsToUrl(id, filters[id].map(x=> x.id).join(';'))
         } else {
             removeItemFilter(id)
+            console.log("Removed Item Filter", id, filters[id])
+            paramsHandler.overrideValueBasedOnKey(id, filters[id].map(x=> x.id).join(';'))
         }
 
         onClose(id)

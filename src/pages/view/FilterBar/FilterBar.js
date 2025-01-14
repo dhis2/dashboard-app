@@ -11,16 +11,20 @@ import ConfirmActionDialog from '../../../components/ConfirmActionDialog.js'
 import { sGetNamedItemFilters } from '../../../reducers/itemFilters.js'
 import FilterBadge from './FilterBadge.js'
 import classes from './styles/FilterBar.module.css'
+import { searchParams } from '../../../reducers/searchparams.js'
 
 const FilterBar = ({ filters, removeFilter, removeAllFilters }) => {
     const { isConnected: online } = useDhis2ConnectionStatus()
     const [dialogIsOpen, setDialogIsOpen] = useState(false)
+    const paramsHandler = searchParams();
 
     const onRemoveFilter = (filterId) => {
         if (!online && filters.length > 1) {
             setDialogIsOpen(true)
         } else {
             removeFilter(filterId)
+            console.log("Removed Item Filter basedonId id")
+            paramsHandler.removeSearchParamsFromUrlByKey(filterId)
         }
     }
 
