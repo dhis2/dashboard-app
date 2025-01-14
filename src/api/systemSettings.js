@@ -19,6 +19,7 @@ const SYSTEM_SETTINGS = [
     'keyHideWeeklyPeriods',
     'keyHideBiWeeklyPeriods',
     'startModuleEnableLightweight',
+    'keyEmbeddedDashboardsEnabled',
 ]
 
 const SYSTEM_SETTINGS_REMAPPINGS = {
@@ -32,6 +33,7 @@ const SYSTEM_SETTINGS_REMAPPINGS = {
     keyHideMonthlyPeriods: 'hideMonthlyPeriods',
     keyHideWeeklyPeriods: 'hideWeeklyPeriods',
     keyHideBiWeeklyPeriods: 'hideBiWeeklyPeriods',
+    keyEmbeddedDashboardsEnabled: 'embeddedDashboardsEnabled',
 }
 
 export const renameSystemSettings = (settings) => {
