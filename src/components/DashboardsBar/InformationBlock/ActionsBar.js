@@ -186,14 +186,16 @@ const ActionsBar = ({
         return <Redirect to={redirectUrl} />
     }
 
-    let slideshowTooltipContent = null
-    if (!hasSlideshowItems) {
-        slideshowTooltipContent = i18n.t(
-            'No dashboard items to show in slideshow'
-        )
-    } else if (offline && !isCached) {
-        slideshowTooltipContent = i18n.t('Not available offline')
+    const getSlideshowTooltipContent = () => {
+        if (!hasSlideshowItems) {
+            return i18n.t('No dashboard items to show in slideshow')
+        } else if (offline && !isCached) {
+            return i18n.t('Not available offline')
+        }
+        return null
     }
+
+    const slideshowTooltipContent = getSlideshowTooltipContent()
 
     return (
         <>
