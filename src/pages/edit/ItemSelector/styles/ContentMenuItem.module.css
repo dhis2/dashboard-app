@@ -4,10 +4,13 @@
     justify-content: space-between;
 }
 
-.launchLink {
+.launchLinkButton {
     display: flex;
     margin-inline-start: 8px;
     z-index: 10000;
+    border: none;
+    background-color: transparent;
+    padding: 0;
 }
 
 .label {

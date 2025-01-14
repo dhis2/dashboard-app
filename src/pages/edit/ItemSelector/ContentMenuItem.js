@@ -12,13 +12,13 @@ const LaunchLink = ({ url }) => {
     }, [url])
 
     return (
-        <span
+        <button
             onClick={handleClick}
-            className={classes.launchLink}
+            className={classes.launchLinkButton}
             aria-label={i18n.t('Open visualization in new tab')}
         >
             <IconLaunch16 color={colors.grey700} />
-        </span>
+        </button>
     )
 }
 
