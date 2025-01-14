@@ -15,7 +15,7 @@ useDimensions.mockImplementation(() => ['Moomin', 'Snorkmaiden'])
 
 const baseState = { activeModalDimension: {}, itemFilters: {} }
 const createMockStore = (state) =>
-    createStore(() => Object.assign({}, baseState, state))
+    createStore(() => ({ ...baseState, ...state }))
 
 test('is disabled when offline', () => {
     useDhis2ConnectionStatus.mockImplementationOnce(
