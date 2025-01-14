@@ -17,7 +17,7 @@ const LaunchLink = ({ url }) => {
             className={classes.launchLinkButton}
             aria-label={i18n.t('Open visualization in new tab')}
         >
-            <IconLaunch16 color={colors.grey700} />
+            <IconLaunch16 />
         </button>
     )
 }

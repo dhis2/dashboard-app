@@ -5,12 +5,11 @@
 }
 
 .launchLinkButton {
+    all: unset;
     display: flex;
     margin-inline-start: 8px;
     z-index: 10000;
-    border: none;
-    background-color: transparent;
-    padding: 0;
+    color: var(--colors-grey600);
 }
 
 .label {
@@ -38,4 +37,8 @@ li .buttonInsert {
 
 .buttonInsert:focus {
     outline: none;
+}
+
+.launchLinkButton:hover {
+    color: var(--colors-grey900);
 }
