@@ -43,7 +43,7 @@ const baseState = {
 }
 
 const createMockStore = (state) =>
-    createStore(() => Object.assign({}, baseState, state))
+    createStore(() => ({ ...baseState, ...state }))
 
 test('renders a list of dashboard menu items', () => {
     const mockStore = createMockStore({})

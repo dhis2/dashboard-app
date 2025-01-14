@@ -71,7 +71,7 @@
     line-height: 18px;
     letter-spacing: 0.1px;
     list-style-position: outside;
-    list-style: circle;
+    list-style-type: circle;
     margin-block-start: 0;
     margin-block-end: 0;
     margin-inline-start: var(--spacers-dp12);

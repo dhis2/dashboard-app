@@ -15,7 +15,7 @@ jest.mock('../../../../components/WindowDimensionsProvider.js', () => ({
 
 const baseState = { selected: { id: 'dashboard1' } }
 const createMockStore = (state) =>
-    createStore(() => Object.assign({}, baseState, state))
+    createStore(() => ({ ...baseState, ...state }))
 
 test('Displays badge containing number of filter items when filtered on multiple', () => {
     const filter = {
