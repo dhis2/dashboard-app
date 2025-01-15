@@ -56,7 +56,6 @@ const FilterSelector = (props) => {
             />
         </Card>
     )
-    
     return props.restrictFilters && !props.allowedFilters?.length ? null : (
         <>
             <DropdownButton
