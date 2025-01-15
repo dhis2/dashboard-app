@@ -23,8 +23,6 @@ const FilterBar = ({ filters, removeFilter, removeAllFilters }) => {
             setDialogIsOpen(true)
         } else {
             removeFilter(filterId)
-            console.log("Removed Item Filter basedonId id")
-            paramsHandler.removeSearchParamsFromUrlByKey(filterId)
         }
     }
 

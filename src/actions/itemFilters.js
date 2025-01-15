@@ -6,6 +6,8 @@ import {
 
 export const FILTER_ORG_UNIT = 'ou'
 
+export const FILTER_PE = 'pe'
+
 // actions
 
 export const acAddItemFilter = (filter) => ({

@@ -62,12 +62,8 @@ const FilterDialog = ({
                 id,
                 value: [...filterItems],
             })
-            console.log("Added Item Filter")
-            paramsHandler.addSearchParamsToUrl(id, filters[id].map(x=> x.id).join(';'))
         } else {
             removeItemFilter(id)
-            console.log("Removed Item Filter", id, filters[id])
-            paramsHandler.overrideValueBasedOnKey(id, filters[id].map(x=> x.id).join(';'))
         }
 
         onClose(id)
