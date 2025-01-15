@@ -34,7 +34,6 @@ import {
 import { sGetItemFiltersRoot } from '../../../reducers/itemFilters.js'
 import { useSystemSettings } from '../../SystemSettingsProvider.js'
 import { useUserSettings } from '../../UserSettingsProvider.js'
-import { searchParams } from '../../../reducers/searchparams.js'
 
 const FilterDialog = ({
     dimension,

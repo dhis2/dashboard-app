@@ -15,7 +15,6 @@ import classes from './styles/FilterBar.module.css'
 const FilterBar = ({ filters, removeFilter, removeAllFilters }) => {
     const { isConnected: online } = useDhis2ConnectionStatus()
     const [dialogIsOpen, setDialogIsOpen] = useState(false)
-    const paramsHandler = searchParams();
 
     const onRemoveFilter = (filterId) => {
         if (!online && filters.length > 1) {
