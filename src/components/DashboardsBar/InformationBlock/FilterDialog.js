@@ -47,7 +47,6 @@ const FilterDialog = ({
     const { userSettings } = useUserSettings()
     const { systemSettings } = useSystemSettings()
     const { rootOrgUnits } = useCachedDataQuery()
-    const paramsHandler = searchParams();
 
     const onSelectItems = ({ dimensionId, items }) => {
         setFilters({ [dimensionId]: items })
