@@ -13,7 +13,7 @@ export const getIframeSrc = (appDetails, item, itemFilters) => {
 
     // Add period (pe) to iframeSrc
     if (itemFilters[FILTER_PE] && itemFilters[FILTER_PE].length) {
-        const peValues = itemFilters[FILTER_PE].map(x => x.id).join(';');
+        const peValues = itemFilters[FILTER_PE].map(x => x.id).join(',');
         iframeSrc += `&pe=${peValues}`;
     }
 
