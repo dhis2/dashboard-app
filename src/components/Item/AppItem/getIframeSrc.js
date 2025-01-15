@@ -14,7 +14,7 @@ export const getIframeSrc = (appDetails, item, itemFilters) => {
     // Add period (pe) to iframeSrc
     if (itemFilters[FILTER_PE]?.length) {
         const peValues = itemFilters[FILTER_PE].map(x => x.id).join(',');
-        iframeSrc += `&pe=${peValues}`;
+        iframeSrc += `&period=${peValues}`;
     }
 
 
