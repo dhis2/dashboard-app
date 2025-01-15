@@ -1,5 +1,5 @@
 import React from 'react'
-import { CreateDashboardButton } from './CreateDashboardButton.js'
+import { CreateDashboardButton } from './CreateDashboardButton/index.js'
 import InformationBlock from './InformationBlock/InformationBlock.js'
 import { NavigationMenuDropdownButton } from './NavigationMenu/index.js'
 import styles from './styles/DashboardsBar.module.css'

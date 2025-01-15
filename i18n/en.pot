@@ -5,14 +5,44 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1)\n"
-"POT-Creation-Date: 2024-12-19T11:30:27.893Z\n"
-"PO-Revision-Date: 2024-12-19T11:30:27.893Z\n"
+"POT-Creation-Date: 2025-01-15T10:59:59.035Z\n"
+"PO-Revision-Date: 2025-01-15T10:59:59.036Z\n"
 
 msgid "Untitled dashboard"
 msgstr "Untitled dashboard"
 
-msgid "Dashboards"
-msgstr "Dashboards"
+msgid "New dashboard: choose type"
+msgstr "New dashboard: choose type"
+
+msgid "Internal: Data from {{systemName}}"
+msgstr "Internal: Data from {{systemName}}"
+
+msgid "Show data and visualizations from this DHIS2 instance."
+msgstr "Show data and visualizations from this DHIS2 instance."
+
+msgid "External: Data from another source"
+msgstr "External: Data from another source"
+
+msgid "Embed a dashboard from a third-party source, like Superset."
+msgstr "Embed a dashboard from a third-party source, like Superset."
+
+msgid "Create dashboard"
+msgstr "Create dashboard"
+
+msgid "Configure source"
+msgstr "Configure source"
+
+msgid "Cancel"
+msgstr "Cancel"
+
+msgid "New dashboard: configure external source (suprset)"
+msgstr "New dashboard: configure external source (suprset)"
+
+msgid "Back"
+msgstr "Back"
+
+msgid "Save dashboard"
+msgstr "Save dashboard"
 
 msgid "The dashboard couldn't be made available offline. Try again."
 msgstr "The dashboard couldn't be made available offline. Try again."
@@ -81,9 +111,6 @@ msgstr "No, cancel"
 msgid "Yes, clear filters and sync"
 msgstr "Yes, clear filters and sync"
 
-msgid "Cancel"
-msgstr "Cancel"
-
 msgid "Confirm"
 msgstr "Confirm"
 
@@ -119,6 +146,9 @@ msgstr "Search for a dashboard"
 
 msgid "No dashboards found"
 msgstr "No dashboards found"
+
+msgid "Dashboards"
+msgstr "Dashboards"
 
 msgid "{{appKey}} app not found"
 msgstr "{{appKey}} app not found"
