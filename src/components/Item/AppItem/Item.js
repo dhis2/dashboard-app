@@ -10,7 +10,8 @@ import React, {
     useRef,
     useState,
 } from 'react'
-import { useSelector } from 'react-redux'
+import { useSelector, useDispatch } from 'react-redux'
+import { acSetSlideshow } from '../../../actions/slideshow.js'
 import {
     EDIT,
     isEditMode,
@@ -33,12 +34,20 @@ import { getIframeSrc } from './getIframeSrc.js'
 import { ItemContextMenu } from './ItemContextMenu.js'
 import styles from './styles/AppItem.module.css'
 
-const AppItem = ({ dashboardMode, windowDimensions, item, apps, sortIndex, isFullscreen }) => {
+const AppItem = ({
+    dashboardMode,
+    windowDimensions,
+    item,
+    apps,
+    sortIndex,
+    isFullscreen,
+}) => {
     const contentRef = useRef(null)
     const headerRef = useRef(null)
     const [isMounted, setIsMounted] = useState(false)
     const dashboardId = useSelector(sGetSelectedId)
     let itemFilters = useSelector(sGetItemFiltersRoot)
+    const dispatch = useDispatch()
 
     if (isEditMode(dashboardMode)) {
         itemFilters = DEFAULT_STATE_ITEM_FILTERS
@@ -132,9 +141,9 @@ const AppItem = ({ dashboardMode, windowDimensions, item, apps, sortIndex, isFul
                 title={appDetails.name}
                 src={iframeSrc}
                 className={cx(styles.content, {
-                            [styles.hiddenTitle]: hideTitle,
-                            [styles.fullscreen]: isFullscreen,
-                        })}
+                    [styles.hiddenTitle]: hideTitle,
+                    [styles.fullscreen]: isFullscreen,
+                })}
                 style={{
                     border: 'none',
                     width: style.width,
@@ -157,7 +166,7 @@ const AppItem = ({ dashboardMode, windowDimensions, item, apps, sortIndex, isFul
                     item={item}
                     appName={appDetails.name}
                     appUrl={appUrl}
-                    enterFullscreen={() => setSlideshow(sortIndex)}
+                    enterFullscreen={() => dispatch(acSetSlideshow(sortIndex))}
                     fullscreenSupported={isFullscreenSupported(item.id)}
                     loadItemFailed={loadItemFailed}
                 />

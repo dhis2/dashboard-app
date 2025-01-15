@@ -70,8 +70,12 @@ export const Item = (props) => {
     return (
         <WindowDimensionsCtx.Consumer>
             {(windowDimensions) => (
-                
-                <GridItem apps={apps} {...props} engine={engine} windowDimensions={windowDimensions} />
+                <GridItem
+                    apps={apps}
+                    {...props}
+                    engine={engine}
+                    windowDimensions={windowDimensions}
+                />
             )}
         </WindowDimensionsCtx.Consumer>
     )

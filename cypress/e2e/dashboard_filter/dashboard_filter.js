@@ -26,7 +26,6 @@ Then('the Period filter is applied to the dashboard', () => {
     cy.get(filterBadgeSel).contains(`Period: ${PERIOD}`).should('be.visible')
 
     // check the CHART
-<<<<<<< HEAD
     // cy.get(`${gridItemSel}.VISUALIZATION`).getIframeBody().as('iframeBody')
     // cy.get('@iframeBody')
     //     .find(`${chartSubtitleSel} > title`, EXTENDED_TIMEOUT)

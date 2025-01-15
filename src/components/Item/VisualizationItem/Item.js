@@ -14,7 +14,11 @@ import { acSetSlideshow } from '../../../actions/slideshow.js'
 import { acAddVisualization } from '../../../actions/visualizations.js'
 import { apiPostDataStatistics } from '../../../api/dataStatistics.js'
 import { apiFetchVisualization } from '../../../api/fetchVisualization.js'
-import { isEditMode, isViewMode, isPrintMode } from '../../../modules/dashboardModes.js'
+import {
+    isEditMode,
+    isViewMode,
+    isPrintMode,
+} from '../../../modules/dashboardModes.js'
 import {
     getVisualizationId,
     getVisualizationName,
@@ -125,7 +129,7 @@ class Item extends Component {
     }
 
     render() {
-        const { 
+        const {
             item,
             dashboardMode,
             itemFilters,
