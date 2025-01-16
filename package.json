@@ -69,7 +69,10 @@
         "moduleNameMapper": {
             "^.+\\.(css|sass|scss)$": "identity-obj-proxy",
             "@dhis2/app-runtime/experimental": "<rootDir>/node_modules/@dhis2/app-runtime/build/cjs/experimental.js"
-        }
+        },
+        "setupFilesAfterEnv": [
+            "<rootDir>/config/testSetup.js"
+        ]
     },
     "resolutions": {
         "@dhis2/ui": "^10.1.4"
