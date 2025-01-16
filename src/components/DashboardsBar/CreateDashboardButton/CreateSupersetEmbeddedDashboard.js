@@ -11,6 +11,8 @@ import PropTypes from 'prop-types'
 import React from 'react'
 import { useSupersetEmbeddedDashboardFieldsState } from '../../../modules/useSupersetEmbeddedDashboardFieldsState'
 import { SupersetEmbeddedDashboardFields } from '../../SupersetEmbeddedDashboardFields'
+import { useSupersetEmbeddedDashboardFieldsState } from '../../../modules/useSupersetEmbeddedDashboardFieldsState.js'
+import { SupersetEmbeddedDashboardFields } from '../../SupersetEmbeddedDashboardFields.js'
 
 export const CreateSupersetEmbeddedDashboard = ({
     backToChooseDashboardModal,
