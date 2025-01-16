@@ -5,7 +5,6 @@ import {
     Menu,
     Popover,
     IconFullscreen16,
-    IconFullscreenExit16,
     IconLaunch16,
     IconMore24,
 } from '@dhis2/ui'
@@ -15,15 +14,14 @@ import { isSmallScreen } from '../../../modules/smallScreen.js'
 import MenuItem from '../../MenuItemWithTooltip.js'
 import { useSystemSettings } from '../../SystemSettingsProvider.js'
 import { useWindowDimensions } from '../../WindowDimensionsProvider.js'
-import { isElementFullscreen } from '../fullscreenUtil.js'
 
 export const ItemContextMenu = ({
     appName,
     appUrl,
-    item,
     fullscreenSupported,
-    onToggleFullscreen,
+    enterFullscreen,
     loadItemFailed,
+    tabIndex,
 }) => {
     const buttonRef = useRef()
     const [menuIsOpen, setMenuIsOpen] = useState(false)
@@ -45,26 +43,22 @@ export const ItemContextMenu = ({
     }
     const closeMenu = () => setMenuIsOpen(false)
 
-    const toggleFullscreen = () => {
-        onToggleFullscreen()
+    const onEnterFullscreen = () => {
+        enterFullscreen()
         closeMenu()
     }
 
-    return isElementFullscreen(item.id) ? (
-        <Button small secondary onClick={onToggleFullscreen}>
-            <span data-testid="exit-fullscreen-button">
-                <IconFullscreenExit16 color={colors.grey600} />
-            </span>
-        </Button>
-    ) : (
+    return (
         <>
             <div ref={buttonRef}>
                 <Button
                     small
                     secondary
+                    title={i18n.t('Open menu')}
                     onClick={openMenu}
-                    dataTest="dashboarditem-menu-button"
+                    dataTest="appitem-menu-button"
                     icon={<IconMore24 color={colors.grey700} />}
+                    tabIndex={tabIndex}
                 />
             </div>
             {menuIsOpen && (
@@ -91,7 +85,7 @@ export const ItemContextMenu = ({
                                 disabledWhenOffline={false}
                                 icon={<IconFullscreen16 />}
                                 label={i18n.t('View fullscreen')}
-                                onClick={toggleFullscreen}
+                                onClick={onEnterFullscreen}
                             />
                         )}
                     </Menu>
@@ -104,8 +98,8 @@ export const ItemContextMenu = ({
 ItemContextMenu.propTypes = {
     appName: PropTypes.string,
     appUrl: PropTypes.string,
+    enterFullscreen: PropTypes.func,
     fullscreenSupported: PropTypes.bool,
-    item: PropTypes.object,
     loadItemFailed: PropTypes.bool,
-    onToggleFullscreen: PropTypes.func,
+    tabIndex: PropTypes.string,
 }

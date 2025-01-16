@@ -46,6 +46,7 @@ const AppItem = ({
     const headerRef = useRef(null)
     const [isMounted, setIsMounted] = useState(false)
     const dashboardId = useSelector(sGetSelectedId)
+    const isSlideshowView = useSelector((state) => state.slideshow !== null)
     let itemFilters = useSelector(sGetItemFiltersRoot)
     const dispatch = useDispatch()
 
@@ -161,7 +162,9 @@ const AppItem = ({
         const iframeSrc = getIframeSrc(item, itemFilters, appDetails)
 
         const actionButtons =
-            appDetails.pluginLaunchUrl && isViewMode(dashboardMode) ? (
+            appDetails.pluginLaunchUrl &&
+            isViewMode(dashboardMode) &&
+            !isSlideshowView ? (
                 <ItemContextMenu
                     item={item}
                     appName={appDetails.name}
