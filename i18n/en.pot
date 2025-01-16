@@ -5,8 +5,8 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1)\n"
-"POT-Creation-Date: 2025-01-15T14:37:33.573Z\n"
-"PO-Revision-Date: 2025-01-15T14:37:33.574Z\n"
+"POT-Creation-Date: 2025-01-16T10:42:35.281Z\n"
+"PO-Revision-Date: 2025-01-16T10:42:35.283Z\n"
 
 msgid "Untitled dashboard"
 msgstr "Untitled dashboard"
@@ -123,6 +123,9 @@ msgstr "No dashboards found"
 msgid "There was a problem loading this dashboard item"
 msgstr "There was a problem loading this dashboard item"
 
+msgid "Open menu"
+msgstr "Open menu"
+
 msgid "Open in {{appName}}"
 msgstr "Open in {{appName}}"
 
@@ -197,9 +200,6 @@ msgstr "Hide details and interpretations"
 
 msgid "Show details and interpretations"
 msgstr "Show details and interpretations"
-
-msgid "Open menu"
-msgstr "Open menu"
 
 msgid "Open in {{appName}} app"
 msgstr "Open in {{appName}} app"
