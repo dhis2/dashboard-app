@@ -1,0 +1,11 @@
+.textField {
+    margin-bottom: var(--spacers-dp16);
+}
+.options {
+    all: unset;
+    margin-bottom: var(--spacers-dp8);
+}
+.options legend {
+    font-weight: 500;
+    margin-bottom: var(--spacers-dp8);
+}

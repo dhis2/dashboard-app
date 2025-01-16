@@ -9,11 +9,20 @@ import {
 } from '@dhis2/ui'
 import PropTypes from 'prop-types'
 import React from 'react'
+import { useSupersetEmbeddedDashboardFieldsState } from '../../../modules/useSupersetEmbeddedDashboardFieldsState'
+import { SupersetEmbeddedDashboardFields } from '../../SupersetEmbeddedDashboardFields'
 
 export const CreateSupersetEmbeddedDashboard = ({
     backToChooseDashboardModal,
     closeModal,
 }) => {
+    const {
+        isSupersetEmbedIdValid,
+        isSupersetEmbedIdFieldTouched,
+        values,
+        onChange,
+        onSupersetEmbedIdFieldBlur,
+    } = useSupersetEmbeddedDashboardFieldsState()
     const postNewDashboard = () => {
         console.log('POSTING...')
         closeModal()
@@ -23,11 +32,19 @@ export const CreateSupersetEmbeddedDashboard = ({
             <form onSubmit={postNewDashboard}>
                 <ModalTitle>
                     {i18n.t(
-                        'New dashboard: configure external source (suprset)',
+                        'New dashboard: configure external source (superset)',
                         { nsSeparator: '###' }
                     )}
                 </ModalTitle>
-                <ModalContent>Show the form</ModalContent>
+                <ModalContent>
+                    <SupersetEmbeddedDashboardFields
+                        isSupersetEmbedIdValid={isSupersetEmbedIdValid}
+                        isSupersetEmbedIdFieldTouched={isSupersetEmbedIdFieldTouched}
+                        values={values}
+                        onChange={onChange}
+                        onSupersetEmbedIdFieldBlur={onSupersetEmbedIdFieldBlur}
+                    />
+                </ModalContent>
                 <ModalActions>
                     <ButtonStrip>
                         <Button secondary onClick={backToChooseDashboardModal}>
