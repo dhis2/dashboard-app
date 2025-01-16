@@ -5,8 +5,8 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1)\n"
-"POT-Creation-Date: 2025-01-16T10:34:08.846Z\n"
-"PO-Revision-Date: 2025-01-16T10:34:08.847Z\n"
+"POT-Creation-Date: 2025-01-16T15:24:12.682Z\n"
+"PO-Revision-Date: 2025-01-16T15:24:12.682Z\n"
 
 msgid "Untitled dashboard"
 msgstr "Untitled dashboard"
@@ -37,6 +37,12 @@ msgstr "Cancel"
 
 msgid "New dashboard: configure external source (superset)"
 msgstr "New dashboard: configure external source (superset)"
+
+msgid "Could not create dashboard"
+msgstr "Could not create dashboard"
+
+msgid "An unknown error occurred"
+msgstr "An unknown error occurred"
 
 msgid "Back"
 msgstr "Back"
