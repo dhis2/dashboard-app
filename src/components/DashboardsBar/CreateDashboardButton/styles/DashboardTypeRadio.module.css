@@ -7,7 +7,8 @@
     border-radius: 6px;
     padding: var(--spacers-dp16);
     cursor: pointer;
-    transition: 0.3s all ease;
+    transition: 0.2s ease;
+    transition-property: background-color, border-color;
 }
 
 .container.checked {
@@ -20,9 +21,9 @@
     border-color: var(--colors-grey500);
 }
 
-.container:focus-within {
-    outline: 2px solid #007bff;
-    outline-offset: -2px;
+.container:has(:focus-visible) {
+    outline: 3px solid var(--colors-blue600);
+    outline-offset: -3px;
 }
 
 .container .content {

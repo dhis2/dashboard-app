@@ -64,6 +64,7 @@ export const SupersetEmbeddedDashboardFields = ({
             <fieldset className={styles.options}>
                 <legend>{i18n.t('Options')}</legend>
                 <CheckboxField
+                    dense
                     label={i18n.t('Show chart controls on dashboard items')}
                     onChange={onChange}
                     checked={values.showChartControls}
@@ -71,6 +72,7 @@ export const SupersetEmbeddedDashboardFields = ({
                     name={fieldNames.showChartControls}
                 />
                 <CheckboxField
+                    dense
                     label={i18n.t('Show filters')}
                     onChange={onChange}
                     checked={values.showFilters}

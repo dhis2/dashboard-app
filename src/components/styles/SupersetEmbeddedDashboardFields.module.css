@@ -1,11 +1,11 @@
 .textField {
-    margin-bottom: var(--spacers-dp16);
+    margin-bottom: var(--spacers-dp12);
 }
 .options {
     all: unset;
-    margin-bottom: var(--spacers-dp8);
 }
 .options legend {
+    font-size: 14px;
     font-weight: 500;
-    margin-bottom: var(--spacers-dp8);
+    margin-bottom: var(--spacers-dp4);
 }
