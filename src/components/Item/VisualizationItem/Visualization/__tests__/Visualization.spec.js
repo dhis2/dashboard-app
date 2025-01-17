@@ -49,7 +49,7 @@ test('renders a VisualizationPlugin when activeType is MAP', () => {
                 }}
                 activeType="MAP"
                 itemFilters={{}}
-                availableHeight="500px"
+                style={{ height: '500px' }}
             />
         </Provider>
     )
@@ -67,7 +67,7 @@ test('renders a VisualizationPlugin for CHART', () => {
                 }}
                 activeType="CHART"
                 itemFilters={{}}
-                availableHeight="500px"
+                style={{ height: '500px' }}
             />
         </Provider>
     )
@@ -85,7 +85,7 @@ test('renders a VisualizationPlugin for REPORT_TABLE', () => {
                 }}
                 activeType="REPORT_TABLE"
                 itemFilters={{}}
-                availableHeight="500px"
+                style={{ height: '500px' }}
             />
         </Provider>
     )
@@ -103,7 +103,7 @@ test('renders a DefaultPlugin when activeType is EVENT_CHART', () => {
                 }}
                 activeType="EVENT_CHART"
                 itemFilters={{}}
-                availableHeight="500px"
+                style={{ height: '500px' }}
             />
         </Provider>
     )
@@ -121,7 +121,7 @@ test('renders a DefaultPlugin when activeType is EVENT_REPORT', () => {
                 }}
                 activeType="EVENT_REPORT"
                 itemFilters={{}}
-                availableHeight="500px"
+                style={{ height: '500px' }}
             />
         </Provider>
     )
@@ -146,7 +146,7 @@ test('renders NoVisMessage when no visualization', () => {
                 }}
                 activeType="CHART"
                 itemFilters={{}}
-                availableHeight="500px"
+                style={{ height: '500px' }}
             />
         </Provider>
     )

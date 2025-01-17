@@ -16,8 +16,8 @@ import { apiPostDataStatistics } from '../../../api/dataStatistics.js'
 import { apiFetchVisualization } from '../../../api/fetchVisualization.js'
 import {
     isEditMode,
-    isViewMode,
     isPrintMode,
+    isViewMode,
 } from '../../../modules/dashboardModes.js'
 import {
     getVisualizationId,

@@ -2,7 +2,9 @@
 
 exports[`renders NoVisMessage when no visualization 1`] = `
 <div>
-  <div>
+  <div
+    style="height: 500px;"
+  >
     <div
       class="jsx-3042342945 "
       data-test="dhis2-uicore-componentcover"
@@ -31,7 +33,9 @@ exports[`renders NoVisMessage when no visualization 1`] = `
 
 exports[`renders a DefaultPlugin when activeType is EVENT_CHART 1`] = `
 <div>
-  <div>
+  <div
+    style="height: 500px;"
+  >
     <div
       class="jsx-3042342945 "
       data-test="dhis2-uicore-componentcover"
@@ -60,7 +64,9 @@ exports[`renders a DefaultPlugin when activeType is EVENT_CHART 1`] = `
 
 exports[`renders a DefaultPlugin when activeType is EVENT_REPORT 1`] = `
 <div>
-  <div>
+  <div
+    style="height: 500px;"
+  >
     <div
       class="jsx-3042342945 "
       data-test="dhis2-uicore-componentcover"
@@ -89,7 +95,9 @@ exports[`renders a DefaultPlugin when activeType is EVENT_REPORT 1`] = `
 
 exports[`renders a VisualizationPlugin for CHART 1`] = `
 <div>
-  <div>
+  <div
+    style="height: 500px;"
+  >
     <div
       class="jsx-3042342945 "
       data-test="dhis2-uicore-componentcover"
@@ -118,7 +126,9 @@ exports[`renders a VisualizationPlugin for CHART 1`] = `
 
 exports[`renders a VisualizationPlugin for REPORT_TABLE 1`] = `
 <div>
-  <div>
+  <div
+    style="height: 500px;"
+  >
     <div
       class="jsx-3042342945 "
       data-test="dhis2-uicore-componentcover"
@@ -147,7 +157,9 @@ exports[`renders a VisualizationPlugin for REPORT_TABLE 1`] = `
 
 exports[`renders a VisualizationPlugin when activeType is MAP 1`] = `
 <div>
-  <div>
+  <div
+    style="height: 500px;"
+  >
     <div
       class="jsx-3042342945 "
       data-test="dhis2-uicore-componentcover"
