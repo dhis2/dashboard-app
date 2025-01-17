@@ -17,10 +17,6 @@ import styles from './styles/ChooseDashboardTypeModal.module.css'
 const TYPE_INTERNAL = 'INTERNAL'
 const TYPE_SUPERSET = 'SUPERSET'
 
-const autoFocus = (element) => {
-    element?.focus()
-}
-
 export const ChooseDashboardTypeModal = ({
     onCancel,
     onSelectSuperset,
@@ -45,9 +41,9 @@ export const ChooseDashboardTypeModal = ({
                 </ModalTitle>
                 <ModalContent>
                     <fieldset
-                        ref={autoFocus}
-                        className={styles.dashboardTypeRadioGroup}
                         tabIndex={0}
+                        ref={(element) => element?.focus()}
+                        className={styles.dashboardTypeRadioGroup}
                     >
                         <DashboardTypeRadio
                             type={TYPE_INTERNAL}

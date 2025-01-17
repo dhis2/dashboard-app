@@ -5,8 +5,8 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1)\n"
-"POT-Creation-Date: 2025-01-16T15:24:12.682Z\n"
-"PO-Revision-Date: 2025-01-16T15:24:12.682Z\n"
+"POT-Creation-Date: 2025-01-17T09:11:56.041Z\n"
+"PO-Revision-Date: 2025-01-17T09:11:56.042Z\n"
 
 msgid "Untitled dashboard"
 msgstr "Untitled dashboard"
@@ -44,11 +44,11 @@ msgstr "Could not create dashboard"
 msgid "An unknown error occurred"
 msgstr "An unknown error occurred"
 
-msgid "Back"
-msgstr "Back"
-
 msgid "Save dashboard"
 msgstr "Save dashboard"
+
+msgid "Back"
+msgstr "Back"
 
 msgid "The dashboard couldn't be made available offline. Try again."
 msgstr "The dashboard couldn't be made available offline. Try again."

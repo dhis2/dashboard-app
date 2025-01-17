@@ -2,7 +2,6 @@ import { useDataMutation } from '@dhis2/app-runtime'
 import i18n from '@dhis2/d2-i18n'
 import {
     Button,
-    ButtonStrip,
     Modal,
     ModalActions,
     ModalContent,
@@ -16,6 +15,7 @@ import { useHistory } from 'react-router-dom'
 import { tFetchDashboards } from '../../../actions/dashboards.js'
 import { useSupersetEmbeddedDashboardFieldsState } from '../../../modules/useSupersetEmbeddedDashboardFieldsState.js'
 import { SupersetEmbeddedDashboardFields } from '../../SupersetEmbeddedDashboardFields.js'
+import styles from './styles/CreateSupersetEmbeddedDashboard.module.css'
 
 const postDashboardQuery = {
     resource: 'dashboards',
@@ -99,14 +99,7 @@ export const CreateSupersetEmbeddedDashboard = ({
                     )}
                 </ModalContent>
                 <ModalActions>
-                    <ButtonStrip>
-                        <Button
-                            disabled={loading}
-                            secondary
-                            onClick={backToChooseDashboardModal}
-                        >
-                            {i18n.t('Back')}
-                        </Button>
+                    <div className={styles.buttonStrip}>
                         <Button
                             loading={loading}
                             type="submit"
@@ -117,7 +110,14 @@ export const CreateSupersetEmbeddedDashboard = ({
                         >
                             {i18n.t('Save dashboard')}
                         </Button>
-                    </ButtonStrip>
+                        <Button
+                            disabled={loading}
+                            secondary
+                            onClick={backToChooseDashboardModal}
+                        >
+                            {i18n.t('Back')}
+                        </Button>
+                    </div>
                 </ModalActions>
             </form>
         </Modal>
