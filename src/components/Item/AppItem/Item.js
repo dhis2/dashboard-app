@@ -87,7 +87,7 @@ const AppItem = ({
         [dashboardId, dashboardMode, item.id, isCached, itemFilters]
     )
 
-    // See DHIS2-9605
+    // https://docs.dhis2.org/en/develop/apps/application-manifest.html#apps_creating_apps
     const hideTitle =
         appDetails?.settings?.dashboardWidget?.hideTitle &&
         dashboardMode !== EDIT

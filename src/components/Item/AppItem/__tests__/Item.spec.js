@@ -84,6 +84,7 @@ test('renders a valid App item in view mode', () => {
         itemFilters: {},
         editDashboard: {},
         selected: { id: 'some-dashboard' },
+        slideshow: null,
     }
     const { container } = render(
         <Provider store={mockStore(store)}>
@@ -103,6 +104,7 @@ test('renders a valid App item with filter in view mode', () => {
             ou: [{ path: '/rainbow' }],
         },
         selected: { id: 'some-dashboard' },
+        slideshow: null,
     }
 
     const { container } = render(
@@ -127,6 +129,7 @@ test('renders a valid App item with filter in edit mode', () => {
             },
         },
         selected: { id: 'some-dashboard' },
+        slideshow: null,
     }
 
     const { container } = render(
@@ -145,6 +148,7 @@ test('renders a valid App item without title in view mode if specified in app se
     const store = {
         itemFilters: {},
         selected: { id: 'some-dashboard' },
+        slideshow: null,
     }
 
     const { container } = render(
@@ -166,6 +170,7 @@ test('renders a valid App item with title in edit mode irrespective of app setti
             id: itemWithoutTitle.id,
         },
         selected: { id: 'some-dashboard' },
+        slideshow: null,
     }
 
     const { container } = render(
@@ -185,6 +190,7 @@ test('renders a valid legacy widget item', () => {
         itemFilters: {},
         editDashboard: {},
         selected: { id: 'some-dashboard' },
+        slideshow: null,
     }
     const { container } = render(
         <Provider store={mockStore(store)}>
@@ -204,6 +210,7 @@ test('renders an invalid App item', () => {
             ou: [{ path: '/rainbow' }],
         },
         selected: { id: 'some-dashboard' },
+        slideshow: null,
     }
 
     const invalidItem = {
