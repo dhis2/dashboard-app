@@ -56,6 +56,10 @@ jest.mock(
         }
 )
 
+jest.mock('../ItemContextMenu.js', () => ({
+    ItemContextMenu: () => <div className="ItemContextMenu" />,
+}))
+
 const mockStore = configureMockStore()
 
 const item = {
@@ -191,6 +195,25 @@ test('renders a valid legacy widget item', () => {
         editDashboard: {},
         selected: { id: 'some-dashboard' },
         slideshow: null,
+    }
+    const { container } = render(
+        <Provider store={mockStore(store)}>
+            <SystemSettingsProvider>
+                <WindowDimensionsProvider>
+                    <Item item={itemLegacyWidget} dashboardMode={'view'} />
+                </WindowDimensionsProvider>
+            </SystemSettingsProvider>
+        </Provider>
+    )
+    expect(container).toMatchSnapshot()
+})
+
+test('renders a valid legacy widget item when in slideshow', () => {
+    const store = {
+        itemFilters: {},
+        editDashboard: {},
+        selected: { id: 'some-dashboard' },
+        slideshow: 1,
     }
     const { container } = render(
         <Provider store={mockStore(store)}>

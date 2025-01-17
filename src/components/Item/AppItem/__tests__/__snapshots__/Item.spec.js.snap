@@ -15,11 +15,15 @@ exports[`renders a valid App item in view mode 1`] = `
     >
       <div
         class="itemActionsWrap"
-      />
+      >
+        <div
+          class="ItemContextMenu"
+        />
+      </div>
     </div>
   </div>
   <div
-    class="dashboard-item-content"
+    class="content"
   />
 </div>
 `;
@@ -47,7 +51,7 @@ exports[`renders a valid App item with filter in edit mode 1`] = `
     </div>
   </div>
   <div
-    class="dashboard-item-content"
+    class="content"
   />
 </div>
 `;
@@ -67,11 +71,15 @@ exports[`renders a valid App item with filter in view mode 1`] = `
     >
       <div
         class="itemActionsWrap"
-      />
+      >
+        <div
+          class="ItemContextMenu"
+        />
+      </div>
     </div>
   </div>
   <div
-    class="dashboard-item-content"
+    class="content"
   />
 </div>
 `;
@@ -99,7 +107,7 @@ exports[`renders a valid App item with title in edit mode irrespective of app se
     </div>
   </div>
   <div
-    class="dashboard-item-content"
+    class="content"
   />
 </div>
 `;
@@ -117,7 +125,7 @@ exports[`renders a valid App item without title in view mode if specified in app
     />
   </div>
   <div
-    class="dashboard-item-content"
+    class="content hiddenTitle"
   />
 </div>
 `;
@@ -137,7 +145,27 @@ exports[`renders a valid legacy widget item 1`] = `
     />
   </div>
   <div
-    class="dashboard-item-content"
+    class="content"
+  />
+</div>
+`;
+
+exports[`renders a valid legacy widget item when in slideshow 1`] = `
+<div>
+  <div
+    class="itemHeaderWrap"
+  >
+    <p
+      class="itemTitle"
+    >
+      Scorecard
+    </p>
+    <div
+      class="itemHeaderRightWrap"
+    />
+  </div>
+  <div
+    class="content"
   />
 </div>
 `;

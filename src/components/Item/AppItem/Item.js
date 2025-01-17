@@ -99,7 +99,7 @@ const AppItem = ({
 
         if (node.classList.contains(itemHeaderClasses.itemHeaderWrap)) {
             headerRef.current = node
-        } else if (node.classList.contains('dashboard-item-content')) {
+        } else if (node.classList.contains('content')) {
             contentRef.current = node
         }
 
@@ -141,10 +141,6 @@ const AppItem = ({
             <iframe
                 title={appDetails.name}
                 src={iframeSrc}
-                className={cx(styles.content, {
-                    [styles.hiddenTitle]: hideTitle,
-                    [styles.fullscreen]: isFullscreen,
-                })}
                 style={{
                     border: 'none',
                     width: style.width,
@@ -193,7 +189,10 @@ const AppItem = ({
                     onFatalError={onFatalError}
                 >
                     <div
-                        className="dashboard-item-content"
+                        className={cx(styles.content, {
+                            [styles.hiddenTitle]: hideTitle,
+                            [styles.fullscreen]: isFullscreen,
+                        })}
                         ref={onElementMount}
                     >
                         {isMounted && renderPlugin(iframeSrc)}
