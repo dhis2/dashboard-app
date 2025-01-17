@@ -64,7 +64,7 @@ export const CreateSupersetEmbeddedDashboard = ({
             closeModal()
             history.push(`/${response.uid}`)
         },
-        [values, postDashboard]
+        [values, postDashboard, closeModal, dispatch, history]
     )
 
     return (
