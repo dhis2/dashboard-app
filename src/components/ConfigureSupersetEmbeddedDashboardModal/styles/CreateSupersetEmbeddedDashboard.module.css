@@ -1,0 +1,5 @@
+.buttonStrip {
+    display: flex;
+    flex-direction: row-reverse;
+    gap: var(--spacers-dp8);
+}
