@@ -61,10 +61,14 @@ export default SystemSettingsProvider
 
 export const useSystemSettings = () => useContext(SystemSettingsCtx)
 export const useHasSupersetSupport = () => {
-    const { embeddedDashboardsEnabled, supersetBaseUrl } = useSystemSettings()
+    const {
+        systemSettings: { embeddedDashboardsEnabled, supersetBaseUrl },
+    } = useSystemSettings()
     return embeddedDashboardsEnabled && !!supersetBaseUrl
 }
 export const useSupersetBaseUrl = () => {
-    const { supersetBaseUrl } = useSystemSettings()
+    const {
+        systemSettings: { supersetBaseUrl },
+    } = useSystemSettings()
     return supersetBaseUrl ?? null
 }
