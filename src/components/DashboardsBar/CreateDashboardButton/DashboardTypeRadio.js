@@ -1,17 +1,27 @@
 import cx from 'classnames'
 import PropTypes from 'prop-types'
-import React from 'react'
+import React, { useEffect, useRef } from 'react'
 import styles from './styles/DashboardTypeRadio.module.css'
 
 export const DashboardTypeRadio = ({
     type,
     selectedType,
+    initialFocus,
     onChange,
     icon,
     title,
     subtitle,
 }) => {
+    const ref = useRef(null)
     const checked = type === selectedType
+
+    useEffect(() => {
+        if (initialFocus) {
+            console.log('setting focus', ref.current)
+            ref.current?.focus()
+        }
+    }, [initialFocus])
+
     return (
         <label
             htmlFor={type}
@@ -21,6 +31,7 @@ export const DashboardTypeRadio = ({
             })}
         >
             <input
+                ref={ref}
                 type="radio"
                 name="dashboard-type"
                 id={type}
@@ -41,6 +52,7 @@ export const DashboardTypeRadio = ({
 
 DashboardTypeRadio.propTypes = {
     icon: PropTypes.node,
+    initialFocus: PropTypes.bool,
     selectedType: PropTypes.string,
     subtitle: PropTypes.string,
     title: PropTypes.string,

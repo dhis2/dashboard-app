@@ -18,6 +18,7 @@ export const SupersetEmbeddedDashboardFields = ({
     return (
         <>
             <InputField
+                initialFocus
                 label={i18n.t('Title')}
                 type="text"
                 onChange={onChange}

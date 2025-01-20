@@ -40,12 +40,9 @@ export const ChooseDashboardTypeModal = ({
                     })}
                 </ModalTitle>
                 <ModalContent>
-                    <fieldset
-                        tabIndex={0}
-                        ref={(element) => element?.focus()}
-                        className={styles.dashboardTypeRadioGroup}
-                    >
+                    <fieldset className={styles.dashboardTypeRadioGroup}>
                         <DashboardTypeRadio
+                            initialFocus
                             type={TYPE_INTERNAL}
                             selectedType={selectedType}
                             onChange={handleDashboardTypeChange}

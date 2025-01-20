@@ -69,7 +69,7 @@ export const CreateSupersetEmbeddedDashboard = ({
 
     return (
         <Modal>
-            <form onSubmit={handleSubmit} ref={(element) => element?.focus()}>
+            <form onSubmit={handleSubmit}>
                 <ModalTitle>
                     {i18n.t(
                         'New dashboard: configure external source (superset)',
