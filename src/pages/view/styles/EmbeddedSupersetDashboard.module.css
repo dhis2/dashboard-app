@@ -1,0 +1,5 @@
+.container {
+    border: 1px solid red;
+    block-size: 100%;
+    flex-grow: 1;
+}

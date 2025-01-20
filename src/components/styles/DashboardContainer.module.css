@@ -4,12 +4,16 @@
     padding-inline-end: var(--spacers-dp8);
     padding-block-end: var(--spacers-dp12);
     overflow: auto;
+    flex-grow: 1;
 }
 .contentWrap {
+    display: flex;
+    flex-direction: column;
     overflow: visible;
     margin: 0;
     padding: 0;
     inline-size: 100%;
+    min-block-size: 100%;
 }
 @media only screen and (max-height: 480px) {
     .container {
