@@ -1,0 +1,11 @@
+.dashboardTypeRadioGroup {
+    all: unset;
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacers-dp12);
+}
+.buttonStrip {
+    display: flex;
+    flex-direction: row-reverse;
+    gap: var(--spacers-dp8);
+}

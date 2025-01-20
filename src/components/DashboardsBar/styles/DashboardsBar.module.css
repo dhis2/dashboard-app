@@ -17,8 +17,7 @@
 }
 
 @media only screen and (max-width: 480px) {
-    .blockCreationNavigation .createDashboardButton,
-    .navMenuButtonText {
+    .blockCreationNavigation {
         display: none;
     }
 }
