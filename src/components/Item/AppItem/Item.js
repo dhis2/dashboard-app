@@ -25,7 +25,6 @@ import {
 } from '../../../reducers/itemFilters.js'
 import { sGetSelectedId } from '../../../reducers/selected.js'
 import FatalErrorBoundary from '../FatalErrorBoundary.js'
-import { isFullscreenSupported } from '../fullscreenUtil.js'
 import { getAvailableDimensions } from '../getAvailableDimensions.js'
 import ItemHeader from '../ItemHeader/ItemHeader.js'
 import itemHeaderClasses from '../ItemHeader/styles/ItemHeader.module.css'
@@ -166,7 +165,6 @@ const AppItem = ({
                     appName={appDetails.name}
                     appUrl={appUrl}
                     enterFullscreen={() => dispatch(acSetSlideshow(sortIndex))}
-                    fullscreenSupported={isFullscreenSupported(item.id)}
                     loadItemFailed={loadItemFailed}
                 />
             ) : null

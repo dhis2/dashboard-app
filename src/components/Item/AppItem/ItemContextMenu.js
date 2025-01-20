@@ -18,7 +18,6 @@ import { useWindowDimensions } from '../../WindowDimensionsProvider.js'
 export const ItemContextMenu = ({
     appName,
     appUrl,
-    fullscreenSupported,
     enterFullscreen,
     loadItemFailed,
     tabIndex,
@@ -30,9 +29,7 @@ export const ItemContextMenu = ({
     const { allowVisOpenInApp, allowVisFullscreen } =
         useSystemSettings().systemSettings
 
-    const fullscreenAllowed = fullscreenSupported && allowVisFullscreen
-
-    const noOptionsEnabled = !allowVisOpenInApp && !fullscreenAllowed
+    const noOptionsEnabled = !allowVisOpenInApp && !allowVisFullscreen
 
     if (noOptionsEnabled || (!allowVisOpenInApp && loadItemFailed)) {
         return null
@@ -80,7 +77,7 @@ export const ItemContextMenu = ({
                                 target="_blank"
                             />
                         )}
-                        {fullscreenAllowed && !loadItemFailed && (
+                        {allowVisFullscreen && !loadItemFailed && (
                             <MenuItem
                                 disabledWhenOffline={false}
                                 icon={<IconFullscreen16 />}
@@ -99,7 +96,6 @@ ItemContextMenu.propTypes = {
     appName: PropTypes.string,
     appUrl: PropTypes.string,
     enterFullscreen: PropTypes.func,
-    fullscreenSupported: PropTypes.bool,
     loadItemFailed: PropTypes.bool,
     tabIndex: PropTypes.string,
 }

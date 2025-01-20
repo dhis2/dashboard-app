@@ -41,7 +41,6 @@ import { sGetSlideshow } from '../../../reducers/slideshow.js'
 import { sGetVisualization } from '../../../reducers/visualizations.js'
 import { SystemSettingsCtx } from '../../SystemSettingsProvider.js'
 import FatalErrorBoundary from '../FatalErrorBoundary.js'
-import { isFullscreenSupported } from '../fullscreenUtil.js'
 import { getAvailableDimensions } from '../getAvailableDimensions.js'
 import ItemHeader from '../ItemHeader/ItemHeader.js'
 import ItemContextMenu from './ItemContextMenu/ItemContextMenu.js'
@@ -155,7 +154,6 @@ class Item extends Component {
                     enterFullscreen={() => setSlideshow(sortIndex)}
                     activeType={activeType}
                     activeFooter={showFooter}
-                    fullscreenSupported={isFullscreenSupported(item.id)}
                     loadItemFailed={this.state.loadItemFailed}
                 />
             ) : null
