@@ -12,6 +12,7 @@ const SELECTED_PROPERTIES = {
     dashboardItems: [],
     layout: [],
     itemConfig: {},
+    embedded: undefined,
 }
 
 export default (state = DEFAULT_SELECTED_STATE, action) => {
@@ -36,6 +37,8 @@ export default (state = DEFAULT_SELECTED_STATE, action) => {
 export const sGetSelected = (state) => state.selected
 
 export const sGetSelectedId = (state) => sGetSelected(state).id
+
+export const sGetSelectedIsEmbedded = (state) => !!sGetSelected(state).embedded
 
 export const sGetSelectedDisplayName = (state) =>
     sGetSelected(state).displayName
