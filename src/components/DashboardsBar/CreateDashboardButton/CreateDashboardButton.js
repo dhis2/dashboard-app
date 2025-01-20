@@ -1,9 +1,9 @@
 import { Button, IconAdd16 } from '@dhis2/ui'
 import React, { useCallback, useState } from 'react'
 import { useHistory } from 'react-router-dom'
+import { CreateSupersetEmbeddedDashboard } from '../../ConfigureSupersetEmbeddedDashboardModal/index.js'
 import { useHasSupersetSupport } from '../../SystemSettingsProvider.js'
 import { ChooseDashboardTypeModal } from './ChooseDashboardTypeModal.js'
-import { CreateSupersetEmbeddedDashboard } from './CreateSupersetEmbeddedDashboard.js'
 import styles from './styles/CreateDashboardButton.module.css'
 
 export const CreateDashboardButton = () => {

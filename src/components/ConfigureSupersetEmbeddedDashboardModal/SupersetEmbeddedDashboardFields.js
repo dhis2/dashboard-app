@@ -2,7 +2,7 @@ import i18n from '@dhis2/d2-i18n'
 import { CheckboxField, InputField, TextAreaField } from '@dhis2/ui'
 import PropTypes from 'prop-types'
 import React from 'react'
-import { fieldNames } from '../modules/useSupersetEmbeddedDashboardFieldsState.js'
+import { fieldNames } from '../../modules/useSupersetEmbeddedDashboardFieldsState.js'
 import styles from './styles/SupersetEmbeddedDashboardFields.module.css'
 
 export const SupersetEmbeddedDashboardFields = ({

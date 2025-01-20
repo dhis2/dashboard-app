@@ -12,10 +12,10 @@ import PropTypes from 'prop-types'
 import React, { useCallback, useState } from 'react'
 import { useDispatch } from 'react-redux'
 import { useHistory } from 'react-router-dom'
-import { tFetchDashboards } from '../../../actions/dashboards.js'
-import { useSupersetEmbeddedDashboardFieldsState } from '../../../modules/useSupersetEmbeddedDashboardFieldsState.js'
-import { SupersetEmbeddedDashboardFields } from '../../SupersetEmbeddedDashboardFields.js'
+import { tFetchDashboards } from '../../actions/dashboards.js'
+import { useSupersetEmbeddedDashboardFieldsState } from '../../modules/useSupersetEmbeddedDashboardFieldsState.js'
 import styles from './styles/CreateSupersetEmbeddedDashboard.module.css'
+import { SupersetEmbeddedDashboardFields } from './SupersetEmbeddedDashboardFields.js'
 
 const postDashboardQuery = {
     resource: 'dashboards',
