@@ -40,6 +40,22 @@ export const sGetSelectedId = (state) => sGetSelected(state).id
 
 export const sGetSelectedIsEmbedded = (state) => !!sGetSelected(state).embedded
 
+export const sGetSelectedSupersetEmbedData = (state) => {
+    const embedData = sGetSelected(state).embedded
+    return {
+        id: embedData.id,
+        dashboardUiConfig: {
+            hideTitle: true,
+            hideTab: true,
+            hideChartControls: embedData.options.hideChartControls,
+            filters: {
+                visible: embedData.options.filters.visible,
+                expanded: false,
+            },
+        },
+    }
+}
+
 export const sGetSelectedDisplayName = (state) =>
     sGetSelected(state).displayName
 
