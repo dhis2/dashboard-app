@@ -1,5 +1,12 @@
 .container {
-    border: 1px solid red;
     block-size: 100%;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.container :global(iframe) {
+    all: unset;
+    inline-size: 100%;
     flex-grow: 1;
 }
