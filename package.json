@@ -42,10 +42,10 @@
     },
     "devDependencies": {
         "@badeball/cypress-cucumber-preprocessor": "^20.1.0",
-        "@bahmutov/cypress-esbuild-preprocessor": "^2.2.1",
+        "@bahmutov/cypress-esbuild-preprocessor": "^2.2.4",
         "@cypress/webpack-preprocessor": "^6.0.2",
         "@dhis2/cli-app-scripts": "^11.7.1",
-        "@dhis2/cli-style": "^10.7.3",
+        "@dhis2/cli-style": "^10.7.5",
         "@dhis2/cypress-commands": "^10.0.6",
         "@dhis2/cypress-plugins": "^10.0.6",
         "@semantic-release/changelog": "^6",
@@ -61,7 +61,7 @@
         "import": "^0.0.6",
         "patch-package": "^7",
         "postinstall-postinstall": "^2.1.0",
-        "redux-mock-store": "^1.5.4",
+        "redux-mock-store": "^1.5.5",
         "resize-observer-polyfill": "^1.5.1",
         "semantic-release": "^20",
         "start-server-and-test": "^1.14.0"
