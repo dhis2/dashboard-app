@@ -60,6 +60,7 @@ jest.mock(
 const mockStore = configureMockStore()
 
 const store = {
+    selected: {},
     editDashboard: {
         id: '',
         access: { update: true, delete: true },

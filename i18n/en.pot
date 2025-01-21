@@ -620,6 +620,18 @@ msgstr "Requested dashboard not found"
 msgid "No description"
 msgstr "No description"
 
+msgid "Fetching external dashboard"
+msgstr "Fetching external dashboard"
+
+msgid "Error"
+msgstr "Error"
+
+msgid "Could not load superset dashboard"
+msgstr "Could not load superset dashboard"
+
+msgid "Retry"
+msgstr "Retry"
+
 msgid "{{count}} selected"
 msgid_plural "{{count}} selected"
 msgstr[0] "{{count}} selected"

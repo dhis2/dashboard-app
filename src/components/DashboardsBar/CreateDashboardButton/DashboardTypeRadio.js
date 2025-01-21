@@ -17,8 +17,7 @@ export const DashboardTypeRadio = ({
 
     useEffect(() => {
         if (initialFocus) {
-            console.log('setting focus', ref.current)
-            ref.current?.focus()
+            ref.current?.focus({ focusVisible: true })
         }
     }, [initialFocus])
 
