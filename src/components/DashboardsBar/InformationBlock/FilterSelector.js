@@ -13,6 +13,7 @@ import {
 import useDimensions from '../../../modules/useDimensions.js'
 import { sGetActiveModalDimension } from '../../../reducers/activeModalDimension.js'
 import { sGetItemFiltersRoot } from '../../../reducers/itemFilters.js'
+import { sGetSelectedIsEmbedded } from '../../../reducers/selected.js'
 import DropdownButton from '../../DropdownButton/DropdownButton.js'
 import FilterDialog from './FilterDialog.js'
 
@@ -63,10 +64,16 @@ const FilterSelector = (props) => {
                 secondary
                 small
                 open={filterDialogIsOpen}
-                disabled={offline}
+                disabled={offline || props.embedded}
+                disabledWhenOffline={offline}
                 onClick={toggleFilterDialogIsOpen}
-                icon={<IconFilter24 color={colors.grey700} />}
+                icon={<IconFilter24 />}
                 component={getFilterSelector()}
+                content={
+                    props.embedded
+                        ? i18n.t('Not available for embedded dashboards')
+                        : undefined
+                }
             >
                 {i18n.t('Filter')}
             </DropdownButton>
@@ -81,6 +88,7 @@ const FilterSelector = (props) => {
 }
 
 const mapStateToProps = (state) => ({
+    embedded: sGetSelectedIsEmbedded(state),
     dimension: sGetActiveModalDimension(state),
     initiallySelectedItems: sGetItemFiltersRoot(state),
 })
@@ -89,6 +97,7 @@ FilterSelector.propTypes = {
     allowedFilters: PropTypes.array,
     clearActiveModalDimension: PropTypes.func,
     dimension: PropTypes.object,
+    embedded: PropTypes.bool,
     initiallySelectedItems: PropTypes.object,
     restrictFilters: PropTypes.bool,
     setActiveModalDimension: PropTypes.func,

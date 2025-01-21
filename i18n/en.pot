@@ -5,8 +5,8 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1)\n"
-"POT-Creation-Date: 2025-01-21T14:42:43.942Z\n"
-"PO-Revision-Date: 2025-01-21T14:42:43.943Z\n"
+"POT-Creation-Date: 2025-01-21T16:17:28.310Z\n"
+"PO-Revision-Date: 2025-01-21T16:17:28.311Z\n"
 
 msgid "Untitled dashboard"
 msgstr "Untitled dashboard"
@@ -73,6 +73,9 @@ msgstr "Configure source"
 
 msgid "Cancel"
 msgstr "Cancel"
+
+msgid "Not available for embedded dashboards"
+msgstr "Not available for embedded dashboards"
 
 msgid "The dashboard couldn't be made available offline. Try again."
 msgstr "The dashboard couldn't be made available offline. Try again."

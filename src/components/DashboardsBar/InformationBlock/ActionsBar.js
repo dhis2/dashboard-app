@@ -25,7 +25,10 @@ import { useCacheableSection } from '../../../modules/useCacheableSection.js'
 import { orObject } from '../../../modules/util.js'
 import { ROUTE_START_PATH } from '../../../pages/start/index.js'
 import { sGetNamedItemFilters } from '../../../reducers/itemFilters.js'
-import { sGetSelected } from '../../../reducers/selected.js'
+import {
+    sGetSelected,
+    sGetSelectedIsEmbedded,
+} from '../../../reducers/selected.js'
 import { sGetShowDescription } from '../../../reducers/showDescription.js'
 import FilterSelector from './FilterSelector.js'
 import classes from './styles/ActionsBar.module.css'
@@ -36,6 +39,7 @@ const ActionsBar = ({
     showDescription,
     starred,
     setSlideshow,
+    embedded,
     toggleDashboardStarred,
     showAlert,
     updateShowDescription,
@@ -55,6 +59,9 @@ const ActionsBar = ({
     const { lastUpdated, isCached, startRecording, remove } =
         useCacheableSection(id)
     const { allowVisFullscreen } = useSystemSettings().systemSettings
+    const notAvailableForEmbeddedDashboardsMsg = i18n.t(
+        'Not available for embedded dashboards'
+    )
 
     const onRecordError = useCallback(() => {
         showAlert({
@@ -116,9 +123,14 @@ const ActionsBar = ({
             ) : (
                 <MenuItem
                     dense
-                    disabled={offline}
+                    disabled={offline || embedded}
                     label={i18n.t('Make available offline')}
                     onClick={onAddToOffline}
+                    tooltip={
+                        embedded
+                            ? notAvailableForEmbeddedDashboardsMsg
+                            : undefined
+                    }
                 />
             )}
             {lastUpdated && (
@@ -151,10 +163,13 @@ const ActionsBar = ({
             />
             <MenuItem
                 dense
-                disabled={offline && !isCached}
+                disabled={(offline && !isCached) || embedded}
                 disabledWhenOffline={false}
                 label={i18n.t('Print')}
                 dataTest="print-menu-item"
+                tooltip={
+                    embedded ? notAvailableForEmbeddedDashboardsMsg : undefined
+                }
             >
                 <MenuItem
                     dense
@@ -187,12 +202,15 @@ const ActionsBar = ({
     }
 
     const getSlideshowTooltipContent = () => {
-        if (!hasSlideshowItems) {
+        if (embedded) {
+            return notAvailableForEmbeddedDashboardsMsg
+        } else if (!hasSlideshowItems) {
             return i18n.t('No dashboard items to show in slideshow')
         } else if (offline && !isCached) {
             return i18n.t('Not available offline')
+        } else {
+            return null
         }
-        return null
     }
 
     const slideshowTooltipContent = getSlideshowTooltipContent()
@@ -288,6 +306,7 @@ ActionsBar.propTypes = {
     access: PropTypes.object,
     allowedFilters: PropTypes.array,
     dashboardItems: PropTypes.array,
+    embedded: PropTypes.bool,
     filtersLength: PropTypes.number,
     id: PropTypes.string,
     removeAllFilters: PropTypes.func,
@@ -305,6 +324,7 @@ const mapStateToProps = (state) => {
 
     return {
         ...dashboard,
+        embedded: sGetSelectedIsEmbedded(state),
         filtersLength: sGetNamedItemFilters(state).length,
         showDescription: sGetShowDescription(state),
     }
