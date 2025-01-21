@@ -242,6 +242,7 @@ class Item extends Component {
                                     contentRef: this.contentRef,
                                     dashboardMode,
                                     windowDimensions,
+                                    isFullscreen,
                                 })}
                                 gridWidth={this.props.gridWidth}
                                 dashboardMode={dashboardMode}

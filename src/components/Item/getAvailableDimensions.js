@@ -37,15 +37,16 @@ export const getAvailableDimensions = ({
                 : calculatedHeight
     )
 
-    const getAvailableHeight = ({ width }) => {
+    const getAvailableHeight = ({ width, height }) => {
         if (isFullscreen) {
-            const totalNonVisHeight =
-                (headerRef.current.clientHeight || MIN_CLIENT_HEIGHT) +
-                itemHeaderTotalMargin +
-                (isFullscreen ? 0 : itemContentPadding) +
-                FS_CONTROLS_BUFFER
+            const ht =
+                height -
+                ((headerRef.current.clientHeight || MIN_CLIENT_HEIGHT) +
+                    itemHeaderTotalMargin +
+                    (isFullscreen ? 0 : itemContentPadding) +
+                    FS_CONTROLS_BUFFER)
 
-            return `calc(100vh - ${totalNonVisHeight}px)`
+            return `${ht}px`
         }
 
         const calculatedHeight =
@@ -54,13 +55,13 @@ export const getAvailableDimensions = ({
             itemHeaderTotalMargin -
             itemContentPadding
 
-        const height = memoizedGetContentHeight(
+        const memoheight = memoizedGetContentHeight(
             calculatedHeight,
             contentRef.current ? contentRef.current.offsetHeight : null,
             isEditMode(dashboardMode) || isPrintMode(dashboardMode)
         )
 
-        return `${height}px`
+        return `${memoheight}px`
     }
 
     const getAvailableWidth = () => {
