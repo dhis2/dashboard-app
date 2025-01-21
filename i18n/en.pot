@@ -5,8 +5,8 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1)\n"
-"POT-Creation-Date: 2025-01-21T12:34:56.130Z\n"
-"PO-Revision-Date: 2025-01-21T12:34:56.130Z\n"
+"POT-Creation-Date: 2025-01-21T14:42:43.942Z\n"
+"PO-Revision-Date: 2025-01-21T14:42:43.943Z\n"
 
 msgid "Untitled dashboard"
 msgstr "Untitled dashboard"
@@ -152,6 +152,9 @@ msgstr "Failed to unstar the dashboard"
 
 msgid "Failed to star the dashboard"
 msgstr "Failed to star the dashboard"
+
+msgid "External data"
+msgstr "External data"
 
 msgid "Offline data last updated {{timeAgo}}"
 msgstr "Offline data last updated {{timeAgo}}"
