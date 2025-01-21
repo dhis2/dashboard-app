@@ -168,6 +168,7 @@ const ResponsiveItemGrid = ({ dashboardIsCached }) => {
                     onToggleItemExpanded={onToggleItemExpanded}
                     isFullscreen={itemIsFullscreen}
                     sortIndex={sortedItems.findIndex((i) => i.id === item.id)}
+                    isSlideshowView={isSlideshowView}
                 />
             </ProgressiveLoadingContainer>
         )
@@ -189,7 +190,9 @@ const ResponsiveItemGrid = ({ dashboardIsCached }) => {
 
     return (
         <div
-            className={cx({ [classes.slideshowContainer]: isSlideshowView })}
+            className={cx(classes.container, {
+                [classes.slideshowContainer]: isSlideshowView,
+            })}
             ref={slideshowElementRef}
         >
             <ResponsiveReactGridLayout
