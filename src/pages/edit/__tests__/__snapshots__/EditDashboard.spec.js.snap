@@ -6,41 +6,7 @@ exports[`EditDashboard does not render titlebar and grid if small screen 1`] = `
 </div>
 `;
 
-exports[`EditDashboard renders dashboard 1`] = `
-<div>
-  <header />
-  <div
-    class="container dashboard-scroll-container"
-    data-test="outer-scroll-container"
-  >
-    <div>
-      ActionsBar
-    </div>
-    <div
-      class="container dashboard-scroll-container"
-      data-test="inner-scroll-container"
-    >
-      <div
-        class="contentWrap"
-      >
-        <div>
-          TitleBar
-        </div>
-        <div>
-          ItemGrid
-        </div>
-      </div>
-    </div>
-  </div>
-  <div
-    class="notice"
-  >
-    <div
-      class="Notice"
-    />
-  </div>
-</div>
-`;
+exports[`EditDashboard renders dashboard 1`] = `<div />`;
 
 exports[`EditDashboard renders message when not enough access 1`] = `
 <div>
