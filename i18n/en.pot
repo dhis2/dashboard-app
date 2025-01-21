@@ -5,8 +5,8 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1)\n"
-"POT-Creation-Date: 2025-01-20T10:51:19.841Z\n"
-"PO-Revision-Date: 2025-01-20T10:51:19.842Z\n"
+"POT-Creation-Date: 2025-01-21T12:34:56.130Z\n"
+"PO-Revision-Date: 2025-01-21T12:34:56.130Z\n"
 
 msgid "Untitled dashboard"
 msgstr "Untitled dashboard"
@@ -610,6 +610,18 @@ msgstr "Requested dashboard not found"
 
 msgid "No description"
 msgstr "No description"
+
+msgid "Fetching external dashboard"
+msgstr "Fetching external dashboard"
+
+msgid "Error"
+msgstr "Error"
+
+msgid "Could not load superset dashboard"
+msgstr "Could not load superset dashboard"
+
+msgid "Retry"
+msgstr "Retry"
 
 msgid "{{count}} selected"
 msgid_plural "{{count}} selected"
