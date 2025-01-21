@@ -68,7 +68,9 @@ const renderWithRouterMatch = (
     {
         route = '/',
         history = createMemoryHistory({ initialEntries: [route] }),
-        store = {},
+        store = {
+            selected: {},
+        },
     } = {}
 ) => {
     return {
