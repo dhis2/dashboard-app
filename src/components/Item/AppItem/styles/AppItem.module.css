@@ -12,10 +12,3 @@
 .fullscreen {
     composes: fullscreen from '../../styles/Item.module.css';
 }
-
-.centered {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    block-size: 90%;
-}

@@ -27,7 +27,6 @@ import { sGetSelectedId } from '../../../reducers/selected.js'
 import FatalErrorBoundary from '../FatalErrorBoundary.js'
 import { getAvailableDimensions } from '../getAvailableDimensions.js'
 import ItemHeader from '../ItemHeader/ItemHeader.js'
-import itemHeaderClasses from '../ItemHeader/styles/ItemHeader.module.css'
 import MissingPluginMessage from '../ItemMessage/MissingPluginMessage.js'
 import { getIframeSrc } from './getIframeSrc.js'
 import { ItemContextMenu } from './ItemContextMenu.js'
@@ -87,24 +86,27 @@ const AppItem = ({
     )
 
     // https://docs.dhis2.org/en/develop/apps/application-manifest.html#apps_creating_apps
+    // https://dhis2.atlassian.net/browse/DHIS2-9605
     const hideTitle =
         appDetails?.settings?.dashboardWidget?.hideTitle &&
         dashboardMode !== EDIT
 
-    const onElementMount = useCallback((node) => {
+    const onHeaderMount = useCallback((node) => {
         if (node === null || (headerRef.current && contentRef.current)) {
             return
         }
 
-        if (node.classList.contains(itemHeaderClasses.itemHeaderWrap)) {
-            headerRef.current = node
-        } else if (node.classList.contains('content')) {
-            contentRef.current = node
+        headerRef.current = node
+        contentRef.current && setIsMounted(true)
+    }, [])
+
+    const onContentMount = useCallback((node) => {
+        if (node === null || (headerRef.current && contentRef.current)) {
+            return
         }
 
-        if (headerRef.current && contentRef.current) {
-            setIsMounted(true)
-        }
+        contentRef.current = node
+        headerRef.current && setIsMounted(true)
     }, [])
 
     const renderPlugin = (iframeSrc) => {
@@ -172,7 +174,7 @@ const AppItem = ({
         return (
             <>
                 <ItemHeader
-                    ref={onElementMount}
+                    ref={onHeaderMount}
                     title={hideTitle ? '' : itemTitle}
                     actionButtons={actionButtons}
                     itemId={item.id}
@@ -191,7 +193,7 @@ const AppItem = ({
                             [styles.hiddenTitle]: hideTitle,
                             [styles.fullscreen]: isFullscreen,
                         })}
-                        ref={onElementMount}
+                        ref={onContentMount}
                     >
                         {isMounted && renderPlugin(iframeSrc)}
                     </div>
