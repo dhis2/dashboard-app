@@ -5,8 +5,8 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1)\n"
-"POT-Creation-Date: 2025-01-21T16:17:28.310Z\n"
-"PO-Revision-Date: 2025-01-21T16:17:28.311Z\n"
+"POT-Creation-Date: 2025-01-22T12:28:04.654Z\n"
+"PO-Revision-Date: 2025-01-22T12:28:04.655Z\n"
 
 msgid "Untitled dashboard"
 msgstr "Untitled dashboard"
@@ -50,6 +50,27 @@ msgstr "Show chart controls on dashboard items"
 msgid "Show filters"
 msgstr "Show filters"
 
+msgid "Could not update dashboard {{name}}"
+msgstr "Could not update dashboard {{name}}"
+
+msgid "Could not delete dashboard {{name}}"
+msgstr "Could not delete dashboard {{name}}"
+
+msgid "Edit external dashboard"
+msgstr "Edit external dashboard"
+
+msgid "Could not load dashboard details"
+msgstr "Could not load dashboard details"
+
+msgid "Update dashboard"
+msgstr "Update dashboard"
+
+msgid "Cancel"
+msgstr "Cancel"
+
+msgid "Delete"
+msgstr "Delete"
+
 msgid "New dashboard: choose type"
 msgstr "New dashboard: choose type"
 
@@ -70,9 +91,6 @@ msgstr "Create dashboard"
 
 msgid "Configure source"
 msgstr "Configure source"
-
-msgid "Cancel"
-msgstr "Cancel"
 
 msgid "Not available for embedded dashboards"
 msgstr "Not available for embedded dashboards"
@@ -389,9 +407,6 @@ msgstr "Translate"
 
 msgid "Cannot delete this dashboard while offline"
 msgstr "Cannot delete this dashboard while offline"
-
-msgid "Delete"
-msgstr "Delete"
 
 msgid "Exit without saving"
 msgstr "Exit without saving"

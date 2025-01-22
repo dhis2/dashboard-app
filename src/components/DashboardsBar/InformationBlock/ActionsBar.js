@@ -30,6 +30,7 @@ import {
     sGetSelectedIsEmbedded,
 } from '../../../reducers/selected.js'
 import { sGetShowDescription } from '../../../reducers/showDescription.js'
+import { UpdateSupersetEmbeddedDashboard } from '../../ConfigureSupersetEmbeddedDashboardModal/UpdateSupersetEmbeddedDashboard.js'
 import FilterSelector from './FilterSelector.js'
 import classes from './styles/ActionsBar.module.css'
 
@@ -54,6 +55,10 @@ const ActionsBar = ({
     const [sharingDialogIsOpen, setSharingDialogIsOpen] = useState(false)
     const [confirmCacheDialogIsOpen, setConfirmCacheDialogIsOpen] =
         useState(false)
+    const [
+        updateEmbeddedDashboardModalIsOpen,
+        setUpdateEmbeddedDashboardModalIsOpen,
+    ] = useState(false)
     const [redirectUrl, setRedirectUrl] = useState(null)
     const { isDisconnected: offline } = useDhis2ConnectionStatus()
     const { lastUpdated, isCached, startRecording, remove } =
@@ -62,6 +67,13 @@ const ActionsBar = ({
     const notAvailableForEmbeddedDashboardsMsg = i18n.t(
         'Not available for embedded dashboards'
     )
+    const handleEditClick = useCallback(() => {
+        if (embedded) {
+            setUpdateEmbeddedDashboardModalIsOpen(true)
+        } else {
+            setRedirectUrl(`${id}/edit`)
+        }
+    }, [embedded, id, setRedirectUrl])
 
     const onRecordError = useCallback(() => {
         showAlert({
@@ -225,7 +237,7 @@ const ActionsBar = ({
                                 secondary
                                 small
                                 disabled={offline}
-                                onClick={() => setRedirectUrl(`${id}/edit`)}
+                                onClick={handleEditClick}
                             >
                                 {i18n.t('Edit')}
                             </Button>
@@ -298,6 +310,13 @@ const ActionsBar = ({
                 onCancel={() => setConfirmCacheDialogIsOpen(false)}
                 open={confirmCacheDialogIsOpen}
             />
+            {updateEmbeddedDashboardModalIsOpen && (
+                <UpdateSupersetEmbeddedDashboard
+                    closeModal={() =>
+                        setUpdateEmbeddedDashboardModalIsOpen(false)
+                    }
+                />
+            )}
         </>
     )
 }
