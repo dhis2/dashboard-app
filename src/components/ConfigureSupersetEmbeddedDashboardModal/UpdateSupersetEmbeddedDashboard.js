@@ -107,9 +107,7 @@ export const UpdateSupersetEmbeddedDashboard = ({ closeModal }) => {
                     handleUpdate(values)
                 }}
             >
-                <ModalTitle>
-                    {i18n.t('Edit external dashboard', { nsSeparator: '###' })}
-                </ModalTitle>
+                <ModalTitle>{i18n.t('Edit external dashboard')}</ModalTitle>
                 <ModalContent className={styles.modalContent}>
                     {(queryLoading || queryHasError) && (
                         <div
