@@ -1,0 +1,36 @@
+.modalContent {
+    position: relative;
+}
+.contentOverlay {
+    position: absolute;
+    inset: 0;
+    z-index: 10;
+    background-color: var(--colors-white);
+    display: flex;
+}
+.contentOverlay.loading {
+    opacity: 0.75;
+    align-items: center;
+    justify-content: center;
+}
+.contentOverlay.error {
+    flex-direction: column;
+}
+
+.buttonStrip {
+    display: flex;
+    flex-direction: row-reverse;
+    gap: var(--spacers-dp8);
+    inline-size: 100%;
+}
+.deleteButton {
+    margin-inline-end: auto;
+}
+.deleteConfirmPrimaryMessage,
+.deleteConfirmSecondaryMessage {
+    margin-block-start: 0;
+}
+.deleteConfirmSecondaryMessage {
+    margin-block-end: 0;
+    color: var(--colors-grey600);
+}
