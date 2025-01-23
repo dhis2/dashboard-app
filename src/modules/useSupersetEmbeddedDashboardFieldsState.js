@@ -79,7 +79,7 @@ export const useSupersetEmbeddedDashboardFieldsState = (
     const onSupersetEmbedIdFieldBlur = useCallback((payload) => {
         dispatch({ type: SUPERSET_FIELD_BLUR, payload })
     }, [])
-    const resetStateWithNewValues = useCallback((payload) => {
+    const resetFieldsStateWithNewValues = useCallback((payload) => {
         dispatch({ type: RESET_FIELD_STATE, payload })
     }, [])
 
@@ -89,6 +89,6 @@ export const useSupersetEmbeddedDashboardFieldsState = (
         onSupersetEmbedIdFieldBlur: state.isSupersetEmbedIdFieldTouched
             ? undefined
             : onSupersetEmbedIdFieldBlur,
-        resetStateWithNewValues,
+        resetFieldsStateWithNewValues,
     }
 }

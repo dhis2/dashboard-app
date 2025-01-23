@@ -1,4 +1,3 @@
-import { useDataMutation, useDataQuery } from '@dhis2/app-runtime'
 import i18n from '@dhis2/d2-i18n'
 import {
     Button,
@@ -11,75 +10,28 @@ import {
 } from '@dhis2/ui'
 import cx from 'classnames'
 import PropTypes from 'prop-types'
-import React, { useCallback, useEffect, useState } from 'react'
-import { useDispatch, useSelector } from 'react-redux'
-import { useHistory } from 'react-router-dom'
-import { tFetchDashboards } from '../../actions/dashboards.js'
-import {
-    acClearSelected,
-    tSetSelectedDashboardById,
-} from '../../actions/selected.js'
-import { parseSupersetEmbeddedDashboardFieldValues } from '../../modules/parseSupersetEmbeddedDashboardFieldValues.js'
+import React, { useEffect } from 'react'
 import { useSupersetEmbeddedDashboardFieldsState } from '../../modules/useSupersetEmbeddedDashboardFieldsState.js'
-import { sGetSelectedId } from '../../reducers/selected.js'
+import { useSupersetEmbeddedDashboardMutation } from '../../modules/useSupersetEmbeddedDashboardMutation.js'
 import styles from './styles/SupersetEmbeddedDashboardModal.module.css'
 import { SupersetEmbeddedDashboardFields } from './SupersetEmbeddedDashboardFields.js'
 
-const getDashboardQuery = {
-    dashboard: {
-        resource: 'dashboards',
-        id: ({ id }) => id,
-        params: {
-            fields: ['name', 'code', 'description', 'access', 'embedded[*]'],
-        },
-    },
-}
-const updateDashboardQuery = {
-    resource: 'dashboards',
-    type: 'update',
-    id: ({ id }) => id,
-    data: ({ values }) => parseSupersetEmbeddedDashboardFieldValues(values),
-    params: {
-        skipTranslation: true,
-        skipSharing: true,
-    },
-}
-const deleteDashboardQuery = {
-    resource: 'dashboards',
-    type: 'delete',
-    id: ({ id }) => id,
-}
-
-const parseErrorText = (error) =>
-    error?.details?.response?.errorReports[0]?.message ??
-    i18n.t('An unknown error occurred')
-
 export const UpdateSupersetEmbeddedDashboard = ({ closeModal }) => {
-    const dispatch = useDispatch()
-    const history = useHistory()
-    const id = useSelector(sGetSelectedId)
     const {
-        loading: queryLoading,
-        error: queryError,
-        data: queryData,
-    } = useDataQuery(getDashboardQuery, { variables: { id } })
-    const dashboard = queryData?.dashboard
-    const name = dashboard?.name
-    const [mutationLoading, setMutationLoading] = useState(false)
-    const handeMutationError = useCallback(() => setMutationLoading(false), [])
-    const [updateDashboard, { error: updateError }] = useDataMutation(
-        updateDashboardQuery,
-        { variables: { id }, onError: handeMutationError }
-    )
-    const [deleteDashboard, { error: deleteError }] = useDataMutation(
-        deleteDashboardQuery,
-        { variables: { id }, onError: handeMutationError }
-    )
-    const mutationError = updateError || deleteError
-    const mutationErrorTitle = updateError
-        ? i18n.t('Could not update dashboard {{name}}', { name })
-        : i18n.t('Could not delete dashboard {{name}}', { name })
-    const mutationErrorText = parseErrorText(mutationError)
+        queryLoading,
+        queryHasError,
+        queryErrorTitle,
+        queryErrorMessage,
+        mutationLoading,
+        mutationHasError,
+        mutationErrorTitle,
+        mutationErrorText,
+        dashboard,
+        showDeleteConfirmDialog,
+        setShowDeleteConfirmDialog,
+        handleUpdate,
+        handleDelete,
+    } = useSupersetEmbeddedDashboardMutation({ closeModal })
     const {
         hasFieldChanges,
         isSupersetEmbedIdValid,
@@ -87,36 +39,12 @@ export const UpdateSupersetEmbeddedDashboard = ({ closeModal }) => {
         values,
         onChange,
         onSupersetEmbedIdFieldBlur,
-        resetStateWithNewValues,
+        resetFieldsStateWithNewValues,
     } = useSupersetEmbeddedDashboardFieldsState()
-    const handleSubmit = useCallback(
-        async (event) => {
-            event.preventDefault()
-            setMutationLoading(true)
-            await updateDashboard({ values })
-            await dispatch(tSetSelectedDashboardById(id))
-            setMutationLoading(false)
-            closeModal()
-        },
-        [values, updateDashboard, closeModal, dispatch, id]
-    )
-    const handleDelete = useCallback(
-        async (_, event) => {
-            event.preventDefault()
-            setMutationLoading(true)
-            await deleteDashboard()
-            dispatch(acClearSelected())
-            await dispatch(tFetchDashboards())
-            setMutationLoading(false)
-            closeModal()
-            history.push('/')
-        },
-        [deleteDashboard, closeModal, dispatch, history]
-    )
 
     useEffect(() => {
         if (dashboard) {
-            resetStateWithNewValues({
+            resetFieldsStateWithNewValues({
                 title: dashboard.name,
                 code: dashboard.code,
                 description: dashboard.description,
@@ -126,31 +54,74 @@ export const UpdateSupersetEmbeddedDashboard = ({ closeModal }) => {
                 showFilters: dashboard.embedded.options.filters.visible,
             })
         }
-    }, [dashboard, resetStateWithNewValues])
+    }, [dashboard, resetFieldsStateWithNewValues])
+
+    if (showDeleteConfirmDialog) {
+        return (
+            <Modal>
+                <ModalTitle>{i18n.t('Delete dashboard')}</ModalTitle>
+                <ModalContent>
+                    <p className={styles.deleteConfirmPrimaryMessage}>
+                        {i18n.t(
+                            'Deleting dashboard "{{ dashboardName }}" will remove it for all users. This action cannot be undone. Are you sure you want to permanently delete this dashboard?',
+                            { dashboardName: dashboard.name }
+                        )}
+                    </p>
+                    <p className={styles.deleteConfirmSecondaryMessage}>
+                        {i18n.t(
+                            'Note: the source dashboard embedded by this external dashboard will not be deleted.',
+                            { nsSeparator: '###' }
+                        )}
+                    </p>
+                </ModalContent>
+                <ModalActions>
+                    <div className={styles.buttonStrip}>
+                        <Button
+                            loading={mutationLoading}
+                            destructive
+                            onClick={(_, event) => {
+                                event.preventDefault()
+                                handleDelete()
+                            }}
+                        >
+                            {i18n.t('Delete')}
+                        </Button>
+                        <Button
+                            secondary
+                            onClick={() => setShowDeleteConfirmDialog(false)}
+                            disabled={mutationLoading}
+                        >
+                            {i18n.t('Cancel')}
+                        </Button>
+                    </div>
+                </ModalActions>
+            </Modal>
+        )
+    }
 
     return (
         <Modal>
-            <form onSubmit={handleSubmit}>
+            <form
+                onSubmit={(event) => {
+                    event.preventDefault()
+                    handleUpdate(values)
+                }}
+            >
                 <ModalTitle>
                     {i18n.t('Edit external dashboard', { nsSeparator: '###' })}
                 </ModalTitle>
                 <ModalContent className={styles.modalContent}>
-                    {(queryLoading || !!queryError) && (
+                    {(queryLoading || queryHasError) && (
                         <div
                             className={cx(styles.contentOverlay, {
                                 [styles.loading]: queryLoading,
-                                [styles.error]: queryError,
+                                [styles.error]: queryHasError,
                             })}
                         >
                             {queryLoading && <CircularLoader />}
-                            {queryError && (
-                                <NoticeBox
-                                    error
-                                    title={i18n.t(
-                                        'Could not load dashboard details'
-                                    )}
-                                >
-                                    {parseErrorText(queryError)}
+                            {queryHasError && (
+                                <NoticeBox error title={queryErrorTitle}>
+                                    {queryErrorMessage}
                                 </NoticeBox>
                             )}
                         </div>
@@ -165,7 +136,7 @@ export const UpdateSupersetEmbeddedDashboard = ({ closeModal }) => {
                         onSupersetEmbedIdFieldBlur={onSupersetEmbedIdFieldBlur}
                         submitting={mutationLoading || queryLoading}
                     />
-                    {mutationError && (
+                    {mutationHasError && (
                         <NoticeBox error title={mutationErrorTitle}>
                             {mutationErrorText}
                         </NoticeBox>
@@ -173,7 +144,7 @@ export const UpdateSupersetEmbeddedDashboard = ({ closeModal }) => {
                 </ModalContent>
                 <ModalActions>
                     <div className={styles.buttonStrip}>
-                        {!queryError && (
+                        {!queryHasError && (
                             <Button
                                 loading={mutationLoading}
                                 type="submit"
@@ -189,19 +160,19 @@ export const UpdateSupersetEmbeddedDashboard = ({ closeModal }) => {
                         )}
                         <Button
                             disabled={mutationLoading}
-                            secondary={!queryError}
-                            primary={!!queryError}
+                            secondary={!queryHasError}
+                            primary={queryHasError}
                             onClick={closeModal}
-                            type={queryError ? 'submit' : undefined}
+                            type={queryHasError ? 'submit' : undefined}
                         >
                             {i18n.t('Cancel')}
                         </Button>
-                        {!queryError && dashboard?.access?.delete && (
+                        {!queryHasError && dashboard?.access?.delete && (
                             <Button
                                 destructive
-                                disabled={mutationLoading || queryLoading}
+                                disabled={queryLoading || mutationLoading}
                                 secondary
-                                onClick={handleDelete}
+                                onClick={() => setShowDeleteConfirmDialog(true)}
                                 className={styles.deleteButton}
                             >
                                 {i18n.t('Delete')}
