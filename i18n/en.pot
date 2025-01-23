@@ -50,6 +50,37 @@ msgstr "Show chart controls on dashboard items"
 msgid "Show filters"
 msgstr "Show filters"
 
+msgid "Delete dashboard"
+msgstr "Delete dashboard"
+
+msgid ""
+"Deleting dashboard \"{{ dashboardName }}\" will remove it for all users. "
+"This action cannot be undone. Are you sure you want to permanently delete "
+"this dashboard?"
+msgstr ""
+"Deleting dashboard \"{{ dashboardName }}\" will remove it for all users. "
+"This action cannot be undone. Are you sure you want to permanently delete "
+"this dashboard?"
+
+msgid ""
+"Note: the source dashboard embedded by this external dashboard will not be "
+"deleted."
+msgstr ""
+"Note: the source dashboard embedded by this external dashboard will not be "
+"deleted."
+
+msgid "Delete"
+msgstr "Delete"
+
+msgid "Cancel"
+msgstr "Cancel"
+
+msgid "Edit external dashboard"
+msgstr "Edit external dashboard"
+
+msgid "Update dashboard"
+msgstr "Update dashboard"
+
 msgid "New dashboard: choose type"
 msgstr "New dashboard: choose type"
 
@@ -71,8 +102,8 @@ msgstr "Create dashboard"
 msgid "Configure source"
 msgstr "Configure source"
 
-msgid "Cancel"
-msgstr "Cancel"
+msgid "Not available for embedded dashboards"
+msgstr "Not available for embedded dashboards"
 
 msgid "The dashboard couldn't be made available offline. Try again."
 msgstr "The dashboard couldn't be made available offline. Try again."
@@ -152,6 +183,9 @@ msgstr "Failed to unstar the dashboard"
 
 msgid "Failed to star the dashboard"
 msgstr "Failed to star the dashboard"
+
+msgid "External data"
+msgstr "External data"
 
 msgid "Offline data last updated {{timeAgo}}"
 msgstr "Offline data last updated {{timeAgo}}"
@@ -351,6 +385,15 @@ msgstr "Apps"
 msgid "Users"
 msgstr "Users"
 
+msgid "Could not update dashboard {{name}}"
+msgstr "Could not update dashboard {{name}}"
+
+msgid "Could not delete dashboard {{name}}"
+msgstr "Could not delete dashboard {{name}}"
+
+msgid "Could not load dashboard details"
+msgstr "Could not load dashboard details"
+
 msgid ""
 "Failed to save dashboard. You might be offline or not have access to edit "
 "this dashboard."
@@ -393,9 +436,6 @@ msgstr "Translate"
 msgid "Cannot delete this dashboard while offline"
 msgstr "Cannot delete this dashboard while offline"
 
-msgid "Delete"
-msgstr "Delete"
-
 msgid "Exit without saving"
 msgstr "Exit without saving"
 
@@ -406,10 +446,6 @@ msgid "Delete dashboard"
 msgstr "Delete dashboard"
 
 msgid ""
-"Deleting dashboard \"{{- dashboardName }}\" will remove it for all users. "
-"This action cannot be undone. Are you sure you want to permanently delete "
-"this dashboard?"
-msgstr ""
 "Deleting dashboard \"{{- dashboardName }}\" will remove it for all users. "
 "This action cannot be undone. Are you sure you want to permanently delete "
 "this dashboard?"
