@@ -1,3 +1,4 @@
+import { Tag } from '@dhis2-ui/tag'
 import { useAlert, useDataEngine } from '@dhis2/app-runtime'
 import i18n from '@dhis2/d2-i18n'
 import PropTypes from 'prop-types'
@@ -5,7 +6,10 @@ import React, { useCallback } from 'react'
 import { connect } from 'react-redux'
 import { acSetDashboardStarred } from '../../../actions/dashboards.js'
 import { sGetDashboardStarred } from '../../../reducers/dashboards.js'
-import { sGetSelected } from '../../../reducers/selected.js'
+import {
+    sGetSelected,
+    sGetSelectedIsEmbedded,
+} from '../../../reducers/selected.js'
 import ActionsBar from './ActionsBar.js'
 import { apiStarDashboard } from './apiStarDashboard.js'
 import LastUpdatedTag from './LastUpdatedTag.js'
@@ -14,6 +18,7 @@ import classes from './styles/InformationBlock.module.css'
 
 const InformationBlock = ({
     id,
+    isEmbeddedDashboard,
     displayName,
     starred,
     setDashboardStarred,
@@ -54,6 +59,9 @@ const InformationBlock = ({
                     onClick={toggleDashboardStarred}
                 />
                 <LastUpdatedTag id={id} />
+                {isEmbeddedDashboard && (
+                    <Tag maxWidth="200px">{i18n.t('External data')}</Tag>
+                )}
             </div>
             <ActionsBar
                 toggleDashboardStarred={toggleDashboardStarred}
@@ -67,6 +75,7 @@ const InformationBlock = ({
 InformationBlock.propTypes = {
     displayName: PropTypes.string,
     id: PropTypes.string,
+    isEmbeddedDashboard: PropTypes.bool,
     setDashboardStarred: PropTypes.func,
     starred: PropTypes.bool,
 }
@@ -80,6 +89,7 @@ const mapStateToProps = (state) => {
         starred: dashboard.id
             ? sGetDashboardStarred(state, dashboard.id)
             : false,
+        isEmbeddedDashboard: sGetSelectedIsEmbedded(state),
     }
 }
 
