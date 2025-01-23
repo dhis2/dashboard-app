@@ -30,7 +30,7 @@ const LastUpdatedTag = ({ id }) => {
         >
             {(props) => (
                 <div {...props}>
-                    <Tag maxWidth="400px">{message} </Tag>
+                    <Tag maxWidth="200px">{message} </Tag>
                 </div>
             )}
         </Tooltip>
