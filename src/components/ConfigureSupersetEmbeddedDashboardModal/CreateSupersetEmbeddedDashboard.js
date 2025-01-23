@@ -13,30 +13,15 @@ import React, { useCallback, useState } from 'react'
 import { useDispatch } from 'react-redux'
 import { useHistory } from 'react-router-dom'
 import { tFetchDashboards } from '../../actions/dashboards.js'
+import { parseSupersetEmbeddedDashboardFieldValues } from '../../modules/parseSupersetEmbeddedDashboardFieldValues.js'
 import { useSupersetEmbeddedDashboardFieldsState } from '../../modules/useSupersetEmbeddedDashboardFieldsState.js'
-import styles from './styles/CreateSupersetEmbeddedDashboard.module.css'
+import styles from './styles/SupersetEmbeddedDashboardModal.module.css'
 import { SupersetEmbeddedDashboardFields } from './SupersetEmbeddedDashboardFields.js'
 
 const postDashboardQuery = {
     resource: 'dashboards',
     type: 'create',
-    data: ({ values }) => ({
-        name: values.title || 'Untitled dashboard',
-        description: values.description,
-        code: values.code,
-        embedded: {
-            provider: 'SUPERSET',
-            id: values.supersetEmbedId,
-            options: {
-                hideTab: false,
-                hideChartControls: !values.showChartControls,
-                filters: {
-                    visible: values.showFilters,
-                    expanded: false,
-                },
-            },
-        },
-    }),
+    data: ({ values }) => parseSupersetEmbeddedDashboardFieldValues(values),
 }
 
 export const CreateSupersetEmbeddedDashboard = ({
@@ -46,7 +31,9 @@ export const CreateSupersetEmbeddedDashboard = ({
     const dispatch = useDispatch()
     const history = useHistory()
     const [loading, setLoading] = useState(false)
-    const [postDashboard, { error }] = useDataMutation(postDashboardQuery)
+    const [postDashboard, { error }] = useDataMutation(postDashboardQuery, {
+        onError: () => setLoading(false),
+    })
     const {
         hasFieldChanges,
         isSupersetEmbedIdValid,
@@ -61,6 +48,7 @@ export const CreateSupersetEmbeddedDashboard = ({
             setLoading(true)
             const { response } = await postDashboard({ values })
             await dispatch(tFetchDashboards())
+            setLoading(false)
             closeModal()
             history.push(`/${response.uid}`)
         },
