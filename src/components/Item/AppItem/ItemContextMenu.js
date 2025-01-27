@@ -6,7 +6,7 @@ import {
     Popover,
     IconFullscreen16,
     IconLaunch16,
-    IconMore24,
+    IconMore16,
 } from '@dhis2/ui'
 import PropTypes from 'prop-types'
 import React, { useRef, useState } from 'react'
@@ -20,7 +20,6 @@ export const ItemContextMenu = ({
     appUrl,
     enterFullscreen,
     loadItemFailed,
-    tabIndex,
 }) => {
     const buttonRef = useRef()
     const [menuIsOpen, setMenuIsOpen] = useState(false)
@@ -54,8 +53,7 @@ export const ItemContextMenu = ({
                     title={i18n.t('Open menu')}
                     onClick={openMenu}
                     dataTest="appitem-menu-button"
-                    icon={<IconMore24 color={colors.grey700} />}
-                    tabIndex={tabIndex}
+                    icon={<IconMore16 color={colors.grey700} />}
                 />
             </div>
             {menuIsOpen && (
@@ -97,5 +95,4 @@ ItemContextMenu.propTypes = {
     appUrl: PropTypes.string,
     enterFullscreen: PropTypes.func,
     loadItemFailed: PropTypes.bool,
-    tabIndex: PropTypes.string,
 }

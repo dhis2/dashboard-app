@@ -5,7 +5,7 @@ import { Plugin } from '@dhis2/app-runtime/experimental'
 import { CenteredContent, CircularLoader } from '@dhis2/ui'
 import PropTypes from 'prop-types'
 import React, { useCallback, useEffect, useMemo, useState } from 'react'
-import { useDispatch, useSelector, shallowEqual } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import { acAddIframePluginStatus } from '../../../../actions/iframePluginStatus.js'
 import {
     CHART,
@@ -37,7 +37,7 @@ const IframePlugin = ({
     isFirstOfType,
 }) => {
     const dispatch = useDispatch()
-    const iframePluginStatus = useSelector(sGetIframePluginStatus, shallowEqual)
+    const iframePluginStatus = useSelector(sGetIframePluginStatus)
     const { baseUrl } = useConfig()
     const { userSettings } = useUserSettings()
     const [error, setError] = useState(null)
