@@ -96,6 +96,11 @@ class Item extends Component {
                 await apiFetchVisualization(this.props.item)
             )
 
+        // force fetch when recording to allow caching of the visualizations request
+        if (this.props.isRecording) {
+            apiFetchVisualization(this.props.item)
+        }
+
         try {
             if (
                 this.props.settings
