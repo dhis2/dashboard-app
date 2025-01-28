@@ -4,19 +4,15 @@ import { EXTENDED_TIMEOUT } from '../support/utils.js'
 
 // Dashboards bar
 export const dashboardChipSel = '[data-test="dashboard-chip"]'
+export const dashboardsNavMenuButtonSel =
+    '[data-test="dashboards-nav-menu-button"]'
 export const newButtonSel = '[data-test="new-button"]'
-export const chipStarSel = '[data-test="dhis2-uicore-chip-icon"]'
-export const dashboardSearchInputSel =
-    'input:visible[placeholder="Search for a dashboard"]'
-export const showMoreLessSel = '[data-test="showmore-button"]'
-export const dragHandleSel = '[data-test="controlbar-drag-handle"]'
+export const navMenuItemStarIconSel = '[data-test="starred-dashboard"]'
 export const dashboardsBarSel = '[data-test="dashboards-bar"]'
 
 // Active dashboard
 export const dashboardTitleSel = '[data-test="view-dashboard-title"]'
-export const dashboardsBarContainerSel = '[data-test="dashboardsbar-container"]'
 export const dashboardDescriptionSel = '[data-test="dashboard-description"]'
-export const starSel = '[data-test="button-star-dashboard"]'
 export const dashboardStarredSel = '[data-test="dashboard-starred"]'
 export const dashboardUnstarredSel = '[data-test="dashboard-unstarred"]'
 export const titleBarSel = '[data-test="title-bar"]'

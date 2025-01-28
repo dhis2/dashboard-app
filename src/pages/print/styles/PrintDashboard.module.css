@@ -5,7 +5,7 @@
 }
 
 .wrapper {
-    background-color: #f4f6f8;
+    background-color: var(--colors-grey200);
     padding-inline-start: 44px;
     overflow-y: auto;
 }

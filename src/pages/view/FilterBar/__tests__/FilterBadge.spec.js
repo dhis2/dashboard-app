@@ -1,38 +1,30 @@
+import { useDhis2ConnectionStatus } from '@dhis2/app-runtime'
 import { render } from '@testing-library/react'
 import React from 'react'
 import { Provider } from 'react-redux'
-import configureMockStore from 'redux-mock-store'
+import { createStore } from 'redux'
+import { useWindowDimensions } from '../../../../components/WindowDimensionsProvider.js'
 import FilterBadge from '../FilterBadge.js'
 
-const mockStore = configureMockStore()
-
-const store = { selected: { id: 'dashboard1' } }
-
-jest.mock('@dhis2/analytics', () => ({
-    useCachedDataQuery: () => ({
-        currentUser: {
-            username: 'rainbowDash',
-            id: 'r3nb0d5h',
-        },
-    }),
-}))
-
 jest.mock('@dhis2/app-runtime', () => ({
-    useDhis2ConnectionStatus: () => ({ isConnected: true }),
-    useCacheableSection: jest.fn(() => ({
-        isCached: false,
-        recordingState: 'default',
-    })),
+    useDhis2ConnectionStatus: jest.fn(() => ({ isConnected: true })),
+}))
+jest.mock('../../../../components/WindowDimensionsProvider.js', () => ({
+    useWindowDimensions: jest.fn(() => ({ width: 1920, height: 1080 })),
 }))
 
-test('Filter Badge displays badge containing number of items in filter', () => {
+const baseState = { selected: { id: 'dashboard1' } }
+const createMockStore = (state) =>
+    createStore(() => ({ ...baseState, ...state }))
+
+test('Displays badge containing number of filter items when filtered on multiple', () => {
     const filter = {
         id: 'ponies',
         name: 'Ponies',
         values: [{ name: 'Rainbow Dash' }, { name: 'Twilight Sparkle' }],
     }
-    const { container } = render(
-        <Provider store={mockStore(store)}>
+    const { getByTestId } = render(
+        <Provider store={createMockStore()}>
             <FilterBadge
                 filter={filter}
                 openFilterModal={jest.fn()}
@@ -41,18 +33,19 @@ test('Filter Badge displays badge containing number of items in filter', () => {
             />
         </Provider>
     )
-    expect(container).toMatchSnapshot()
+    expect(getByTestId('filter-badge-button')).toHaveTextContent(
+        'Ponies: 2 selected'
+    )
 })
 
-test('FilterBadge displays badge with filter item name when only one filter item', () => {
+test('Displays badge with filter item name when only one filter item is present', () => {
     const filter = {
         id: 'ponies',
         name: 'Ponies',
         values: [{ name: 'Twilight Sparkle' }],
     }
-
-    const { container } = render(
-        <Provider store={mockStore(store)}>
+    const { getByTestId } = render(
+        <Provider store={createMockStore()}>
             <FilterBadge
                 filter={filter}
                 openFilterModal={jest.fn()}
@@ -61,5 +54,74 @@ test('FilterBadge displays badge with filter item name when only one filter item
             />
         </Provider>
     )
-    expect(container).toMatchSnapshot()
+    expect(getByTestId('filter-badge-button')).toHaveTextContent(
+        'Ponies: Twilight Sparkle'
+    )
+})
+
+test('Has enabled buttons when online', () => {
+    const filter = {
+        id: 'ponies',
+        name: 'Ponies',
+        values: [{ name: 'Twilight Sparkle' }],
+    }
+    const { getByTestId } = render(
+        <Provider store={createMockStore()}>
+            <FilterBadge
+                filter={filter}
+                openFilterModal={jest.fn()}
+                removeFilter={jest.fn}
+                onRemove={Function.prototype}
+            />
+        </Provider>
+    )
+    expect(getByTestId('filter-badge-button')).toBeEnabled()
+    expect(getByTestId('filter-badge-clear-button')).toBeEnabled()
+})
+
+test('Shows only a disabled edit-filter button when offline', () => {
+    useDhis2ConnectionStatus.mockImplementationOnce(() => ({
+        isConnected: false,
+    }))
+    const filter = {
+        id: 'ponies',
+        name: 'Ponies',
+        values: [{ name: 'Twilight Sparkle' }],
+    }
+    const { getByTestId, queryByTestId } = render(
+        <Provider store={createMockStore()}>
+            <FilterBadge
+                filter={filter}
+                openFilterModal={jest.fn()}
+                removeFilter={jest.fn}
+                onRemove={Function.prototype}
+            />
+        </Provider>
+    )
+    expect(getByTestId('filter-badge-button')).toBeDisabled()
+    expect(queryByTestId('filter-badge-clear-button')).not.toBeInTheDocument()
+})
+
+test('Shows a disabled edit-filter button and enabled clear-filter when on small screen', () => {
+    useWindowDimensions.mockImplementationOnce(() => ({
+        width: 440,
+        height: 780,
+    }))
+    const filter = {
+        id: 'ponies',
+        name: 'Ponies',
+        values: [{ name: 'Twilight Sparkle' }],
+    }
+    const { getByTestId } = render(
+        <Provider store={createMockStore()}>
+            <FilterBadge
+                filter={filter}
+                openFilterModal={jest.fn()}
+                removeFilter={jest.fn}
+                onRemove={Function.prototype}
+            />
+        </Provider>
+    )
+    expect(getByTestId('filter-badge-button')).toBeDisabled()
+    expect(getByTestId('filter-badge-clear-button')).toBeEnabled()
 })

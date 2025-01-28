@@ -53,22 +53,25 @@
     margin-inline-end: auto;
 }
 .title {
-    font-weight: bold;
+    font-weight: 500;
+    font-size: 17px;
     margin-block-start: 0;
     line-height: 22px;
-    color: var(--colors-grey700);
+    color: var(--colors-grey800);
 }
 .section {
     text-align: start;
-    background: #fff;
-    padding: 20px;
+    background: var(--colors-white);
+    padding: var(--spacers-dp16);
     margin-block-end: var(--spacers-dp24);
     border-radius: 5px;
+    border: 1px solid var(--colors-grey300);
 }
 .guide {
     line-height: 18px;
     letter-spacing: 0.1px;
     list-style-position: outside;
+    list-style-type: circle;
     margin-block-start: 0;
     margin-block-end: 0;
     margin-inline-start: var(--spacers-dp12);

@@ -1,10 +1,8 @@
 import { When, Then } from '@badeball/cypress-cucumber-preprocessor'
 import { dashboards } from '../../assets/backends/index.js'
 import {
-    starSel,
     dashboardUnstarredSel,
     dashboardStarredSel,
-    dashboardChipSel,
 } from '../../elements/viewDashboard.js'
 
 When('clicking to star {string} dashboard fails', (title) => {
@@ -13,7 +11,7 @@ When('clicking to star {string} dashboard fails', (title) => {
         statusCode: 409,
     }).as('starDashboardFail')
 
-    cy.get(starSel).click()
+    cy.get(dashboardUnstarredSel).click()
     cy.wait('@starDashboardFail').its('response.statusCode').should('eq', 409)
 })
 
@@ -28,10 +26,8 @@ Then(
     }
 )
 
-Then('the {string} dashboard is not starred', (title) => {
+Then('the {string} dashboard is not starred', () => {
     // check for the unfilled star next to the title
     cy.get(dashboardUnstarredSel).should('be.visible')
     cy.get(dashboardStarredSel).should('not.exist')
-
-    cy.get(dashboardChipSel).contains(title).siblings().should('not.exist')
 })

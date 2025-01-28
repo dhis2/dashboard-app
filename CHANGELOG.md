@@ -1,3 +1,19 @@
+## [100.4.1](https://github.com/dhis2/dashboard-app/compare/v100.4.0...v100.4.1) (2025-01-09)
+
+
+### Bug Fixes
+
+* **translations:** sync translations from transifex ([#3159](https://github.com/dhis2/dashboard-app/issues/3159)) ([9e2a203](https://github.com/dhis2/dashboard-app/commit/9e2a203be5bcfc735774328c194085661a255013))
+
+# [100.4.0](https://github.com/dhis2/dashboard-app/compare/v100.3.2...v100.4.0) (2025-01-08)
+
+
+### Features
+
+* add space efficient dashboard bar design and dashboard selection, and keyboard navigation ([33bcbca](https://github.com/dhis2/dashboard-app/commit/33bcbcad729367d6c320dc8a161d91c17615b0f2))
+* implement dashboard slideshow ([#3081](https://github.com/dhis2/dashboard-app/issues/3081)) ([2a75b84](https://github.com/dhis2/dashboard-app/commit/2a75b849559e27d621d0c97b2b9ae02e8555e663))
+* maximize use of the available screen space by reducing whitespace in the dashboard item grid ([95b9764](https://github.com/dhis2/dashboard-app/commit/95b976409934204b91ba24fe6c1cc23a20f8d41a)), closes [#3165](https://github.com/dhis2/dashboard-app/issues/3165)
+
 ## [100.3.2](https://github.com/dhis2/dashboard-app/compare/v100.3.1...v100.3.2) (2024-12-04)
 
 

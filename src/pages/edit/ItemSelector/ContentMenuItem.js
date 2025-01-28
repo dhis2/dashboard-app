@@ -2,22 +2,25 @@ import { visTypeIcons } from '@dhis2/analytics'
 import i18n from '@dhis2/d2-i18n'
 import { MenuItem, colors, IconLaunch16 } from '@dhis2/ui'
 import PropTypes from 'prop-types'
-import React from 'react'
+import React, { useCallback } from 'react'
 import { getItemIcon, VISUALIZATION } from '../../../modules/itemTypes.js'
 import classes from './styles/ContentMenuItem.module.css'
 
-const LaunchLink = ({ url }) => (
-    <a
-        onClick={(e) => e.stopPropagation()}
-        className={classes.launchLink}
-        target="_blank"
-        rel="noopener noreferrer"
-        href={url}
-        aria-label={i18n.t('Open visualization in new tab')}
-    >
-        <IconLaunch16 color={colors.grey700} />
-    </a>
-)
+const LaunchLink = ({ url }) => {
+    const handleClick = useCallback(() => {
+        window.open(url, '_blank', 'noopener noreferrer')
+    }, [url])
+
+    return (
+        <button
+            onClick={handleClick}
+            className={classes.launchLinkButton}
+            aria-label={i18n.t('Open visualization in new tab')}
+        >
+            <IconLaunch16 />
+        </button>
+    )
+}
 
 LaunchLink.propTypes = {
     url: PropTypes.string,
@@ -40,6 +43,7 @@ const ContentMenuItem = ({ type, name, onInsert, url, visType }) => {
 
     return (
         <MenuItem
+            ariaLabel={name}
             onClick={onInsert}
             icon={renderedItemIcon}
             label={

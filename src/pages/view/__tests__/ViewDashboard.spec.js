@@ -1,6 +1,8 @@
 import { render, act } from '@testing-library/react'
+import { createMemoryHistory } from 'history'
 import React from 'react'
 import { Provider } from 'react-redux'
+import { Router } from 'react-router-dom'
 import configureMockStore from 'redux-mock-store'
 import thunk from 'redux-thunk'
 import { apiPostDataStatistics } from '../../../api/dataStatistics.js'
@@ -24,23 +26,19 @@ jest.mock('@dhis2/app-runtime', () => ({
         recordingState: 'default',
     })),
     useDataEngine: jest.fn(),
+    useAlert: jest.fn(() => ({
+        show: () => {},
+        hide: () => {},
+    })),
 }))
 
 jest.mock('../../../api/fetchDashboard')
 
 jest.mock(
-    '../../../components/DashboardsBar/DashboardsBar',
+    '../../../components/DashboardsBar/index.js',
     () =>
         function MockDashboardsBar() {
             return <div>DashboardsBar</div>
-        }
-)
-
-jest.mock(
-    '../TitleBar/TitleBar',
-    () =>
-        function MockTitleBar() {
-            return <div>TitleBar</div>
         }
 )
 
@@ -98,7 +96,9 @@ test('ViewDashboard renders dashboard', async () => {
         <>
             <header />
             <Provider store={mockStore(store)}>
-                <ViewDashboard requestedId={dashboardId} />
+                <Router history={createMemoryHistory()}>
+                    <ViewDashboard requestedId={dashboardId} />
+                </Router>
             </Provider>
         </>
     )
@@ -120,7 +120,9 @@ test('ViewDashboard does not post passive view to api if passive view has been r
         <>
             <header />
             <Provider store={mockStore(store)}>
-                <ViewDashboard id={dashboardId} />
+                <Router history={createMemoryHistory()}>
+                    <ViewDashboard requestedId={dashboardId} />
+                </Router>
             </Provider>
         </>
     )
@@ -142,7 +144,9 @@ test('ViewDashboard posts passive view to api if passive view has not been regis
         <>
             <header />
             <Provider store={mockStore(store)}>
-                <ViewDashboard id={dashboardId} />
+                <Router history={createMemoryHistory()}>
+                    <ViewDashboard requestedId={dashboardId} />
+                </Router>
             </Provider>
         </>
     )

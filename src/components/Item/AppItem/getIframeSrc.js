@@ -1,15 +1,27 @@
 import { FILTER_ORG_UNIT } from '../../../actions/itemFilters.js'
+import { getPluginOverrides } from '../../../modules/localStorage.js'
 
-export const getIframeSrc = (appDetails, item, itemFilters) => {
-    let iframeSrc = `${appDetails.launchUrl}?dashboardItemId=${item.id}`
+export const getIframeSrc = (item, itemFilters, appDetails = {}) => {
+    if (appDetails.appType === 'APP') {
+        // check if there is an override for the plugin
+        const pluginOverrides = getPluginOverrides()
 
-    if (itemFilters[FILTER_ORG_UNIT] && itemFilters[FILTER_ORG_UNIT].length) {
-        const ouIds = itemFilters[FILTER_ORG_UNIT].map(({ id, path }) =>
-            path ? path.split('/').slice(-1)[0] : id
-        )
+        if (pluginOverrides?.[appDetails.key]) {
+            return pluginOverrides[appDetails.key]
+        }
 
-        iframeSrc += `&userOrgUnit=${ouIds.join(',')}`
+        return appDetails.pluginLaunchUrl
+    } else {
+        let iframeSrc = `${appDetails.launchUrl}?dashboardItemId=${item.id}`
+
+        if (itemFilters[FILTER_ORG_UNIT]?.length) {
+            const ouIds = itemFilters[FILTER_ORG_UNIT].map(({ id, path }) =>
+                path ? path.split('/').slice(-1)[0] : id
+            )
+
+            iframeSrc += `&userOrgUnit=${ouIds.join(',')}`
+        }
+
+        return iframeSrc
     }
-
-    return iframeSrc
 }

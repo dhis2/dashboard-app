@@ -13,10 +13,9 @@ import {
     Popover,
     Divider,
     IconFullscreen16,
-    IconFullscreenExit16,
     IconLaunch16,
     IconMessages16,
-    IconMore24,
+    IconMore16,
 } from '@dhis2/ui'
 import PropTypes from 'prop-types'
 import React, { useState, createRef } from 'react'
@@ -31,7 +30,6 @@ import { isSmallScreen } from '../../../../modules/smallScreen.js'
 import MenuItem from '../../../MenuItemWithTooltip.js'
 import { useSystemSettings } from '../../../SystemSettingsProvider.js'
 import { useWindowDimensions } from '../../../WindowDimensionsProvider.js'
-import { isElementFullscreen } from '../isElementFullscreen.js'
 import ViewAsMenuItems from './ViewAsMenuItems.js'
 
 const ItemContextMenu = (props) => {
@@ -46,13 +44,11 @@ const ItemContextMenu = (props) => {
         allowVisFullscreen,
     } = useSystemSettings().systemSettings
 
-    const fullscreenAllowed = props.fullscreenSupported && allowVisFullscreen
-
     const noOptionsEnabled =
         !allowVisOpenInApp &&
         !allowVisShowInterpretations &&
         !allowVisViewAs &&
-        !fullscreenAllowed
+        !allowVisFullscreen
 
     if (noOptionsEnabled || (!allowVisOpenInApp && props.loadItemFailed)) {
         return null
@@ -65,8 +61,8 @@ const ItemContextMenu = (props) => {
         }
     }
 
-    const toggleFullscreen = () => {
-        props.onToggleFullscreen()
+    const enterFullscreen = () => {
+        props.enterFullscreen()
         closeMenu()
     }
 
@@ -100,21 +96,16 @@ const ItemContextMenu = (props) => {
         getVisualizationId(item)
     )}`
 
-    return isElementFullscreen(item.id) ? (
-        <Button small secondary onClick={props.onToggleFullscreen}>
-            <span data-testid="exit-fullscreen-button">
-                <IconFullscreenExit16 color={colors.grey600} />
-            </span>
-        </Button>
-    ) : (
+    return (
         <>
             <div ref={buttonRef}>
                 <Button
                     small
+                    title={i18n.t('Open menu')}
                     secondary
                     onClick={openMenu}
                     dataTest="dashboarditem-menu-button"
-                    icon={<IconMore24 color={colors.grey700} />}
+                    icon={<IconMore16 color={colors.grey700} />}
                 />
             </div>
             {menuIsOpen && (
@@ -136,10 +127,8 @@ const ItemContextMenu = (props) => {
                                 {(allowVisShowInterpretations ||
                                     (allowVisOpenInApp &&
                                         !isSmallScreen(width)) ||
-                                    fullscreenAllowed) && (
-                                    <span data-testid="divider">
-                                        <Divider />
-                                    </span>
+                                    allowVisFullscreen) && (
+                                    <Divider dataTest="divider" />
                                 )}
                             </>
                         )}
@@ -161,12 +150,12 @@ const ItemContextMenu = (props) => {
                                 onClick={toggleInterpretations}
                             />
                         )}
-                        {fullscreenAllowed && !loadItemFailed && (
+                        {allowVisFullscreen && !loadItemFailed && (
                             <MenuItem
                                 disabledWhenOffline={false}
                                 icon={<IconFullscreen16 />}
                                 label={i18n.t('View fullscreen')}
-                                onClick={toggleFullscreen}
+                                onClick={enterFullscreen}
                             />
                         )}
                     </Menu>
@@ -179,13 +168,12 @@ const ItemContextMenu = (props) => {
 ItemContextMenu.propTypes = {
     activeFooter: PropTypes.bool,
     activeType: PropTypes.string,
-    fullscreenSupported: PropTypes.bool,
+    enterFullscreen: PropTypes.func,
     item: PropTypes.object,
     loadItemFailed: PropTypes.bool,
     visualization: PropTypes.object,
     onSelectActiveType: PropTypes.func,
     onToggleFooter: PropTypes.func,
-    onToggleFullscreen: PropTypes.func,
 }
 
 export default ItemContextMenu

@@ -1,16 +1,15 @@
 {
     "name": "dashboard-app",
-    "version": "100.3.2",
+    "version": "100.4.1",
     "description": "DHIS2 Dashboard app",
     "private": true,
     "license": "BSD-3-Clause",
     "dependencies": {
-        "@dhis2/analytics": "^26.8.2",
-        "@dhis2/app-runtime": "^3.10.6",
+        "@dhis2/analytics": "^26.9.4",
+        "@dhis2/app-runtime": "^3.13.0",
         "@dhis2/app-runtime-adapter-d2": "^1.1.0",
         "@dhis2/d2-i18n": "^1.1.3",
-        "@dhis2/ui": "^9.11.3",
-        "@krakenjs/post-robot": "^11.0.0",
+        "@dhis2/ui": "^10.1.4",
         "classnames": "^2.3.2",
         "d2": "^31.10.0",
         "d2-utilizr": "^0.2.16",
@@ -44,16 +43,17 @@
         "@badeball/cypress-cucumber-preprocessor": "^20.1.0",
         "@bahmutov/cypress-esbuild-preprocessor": "^2.2.1",
         "@cypress/webpack-preprocessor": "^6.0.2",
-        "@dhis2/cli-app-scripts": "^11.7.1",
+        "@dhis2/cli-app-scripts": "^11.8.0",
         "@dhis2/cli-style": "^10.7.3",
         "@dhis2/cypress-commands": "^10.0.6",
         "@dhis2/cypress-plugins": "^10.0.6",
         "@semantic-release/changelog": "^6",
         "@semantic-release/exec": "^6",
         "@semantic-release/git": "^10",
-        "@testing-library/jest-dom": "^6.1.2",
+        "@testing-library/jest-dom": "^6.6.3",
         "@testing-library/react": "^12",
         "cypress": "^13.13.1",
+        "cypress-real-events": "^1.13.0",
         "d2-manifest": "^1.0.0",
         "eslint-plugin-cypress": "^3.3.0",
         "immutability-helper": "^3.1.1",
@@ -61,12 +61,20 @@
         "patch-package": "^7",
         "postinstall-postinstall": "^2.1.0",
         "redux-mock-store": "^1.5.4",
+        "resize-observer-polyfill": "^1.5.1",
         "semantic-release": "^20",
         "start-server-and-test": "^1.14.0"
     },
     "jest": {
         "moduleNameMapper": {
-            "^.+\\.(css|sass|scss)$": "identity-obj-proxy"
-        }
+            "^.+\\.(css|sass|scss)$": "identity-obj-proxy",
+            "@dhis2/app-runtime/experimental": "<rootDir>/node_modules/@dhis2/app-runtime/build/cjs/experimental.js"
+        },
+        "setupFilesAfterEnv": [
+            "<rootDir>/config/testSetup.js"
+        ]
+    },
+    "resolutions": {
+        "@dhis2/ui": "^10.1.4"
     }
 }
