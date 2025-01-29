@@ -70,7 +70,8 @@ export const getAvailableDimensions = ({
         }
         const rect = getGridItemElement(item.id)?.getBoundingClientRect()
 
-        return rect && rect.width - itemContentPadding * 2
+        const width = rect && rect.width - itemContentPadding * 2
+        return `${width}px`
     }
 
     const res = {
