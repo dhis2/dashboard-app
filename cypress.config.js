@@ -30,7 +30,7 @@ module.exports = defineConfig({
     e2e: {
         setupNodeEvents,
         baseUrl: 'http://localhost:3000',
-        specPattern: 'cypress/e2e/*.feature',
+        specPattern: 'cypress/e2e/*.{cy.js,feature}',
         viewportWidth: 1280,
         viewportHeight: 800,
         defaultCommandTimeout: 45000,
