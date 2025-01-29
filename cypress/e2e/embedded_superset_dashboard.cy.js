@@ -111,4 +111,5 @@ describe('Creating, viewing, editing and deleting an embedded superset dashboard
             .and('have.attr', 'src')
             .and('contain', UUID)
     })
+    // it('is possible to ')
 })
