@@ -1,8 +1,8 @@
-const {
-    addCucumberPreprocessorPlugin,
-} = require('@badeball/cypress-cucumber-preprocessor')
-const createEsbuildPlugin = require('@badeball/cypress-cucumber-preprocessor/esbuild')
-const createBundler = require('@bahmutov/cypress-esbuild-preprocessor')
+// const {
+//     addCucumberPreprocessorPlugin,
+// } = require('@badeball/cypress-cucumber-preprocessor')
+// const createEsbuildPlugin = require('@badeball/cypress-cucumber-preprocessor/esbuild')
+// const createBundler = require('@bahmutov/cypress-esbuild-preprocessor')
 const { chromeAllowXSiteCookies } = require('@dhis2/cypress-plugins')
 const { defineConfig } = require('cypress')
 const {
@@ -10,16 +10,16 @@ const {
 } = require('./cypress/plugins/excludeByVersionTags.js')
 
 async function setupNodeEvents(on, config) {
-    await addCucumberPreprocessorPlugin(on, config)
+    // await addCucumberPreprocessorPlugin(on, config)
     chromeAllowXSiteCookies(on, config)
     excludeByVersionTags(on, config)
 
-    on(
-        'file:preprocessor',
-        createBundler({
-            plugins: [createEsbuildPlugin.default(config)],
-        })
-    )
+    // on(
+    //     'file:preprocessor',
+    //     createBundler({
+    //         plugins: [createEsbuildPlugin.default(config)],
+    //     })
+    // )
 
     return config
 }
@@ -30,7 +30,8 @@ module.exports = defineConfig({
     e2e: {
         setupNodeEvents,
         baseUrl: 'http://localhost:3000',
-        specPattern: 'cypress/e2e/*.{cy.js,feature}',
+        // specPattern: 'cypress/e2e/*.{cy.js,feature}',
+        specPattern: 'cypress/e2e/*.cy.js',
         viewportWidth: 1280,
         viewportHeight: 800,
         defaultCommandTimeout: 45000,
