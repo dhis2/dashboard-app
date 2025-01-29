@@ -1,3 +1,10 @@
+## [100.4.2](https://github.com/dhis2/dashboard-app/compare/v100.4.1...v100.4.2) (2025-01-22)
+
+
+### Bug Fixes
+
+* not possible to see more or search for App items when editing dashboard ([#3186](https://github.com/dhis2/dashboard-app/issues/3186)) ([04e73b8](https://github.com/dhis2/dashboard-app/commit/04e73b84314e83d14e2b83a6b3f27e4ed873685e))
+
 ## [100.4.1](https://github.com/dhis2/dashboard-app/compare/v100.4.0...v100.4.1) (2025-01-09)
 
 

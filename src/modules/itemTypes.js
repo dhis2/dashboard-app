@@ -145,6 +145,7 @@ export const itemTypeMap = {
         supportsFullscreen: true,
     },
     [APP]: {
+        id: APP,
         endPointName: 'apps',
         propName: 'appKey',
         pluralTitle: i18n.t('Apps'),

@@ -59,7 +59,7 @@ const ItemSelector = () => {
                 const itemCount = getDefaultItemCount(type)
                 const allItems = items[itemType.endPointName]
                 const hasMore = allItems.length > itemCount
-                const displayItems = maxOptions.has(itemType.id)
+                const displayItems = maxOptions.has(type)
                     ? allItems
                     : allItems.slice(0, itemCount)
 
