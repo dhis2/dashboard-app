@@ -23,8 +23,28 @@ exports[`renders a valid App item in view mode 1`] = `
     </div>
   </div>
   <div
-    class="content"
-  />
+    class="container"
+  >
+    <div
+      class="messageContent"
+    >
+      <svg
+        color="#a0adba"
+        height="24"
+        viewBox="0 0 24 24"
+        width="24"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M12.847 2.794l.056.102 8.416 17.674a1 1 0 01-.786 1.423l-.117.007H3.584a1 1 0 01-.947-1.322l.044-.108 8.416-17.674a1 1 0 011.75-.102zM12 5.65L5.167 19.999h13.665zM12 17a1 1 0 110 2 1 1 0 010-2zm1-7v6h-2v-6z"
+          fill="currentColor"
+        />
+      </svg>
+      <span>
+        There was a problem loading this dashboard item
+      </span>
+    </div>
+  </div>
 </div>
 `;
 
@@ -51,8 +71,28 @@ exports[`renders a valid App item with filter in edit mode 1`] = `
     </div>
   </div>
   <div
-    class="content"
-  />
+    class="container"
+  >
+    <div
+      class="messageContent"
+    >
+      <svg
+        color="#a0adba"
+        height="24"
+        viewBox="0 0 24 24"
+        width="24"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M12.847 2.794l.056.102 8.416 17.674a1 1 0 01-.786 1.423l-.117.007H3.584a1 1 0 01-.947-1.322l.044-.108 8.416-17.674a1 1 0 011.75-.102zM12 5.65L5.167 19.999h13.665zM12 17a1 1 0 110 2 1 1 0 010-2zm1-7v6h-2v-6z"
+          fill="currentColor"
+        />
+      </svg>
+      <span>
+        There was a problem loading this dashboard item
+      </span>
+    </div>
+  </div>
 </div>
 `;
 
@@ -79,8 +119,28 @@ exports[`renders a valid App item with filter in view mode 1`] = `
     </div>
   </div>
   <div
-    class="content"
-  />
+    class="container"
+  >
+    <div
+      class="messageContent"
+    >
+      <svg
+        color="#a0adba"
+        height="24"
+        viewBox="0 0 24 24"
+        width="24"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M12.847 2.794l.056.102 8.416 17.674a1 1 0 01-.786 1.423l-.117.007H3.584a1 1 0 01-.947-1.322l.044-.108 8.416-17.674a1 1 0 011.75-.102zM12 5.65L5.167 19.999h13.665zM12 17a1 1 0 110 2 1 1 0 010-2zm1-7v6h-2v-6z"
+          fill="currentColor"
+        />
+      </svg>
+      <span>
+        There was a problem loading this dashboard item
+      </span>
+    </div>
+  </div>
 </div>
 `;
 
@@ -108,7 +168,12 @@ exports[`renders a valid App item with title in edit mode irrespective of app se
   </div>
   <div
     class="content"
-  />
+  >
+    <iframe
+      src="launchurl?dashboardItemId=twilightsparkle"
+      title="No Title"
+    />
+  </div>
 </div>
 `;
 
@@ -126,7 +191,12 @@ exports[`renders a valid App item without title in view mode if specified in app
   </div>
   <div
     class="content hiddenTitle"
-  />
+  >
+    <iframe
+      src="launchurl?dashboardItemId=twilightsparkle"
+      title="No Title"
+    />
+  </div>
 </div>
 `;
 
@@ -146,7 +216,12 @@ exports[`renders a valid legacy widget item 1`] = `
   </div>
   <div
     class="content"
-  />
+  >
+    <iframe
+      src="launchurl?dashboardItemId=applejack"
+      title="Scorecard"
+    />
+  </div>
 </div>
 `;
 
@@ -166,7 +241,12 @@ exports[`renders a valid legacy widget item when in slideshow 1`] = `
   </div>
   <div
     class="content"
-  />
+  >
+    <iframe
+      src="launchurl?dashboardItemId=applejack"
+      title="Scorecard"
+    />
+  </div>
 </div>
 `;
 
