@@ -4,7 +4,7 @@ import i18n from '@dhis2/d2-i18n'
 import { Button, Cover, IconInfo24, colors } from '@dhis2/ui'
 import uniqueId from 'lodash/uniqueId.js'
 import PropTypes from 'prop-types'
-import React, { useCallback, useMemo } from 'react'
+import React, { useEffect, useMemo, useState } from 'react'
 import { useSelector } from 'react-redux'
 import {
     isDVVersionCompatible,
@@ -54,6 +54,7 @@ const Visualization = ({
         mapsAppVersion,
         apps,
     } = useCachedDataQuery()
+    const [filterVersion, setFilterVersion] = useState(null)
 
     const visualizationConfig = useMemo(() => {
         if (originalType === EVENT_VISUALIZATION) {
@@ -66,7 +67,9 @@ const Visualization = ({
         )
     }, [visualization, activeType, originalType, itemFilters])
 
-    const filterVersion = useCallback(() => uniqueId(), [])
+    useEffect(() => {
+        setFilterVersion(uniqueId())
+    }, [itemFilters])
 
     const iFramePluginProps = useMemo(
         () => ({
@@ -201,7 +204,7 @@ const Visualization = ({
                     item={item}
                     activeType={activeType}
                     visualization={visualizationConfig}
-                    filterVersion={filterVersion()}
+                    filterVersion={filterVersion}
                     style={style}
                     gridWidth={gridWidth}
                     {...rest}
