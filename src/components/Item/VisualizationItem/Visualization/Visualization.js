@@ -2,9 +2,8 @@ import { useCachedDataQuery } from '@dhis2/analytics'
 import { useDhis2ConnectionStatus } from '@dhis2/app-runtime'
 import i18n from '@dhis2/d2-i18n'
 import { Button, Cover, IconInfo24, colors } from '@dhis2/ui'
-import uniqueId from 'lodash/uniqueId.js'
 import PropTypes from 'prop-types'
-import React, { useCallback, useMemo } from 'react'
+import React, { useMemo } from 'react'
 import { useSelector } from 'react-redux'
 import {
     isDVVersionCompatible,
@@ -65,8 +64,6 @@ const Visualization = ({
             itemFilters
         )
     }, [visualization, activeType, originalType, itemFilters])
-
-    const filterVersion = useCallback(() => uniqueId(), [])
 
     const iFramePluginProps = useMemo(
         () => ({
@@ -201,7 +198,6 @@ const Visualization = ({
                     item={item}
                     activeType={activeType}
                     visualization={visualizationConfig}
-                    filterVersion={filterVersion()}
                     style={style}
                     gridWidth={gridWidth}
                     {...rest}
