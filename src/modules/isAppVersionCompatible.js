@@ -1,4 +1,4 @@
-// TODO handle plugin version matrix in a better way
+// TODO update minDVVersion, minLLVersion, minMapsVersion when finalized
 export const minDVVersion = [100, 9, 1]
 export const minLLVersion = [101, 1, 14]
 export const minMapsVersion = [100, 7, 11]

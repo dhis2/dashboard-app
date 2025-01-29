@@ -156,8 +156,8 @@ const Visualization = ({
             )
         }
         case MAP: {
-            return isMapsVersionCompatible(mapsAppVersion) ? (
-                offline && mapHasEELayer(visualizationConfig) ? (
+            const getMapComponent = () => {
+                return offline && mapHasEELayer(visualizationConfig) ? (
                     <div style={style}>
                         <Cover>
                             <div className={classes.messageContent}>
@@ -176,6 +176,10 @@ const Visualization = ({
                         {...iFramePluginProps}
                     />
                 )
+            }
+
+            return isMapsVersionCompatible(mapsAppVersion) ? (
+                getMapComponent()
             ) : (
                 <PluginWarningMessage
                     style={style}
