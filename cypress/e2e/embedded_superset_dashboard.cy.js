@@ -1,9 +1,14 @@
-import { isFeature } from '@badeball/cypress-cucumber-preprocessor'
 import { newButtonSel } from '../elements/viewDashboard.js'
 import { EXTENDED_TIMEOUT } from '../support/utils.js'
 
 const SUPERSET_BASE_URL = 'https://superset-test.dhis2.org'
+const NAME = 'My new dashboard'
+const NAME_UPDATED = 'My updated dashboard'
+const CODE = 'MY_CODE'
+const DESCRIPTION = 'My dashboard description text'
+const DESCRIPTION_UPATED = 'My updated dashboard description'
 const UUID = '2e5ae28f-60d1-4fb9-a609-5bd4586bf4ac'
+const UUID_UPDATED = '418b4581-3c2a-43a9-8561-9725eadcaffd'
 const SUPERSET_DASHBOARD_STUB = `
 <!DOCTYPE html>
 <html lang="en">
@@ -21,13 +26,15 @@ const getInputByLabelText = (labelText, inputTag = 'input') =>
     cy.get('form').contains('label', labelText).parent().find(inputTag)
 
 describe('Creating, viewing, editing and deleting an embedded superset dashboard', function () {
-    before(function () {
+    before(() => {
         // Skip this test if the DHIS2 Core version is below 42
         const version = parseInt(Cypress.env('dhis2InstanceVersion'))
         if (version < 42) {
             this.skip()
         }
+    })
 
+    beforeEach(function () {
         // Fake support for embedded dashboards by intercepting the requests below
         cy.intercept('**', (req) => {
             if (req.url.includes('/systemSettings?')) {
@@ -64,7 +71,7 @@ describe('Creating, viewing, editing and deleting an embedded superset dashboard
         })
     })
 
-    it('is possible to create an embedded superset dashboard', () => {
+    it('creates an embedded superset dashboard', () => {
         // Start a new dashboard from the start page
         cy.visit('#/start')
 
@@ -83,33 +90,121 @@ describe('Creating, viewing, editing and deleting an embedded superset dashboard
             'New dashboard: configure external source (superset)'
         ).should('be.visible')
 
-        // All text fields are empty and both checkboxes are checked
-        getInputByLabelText('Title').should('have.value', '')
-        getInputByLabelText('Code').should('have.value', '')
-        getInputByLabelText('Description', 'textarea').should('have.value', '')
-        getInputByLabelText('Superset Embed ID').should('have.value', '')
-        getInputByLabelText('Show chart controls on dashboard items').should(
-            'have.prop',
-            'checked'
-        )
-        getInputByLabelText('Show filters').should('have.prop', 'checked')
-
-        // Fill in the title and superset ID fields
-        getInputByLabelText('Title').type('My new dashboard ')
-        // getInputByLabelText('Code').type('MY_CODE')
-        getInputByLabelText('Description', 'textarea').type(
-            'My dashboard description'
-        )
-        getInputByLabelText('Superset Embed ID').type(UUID)
+        // Check all initial values and change them
+        getInputByLabelText('Title').should('have.value', '').type(NAME)
+        getInputByLabelText('Code').should('have.value', '').type(CODE)
+        getInputByLabelText('Description', 'textarea')
+            .should('have.value', '')
+            .type(DESCRIPTION)
+        getInputByLabelText('Superset Embed ID')
+            .should('have.value', '')
+            .type(UUID)
+        getInputByLabelText('Show chart controls on dashboard items')
+            .should('be.checked')
+            .uncheck()
+        getInputByLabelText('Show filters').should('be.checked').uncheck()
 
         // Click the create button
         cy.contains('Save dashboard').should('be.enabled').click()
 
+        cy.contains('h3', NAME).should('be.visible')
+        cy.contains('External data').should('be.visible')
         // An iframe should be visible with the UUID in the src
         cy.get('iframe')
             .should('be.visible')
             .and('have.attr', 'src')
             .and('contain', UUID)
     })
-    // it('is possible to ')
+
+    it('has some options disabled in the action-bar', () => {
+        // Primary actions
+        cy.contains('button', 'Slideshow').should('be.disabled')
+        cy.contains('button', 'Filter').should('be.disabled')
+        // Actions in the more-menu
+        cy.getByDataTest('more-actions-button').should('be.enabled').click()
+        cy.contains('a', 'Make available offline').should(
+            'have.attr',
+            'aria-disabled',
+            'true'
+        )
+        cy.contains('a', 'Print')
+            .should('have.attr', 'aria-disabled', 'true')
+            .and('have.attr', 'aria-expanded', 'false')
+        // Close the menu by clicking the backdrop
+        cy.get('.backdrop').should('be.visible').click()
+    })
+
+    it('shows the description', () => {
+        cy.getByDataTest('more-actions-button').should('be.enabled').click()
+        cy.contains('a', 'Show description').should('be.visible').click()
+        cy.contains(DESCRIPTION).should('be.visible')
+        // Keep visible so we can check it updates correctly later on
+    })
+
+    it('stars and unstars the superset embedded dashboard', () => {
+        // Can be starred via menu bar
+        cy.getByDataTest('dashboard-unstarred').click()
+        cy.getByDataTest('dashboard-starred').should('be.visible')
+        // And unstarred via ...menu
+        cy.getByDataTest('more-actions-button').should('be.enabled').click()
+        cy.contains('a', 'Unstar dashboard').should('be.visible').click()
+        cy.getByDataTest('dashboard-unstarred').should('be.visible')
+    })
+
+    it('can share the superset embedded dashboard', () => {
+        cy.contains('button', 'Share').should('be.enabled').click()
+        cy.contains('h1', `Sharing and access: ${NAME}`).should('be.visible')
+        // We don't test the actual sharing, just if the sharing modal pops up
+        cy.contains('button', 'Close').should('be.enabled').click()
+    })
+
+    it('edits the superset embedded dashboard', () => {
+        cy.contains('button', 'Edit').should('be.enabled').click()
+        cy.contains('Edit external dashboard').should('be.visible')
+        // Check all initial values are as when created and change some of them
+        getInputByLabelText('Title')
+            .should('have.value', NAME)
+            .clear()
+            .type(NAME_UPDATED)
+        getInputByLabelText('Code').should('have.value', CODE)
+        getInputByLabelText('Description', 'textarea')
+            .should('have.value', DESCRIPTION)
+            .clear()
+            .type(DESCRIPTION_UPATED)
+        getInputByLabelText('Superset Embed ID')
+            .should('have.value', UUID)
+            .clear()
+            .type(UUID_UPDATED)
+        getInputByLabelText('Show chart controls on dashboard items').should(
+            'not.be.checked'
+        )
+        getInputByLabelText('Show filters').should('not.be.checked')
+
+        // Click the update button
+        cy.contains('Update dashboard').should('be.enabled').click()
+
+        cy.contains('h3', NAME_UPDATED).should('be.visible')
+        cy.contains('External data').should('be.visible')
+        cy.contains(DESCRIPTION_UPATED).should('be.visible')
+        // An iframe should be visible with the UUID in the src
+        cy.get('iframe')
+            .should('be.visible')
+            .and('have.attr', 'src')
+            .and('contain', UUID_UPDATED)
+    })
+
+    it('hides the description', () => {
+        cy.getByDataTest('more-actions-button').should('be.enabled').click()
+        cy.contains('a', 'Hide description').should('be.visible').click()
+        cy.contains(DESCRIPTION_UPATED).should('not.exist')
+    })
+
+    it('deletes the new superset embedded dashboard', () => {
+        cy.contains('Edit').should('be.enabled').click()
+        cy.contains('Edit external dashboard').should('be.visible')
+        cy.contains('Delete').should('be.enabled').click()
+        cy.contains('Delete dashboard').should('be.visible')
+        cy.contains('button', 'Delete').should('be.enabled').click()
+        cy.url().should('satisfy', (href) => href.endsWith('/#/'))
+    })
 })
