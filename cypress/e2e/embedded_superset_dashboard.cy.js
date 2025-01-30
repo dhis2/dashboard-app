@@ -26,7 +26,7 @@ const getInputByLabelText = (labelText, inputTag = 'input') =>
     cy.get('form').contains('label', labelText).parent().find(inputTag)
 
 describe('Creating, viewing, editing and deleting an embedded superset dashboard', function () {
-    before(() => {
+    before(function () {
         // Skip this test if the DHIS2 Core version is below 42
         const version = parseInt(Cypress.env('dhis2InstanceVersion'))
         if (version < 42) {
@@ -34,7 +34,7 @@ describe('Creating, viewing, editing and deleting an embedded superset dashboard
         }
     })
 
-    beforeEach(function () {
+    beforeEach(() => {
         // Fake support for embedded dashboards by intercepting the requests below
         cy.intercept('**', (req) => {
             if (req.url.includes('/systemSettings?')) {
