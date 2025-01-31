@@ -64,19 +64,6 @@ class Item extends Component {
     }
 
     async componentDidMount() {
-        // Avoid refetching the visualization already in the Redux store
-        // when the same dashboard item is added again.
-        // This also solves a flashing of all the "duplicated" dashboard items.
-        !this.props.visualization.id &&
-            this.props.setVisualization(
-                await apiFetchVisualization(this.props.item)
-            )
-
-        // force fetch when recording to allow caching of the visualizations request
-        if (this.props.isRecording) {
-            apiFetchVisualization(this.props.item)
-        }
-
         try {
             // Avoid refetching the visualization already in the Redux store
             // when the same dashboard item is added again.
@@ -85,6 +72,11 @@ class Item extends Component {
                 this.props.setVisualization(
                     await apiFetchVisualization(this.props.item)
                 )
+
+            // force fetch when recording to allow caching of the visualizations request
+            if (this.props.isRecording) {
+                apiFetchVisualization(this.props.item)
+            }
 
             if (
                 this.props.settings
