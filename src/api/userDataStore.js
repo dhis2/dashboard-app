@@ -1,34 +1,57 @@
-import { getInstance } from 'd2'
-
 export const NAMESPACE = 'dashboard'
 
-export const hasDashboardNamespace = async (d2) =>
-    await d2.currentUser.dataStore.has(NAMESPACE)
+const hasDashboardNamespace = async (engine) => {
+    const userDataStore = await engine.query({
+        userDataStore: {
+            resource: 'userDataStore',
+        },
+    })
 
-const getNamespace = async (d2) => {
-    const hasNamespace = await hasDashboardNamespace(d2)
-
-    return hasNamespace
-        ? await d2.currentUser.dataStore.get(NAMESPACE)
-        : await d2.currentUser.dataStore.create(NAMESPACE)
+    return userDataStore?.userDataStore?.find((ns) => ns === NAMESPACE)
 }
 
-export const apiPostUserDataStoreValue = async (key, value) => {
-    const d2 = await getInstance()
-    const ns = await getNamespace(d2)
+const getNamespace = async (engine) => {
+    const hasNamespace = await hasDashboardNamespace(engine)
 
-    return ns.set(key, value)
+    if (hasNamespace) {
+        return await engine.query({
+            dashboard: {
+                resource: `userDataStore/${NAMESPACE}`,
+            },
+        })
+    } else {
+        return await engine.mutate({
+            resource: `userDataStore/${NAMESPACE}`,
+            type: 'create',
+            data: {},
+        })
+    }
 }
 
-export const apiGetUserDataStoreValue = async (key, defaultValue) => {
-    const d2 = await getInstance()
-    const ns = await getNamespace(d2)
-    const hasKey = ns?.keys?.find((k) => k === key)
+export const apiPostUserDataStoreValue = async (key, value, engine) => {
+    await getNamespace(engine)
+
+    return await engine.mutate({
+        resource: `userDataStore/${NAMESPACE}/${key}`,
+        type: 'update',
+        data: value,
+    })
+}
+
+export const apiGetUserDataStoreValue = async (key, defaultValue, engine) => {
+    const ns = await getNamespace(engine)
+    const nsKeys = ns[NAMESPACE]
+
+    const hasKey = nsKeys?.find((k) => k === key)
 
     if (hasKey) {
-        return await ns.get(key)
+        return await engine.query({
+            [key]: {
+                resource: `userDataStore/${NAMESPACE}/${key}`,
+            },
+        })
     } else {
-        await apiPostUserDataStoreValue(key, defaultValue, ns)
+        await apiPostUserDataStoreValue(key, defaultValue, engine)
         console.log('(These errors to /userDataStore can be ignored)')
         return defaultValue
     }

@@ -1,5 +1,5 @@
 import { OfflineTooltip } from '@dhis2/analytics'
-import { useDhis2ConnectionStatus } from '@dhis2/app-runtime'
+import { useDataEngine, useDhis2ConnectionStatus } from '@dhis2/app-runtime'
 import i18n from '@dhis2/d2-i18n'
 import {
     Button,
@@ -46,6 +46,7 @@ const ActionsBar = ({
     dashboardItems,
 }) => {
     const history = useHistory()
+    const engine = useDataEngine()
     const [moreOptionsIsOpen, setMoreOptionsIsOpen] = useState(false)
     const [sharingDialogIsOpen, setSharingDialogIsOpen] = useState(false)
     const [confirmCacheDialogIsOpen, setConfirmCacheDialogIsOpen] =
@@ -90,8 +91,8 @@ const ActionsBar = ({
     const onToggleShowDescription = useCallback(() => {
         updateShowDescription(!showDescription)
         setMoreOptionsIsOpen(false)
-        !offline && apiPostShowDescription(!showDescription)
-    }, [offline, showDescription, updateShowDescription])
+        !offline && apiPostShowDescription(!showDescription, engine)
+    }, [offline, showDescription, updateShowDescription, engine])
 
     const onToggleSharingDialog = useCallback(
         () => setSharingDialogIsOpen(!sharingDialogIsOpen),
