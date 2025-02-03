@@ -8,7 +8,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2024-08-27T07:26:05.058Z\n"
+"POT-Creation-Date: 2024-12-19T11:30:27.893Z\n"
 "PO-Revision-Date: 2019-06-25 12:37+0000\n"
 "Last-Translator: easylin <lin_xd@126.com>, 2024\n"
 "Language-Team: Chinese (https://app.transifex.com/hisp-uio/teams/100509/zh/)\n"
@@ -21,20 +21,115 @@ msgstr ""
 msgid "Untitled dashboard"
 msgstr "未命名的仪表盘"
 
-msgid "Cannot create a dashboard while offline"
-msgstr "离线时无法创建仪表盘"
+msgid "Dashboards"
+msgstr ""
 
-msgid "Create new dashboard"
-msgstr "创建新仪表盘"
+msgid "The dashboard couldn't be made available offline. Try again."
+msgstr "仪表盘无法离线使用。再试一次。"
+
+msgid "Remove from offline storage"
+msgstr "从离线存储中删除"
+
+msgid "Make available offline"
+msgstr "离线使用"
+
+msgid "Sync offline data now"
+msgstr "立即同步离线数据"
+
+msgid "Unstar dashboard"
+msgstr "取消星标仪表盘"
+
+msgid "Star dashboard"
+msgstr "标星仪表板"
+
+msgid "Hide description"
+msgstr "隐藏说明"
+
+msgid "Show description"
+msgstr "显示说明"
+
+msgid "Print"
+msgstr "打印"
+
+msgid "Dashboard layout"
+msgstr "仪表盘布局"
+
+msgid "One item per page"
+msgstr "每页一项"
+
+msgid "Close dashboard"
+msgstr "关闭仪表盘"
+
+msgid "No dashboard items to show in slideshow"
+msgstr ""
+
+msgid "Not available offline"
+msgstr "离线不可用"
+
+msgid "Edit"
+msgstr "编辑"
+
+msgid "Share"
+msgstr "分享"
+
+msgid "Slideshow"
+msgstr ""
+
+msgid "Clear dashboard filters?"
+msgstr "清除仪表板过滤器？"
+
+msgid ""
+"A dashboard's filters can’t be saved offline. Do you want to remove the "
+"filters and make this dashboard available offline?"
+msgstr "仪表板的过滤器无法离线保存。是否要删除过滤器并使此仪表板脱机可用？"
+
+msgid "No, cancel"
+msgstr "不，取消"
+
+msgid "Yes, clear filters and sync"
+msgstr "是的，清除过滤器并同步"
+
+msgid "Cancel"
+msgstr "取消"
+
+msgid "Confirm"
+msgstr "确认"
+
+msgid "Filter"
+msgstr ""
+
+msgid "Failed to unstar the dashboard"
+msgstr "无法取消仪表板的星标"
+
+msgid "Failed to star the dashboard"
+msgstr "无法为仪表板加注星标"
+
+msgid "Offline data last updated {{timeAgo}}"
+msgstr ""
+
+msgid "Synced {{timeAgo}}"
+msgstr ""
+
+msgid "Cannot unstar this dashboard while offline"
+msgstr "离线时无法取消此仪表板的星标"
+
+msgid "Cannot star this dashboard while offline"
+msgstr "离线时无法为该仪表板加注星标"
+
+msgid "No dashboards available."
+msgstr ""
+
+msgid "Create a new dashboard using the + button."
+msgstr ""
 
 msgid "Search for a dashboard"
 msgstr "搜索仪表盘"
 
-msgid "Show fewer dashboards"
-msgstr "显示更少的仪表盘"
+msgid "No dashboards found"
+msgstr ""
 
-msgid "Show more dashboards"
-msgstr "显示更多仪表盘"
+msgid "{{appKey}} app not found"
+msgstr ""
 
 msgid "Remove this item"
 msgstr "删除该条目"
@@ -96,6 +191,9 @@ msgstr "隐藏细节和解释"
 
 msgid "Show details and interpretations"
 msgstr "显示细节和解释"
+
+msgid "Open menu"
+msgstr ""
 
 msgid "Open in {{appName}} app"
 msgstr "在{{appName}} 应用中打开"
@@ -160,8 +258,11 @@ msgstr "加载此项目的数据时出错"
 msgid "Open this item in {{appName}}"
 msgstr "在 {{appName}} 中打开此条目"
 
-msgid "Not available offline"
-msgstr "离线不可用"
+msgid "Resources"
+msgstr "资源管理"
+
+msgid "Reports"
+msgstr "报表管理"
 
 msgid "Visualizations"
 msgstr "可视化应用"
@@ -186,12 +287,6 @@ msgstr "行列表应用"
 
 msgid "Apps"
 msgstr "应用商店"
-
-msgid "Reports"
-msgstr "报表管理"
-
-msgid "Resources"
-msgstr "资源管理"
 
 msgid "Users"
 msgstr "用户管理"
@@ -250,9 +345,6 @@ msgid ""
 "this dashboard?"
 msgstr "删除仪表盘 \"{{ dashboardName }}\" 将从所有用户仪表盘中移除。该操作不能撤销，你确信要永久删除该仪表盘条目？"
 
-msgid "Cancel"
-msgstr "取消"
-
 msgid "Discard changes"
 msgstr "忽略修改"
 
@@ -304,9 +396,6 @@ msgstr "可用过滤器"
 msgid "Selected Filters"
 msgstr "选定的过滤器"
 
-msgid "Confirm"
-msgstr "确认"
-
 msgid "There are no items on this dashboard"
 msgstr "该仪表盘没有条目"
 
@@ -333,9 +422,6 @@ msgstr "离线时无法搜索仪表盘项目"
 
 msgid "Additional items"
 msgstr "其它条目"
-
-msgid "Dashboard layout"
-msgstr "仪表盘布局"
 
 msgid "Freeflow"
 msgstr "自由布局"
@@ -399,9 +485,6 @@ msgstr "仪表板结束"
 msgid "Start of dashboard"
 msgstr "仪表板的开始"
 
-msgid "Print"
-msgstr "打印"
-
 msgid "dashboard layout"
 msgstr "仪表板布局"
 
@@ -448,12 +531,18 @@ msgstr "没有发现仪表盘，使用+按钮创建新的仪表盘"
 msgid "Requested dashboard not found"
 msgstr "请求的仪表盘没有找到"
 
+msgid "No description"
+msgstr "没有描述"
+
 msgid "{{count}} selected"
 msgid_plural "{{count}} selected"
 msgstr[0] "{{count}} 个被选择"
 
-msgid "Cannot remove filters while offline"
-msgstr "离线时无法删除过滤器"
+msgid "Cannot edit filters while offline"
+msgstr ""
+
+msgid "Cannot edit filters on a small screen"
+msgstr ""
 
 msgid "Removing filters while offline"
 msgstr "离线时删除过滤器"
@@ -463,88 +552,36 @@ msgid ""
 "want to remove all filters on this dashboard?"
 msgstr "离线时删除此过滤器将删除所有其他过滤器。您要删除此仪表板上的所有过滤器吗？"
 
-msgid "No, cancel"
-msgstr "不，取消"
-
 msgid "Yes, remove filters"
 msgstr "是的，删除过滤器"
 
-msgid "The dashboard couldn't be made available offline. Try again."
-msgstr "仪表盘无法离线使用。再试一次。"
+msgid "Exit slideshow"
+msgstr ""
 
-msgid "Failed to unstar the dashboard"
-msgstr "无法取消仪表板的星标"
+msgid "Previous item"
+msgstr ""
 
-msgid "Failed to star the dashboard"
-msgstr "无法为仪表板加注星标"
+msgid "Next item"
+msgstr ""
 
-msgid "Remove from offline storage"
-msgstr "从离线存储中删除"
+msgid "{{name}}: {{filter}}"
+msgstr ""
 
-msgid "Make available offline"
-msgstr "离线使用"
-
-msgid "Sync offline data now"
-msgstr "立即同步离线数据"
-
-msgid "Unstar dashboard"
-msgstr "取消星标仪表盘"
-
-msgid "Star dashboard"
-msgstr "标星仪表板"
-
-msgid "Hide description"
-msgstr "隐藏说明"
-
-msgid "Show description"
-msgstr "显示说明"
-
-msgid "One item per page"
-msgstr "每页一项"
-
-msgid "Close dashboard"
-msgstr "关闭仪表盘"
-
-msgid "More"
-msgstr "更多"
-
-msgid "Edit"
-msgstr "编辑"
-
-msgid "Share"
-msgstr "分享"
-
-msgid "Clear dashboard filters?"
-msgstr "清除仪表板过滤器？"
-
-msgid ""
-"A dashboard's filters can’t be saved offline. Do you want to remove the "
-"filters and make this dashboard available offline?"
-msgstr "仪表板的过滤器无法离线保存。是否要删除过滤器并使此仪表板脱机可用？"
-
-msgid "Yes, clear filters and sync"
-msgstr "是的，清除过滤器并同步"
-
-msgid "No description"
-msgstr "没有描述"
-
-msgid "Add filter"
-msgstr "添加过滤器"
-
-msgid "Offline data last updated {{time}}"
-msgstr "离线数据最后更新时间 {{time}}"
-
-msgid "Cannot unstar this dashboard while offline"
-msgstr "离线时无法取消此仪表板的星标"
-
-msgid "Cannot star this dashboard while offline"
-msgstr "离线时无法为该仪表板加注星标"
+msgid "{{count}} filters active"
+msgid_plural "{{count}} filters active"
+msgstr[0] ""
 
 msgid "Loading dashboard – {{name}}"
 msgstr "加载仪表盘-{{name}}"
 
 msgid "Loading dashboard"
 msgstr "加载仪表板"
+
+msgid "Load dashboard failed"
+msgstr "加载仪表板失败"
+
+msgid "This dashboard could not be loaded. Please try again later."
+msgstr "无法加载此仪表板。请稍后再试。"
 
 msgid "Offline"
 msgstr "离线"
@@ -554,9 +591,3 @@ msgstr "离线时无法加载此仪表板。"
 
 msgid "Go to start page"
 msgstr "转到起始页"
-
-msgid "Load dashboard failed"
-msgstr "加载仪表板失败"
-
-msgid "This dashboard could not be loaded. Please try again later."
-msgstr "无法加载此仪表板。请稍后再试。"

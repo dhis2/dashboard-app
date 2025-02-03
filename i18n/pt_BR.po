@@ -7,7 +7,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2023-05-03T11:08:21.315Z\n"
+"POT-Creation-Date: 2024-12-19T11:30:27.893Z\n"
 "PO-Revision-Date: 2019-06-25 12:37+0000\n"
 "Last-Translator: Thiago Rocha, 2024\n"
 "Language-Team: Portuguese (Brazil) (https://app.transifex.com/hisp-uio/teams/100509/pt_BR/)\n"
@@ -20,19 +20,114 @@ msgstr ""
 msgid "Untitled dashboard"
 msgstr ""
 
-msgid "Cannot create a dashboard while offline"
+msgid "Dashboards"
 msgstr ""
 
-msgid "Create new dashboard"
+msgid "The dashboard couldn't be made available offline. Try again."
+msgstr ""
+
+msgid "Remove from offline storage"
+msgstr ""
+
+msgid "Make available offline"
+msgstr ""
+
+msgid "Sync offline data now"
+msgstr ""
+
+msgid "Unstar dashboard"
+msgstr ""
+
+msgid "Star dashboard"
+msgstr ""
+
+msgid "Hide description"
+msgstr ""
+
+msgid "Show description"
+msgstr ""
+
+msgid "Print"
+msgstr "Imprimir"
+
+msgid "Dashboard layout"
+msgstr ""
+
+msgid "One item per page"
+msgstr ""
+
+msgid "Close dashboard"
+msgstr ""
+
+msgid "No dashboard items to show in slideshow"
+msgstr ""
+
+msgid "Not available offline"
+msgstr ""
+
+msgid "Edit"
+msgstr "Editar"
+
+msgid "Share"
+msgstr "Partilhar"
+
+msgid "Slideshow"
+msgstr ""
+
+msgid "Clear dashboard filters?"
+msgstr ""
+
+msgid ""
+"A dashboard's filters can’t be saved offline. Do you want to remove the "
+"filters and make this dashboard available offline?"
+msgstr ""
+
+msgid "No, cancel"
+msgstr "Não, cancelar"
+
+msgid "Yes, clear filters and sync"
+msgstr ""
+
+msgid "Cancel"
+msgstr "Cancelar"
+
+msgid "Confirm"
+msgstr "Confirmar"
+
+msgid "Filter"
+msgstr ""
+
+msgid "Failed to unstar the dashboard"
+msgstr ""
+
+msgid "Failed to star the dashboard"
+msgstr ""
+
+msgid "Offline data last updated {{timeAgo}}"
+msgstr ""
+
+msgid "Synced {{timeAgo}}"
+msgstr ""
+
+msgid "Cannot unstar this dashboard while offline"
+msgstr ""
+
+msgid "Cannot star this dashboard while offline"
+msgstr ""
+
+msgid "No dashboards available."
+msgstr ""
+
+msgid "Create a new dashboard using the + button."
 msgstr ""
 
 msgid "Search for a dashboard"
 msgstr ""
 
-msgid "Show fewer dashboards"
+msgid "No dashboards found"
 msgstr ""
 
-msgid "Show more dashboards"
+msgid "{{appKey}} app not found"
 msgstr ""
 
 msgid "Remove this item"
@@ -66,16 +161,25 @@ msgid ""
 "Use a spacer to create empty vertical space between other dashboard items."
 msgstr ""
 
-msgid "Text item"
+msgid "Text box"
 msgstr ""
 
 msgid "Add text here"
+msgstr ""
+
+msgid "Back to all interpretations"
 msgstr ""
 
 msgid "Filters are not applied to line list dashboard items"
 msgstr ""
 
 msgid "Filters not applied"
+msgstr ""
+
+msgid "Only Period and Organisation unit filters can be applied to this item"
+msgstr ""
+
+msgid "Some filters not applied"
 msgstr ""
 
 msgid "There was a problem loading this dashboard item"
@@ -87,6 +191,9 @@ msgstr ""
 msgid "Show details and interpretations"
 msgstr ""
 
+msgid "Open menu"
+msgstr ""
+
 msgid "Open in {{appName}} app"
 msgstr ""
 
@@ -96,13 +203,19 @@ msgstr ""
 msgid "This map can't be displayed as a chart"
 msgstr ""
 
+msgid "This map can't be displayed as a pivot table"
+msgstr ""
+
+msgid "This visualization can't be displayed as a pivot table"
+msgstr ""
+
+msgid "This visualization can't be displayed as a map"
+msgstr ""
+
 msgid "View as Chart"
 msgstr ""
 
-msgid "This map can't be displayed as a table"
-msgstr ""
-
-msgid "View as Table"
+msgid "View as Pivot table"
 msgstr ""
 
 msgid "View as Map"
@@ -141,8 +254,11 @@ msgstr ""
 msgid "Open this item in {{appName}}"
 msgstr ""
 
-msgid "Not available offline"
+msgid "Resources"
 msgstr ""
+
+msgid "Reports"
+msgstr "Relatórios"
 
 msgid "Visualizations"
 msgstr ""
@@ -167,12 +283,6 @@ msgstr ""
 
 msgid "Apps"
 msgstr "Aplicações"
-
-msgid "Reports"
-msgstr "Relatórios"
-
-msgid "Resources"
-msgstr ""
 
 msgid "Users"
 msgstr "Utilizadores"
@@ -231,9 +341,6 @@ msgid ""
 "this dashboard?"
 msgstr ""
 
-msgid "Cancel"
-msgstr "Cancelar"
-
 msgid "Discard changes"
 msgstr ""
 
@@ -281,9 +388,6 @@ msgstr ""
 msgid "Selected Filters"
 msgstr ""
 
-msgid "Confirm"
-msgstr "Confirmar"
-
 msgid "There are no items on this dashboard"
 msgstr ""
 
@@ -291,6 +395,9 @@ msgid "Show fewer"
 msgstr ""
 
 msgid "Show more"
+msgstr ""
+
+msgid "Open visualization in new tab"
 msgstr ""
 
 msgid "Insert"
@@ -306,12 +413,6 @@ msgid "Cannot search for dashboard items while offline"
 msgstr ""
 
 msgid "Additional items"
-msgstr ""
-
-msgid "Text box"
-msgstr ""
-
-msgid "Dashboard layout"
 msgstr ""
 
 msgid "Freeflow"
@@ -378,9 +479,6 @@ msgstr ""
 msgid "Start of dashboard"
 msgstr ""
 
-msgid "Print"
-msgstr "Imprimir"
-
 msgid "dashboard layout"
 msgstr ""
 
@@ -427,13 +525,19 @@ msgstr ""
 msgid "Requested dashboard not found"
 msgstr ""
 
+msgid "No description"
+msgstr ""
+
 msgid "{{count}} selected"
 msgid_plural "{{count}} selected"
 msgstr[0] ""
 msgstr[1] ""
 msgstr[2] ""
 
-msgid "Cannot remove filters while offline"
+msgid "Cannot edit filters while offline"
+msgstr ""
+
+msgid "Cannot edit filters on a small screen"
 msgstr ""
 
 msgid "Removing filters while offline"
@@ -444,87 +548,37 @@ msgid ""
 "want to remove all filters on this dashboard?"
 msgstr ""
 
-msgid "No, cancel"
-msgstr "Não, cancelar"
-
 msgid "Yes, remove filters"
 msgstr ""
 
-msgid "The dashboard couldn't be made available offline. Try again."
+msgid "Exit slideshow"
 msgstr ""
 
-msgid "Failed to unstar the dashboard"
+msgid "Previous item"
 msgstr ""
 
-msgid "Failed to star the dashboard"
+msgid "Next item"
 msgstr ""
 
-msgid "Remove from offline storage"
+msgid "{{name}}: {{filter}}"
 msgstr ""
 
-msgid "Make available offline"
-msgstr ""
-
-msgid "Sync offline data now"
-msgstr ""
-
-msgid "Unstar dashboard"
-msgstr ""
-
-msgid "Star dashboard"
-msgstr ""
-
-msgid "Hide description"
-msgstr ""
-
-msgid "Show description"
-msgstr ""
-
-msgid "One item per page"
-msgstr ""
-
-msgid "Close dashboard"
-msgstr ""
-
-msgid "More"
-msgstr "Mais"
-
-msgid "Edit"
-msgstr "Editar"
-
-msgid "Share"
-msgstr "Partilhar"
-
-msgid "Clear dashboard filters?"
-msgstr ""
-
-msgid ""
-"A dashboard's filters can’t be saved offline. Do you want to remove the "
-"filters and make this dashboard available offline?"
-msgstr ""
-
-msgid "Yes, clear filters and sync"
-msgstr ""
-
-msgid "No description"
-msgstr ""
-
-msgid "Add filter"
-msgstr ""
-
-msgid "Offline data last updated {{time}}"
-msgstr ""
-
-msgid "Cannot unstar this dashboard while offline"
-msgstr ""
-
-msgid "Cannot star this dashboard while offline"
-msgstr ""
+msgid "{{count}} filters active"
+msgid_plural "{{count}} filters active"
+msgstr[0] ""
+msgstr[1] ""
+msgstr[2] ""
 
 msgid "Loading dashboard – {{name}}"
 msgstr ""
 
 msgid "Loading dashboard"
+msgstr ""
+
+msgid "Load dashboard failed"
+msgstr ""
+
+msgid "This dashboard could not be loaded. Please try again later."
 msgstr ""
 
 msgid "Offline"
@@ -534,10 +588,4 @@ msgid "This dashboard cannot be loaded while offline."
 msgstr ""
 
 msgid "Go to start page"
-msgstr ""
-
-msgid "Load dashboard failed"
-msgstr ""
-
-msgid "This dashboard could not be loaded. Please try again later."
 msgstr ""

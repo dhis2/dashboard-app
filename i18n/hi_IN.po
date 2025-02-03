@@ -1,19 +1,18 @@
 # 
 # Translators:
-# Philip Larsen Donnelly, 2021
-# Viktor Varland <viktor@dhis2.org>, 2021
+# Siddharth Agarwal, 2025
 # 
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
 "POT-Creation-Date: 2024-12-19T11:30:27.893Z\n"
 "PO-Revision-Date: 2019-06-25 12:37+0000\n"
-"Last-Translator: Viktor Varland <viktor@dhis2.org>, 2021\n"
-"Language-Team: Pashto (https://app.transifex.com/hisp-uio/teams/100509/ps/)\n"
+"Last-Translator: Siddharth Agarwal, 2025\n"
+"Language-Team: Hindi (India) (https://app.transifex.com/hisp-uio/teams/100509/hi_IN/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: ps\n"
+"Language: hi_IN\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 msgid "Untitled dashboard"
@@ -47,7 +46,7 @@ msgid "Show description"
 msgstr ""
 
 msgid "Print"
-msgstr "چاپول"
+msgstr ""
 
 msgid "Dashboard layout"
 msgstr ""
@@ -65,10 +64,10 @@ msgid "Not available offline"
 msgstr ""
 
 msgid "Edit"
-msgstr "درست یې کړئ"
+msgstr "संपादन करें"
 
 msgid "Share"
-msgstr "شریک یې کړئ"
+msgstr "साझा करें"
 
 msgid "Slideshow"
 msgstr ""
@@ -88,7 +87,7 @@ msgid "Yes, clear filters and sync"
 msgstr ""
 
 msgid "Cancel"
-msgstr "رد یې کړئ [ ژباړه ـ ردول ]"
+msgstr "रद्द करें"
 
 msgid "Confirm"
 msgstr ""
@@ -136,10 +135,10 @@ msgid "This item has been shortened to fit on one page"
 msgstr ""
 
 msgid "Remove"
-msgstr "لرې کول"
+msgstr "हटाएं"
 
 msgid "Messages"
-msgstr "پېغامونه"
+msgstr ""
 
 msgid "See all messages"
 msgstr ""
@@ -257,19 +256,19 @@ msgid "Resources"
 msgstr ""
 
 msgid "Reports"
-msgstr "راپورونه"
+msgstr ""
 
 msgid "Visualizations"
 msgstr ""
 
 msgid "Pivot tables"
-msgstr "محوري جدولونه"
+msgstr ""
 
 msgid "Charts"
-msgstr "چارټونه"
+msgstr ""
 
 msgid "Maps"
-msgstr "نخشې"
+msgstr ""
 
 msgid "Event reports"
 msgstr ""
@@ -281,10 +280,10 @@ msgid "Line lists"
 msgstr ""
 
 msgid "Apps"
-msgstr "اپلیکېشن [ د اپلیکېشن تنظیموونکی ]"
+msgstr ""
 
 msgid "Users"
-msgstr "کاروونکي [ کاروونکي ]"
+msgstr ""
 
 msgid ""
 "Failed to save dashboard. You might be offline or not have access to edit "
@@ -317,13 +316,13 @@ msgid "Filter settings"
 msgstr ""
 
 msgid "Translate"
-msgstr "ژباړه"
+msgstr ""
 
 msgid "Cannot delete this dashboard while offline"
 msgstr ""
 
 msgid "Delete"
-msgstr "خذف یې کړئ"
+msgstr "हटाएं"
 
 msgid "Exit without saving"
 msgstr ""
@@ -394,7 +393,7 @@ msgid "Show fewer"
 msgstr ""
 
 msgid "Show more"
-msgstr "ډېر ښکاره کړئ"
+msgstr ""
 
 msgid "Open visualization in new tab"
 msgstr ""
@@ -458,7 +457,7 @@ msgid "Dashboard description"
 msgstr ""
 
 msgid "Layout"
-msgstr "طرحه"
+msgstr ""
 
 msgid "{{count}} columns"
 msgid_plural "{{count}} columns"
@@ -524,7 +523,7 @@ msgid "Requested dashboard not found"
 msgstr ""
 
 msgid "No description"
-msgstr "هېڅ ډول تشریح نه لري"
+msgstr ""
 
 msgid "{{count}} selected"
 msgid_plural "{{count}} selected"
@@ -578,7 +577,7 @@ msgid "This dashboard could not be loaded. Please try again later."
 msgstr ""
 
 msgid "Offline"
-msgstr "په لیکه کې نشته"
+msgstr ""
 
 msgid "This dashboard cannot be loaded while offline."
 msgstr ""

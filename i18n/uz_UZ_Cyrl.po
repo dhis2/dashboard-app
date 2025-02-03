@@ -1,14 +1,14 @@
 # 
 # Translators:
 # Philip Larsen Donnelly, 2024
-# Ibatov <ibatovk@who.int>, 2024
+# Khurshid Ibatov <Khurshid.Ibatov@tibbiysugurta.uz>, 2024
 # 
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2024-03-19T12:31:03.302Z\n"
+"POT-Creation-Date: 2024-12-19T11:30:27.893Z\n"
 "PO-Revision-Date: 2019-06-25 12:37+0000\n"
-"Last-Translator: Ibatov <ibatovk@who.int>, 2024\n"
+"Last-Translator: Khurshid Ibatov <Khurshid.Ibatov@tibbiysugurta.uz>, 2024\n"
 "Language-Team: Uzbek (Cyrillic) (https://app.transifex.com/hisp-uio/teams/100509/uz@Cyrl/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -19,20 +19,118 @@ msgstr ""
 msgid "Untitled dashboard"
 msgstr "Номсиз бошқарув панели"
 
-msgid "Cannot create a dashboard while offline"
-msgstr "Автоном режимда мониторинг панелини яратиб бўлмади"
+msgid "Dashboards"
+msgstr ""
 
-msgid "Create new dashboard"
-msgstr "Янги мониторинг панелини яратиш"
+msgid "The dashboard couldn't be made available offline. Try again."
+msgstr ""
+"Бошқарув панелини оффлайн режимда ишлатиб бўлмади. Қайта уриниб кўринг."
+
+msgid "Remove from offline storage"
+msgstr "Оффлайн базасидан олиб ташлаш"
+
+msgid "Make available offline"
+msgstr "Оффлайн режимида фойдаланиш мумкин"
+
+msgid "Sync offline data now"
+msgstr "Маълумотларни оффлайн режимда синхронлаш"
+
+msgid "Unstar dashboard"
+msgstr "Бошқарув панелидаги юлдузча ўчирилади"
+
+msgid "Star dashboard"
+msgstr "Бошқарув панелига юлдузча ўрнатилади"
+
+msgid "Hide description"
+msgstr "Тавсифни беркитиш"
+
+msgid "Show description"
+msgstr "Тавсифни кўрсатиш"
+
+msgid "Print"
+msgstr "Чоп этиш"
+
+msgid "Dashboard layout"
+msgstr "Бошқарув панели макети"
+
+msgid "One item per page"
+msgstr "Ҳар бир саҳифада битта элемент"
+
+msgid "Close dashboard"
+msgstr "Бошқарув панелини ёпиш"
+
+msgid "No dashboard items to show in slideshow"
+msgstr ""
+
+msgid "Not available offline"
+msgstr "Оффлайн режимда мавжуд эмас"
+
+msgid "Edit"
+msgstr "Таҳрирлаш"
+
+msgid "Share"
+msgstr "Улашиш"
+
+msgid "Slideshow"
+msgstr ""
+
+msgid "Clear dashboard filters?"
+msgstr "Бошқарув панели фильтрларини тозалаш керакми?"
+
+msgid ""
+"A dashboard's filters can’t be saved offline. Do you want to remove the "
+"filters and make this dashboard available offline?"
+msgstr ""
+"Бошқарув панели фильтрларини оффлайн режимда сақлаш имконсиз. Фильтрларни "
+"олиб ташлаб, бу асбоблар панелидан оффлайн режимда фойдаланишни хохлайсизми?"
+
+msgid "No, cancel"
+msgstr "Йўқ, бекор қилинг"
+
+msgid "Yes, clear filters and sync"
+msgstr "Ҳа, фильтрни ва синхронлашни тозалаш"
+
+msgid "Cancel"
+msgstr "Бекор қилиш"
+
+msgid "Confirm"
+msgstr "Тасдиқланг"
+
+msgid "Filter"
+msgstr ""
+
+msgid "Failed to unstar the dashboard"
+msgstr "Бошқарув панелидаги белги олиб ташланмади"
+
+msgid "Failed to star the dashboard"
+msgstr "Бошқарув панелида белги қўйиб бўлмади"
+
+msgid "Offline data last updated {{timeAgo}}"
+msgstr ""
+
+msgid "Synced {{timeAgo}}"
+msgstr ""
+
+msgid "Cannot unstar this dashboard while offline"
+msgstr "Оффлайн режимда бошқарув панелида белгиларни ўчириб бўлмайди"
+
+msgid "Cannot star this dashboard while offline"
+msgstr "Оффлайн режимда бошқарув панелида белгилар қўйиб бўлмайди"
+
+msgid "No dashboards available."
+msgstr ""
+
+msgid "Create a new dashboard using the + button."
+msgstr ""
 
 msgid "Search for a dashboard"
 msgstr "Бошқариш панелида излаш"
 
-msgid "Show fewer dashboards"
-msgstr "Камроқ мониторинг панелини кўрсатиш"
+msgid "No dashboards found"
+msgstr ""
 
-msgid "Show more dashboards"
-msgstr "Кўпроқ мониторинг панелини кўрсатиш"
+msgid "{{appKey}} app not found"
+msgstr ""
 
 msgid "Remove this item"
 msgstr "Ушбу элементни олиб ташлаш"
@@ -98,6 +196,9 @@ msgstr "Деталлар ва тавсифларни яшириш"
 msgid "Show details and interpretations"
 msgstr "Деталлар ва тавсифларни кўрсатиш"
 
+msgid "Open menu"
+msgstr ""
+
 msgid "Open in {{appName}} app"
 msgstr "Иловада {{appName}} да очиш"
 
@@ -162,8 +263,11 @@ msgstr "Ушбу элемент маълумотларини юклашда ха
 msgid "Open this item in {{appName}}"
 msgstr " {{appName}}да ушбу элементни очмоқ"
 
-msgid "Not available offline"
-msgstr "Оффлайн режимда мавжуд эмас"
+msgid "Resources"
+msgstr "Ресурслар"
+
+msgid "Reports"
+msgstr "Ҳисоботлар"
 
 msgid "Visualizations"
 msgstr "Визуализация"
@@ -188,12 +292,6 @@ msgstr "Қаторлар рўйхати"
 
 msgid "Apps"
 msgstr "Илова"
-
-msgid "Reports"
-msgstr "Ҳисоботлар"
-
-msgid "Resources"
-msgstr "Ресурслар"
 
 msgid "Users"
 msgstr "Фойдаланувчилар"
@@ -257,9 +355,6 @@ msgstr ""
 "ҳам ушбу панелни орқага қайтариб бўлмаслик шарти билан ўчириб "
 "ташламоқчимисиз?"
 
-msgid "Cancel"
-msgstr "Бекор қилиш"
-
 msgid "Discard changes"
 msgstr "Ўзгартиришлар бекор қилинсин"
 
@@ -315,9 +410,6 @@ msgstr "Мавжуд фильтрлар"
 msgid "Selected Filters"
 msgstr "Танланган фильтрлар"
 
-msgid "Confirm"
-msgstr "Тасдиқланг"
-
 msgid "There are no items on this dashboard"
 msgstr "Ушбу бошқарув панелида элементлар йўқ"
 
@@ -326,6 +418,9 @@ msgstr "Камроқ кўрсатиш"
 
 msgid "Show more"
 msgstr "Кўпроқ кўрсатилсин"
+
+msgid "Open visualization in new tab"
+msgstr ""
 
 msgid "Insert"
 msgstr "Киритиш"
@@ -341,9 +436,6 @@ msgstr "Офллайн режимда асбоблар панели элемен
 
 msgid "Additional items"
 msgstr "Қўшимча элементлар"
-
-msgid "Dashboard layout"
-msgstr "Бошқарув панели макети"
 
 msgid "Freeflow"
 msgstr "Эркин оқим"
@@ -413,9 +505,6 @@ msgstr "Бошқарув панели охири"
 msgid "Start of dashboard"
 msgstr "Бошқарув панели боши"
 
-msgid "Print"
-msgstr "Чоп этиш"
-
 msgid "dashboard layout"
 msgstr "бошқариш панели макети"
 
@@ -470,12 +559,18 @@ msgstr ""
 msgid "Requested dashboard not found"
 msgstr "Сўралган бошқарув панели топилмади"
 
+msgid "No description"
+msgstr "Тавсиф йўқ"
+
 msgid "{{count}} selected"
 msgid_plural "{{count}} selected"
 msgstr[0] "{{count}} танланган"
 
-msgid "Cannot remove filters while offline"
-msgstr "Офллайн режимда фильтрни ўчириб бўлмайди"
+msgid "Cannot edit filters while offline"
+msgstr ""
+
+msgid "Cannot edit filters on a small screen"
+msgstr ""
 
 msgid "Removing filters while offline"
 msgstr "Оффлайн режимда фильтрни ўчириш"
@@ -487,91 +582,36 @@ msgstr ""
 "Ушбу фильтрни оффлайн режимда ўчириш, барча фильтрларни ўчирилишига олиб "
 "келади. Сиз барча фильтрларни ахборот панелидан ўчиришни хохлайсизми?"
 
-msgid "No, cancel"
-msgstr "Йўқ, бекор қилинг"
-
 msgid "Yes, remove filters"
 msgstr "Ҳа, фильтрларни ўчириш"
 
-msgid "The dashboard couldn't be made available offline. Try again."
+msgid "Exit slideshow"
 msgstr ""
-"Бошқарув панелини оффлайн режимда ишлатиб бўлмади. Қайта уриниб кўринг."
 
-msgid "Failed to unstar the dashboard"
-msgstr "Бошқарув панелидаги белги олиб ташланмади"
-
-msgid "Failed to star the dashboard"
-msgstr "Бошқарув панелида белги қўйиб бўлмади"
-
-msgid "Remove from offline storage"
-msgstr "Оффлайн базасидан олиб ташлаш"
-
-msgid "Make available offline"
-msgstr "Оффлайн режимида фойдаланиш мумкин"
-
-msgid "Sync offline data now"
-msgstr "Маълумотларни оффлайн режимда синхронлаш"
-
-msgid "Unstar dashboard"
-msgstr "Бошқарув панелидаги юлдузча ўчирилади"
-
-msgid "Star dashboard"
-msgstr "Бошқарув панелига юлдузча ўрнатилади"
-
-msgid "Hide description"
-msgstr "Тавсифни беркитиш"
-
-msgid "Show description"
-msgstr "Тавсифни кўрсатиш"
-
-msgid "One item per page"
-msgstr "Ҳар бир саҳифада битта элемент"
-
-msgid "Close dashboard"
-msgstr "Бошқарув панелини ёпиш"
-
-msgid "More"
-msgstr "Кўпроқ"
-
-msgid "Edit"
-msgstr "Таҳрирлаш"
-
-msgid "Share"
-msgstr "Улашиш"
-
-msgid "Clear dashboard filters?"
-msgstr "Бошқарув панели фильтрларини тозалаш керакми?"
-
-msgid ""
-"A dashboard's filters can’t be saved offline. Do you want to remove the "
-"filters and make this dashboard available offline?"
+msgid "Previous item"
 msgstr ""
-"Бошқарув панели фильтрларини оффлайн режимда сақлаш имконсиз. Фильтрларни "
-"олиб ташлаб, бу асбоблар панелидан оффлайн режимда фойдаланишни хохлайсизми?"
 
-msgid "Yes, clear filters and sync"
-msgstr "Ҳа, фильтрни ва синхронлашни тозалаш"
+msgid "Next item"
+msgstr ""
 
-msgid "No description"
-msgstr "Тавсиф йўқ"
+msgid "{{name}}: {{filter}}"
+msgstr ""
 
-msgid "Add filter"
-msgstr "Фильтр киритиш"
-
-msgid "Offline data last updated {{time}}"
-msgstr "Оффлайн режимда охирги марта янгиланган маълумотлар {{time}}"
-
-msgid "Cannot unstar this dashboard while offline"
-msgstr "Оффлайн режимда бошқарув панелида белгиларни ўчириб бўлмайди"
-
-msgid "Cannot star this dashboard while offline"
-msgstr "Оффлайн режимда бошқарув панелида белгилар қўйиб бўлмайди"
+msgid "{{count}} filters active"
+msgid_plural "{{count}} filters active"
+msgstr[0] ""
 
 msgid "Loading dashboard – {{name}}"
 msgstr "Бошқарув панели юкланмоқда - {{name}}"
 
 msgid "Loading dashboard"
 msgstr "Бошқарув панели юкланмоқда"
+
+msgid "Load dashboard failed"
+msgstr "Бошқарув панели юкланмади"
+
+msgid "This dashboard could not be loaded. Please try again later."
+msgstr "Бошқарув панели юкланмади. Илтимос, кейинроқ қайта уриниб кўринг"
 
 msgid "Offline"
 msgstr "Оффлайн"
@@ -581,9 +621,3 @@ msgstr "Бошқарув панелини оффлайн режимда юкла
 
 msgid "Go to start page"
 msgstr "Бошланғич саҳифага ўтиш"
-
-msgid "Load dashboard failed"
-msgstr "Бошқарув панели юкланмади"
-
-msgid "This dashboard could not be loaded. Please try again later."
-msgstr "Бошқарув панели юкланмади. Илтимос, кейинроқ қайта уриниб кўринг"

@@ -7,7 +7,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2024-03-19T12:31:03.302Z\n"
+"POT-Creation-Date: 2024-12-19T11:30:27.893Z\n"
 "PO-Revision-Date: 2019-06-25 12:37+0000\n"
 "Last-Translator: Rica, 2024\n"
 "Language-Team: Dutch (https://app.transifex.com/hisp-uio/teams/100509/nl/)\n"
@@ -20,20 +20,120 @@ msgstr ""
 msgid "Untitled dashboard"
 msgstr "Naamloos dashboard"
 
-msgid "Cannot create a dashboard while offline"
-msgstr "Kan geen dashboard maken terwijl u offline bent"
+msgid "Dashboards"
+msgstr ""
 
-msgid "Create new dashboard"
-msgstr "Nieuw dashboard maken"
+msgid "The dashboard couldn't be made available offline. Try again."
+msgstr ""
+"Het dashboard kon niet offline beschikbaar worden gemaakt. Probeer het nog "
+"eens."
+
+msgid "Remove from offline storage"
+msgstr "Verwijderen uit offline opslag"
+
+msgid "Make available offline"
+msgstr "Offline beschikbaar maken"
+
+msgid "Sync offline data now"
+msgstr "Synchroniseer nu offline gegevens"
+
+msgid "Unstar dashboard"
+msgstr "Dashboard ongedaan maken"
+
+msgid "Star dashboard"
+msgstr "Sterrendashboard"
+
+msgid "Hide description"
+msgstr "Beschrijving verbergen"
+
+msgid "Show description"
+msgstr "Laat beschrijving zien"
+
+msgid "Print"
+msgstr "Afdrukken"
+
+msgid "Dashboard layout"
+msgstr "Dashboard-indeling"
+
+msgid "One item per page"
+msgstr "Eén item per pagina"
+
+msgid "Close dashboard"
+msgstr "Dashboard sluiten"
+
+msgid "No dashboard items to show in slideshow"
+msgstr ""
+
+msgid "Not available offline"
+msgstr "Niet beschikbaar offline"
+
+msgid "Edit"
+msgstr "Bewerk"
+
+msgid "Share"
+msgstr "Deel"
+
+msgid "Slideshow"
+msgstr ""
+
+msgid "Clear dashboard filters?"
+msgstr "Dashboardfilters wissen?"
+
+msgid ""
+"A dashboard's filters can’t be saved offline. Do you want to remove the "
+"filters and make this dashboard available offline?"
+msgstr ""
+"De filters van een dashboard kunnen niet offline worden opgeslagen. Wil je "
+"de filters verwijderen en dit dashboard offline beschikbaar maken?"
+
+msgid "No, cancel"
+msgstr "Nee, annuleer"
+
+msgid "Yes, clear filters and sync"
+msgstr "Ja, filters wissen en synchroniseren"
+
+msgid "Cancel"
+msgstr "Annuleer"
+
+msgid "Confirm"
+msgstr "Bevestigen"
+
+msgid "Filter"
+msgstr ""
+
+msgid "Failed to unstar the dashboard"
+msgstr "Kan het dashboard niet ongedaan maken"
+
+msgid "Failed to star the dashboard"
+msgstr "Sterren geven aan het dashboard mislukt"
+
+msgid "Offline data last updated {{timeAgo}}"
+msgstr ""
+
+msgid "Synced {{timeAgo}}"
+msgstr ""
+
+msgid "Cannot unstar this dashboard while offline"
+msgstr ""
+"Kan de ster van dit dashboard niet ongedaan maken terwijl het offline is"
+
+msgid "Cannot star this dashboard while offline"
+msgstr "Kan geen ster geven aan dit dashboard terwijl het offline is"
+
+msgid "No dashboards available."
+msgstr ""
+
+msgid "Create a new dashboard using the + button."
+msgstr ""
 
 msgid "Search for a dashboard"
 msgstr "Zoek een dashboard"
 
-msgid "Show fewer dashboards"
-msgstr "Toon minder dashboards"
+msgid "No dashboards found"
+msgstr ""
 
-msgid "Show more dashboards"
-msgstr "Toon meer dashboards"
+msgid "{{appKey}} app not found"
+msgstr ""
 
 msgid "Remove this item"
 msgstr "Verwijder dit item"
@@ -100,6 +200,9 @@ msgstr "Details en interpretaties verbergen"
 msgid "Show details and interpretations"
 msgstr "Toon details en interpretaties"
 
+msgid "Open menu"
+msgstr ""
+
 msgid "Open in {{appName}} app"
 msgstr "Openen in {{appName}}-app"
 
@@ -164,8 +267,11 @@ msgstr "Er is een fout opgetreden bij het laden van gegevens voor dit item"
 msgid "Open this item in {{appName}}"
 msgstr "Open dit item in {{appName}}"
 
-msgid "Not available offline"
-msgstr "Niet beschikbaar offline"
+msgid "Resources"
+msgstr "Bronnen"
+
+msgid "Reports"
+msgstr "rapporten"
 
 msgid "Visualizations"
 msgstr "visualisaties"
@@ -190,12 +296,6 @@ msgstr "Lijn -lijsten"
 
 msgid "Apps"
 msgstr "Apps"
-
-msgid "Reports"
-msgstr "rapporten"
-
-msgid "Resources"
-msgstr "Bronnen"
 
 msgid "Users"
 msgstr "Gebruikers"
@@ -263,9 +363,6 @@ msgstr ""
 "gebruikers verwijderd. Deze actie kan niet ongedaan gemaakt worden. Weet u "
 "zeker dat u dit dashboard definitief wilt verwijderen?"
 
-msgid "Cancel"
-msgstr "Annuleer"
-
 msgid "Discard changes"
 msgstr "Veranderingen ongedaan maken"
 
@@ -321,9 +418,6 @@ msgstr "Beschikbare filters"
 msgid "Selected Filters"
 msgstr "geselecteerde filters"
 
-msgid "Confirm"
-msgstr "Bevestigen"
-
 msgid "There are no items on this dashboard"
 msgstr "Er zijn geen items op dit dashboard"
 
@@ -332,6 +426,9 @@ msgstr "Laat minder zien"
 
 msgid "Show more"
 msgstr "Laat meer zien"
+
+msgid "Open visualization in new tab"
+msgstr ""
 
 msgid "Insert"
 msgstr "Invoegen"
@@ -347,9 +444,6 @@ msgstr "Kan offline niet zoeken naar dashboarditems"
 
 msgid "Additional items"
 msgstr "Aanvullende items"
-
-msgid "Dashboard layout"
-msgstr "Dashboard-indeling"
 
 msgid "Freeflow"
 msgstr "Vrije doorstroming"
@@ -418,9 +512,6 @@ msgstr "Einde dashboard"
 msgid "Start of dashboard"
 msgstr "Begin dashboard"
 
-msgid "Print"
-msgstr "Afdrukken"
-
 msgid "dashboard layout"
 msgstr "dashboardindeling"
 
@@ -473,13 +564,19 @@ msgstr ""
 msgid "Requested dashboard not found"
 msgstr "Gevraagd dashboard niet gevonden"
 
+msgid "No description"
+msgstr "Geen beschrijving"
+
 msgid "{{count}} selected"
 msgid_plural "{{count}} selected"
 msgstr[0] "{{count}} geselecteerd"
 msgstr[1] "{{count}} geselecteerd"
 
-msgid "Cannot remove filters while offline"
-msgstr "Kan filters niet verwijderen terwijl u offline bent"
+msgid "Cannot edit filters while offline"
+msgstr ""
+
+msgid "Cannot edit filters on a small screen"
+msgstr ""
 
 msgid "Removing filters while offline"
 msgstr "Filters verwijderen terwijl u offline bent"
@@ -491,93 +588,37 @@ msgstr ""
 "Als je deze filter offline verwijdert, worden alle andere filters "
 "verwijderd. Wil je alle filters op dit dashboard verwijderen?"
 
-msgid "No, cancel"
-msgstr "Nee, annuleer"
-
 msgid "Yes, remove filters"
 msgstr "Ja, filters verwijderen"
 
-msgid "The dashboard couldn't be made available offline. Try again."
+msgid "Exit slideshow"
 msgstr ""
-"Het dashboard kon niet offline beschikbaar worden gemaakt. Probeer het nog "
-"eens."
 
-msgid "Failed to unstar the dashboard"
-msgstr "Kan het dashboard niet ongedaan maken"
-
-msgid "Failed to star the dashboard"
-msgstr "Sterren geven aan het dashboard mislukt"
-
-msgid "Remove from offline storage"
-msgstr "Verwijderen uit offline opslag"
-
-msgid "Make available offline"
-msgstr "Offline beschikbaar maken"
-
-msgid "Sync offline data now"
-msgstr "Synchroniseer nu offline gegevens"
-
-msgid "Unstar dashboard"
-msgstr "Dashboard ongedaan maken"
-
-msgid "Star dashboard"
-msgstr "Sterrendashboard"
-
-msgid "Hide description"
-msgstr "Beschrijving verbergen"
-
-msgid "Show description"
-msgstr "Laat beschrijving zien"
-
-msgid "One item per page"
-msgstr "Eén item per pagina"
-
-msgid "Close dashboard"
-msgstr "Dashboard sluiten"
-
-msgid "More"
-msgstr "Meer"
-
-msgid "Edit"
-msgstr "Bewerk"
-
-msgid "Share"
-msgstr "Deel"
-
-msgid "Clear dashboard filters?"
-msgstr "Dashboardfilters wissen?"
-
-msgid ""
-"A dashboard's filters can’t be saved offline. Do you want to remove the "
-"filters and make this dashboard available offline?"
+msgid "Previous item"
 msgstr ""
-"De filters van een dashboard kunnen niet offline worden opgeslagen. Wil je "
-"de filters verwijderen en dit dashboard offline beschikbaar maken?"
 
-msgid "Yes, clear filters and sync"
-msgstr "Ja, filters wissen en synchroniseren"
-
-msgid "No description"
-msgstr "Geen beschrijving"
-
-msgid "Add filter"
-msgstr "Voeg filter toe"
-
-msgid "Offline data last updated {{time}}"
-msgstr "Offline gegevens voor het laatst bijgewerkt {{time}}"
-
-msgid "Cannot unstar this dashboard while offline"
+msgid "Next item"
 msgstr ""
-"Kan de ster van dit dashboard niet ongedaan maken terwijl het offline is"
 
-msgid "Cannot star this dashboard while offline"
-msgstr "Kan geen ster geven aan dit dashboard terwijl het offline is"
+msgid "{{name}}: {{filter}}"
+msgstr ""
+
+msgid "{{count}} filters active"
+msgid_plural "{{count}} filters active"
+msgstr[0] ""
+msgstr[1] ""
 
 msgid "Loading dashboard – {{name}}"
 msgstr "Dashboard laden – {{name}}"
 
 msgid "Loading dashboard"
 msgstr "Dashboard laden"
+
+msgid "Load dashboard failed"
+msgstr "Dashboard laden mislukt"
+
+msgid "This dashboard could not be loaded. Please try again later."
+msgstr "Dit dashboard kan niet worden geladen. Probeer het later opnieuw."
 
 msgid "Offline"
 msgstr "offline"
@@ -587,9 +628,3 @@ msgstr "Dit dashboard kan niet offline worden geladen."
 
 msgid "Go to start page"
 msgstr "Ga naar startpagina"
-
-msgid "Load dashboard failed"
-msgstr "Dashboard laden mislukt"
-
-msgid "This dashboard could not be loaded. Please try again later."
-msgstr "Dit dashboard kan niet worden geladen. Probeer het later opnieuw."
