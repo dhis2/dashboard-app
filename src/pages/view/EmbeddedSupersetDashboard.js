@@ -70,6 +70,10 @@ export const EmbeddedSupersetDashboard = () => {
         loadEmbeddedSupersetDashboard()
     }, [loading, error, success, loadEmbeddedSupersetDashboard])
 
+    useEffect(() => {
+        dispatch({ type: LOAD_RESET })
+    }, [embedData])
+
     return (
         <div className={styles.container}>
             <div
