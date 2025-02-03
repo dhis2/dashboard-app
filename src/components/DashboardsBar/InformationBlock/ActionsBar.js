@@ -162,7 +162,10 @@ const ActionsBar = ({
                         ? i18n.t('Unstar dashboard')
                         : i18n.t('Star dashboard')
                 }
-                onClick={toggleDashboardStarred}
+                onClick={() => {
+                    toggleDashboardStarred()
+                    setMoreOptionsIsOpen(false)
+                }}
             />
             <MenuItem
                 dense
