@@ -44,7 +44,9 @@ const LegacyPlugin = ({
             load(item, visualization, {
                 credentials: {
                     baseUrl,
-                    auth: d2.Api.getApi().defaultHeaders.Authorization,
+                    auth:
+                        process.env.NODE_ENV === 'development' &&
+                        process.env.REACT_APP_DHIS2_AUTHORIZATION,
                 },
                 activeType,
                 options,
