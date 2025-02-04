@@ -8,7 +8,7 @@ export const fieldNames = {
     showChartControls: 'showChartControls',
     showFilters: 'showFilters',
 }
-const defaultInitialValues = {
+export const defaultInitialValues = {
     [fieldNames.title]: '',
     [fieldNames.code]: '',
     [fieldNames.description]: '',
@@ -16,14 +16,14 @@ const defaultInitialValues = {
     [fieldNames.showChartControls]: true,
     [fieldNames.showFilters]: true,
 }
-const FIELD_CHANGE = 'FIELD_CHANGE'
-const SUPERSET_FIELD_BLUR = 'SUPERSET_FIELD_BLUR'
-const RESET_FIELD_STATE = 'RESET_FIELD_STATE'
-// TODO: ensure the reducer unit tests assert the correctness of the UUID validation
+export const FIELD_CHANGE = 'FIELD_CHANGE'
+export const SUPERSET_FIELD_BLUR = 'SUPERSET_FIELD_BLUR'
+export const RESET_FIELD_STATE = 'RESET_FIELD_STATE'
+// Adapted from :https://github.com/uuidjs/uuid/blob/main/src/regex.ts
 const UUID_PATTERN =
-    /^[0-9a-f]{8}-[0-9a-f]{4}-[1-5][0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$/i
-const isValidUuid = (string) => UUID_PATTERN.test(string)
-const createInitialState = (initialValues) => ({
+    /^[0-9a-f]{8}-[0-9a-f]{4}-[1-8][0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$/i
+export const isValidUuid = (string) => UUID_PATTERN.test(string)
+export const createInitialState = (initialValues = defaultInitialValues) => ({
     initialValues,
     values: initialValues,
     isSupersetEmbedIdValid: isValidUuid(initialValues.supersetEmbedId),
@@ -31,7 +31,7 @@ const createInitialState = (initialValues) => ({
     hasFieldChanges: false,
 })
 
-const reducer = (state, { type, payload }) => {
+export const reducer = (state, { type, payload }) => {
     switch (type) {
         case FIELD_CHANGE: {
             const values = {
@@ -47,7 +47,7 @@ const reducer = (state, { type, payload }) => {
                 values,
                 isSupersetEmbedIdValid:
                     payload.name === fieldNames.supersetEmbedId
-                        ? UUID_PATTERN.test(payload.value)
+                        ? isValidUuid(payload.value)
                         : state.isSupersetEmbedIdValid,
                 hasFieldChanges: Object.entries(values).some(
                     ([key, value]) => value !== state.initialValues[key]
