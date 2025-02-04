@@ -20,7 +20,6 @@ export function generateUid() {
         randomChars += ALLOWED_CHARS.charAt(randomWithMax(NUMBER_OF_CODEPOINTS))
     }
 
-    // return new String( randomChars );
     return randomChars
 }
 
