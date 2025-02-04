@@ -46,7 +46,7 @@ const ActionsBar = ({
     dashboardItems,
 }) => {
     const history = useHistory()
-    const engine = useDataEngine()
+    const dataEngine = useDataEngine()
     const [moreOptionsIsOpen, setMoreOptionsIsOpen] = useState(false)
     const [sharingDialogIsOpen, setSharingDialogIsOpen] = useState(false)
     const [confirmCacheDialogIsOpen, setConfirmCacheDialogIsOpen] =
@@ -91,8 +91,8 @@ const ActionsBar = ({
     const onToggleShowDescription = useCallback(() => {
         updateShowDescription(!showDescription)
         setMoreOptionsIsOpen(false)
-        !offline && apiPostShowDescription(!showDescription, engine)
-    }, [offline, showDescription, updateShowDescription, engine])
+        !offline && apiPostShowDescription(!showDescription, dataEngine)
+    }, [offline, showDescription, updateShowDescription, dataEngine])
 
     const onToggleSharingDialog = useCallback(
         () => setSharingDialogIsOpen(!sharingDialogIsOpen),

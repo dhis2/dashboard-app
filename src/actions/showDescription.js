@@ -6,16 +6,17 @@ export const acSetShowDescription = (value) => ({
     value,
 })
 
-export const tSetShowDescription = () => async (dispatch, getState, engine) => {
-    const onSuccess = (value) => {
-        dispatch(acSetShowDescription(value))
-    }
+export const tSetShowDescription =
+    () => async (dispatch, getState, dataEngine) => {
+        const onSuccess = (value) => {
+            dispatch(acSetShowDescription(value))
+        }
 
-    try {
-        const showDescription = await apiGetShowDescription(engine)
-        return onSuccess(showDescription)
-    } catch (err) {
-        console.error('Error (apiGetShowDescription): ', err)
-        return err
+        try {
+            const showDescription = await apiGetShowDescription(dataEngine)
+            return onSuccess(showDescription)
+        } catch (err) {
+            console.error('Error (apiGetShowDescription): ', err)
+            return err
+        }
     }
-}
