@@ -1,42 +1,15 @@
-.container {
-    display: flex;
-    align-items: center;
-    background-color: var(--colors-white);
-    color: var(--colors-grey900);
-    border: 1px solid var(--colors-grey400);
-    border-radius: 6px;
-    padding: var(--spacers-dp16);
-    cursor: pointer;
-    transition: 0.2s ease;
-    transition-property: background-color, border-color;
-}
-
-.container.checked {
-    background-color: var(--colors-teal100);
-    border-color: var(--colors-teal500);
-    box-shadow: var(--elevations-e100);
-}
-
-.container.unchecked:hover {
-    border-color: var(--colors-grey500);
-}
-
-.container:has(:focus-visible) {
-    outline: 3px solid var(--colors-blue600);
-    outline-offset: -3px;
-}
-
 .container .content {
     display: flex;
     align-items: center;
     gap: var(--spacers-dp12);
+    cursor: pointer;
 }
 
-.container .icon svg {
+.container svg {
     fill: var(--colors-grey700);
 }
 
-.container.checked .icon svg {
+.container.checked svg {
     fill: var(--colors-teal700);
 }
 
