@@ -49,11 +49,12 @@ export const apiGetUserDataStoreValue = async (
     const hasKey = nsKeys?.find((k) => k === key)
 
     if (hasKey) {
-        return await dataEngine.query({
+        const result = await dataEngine.query({
             [key]: {
                 resource: `userDataStore/${NAMESPACE}/${key}`,
             },
         })
+        return result[key]
     } else {
         await apiPostUserDataStoreValue(key, defaultValue, dataEngine)
         console.log('(These errors to /userDataStore can be ignored)')
