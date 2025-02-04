@@ -23,5 +23,5 @@ export function generateUid() {
     return randomChars
 }
 
-const CODE_PATTERN = /^[a-zA-Z]{1}[a-zA-Z0-9]{10}$/
+const CODE_PATTERN = /^[a-zA-Z][a-zA-Z0-9]{10}$/
 export const isValidUid = (code) => (code ? CODE_PATTERN.test(code) : false)
