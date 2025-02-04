@@ -34,7 +34,7 @@ export const apiPostUserDataStoreValue = async (key, value, dataEngine) => {
     return await dataEngine.mutate({
         resource: `userDataStore/${NAMESPACE}/${key}`,
         type: 'update',
-        data: value,
+        data: `${value}`,
     })
 }
 

@@ -14,6 +14,7 @@ export const tSetShowDescription =
 
         try {
             const showDescription = await apiGetShowDescription(dataEngine)
+            console.log('jj showDescription: ', showDescription)
             return onSuccess(showDescription)
         } catch (err) {
             console.error('Error (apiGetShowDescription): ', err)
