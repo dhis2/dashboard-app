@@ -1,5 +1,4 @@
 import { useConfig } from '@dhis2/app-runtime'
-import { useD2 } from '@dhis2/app-runtime-adapter-d2'
 import PropTypes from 'prop-types'
 import React, { useEffect, useRef } from 'react'
 import getVisualizationContainerDomId from '../getVisualizationContainerDomId.js'
@@ -14,7 +13,6 @@ const LegacyPlugin = ({
     style,
     gridWidth,
 }) => {
-    const { d2 } = useD2()
     const { baseUrl } = useConfig()
     const prevItem = useRef()
     const prevActiveType = useRef()
@@ -58,7 +56,7 @@ const LegacyPlugin = ({
         prevFilterVersion.current = filterVersion
 
         return () => unmount(item, item.type || activeType)
-    }, [item, visualization, activeType, filterVersion, baseUrl, options, d2])
+    }, [item, visualization, activeType, filterVersion, baseUrl, options])
 
     return <div id={getVisualizationContainerDomId(item.id)} style={style} />
 }
