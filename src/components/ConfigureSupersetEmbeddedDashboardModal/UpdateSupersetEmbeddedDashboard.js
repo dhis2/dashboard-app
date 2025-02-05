@@ -153,7 +153,7 @@ export const UpdateSupersetEmbeddedDashboard = ({ closeModal }) => {
                                     queryLoading
                                 }
                             >
-                                {i18n.t('Update dashboard')}
+                                {i18n.t('Save dashboard')}
                             </Button>
                         )}
                         <Button
@@ -173,7 +173,7 @@ export const UpdateSupersetEmbeddedDashboard = ({ closeModal }) => {
                                 onClick={() => setShowDeleteConfirmDialog(true)}
                                 className={styles.deleteButton}
                             >
-                                {i18n.t('Delete')}
+                                {i18n.t('Delete dashboard')}
                             </Button>
                         )}
                     </div>
