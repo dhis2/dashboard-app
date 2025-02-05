@@ -6,7 +6,6 @@ import { Router, Route } from 'react-router-dom'
 import configureMockStore from 'redux-mock-store'
 import { apiFetchDashboard } from '../../../api/fetchDashboard.js'
 import WindowDimensionsProvider from '../../../components/WindowDimensionsProvider.js'
-import selected from '../../../reducers/selected.js'
 import EditDashboard from '../EditDashboard.js'
 
 jest.mock('../../../api/fetchDashboard')
