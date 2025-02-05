@@ -1,8 +1,11 @@
+.container {
+    cursor: pointer;
+}
+
 .container .content {
     display: flex;
     align-items: center;
     gap: var(--spacers-dp12);
-    cursor: pointer;
 }
 
 .container svg {
