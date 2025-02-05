@@ -1,4 +1,4 @@
-export const NAMESPACE = 'dashboard'
+const NAMESPACE = 'dashboard'
 
 const hasDashboardNamespace = async (dataEngine) => {
     const userDataStore = await dataEngine.query({
@@ -7,35 +7,41 @@ const hasDashboardNamespace = async (dataEngine) => {
         },
     })
 
-    return userDataStore?.userDataStore?.find((ns) => ns === NAMESPACE)
+    return !!userDataStore?.userDataStore?.find((ns) => ns === NAMESPACE)
 }
 
-const getNamespace = async (dataEngine) => {
+const hasNamespaceKey = async (dataEngine, key) => {
     const hasNamespace = await hasDashboardNamespace(dataEngine)
+    const keys = hasNamespace
+        ? await dataEngine.query({
+              keys: {
+                  resource: `userDataStore/${NAMESPACE}`,
+              },
+          })
+        : {}
 
-    if (hasNamespace) {
-        return await dataEngine.query({
-            dashboard: {
-                resource: `userDataStore/${NAMESPACE}`,
-            },
-        })
-    } else {
-        return await dataEngine.mutate({
-            resource: `userDataStore/${NAMESPACE}`,
-            type: 'create',
-            data: {},
-        })
-    }
+    return !!keys.keys?.find((k) => k === key)
 }
 
-export const apiPostUserDataStoreValue = async (key, value, dataEngine) => {
-    await getNamespace(dataEngine)
-
-    return await dataEngine.mutate({
+const createValue = async (dataEngine, key, value) =>
+    await dataEngine.mutate({
         resource: `userDataStore/${NAMESPACE}/${key}`,
-        type: 'update',
+        type: 'create',
         data: `${value}`,
     })
+
+export const apiPostUserDataStoreValue = async (key, value, dataEngine) => {
+    const hasKey = await hasNamespaceKey(dataEngine, key)
+
+    if (!hasKey) {
+        return await createValue(dataEngine, key, value)
+    } else {
+        return await dataEngine.mutate({
+            resource: `userDataStore/${NAMESPACE}/${key}`,
+            type: 'update',
+            data: `${value}`,
+        })
+    }
 }
 
 export const apiGetUserDataStoreValue = async (
@@ -43,10 +49,7 @@ export const apiGetUserDataStoreValue = async (
     defaultValue,
     dataEngine
 ) => {
-    const ns = await getNamespace(dataEngine)
-    const nsKeys = ns[NAMESPACE]
-
-    const hasKey = nsKeys?.find((k) => k === key)
+    const hasKey = await hasNamespaceKey(dataEngine, key)
 
     if (hasKey) {
         const result = await dataEngine.query({
@@ -56,8 +59,7 @@ export const apiGetUserDataStoreValue = async (
         })
         return result[key]
     } else {
-        await apiPostUserDataStoreValue(key, defaultValue, dataEngine)
-        console.log('(These errors to /userDataStore can be ignored)')
+        await createValue(dataEngine, key, defaultValue)
         return defaultValue
     }
 }
