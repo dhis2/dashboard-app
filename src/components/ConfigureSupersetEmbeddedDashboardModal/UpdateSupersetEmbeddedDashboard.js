@@ -51,7 +51,7 @@ export const UpdateSupersetEmbeddedDashboard = ({ closeModal }) => {
                 supersetEmbedId: dashboard.embedded.id,
                 showChartControls:
                     !dashboard.embedded.options.hideChartControls,
-                showFilters: dashboard.embedded.options.filters.visible,
+                expandFilters: dashboard.embedded.options.filters.expanded,
             })
         }
     }, [dashboard, resetFieldsStateWithNewValues])

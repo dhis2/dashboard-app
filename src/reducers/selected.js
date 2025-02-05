@@ -49,8 +49,8 @@ export const sGetSelectedSupersetEmbedData = (state) => {
             hideTab: true,
             hideChartControls: embedData.options.hideChartControls,
             filters: {
-                visible: embedData.options.filters.visible,
-                expanded: false,
+                visible: true,
+                expanded: embedData.options.filters.expanded,
             },
         },
     }

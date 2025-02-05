@@ -46,7 +46,7 @@ describe('superset embedded fields state reducer', () => {
                 description: 'My description',
                 supersetEmbedId: '',
                 showChartControls: false,
-                showFilters: false,
+                expandFilters: true,
             }
             expect(createInitialState(initialValues)).toEqual({
                 initialValues: initialValues,
@@ -173,7 +173,7 @@ describe('superset embedded fields state reducer', () => {
                 [fieldNames.description]: 'A description text',
                 [fieldNames.supersetEmbedId]: NILL_UUID,
                 [fieldNames.showChartControls]: false,
-                [fieldNames.showFilters]: false,
+                [fieldNames.expandFilters]: true,
             }
             state = reducer(state, {
                 type: RESET_FIELD_STATE,

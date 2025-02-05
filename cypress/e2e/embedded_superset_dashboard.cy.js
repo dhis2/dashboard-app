@@ -102,7 +102,7 @@ describe('Creating, viewing, editing and deleting an embedded superset dashboard
         getInputByLabelText('Show chart controls on dashboard items')
             .should('be.checked')
             .uncheck()
-        getInputByLabelText('Show filters').should('be.checked').uncheck()
+        getInputByLabelText('Expand filters').should('not.be.checked').check()
 
         // Click the create button
         cy.contains('Save dashboard').should('be.enabled').click()
@@ -178,7 +178,7 @@ describe('Creating, viewing, editing and deleting an embedded superset dashboard
         getInputByLabelText('Show chart controls on dashboard items').should(
             'not.be.checked'
         )
-        getInputByLabelText('Show filters').should('not.be.checked')
+        getInputByLabelText('Expand filters').should('be.checked')
 
         // Click the update button
         cy.contains('Update dashboard').should('be.enabled').click()

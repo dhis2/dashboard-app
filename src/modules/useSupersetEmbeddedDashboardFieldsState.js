@@ -6,7 +6,7 @@ export const fieldNames = {
     description: 'description',
     supersetEmbedId: 'supersetEmbedId',
     showChartControls: 'showChartControls',
-    showFilters: 'showFilters',
+    expandFilters: 'expandFilters',
 }
 export const defaultInitialValues = {
     [fieldNames.title]: '',
@@ -14,7 +14,7 @@ export const defaultInitialValues = {
     [fieldNames.description]: '',
     [fieldNames.supersetEmbedId]: '',
     [fieldNames.showChartControls]: true,
-    [fieldNames.showFilters]: true,
+    [fieldNames.expandFilters]: false,
 }
 export const FIELD_CHANGE = 'FIELD_CHANGE'
 export const SUPERSET_FIELD_BLUR = 'SUPERSET_FIELD_BLUR'
