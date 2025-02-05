@@ -32,7 +32,7 @@ export const ChooseDashboardTypeModal = ({
     const isInternal = selectedType === TYPE_INTERNAL
 
     return (
-        <Modal>
+        <Modal onClose={onCancel}>
             <form onSubmit={isInternal ? onSelectInternal : onSelectSuperset}>
                 <ModalTitle>
                     {i18n.t('New dashboard: choose type', {
