@@ -24,7 +24,7 @@ import { itemTypeSupportsFullscreen } from '../../../modules/itemTypes.js'
 import { useCacheableSection } from '../../../modules/useCacheableSection.js'
 import { orObject } from '../../../modules/util.js'
 import { ROUTE_START_PATH } from '../../../pages/start/index.js'
-import { sGetNamedItemFilters } from '../../../reducers/itemFilters.js'
+import { msGetNamedItemFilters } from '../../../reducers/itemFilters.js'
 import {
     sGetSelected,
     sGetSelectedIsEmbedded,
@@ -347,7 +347,7 @@ const mapStateToProps = (state) => {
     return {
         ...dashboard,
         embedded: sGetSelectedIsEmbedded(state),
-        filtersLength: sGetNamedItemFilters(state).length,
+        filtersLength: msGetNamedItemFilters(state).length,
         showDescription: sGetShowDescription(state),
     }
 }
