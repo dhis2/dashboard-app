@@ -7,7 +7,7 @@ import { useSelector } from 'react-redux'
 import { usePostSupersetGuestToken } from '../../api/supersetGateway.js'
 import { useSupersetBaseUrl } from '../../components/SystemSettingsProvider.js'
 import {
-    mGetSelectedSupersetEmbedData,
+    msGetSelectedSupersetEmbedData,
     sGetSelectedId,
 } from '../../reducers/selected.js'
 import styles from './styles/EmbeddedSupersetDashboard.module.css'
@@ -43,7 +43,7 @@ export const EmbeddedSupersetDashboard = () => {
     )
     const ref = useRef(null)
     const selectedId = useSelector(sGetSelectedId)
-    const embedData = useSelector(mGetSelectedSupersetEmbedData)
+    const embedData = useSelector(msGetSelectedSupersetEmbedData)
     const supersetDomain = useSupersetBaseUrl()
     const postSupersetGuestToken = usePostSupersetGuestToken(selectedId)
     const loadEmbeddedSupersetDashboard = useCallback(async () => {
