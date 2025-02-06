@@ -74,11 +74,11 @@ export const SupersetEmbeddedDashboardFields = ({
                 />
                 <CheckboxField
                     dense
-                    label={i18n.t('Show filters')}
+                    label={i18n.t('Expand filters')}
                     onChange={onChange}
-                    checked={values.showFilters}
+                    checked={values.expandFilters}
                     disabled={submitting}
-                    name={fieldNames.showFilters}
+                    name={fieldNames.expandFilters}
                 />
             </fieldset>
         </>
@@ -92,8 +92,8 @@ SupersetEmbeddedDashboardFields.propTypes = {
     values: PropTypes.shape({
         code: PropTypes.string,
         description: PropTypes.string,
+        expandFilters: PropTypes.bool,
         showChartControls: PropTypes.bool,
-        showFilters: PropTypes.bool,
         supersetEmbedId: PropTypes.string,
         title: PropTypes.string,
     }),

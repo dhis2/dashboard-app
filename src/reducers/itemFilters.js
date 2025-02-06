@@ -36,7 +36,7 @@ export const sGetItemFiltersRoot = (state) => state.itemFilters
 
 // simplify the filters structure to:
 // [{ id: 'pe', name: 'Period', values: [{ id: 2019: name: '2019' }, {id: 'LAST_MONTH', name: 'Last month' }]}, ...]
-export const sGetNamedItemFilters = createSelector(
+export const msGetNamedItemFilters = createSelector(
     [sGetItemFiltersRoot, sGetDimensions],
     (filters, dimensions) =>
         Object.keys(filters).reduce((arr, id) => {
