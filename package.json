@@ -16,7 +16,6 @@
         "d2-utilizr": "^0.2.16",
         "lodash": "^4.17.21",
         "moment": "^2.30.1",
-        "react": "^16.14.0",
         "react-grid-layout": "1.2.2",
         "react-redux": "^7.2.9",
         "react-router-dom": "^5.2.0",
@@ -74,7 +73,5 @@
             "<rootDir>/config/testSetup.js"
         ]
     },
-    "resolutions": {
-        "@dhis2/ui": "^10.1.4"
-    }
+    "resolutions": {}
 }
