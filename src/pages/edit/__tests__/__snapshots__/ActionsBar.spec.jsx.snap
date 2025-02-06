@@ -39,8 +39,6 @@ exports[`renders Save and Discard buttons but not translation dialog when new da
             Filter settings
           </div>
         </div>
-        
-        
       </div>
       <div
         class="ui-Button"
@@ -52,8 +50,6 @@ exports[`renders Save and Discard buttons but not translation dialog when new da
   <div
     class="mock-filter-settings-dialog"
   />
-  
-  
 </div>
 `;
 
