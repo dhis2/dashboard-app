@@ -102,7 +102,7 @@ describe('Creating, viewing, editing and deleting an embedded superset dashboard
         getInputByLabelText('Show chart controls on dashboard items')
             .should('be.checked')
             .uncheck()
-        getInputByLabelText('Show filters').should('be.checked').uncheck()
+        getInputByLabelText('Expand filters').should('not.be.checked').check()
 
         // Click the create button
         cy.contains('Save dashboard').should('be.enabled').click()
@@ -178,10 +178,10 @@ describe('Creating, viewing, editing and deleting an embedded superset dashboard
         getInputByLabelText('Show chart controls on dashboard items').should(
             'not.be.checked'
         )
-        getInputByLabelText('Show filters').should('not.be.checked')
+        getInputByLabelText('Expand filters').should('be.checked')
 
         // Click the update button
-        cy.contains('Update dashboard').should('be.enabled').click()
+        cy.contains('Save dashboard').should('be.enabled').click()
 
         cy.contains('h3', NAME_UPDATED).should('be.visible')
         cy.contains('External data').should('be.visible')
@@ -202,8 +202,8 @@ describe('Creating, viewing, editing and deleting an embedded superset dashboard
     it('deletes the new superset embedded dashboard', () => {
         cy.contains('Edit').should('be.enabled').click()
         cy.contains('Edit external dashboard').should('be.visible')
-        cy.contains('Delete').should('be.enabled').click()
-        cy.contains('Delete dashboard').should('be.visible')
+        cy.contains('button', 'Delete dashboard').should('be.enabled').click()
+        cy.contains('h1', 'Delete dashboard').should('be.visible')
         cy.contains('button', 'Delete').should('be.enabled').click()
         cy.url().should('satisfy', (href) => href.endsWith('/#/'))
     })

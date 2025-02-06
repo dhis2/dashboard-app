@@ -12,4 +12,5 @@
 
 .padded {
     padding-inline: var(--spacers-dp8);
+    padding-block-end: var(--spacers-dp8);
 }

@@ -47,8 +47,8 @@ msgstr "Options"
 msgid "Show chart controls on dashboard items"
 msgstr "Show chart controls on dashboard items"
 
-msgid "Show filters"
-msgstr "Show filters"
+msgid "Expand filters"
+msgstr "Expand filters"
 
 msgid "Delete dashboard"
 msgstr "Delete dashboard"
@@ -77,9 +77,6 @@ msgstr "Cancel"
 
 msgid "Edit external dashboard"
 msgstr "Edit external dashboard"
-
-msgid "Update dashboard"
-msgstr "Update dashboard"
 
 msgid "New dashboard: choose type"
 msgstr "New dashboard: choose type"
