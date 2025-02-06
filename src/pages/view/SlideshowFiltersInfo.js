@@ -3,7 +3,7 @@ import { Layer, Popper, IconFilter16 } from '@dhis2/ui'
 import PropTypes from 'prop-types'
 import React, { useMemo, useState, useRef } from 'react'
 import { useSelector } from 'react-redux'
-import { sGetNamedItemFilters } from '../../reducers/itemFilters.js'
+import { msGetNamedItemFilters } from '../../reducers/itemFilters.js'
 import styles from './styles/SlideshowFiltersInfo.module.css'
 
 const popperModifiers = [
@@ -35,7 +35,7 @@ FilterSection.propTypes = {
 export const SlideshowFiltersInfo = () => {
     const [isOpen, setIsOpen] = useState(false)
     const ref = useRef(null)
-    const filters = useSelector(sGetNamedItemFilters)
+    const filters = useSelector(msGetNamedItemFilters)
     const totalFilterCount = useMemo(
         () =>
             filters.reduce((total, filter) => total + filter.values.length, 0),

@@ -26,13 +26,13 @@ export const ChooseDashboardTypeModal = ({
         systemInfo: { systemName },
     } = useConfig()
     const [selectedType, setSelectedType] = useState(TYPE_INTERNAL)
-    const handleDashboardTypeChange = useCallback((event) => {
-        setSelectedType(event.target.value)
+    const handleDashboardTypeChange = useCallback(({ value }) => {
+        setSelectedType(value)
     }, [])
     const isInternal = selectedType === TYPE_INTERNAL
 
     return (
-        <Modal>
+        <Modal onClose={onCancel}>
             <form onSubmit={isInternal ? onSelectInternal : onSelectSuperset}>
                 <ModalTitle>
                     {i18n.t('New dashboard: choose type', {
@@ -43,8 +43,8 @@ export const ChooseDashboardTypeModal = ({
                     <fieldset className={styles.dashboardTypeRadioGroup}>
                         <DashboardTypeRadio
                             initialFocus
-                            type={TYPE_INTERNAL}
-                            selectedType={selectedType}
+                            value={TYPE_INTERNAL}
+                            checked={selectedType === TYPE_INTERNAL}
                             onChange={handleDashboardTypeChange}
                             icon={<IconDashboardInternal />}
                             title={i18n.t(
@@ -59,8 +59,8 @@ export const ChooseDashboardTypeModal = ({
                             )}
                         />
                         <DashboardTypeRadio
-                            type={TYPE_SUPERSET}
-                            selectedType={selectedType}
+                            value={TYPE_SUPERSET}
+                            checked={selectedType === TYPE_SUPERSET}
                             onChange={handleDashboardTypeChange}
                             icon={<IconDashboardExternal />}
                             title={i18n.t(
