@@ -1,2 +1,2 @@
-export { IconNavigation } from './IconNavigation.js'
-export { NavigationMenu } from './NavigationMenu.js'
+export { IconNavigation } from './IconNavigation.jsx'
+export { NavigationMenu } from './NavigationMenu.jsx'

@@ -3,7 +3,7 @@ import { useDataEngine } from '@dhis2/app-runtime'
 import { useEffect } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import { acSetDimensions } from '../actions/dimensions.js'
-import { useUserSettings } from '../components/UserSettingsProvider.js'
+import { useUserSettings } from '../components/UserSettingsProvider.jsx'
 import getFilteredDimensions from './getFilteredDimensions.js'
 
 const useDimensions = (doFetch) => {
