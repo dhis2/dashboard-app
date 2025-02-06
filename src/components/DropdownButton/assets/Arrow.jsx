@@ -1,3 +1,4 @@
+/* eslint-disable react/no-unknown-property */
 import PropTypes from 'prop-types'
 import React from 'react'
 
@@ -51,3 +52,4 @@ export function ArrowUp({ className }) {
 ArrowUp.propTypes = {
     className: PropTypes.string,
 }
+/* eslint-enable react/no-unknown-property */
