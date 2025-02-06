@@ -26,6 +26,17 @@
     min-height: 40px;
 }
 
+.noDashboardsMessage {
+    padding-left: 6px;
+    color: #4A5768;
+    font-size: 12px;
+    display: inline-flex;
+    -webkit-box-align: center;
+    align-items: center;
+    height: 32px;
+    line-height: 16px;
+    user-select: none;
+}
 @media only screen and (max-width: 480px) {
     .newLink {
         display: none;
