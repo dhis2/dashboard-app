@@ -86,5 +86,5 @@ test('renders a placeholder list item if no dashboards meet the filter criteria'
     expect(getByPlaceholderText('Search for a dashboard')).toHaveValue(
         filterStr
     )
-    expect(getByText('No dashboards found')).toBeVisible()
+    expect(getByText('No dashboards found for "xxxxxxxxxxxxx"')).toBeVisible()
 })
