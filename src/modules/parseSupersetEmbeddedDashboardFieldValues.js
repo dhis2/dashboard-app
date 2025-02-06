@@ -9,8 +9,8 @@ export const parseSupersetEmbeddedDashboardFieldValues = (values) => ({
             hideTab: false,
             hideChartControls: !values.showChartControls,
             filters: {
-                visible: values.showFilters,
-                expanded: false,
+                visible: true,
+                expanded: values.expandFilters,
             },
         },
     },

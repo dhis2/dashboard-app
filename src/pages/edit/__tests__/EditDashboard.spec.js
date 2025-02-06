@@ -62,22 +62,21 @@ jest.mock(
 )
 
 const mockStore = configureMockStore()
+const baseStoreState = { selected: {} }
 
 const renderWithRouterMatch = (
     ui,
     {
         route = '/',
         history = createMemoryHistory({ initialEntries: [route] }),
-        store = {
-            selected: {},
-        },
+        store,
     } = {}
 ) => {
     return {
         ...render(
             <>
                 <header />
-                <Provider store={mockStore(store)}>
+                <Provider store={mockStore({ ...baseStoreState, ...store })}>
                     <WindowDimensionsProvider>
                         <Router history={history}>
                             <Route path={'edit/:id'} component={ui} />

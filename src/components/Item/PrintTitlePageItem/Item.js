@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import React from 'react'
 import { connect } from 'react-redux'
 import { sGetIsEditing } from '../../../reducers/editDashboard.js'
-import { sGetNamedItemFilters } from '../../../reducers/itemFilters.js'
+import { msGetNamedItemFilters } from '../../../reducers/itemFilters.js'
 import {
     sGetPrintDashboardName,
     sGetPrintDashboardDescription,
@@ -76,7 +76,7 @@ const mapStateToProps = (state) => {
     return {
         name,
         description,
-        itemFilters: sGetNamedItemFilters(state),
+        itemFilters: msGetNamedItemFilters(state),
         showDescription: sGetShowDescription(state),
     }
 }

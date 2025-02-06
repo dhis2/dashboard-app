@@ -1,3 +1,5 @@
+import { createSelector } from 'reselect'
+
 export const SET_SELECTED = 'SET_SELECTED'
 export const CLEAR_SELECTED = 'CLEAR_SELECTED'
 
@@ -49,12 +51,31 @@ export const sGetSelectedSupersetEmbedData = (state) => {
             hideTab: true,
             hideChartControls: embedData.options.hideChartControls,
             filters: {
-                visible: embedData.options.filters.visible,
-                expanded: false,
+                visible: true,
+                expanded: embedData.options.filters.expanded,
             },
         },
     }
 }
+export const msGetSelectedSupersetEmbedData = createSelector(
+    [
+        (state) => state.selected?.embedded.id,
+        (state) => state.selected?.embedded.options.hideChartControls,
+        (state) => state.selected?.embedded.options.filters.expanded,
+    ],
+    (id, hideChartControls, expanded) => ({
+        id,
+        dashboardUiConfig: {
+            hideTitle: true,
+            hideTab: true,
+            hideChartControls,
+            filters: {
+                visible: true,
+                expanded,
+            },
+        },
+    })
+)
 
 export const sGetSelectedDisplayName = (state) =>
     sGetSelected(state).displayName
