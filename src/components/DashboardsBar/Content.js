@@ -39,8 +39,20 @@ const Content = ({
         }
     }
 
-    const getChips = () =>
-        getFilteredDashboards(dashboards, filterText).map((dashboard) => (
+    const getChips = () => {
+        const filteredList = getFilteredDashboards(dashboards, filterText)
+
+        if (filteredList.length === 0) {
+            return (
+                <span className={classes.noDashboardsMessage}>
+                    {i18n.t('No dashboards found for "{{filterText}}"', {
+                        filterText,
+                    })}
+                </span>
+            )
+        }
+
+        return filteredList.map((dashboard) => (
             <Chip
                 key={dashboard.id}
                 label={dashboard.displayName}
@@ -50,6 +62,7 @@ const Content = ({
                 onClick={onChipClicked}
             />
         ))
+    }
 
     const getControlsSmall = () => (
         <div className={classes.controlsSmall}>
