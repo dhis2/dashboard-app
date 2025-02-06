@@ -1,4 +1,4 @@
-import LandingPage from './LandingPage.js'
+import LandingPage from './LandingPage.jsx'
 
 const ROUTE_START_PATH = '/start'
 

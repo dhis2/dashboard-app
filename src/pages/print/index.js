@@ -1,4 +1,4 @@
-import PrintDashboard from './PrintDashboard.js'
-import PrintLayoutDashboard from './PrintLayoutDashboard.js'
+import PrintDashboard from './PrintDashboard.jsx'
+import PrintLayoutDashboard from './PrintLayoutDashboard.jsx'
 
 export { PrintDashboard, PrintLayoutDashboard }

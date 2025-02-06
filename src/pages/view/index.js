@@ -1,3 +1,3 @@
-import ViewDashboard from './CacheableViewDashboard.js'
+import ViewDashboard from './CacheableViewDashboard.jsx'
 
 export { ViewDashboard }

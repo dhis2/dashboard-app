@@ -6,17 +6,16 @@
     "license": "BSD-3-Clause",
     "dependencies": {
         "@dhis2/analytics": "^26.9.4",
-        "@dhis2/app-runtime": "^3.10.6",
+        "@dhis2/app-runtime": "^3.13.1",
         "@dhis2/app-runtime-adapter-d2": "^1.1.0",
         "@dhis2/d2-i18n": "^1.1.3",
-        "@dhis2/ui": "^10.1.4",
+        "@dhis2/ui": "^10.1.11",
         "@krakenjs/post-robot": "^11.0.0",
         "classnames": "^2.3.2",
         "d2": "^31.10.0",
         "d2-utilizr": "^0.2.16",
         "lodash": "^4.17.21",
         "moment": "^2.30.1",
-        "react": "^16.14.0",
         "react-grid-layout": "1.2.2",
         "react-redux": "^7.2.9",
         "react-router-dom": "^5.2.0",
@@ -44,19 +43,21 @@
         "@badeball/cypress-cucumber-preprocessor": "^20.1.0",
         "@bahmutov/cypress-esbuild-preprocessor": "^2.2.1",
         "@cypress/webpack-preprocessor": "^6.0.2",
-        "@dhis2/cli-app-scripts": "^11.7.1",
-        "@dhis2/cli-style": "^10.7.3",
+        "@dhis2/cli-app-scripts": "^12.3.0",
+        "@dhis2/cli-style": "^10.7.6",
         "@dhis2/cypress-commands": "^10.0.6",
         "@dhis2/cypress-plugins": "^10.0.6",
         "@semantic-release/changelog": "^6",
         "@semantic-release/exec": "^6",
         "@semantic-release/git": "^10",
+        "@testing-library/dom": "^10.4.0",
         "@testing-library/jest-dom": "^6.6.3",
-        "@testing-library/react": "^12",
+        "@testing-library/react": "^16.2.0",
         "cypress": "^13.13.1",
         "cypress-real-events": "^1.13.0",
         "d2-manifest": "^1.0.0",
         "eslint-plugin-cypress": "^3.3.0",
+        "identity-obj-proxy": "^3.0.0",
         "immutability-helper": "^3.1.1",
         "import": "^0.0.6",
         "patch-package": "^7",
@@ -74,7 +75,5 @@
             "<rootDir>/config/testSetup.js"
         ]
     },
-    "resolutions": {
-        "@dhis2/ui": "^10.1.4"
-    }
+    "resolutions": {}
 }
