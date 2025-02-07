@@ -55,6 +55,7 @@ const Content = ({
                 </span>
             )
         }
+
         return filteredList.map((dashboard) => (
             <Chip
                 key={dashboard.id}
