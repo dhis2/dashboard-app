@@ -45,7 +45,7 @@ const Content = ({
         if (filteredList.length === 0) {
             return (
                 <span className={classes.noDashboardsMessage}>
-                    {i18n.t('No dashboards found for "{{filterText}}"', {
+                    {i18n.t('No dashboards found for "{{- filterText}}"', {
                         filterText,
                     })}
                 </span>
