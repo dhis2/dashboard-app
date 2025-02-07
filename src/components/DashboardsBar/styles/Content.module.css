@@ -9,11 +9,10 @@
 .controlsLarge {
     display: inline-flex;
     position: relative;
-    top: 5px;
 }
 
 .buttonPadding {
-    padding: 2px var(--spacers-dp8) 0 var(--spacers-dp8);
+    padding: 0 var(--spacers-dp8) 0 0;
     display: inline-flex;
 }
 
@@ -23,7 +22,10 @@
 }
 
 .chipsContainer {
-    min-height: 40px;
+    min-height: 32px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
 }
 
 .noDashboardsMessage {
@@ -43,8 +45,8 @@
     }
 
     .controlsSmall {
-        display: block;
-        margin-bottom: var(--spacers-dp4);
+        display: flex;
+        justify-content: space-between;
     }
 
     .controlsLarge {
@@ -53,29 +55,21 @@
 
     .container.collapsed {
         display: flex;
-        overflow-x: auto;
-        overflow-y: hidden;
-        padding: var(--spacers-dp4) 0 var(--spacers-dp4) var(--spacers-dp4);
+        overflow: hidden;
     }
 
     .container.expanded {
         display: flex;
         flex-direction: column;
         overflow: hidden;
-        padding-top: var(--spacers-dp12);
-        padding-left: var(--spacers-dp8);
+        padding-top: var(--spacers-dp6);
+        padding-left: var(--spacers-dp6);
     }
 
     .expanded .chipsContainer .controls {
         margin-left: var(--spacers-dp4);
         margin-right: var(--spacers-dp8);
         width: 100%;
-    }
-
-    .chipsContainer {
-        margin-bottom: -4px;
-        padding-right: 2px;
-        min-height: 0;
     }
 
     .expanded .chipsContainer {
@@ -86,9 +80,9 @@
     }
 
     .collapsed .chipsContainer {
-        overflow-x: auto;
         overflow-y: hidden;
         display: flex;
         flex-wrap: nowrap;
+        padding-bottom: 6px;
     }
 }

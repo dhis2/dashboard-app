@@ -15,6 +15,10 @@ const Chip = ({ starred, selected, label, dashboardId, onClick }) => {
     const { isConnected: online } = useDhis2ConnectionStatus()
     const chipProps = {
         selected,
+        marginLeft: 0,
+        marginRight: 0,
+        marginTop: 0,
+        marginBottom: 0,
     }
 
     if (starred) {

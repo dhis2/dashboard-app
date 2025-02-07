@@ -1,3 +1,4 @@
 .grid {
     margin-top: var(--spacers-dp16);
+    padding-inline: var(--spacers-dp16);
 }

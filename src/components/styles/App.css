@@ -1,19 +1,22 @@
 :root {
-    /* control bar variables */
+    /* dashboards bar variables */
     --user-rows-count: 1;
-    --controlbar-padding: 31px;
-    --row-height: 40px;
+    --min-row-count: 1;
+    --max-row-count: 10;
+    --dashboardsbar-padding: 6px;
+    --row-height: 32px;
+    --border-height: 1px;
     --min-rows-height: calc(
-        var(--controlbar-padding) + (1 * var(--row-height))
+        ((var(--min-row-count) + 1 ) * var(--dashboardsbar-padding)) + (var(--min-row-count) * var(--row-height)) + var(--border-height)
     );
     --max-rows-height: calc(
-        var(--controlbar-padding) + (10 * var(--row-height))
+        ((var(--max-row-count) + 1 ) * var(--dashboardsbar-padding)) + (var(--max-row-count) * var(--row-height)) + var(--border-height)
     );
     --user-rows-height: calc(
-        var(--controlbar-padding) + (var(--user-rows-count) * var(--row-height))
+         (var(--user-rows-count) * var(--row-height)) + ((var(--user-rows-count) + 1) * var(--dashboardsbar-padding)) + var(--border-height)
     );
     --sm-expanded-controlbar-height: calc(
-        (var(--vh, 1vh) * 100) - var(--headerbar-height) - 32px
+        (var(--vh, 1vh) * 100) - var(--headerbar-height) - var(--row-height)
     );
 
     /* item variables */
@@ -32,7 +35,7 @@ body {
     margin: 0;
     padding: 0;
     font-family: sans-serif;
-    background-color: #f4f6f8;
+    background-color: var(--colors-grey200);
 }
 
 .app-shell-app {
