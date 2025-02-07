@@ -70,7 +70,12 @@ export const NavigationMenu = ({ close }) => {
                 <Menu dense>
                     {filteredDashboards.length === 0 ? (
                         <li className={styles.noItems}>
-                            {i18n.t('No dashboards found')}
+                            {i18n.t(
+                                'No dashboards found for "{{- filterText}}"',
+                                {
+                                    filterText,
+                                }
+                            )}
                         </li>
                     ) : (
                         filteredDashboards.map(
