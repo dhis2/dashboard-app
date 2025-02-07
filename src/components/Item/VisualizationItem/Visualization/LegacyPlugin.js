@@ -40,12 +40,7 @@ const LegacyPlugin = ({
         ) {
             // Initial load, or active type or filter has changed
             load(item, visualization, {
-                credentials: {
-                    baseUrl,
-                    auth:
-                        process.env.NODE_ENV === 'development' &&
-                        process.env.REACT_APP_DHIS2_AUTHORIZATION,
-                },
+                credentials: { baseUrl },
                 activeType,
                 options,
             })
