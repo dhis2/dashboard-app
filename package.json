@@ -41,7 +41,7 @@
         "cy:run": "start-server-and-test 'yarn cy:start' http://localhost:3000 'yarn cypress run --browser chrome headless'"
     },
     "devDependencies": {
-        "@badeball/cypress-cucumber-preprocessor": "^20.1.0",
+        "@badeball/cypress-cucumber-preprocessor": "^22.0.0",
         "@bahmutov/cypress-esbuild-preprocessor": "^2.2.1",
         "@cypress/webpack-preprocessor": "^6.0.2",
         "@dhis2/cli-app-scripts": "^11.7.1",
