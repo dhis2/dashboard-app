@@ -71,7 +71,7 @@ export const NavigationMenu = ({ close }) => {
                     {filteredDashboards.length === 0 ? (
                         <li className={styles.noItems}>
                             {i18n.t(
-                                'No dashboards found for "{{filterText}}"',
+                                'No dashboards found for "{{- filterText}}"',
                                 {
                                     filterText,
                                 }
