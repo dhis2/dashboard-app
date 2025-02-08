@@ -1,16 +1,16 @@
 # 
 # Translators:
-# Philip Larsen Donnelly, 2019
 # Viktor Varland <viktor@dhis2.org>, 2021
-# 晓东 林 <13981924470@126.com>, 2024
-# easylin <lin_xd@126.com>, 2024
+# Philip Larsen Donnelly, 2025
+# 晓东 林 <13981924470@126.com>, 2025
+# easylin <lin_xd@126.com>, 2025
 # 
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2024-12-19T11:30:27.893Z\n"
+"POT-Creation-Date: 2025-02-07T10:20:57.831Z\n"
 "PO-Revision-Date: 2019-06-25 12:37+0000\n"
-"Last-Translator: easylin <lin_xd@126.com>, 2024\n"
+"Last-Translator: easylin <lin_xd@126.com>, 2025\n"
 "Language-Team: Chinese (https://app.transifex.com/hisp-uio/teams/100509/zh/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -22,7 +22,7 @@ msgid "Untitled dashboard"
 msgstr "未命名的仪表盘"
 
 msgid "Dashboards"
-msgstr ""
+msgstr "仪表盘"
 
 msgid "The dashboard couldn't be made available offline. Try again."
 msgstr "仪表盘无法离线使用。再试一次。"
@@ -61,7 +61,7 @@ msgid "Close dashboard"
 msgstr "关闭仪表盘"
 
 msgid "No dashboard items to show in slideshow"
-msgstr ""
+msgstr "幻灯片中不显示仪表板项目"
 
 msgid "Not available offline"
 msgstr "离线不可用"
@@ -73,7 +73,7 @@ msgid "Share"
 msgstr "分享"
 
 msgid "Slideshow"
-msgstr ""
+msgstr "幻灯片"
 
 msgid "Clear dashboard filters?"
 msgstr "清除仪表板过滤器？"
@@ -96,7 +96,7 @@ msgid "Confirm"
 msgstr "确认"
 
 msgid "Filter"
-msgstr ""
+msgstr "过滤器"
 
 msgid "Failed to unstar the dashboard"
 msgstr "无法取消仪表板的星标"
@@ -105,10 +105,10 @@ msgid "Failed to star the dashboard"
 msgstr "无法为仪表板加注星标"
 
 msgid "Offline data last updated {{timeAgo}}"
-msgstr ""
+msgstr "离线数据最后更新时间 {{timeAgo}}"
 
 msgid "Synced {{timeAgo}}"
-msgstr ""
+msgstr "同步{{timeAgo}}"
 
 msgid "Cannot unstar this dashboard while offline"
 msgstr "离线时无法取消此仪表板的星标"
@@ -117,19 +117,19 @@ msgid "Cannot star this dashboard while offline"
 msgstr "离线时无法为该仪表板加注星标"
 
 msgid "No dashboards available."
-msgstr ""
+msgstr "没有仪表盘。"
 
 msgid "Create a new dashboard using the + button."
-msgstr ""
+msgstr "使用 + 按钮创建新仪表板。"
 
 msgid "Search for a dashboard"
 msgstr "搜索仪表盘"
 
-msgid "No dashboards found"
+msgid "No dashboards found for \"{{- filterText}}\""
 msgstr ""
 
 msgid "{{appKey}} app not found"
-msgstr ""
+msgstr "{{appKey}} 未找到应用程序"
 
 msgid "Remove this item"
 msgstr "删除该条目"
@@ -193,7 +193,7 @@ msgid "Show details and interpretations"
 msgstr "显示细节和解释"
 
 msgid "Open menu"
-msgstr ""
+msgstr "打开菜单"
 
 msgid "Open in {{appName}} app"
 msgstr "在{{appName}} 应用中打开"
@@ -340,10 +340,10 @@ msgid "Delete dashboard"
 msgstr "删除仪表盘"
 
 msgid ""
-"Deleting dashboard \"{{ dashboardName }}\" will remove it for all users. "
+"Deleting dashboard \"{{- dashboardName }}\" will remove it for all users. "
 "This action cannot be undone. Are you sure you want to permanently delete "
 "this dashboard?"
-msgstr "删除仪表盘 \"{{ dashboardName }}\" 将从所有用户仪表盘中移除。该操作不能撤销，你确信要永久删除该仪表盘条目？"
+msgstr ""
 
 msgid "Discard changes"
 msgstr "忽略修改"
@@ -539,10 +539,10 @@ msgid_plural "{{count}} selected"
 msgstr[0] "{{count}} 个被选择"
 
 msgid "Cannot edit filters while offline"
-msgstr ""
+msgstr "脱机时无法编辑筛选器"
 
 msgid "Cannot edit filters on a small screen"
-msgstr ""
+msgstr "无法在小屏幕上编辑筛选器"
 
 msgid "Removing filters while offline"
 msgstr "离线时删除过滤器"
@@ -556,20 +556,20 @@ msgid "Yes, remove filters"
 msgstr "是的，删除过滤器"
 
 msgid "Exit slideshow"
-msgstr ""
+msgstr "退出幻灯片"
 
 msgid "Previous item"
-msgstr ""
+msgstr "上一个项目"
 
 msgid "Next item"
-msgstr ""
+msgstr "下一个项目"
 
 msgid "{{name}}: {{filter}}"
-msgstr ""
+msgstr "{{name}}:{{filter}}"
 
 msgid "{{count}} filters active"
 msgid_plural "{{count}} filters active"
-msgstr[0] ""
+msgstr[0] "{{count}} 滤波器激活"
 
 msgid "Loading dashboard – {{name}}"
 msgstr "加载仪表盘-{{name}}"
