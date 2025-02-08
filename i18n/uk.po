@@ -1,17 +1,17 @@
 # 
 # Translators:
 # Wanda <wanda@frontlineaids.org>, 2022
+# Philip Larsen Donnelly, 2022
 # Viktor Varland <viktor@dhis2.org>, 2022
 # Éva Tamási, 2023
 # Nadiia <semchuk@aph.org.ua>, 2023
-# Philip Larsen Donnelly, 2024
 # 
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2023-05-10T12:25:45.620Z\n"
+"POT-Creation-Date: 2025-02-07T11:22:46.614Z\n"
 "PO-Revision-Date: 2022-10-15 22:30+0000\n"
-"Last-Translator: Philip Larsen Donnelly, 2024\n"
+"Last-Translator: Nadiia <semchuk@aph.org.ua>, 2023\n"
 "Language-Team: Ukrainian (https://app.transifex.com/hisp-uio/teams/100509/uk/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -21,6 +21,9 @@ msgstr ""
 
 msgid "Untitled dashboard"
 msgstr "Інформаційна панель без назви"
+
+msgid "No dashboards found for \"{{- filterText}}\""
+msgstr ""
 
 msgid "Cannot create a dashboard while offline"
 msgstr "Неможливо створити інформаційну панель в автономному режимі"
@@ -248,13 +251,10 @@ msgid "Delete dashboard"
 msgstr "Видалити інформаційну панель"
 
 msgid ""
-"Deleting dashboard \"{{ dashboardName }}\" will remove it for all users. "
+"Deleting dashboard \"{{- dashboardName }}\" will remove it for all users. "
 "This action cannot be undone. Are you sure you want to permanently delete "
 "this dashboard?"
 msgstr ""
-"Після видалення інформаційної панелі \"{{ dashboardName }}\" її буде "
-"видалено для всіх користувачів. Цю дію неможливо скасувати. Ви дійсно хочете"
-" остаточно видалити цю інформаційну панель?"
 
 msgid "Cancel"
 msgstr "Скасувати"

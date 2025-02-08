@@ -12,7 +12,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2023-05-10T12:25:45.620Z\n"
+"POT-Creation-Date: 2025-02-07T11:22:46.614Z\n"
 "PO-Revision-Date: 2022-10-15 22:30+0000\n"
 "Last-Translator: Shelsea Chumaio, 2024\n"
 "Language-Team: Portuguese (https://app.transifex.com/hisp-uio/teams/100509/pt/)\n"
@@ -24,6 +24,9 @@ msgstr ""
 
 msgid "Untitled dashboard"
 msgstr "Painel sem título"
+
+msgid "No dashboards found for \"{{- filterText}}\""
+msgstr ""
 
 msgid "Cannot create a dashboard while offline"
 msgstr "Não é possível criar um painel quando se está offline"
@@ -250,13 +253,10 @@ msgid "Delete dashboard"
 msgstr "Eliminar o painel de controlo"
 
 msgid ""
-"Deleting dashboard \"{{ dashboardName }}\" will remove it for all users. "
+"Deleting dashboard \"{{- dashboardName }}\" will remove it for all users. "
 "This action cannot be undone. Are you sure you want to permanently delete "
 "this dashboard?"
 msgstr ""
-"A exclusão do painel \"{{ dashboardName }}\" o removerá para todos os "
-"utilizadores. Essa acção não pode ser desfeita. Tem certeza de que deseja "
-"eliminar permanentemente este painel?"
 
 msgid "Cancel"
 msgstr "Cancelar"

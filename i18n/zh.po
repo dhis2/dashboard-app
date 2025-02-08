@@ -1,6 +1,6 @@
 # 
 # Translators:
-# phil_dhis2, 2022
+# Philip Larsen Donnelly, 2022
 # Viktor Varland <viktor@dhis2.org>, 2022
 # 晓东 林 <13981924470@126.com>, 2022
 # easylin <lin_xd@126.com>, 2023
@@ -8,7 +8,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2023-05-10T12:25:45.620Z\n"
+"POT-Creation-Date: 2025-02-07T11:22:46.614Z\n"
 "PO-Revision-Date: 2022-10-15 22:30+0000\n"
 "Last-Translator: easylin <lin_xd@126.com>, 2023\n"
 "Language-Team: Chinese (https://app.transifex.com/hisp-uio/teams/100509/zh/)\n"
@@ -20,6 +20,9 @@ msgstr ""
 
 msgid "Untitled dashboard"
 msgstr "未命名的仪表板"
+
+msgid "No dashboards found for \"{{- filterText}}\""
+msgstr ""
 
 msgid "Cannot create a dashboard while offline"
 msgstr "离线时无法创建仪表板"
@@ -233,10 +236,10 @@ msgid "Delete dashboard"
 msgstr "删除仪表盘"
 
 msgid ""
-"Deleting dashboard \"{{ dashboardName }}\" will remove it for all users. "
+"Deleting dashboard \"{{- dashboardName }}\" will remove it for all users. "
 "This action cannot be undone. Are you sure you want to permanently delete "
 "this dashboard?"
-msgstr "删除仪表盘 \"{{ dashboardName }}\" 将从所有用户仪表盘中移除。该操作不能撤销，你确信要永久删除该仪表盘条目？"
+msgstr ""
 
 msgid "Cancel"
 msgstr "取消"

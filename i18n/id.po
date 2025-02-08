@@ -12,7 +12,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2023-05-10T12:25:45.620Z\n"
+"POT-Creation-Date: 2025-02-07T11:22:46.614Z\n"
 "PO-Revision-Date: 2022-10-15 22:30+0000\n"
 "Last-Translator: Philip Larsen Donnelly, 2024\n"
 "Language-Team: Indonesian (https://app.transifex.com/hisp-uio/teams/100509/id/)\n"
@@ -24,6 +24,9 @@ msgstr ""
 
 msgid "Untitled dashboard"
 msgstr "Dasbor tanpa judul"
+
+msgid "No dashboards found for \"{{- filterText}}\""
+msgstr ""
 
 msgid "Cannot create a dashboard while offline"
 msgstr "Tidak dapat membuat sebuah dasbor saat offline"
@@ -236,13 +239,10 @@ msgid "Delete dashboard"
 msgstr "Hapus dashboard"
 
 msgid ""
-"Deleting dashboard \"{{ dashboardName }}\" will remove it for all users. "
+"Deleting dashboard \"{{- dashboardName }}\" will remove it for all users. "
 "This action cannot be undone. Are you sure you want to permanently delete "
 "this dashboard?"
 msgstr ""
-"Dashboard \"{{ dashboardName }}\" akan dihapus untuk semua pengguna. Setelah"
-" dihapus dashboard ini tidak dapat dipulihkan. Anda yakin akan menghapus "
-"dashboard ini secara permanen?"
 
 msgid "Cancel"
 msgstr "Batal"
