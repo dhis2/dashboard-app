@@ -9,7 +9,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2023-05-10T12:25:45.620Z\n"
+"POT-Creation-Date: 2025-02-07T11:22:46.614Z\n"
 "PO-Revision-Date: 2022-10-15 22:30+0000\n"
 "Last-Translator: Em Le <em.hispvietnam@gmail.com>, 2024\n"
 "Language-Team: Vietnamese (https://app.transifex.com/hisp-uio/teams/100509/vi/)\n"
@@ -21,6 +21,9 @@ msgstr ""
 
 msgid "Untitled dashboard"
 msgstr "Bảng điều khiển không có tiêu đề"
+
+msgid "No dashboards found for \"{{- filterText}}\""
+msgstr ""
 
 msgid "Cannot create a dashboard while offline"
 msgstr "Không thể tạo bảng thông tin khi bạn đang ngoại tuyến"
@@ -242,13 +245,10 @@ msgid "Delete dashboard"
 msgstr "Xóa bảng điều khiển"
 
 msgid ""
-"Deleting dashboard \"{{ dashboardName }}\" will remove it for all users. "
+"Deleting dashboard \"{{- dashboardName }}\" will remove it for all users. "
 "This action cannot be undone. Are you sure you want to permanently delete "
 "this dashboard?"
 msgstr ""
-"Xóa bảng điều khiển \"{{ dashboardName }}\" sẽ xóa cho tất cả người dùng. "
-"Hành động này không thể được hoàn tác. Bạn có chắc chắn muốn xóa vĩnh viễn "
-"bảng điều khiển này không?"
 
 msgid "Cancel"
 msgstr "Hủy"

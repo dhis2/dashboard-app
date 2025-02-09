@@ -6,7 +6,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2023-05-10T12:25:45.620Z\n"
+"POT-Creation-Date: 2025-02-07T11:22:46.614Z\n"
 "PO-Revision-Date: 2022-10-15 22:30+0000\n"
 "Last-Translator: Charel van den Elsen, 2023\n"
 "Language-Team: Dutch (https://app.transifex.com/hisp-uio/teams/100509/nl/)\n"
@@ -18,6 +18,9 @@ msgstr ""
 
 msgid "Untitled dashboard"
 msgstr "Naamloos dashboard"
+
+msgid "No dashboards found for \"{{- filterText}}\""
+msgstr ""
 
 msgid "Cannot create a dashboard while offline"
 msgstr "Kan geen dashboard maken terwijl u offline bent"
@@ -240,13 +243,10 @@ msgid "Delete dashboard"
 msgstr "Dashboard verwijderen"
 
 msgid ""
-"Deleting dashboard \"{{ dashboardName }}\" will remove it for all users. "
+"Deleting dashboard \"{{- dashboardName }}\" will remove it for all users. "
 "This action cannot be undone. Are you sure you want to permanently delete "
 "this dashboard?"
 msgstr ""
-"Als u dashboard \"{{ dashboardName }}\" verwijdert, wordt het voor alle "
-"gebruikers verwijderd. Deze actie kan niet ongedaan gemaakt worden. Weet u "
-"zeker dat u dit dashboard definitief wilt verwijderen?"
 
 msgid "Cancel"
 msgstr "Annuleren"

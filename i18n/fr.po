@@ -14,7 +14,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2023-05-10T12:25:45.620Z\n"
+"POT-Creation-Date: 2025-02-07T11:22:46.614Z\n"
 "PO-Revision-Date: 2022-10-15 22:30+0000\n"
 "Last-Translator: Philip Larsen Donnelly, 2024\n"
 "Language-Team: French (https://app.transifex.com/hisp-uio/teams/100509/fr/)\n"
@@ -26,6 +26,9 @@ msgstr ""
 
 msgid "Untitled dashboard"
 msgstr "Tableau de bord sans titre"
+
+msgid "No dashboards found for \"{{- filterText}}\""
+msgstr ""
 
 msgid "Cannot create a dashboard while offline"
 msgstr "Impossible de créer un tableau de bord en étant hors ligne"
@@ -250,13 +253,10 @@ msgid "Delete dashboard"
 msgstr "Supprimer le tableau de bord"
 
 msgid ""
-"Deleting dashboard \"{{ dashboardName }}\" will remove it for all users. "
+"Deleting dashboard \"{{- dashboardName }}\" will remove it for all users. "
 "This action cannot be undone. Are you sure you want to permanently delete "
 "this dashboard?"
 msgstr ""
-"La suppression du tableau de bord \"{{ dashboardName }}\" affectera tous les"
-" utilisateurs qui y ont accès.  Cette action ne peut pas être annulée. "
-"Voulez-vous vraiment supprimer définitivement ce tableau de bord?"
 
 msgid "Cancel"
 msgstr "Annuler"

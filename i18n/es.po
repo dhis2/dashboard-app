@@ -14,7 +14,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2023-05-10T12:25:45.620Z\n"
+"POT-Creation-Date: 2025-02-07T11:22:46.614Z\n"
 "PO-Revision-Date: 2022-10-15 22:30+0000\n"
 "Last-Translator: Philip Larsen Donnelly, 2024\n"
 "Language-Team: Spanish (https://app.transifex.com/hisp-uio/teams/100509/es/)\n"
@@ -26,6 +26,9 @@ msgstr ""
 
 msgid "Untitled dashboard"
 msgstr "Tablero sin nombre"
+
+msgid "No dashboards found for \"{{- filterText}}\""
+msgstr ""
 
 msgid "Cannot create a dashboard while offline"
 msgstr "No se pueden crear dashboard sin cconexion a internet"
@@ -250,13 +253,10 @@ msgid "Delete dashboard"
 msgstr "Borrar tablero"
 
 msgid ""
-"Deleting dashboard \"{{ dashboardName }}\" will remove it for all users. "
+"Deleting dashboard \"{{- dashboardName }}\" will remove it for all users. "
 "This action cannot be undone. Are you sure you want to permanently delete "
 "this dashboard?"
 msgstr ""
-"Borrando tablero \"{{ dashboardName }}\" para todos los usuarios. Esta "
-"acción será permanente. Está seguro de que desea continuar eliminando "
-"permanentemente este tablero?"
 
 msgid "Cancel"
 msgstr "Cancelar"
