@@ -101,11 +101,3 @@ Feature: Errors while in view mode
 # Scenario: I delete the dashboard that was created for this test suite
 #     Given I open a dashboard with a chart that will fail
 #     Then I delete the created dashboard
-
-# TODO unflake this flaky test
-# @nonmutating
-# Scenario: Toggling show description fails
-#     Given I open the "Delivery" dashboard
-#     When clicking to show description fails
-#     Then a warning message is displayed stating that show description failed
-#     And the dashboard description is not displayed
