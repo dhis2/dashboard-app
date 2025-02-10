@@ -28,3 +28,16 @@ describe('generateUid', () => {
         expect(/[a-zA-Z]/.test(firstChar)).toBe(true)
     })
 })
+
+describe('isValidUid', () => {
+    it('should return false for an invalid UID', () => {
+        expect(isValidUid('1234567890')).toBe(false) // Does not start with a letter
+        expect(isValidUid('a123456789')).toBe(false) // Too short
+        expect(isValidUid('a123456789012')).toBe(false) // Too long
+        expect(isValidUid('a12345678!0')).toBe(false) // Contains invalid character
+    })
+
+    it('should return true for a valid UID', () => {
+        expect(isValidUid('a1234567890')).toBe(true)
+    })
+})
