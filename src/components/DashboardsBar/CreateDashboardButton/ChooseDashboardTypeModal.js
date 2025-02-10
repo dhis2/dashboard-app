@@ -29,11 +29,16 @@ export const ChooseDashboardTypeModal = ({
     const handleDashboardTypeChange = useCallback(({ value }) => {
         setSelectedType(value)
     }, [])
-    const isInternal = selectedType === TYPE_INTERNAL
 
     return (
         <Modal onClose={onCancel}>
-            <form onSubmit={isInternal ? onSelectInternal : onSelectSuperset}>
+            <form
+                onSubmit={
+                    selectedType === TYPE_INTERNAL
+                        ? onSelectInternal
+                        : onSelectSuperset
+                }
+            >
                 <ModalTitle>
                     {i18n.t('New dashboard: choose type', {
                         nsSeparator: '###',
@@ -78,9 +83,7 @@ export const ChooseDashboardTypeModal = ({
                 <ModalActions>
                     <div className={styles.buttonStrip}>
                         <Button primary type="submit">
-                            {isInternal
-                                ? i18n.t('Create dashboard')
-                                : i18n.t('Configure source')}
+                            {i18n.t('Continue')}
                         </Button>
                         <Button secondary onClick={onCancel}>
                             {i18n.t('Cancel')}
