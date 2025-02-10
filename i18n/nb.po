@@ -1,16 +1,15 @@
 # 
 # Translators:
-# Caroline Hesthagen Holen <caroline@devotta.no>, 2021
 # Jan Henrik Øverland, 2022
-# Philip Larsen Donnelly, 2024
-# Karoline Tufte Lien <karoline@dhis2.org>, 2024
+# Caroline Hesthagen Holen <caroline@devotta.no>, 2025
+# Karoline Tufte Lien <karoline@dhis2.org>, 2025
 # 
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2024-03-19T12:31:03.302Z\n"
+"POT-Creation-Date: 2025-02-07T10:20:57.831Z\n"
 "PO-Revision-Date: 2019-06-25 12:37+0000\n"
-"Last-Translator: Karoline Tufte Lien <karoline@dhis2.org>, 2024\n"
+"Last-Translator: Karoline Tufte Lien <karoline@dhis2.org>, 2025\n"
 "Language-Team: Norwegian Bokmål (https://app.transifex.com/hisp-uio/teams/100509/nb/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -21,20 +20,115 @@ msgstr ""
 msgid "Untitled dashboard"
 msgstr "Dashbord uten navn"
 
-msgid "Cannot create a dashboard while offline"
+msgid "Dashboards"
+msgstr "Dashbord"
+
+msgid "The dashboard couldn't be made available offline. Try again."
 msgstr ""
 
-msgid "Create new dashboard"
-msgstr "Lag et nytt dashbord"
+msgid "Remove from offline storage"
+msgstr ""
+
+msgid "Make available offline"
+msgstr ""
+
+msgid "Sync offline data now"
+msgstr ""
+
+msgid "Unstar dashboard"
+msgstr "Fjern stjerne fra dashbordet"
+
+msgid "Star dashboard"
+msgstr "Merk dashbord med stjerne"
+
+msgid "Hide description"
+msgstr "Skjul beskrivelse"
+
+msgid "Show description"
+msgstr "Vis beskrivelse"
+
+msgid "Print"
+msgstr "Skriv ut"
+
+msgid "Dashboard layout"
+msgstr "Dashbordoppsett"
+
+msgid "One item per page"
+msgstr "Ett element per side"
+
+msgid "Close dashboard"
+msgstr ""
+
+msgid "No dashboard items to show in slideshow"
+msgstr ""
+
+msgid "Not available offline"
+msgstr "Ikke tilgjengelig i frakoblet modus"
+
+msgid "Edit"
+msgstr "Rediger"
+
+msgid "Share"
+msgstr "Del"
+
+msgid "Slideshow"
+msgstr ""
+
+msgid "Clear dashboard filters?"
+msgstr ""
+
+msgid ""
+"A dashboard's filters can’t be saved offline. Do you want to remove the "
+"filters and make this dashboard available offline?"
+msgstr ""
+
+msgid "No, cancel"
+msgstr "Nei, avbryt"
+
+msgid "Yes, clear filters and sync"
+msgstr ""
+
+msgid "Cancel"
+msgstr "Avbryt"
+
+msgid "Confirm"
+msgstr "Bekreft"
+
+msgid "Filter"
+msgstr "Filter"
+
+msgid "Failed to unstar the dashboard"
+msgstr "Kunne ikke fjerne stjernemerket på dashbordet"
+
+msgid "Failed to star the dashboard"
+msgstr "Kunne ikke stjernemerke dashbordet"
+
+msgid "Offline data last updated {{timeAgo}}"
+msgstr ""
+
+msgid "Synced {{timeAgo}}"
+msgstr ""
+
+msgid "Cannot unstar this dashboard while offline"
+msgstr ""
+
+msgid "Cannot star this dashboard while offline"
+msgstr ""
+
+msgid "No dashboards available."
+msgstr ""
+
+msgid "Create a new dashboard using the + button."
+msgstr ""
 
 msgid "Search for a dashboard"
 msgstr "Søk etter et dashbord"
 
-msgid "Show fewer dashboards"
-msgstr "Vis færre dashbord"
+msgid "No dashboards found for \"{{- filterText}}\""
+msgstr ""
 
-msgid "Show more dashboards"
-msgstr "Vis flere dashbord"
+msgid "{{appKey}} app not found"
+msgstr ""
 
 msgid "Remove this item"
 msgstr "Fjern dette elementet"
@@ -99,6 +193,9 @@ msgstr ""
 msgid "Show details and interpretations"
 msgstr ""
 
+msgid "Open menu"
+msgstr ""
+
 msgid "Open in {{appName}} app"
 msgstr "Åpne i {{appName}} -appen"
 
@@ -159,8 +256,11 @@ msgstr ""
 msgid "Open this item in {{appName}}"
 msgstr ""
 
-msgid "Not available offline"
-msgstr "Ikke tilgjengelig i frakoblet modus"
+msgid "Resources"
+msgstr "Ressurser"
+
+msgid "Reports"
+msgstr "Rapporter"
 
 msgid "Visualizations"
 msgstr "Visualiseringer"
@@ -185,12 +285,6 @@ msgstr ""
 
 msgid "Apps"
 msgstr "Applikasjoner"
-
-msgid "Reports"
-msgstr "Rapporter"
-
-msgid "Resources"
-msgstr "Ressurser"
 
 msgid "Users"
 msgstr "Brukere"
@@ -246,16 +340,10 @@ msgid "Delete dashboard"
 msgstr "Slett dashbord"
 
 msgid ""
-"Deleting dashboard \"{{ dashboardName }}\" will remove it for all users. "
+"Deleting dashboard \"{{- dashboardName }}\" will remove it for all users. "
 "This action cannot be undone. Are you sure you want to permanently delete "
 "this dashboard?"
 msgstr ""
-"Hvis du sletter dashbordet \"{{ dashboardName }}\", fjernes det for alle "
-"brukere. Denne handlingen kan ikke angres. Er du sikker på at du vil slette "
-"dette dashbordet permanent?"
-
-msgid "Cancel"
-msgstr "Avbryt"
 
 msgid "Discard changes"
 msgstr "Forkast endringer"
@@ -310,9 +398,6 @@ msgstr "Tilgjengelige filtere"
 msgid "Selected Filters"
 msgstr "Valgte filtere"
 
-msgid "Confirm"
-msgstr "Bekreft"
-
 msgid "There are no items on this dashboard"
 msgstr "Det er ingen elementer på dette dashbordet"
 
@@ -321,6 +406,9 @@ msgstr "Vis færre"
 
 msgid "Show more"
 msgstr "Vis mer"
+
+msgid "Open visualization in new tab"
+msgstr ""
 
 msgid "Insert"
 msgstr "Sett inn"
@@ -336,9 +424,6 @@ msgstr ""
 
 msgid "Additional items"
 msgstr "Ytterligere elementer"
-
-msgid "Dashboard layout"
-msgstr "Dashbordoppsett"
 
 msgid "Freeflow"
 msgstr ""
@@ -403,9 +488,6 @@ msgstr ""
 msgid "Start of dashboard"
 msgstr ""
 
-msgid "Print"
-msgstr "Skriv ut"
-
 msgid "dashboard layout"
 msgstr "dashbordoppsett"
 
@@ -452,12 +534,18 @@ msgstr "Ingen dashbord funnet. Bruk + -knappen for å lage et nytt dashbord."
 msgid "Requested dashboard not found"
 msgstr "Forespurt dashbord ikke funnet"
 
+msgid "No description"
+msgstr "Ingen beskrivelse"
+
 msgid "{{count}} selected"
 msgid_plural "{{count}} selected"
 msgstr[0] "{{count}} valgt"
 msgstr[1] "{{count}} valgt"
 
-msgid "Cannot remove filters while offline"
+msgid "Cannot edit filters while offline"
+msgstr ""
+
+msgid "Cannot edit filters on a small screen"
 msgstr ""
 
 msgid "Removing filters while offline"
@@ -468,87 +556,36 @@ msgid ""
 "want to remove all filters on this dashboard?"
 msgstr ""
 
-msgid "No, cancel"
-msgstr "Nei, avbryt"
-
 msgid "Yes, remove filters"
 msgstr ""
 
-msgid "The dashboard couldn't be made available offline. Try again."
+msgid "Exit slideshow"
 msgstr ""
 
-msgid "Failed to unstar the dashboard"
-msgstr "Kunne ikke fjerne stjernemerket på dashbordet"
-
-msgid "Failed to star the dashboard"
-msgstr "Kunne ikke stjernemerke dashbordet"
-
-msgid "Remove from offline storage"
+msgid "Previous item"
 msgstr ""
 
-msgid "Make available offline"
+msgid "Next item"
 msgstr ""
 
-msgid "Sync offline data now"
+msgid "{{name}}: {{filter}}"
 msgstr ""
 
-msgid "Unstar dashboard"
-msgstr "Fjern stjerne fra dashbordet"
-
-msgid "Star dashboard"
-msgstr "Merk dashbord med stjerne"
-
-msgid "Hide description"
-msgstr "Skjul beskrivelse"
-
-msgid "Show description"
-msgstr "Vis beskrivelse"
-
-msgid "One item per page"
-msgstr "Ett element per side"
-
-msgid "Close dashboard"
-msgstr ""
-
-msgid "More"
-msgstr "Mer"
-
-msgid "Edit"
-msgstr "Rediger"
-
-msgid "Share"
-msgstr "Del"
-
-msgid "Clear dashboard filters?"
-msgstr ""
-
-msgid ""
-"A dashboard's filters can’t be saved offline. Do you want to remove the "
-"filters and make this dashboard available offline?"
-msgstr ""
-
-msgid "Yes, clear filters and sync"
-msgstr ""
-
-msgid "No description"
-msgstr "Ingen beskrivelse"
-
-msgid "Add filter"
-msgstr "Legg til filter"
-
-msgid "Offline data last updated {{time}}"
-msgstr ""
-
-msgid "Cannot unstar this dashboard while offline"
-msgstr ""
-
-msgid "Cannot star this dashboard while offline"
-msgstr ""
+msgid "{{count}} filters active"
+msgid_plural "{{count}} filters active"
+msgstr[0] ""
+msgstr[1] ""
 
 msgid "Loading dashboard – {{name}}"
 msgstr "Laster dashbord - {{name}}"
 
 msgid "Loading dashboard"
+msgstr ""
+
+msgid "Load dashboard failed"
+msgstr ""
+
+msgid "This dashboard could not be loaded. Please try again later."
 msgstr ""
 
 msgid "Offline"
@@ -558,10 +595,4 @@ msgid "This dashboard cannot be loaded while offline."
 msgstr ""
 
 msgid "Go to start page"
-msgstr ""
-
-msgid "Load dashboard failed"
-msgstr ""
-
-msgid "This dashboard could not be loaded. Please try again later."
 msgstr ""
