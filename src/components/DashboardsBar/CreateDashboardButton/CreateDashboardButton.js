@@ -2,13 +2,13 @@ import { Button, IconAdd16 } from '@dhis2/ui'
 import React, { useCallback, useState } from 'react'
 import { useHistory } from 'react-router-dom'
 import { CreateSupersetEmbeddedDashboard } from '../../ConfigureSupersetEmbeddedDashboardModal/index.js'
-import { useHasSupersetSupport } from '../../SystemSettingsProvider.js'
+import { useIsSupersetSupported } from '../../SystemSettingsProvider.js'
 import { ChooseDashboardTypeModal } from './ChooseDashboardTypeModal.js'
 import styles from './styles/CreateDashboardButton.module.css'
 
 export const CreateDashboardButton = () => {
     const history = useHistory()
-    const hasSupersetSupport = useHasSupersetSupport()
+    const isSupersetSupported = useIsSupersetSupported()
     const [isChooseDashboardTypeModalOpen, setIsChooseDashboardTypeModalOpen] =
         useState(false)
     const [isCreateSupersetDashboardOpen, setIsCreateSupersetDashboardOpen] =
@@ -17,12 +17,12 @@ export const CreateDashboardButton = () => {
         history.push('/new')
     }, [history])
     const handleCreateButtonClick = useCallback(() => {
-        if (hasSupersetSupport) {
+        if (isSupersetSupported) {
             setIsChooseDashboardTypeModalOpen(true)
         } else {
             navigateToNewInternalDashboardView()
         }
-    }, [hasSupersetSupport, navigateToNewInternalDashboardView])
+    }, [isSupersetSupported, navigateToNewInternalDashboardView])
 
     return (
         <>
