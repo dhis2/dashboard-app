@@ -68,14 +68,18 @@ class Item extends Component {
             // Avoid refetching the visualization already in the Redux store
             // when the same dashboard item is added again.
             // This also solves a flashing of all the "duplicated" dashboard items.
-            !this.props.visualization.id &&
-                this.props.setVisualization(
-                    await apiFetchVisualization(this.props.item)
+            if (!this.props.visualization.id) {
+                const vis = await apiFetchVisualization(
+                    this.props.item,
+                    this.props.engine
                 )
+
+                this.props.setVisualization(vis[this.props.item.type])
+            }
 
             // force fetch when recording to allow caching of the visualizations request
             if (this.props.isRecording) {
-                apiFetchVisualization(this.props.item)
+                apiFetchVisualization(this.props.item, this.props.engine)
             }
 
             if (
