@@ -1,7 +1,10 @@
 import { useConfig } from '@dhis2/app-service-config'
 import { useCallback, useMemo } from 'react'
 
-const useSupersetApiUrl = (resource) => {
+/* Since the superset gateway is not part of the DHIS2 Core Web API
+ * we need to compute the API URL and use regular fetch requests
+ * instead of using the dataEngine. */
+const useSupersetGatewayApiUrl = (resource) => {
     const { baseUrl } = useConfig()
     const url = useMemo(() => {
         // Trim slashes from start and end
@@ -9,7 +12,10 @@ const useSupersetApiUrl = (resource) => {
         const urlInstance = new URL(
             `superset-gateway/api/${cleanedResource}`,
             baseUrl === '..'
-                ? window.location.href.split('dhis-web-dashboard/')[0]
+                ? /* On production instances the baseUrl is a relative URL (..)
+                   * To obtain an absolute URL we can read the part of the window
+                   * location that preceedes the app-path */
+                  window.location.href.split('dhis-web-dashboard/')[0]
                 : `${baseUrl}/`
         )
         return urlInstance.href
@@ -18,7 +24,8 @@ const useSupersetApiUrl = (resource) => {
 }
 
 export const useFetchSupersetBaseUrl = () => {
-    const url = useSupersetApiUrl('info')
+    const url = useSupersetGatewayApiUrl('info')
+    // Note that this is an unauthenticated request
     const fetchSupersetBaseUrl = useCallback(async () => {
         const response = await fetch(url)
         if (!response.ok) {
@@ -36,7 +43,10 @@ export const useFetchSupersetBaseUrl = () => {
 }
 
 export const usePostSupersetGuestToken = (dashboardId) => {
-    const url = useSupersetApiUrl(`guestTokens/dhis2/dashboards/${dashboardId}`)
+    const url = useSupersetGatewayApiUrl(
+        `guestTokens/dhis2/dashboards/${dashboardId}`
+    )
+    // This is an authenticated request which relies on the cookie set by DHIS2 Core
     const postSupersetGuestToken = useCallback(async () => {
         const response = await fetch(url, {
             method: 'POST',
