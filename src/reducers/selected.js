@@ -59,9 +59,9 @@ export const sGetSelectedSupersetEmbedData = (state) => {
 }
 export const msGetSelectedSupersetEmbedData = createSelector(
     [
-        (state) => state.selected?.embedded.id,
-        (state) => state.selected?.embedded.options.hideChartControls,
-        (state) => state.selected?.embedded.options.filters.expanded,
+        (state) => state.selected.embedded?.id,
+        (state) => state.selected.embedded?.options.hideChartControls,
+        (state) => state.selected.embedded?.options.filters.expanded,
     ],
     (id, hideChartControls, expanded) => ({
         id,
