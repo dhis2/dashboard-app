@@ -1,5 +1,4 @@
 import { useConfig } from '@dhis2/app-runtime'
-import { useD2 } from '@dhis2/app-runtime-adapter-d2'
 import PropTypes from 'prop-types'
 import React, { useEffect, useRef } from 'react'
 import getVisualizationContainerDomId from '../getVisualizationContainerDomId.js'
@@ -13,7 +12,6 @@ const LegacyPlugin = ({
     style,
     gridWidth,
 }) => {
-    const { d2 } = useD2()
     const { baseUrl } = useConfig()
     const prevItem = useRef()
     const prevActiveType = useRef()
@@ -41,10 +39,7 @@ const LegacyPlugin = ({
         ) {
             // Initial load, or active type or filter has changed
             load(item, visualization, {
-                credentials: {
-                    baseUrl,
-                    auth: d2.Api.getApi().defaultHeaders.Authorization,
-                },
+                credentials: { baseUrl },
                 activeType,
                 options,
             })
@@ -55,7 +50,7 @@ const LegacyPlugin = ({
         prevVisualization.current = visualization
 
         return () => unmount(item, item.type || activeType)
-    }, [item, visualization, activeType, baseUrl, options, d2])
+    }, [item, visualization, activeType, baseUrl, options])
 
     return <div id={getVisualizationContainerDomId(item.id)} style={style} />
 }

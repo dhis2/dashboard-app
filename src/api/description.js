@@ -6,11 +6,12 @@ import {
 
 const KEY_SHOW_DESCRIPTION = 'showDescription'
 
-export const apiGetShowDescription = async () =>
+export const apiGetShowDescription = async (dataEngine) =>
     await apiGetUserDataStoreValue(
         KEY_SHOW_DESCRIPTION,
-        DEFAULT_STATE_SHOW_DESCRIPTION
+        DEFAULT_STATE_SHOW_DESCRIPTION,
+        dataEngine
     )
 
-export const apiPostShowDescription = (value) =>
-    apiPostUserDataStoreValue(KEY_SHOW_DESCRIPTION, value)
+export const apiPostShowDescription = (value, dataEngine) =>
+    apiPostUserDataStoreValue(KEY_SHOW_DESCRIPTION, value, dataEngine)

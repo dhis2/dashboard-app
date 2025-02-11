@@ -5,9 +5,10 @@ import { EXTENDED_TIMEOUT } from '../../support/utils.js'
 Given('I open a non-editable dashboard in edit mode', () => {
     cy.intercept(`**/dashboards/${dashboards.Delivery.id}?*`, (req) => {
         req.reply((res) => {
-            const noAccessResponse = Object.assign({}, res.body, {
+            const noAccessResponse = {
+                ...res.body,
                 access: { update: false, delete: false },
-            })
+            }
 
             res.send(noAccessResponse)
         })

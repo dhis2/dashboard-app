@@ -101,7 +101,7 @@ class Item extends Component {
             this.props.isRecording &&
             this.props.isRecording !== prevProps.isRecording
         ) {
-            apiFetchVisualization(this.props.item)
+            apiFetchVisualization(this.props.item, this.props.engine)
         }
     }
 

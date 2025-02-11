@@ -1,3 +1,10 @@
+# [100.5.0](https://github.com/dhis2/dashboard-app/compare/v100.4.2...v100.5.0) (2025-02-07)
+
+
+### Features
+
+* show user's search text in the no dashboards found message ([#3207](https://github.com/dhis2/dashboard-app/issues/3207)) ([00cd977](https://github.com/dhis2/dashboard-app/commit/00cd9770027eb90f4fc1d0811c4f5c0bc2f719b6))
+
 ## [100.4.2](https://github.com/dhis2/dashboard-app/compare/v100.4.1...v100.4.2) (2025-01-22)
 
 
