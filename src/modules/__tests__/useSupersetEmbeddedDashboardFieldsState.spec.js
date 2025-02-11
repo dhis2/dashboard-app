@@ -2,7 +2,12 @@ import {
     createInitialState,
     defaultInitialValues,
     FIELD_CHANGE,
-    fieldNames,
+    FIELD_NAME_CODE,
+    FIELD_NAME_DESCRIPTION,
+    FIELD_NAME_EXPAND_FILTERS,
+    FIELD_NAME_SHOW_CHART_CONTROLS,
+    FIELD_NAME_SUPERSET_EMBED_ID,
+    FIELD_NAME_TITLE,
     isValidUuid,
     reducer,
     RESET_FIELD_STATE,
@@ -84,7 +89,7 @@ describe('superset embedded fields state reducer', () => {
             expect(
                 reducer(initialState, {
                     type: FIELD_CHANGE,
-                    payload: { name: fieldNames.title, value: UPDATED_TITLE },
+                    payload: { name: FIELD_NAME_TITLE, value: UPDATED_TITLE },
                 })
             ).toEqual(expectedState)
         })
@@ -102,7 +107,7 @@ describe('superset embedded fields state reducer', () => {
                 reducer(initialState, {
                     type: FIELD_CHANGE,
                     payload: {
-                        name: fieldNames.showChartControls,
+                        name: FIELD_NAME_SHOW_CHART_CONTROLS,
                         checked: false,
                     },
                 })
@@ -115,7 +120,7 @@ describe('superset embedded fields state reducer', () => {
             })
             const stateAfterTitleChange = reducer(initialState, {
                 type: FIELD_CHANGE,
-                payload: { name: fieldNames.title, value: UPDATED_TITLE },
+                payload: { name: FIELD_NAME_TITLE, value: UPDATED_TITLE },
             })
 
             expect(stateAfterTitleChange.values.title).toBe(UPDATED_TITLE)
@@ -123,7 +128,7 @@ describe('superset embedded fields state reducer', () => {
 
             const stateAfterTitleReset = reducer(stateAfterTitleChange, {
                 type: FIELD_CHANGE,
-                payload: { name: fieldNames.title, value: INITIAL_TITLE },
+                payload: { name: FIELD_NAME_TITLE, value: INITIAL_TITLE },
             })
 
             expect(stateAfterTitleReset.values.title).toBe(INITIAL_TITLE)
@@ -132,7 +137,7 @@ describe('superset embedded fields state reducer', () => {
         it('reports superset embed ID is valid if the field is changed to a valid value', () => {
             const stateAfterEmbedIdChange = reducer(createInitialState(), {
                 type: FIELD_CHANGE,
-                payload: { name: fieldNames.supersetEmbedId, value: UUID_V1 },
+                payload: { name: FIELD_NAME_SUPERSET_EMBED_ID, value: UUID_V1 },
             })
 
             expect(stateAfterEmbedIdChange.values.supersetEmbedId).toBe(UUID_V1)
@@ -154,11 +159,11 @@ describe('superset embedded fields state reducer', () => {
             state = reducer(state, { type: SUPERSET_FIELD_BLUR })
             state = reducer(state, {
                 type: FIELD_CHANGE,
-                payload: { name: fieldNames.title, value: INITIAL_TITLE },
+                payload: { name: FIELD_NAME_TITLE, value: INITIAL_TITLE },
             })
             state = reducer(state, {
                 type: FIELD_CHANGE,
-                payload: { name: fieldNames.supersetEmbedId, value: UUID_V1 },
+                payload: { name: FIELD_NAME_SUPERSET_EMBED_ID, value: UUID_V1 },
             })
             expect(state.values.title).toBe(INITIAL_TITLE)
             expect(state.values.supersetEmbedId).toBe(UUID_V1)
@@ -168,12 +173,12 @@ describe('superset embedded fields state reducer', () => {
 
             // Dispatch reset action
             const newValues = {
-                [fieldNames.title]: UPDATED_TITLE,
-                [fieldNames.code]: 'SOME_CODE',
-                [fieldNames.description]: 'A description text',
-                [fieldNames.supersetEmbedId]: NILL_UUID,
-                [fieldNames.showChartControls]: false,
-                [fieldNames.expandFilters]: true,
+                [FIELD_NAME_TITLE]: UPDATED_TITLE,
+                [FIELD_NAME_CODE]: 'SOME_CODE',
+                [FIELD_NAME_DESCRIPTION]: 'A description text',
+                [FIELD_NAME_SUPERSET_EMBED_ID]: NILL_UUID,
+                [FIELD_NAME_SHOW_CHART_CONTROLS]: false,
+                [FIELD_NAME_EXPAND_FILTERS]: true,
             }
             state = reducer(state, {
                 type: RESET_FIELD_STATE,
