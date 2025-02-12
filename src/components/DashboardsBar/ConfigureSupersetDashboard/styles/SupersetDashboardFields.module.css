@@ -2,7 +2,7 @@
     margin-block-end: var(--spacers-dp12);
 }
 .textField textarea {
-    max-height: 180px;
+    max-block-size: 180px;
 }
 .options {
     all: unset;
