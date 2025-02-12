@@ -147,7 +147,7 @@ describe('Creating, viewing, editing and deleting an embedded superset dashboard
         cy.getByDataTest('dashboard-unstarred').should('be.visible')
     })
 
-    it('can share the superset embedded dashboard', () => {
+    it('can open the sharing dialog', () => {
         cy.contains('button', 'Share').should('be.enabled').click()
         cy.contains('h1', `Sharing and access: ${NAME}`).should('be.visible')
         // We don't test the actual sharing, just if the sharing modal pops up
