@@ -129,11 +129,13 @@ describe('Creating, viewing, editing and deleting an embedded superset dashboard
         cy.get('.backdrop').should('be.visible').click()
     })
 
-    it('shows the description', () => {
+    it('shows and hides the description', () => {
         cy.getByDataTest('more-actions-button').should('be.enabled').click()
         cy.contains('a', 'Show description').should('be.visible').click()
         cy.contains(DESCRIPTION).should('be.visible')
-        // Keep visible so we can check it updates correctly later on
+        cy.getByDataTest('more-actions-button').should('be.enabled').click()
+        cy.contains('a', 'Hide description').should('be.visible').click()
+        cy.contains(DESCRIPTION_UPATED).should('not.exist')
     })
 
     it('stars and unstars the superset embedded dashboard', () => {
