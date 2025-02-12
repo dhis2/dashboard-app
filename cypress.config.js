@@ -5,9 +5,6 @@ const createEsbuildPlugin = require('@badeball/cypress-cucumber-preprocessor/esb
 const createBundler = require('@bahmutov/cypress-esbuild-preprocessor')
 const { chromeAllowXSiteCookies } = require('@dhis2/cypress-plugins')
 const { defineConfig } = require('cypress')
-// const {
-//     excludeByVersionTags,
-// } = require('./cypress/plugins/excludeByVersionTags.js')
 
 async function setupNodeEvents(on, config) {
     await addCucumberPreprocessorPlugin(on, config)
