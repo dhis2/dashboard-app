@@ -7,3 +7,7 @@
 .arrow {
     margin-inline-start: var(--spacers-dp12);
 }
+
+.arrow :global(path) {
+    fill: currentColor;
+}

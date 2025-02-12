@@ -9,6 +9,7 @@ const { defineConfig } = require('cypress')
 async function setupNodeEvents(on, config) {
     await addCucumberPreprocessorPlugin(on, config)
     chromeAllowXSiteCookies(on, config)
+    // excludeByVersionTags(on, config)
 
     on(
         'file:preprocessor',
