@@ -10,7 +10,7 @@ import {
     msGetSelectedSupersetEmbedData,
     sGetSelectedId,
 } from '../../reducers/selected.js'
-import styles from './styles/EmbeddedSupersetDashboard.module.css'
+import styles from './styles/SupersetDashboard.module.css'
 
 const LOAD_INIT = 'LOAD_INIT'
 const LOAD_SUCCESS = 'LOAD_SUCCESS'
@@ -36,7 +36,7 @@ const reducer = (state, action) => {
     }
 }
 
-export const EmbeddedSupersetDashboard = () => {
+export const SupersetDashboard = () => {
     const [{ loading, error, success }, dispatch] = useReducer(
         reducer,
         initialLoadState
@@ -46,7 +46,7 @@ export const EmbeddedSupersetDashboard = () => {
     const embedData = useSelector(msGetSelectedSupersetEmbedData)
     const supersetDomain = useSupersetBaseUrl()
     const postSupersetGuestToken = usePostSupersetGuestToken(selectedId)
-    const loadEmbeddedSupersetDashboard = useCallback(async () => {
+    const loadSupersetDashboard = useCallback(async () => {
         dispatch({ type: LOAD_INIT })
         try {
             const { id, dashboardUiConfig } = embedData
@@ -67,8 +67,8 @@ export const EmbeddedSupersetDashboard = () => {
         if (loading || success || error) {
             return
         }
-        loadEmbeddedSupersetDashboard()
-    }, [loading, error, success, loadEmbeddedSupersetDashboard])
+        loadSupersetDashboard()
+    }, [loading, error, success, loadSupersetDashboard])
 
     useEffect(() => {
         dispatch({ type: LOAD_RESET })
@@ -100,7 +100,7 @@ export const EmbeddedSupersetDashboard = () => {
                                 small
                                 onClick={() => {
                                     dispatch({ type: LOAD_RESET })
-                                    loadEmbeddedSupersetDashboard()
+                                    loadSupersetDashboard()
                                 }}
                             >
                                 {i18n.t('Retry')}

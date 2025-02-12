@@ -8,10 +8,10 @@ import Notice from '../../components/Notice.js'
 import { sGetSelectedIsEmbedded } from '../../reducers/selected.js'
 import { ROUTE_START_PATH } from '../start/index.js'
 import { Description } from './Description.js'
-import { EmbeddedSupersetDashboard } from './EmbeddedSupersetDashboard.js'
 import FilterBar from './FilterBar/FilterBar.js'
 import ItemGrid from './ItemGrid.js'
 import classes from './styles/ViewDashboard.module.css'
+import { SupersetDashboard } from './SupersetDashboard.js'
 
 export const ViewDashboardContent = ({
     loading,
@@ -42,7 +42,7 @@ export const ViewDashboardContent = ({
                 <Description />
                 {!isEmbeddedDashboard && <FilterBar />}
                 {isEmbeddedDashboard ? (
-                    <EmbeddedSupersetDashboard />
+                    <SupersetDashboard />
                 ) : (
                     <ItemGrid dashboardIsCached={isCached} />
                 )}

@@ -1,4 +1,4 @@
-export const parseSupersetEmbeddedDashboardFieldValues = (values) => ({
+export const parseSupersetDashboardFieldValues = (values) => ({
     name: values.title || 'Untitled dashboard',
     description: values.description,
     code: values.code,

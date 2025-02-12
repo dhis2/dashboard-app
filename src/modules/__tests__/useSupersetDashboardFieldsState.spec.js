@@ -12,7 +12,7 @@ import {
     reducer,
     RESET_FIELD_STATE,
     SUPERSET_FIELD_BLUR,
-} from '../useSupersetEmbeddedDashboardFieldsState.js'
+} from '../useSupersetDashboardFieldsState.js'
 
 const INITIAL_TITLE = 'Initial title'
 const UPDATED_TITLE = 'Updated title'

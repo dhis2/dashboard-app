@@ -12,19 +12,19 @@ import PropTypes from 'prop-types'
 import React, { useCallback, useState } from 'react'
 import { useDispatch } from 'react-redux'
 import { useHistory } from 'react-router-dom'
-import { tFetchDashboards } from '../../actions/dashboards.js'
-import { parseSupersetEmbeddedDashboardFieldValues } from '../../modules/parseSupersetEmbeddedDashboardFieldValues.js'
-import { useSupersetEmbeddedDashboardFieldsState } from '../../modules/useSupersetEmbeddedDashboardFieldsState.js'
-import styles from './styles/SupersetEmbeddedDashboardModal.module.css'
-import { SupersetEmbeddedDashboardFields } from './SupersetEmbeddedDashboardFields.js'
+import { tFetchDashboards } from '../../../actions/dashboards.js'
+import { parseSupersetDashboardFieldValues } from '../../../modules/parseSupersetDashboardFieldValues.js'
+import { useSupersetDashboardFieldsState } from '../../../modules/useSupersetDashboardFieldsState.js'
+import styles from './styles/SupersetDashboardModal.module.css'
+import { SupersetDashboardFields } from './SupersetDashboardFields.js'
 
 const postDashboardQuery = {
     resource: 'dashboards',
     type: 'create',
-    data: ({ values }) => parseSupersetEmbeddedDashboardFieldValues(values),
+    data: ({ values }) => parseSupersetDashboardFieldValues(values),
 }
 
-export const CreateSupersetEmbeddedDashboard = ({
+export const CreateSupersetDashboardModal = ({
     backToChooseDashboardModal,
     closeModal,
 }) => {
@@ -41,7 +41,7 @@ export const CreateSupersetEmbeddedDashboard = ({
         values,
         onChange,
         onSupersetEmbedIdFieldBlur,
-    } = useSupersetEmbeddedDashboardFieldsState()
+    } = useSupersetDashboardFieldsState()
     const handleSubmit = useCallback(
         async (event) => {
             event.preventDefault()
@@ -62,7 +62,7 @@ export const CreateSupersetEmbeddedDashboard = ({
                     {i18n.t('New dashboard: external', { nsSeparator: '###' })}
                 </ModalTitle>
                 <ModalContent>
-                    <SupersetEmbeddedDashboardFields
+                    <SupersetDashboardFields
                         isSupersetEmbedIdValid={isSupersetEmbedIdValid}
                         isSupersetEmbedIdFieldTouched={
                             isSupersetEmbedIdFieldTouched
@@ -109,7 +109,7 @@ export const CreateSupersetEmbeddedDashboard = ({
     )
 }
 
-CreateSupersetEmbeddedDashboard.propTypes = {
+CreateSupersetDashboardModal.propTypes = {
     backToChooseDashboardModal: PropTypes.func,
     closeModal: PropTypes.func,
 }
