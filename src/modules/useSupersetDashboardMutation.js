@@ -8,7 +8,7 @@ import {
     acClearSelected,
     tSetSelectedDashboardById,
 } from '../actions/selected.js'
-import { parseSupersetEmbeddedDashboardFieldValues } from '../modules/parseSupersetEmbeddedDashboardFieldValues.js'
+import { parseSupersetDashboardFieldValues } from '../modules/parseSupersetDashboardFieldValues.js'
 import { sGetSelectedId } from '../reducers/selected.js'
 
 const getDashboardQuery = {
@@ -24,7 +24,7 @@ const updateDashboardQuery = {
     resource: 'dashboards',
     type: 'update',
     id: ({ id }) => id,
-    data: ({ values }) => parseSupersetEmbeddedDashboardFieldValues(values),
+    data: ({ values }) => parseSupersetDashboardFieldValues(values),
     params: {
         skipTranslation: true,
         skipSharing: true,
@@ -40,7 +40,7 @@ const parseErrorText = (error) =>
     error?.details?.response?.errorReports[0]?.message ??
     i18n.t('An unknown error occurred')
 
-export const useSupersetEmbeddedDashboardMutation = ({ closeModal }) => {
+export const useSupersetDashboardMutation = ({ closeModal }) => {
     const dispatch = useDispatch()
     const history = useHistory()
     const id = useSelector(sGetSelectedId)
