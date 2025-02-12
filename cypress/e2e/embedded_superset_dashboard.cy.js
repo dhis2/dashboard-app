@@ -110,9 +110,8 @@ describe('Creating, viewing, editing and deleting an embedded superset dashboard
             .should('be.visible')
             .and('have.attr', 'src')
             .and('contain', UUID)
-    })
 
-    it('has some options disabled in the action-bar', () => {
+        // some options are disabled
         // Primary actions
         cy.contains('button', 'Slideshow').should('be.disabled')
         cy.contains('button', 'Filter').should('be.disabled')
