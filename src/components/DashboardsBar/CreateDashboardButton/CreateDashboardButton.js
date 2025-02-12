@@ -1,8 +1,8 @@
 import { Button, IconAdd16 } from '@dhis2/ui'
 import React, { useCallback, useState } from 'react'
 import { useHistory } from 'react-router-dom'
-import { CreateSupersetEmbeddedDashboard } from '../../ConfigureSupersetEmbeddedDashboardModal/index.js'
 import { useIsSupersetSupported } from '../../SystemSettingsProvider.js'
+import { CreateSupersetDashboardModal } from '../ConfigureSupersetDashboard/index.js'
 import { ChooseDashboardTypeModal } from './ChooseDashboardTypeModal.js'
 import styles from './styles/CreateDashboardButton.module.css'
 
@@ -11,7 +11,7 @@ export const CreateDashboardButton = () => {
     const isSupersetSupported = useIsSupersetSupported()
     const [isChooseDashboardTypeModalOpen, setIsChooseDashboardTypeModalOpen] =
         useState(false)
-    const [isCreateSupersetDashboardOpen, setIsCreateSupersetDashboardOpen] =
+    const [isCreateSupersetDashboardModalOpen, setIsCreateSupersetDashboardModalOpen] =
         useState(false)
     const navigateToNewInternalDashboardView = useCallback(() => {
         history.push('/new')
@@ -41,7 +41,7 @@ export const CreateDashboardButton = () => {
                     }}
                     onSelectSuperset={() => {
                         setIsChooseDashboardTypeModalOpen(false)
-                        setIsCreateSupersetDashboardOpen(true)
+                        setIsCreateSupersetDashboardModalOpen(true)
                     }}
                     onSelectInternal={() => {
                         setIsChooseDashboardTypeModalOpen(false)
@@ -49,14 +49,14 @@ export const CreateDashboardButton = () => {
                     }}
                 />
             )}
-            {isCreateSupersetDashboardOpen && (
-                <CreateSupersetEmbeddedDashboard
+            {isCreateSupersetDashboardModalOpen && (
+                <CreateSupersetDashboardModal
                     backToChooseDashboardModal={() => {
-                        setIsCreateSupersetDashboardOpen(false)
+                        setIsCreateSupersetDashboardModalOpen(false)
                         setIsChooseDashboardTypeModalOpen(true)
                     }}
                     closeModal={() => {
-                        setIsCreateSupersetDashboardOpen(false)
+                        setIsCreateSupersetDashboardModalOpen(false)
                     }}
                 />
             )}

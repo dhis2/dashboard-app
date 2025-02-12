@@ -65,7 +65,7 @@ export const reducer = (state, { type, payload }) => {
     }
 }
 
-export const useSupersetEmbeddedDashboardFieldsState = (
+export const useSupersetDashboardFieldsState = (
     initialValues = defaultInitialValues
 ) => {
     const [state, dispatch] = useReducer(
