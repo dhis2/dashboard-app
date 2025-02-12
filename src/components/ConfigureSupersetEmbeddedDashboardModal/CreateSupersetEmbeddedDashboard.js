@@ -59,10 +59,7 @@ export const CreateSupersetEmbeddedDashboard = ({
         <Modal>
             <form onSubmit={handleSubmit}>
                 <ModalTitle>
-                    {i18n.t(
-                        'New dashboard: configure external source (superset)',
-                        { nsSeparator: '###' }
-                    )}
+                    {i18n.t('New dashboard: external', { nsSeparator: '###' })}
                 </ModalTitle>
                 <ModalContent>
                     <SupersetEmbeddedDashboardFields
