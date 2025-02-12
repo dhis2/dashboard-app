@@ -78,17 +78,13 @@ describe('Creating, viewing, editing and deleting an embedded superset dashboard
         cy.get(newButtonSel, EXTENDED_TIMEOUT).click()
 
         // Choose the embedded dashboard option
-        cy.contains('External: Data from another source')
-            .should('be.visible')
-            .click()
+        cy.contains('External').should('be.visible').click()
 
         // Click the configure source button
-        cy.contains('Configure source').should('be.visible').click()
+        cy.contains('Continue').should('be.visible').click()
 
         // A modal form to create a new embedded dashboard is showing
-        cy.contains(
-            'New dashboard: configure external source (superset)'
-        ).should('be.visible')
+        cy.contains('New dashboard: external').should('be.visible')
 
         // Check all initial values and change them
         getInputByLabelText('Title').should('have.value', '').type(NAME)
