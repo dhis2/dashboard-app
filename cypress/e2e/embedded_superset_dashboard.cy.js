@@ -182,7 +182,13 @@ describe('Creating, viewing, editing and deleting an embedded superset dashboard
 
         cy.contains('h3', NAME_UPDATED).should('be.visible')
         cy.contains('External data').should('be.visible')
+
+        // First show the description
+        cy.getByDataTest('more-actions-button').should('be.enabled').click()
+        cy.contains('a', 'Show description').should('be.visible').click()
+        // Ensure it is showing the updated description
         cy.contains(DESCRIPTION_UPATED).should('be.visible')
+
         // An iframe should be visible with the UUID in the src
         cy.get('iframe')
             .should('be.visible')
