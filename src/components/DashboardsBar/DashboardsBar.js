@@ -6,7 +6,7 @@ import styles from './styles/DashboardsBar.module.css'
 
 export const DashboardsBar = () => (
     <div className={styles.toolbar} data-test="title-bar">
-        <div className={styles.blockCreationNavigation}>
+        <div className={styles.creationNavigationBlock}>
             <CreateDashboardButton />
             <NavigationMenuDropdownButton />
         </div>
