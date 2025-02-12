@@ -45,9 +45,7 @@ export const ChooseDashboardTypeModal = ({
                             value={TYPE_INTERNAL}
                             checked={selectedType === TYPE_INTERNAL}
                             onChange={handleDashboardTypeChange}
-                            title={i18n.t('Internal', {
-                                nsSeparator: '###',
-                            })}
+                            title={i18n.t('Internal')}
                             subtitle={i18n.t(
                                 'Show data and visualizations from this DHIS2 instance.'
                             )}
@@ -56,9 +54,7 @@ export const ChooseDashboardTypeModal = ({
                             value={TYPE_SUPERSET}
                             checked={selectedType === TYPE_SUPERSET}
                             onChange={handleDashboardTypeChange}
-                            title={i18n.t('External', {
-                                nsSeparator: '###',
-                            })}
+                            title={i18n.t('External')}
                             subtitle={i18n.t(
                                 'Embed a dashboard from a third-party source, like Superset.'
                             )}
