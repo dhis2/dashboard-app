@@ -1,6 +1,7 @@
 import { Tag } from '@dhis2-ui/tag'
 import { useAlert, useDataEngine } from '@dhis2/app-runtime'
 import i18n from '@dhis2/d2-i18n'
+import { Tooltip } from '@dhis2/ui'
 import PropTypes from 'prop-types'
 import React, { useCallback } from 'react'
 import { connect } from 'react-redux'
@@ -60,7 +61,21 @@ const InformationBlock = ({
                 />
                 <LastUpdatedTag id={id} />
                 {isEmbeddedDashboard && (
-                    <Tag maxWidth="200px">{i18n.t('External data')}</Tag>
+                    <Tooltip
+                        content={i18n.t(
+                            'This dashboard is showing data from outside this system'
+                        )}
+                        openDelay={200}
+                        closeDelay={100}
+                    >
+                        {(props) => (
+                            <div {...props}>
+                                <Tag maxWidth="200px">
+                                    {i18n.t('External data')}
+                                </Tag>
+                            </div>
+                        )}
+                    </Tooltip>
                 )}
             </div>
             <ActionsBar
