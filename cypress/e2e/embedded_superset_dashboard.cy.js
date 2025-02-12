@@ -83,7 +83,7 @@ describe('Creating, viewing, editing and deleting an embedded superset dashboard
             .click()
 
         // Click the configure source button
-        cy.contains('Configure source').should('be.visible').click()
+        cy.contains('Continue').should('be.visible').click()
 
         // A modal form to create a new embedded dashboard is showing
         cy.contains(
