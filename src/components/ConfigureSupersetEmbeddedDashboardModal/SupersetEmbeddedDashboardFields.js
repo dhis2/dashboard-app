@@ -30,6 +30,9 @@ export const SupersetEmbeddedDashboardFields = ({
             <InputField
                 label={i18n.t('Code')}
                 type="text"
+                helpText={i18n.t(
+                    'A unique code to reference this dashboard in other apps and services. Max 50 characters.'
+                )}
                 onChange={onChange}
                 value={values.code}
                 disabled={submitting}
