@@ -93,7 +93,7 @@ export const EmbeddedSupersetDashboard = () => {
                     {error && (
                         <NoticeBox error title={i18n.t('Error')}>
                             <p className={styles.errorText}>
-                                {i18n.t('Could not load superset dashboard')}
+                                {i18n.t('Could not load Superset dashboard')}
                             </p>
                             <Button
                                 secondary
