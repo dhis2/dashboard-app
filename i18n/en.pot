@@ -5,8 +5,8 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1)\n"
-"POT-Creation-Date: 2025-02-12T13:29:10.634Z\n"
-"PO-Revision-Date: 2025-02-12T13:29:10.634Z\n"
+"POT-Creation-Date: 2025-02-12T15:35:10.919Z\n"
+"PO-Revision-Date: 2025-02-12T15:35:10.920Z\n"
 
 msgid "Untitled dashboard"
 msgstr "Untitled dashboard"
@@ -184,6 +184,9 @@ msgstr "Failed to unstar the dashboard"
 
 msgid "Failed to star the dashboard"
 msgstr "Failed to star the dashboard"
+
+msgid "This dashboard is showing data from outside this system"
+msgstr "This dashboard is showing data from outside this system"
 
 msgid "External data"
 msgstr "External data"
@@ -658,18 +661,6 @@ msgstr "Requested dashboard not found"
 msgid "No description"
 msgstr "No description"
 
-msgid "Fetching external dashboard"
-msgstr "Fetching external dashboard"
-
-msgid "Error"
-msgstr "Error"
-
-msgid "Could not load Superset dashboard"
-msgstr "Could not load Superset dashboard"
-
-msgid "Retry"
-msgstr "Retry"
-
 msgid "{{count}} selected"
 msgid_plural "{{count}} selected"
 msgstr[0] "{{count}} selected"
@@ -710,6 +701,18 @@ msgid "{{count}} filters active"
 msgid_plural "{{count}} filters active"
 msgstr[0] "{{count}} filter active"
 msgstr[1] "{{count}} filters active"
+
+msgid "Fetching external dashboard"
+msgstr "Fetching external dashboard"
+
+msgid "Error"
+msgstr "Error"
+
+msgid "Could not load Superset dashboard"
+msgstr "Could not load Superset dashboard"
+
+msgid "Retry"
+msgstr "Retry"
 
 msgid "Loading dashboard – {{name}}"
 msgstr "Loading dashboard – {{name}}"

@@ -30,7 +30,7 @@ import {
     sGetSelectedIsEmbedded,
 } from '../../../reducers/selected.js'
 import { sGetShowDescription } from '../../../reducers/showDescription.js'
-import { UpdateSupersetEmbeddedDashboard } from '../../ConfigureSupersetEmbeddedDashboardModal/UpdateSupersetEmbeddedDashboard.js'
+import { UpdateSupersetDashboardModal } from '../ConfigureSupersetDashboard/UpdateSupersetDashboardModal.js'
 import FilterSelector from './FilterSelector.js'
 import classes from './styles/ActionsBar.module.css'
 
@@ -315,7 +315,7 @@ const ActionsBar = ({
                 open={confirmCacheDialogIsOpen}
             />
             {updateEmbeddedDashboardModalIsOpen && (
-                <UpdateSupersetEmbeddedDashboard
+                <UpdateSupersetDashboardModal
                     closeModal={() =>
                         setUpdateEmbeddedDashboardModalIsOpen(false)
                     }

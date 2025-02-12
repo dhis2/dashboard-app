@@ -9,10 +9,10 @@ import {
     FIELD_NAME_SUPERSET_EMBED_ID,
     FIELD_NAME_EXPAND_FILTERS,
     FIELD_NAME_SHOW_CHART_CONTROLS,
-} from '../../modules/useSupersetEmbeddedDashboardFieldsState.js'
-import styles from './styles/SupersetEmbeddedDashboardFields.module.css'
+} from '../../../modules/useSupersetDashboardFieldsState.js'
+import styles from './styles/SupersetDashboardFields.module.css'
 
-export const SupersetEmbeddedDashboardFields = ({
+export const SupersetDashboardFields = ({
     values,
     submitting,
     onChange,
@@ -95,7 +95,7 @@ export const SupersetEmbeddedDashboardFields = ({
     )
 }
 
-SupersetEmbeddedDashboardFields.propTypes = {
+SupersetDashboardFields.propTypes = {
     isSupersetEmbedIdFieldTouched: PropTypes.bool,
     isSupersetEmbedIdValid: PropTypes.bool,
     submitting: PropTypes.bool,

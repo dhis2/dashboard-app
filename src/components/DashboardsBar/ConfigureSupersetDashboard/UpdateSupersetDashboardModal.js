@@ -11,12 +11,12 @@ import {
 import cx from 'classnames'
 import PropTypes from 'prop-types'
 import React, { useEffect } from 'react'
-import { useSupersetEmbeddedDashboardFieldsState } from '../../modules/useSupersetEmbeddedDashboardFieldsState.js'
-import { useSupersetEmbeddedDashboardMutation } from '../../modules/useSupersetEmbeddedDashboardMutation.js'
-import styles from './styles/SupersetEmbeddedDashboardModal.module.css'
-import { SupersetEmbeddedDashboardFields } from './SupersetEmbeddedDashboardFields.js'
+import { useSupersetDashboardFieldsState } from '../../../modules/useSupersetDashboardFieldsState.js'
+import { useSupersetDashboardMutation } from '../../../modules/useSupersetDashboardMutation.js'
+import styles from './styles/SupersetDashboardModal.module.css'
+import { SupersetDashboardFields } from './SupersetDashboardFields.js'
 
-export const UpdateSupersetEmbeddedDashboard = ({ closeModal }) => {
+export const UpdateSupersetDashboardModal = ({ closeModal }) => {
     const {
         queryLoading,
         queryHasError,
@@ -31,7 +31,7 @@ export const UpdateSupersetEmbeddedDashboard = ({ closeModal }) => {
         setShowDeleteConfirmDialog,
         handleUpdate,
         handleDelete,
-    } = useSupersetEmbeddedDashboardMutation({ closeModal })
+    } = useSupersetDashboardMutation({ closeModal })
     const {
         hasFieldChanges,
         isSupersetEmbedIdValid,
@@ -40,7 +40,7 @@ export const UpdateSupersetEmbeddedDashboard = ({ closeModal }) => {
         onChange,
         onSupersetEmbedIdFieldBlur,
         resetFieldsStateWithNewValues,
-    } = useSupersetEmbeddedDashboardFieldsState()
+    } = useSupersetDashboardFieldsState()
 
     useEffect(() => {
         if (dashboard) {
@@ -124,7 +124,7 @@ export const UpdateSupersetEmbeddedDashboard = ({ closeModal }) => {
                             )}
                         </div>
                     )}
-                    <SupersetEmbeddedDashboardFields
+                    <SupersetDashboardFields
                         isSupersetEmbedIdValid={isSupersetEmbedIdValid}
                         isSupersetEmbedIdFieldTouched={
                             isSupersetEmbedIdFieldTouched
@@ -183,6 +183,6 @@ export const UpdateSupersetEmbeddedDashboard = ({ closeModal }) => {
     )
 }
 
-UpdateSupersetEmbeddedDashboard.propTypes = {
+UpdateSupersetDashboardModal.propTypes = {
     closeModal: PropTypes.func,
 }
