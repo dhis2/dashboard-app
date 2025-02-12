@@ -12,7 +12,6 @@ import {
 import { isEditMode } from '../../../modules/dashboardModes.js'
 import { itemTypeMap, getItemUrl } from '../../../modules/itemTypes.js'
 import { orArray } from '../../../modules/util.js'
-import { sGetSlideshow } from '../../../reducers/slideshow.js'
 import ItemHeader from '../ItemHeader/ItemHeader.js'
 import classes from './Item.module.css'
 
@@ -113,11 +112,7 @@ ListItem.propTypes = {
     updateItem: PropTypes.func,
 }
 
-const mapStateToProps = (state) => ({
-    isSlideshowView: sGetSlideshow(state) !== null,
-})
-
-export default connect(mapStateToProps, {
+export default connect(null, {
     removeItem: acRemoveDashboardItem,
     updateItem: acUpdateDashboardItem,
 })(ListItem)
