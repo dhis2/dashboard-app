@@ -1,20 +1,19 @@
 import { useCallback, useReducer } from 'react'
 
-export const fieldNames = {
-    title: 'title',
-    code: 'code',
-    description: 'description',
-    supersetEmbedId: 'supersetEmbedId',
-    showChartControls: 'showChartControls',
-    expandFilters: 'expandFilters',
-}
+export const FIELD_NAME_TITLE = 'title'
+export const FIELD_NAME_CODE = 'code'
+export const FIELD_NAME_DESCRIPTION = 'description'
+export const FIELD_NAME_SUPERSET_EMBED_ID = 'supersetEmbedId'
+export const FIELD_NAME_SHOW_CHART_CONTROLS = 'showChartControls'
+export const FIELD_NAME_EXPAND_FILTERS = 'expandFilters'
+
 export const defaultInitialValues = {
-    [fieldNames.title]: '',
-    [fieldNames.code]: '',
-    [fieldNames.description]: '',
-    [fieldNames.supersetEmbedId]: '',
-    [fieldNames.showChartControls]: true,
-    [fieldNames.expandFilters]: false,
+    [FIELD_NAME_TITLE]: '',
+    [FIELD_NAME_CODE]: '',
+    [FIELD_NAME_DESCRIPTION]: '',
+    [FIELD_NAME_SUPERSET_EMBED_ID]: '',
+    [FIELD_NAME_SHOW_CHART_CONTROLS]: true,
+    [FIELD_NAME_EXPAND_FILTERS]: false,
 }
 export const FIELD_CHANGE = 'FIELD_CHANGE'
 export const SUPERSET_FIELD_BLUR = 'SUPERSET_FIELD_BLUR'
@@ -46,7 +45,7 @@ export const reducer = (state, { type, payload }) => {
                 ...state,
                 values,
                 isSupersetEmbedIdValid:
-                    payload.name === fieldNames.supersetEmbedId
+                    payload.name === FIELD_NAME_SUPERSET_EMBED_ID
                         ? isValidUuid(payload.value)
                         : state.isSupersetEmbedIdValid,
                 hasFieldChanges: Object.entries(values).some(

@@ -110,9 +110,8 @@ describe('Creating, viewing, editing and deleting an embedded superset dashboard
             .should('be.visible')
             .and('have.attr', 'src')
             .and('contain', UUID)
-    })
 
-    it('has some options disabled in the action-bar', () => {
+        // some options are disabled
         // Primary actions
         cy.contains('button', 'Slideshow').should('be.disabled')
         cy.contains('button', 'Filter').should('be.disabled')
@@ -130,11 +129,13 @@ describe('Creating, viewing, editing and deleting an embedded superset dashboard
         cy.get('.backdrop').should('be.visible').click()
     })
 
-    it('shows the description', () => {
+    it('shows and hides the description', () => {
         cy.getByDataTest('more-actions-button').should('be.enabled').click()
         cy.contains('a', 'Show description').should('be.visible').click()
         cy.contains(DESCRIPTION).should('be.visible')
-        // Keep visible so we can check it updates correctly later on
+        cy.getByDataTest('more-actions-button').should('be.enabled').click()
+        cy.contains('a', 'Hide description').should('be.visible').click()
+        cy.contains(DESCRIPTION_UPATED).should('not.exist')
     })
 
     it('stars and unstars the superset embedded dashboard', () => {
@@ -147,7 +148,7 @@ describe('Creating, viewing, editing and deleting an embedded superset dashboard
         cy.getByDataTest('dashboard-unstarred').should('be.visible')
     })
 
-    it('can share the superset embedded dashboard', () => {
+    it('can open the sharing dialog', () => {
         cy.contains('button', 'Share').should('be.enabled').click()
         cy.contains('h1', `Sharing and access: ${NAME}`).should('be.visible')
         // We don't test the actual sharing, just if the sharing modal pops up
@@ -181,7 +182,13 @@ describe('Creating, viewing, editing and deleting an embedded superset dashboard
 
         cy.contains('h3', NAME_UPDATED).should('be.visible')
         cy.contains('External data').should('be.visible')
+
+        // First show the description
+        cy.getByDataTest('more-actions-button').should('be.enabled').click()
+        cy.contains('a', 'Show description').should('be.visible').click()
+        // Ensure it is showing the updated description
         cy.contains(DESCRIPTION_UPATED).should('be.visible')
+
         // An iframe should be visible with the UUID in the src
         cy.get('iframe')
             .should('be.visible')

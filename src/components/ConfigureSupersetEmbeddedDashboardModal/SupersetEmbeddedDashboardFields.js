@@ -2,7 +2,14 @@ import i18n from '@dhis2/d2-i18n'
 import { CheckboxField, InputField, TextAreaField } from '@dhis2/ui'
 import PropTypes from 'prop-types'
 import React from 'react'
-import { fieldNames } from '../../modules/useSupersetEmbeddedDashboardFieldsState.js'
+import {
+    FIELD_NAME_TITLE,
+    FIELD_NAME_CODE,
+    FIELD_NAME_DESCRIPTION,
+    FIELD_NAME_SUPERSET_EMBED_ID,
+    FIELD_NAME_EXPAND_FILTERS,
+    FIELD_NAME_SHOW_CHART_CONTROLS,
+} from '../../modules/useSupersetEmbeddedDashboardFieldsState.js'
 import styles from './styles/SupersetEmbeddedDashboardFields.module.css'
 
 export const SupersetEmbeddedDashboardFields = ({
@@ -24,7 +31,7 @@ export const SupersetEmbeddedDashboardFields = ({
                 onChange={onChange}
                 value={values.title}
                 disabled={submitting}
-                name={fieldNames.title}
+                name={FIELD_NAME_TITLE}
                 className={styles.textField}
             />
             <InputField
@@ -36,7 +43,7 @@ export const SupersetEmbeddedDashboardFields = ({
                 onChange={onChange}
                 value={values.code}
                 disabled={submitting}
-                name={fieldNames.code}
+                name={FIELD_NAME_CODE}
                 className={styles.textField}
             />
             <TextAreaField
@@ -45,7 +52,7 @@ export const SupersetEmbeddedDashboardFields = ({
                 onChange={onChange}
                 value={values.description}
                 disabled={submitting}
-                name={fieldNames.description}
+                name={FIELD_NAME_DESCRIPTION}
                 className={styles.textField}
             />
             <InputField
@@ -55,7 +62,7 @@ export const SupersetEmbeddedDashboardFields = ({
                 onBlur={onSupersetEmbedIdFieldBlur}
                 value={values.supersetEmbedId}
                 disabled={submitting}
-                name={fieldNames.supersetEmbedId}
+                name={FIELD_NAME_SUPERSET_EMBED_ID}
                 error={supersetEmbedIdFieldHasError}
                 validationText={
                     supersetEmbedIdFieldHasError
@@ -73,7 +80,7 @@ export const SupersetEmbeddedDashboardFields = ({
                     onChange={onChange}
                     checked={values.showChartControls}
                     disabled={submitting}
-                    name={fieldNames.showChartControls}
+                    name={FIELD_NAME_SHOW_CHART_CONTROLS}
                 />
                 <CheckboxField
                     dense
@@ -81,7 +88,7 @@ export const SupersetEmbeddedDashboardFields = ({
                     onChange={onChange}
                     checked={values.expandFilters}
                     disabled={submitting}
-                    name={fieldNames.expandFilters}
+                    name={FIELD_NAME_EXPAND_FILTERS}
                 />
             </fieldset>
         </>
