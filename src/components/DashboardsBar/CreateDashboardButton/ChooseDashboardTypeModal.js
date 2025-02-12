@@ -1,4 +1,3 @@
-import { useConfig } from '@dhis2/app-runtime'
 import i18n from '@dhis2/d2-i18n'
 import {
     Button,
@@ -10,8 +9,6 @@ import {
 import PropTypes from 'prop-types'
 import React, { useCallback, useState } from 'react'
 import { DashboardTypeRadio } from './DashboardTypeRadio.js'
-import { IconDashboardExternal } from './IconDashboardExternal.js'
-import { IconDashboardInternal } from './IconDashboardInternal.js'
 import styles from './styles/ChooseDashboardTypeModal.module.css'
 
 const TYPE_INTERNAL = 'INTERNAL'
@@ -22,9 +19,6 @@ export const ChooseDashboardTypeModal = ({
     onSelectSuperset,
     onSelectInternal,
 }) => {
-    const {
-        systemInfo: { systemName },
-    } = useConfig()
     const [selectedType, setSelectedType] = useState(TYPE_INTERNAL)
     const handleDashboardTypeChange = useCallback(({ value }) => {
         setSelectedType(value)
@@ -51,14 +45,9 @@ export const ChooseDashboardTypeModal = ({
                             value={TYPE_INTERNAL}
                             checked={selectedType === TYPE_INTERNAL}
                             onChange={handleDashboardTypeChange}
-                            icon={<IconDashboardInternal />}
-                            title={i18n.t(
-                                'Internal: Data from {{systemName}}',
-                                {
-                                    systemName,
-                                    nsSeparator: '###',
-                                }
-                            )}
+                            title={i18n.t('Internal', {
+                                nsSeparator: '###',
+                            })}
                             subtitle={i18n.t(
                                 'Show data and visualizations from this DHIS2 instance.'
                             )}
@@ -67,13 +56,9 @@ export const ChooseDashboardTypeModal = ({
                             value={TYPE_SUPERSET}
                             checked={selectedType === TYPE_SUPERSET}
                             onChange={handleDashboardTypeChange}
-                            icon={<IconDashboardExternal />}
-                            title={i18n.t(
-                                'External: Data from another source',
-                                {
-                                    nsSeparator: '###',
-                                }
-                            )}
+                            title={i18n.t('External', {
+                                nsSeparator: '###',
+                            })}
                             subtitle={i18n.t(
                                 'Embed a dashboard from a third-party source, like Superset.'
                             )}
