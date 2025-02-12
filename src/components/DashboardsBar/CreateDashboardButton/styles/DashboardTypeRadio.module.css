@@ -2,12 +2,6 @@
     cursor: pointer;
 }
 
-.container .content {
-    display: flex;
-    align-items: center;
-    gap: var(--spacers-dp12);
-}
-
 .container svg {
     fill: var(--colors-grey700);
 }
@@ -16,27 +10,15 @@
     fill: var(--colors-teal700);
 }
 
-.container .text {
-    display: flex;
-    flex-direction: column;
-    gap: 4px;
-}
-
-.container .text p {
+.container .title {
+    color: var(--colors-grey900);
+    font-weight: 500;
     margin: 0;
 }
 
-.container .title {
-    font-size: 15px;
-    line-height: 19px;
-    color: var(--colors-grey900);
-    font-weight: 500;
-}
-
-.container .subtitle {
-    font-size: 13px;
-    line-height: 17px;
-    color: var(--colors-grey700);
+.subtitle {
+    margin: 0;
+    margin-inline-start: var(--spacers-dp24);
 }
 
 .container input {
