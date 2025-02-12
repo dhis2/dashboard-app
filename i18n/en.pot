@@ -5,14 +5,14 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1)\n"
-"POT-Creation-Date: 2025-02-10T11:08:21.621Z\n"
-"PO-Revision-Date: 2025-02-10T11:08:21.622Z\n"
+"POT-Creation-Date: 2025-02-12T13:19:03.864Z\n"
+"PO-Revision-Date: 2025-02-12T13:19:03.865Z\n"
 
 msgid "Untitled dashboard"
 msgstr "Untitled dashboard"
 
-msgid "New dashboard: configure external source (superset)"
-msgstr "New dashboard: configure external source (superset)"
+msgid "New dashboard: external"
+msgstr "New dashboard: external"
 
 msgid "Could not create dashboard"
 msgstr "Could not create dashboard"
@@ -31,6 +31,13 @@ msgstr "Title"
 
 msgid "Code"
 msgstr "Code"
+
+msgid ""
+"A unique code to reference this dashboard in other apps and services. Max "
+"50 characters."
+msgstr ""
+"A unique code to reference this dashboard in other apps and services. Max "
+"50 characters."
 
 msgid "Description"
 msgstr "Description"
@@ -81,14 +88,14 @@ msgstr "Edit external dashboard"
 msgid "New dashboard: choose type"
 msgstr "New dashboard: choose type"
 
-msgid "Internal: Data from {{systemName}}"
-msgstr "Internal: Data from {{systemName}}"
+msgid "Internal"
+msgstr "Internal"
 
 msgid "Show data and visualizations from this DHIS2 instance."
 msgstr "Show data and visualizations from this DHIS2 instance."
 
-msgid "External: Data from another source"
-msgstr "External: Data from another source"
+msgid "External"
+msgstr "External"
 
 msgid "Embed a dashboard from a third-party source, like Superset."
 msgstr "Embed a dashboard from a third-party source, like Superset."
