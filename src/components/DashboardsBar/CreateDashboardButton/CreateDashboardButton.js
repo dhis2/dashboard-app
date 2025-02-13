@@ -11,8 +11,10 @@ export const CreateDashboardButton = () => {
     const isSupersetSupported = useIsSupersetSupported()
     const [isChooseDashboardTypeModalOpen, setIsChooseDashboardTypeModalOpen] =
         useState(false)
-    const [isCreateSupersetDashboardModalOpen, setIsCreateSupersetDashboardModalOpen] =
-        useState(false)
+    const [
+        isCreateSupersetDashboardModalOpen,
+        setIsCreateSupersetDashboardModalOpen,
+    ] = useState(false)
     const navigateToNewInternalDashboardView = useCallback(() => {
         history.push('/new')
     }, [history])
