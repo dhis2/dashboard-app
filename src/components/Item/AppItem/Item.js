@@ -76,8 +76,6 @@ const AppItem = ({
             dashboardItemId: item.id,
             dashboardItemFilters: itemFilters,
             dashboardMode,
-            // Edit mode does not have the hamburger menu.
-            // Don't assume the plugin checks for this function before calling it
             setDashboardItemDetails: setItemDetails,
             cacheId: `${dashboardId}-${item.id}`,
             isParentCached: isCached,
@@ -112,6 +110,7 @@ const AppItem = ({
     const renderPlugin = (iframeSrc) => {
         // style must be computed at runtime.
         // header/content elements need to be rendered first, otherwise the dimensions returned are the previous ones
+
         const style =
             headerRef.current && contentRef.current
                 ? getAvailableDimensions({
@@ -130,7 +129,7 @@ const AppItem = ({
         }
 
         return appDetails?.appType === APP ? (
-            // modern plugins
+            // plugins
             <Plugin
                 pluginSource={iframeSrc}
                 width={style.width}

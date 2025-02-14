@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`renders a valid App item in view mode 1`] = `
+exports[`renders a valid plugin AppItem in view mode 1`] = `
 <div>
   <div
     class="itemHeaderWrap"
@@ -8,7 +8,7 @@ exports[`renders a valid App item in view mode 1`] = `
     <p
       class="itemTitle"
     >
-      New dashboard plugin
+      Dashboard plugin
     </p>
     <div
       class="itemHeaderRightWrap"
@@ -23,32 +23,24 @@ exports[`renders a valid App item in view mode 1`] = `
     </div>
   </div>
   <div
-    class="container"
+    class="content"
   >
     <div
-      class="messageContent"
-    >
-      <svg
-        color="#a0adba"
-        height="24"
-        viewBox="0 0 24 24"
-        width="24"
-        xmlns="http://www.w3.org/2000/svg"
-      >
-        <path
-          d="M12.847 2.794l.056.102 8.416 17.674a1 1 0 01-.786 1.423l-.117.007H3.584a1 1 0 01-.947-1.322l.044-.108 8.416-17.674a1 1 0 011.75-.102zM12 5.65L5.167 19.999h13.665zM12 17a1 1 0 110 2 1 1 0 010-2zm1-7v6h-2v-6z"
-          fill="currentColor"
-        />
-      </svg>
-      <span>
-        There was a problem loading this dashboard item
-      </span>
-    </div>
+      cacheid="some-dashboard-rainbowdash"
+      class="MockPlugin"
+      dashboarditemfilters="empty object"
+      dashboarditemid="rainbowdash"
+      dashboardmode="view"
+      data-height="NaNpx"
+      data-plugin-source="https://plugin/iframe/url"
+      data-width="undefinedpx"
+      setdashboarditemdetails="function"
+    />
   </div>
 </div>
 `;
 
-exports[`renders a valid App item with filter in edit mode 1`] = `
+exports[`renders a valid plugin AppItem with filter in edit mode 1`] = `
 <div>
   <div
     class="itemHeaderWrap"
@@ -56,7 +48,7 @@ exports[`renders a valid App item with filter in edit mode 1`] = `
     <p
       class="itemTitle"
     >
-      New dashboard plugin
+      Dashboard plugin
     </p>
     <div
       class="itemHeaderRightWrap"
@@ -71,32 +63,24 @@ exports[`renders a valid App item with filter in edit mode 1`] = `
     </div>
   </div>
   <div
-    class="container"
+    class="content"
   >
     <div
-      class="messageContent"
-    >
-      <svg
-        color="#a0adba"
-        height="24"
-        viewBox="0 0 24 24"
-        width="24"
-        xmlns="http://www.w3.org/2000/svg"
-      >
-        <path
-          d="M12.847 2.794l.056.102 8.416 17.674a1 1 0 01-.786 1.423l-.117.007H3.584a1 1 0 01-.947-1.322l.044-.108 8.416-17.674a1 1 0 011.75-.102zM12 5.65L5.167 19.999h13.665zM12 17a1 1 0 110 2 1 1 0 010-2zm1-7v6h-2v-6z"
-          fill="currentColor"
-        />
-      </svg>
-      <span>
-        There was a problem loading this dashboard item
-      </span>
-    </div>
+      cacheid="some-dashboard-rainbowdash"
+      class="MockPlugin"
+      dashboarditemfilters="empty object"
+      dashboarditemid="rainbowdash"
+      dashboardmode="edit"
+      data-height="NaNpx"
+      data-plugin-source="https://plugin/iframe/url"
+      data-width="undefinedpx"
+      setdashboarditemdetails="function"
+    />
   </div>
 </div>
 `;
 
-exports[`renders a valid App item with filter in view mode 1`] = `
+exports[`renders a valid plugin AppItem with filter in view mode 1`] = `
 <div>
   <div
     class="itemHeaderWrap"
@@ -104,7 +88,7 @@ exports[`renders a valid App item with filter in view mode 1`] = `
     <p
       class="itemTitle"
     >
-      New dashboard plugin
+      Dashboard plugin
     </p>
     <div
       class="itemHeaderRightWrap"
@@ -119,32 +103,24 @@ exports[`renders a valid App item with filter in view mode 1`] = `
     </div>
   </div>
   <div
-    class="container"
+    class="content"
   >
     <div
-      class="messageContent"
-    >
-      <svg
-        color="#a0adba"
-        height="24"
-        viewBox="0 0 24 24"
-        width="24"
-        xmlns="http://www.w3.org/2000/svg"
-      >
-        <path
-          d="M12.847 2.794l.056.102 8.416 17.674a1 1 0 01-.786 1.423l-.117.007H3.584a1 1 0 01-.947-1.322l.044-.108 8.416-17.674a1 1 0 011.75-.102zM12 5.65L5.167 19.999h13.665zM12 17a1 1 0 110 2 1 1 0 010-2zm1-7v6h-2v-6z"
-          fill="currentColor"
-        />
-      </svg>
-      <span>
-        There was a problem loading this dashboard item
-      </span>
-    </div>
+      cacheid="some-dashboard-rainbowdash"
+      class="MockPlugin"
+      dashboarditemfilters="[object Object]"
+      dashboarditemid="rainbowdash"
+      dashboardmode="view"
+      data-height="NaNpx"
+      data-plugin-source="https://plugin/iframe/url"
+      data-width="undefinedpx"
+      setdashboarditemdetails="function"
+    />
   </div>
 </div>
 `;
 
-exports[`renders a valid App item with title in edit mode irrespective of app settings 1`] = `
+exports[`renders a valid widget AppItem 1`] = `
 <div>
   <div
     class="itemHeaderWrap"
@@ -152,7 +128,57 @@ exports[`renders a valid App item with title in edit mode irrespective of app se
     <p
       class="itemTitle"
     >
-      No Title
+      Scorecard
+    </p>
+    <div
+      class="itemHeaderRightWrap"
+    />
+  </div>
+  <div
+    class="content"
+  >
+    <iframe
+      src="https://iframe/app/widget/scorecard?dashboardItemId=applejack"
+      title="Scorecard"
+    />
+  </div>
+</div>
+`;
+
+exports[`renders a valid widget AppItem when in slideshow 1`] = `
+<div>
+  <div
+    class="itemHeaderWrap"
+  >
+    <p
+      class="itemTitle"
+    >
+      Scorecard
+    </p>
+    <div
+      class="itemHeaderRightWrap"
+    />
+  </div>
+  <div
+    class="content"
+  >
+    <iframe
+      src="https://iframe/app/widget/scorecard?dashboardItemId=applejack"
+      title="Scorecard"
+    />
+  </div>
+</div>
+`;
+
+exports[`renders a valid widget AppItem with title in edit mode irrespective of app settings 1`] = `
+<div>
+  <div
+    class="itemHeaderWrap"
+  >
+    <p
+      class="itemTitle"
+    >
+      Scorecard but hide the title
     </p>
     <div
       class="itemHeaderRightWrap"
@@ -170,14 +196,14 @@ exports[`renders a valid App item with title in edit mode irrespective of app se
     class="content"
   >
     <iframe
-      src="launchurl?dashboardItemId=twilightsparkle"
-      title="No Title"
+      src="https://iframe/app/widget/scorecard?dashboardItemId=twilightsparkle"
+      title="Scorecard but hide the title"
     />
   </div>
 </div>
 `;
 
-exports[`renders a valid App item without title in view mode if specified in app settings 1`] = `
+exports[`renders a valid widget AppItem without title in view mode if specified in app settings 1`] = `
 <div>
   <div
     class="itemHeaderWrap"
@@ -193,64 +219,14 @@ exports[`renders a valid App item without title in view mode if specified in app
     class="content hiddenTitle"
   >
     <iframe
-      src="launchurl?dashboardItemId=twilightsparkle"
-      title="No Title"
+      src="https://iframe/app/widget/scorecard?dashboardItemId=twilightsparkle"
+      title="Scorecard but hide the title"
     />
   </div>
 </div>
 `;
 
-exports[`renders a valid legacy widget item 1`] = `
-<div>
-  <div
-    class="itemHeaderWrap"
-  >
-    <p
-      class="itemTitle"
-    >
-      Scorecard
-    </p>
-    <div
-      class="itemHeaderRightWrap"
-    />
-  </div>
-  <div
-    class="content"
-  >
-    <iframe
-      src="launchurl?dashboardItemId=applejack"
-      title="Scorecard"
-    />
-  </div>
-</div>
-`;
-
-exports[`renders a valid legacy widget item when in slideshow 1`] = `
-<div>
-  <div
-    class="itemHeaderWrap"
-  >
-    <p
-      class="itemTitle"
-    >
-      Scorecard
-    </p>
-    <div
-      class="itemHeaderRightWrap"
-    />
-  </div>
-  <div
-    class="content"
-  >
-    <iframe
-      src="launchurl?dashboardItemId=applejack"
-      title="Scorecard"
-    />
-  </div>
-</div>
-`;
-
-exports[`renders an invalid App item 1`] = `
+exports[`renders an invalid AppItem 1`] = `
 <div>
   <div
     class="messageContent"
@@ -278,7 +254,7 @@ exports[`renders an invalid App item 1`] = `
         rel="noopener noreferrer"
         target="_blank"
       >
-        Install the unknownApp plugin from the App Hub
+        Install the unknownAppKey plugin from the App Hub
       </a>
     </span>
   </div>

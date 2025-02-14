@@ -11,15 +11,15 @@ jest.mock('@dhis2/analytics', () => ({
     useCachedDataQuery: () => ({
         apps: [
             {
-                key: 'scorecard',
+                key: 'app-widget',
                 name: 'Scorecard',
                 appType: 'DASHBOARD_WIDGET',
-                launchUrl: 'launchurl',
+                launchUrl: 'https://iframe/app/widget/scorecard',
             },
             {
-                key: 'noTitle',
-                name: 'No Title',
-                launchUrl: 'launchurl',
+                key: 'app-widget-no-title',
+                name: 'Scorecard but hide the title',
+                launchUrl: 'https://iframe/app/widget/scorecard',
                 appType: 'DASHBOARD_WIDGET',
                 settings: {
                     dashboardWidget: {
@@ -28,10 +28,10 @@ jest.mock('@dhis2/analytics', () => ({
                 },
             },
             {
-                key: 'new-dashboard-plugin',
-                name: 'New dashboard plugin',
+                key: 'dashboard-plugin',
+                name: 'Dashboard plugin',
                 appType: 'APP',
-                pluginLaunchUrl: 'pluginLaunchUrl',
+                pluginLaunchUrl: 'https://plugin/iframe/url',
             },
         ],
         currentUser: {
@@ -45,6 +45,36 @@ jest.mock('@dhis2/analytics', () => ({
 jest.mock('@dhis2/app-runtime', () => ({
     ...jest.requireActual('@dhis2/app-runtime'),
     useCacheableSection: jest.fn,
+}))
+
+jest.mock('@dhis2/app-runtime/experimental', () => ({
+    Plugin: ({ pluginSource, width, height, ...pluginProps }) => {
+        const lowerCaseProps = Object.keys(pluginProps).reduce((acc, key) => {
+            const value = pluginProps[key]
+            if (typeof value === 'function') {
+                acc[key.toLowerCase()] = 'function'
+            } else if (
+                typeof value === 'object' &&
+                value !== null &&
+                Object.keys(value).length === 0
+            ) {
+                acc[key.toLowerCase()] = 'empty object'
+            } else {
+                acc[key.toLowerCase()] = value
+            }
+            return acc
+        }, {})
+
+        return (
+            <div
+                className="MockPlugin"
+                data-plugin-source={pluginSource}
+                data-width={width}
+                data-height={height}
+                {...lowerCaseProps}
+            />
+        )
+    },
 }))
 
 jest.mock('../../../SystemSettingsProvider')
@@ -62,28 +92,28 @@ jest.mock('../ItemContextMenu.js', () => ({
 
 const mockStore = configureMockStore()
 
-const item = {
+const pluginItem = {
     type: APP,
-    appKey: 'new-dashboard-plugin',
+    appKey: 'dashboard-plugin',
     id: 'rainbowdash',
     shortened: false,
 }
 
-const itemWithoutTitle = {
+const widgetItemWithoutTitle = {
     type: APP,
-    appKey: 'noTitle',
+    appKey: 'app-widget-no-title',
     id: 'twilightsparkle',
     shortened: false,
 }
 
-const itemLegacyWidget = {
+const widgetItem = {
     type: APP,
-    appKey: 'scorecard',
+    appKey: 'app-widget',
     id: 'applejack',
     shortened: false,
 }
 
-test('renders a valid App item in view mode', () => {
+test('renders a valid plugin AppItem in view mode', () => {
     const store = {
         itemFilters: {},
         editDashboard: {},
@@ -94,7 +124,7 @@ test('renders a valid App item in view mode', () => {
         <Provider store={mockStore(store)}>
             <SystemSettingsProvider>
                 <WindowDimensionsProvider>
-                    <Item item={item} dashboardMode={'view'} />
+                    <Item item={pluginItem} dashboardMode={'view'} />
                 </WindowDimensionsProvider>
             </SystemSettingsProvider>
         </Provider>
@@ -102,7 +132,7 @@ test('renders a valid App item in view mode', () => {
     expect(container).toMatchSnapshot()
 })
 
-test('renders a valid App item with filter in view mode', () => {
+test('renders a valid plugin AppItem with filter in view mode', () => {
     const store = {
         itemFilters: {
             ou: [{ path: '/rainbow' }],
@@ -115,7 +145,7 @@ test('renders a valid App item with filter in view mode', () => {
         <Provider store={mockStore(store)}>
             <SystemSettingsProvider>
                 <WindowDimensionsProvider>
-                    <Item item={item} dashboardMode={'view'} />
+                    <Item item={pluginItem} dashboardMode={'view'} />
                 </WindowDimensionsProvider>
             </SystemSettingsProvider>
         </Provider>
@@ -123,13 +153,13 @@ test('renders a valid App item with filter in view mode', () => {
     expect(container).toMatchSnapshot()
 })
 
-test('renders a valid App item with filter in edit mode', () => {
+test('renders a valid plugin AppItem with filter in edit mode', () => {
     const store = {
         editDashboard: {},
         itemFilters: {
             ou: [{ path: '/rainbow' }],
             editDashboard: {
-                id: item.id,
+                id: pluginItem.id,
             },
         },
         selected: { id: 'some-dashboard' },
@@ -140,7 +170,7 @@ test('renders a valid App item with filter in edit mode', () => {
         <Provider store={mockStore(store)}>
             <SystemSettingsProvider>
                 <WindowDimensionsProvider>
-                    <Item item={item} dashboardMode={'edit'} />
+                    <Item item={pluginItem} dashboardMode={'edit'} />
                 </WindowDimensionsProvider>
             </SystemSettingsProvider>
         </Provider>
@@ -148,7 +178,7 @@ test('renders a valid App item with filter in edit mode', () => {
     expect(container).toMatchSnapshot()
 })
 
-test('renders a valid App item without title in view mode if specified in app settings', () => {
+test('renders a valid widget AppItem without title in view mode if specified in app settings', () => {
     const store = {
         itemFilters: {},
         selected: { id: 'some-dashboard' },
@@ -159,7 +189,10 @@ test('renders a valid App item without title in view mode if specified in app se
         <Provider store={mockStore(store)}>
             <SystemSettingsProvider>
                 <WindowDimensionsProvider>
-                    <Item item={itemWithoutTitle} dashboardMode={'view'} />
+                    <Item
+                        item={widgetItemWithoutTitle}
+                        dashboardMode={'view'}
+                    />
                 </WindowDimensionsProvider>
             </SystemSettingsProvider>
         </Provider>
@@ -167,11 +200,11 @@ test('renders a valid App item without title in view mode if specified in app se
     expect(container).toMatchSnapshot()
 })
 
-test('renders a valid App item with title in edit mode irrespective of app settings', () => {
+test('renders a valid widget AppItem with title in edit mode irrespective of app settings', () => {
     const store = {
         itemFilters: {},
         editDashboard: {
-            id: itemWithoutTitle.id,
+            id: widgetItemWithoutTitle.id,
         },
         selected: { id: 'some-dashboard' },
         slideshow: null,
@@ -181,7 +214,10 @@ test('renders a valid App item with title in edit mode irrespective of app setti
         <Provider store={mockStore(store)}>
             <SystemSettingsProvider>
                 <WindowDimensionsProvider>
-                    <Item item={itemWithoutTitle} dashboardMode={'edit'} />
+                    <Item
+                        item={widgetItemWithoutTitle}
+                        dashboardMode={'edit'}
+                    />
                 </WindowDimensionsProvider>
             </SystemSettingsProvider>
         </Provider>
@@ -189,7 +225,7 @@ test('renders a valid App item with title in edit mode irrespective of app setti
     expect(container).toMatchSnapshot()
 })
 
-test('renders a valid legacy widget item', () => {
+test('renders a valid widget AppItem', () => {
     const store = {
         itemFilters: {},
         editDashboard: {},
@@ -200,7 +236,7 @@ test('renders a valid legacy widget item', () => {
         <Provider store={mockStore(store)}>
             <SystemSettingsProvider>
                 <WindowDimensionsProvider>
-                    <Item item={itemLegacyWidget} dashboardMode={'view'} />
+                    <Item item={widgetItem} dashboardMode={'view'} />
                 </WindowDimensionsProvider>
             </SystemSettingsProvider>
         </Provider>
@@ -208,7 +244,7 @@ test('renders a valid legacy widget item', () => {
     expect(container).toMatchSnapshot()
 })
 
-test('renders a valid legacy widget item when in slideshow', () => {
+test('renders a valid widget AppItem when in slideshow', () => {
     const store = {
         itemFilters: {},
         editDashboard: {},
@@ -219,7 +255,7 @@ test('renders a valid legacy widget item when in slideshow', () => {
         <Provider store={mockStore(store)}>
             <SystemSettingsProvider>
                 <WindowDimensionsProvider>
-                    <Item item={itemLegacyWidget} dashboardMode={'view'} />
+                    <Item item={widgetItem} dashboardMode={'view'} />
                 </WindowDimensionsProvider>
             </SystemSettingsProvider>
         </Provider>
@@ -227,7 +263,7 @@ test('renders a valid legacy widget item when in slideshow', () => {
     expect(container).toMatchSnapshot()
 })
 
-test('renders an invalid App item', () => {
+test('renders an invalid AppItem', () => {
     const store = {
         itemFilters: {
             ou: [{ path: '/rainbow' }],
@@ -238,7 +274,7 @@ test('renders an invalid App item', () => {
 
     const invalidItem = {
         type: APP,
-        appKey: 'unknownApp',
+        appKey: 'unknownAppKey',
         id: 'unknown',
         shortened: false,
     }
