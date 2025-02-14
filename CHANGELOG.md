@@ -1,3 +1,34 @@
+# [101.0.0](https://github.com/dhis2/dashboard-app/compare/v100.5.0...v101.0.0) (2025-02-14)
+
+
+### Features
+
+* support custom 3rd party plugins along with platform plugins ([#3184](https://github.com/dhis2/dashboard-app/issues/3184)) ([9d25bb1](https://github.com/dhis2/dashboard-app/commit/9d25bb160066b9aeff3195502153e3dd1dd5b02c))
+
+
+### BREAKING CHANGES
+
+* this version is only compatible with plugin versions ->
+* Maps plugin >= v101.0.0
+* Line Listing plugin >= v102.0.0
+* Data Visualizer plugin >= v101.0.0
+
+Implements:
+* DHIS2-17283
+Support dashboard plugins built with the App Platform
+
+* DHIS2-17268
+Visualizations render twice when loading a dashboard,
+creating a flashing effect
+
+* DHIS2-18576
+If you add a filter that results in "no data" for a chart,
+removing the filter does not reload the original chart
+
+Key features
+* Add support for 3rd party dashboard plugins
+* Add item menu on plugin items that includes fullscreen button
+
 # [100.5.0](https://github.com/dhis2/dashboard-app/compare/v100.4.2...v100.5.0) (2025-02-07)
 
 

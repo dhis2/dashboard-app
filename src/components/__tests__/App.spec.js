@@ -51,6 +51,14 @@ jest.mock('../../api/dataStatistics.js', () => {
     }
 })
 
+jest.mock('../../api/description.js', () => {
+    return {
+        apiGetShowDescription: jest.fn(() => ({
+            showDescription: 'false',
+        })),
+    }
+})
+
 jest.mock(
     '../DashboardsBar/index.js',
     () =>

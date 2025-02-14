@@ -3,8 +3,8 @@
 // Inspiration: https://github.com/alexreardon/memoize-one
 
 const memoizeOne = (fn) => {
-    let lastArgs = undefined
-    let lastValue = undefined
+    let lastArgs
+    let lastValue
 
     return (...args) => {
         if (

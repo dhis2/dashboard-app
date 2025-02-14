@@ -3,7 +3,7 @@ import { useDhis2ConnectionStatus } from '@dhis2/app-runtime'
 import i18n from '@dhis2/d2-i18n'
 import cx from 'classnames'
 import PropTypes from 'prop-types'
-import React, { useState, useEffect, useRef } from 'react'
+import React, { useCallback, useState, useEffect, useRef } from 'react'
 import { Responsive as ResponsiveReactGridLayout } from 'react-grid-layout'
 import { useSelector } from 'react-redux'
 import { useContainerWidth } from '../../components/DashboardContainer.js'
@@ -94,16 +94,19 @@ const ResponsiveItemGrid = ({ dashboardIsCached }) => {
         }
     }, [recordingState])
 
-    const onToggleItemExpanded = (clickedId) => {
-        const isExpanded =
-            typeof expandedItems[clickedId] === 'boolean'
-                ? expandedItems[clickedId]
-                : false
+    const onToggleItemExpanded = useCallback(
+        (clickedId) => {
+            const isExpanded =
+                typeof expandedItems[clickedId] === 'boolean'
+                    ? expandedItems[clickedId]
+                    : false
 
-        const newExpandedItems = { ...expandedItems }
-        newExpandedItems[clickedId] = !isExpanded
-        setExpandedItems(newExpandedItems)
-    }
+            const newExpandedItems = { ...expandedItems }
+            newExpandedItems[clickedId] = !isExpanded
+            setExpandedItems(newExpandedItems)
+        },
+        [expandedItems]
+    )
 
     const getItemComponent = (item) => {
         if (!layoutSm.length) {
@@ -165,6 +168,7 @@ const ResponsiveItemGrid = ({ dashboardIsCached }) => {
                     onToggleItemExpanded={onToggleItemExpanded}
                     isFullscreen={itemIsFullscreen}
                     sortIndex={sortedItems.findIndex((i) => i.id === item.id)}
+                    isSlideshowView={isSlideshowView}
                 />
             </ProgressiveLoadingContainer>
         )
@@ -186,7 +190,9 @@ const ResponsiveItemGrid = ({ dashboardIsCached }) => {
 
     return (
         <div
-            className={cx({ [classes.slideshowContainer]: isSlideshowView })}
+            className={cx(classes.container, {
+                [classes.slideshowContainer]: isSlideshowView,
+            })}
             ref={slideshowElementRef}
         >
             <ResponsiveReactGridLayout

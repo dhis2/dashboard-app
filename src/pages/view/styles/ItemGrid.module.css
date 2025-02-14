@@ -1,5 +1,8 @@
-.slideshowContainer {
+.container {
     background-color: var(--colors-grey200);
+}
+
+.slideshowContainer {
     block-size: 100vh;
 }
 .grid {

@@ -11,7 +11,7 @@ Feature: Viewing dashboards
         Given I open the "Antenatal Care" dashboard
         When I search for dashboards containing "Immun"
         Then Immunization and Immunization data dashboards are choices
-        When I press tab in the search dashboard field and then enter
+        When I click on the Immunization dashboard in the search results
         Then the "Immunization" dashboard displays in view mode
 
     @nonmutating

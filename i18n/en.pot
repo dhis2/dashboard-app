@@ -120,14 +120,35 @@ msgstr "Search for a dashboard"
 msgid "No dashboards found for \"{{- filterText}}\""
 msgstr "No dashboards found for \"{{- filterText}}\""
 
-msgid "{{appKey}} app not found"
-msgstr "{{appKey}} app not found"
+msgid "There was a problem loading this dashboard item"
+msgstr "There was a problem loading this dashboard item"
+
+msgid "Open menu"
+msgstr "Open menu"
+
+msgid "Open in {{appName}}"
+msgstr "Open in {{appName}}"
+
+msgid "View fullscreen"
+msgstr "View fullscreen"
 
 msgid "Remove this item"
 msgstr "Remove this item"
 
 msgid "This item has been shortened to fit on one page"
 msgstr "This item has been shortened to fit on one page"
+
+msgid "The plugin needed to display this item is not available"
+msgstr "The plugin needed to display this item is not available"
+
+msgid "Install the {{pluginName}} plugin from the App Hub"
+msgstr "Install the {{pluginName}} plugin from the App Hub"
+
+msgid "There was an error loading data for this item"
+msgstr "There was an error loading data for this item"
+
+msgid "Open this item in {{appName}}"
+msgstr "Open this item in {{appName}}"
 
 msgid "Remove"
 msgstr "Remove"
@@ -174,23 +195,14 @@ msgstr "Only Period and Organisation unit filters can be applied to this item"
 msgid "Some filters not applied"
 msgstr "Some filters not applied"
 
-msgid "There was a problem loading this dashboard item"
-msgstr "There was a problem loading this dashboard item"
-
 msgid "Hide details and interpretations"
 msgstr "Hide details and interpretations"
 
 msgid "Show details and interpretations"
 msgstr "Show details and interpretations"
 
-msgid "Open menu"
-msgstr "Open menu"
-
 msgid "Open in {{appName}} app"
 msgstr "Open in {{appName}} app"
-
-msgid "View fullscreen"
-msgstr "View fullscreen"
 
 msgid "This map can't be displayed as a chart"
 msgstr "This map can't be displayed as a chart"
@@ -216,38 +228,44 @@ msgstr "View as Map"
 msgid "There was a problem loading interpretations for this item"
 msgstr "There was a problem loading interpretations for this item"
 
-msgid "The plugin for rendering this item is not available"
-msgstr "The plugin for rendering this item is not available"
-
-msgid "Install the {{appName}} app from the App Hub"
-msgstr "Install the {{appName}} app from the App Hub"
-
 msgid "No data to display"
 msgstr "No data to display"
 
 msgid ""
-"Install Line Listing app version ${minLLVersion.join(\n"
-"                                '.'\n"
-"                            )} or higher in order to display this item."
+"Install Data Visualizer app ${minDVVersion.join(\n"
+"                            '.'\n"
+"                        )} or higher in order to display this item."
 msgstr ""
-"Install Line Listing app version ${minLLVersion.join(\n"
-"                                '.'\n"
-"                            )} or higher in order to display this item."
+"Install Data Visualizer app ${minDVVersion.join(\n"
+"                            '.'\n"
+"                        )} or higher in order to display this item."
 
 msgid "Show without filters"
 msgstr "Show without filters"
 
+msgid ""
+"Install Line Listing app ${minLLVersion.join(\n"
+"                            '.'\n"
+"                        )} or higher in order to display this item."
+msgstr ""
+"Install Line Listing app ${minLLVersion.join(\n"
+"                            '.'\n"
+"                        )} or higher in order to display this item."
+
 msgid "Maps with Earth Engine layers cannot be displayed when offline"
 msgstr "Maps with Earth Engine layers cannot be displayed when offline"
 
+msgid ""
+"Install Maps app ${minMapsVersion.join(\n"
+"                            '.'\n"
+"                        )} or higher in order to display this item."
+msgstr ""
+"Install Maps app ${minMapsVersion.join(\n"
+"                            '.'\n"
+"                        )} or higher in order to display this item."
+
 msgid "Unable to load the plugin for this item"
 msgstr "Unable to load the plugin for this item"
-
-msgid "There was an error loading data for this item"
-msgstr "There was an error loading data for this item"
-
-msgid "Open this item in {{appName}}"
-msgstr "Open this item in {{appName}}"
 
 msgid "Resources"
 msgstr "Resources"
