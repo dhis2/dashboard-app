@@ -1,15 +1,15 @@
 # 
 # Translators:
-# Viktor Varland <viktor@dhis2.org>, 2020
-# Philip Larsen Donnelly, 2024
-# Hamza Assada <7amza.it@gmail.com>, 2024
+# Viktor Varland <viktor@dhis2.org>, 2019
+# Philip Larsen Donnelly, 2025
+# Hamza Assada <7amza.it@gmail.com>, 2025
 # 
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2024-03-19T12:31:03.302Z\n"
+"POT-Creation-Date: 2025-02-07T10:20:57.831Z\n"
 "PO-Revision-Date: 2019-06-25 12:37+0000\n"
-"Last-Translator: Hamza Assada <7amza.it@gmail.com>, 2024\n"
+"Last-Translator: Hamza Assada <7amza.it@gmail.com>, 2025\n"
 "Language-Team: Arabic (https://app.transifex.com/hisp-uio/teams/100509/ar/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -20,20 +20,117 @@ msgstr ""
 msgid "Untitled dashboard"
 msgstr "لوحة معلومات غير معنونة"
 
-msgid "Cannot create a dashboard while offline"
-msgstr "لا يمكن إنشاء لوحة معلومات في وضع عدم الاتصال"
+msgid "Dashboards"
+msgstr "لوحات المعلومات"
 
-msgid "Create new dashboard"
-msgstr "إنشاء لوحة معلومات جديدة"
+msgid "The dashboard couldn't be made available offline. Try again."
+msgstr "لا يمكن إتاحة لوحة المعلومات في وضع عدم الاتصال. حاول مرة أخرى."
+
+msgid "Remove from offline storage"
+msgstr "إزالة من التخزين في وضع عدم الاتصال"
+
+msgid "Make available offline"
+msgstr "اجعلها متاحة بلا إنترنت"
+
+msgid "Sync offline data now"
+msgstr "مزامنة البيانات في وضع عدم الاتصال الآن"
+
+msgid "Unstar dashboard"
+msgstr "إلغاء التمييز بنجمة عن لوحة المعلومات"
+
+msgid "Star dashboard"
+msgstr "إعطاء نجمة للوحة المعلومات"
+
+msgid "Hide description"
+msgstr "إخفاء الوصف"
+
+msgid "Show description"
+msgstr "إظهار الوصف"
+
+msgid "Print"
+msgstr "طباعة"
+
+msgid "Dashboard layout"
+msgstr "تخطيط لوحة المعلومات"
+
+msgid "One item per page"
+msgstr "عنصر واحد في كل صفحة"
+
+msgid "Close dashboard"
+msgstr "إغلاق لوحة المعلومات"
+
+msgid "No dashboard items to show in slideshow"
+msgstr ""
+
+msgid "Not available offline"
+msgstr "غير متوفر في وضع عدم الإتصال"
+
+msgid "Edit"
+msgstr "تعديل"
+
+msgid "Share"
+msgstr "مشاركة"
+
+msgid "Slideshow"
+msgstr ""
+
+msgid "Clear dashboard filters?"
+msgstr "مسح عوامل تصفية لوحة المعلومات؟"
+
+msgid ""
+"A dashboard's filters can’t be saved offline. Do you want to remove the "
+"filters and make this dashboard available offline?"
+msgstr ""
+"لا يمكن حفظ عوامل تصفية لوحة معلومات في وضع عدم الاتصال. هل تريد إزالة عوامل"
+" التصفية وجعل لوحة المعلومات هذه متاحة في وضع عدم الاتصال؟"
+
+msgid "No, cancel"
+msgstr "لا، الغاء"
+
+msgid "Yes, clear filters and sync"
+msgstr "نعم ، امسح عوامل التصفية وقم بالمزامنة"
+
+msgid "Cancel"
+msgstr "إلغاء"
+
+msgid "Confirm"
+msgstr "تأكيد"
+
+msgid "Filter"
+msgstr "عامل التصفية"
+
+msgid "Failed to unstar the dashboard"
+msgstr "فشل إلغاء تمييز لوحة المعلومات بنجمة"
+
+msgid "Failed to star the dashboard"
+msgstr "فشل تمييز لوحة المعلومات بنجمة"
+
+msgid "Offline data last updated {{timeAgo}}"
+msgstr "آخر تحديث للبيانات بلا اتصال بالإنترنت {{timeAgo}}"
+
+msgid "Synced {{timeAgo}}"
+msgstr ""
+
+msgid "Cannot unstar this dashboard while offline"
+msgstr "لا يمكن إلغاء نجمة لوحة المعلومات هذه بلا اتصال بالإنترنت"
+
+msgid "Cannot star this dashboard while offline"
+msgstr "لا يمكن تمييز لوحة المعلومات بنجمة في وضع عدم الاتصال"
+
+msgid "No dashboards available."
+msgstr ""
+
+msgid "Create a new dashboard using the + button."
+msgstr ""
 
 msgid "Search for a dashboard"
 msgstr "البحث عن لوحة معلومات"
 
-msgid "Show fewer dashboards"
-msgstr "إظهار عدد أقل من لوحات المعلومات"
+msgid "No dashboards found for \"{{- filterText}}\""
+msgstr ""
 
-msgid "Show more dashboards"
-msgstr "عرض المزيد من لوحات المعلومات"
+msgid "{{appKey}} app not found"
+msgstr ""
 
 msgid "Remove this item"
 msgstr "أزل هذا العنصر"
@@ -96,6 +193,9 @@ msgstr "إخفاء التفاصيل والتفسيرات"
 msgid "Show details and interpretations"
 msgstr "إظهار التفاصيل والتفسيرات"
 
+msgid "Open menu"
+msgstr ""
+
 msgid "Open in {{appName}} app"
 msgstr "إفتح في تطبيق {{appName}}"
 
@@ -156,8 +256,11 @@ msgstr "حدث خطأ أثناء تحميل البيانات لهذا العنص
 msgid "Open this item in {{appName}}"
 msgstr "افتح هذا العنصر في {{appName}}"
 
-msgid "Not available offline"
-msgstr "غير متوفر في وضع عدم الإتصال"
+msgid "Resources"
+msgstr "المصادر"
+
+msgid "Reports"
+msgstr "التقارير"
 
 msgid "Visualizations"
 msgstr "مخططات بيانية"
@@ -182,12 +285,6 @@ msgstr ""
 
 msgid "Apps"
 msgstr "التطبيقات"
-
-msgid "Reports"
-msgstr "التقارير"
-
-msgid "Resources"
-msgstr "المصادر"
 
 msgid "Users"
 msgstr "المستخدمون"
@@ -245,16 +342,10 @@ msgid "Delete dashboard"
 msgstr "حذف لوحة المعلومات"
 
 msgid ""
-"Deleting dashboard \"{{ dashboardName }}\" will remove it for all users. "
+"Deleting dashboard \"{{- dashboardName }}\" will remove it for all users. "
 "This action cannot be undone. Are you sure you want to permanently delete "
 "this dashboard?"
 msgstr ""
-"سيؤدي حذف لوحة المعلومات \"{{ dashboardName }}\" إلى إزالتها عن جميع "
-"المستخدمين. لا يمكن التراجع عن هذا الإجراء. هل تريد بالتأكيد حذف لوحة "
-"المعلومات هذه نهائياً؟"
-
-msgid "Cancel"
-msgstr "إلغاء"
 
 msgid "Discard changes"
 msgstr "تجاهل التغييرات"
@@ -311,9 +402,6 @@ msgstr "عوامل التصفية المتاحة"
 msgid "Selected Filters"
 msgstr "عوامل التصفية المختارة"
 
-msgid "Confirm"
-msgstr "تأكيد"
-
 msgid "There are no items on this dashboard"
 msgstr "لايوجد عناصر في لوحة المعلومات هذه"
 
@@ -322,6 +410,9 @@ msgstr "عرض أقل"
 
 msgid "Show more"
 msgstr "إظهار المزيد"
+
+msgid "Open visualization in new tab"
+msgstr ""
 
 msgid "Insert"
 msgstr "إدراج"
@@ -337,9 +428,6 @@ msgstr "لا يمكن البحث عن عناصر لوحة معلومات بلا 
 
 msgid "Additional items"
 msgstr "عناصر إضافية"
-
-msgid "Dashboard layout"
-msgstr "تخطيط لوحة المعلومات"
 
 msgid "Freeflow"
 msgstr ""
@@ -412,9 +500,6 @@ msgstr "نهاية لوحة المعلومات"
 msgid "Start of dashboard"
 msgstr "بداية لوحة المعلومات"
 
-msgid "Print"
-msgstr "طباعة"
-
 msgid "dashboard layout"
 msgstr "تخطيط لوحة المعلومات"
 
@@ -466,6 +551,9 @@ msgstr ""
 msgid "Requested dashboard not found"
 msgstr "لم يتم العثور على لوحة المعلومات التي طلبتها"
 
+msgid "No description"
+msgstr "لا يوجد وصف"
+
 msgid "{{count}} selected"
 msgid_plural "{{count}} selected"
 msgstr[0] "0"
@@ -475,8 +563,11 @@ msgstr[3] "تم اختيار {{count}}"
 msgstr[4] "تم اختيار {{count}}"
 msgstr[5] "تم اختيار {{count}}"
 
-msgid "Cannot remove filters while offline"
-msgstr "لا يمكن إزالة عوامل التصفية أثناء عدم الاتصال"
+msgid "Cannot edit filters while offline"
+msgstr ""
+
+msgid "Cannot edit filters on a small screen"
+msgstr ""
 
 msgid "Removing filters while offline"
 msgstr "إزالة عوامل التصفية في وضع عدم الاتصال"
@@ -488,90 +579,41 @@ msgstr ""
 "ستؤدي إزالة عامل التصفية هذا أثناء عدم الاتصال بالإنترنت إلى إزالة جميع "
 "عوامل التصفية الأخرى. هل تريد إزالة جميع عوامل التصفية من لوحة القيادة هذه؟"
 
-msgid "No, cancel"
-msgstr "لا، الغاء"
-
 msgid "Yes, remove filters"
 msgstr "نعم ، قم بإزالة عوامل التصفية"
 
-msgid "The dashboard couldn't be made available offline. Try again."
-msgstr "لا يمكن إتاحة لوحة المعلومات في وضع عدم الاتصال. حاول مرة أخرى."
-
-msgid "Failed to unstar the dashboard"
-msgstr "فشل إلغاء تمييز لوحة المعلومات بنجمة"
-
-msgid "Failed to star the dashboard"
-msgstr "فشل تمييز لوحة المعلومات بنجمة"
-
-msgid "Remove from offline storage"
-msgstr "إزالة من التخزين في وضع عدم الاتصال"
-
-msgid "Make available offline"
-msgstr "اجعلها متاحة بلا إنترنت"
-
-msgid "Sync offline data now"
-msgstr "مزامنة البيانات في وضع عدم الاتصال الآن"
-
-msgid "Unstar dashboard"
-msgstr "إلغاء التمييز بنجمة عن لوحة المعلومات"
-
-msgid "Star dashboard"
-msgstr "إعطاء نجمة للوحة المعلومات"
-
-msgid "Hide description"
-msgstr "إخفاء الوصف"
-
-msgid "Show description"
-msgstr "إظهار الوصف"
-
-msgid "One item per page"
-msgstr "عنصر واحد في كل صفحة"
-
-msgid "Close dashboard"
-msgstr "إغلاق لوحة المعلومات"
-
-msgid "More"
-msgstr "مزيد"
-
-msgid "Edit"
-msgstr "تعديل"
-
-msgid "Share"
-msgstr "مشاركة"
-
-msgid "Clear dashboard filters?"
-msgstr "مسح عوامل تصفية لوحة المعلومات؟"
-
-msgid ""
-"A dashboard's filters can’t be saved offline. Do you want to remove the "
-"filters and make this dashboard available offline?"
+msgid "Exit slideshow"
 msgstr ""
-"لا يمكن حفظ عوامل تصفية لوحة معلومات في وضع عدم الاتصال. هل تريد إزالة عوامل"
-" التصفية وجعل لوحة المعلومات هذه متاحة في وضع عدم الاتصال؟"
 
-msgid "Yes, clear filters and sync"
-msgstr "نعم ، امسح عوامل التصفية وقم بالمزامنة"
+msgid "Previous item"
+msgstr ""
 
-msgid "No description"
-msgstr "لا يوجد وصف"
+msgid "Next item"
+msgstr ""
 
-msgid "Add filter"
-msgstr "إضافة عامل تصفية"
+msgid "{{name}}: {{filter}}"
+msgstr ""
 
-msgid "Offline data last updated {{time}}"
-msgstr "آخر تحديث للبيانات بلا اتصال بالإنترنت {{time}}"
-
-msgid "Cannot unstar this dashboard while offline"
-msgstr "لا يمكن إلغاء نجمة لوحة المعلومات هذه بلا اتصال بالإنترنت"
-
-msgid "Cannot star this dashboard while offline"
-msgstr "لا يمكن تمييز لوحة المعلومات بنجمة في وضع عدم الاتصال"
+msgid "{{count}} filters active"
+msgid_plural "{{count}} filters active"
+msgstr[0] ""
+msgstr[1] ""
+msgstr[2] ""
+msgstr[3] ""
+msgstr[4] ""
+msgstr[5] ""
 
 msgid "Loading dashboard – {{name}}"
 msgstr "تحميل لوحة المعلومات – {{name}}"
 
 msgid "Loading dashboard"
 msgstr "تحميل لوحة المعلومات"
+
+msgid "Load dashboard failed"
+msgstr "فشل تحميل لوحة المعلومات"
+
+msgid "This dashboard could not be loaded. Please try again later."
+msgstr "لا يمكن تحميل لوحة المعلومات هذه. الرجاء معاودة المحاولة في وقت لاحق."
 
 msgid "Offline"
 msgstr "غير متصل"
@@ -581,9 +623,3 @@ msgstr "لا يمكن تحميل لوحة المعلومات هذه بلا إن�
 
 msgid "Go to start page"
 msgstr "اذهب إلى صفحة البداية"
-
-msgid "Load dashboard failed"
-msgstr "فشل تحميل لوحة المعلومات"
-
-msgid "This dashboard could not be loaded. Please try again later."
-msgstr "لا يمكن تحميل لوحة المعلومات هذه. الرجاء معاودة المحاولة في وقت لاحق."

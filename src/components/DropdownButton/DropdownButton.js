@@ -30,7 +30,7 @@ const DropdownButton = ({
                 </Button>
             </OfflineTooltip>
             {open && (
-                <Layer onClick={onClick} transparent>
+                <Layer onBackdropClick={onClick} transparent>
                     <Popper placement="bottom-start" reference={anchorRef}>
                         {component}
                     </Popper>

@@ -6,7 +6,6 @@ import React from 'react'
 import { connect } from 'react-redux'
 import { isViewMode } from '../../../modules/dashboardModes.js'
 import { sGetMessagesRoot } from '../../../reducers/messages.js'
-import { sGetSlideshow } from '../../../reducers/slideshow.js'
 import { useUserSettings } from '../../UserSettingsProvider.js'
 import ItemHeader from '../ItemHeader/ItemHeader.js'
 import { getFormattedDate } from './getFormattedDate.js'
@@ -110,7 +109,6 @@ MessagesItem.propTypes = {
 const mapStateToProps = (state) => {
     return {
         messages: Object.values(sGetMessagesRoot(state)),
-        isSlideshowView: sGetSlideshow(state) !== null,
     }
 }
 

@@ -19,6 +19,10 @@ When('I press tab in the search dashboard field and then enter', () => {
     cy.realPress('Enter')
 })
 
+When('I click on the Immunization dashboard in the search results', () => {
+    getNavigationMenu(true).contains('Immunization').click()
+})
+
 When('I press enter in the search dashboard field', () => {
     getNavigationMenuFilter(true).type('{enter}')
 })

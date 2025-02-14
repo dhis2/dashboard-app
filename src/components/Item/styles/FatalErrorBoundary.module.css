@@ -6,12 +6,3 @@
     inset-inline-start: 50%;
     transform: translate(-50%, -50%);
 }
-
-.icon {
-    vertical-align: middle;
-    margin-inline-end: 3px;
-}
-
-.message {
-    font-size: 13px;
-}

@@ -24,14 +24,27 @@ const useSlideshow = (displayItems, slideshowElementRef) => {
     // Slideshow button or Item "View fullscreen" menu clicked
     // Fullscreen Exit button or ESC key pressed
     useEffect(() => {
-        if (Number.isInteger(firstItemIndex)) {
-            const el = slideshowElementRef?.current
-            setIsEnteringSlideshow(true)
-            el?.requestFullscreen({ navigationUI: 'show' }).then(() => {
+        // Why using the resize event? To avoid the content being
+        // resized twice. By waiting to setItemIndex until the resize
+        // is complete, then the new height has been set.
+        const handleResize = () => {
+            if (Number.isInteger(firstItemIndex)) {
                 setItemIndex(firstItemIndex)
-            })
+                setIsEnteringSlideshow(false)
+            }
+        }
+        if (Number.isInteger(firstItemIndex)) {
+            window.addEventListener('resize', handleResize)
+            setIsEnteringSlideshow(true)
+
+            //triggers window resize event
+            slideshowElementRef?.current?.requestFullscreen()
         } else {
             setItemIndex(null)
+        }
+
+        return () => {
+            window.removeEventListener('resize', handleResize)
         }
     }, [firstItemIndex, slideshowElementRef])
 
@@ -72,11 +85,8 @@ const useSlideshow = (displayItems, slideshowElementRef) => {
 
         const handleFullscreenChange = () => {
             if (!document.fullscreenElement) {
+                // Exited fullscreen
                 dispatch(acSetSlideshow(null))
-            } else {
-                setTimeout(() => {
-                    setIsEnteringSlideshow(false)
-                }, 200)
             }
         }
 

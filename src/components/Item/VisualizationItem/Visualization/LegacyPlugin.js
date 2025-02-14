@@ -7,7 +7,6 @@ import { load, unmount } from './plugin.js'
 const LegacyPlugin = ({
     item,
     activeType,
-    filterVersion,
     visualization,
     options,
     style,
@@ -16,7 +15,7 @@ const LegacyPlugin = ({
     const { baseUrl } = useConfig()
     const prevItem = useRef()
     const prevActiveType = useRef()
-    const prevFilterVersion = useRef()
+    const prevVisualization = useRef()
 
     useEffect(() => {
         const el = document.querySelector(
@@ -35,8 +34,8 @@ const LegacyPlugin = ({
         if (
             !prevItem.current ||
             (prevItem.current === item &&
-                (prevActiveType.current !== activeType ||
-                    prevFilterVersion.current !== filterVersion))
+                prevActiveType.current !== activeType) ||
+            prevVisualization.current !== visualization
         ) {
             // Initial load, or active type or filter has changed
             load(item, visualization, {
@@ -48,17 +47,16 @@ const LegacyPlugin = ({
 
         prevItem.current = item
         prevActiveType.current = activeType
-        prevFilterVersion.current = filterVersion
+        prevVisualization.current = visualization
 
         return () => unmount(item, item.type || activeType)
-    }, [item, visualization, activeType, filterVersion, baseUrl, options])
+    }, [item, visualization, activeType, baseUrl, options])
 
     return <div id={getVisualizationContainerDomId(item.id)} style={style} />
 }
 
 LegacyPlugin.propTypes = {
     activeType: PropTypes.string,
-    filterVersion: PropTypes.string,
     gridWidth: PropTypes.number,
     item: PropTypes.object,
     options: PropTypes.object,

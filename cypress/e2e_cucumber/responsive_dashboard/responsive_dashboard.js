@@ -1,6 +1,6 @@
 import { When, Then } from '@badeball/cypress-cucumber-preprocessor'
 import { dimensionsModalSel } from '../../elements/dashboardFilter.js'
-import { gridItemSel, chartSel } from '../../elements/dashboardItem.js'
+import { gridItemSel } from '../../elements/dashboardItem.js'
 import { titleInputSel } from '../../elements/editDashboard.js'
 import {
     dashboardTitleSel,
@@ -95,9 +95,11 @@ Then('the {string} dashboard displays in default view mode', (title) => {
 
     cy.get(dashboardTitleSel).should('be.visible').and('contain', `${title}`)
 
-    cy.get(`${gridItemSel}.VISUALIZATION`).first().getIframeBody().as('iframe')
-    cy.get('@iframe').find(chartSel, EXTENDED_TIMEOUT).as('vis')
-    cy.get('@vis').should('be.visible')
+    cy.get(`${gridItemSel}.VISUALIZATION`)
+        .first()
+        .getIframeBody()
+        .as('iframe')
+        .should('be.visible')
 })
 
 // Scenario: I change the url to 'edit' while in small screen

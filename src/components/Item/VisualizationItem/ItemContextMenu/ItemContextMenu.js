@@ -44,13 +44,11 @@ const ItemContextMenu = (props) => {
         allowVisFullscreen,
     } = useSystemSettings().systemSettings
 
-    const fullscreenAllowed = props.fullscreenSupported && allowVisFullscreen
-
     const noOptionsEnabled =
         !allowVisOpenInApp &&
         !allowVisShowInterpretations &&
         !allowVisViewAs &&
-        !fullscreenAllowed
+        !allowVisFullscreen
 
     if (noOptionsEnabled || (!allowVisOpenInApp && props.loadItemFailed)) {
         return null
@@ -108,7 +106,6 @@ const ItemContextMenu = (props) => {
                     onClick={openMenu}
                     dataTest="dashboarditem-menu-button"
                     icon={<IconMore16 color={colors.grey700} />}
-                    tabIndex={props.tabIndex}
                 />
             </div>
             {menuIsOpen && (
@@ -130,7 +127,7 @@ const ItemContextMenu = (props) => {
                                 {(allowVisShowInterpretations ||
                                     (allowVisOpenInApp &&
                                         !isSmallScreen(width)) ||
-                                    fullscreenAllowed) && (
+                                    allowVisFullscreen) && (
                                     <Divider dataTest="divider" />
                                 )}
                             </>
@@ -153,7 +150,7 @@ const ItemContextMenu = (props) => {
                                 onClick={toggleInterpretations}
                             />
                         )}
-                        {fullscreenAllowed && !loadItemFailed && (
+                        {allowVisFullscreen && !loadItemFailed && (
                             <MenuItem
                                 disabledWhenOffline={false}
                                 icon={<IconFullscreen16 />}
@@ -172,10 +169,8 @@ ItemContextMenu.propTypes = {
     activeFooter: PropTypes.bool,
     activeType: PropTypes.string,
     enterFullscreen: PropTypes.func,
-    fullscreenSupported: PropTypes.bool,
     item: PropTypes.object,
     loadItemFailed: PropTypes.bool,
-    tabIndex: PropTypes.string,
     visualization: PropTypes.object,
     onSelectActiveType: PropTypes.func,
     onToggleFooter: PropTypes.func,
