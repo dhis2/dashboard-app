@@ -6,17 +6,17 @@
 # Prabhjot Singh, 2021
 # Viktor Varland <viktor@dhis2.org>, 2021
 # Marta Vila <marta@dhis2.org>, 2023
-# Janeth Cruz, 2023
-# Philip Larsen Donnelly, 2024
 # Gabriela Rodriguez <grodriguezcoronado@gmail.com>, 2024
 # Enzo Nicolas Rossi <enzo@dhis2.org>, 2024
+# Philip Larsen Donnelly, 2025
+# Janeth Cruz, 2025
 # 
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2024-08-27T07:26:05.058Z\n"
+"POT-Creation-Date: 2025-02-07T10:20:57.831Z\n"
 "PO-Revision-Date: 2019-06-25 12:37+0000\n"
-"Last-Translator: Enzo Nicolas Rossi <enzo@dhis2.org>, 2024\n"
+"Last-Translator: Janeth Cruz, 2025\n"
 "Language-Team: Spanish (https://app.transifex.com/hisp-uio/teams/100509/es/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -27,20 +27,118 @@ msgstr ""
 msgid "Untitled dashboard"
 msgstr "Tablero sin nombre"
 
-msgid "Cannot create a dashboard while offline"
-msgstr "No se pueden crear dashboard sin cconexion a internet"
+msgid "Dashboards"
+msgstr "Cuadros de mandos"
 
-msgid "Create new dashboard"
-msgstr "Crear nuevo tablero"
+msgid "The dashboard couldn't be made available offline. Try again."
+msgstr "El tablero no esta disponible sin conexión. Intentar otra vez"
+
+msgid "Remove from offline storage"
+msgstr "Eliminar del almacenamiento sin conexión"
+
+msgid "Make available offline"
+msgstr "Hacer disponible sin conexión"
+
+msgid "Sync offline data now"
+msgstr "Sincronizar datos sin conexión ahora"
+
+msgid "Unstar dashboard"
+msgstr "Desmarcar tablero"
+
+msgid "Star dashboard"
+msgstr "Marcar tablero"
+
+msgid "Hide description"
+msgstr "Ocultar la descripción"
+
+msgid "Show description"
+msgstr "Mostrar la descripción"
+
+msgid "Print"
+msgstr "Imprimir"
+
+msgid "Dashboard layout"
+msgstr "Diseño del tablero"
+
+msgid "One item per page"
+msgstr "Un objeto por página"
+
+msgid "Close dashboard"
+msgstr "Cerrar tablero"
+
+msgid "No dashboard items to show in slideshow"
+msgstr ""
+
+msgid "Not available offline"
+msgstr "No disponible sin conexión a internet"
+
+msgid "Edit"
+msgstr "Editar"
+
+msgid "Share"
+msgstr "Compartir"
+
+msgid "Slideshow"
+msgstr ""
+
+msgid "Clear dashboard filters?"
+msgstr "¿Limpiar los filtros del tablero?"
+
+msgid ""
+"A dashboard's filters can’t be saved offline. Do you want to remove the "
+"filters and make this dashboard available offline?"
+msgstr ""
+"Los filtros de un tablero no se pueden guardar sin conexión a internet. "
+"¿Desea eliminar los filtros y hacer que este tablero esté disponible sin "
+"conexión?"
+
+msgid "No, cancel"
+msgstr "No, cancelar"
+
+msgid "Yes, clear filters and sync"
+msgstr "Sí, limpiar filtros y sincronizar"
+
+msgid "Cancel"
+msgstr "Cancelar"
+
+msgid "Confirm"
+msgstr "Confirmar"
+
+msgid "Filter"
+msgstr "filtro"
+
+msgid "Failed to unstar the dashboard"
+msgstr "No se pudo desmarcar el tablero"
+
+msgid "Failed to star the dashboard"
+msgstr "No se pudo marcar el tablero"
+
+msgid "Offline data last updated {{timeAgo}}"
+msgstr "Última actualización de datos sin conexión {{timeAgo}}"
+
+msgid "Synced {{timeAgo}}"
+msgstr ""
+
+msgid "Cannot unstar this dashboard while offline"
+msgstr "No se puede desmarcar este tablero sin conexión a internet"
+
+msgid "Cannot star this dashboard while offline"
+msgstr "No se puede marcar este tablero sin conexión a internet"
+
+msgid "No dashboards available."
+msgstr ""
+
+msgid "Create a new dashboard using the + button."
+msgstr ""
 
 msgid "Search for a dashboard"
 msgstr "Buscar un tablero"
 
-msgid "Show fewer dashboards"
-msgstr "Mostrar menos tableros"
+msgid "No dashboards found for \"{{- filterText}}\""
+msgstr ""
 
-msgid "Show more dashboards"
-msgstr "Mostrar más tableros"
+msgid "{{appKey}} app not found"
+msgstr ""
 
 msgid "Remove this item"
 msgstr "Eliminar este elemento"
@@ -108,6 +206,9 @@ msgstr "Ocultar detalles e interpretaciones"
 msgid "Show details and interpretations"
 msgstr "Mostrar detalles e interpretaciones"
 
+msgid "Open menu"
+msgstr ""
+
 msgid "Open in {{appName}} app"
 msgstr "Abrir en la aplicación {{appName}}"
 
@@ -172,8 +273,11 @@ msgstr "Hubo un error al cargar los datos de este elemento."
 msgid "Open this item in {{appName}}"
 msgstr "Abra este elemento en {{appName}}"
 
-msgid "Not available offline"
-msgstr "No disponible sin conexión a internet"
+msgid "Resources"
+msgstr "Recursos"
+
+msgid "Reports"
+msgstr "Informes"
 
 msgid "Visualizations"
 msgstr "Visualizaciones"
@@ -198,12 +302,6 @@ msgstr "Listados"
 
 msgid "Apps"
 msgstr "Aplicaciones"
-
-msgid "Reports"
-msgstr "Informes"
-
-msgid "Resources"
-msgstr "Recursos"
 
 msgid "Users"
 msgstr "Usuarios"
@@ -263,16 +361,10 @@ msgid "Delete dashboard"
 msgstr "Borrar tablero"
 
 msgid ""
-"Deleting dashboard \"{{ dashboardName }}\" will remove it for all users. "
+"Deleting dashboard \"{{- dashboardName }}\" will remove it for all users. "
 "This action cannot be undone. Are you sure you want to permanently delete "
 "this dashboard?"
 msgstr ""
-"Borrando tablero \"{{ dashboardName }}\" para todos los usuarios. Esta "
-"acción será permanente. Está seguro de que desea continuar eliminando "
-"permanentemente este tablero?"
-
-msgid "Cancel"
-msgstr "Cancelar"
 
 msgid "Discard changes"
 msgstr "Descartar los cambios"
@@ -329,9 +421,6 @@ msgstr "Filtros disponibles"
 msgid "Selected Filters"
 msgstr "Filtros seleccionados"
 
-msgid "Confirm"
-msgstr "Confirmar"
-
 msgid "There are no items on this dashboard"
 msgstr "No hay objetos en este tablero"
 
@@ -358,9 +447,6 @@ msgstr "No se pueden buscar elementos de tableros sin conexión a internet"
 
 msgid "Additional items"
 msgstr "Objetos adicionales"
-
-msgid "Dashboard layout"
-msgstr "Diseño del tablero"
 
 msgid "Freeflow"
 msgstr "Diseño libre"
@@ -432,9 +518,6 @@ msgstr "Fin del tablero"
 msgid "Start of dashboard"
 msgstr "Inicio del tablero"
 
-msgid "Print"
-msgstr "Imprimir"
-
 msgid "dashboard layout"
 msgstr "Diseño de tablero"
 
@@ -488,14 +571,20 @@ msgstr ""
 msgid "Requested dashboard not found"
 msgstr "No se ha encontrado el tablero buscado"
 
+msgid "No description"
+msgstr "Sin descripción"
+
 msgid "{{count}} selected"
 msgid_plural "{{count}} selected"
 msgstr[0] "{{count}} seleccionado"
 msgstr[1] "{{count}} seleccionados"
 msgstr[2] "{{count}} seleccionados"
 
-msgid "Cannot remove filters while offline"
-msgstr "No se pueden eliminar los filtros sin conexión a internet"
+msgid "Cannot edit filters while offline"
+msgstr ""
+
+msgid "Cannot edit filters on a small screen"
+msgstr ""
 
 msgid "Removing filters while offline"
 msgstr "Eliminar filtros sin conexión a internet"
@@ -507,91 +596,39 @@ msgstr ""
 "Eliminar este filtro mientras está sin conexión a internet eliminará todos "
 "los demás filtros. ¿Desea eliminar todos los filtros en este tablero?"
 
-msgid "No, cancel"
-msgstr "No, cancelar"
-
 msgid "Yes, remove filters"
 msgstr "Sí, eliminar filtros"
 
-msgid "The dashboard couldn't be made available offline. Try again."
-msgstr "El tablero no esta disponible sin conexión. Intentar otra vez"
-
-msgid "Failed to unstar the dashboard"
-msgstr "No se pudo desmarcar el tablero"
-
-msgid "Failed to star the dashboard"
-msgstr "No se pudo marcar el tablero"
-
-msgid "Remove from offline storage"
-msgstr "Eliminar del almacenamiento sin conexión"
-
-msgid "Make available offline"
-msgstr "Hacer disponible sin conexión"
-
-msgid "Sync offline data now"
-msgstr "Sincronizar datos sin conexión ahora"
-
-msgid "Unstar dashboard"
-msgstr "Desmarcar tablero"
-
-msgid "Star dashboard"
-msgstr "Marcar tablero"
-
-msgid "Hide description"
-msgstr "Ocultar la descripción"
-
-msgid "Show description"
-msgstr "Mostrar la descripción"
-
-msgid "One item per page"
-msgstr "Un objeto por página"
-
-msgid "Close dashboard"
-msgstr "Cerrar tablero"
-
-msgid "More"
-msgstr "Más"
-
-msgid "Edit"
-msgstr "Editar"
-
-msgid "Share"
-msgstr "Compartir"
-
-msgid "Clear dashboard filters?"
-msgstr "¿Limpiar los filtros del tablero?"
-
-msgid ""
-"A dashboard's filters can’t be saved offline. Do you want to remove the "
-"filters and make this dashboard available offline?"
+msgid "Exit slideshow"
 msgstr ""
-"Los filtros de un tablero no se pueden guardar sin conexión a internet. "
-"¿Desea eliminar los filtros y hacer que este tablero esté disponible sin "
-"conexión?"
 
-msgid "Yes, clear filters and sync"
-msgstr "Sí, limpiar filtros y sincronizar"
+msgid "Previous item"
+msgstr ""
 
-msgid "No description"
-msgstr "Sin descripción"
+msgid "Next item"
+msgstr ""
 
-msgid "Add filter"
-msgstr "Añadir filtro"
+msgid "{{name}}: {{filter}}"
+msgstr ""
 
-msgid "Offline data last updated {{time}}"
-msgstr "Última actualización de datos sin conexión {{time}}"
-
-msgid "Cannot unstar this dashboard while offline"
-msgstr "No se puede desmarcar este tablero sin conexión a internet"
-
-msgid "Cannot star this dashboard while offline"
-msgstr "No se puede marcar este tablero sin conexión a internet"
+msgid "{{count}} filters active"
+msgid_plural "{{count}} filters active"
+msgstr[0] ""
+msgstr[1] ""
+msgstr[2] ""
 
 msgid "Loading dashboard – {{name}}"
 msgstr "Cargando panel – {{name}}"
 
 msgid "Loading dashboard"
 msgstr "Cargando tablero de mando"
+
+msgid "Load dashboard failed"
+msgstr "No se pudo cargar el tablero"
+
+msgid "This dashboard could not be loaded. Please try again later."
+msgstr ""
+"No se pudo cargar este tablero. Por favor, inténtelo de nuevo más tarde."
 
 msgid "Offline"
 msgstr "Desconectado"
@@ -601,10 +638,3 @@ msgstr "Este tablero no puede cargarse mientras esté sin conexión a internet."
 
 msgid "Go to start page"
 msgstr "Ir a la página de inicio"
-
-msgid "Load dashboard failed"
-msgstr "No se pudo cargar el tablero"
-
-msgid "This dashboard could not be loaded. Please try again later."
-msgstr ""
-"No se pudo cargar este tablero. Por favor, inténtelo de nuevo más tarde."
