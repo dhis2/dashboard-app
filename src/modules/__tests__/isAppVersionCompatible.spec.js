@@ -1,11 +1,11 @@
 import { isLLVersionCompatible } from '../isAppVersionCompatible.js'
 
 const testcases = [
-    ['101.1.14', true],
+    ['102.0.0', true],
     ['100.5.9', false],
-    ['101.2.0', true],
+    ['102.2.0', true],
     ['100.0.9', false],
-    ['101.2.0-alpha', true],
+    ['102.2.0-alpha', true],
     ['100.5.9-beta', false],
 ]
 

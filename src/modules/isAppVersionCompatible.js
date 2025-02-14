@@ -1,7 +1,6 @@
-// TODO update minDVVersion, minLLVersion, minMapsVersion when finalized
-export const minDVVersion = [100, 9, 1]
-export const minLLVersion = [101, 1, 14]
-export const minMapsVersion = [100, 7, 11]
+export const minDVVersion = [101, 0, 0]
+export const minLLVersion = [102, 0, 0]
+export const minMapsVersion = [101, 0, 0]
 
 const isAppVersionCompatible = (version, minVersion) => {
     const [major, minor, patch] = version
