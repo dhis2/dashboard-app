@@ -45,6 +45,14 @@ describe('description', () => {
             //  Click to hide the description
             cy.getByDataTest('more-actions-button').click()
             cy.get('li').contains('Hide description').click()
+
+            // Confirm that show description has been set to false
+            resetShowDescription().then(() => {
+                cy.wait('@toggleDescription')
+                    .its('response.statusCode')
+                    .should('be.oneOf', [RESP_CODE_200, RESP_CODE_201])
+                cy.get(dashboardDescriptionSel).should('not.exist')
+            })
         })
     })
 })

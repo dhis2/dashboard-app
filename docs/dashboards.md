@@ -2,7 +2,7 @@
 
 ## About the Dashboards app
 
-The Dashboards app makes it possible to present a high level overview of your data, including displaying analytical objects such as maps, charts, reports, tables, and line lists, as well as displaying text-based information, resource links, and app widgets.
+The Dashboards app makes it possible to present a high level overview of your data, including displaying analytical objects such as maps, charts, reports, tables, and line lists, as well as displaying text-based information, resource links, plugins and app widgets.
 
 Features of the Dashboards app include:
 
@@ -69,7 +69,7 @@ Add items to the dashboard by searching for items using the **Search for items t
 -   Event charts
 -   Reports
 -   Resources
--   Apps
+-   Third party plugins and app widgets
 -   Messages
 -   Text boxes
 -   Spacers
@@ -210,6 +210,8 @@ When you enter the slideshow, you'll find navigation buttons and an exit button 
 ### Make dashboards available offline
 
 To make a dashboard available offline, choose the **Make available offline** option in the **...** menu. This will cause a reload of the dashboard where requests to the server are recorded and saved in browser storage. Note that offline dashboards are only available on the computer and browser where you set it to offline. If you currently have a filter applied when requesting the dashboard be made available offline, a dialog will appear to confirm the removal of the filters.
+
+Note that some dashboard items may not be displayed when offline. Specifically, third party plugins that have not implemented offline handling, as well as maps with Google Earth Engine layers will not be displayed when offline.
 
 ![](resources/images/dashboard-clear-filters-to-sync.png)
 

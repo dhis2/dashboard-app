@@ -1,0 +1,22 @@
+.appLink {
+    margin-block-start: var(--spacers-dp8);
+}
+
+.appLink a {
+    color: var(--colors-grey700);
+}
+
+.messageContent {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacers-dp8);
+    align-items: center;
+    justify-content: center;
+    block-size: 100%;
+    inline-size: 100%;
+    background-color: rgba(255, 255, 255, 0.92);
+    font-size: 13px;
+    font-stretch: normal;
+    color: var(--colors-grey900);
+    text-align: center;
+}

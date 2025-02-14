@@ -5,11 +5,10 @@
     "private": true,
     "license": "BSD-3-Clause",
     "dependencies": {
-        "@dhis2/analytics": "^26.9.4",
-        "@dhis2/app-runtime": "^3.10.6",
+        "@dhis2/analytics": "^26.12.0",
+        "@dhis2/app-runtime": "^3.13.2",
         "@dhis2/d2-i18n": "^1.1.3",
         "@dhis2/ui": "^10.1.4",
-        "@krakenjs/post-robot": "^11.0.0",
         "classnames": "^2.3.2",
         "d2-utilizr": "^0.2.16",
         "lodash": "^4.17.21",
@@ -44,7 +43,7 @@
         "@badeball/cypress-cucumber-preprocessor": "^22.0.0",
         "@bahmutov/cypress-esbuild-preprocessor": "^2.2.1",
         "@cypress/webpack-preprocessor": "^6.0.2",
-        "@dhis2/cli-app-scripts": "^11.7.1",
+        "@dhis2/cli-app-scripts": "^11.8.0",
         "@dhis2/cli-style": "^10.7.3",
         "@dhis2/cypress-commands": "^10.0.6",
         "@dhis2/cypress-plugins": "^10.0.6",
@@ -70,7 +69,8 @@
     },
     "jest": {
         "moduleNameMapper": {
-            "^.+\\.(css|sass|scss)$": "identity-obj-proxy"
+            "^.+\\.(css|sass|scss)$": "identity-obj-proxy",
+            "@dhis2/app-runtime/experimental": "<rootDir>/node_modules/@dhis2/app-runtime/build/cjs/experimental.js"
         },
         "setupFilesAfterEnv": [
             "<rootDir>/config/testSetup.js"

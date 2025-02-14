@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types'
 import React from 'react'
-import { Warning } from './assets/icons.js'
+import FatalErrorMessage from './ItemMessage/FatalErrorMessage.js'
 import classes from './styles/FatalErrorBoundary.module.css'
 
 class FatalErrorBoundary extends React.Component {
@@ -23,14 +23,9 @@ class FatalErrorBoundary extends React.Component {
     render() {
         if (this.state.errorFound) {
             return (
-                <p className={classes.container}>
-                    <span className={classes.icon}>
-                        <Warning />
-                    </span>
-                    <span className={classes.message}>
-                        {this.props.message}
-                    </span>
-                </p>
+                <div className={classes.container}>
+                    <FatalErrorMessage message={this.props.message} />
+                </div>
             )
         }
         return this.props.children
