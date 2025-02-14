@@ -3,7 +3,7 @@ import { getPluginOverrides } from '../../../modules/localStorage.js'
 
 export const getIframeSrc = (item, itemFilters, appDetails = {}) => {
     if (appDetails.appType === 'APP') {
-        // check if there is an override for the plugin
+        // pluginOverrides might be in use during development on localhost
         const pluginOverrides = getPluginOverrides()
 
         if (pluginOverrides?.[appDetails.key]) {
