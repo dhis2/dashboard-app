@@ -131,14 +131,35 @@ msgstr "Tìm kiếm bảng thông tin"
 msgid "No dashboards found for \"{{- filterText}}\""
 msgstr ""
 
-msgid "{{appKey}} app not found"
+msgid "There was a problem loading this dashboard item"
+msgstr "Đã xảy ra sự cố khi tải mục bảng thông tin này"
+
+msgid "Open menu"
 msgstr ""
+
+msgid "Open in {{appName}}"
+msgstr ""
+
+msgid "View fullscreen"
+msgstr "Xem toàn màn hình"
 
 msgid "Remove this item"
 msgstr "Xóa mục này"
 
 msgid "This item has been shortened to fit on one page"
 msgstr "Mục này đã được rút ngắn để vừa với một trang"
+
+msgid "The plugin needed to display this item is not available"
+msgstr ""
+
+msgid "Install the {{pluginName}} plugin from the App Hub"
+msgstr ""
+
+msgid "There was an error loading data for this item"
+msgstr "Có lỗi khi tải dữ liệu cho mục này"
+
+msgid "Open this item in {{appName}}"
+msgstr "Mở mục này trong 1{{appName}}"
 
 msgid "Remove"
 msgstr "Tháo ra"
@@ -188,23 +209,14 @@ msgstr "Chỉ thời điểm và đơn vị được áp dụng cho mục này"
 msgid "Some filters not applied"
 msgstr "Vài bộ lọc không được áp dụng"
 
-msgid "There was a problem loading this dashboard item"
-msgstr "Đã xảy ra sự cố khi tải mục bảng thông tin này"
-
 msgid "Hide details and interpretations"
 msgstr "Ẩn chi tiết và diễn giải"
 
 msgid "Show details and interpretations"
 msgstr "Hiện chi tiết và diễn giải"
 
-msgid "Open menu"
-msgstr ""
-
 msgid "Open in {{appName}} app"
 msgstr "Mở trong ứng dụng {{appName}}"
-
-msgid "View fullscreen"
-msgstr "Xem toàn màn hình"
 
 msgid "This map can't be displayed as a chart"
 msgstr "Bản đồ này không thể hiển thị thành một biểu đồ"
@@ -230,38 +242,35 @@ msgstr "Xem dưới dạng bản đồ"
 msgid "There was a problem loading interpretations for this item"
 msgstr "Có vấn đề khi tải diễn giải cho mục này"
 
-msgid "The plugin for rendering this item is not available"
-msgstr "Thiếu plugin để hiển thị mục này"
-
-msgid "Install the {{appName}} app from the App Hub"
-msgstr "Cài đặt 1 {{appName}} từ kho Ứng dụng"
-
 msgid "No data to display"
 msgstr "Không có dữ liệu hiển thị"
 
 msgid ""
-"Install Line Listing app version ${minLLVersion.join(\n"
-"                                '.'\n"
-"                            )} or higher in order to display this item."
+"Install Data Visualizer app ${minDVVersion.join(\n"
+"                            '.'\n"
+"                        )} or higher in order to display this item."
 msgstr ""
-"Cài đặt Line Listing phiên bản ${minLLVersion.join(\n"
-"'.'\n"
-")}  hoặc cao hơn để hiển thị mục này."
 
 msgid "Show without filters"
 msgstr "Hiển thị không có bộ lọc"
 
+msgid ""
+"Install Line Listing app ${minLLVersion.join(\n"
+"                            '.'\n"
+"                        )} or higher in order to display this item."
+msgstr ""
+
 msgid "Maps with Earth Engine layers cannot be displayed when offline"
 msgstr "Bản đồ với lớp Earth Engine không hiển thị được khi đang ngoại tuyến"
 
+msgid ""
+"Install Maps app ${minMapsVersion.join(\n"
+"                            '.'\n"
+"                        )} or higher in order to display this item."
+msgstr ""
+
 msgid "Unable to load the plugin for this item"
 msgstr "Không thể tải plugin cho mục này"
-
-msgid "There was an error loading data for this item"
-msgstr "Có lỗi khi tải dữ liệu cho mục này"
-
-msgid "Open this item in {{appName}}"
-msgstr "Mở mục này trong 1{{appName}}"
 
 msgid "Resources"
 msgstr "Tài Nguyên"
