@@ -1,14 +1,14 @@
 # 
 # Translators:
-# easylin <lin_xd@126.com>, 2022
 # 晓东 林 <13981924470@126.com>, 2023
+# easylin <lin_xd@126.com>, 2025
 # 
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2021-12-21T08:20:25.327Z\n"
+"POT-Creation-Date: 2023-05-15T07:26:26.921Z\n"
 "PO-Revision-Date: 2022-04-20 09:58+0000\n"
-"Last-Translator: 晓东 林 <13981924470@126.com>, 2023\n"
+"Last-Translator: easylin <lin_xd@126.com>, 2025\n"
 "Language-Team: Chinese (China) (https://app.transifex.com/hisp-uio/teams/100509/zh_CN/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -71,6 +71,12 @@ msgstr "文本条目"
 msgid "Add text here"
 msgstr "添加文本到这里"
 
+msgid "Filters are not applied to line list dashboard items"
+msgstr ""
+
+msgid "Filters not applied"
+msgstr ""
+
 msgid "There was a problem loading this dashboard item"
 msgstr ""
 
@@ -110,8 +116,26 @@ msgstr ""
 msgid "Unable to load the plugin for this item"
 msgstr "不能该条目的插件"
 
+msgid "The plugin for rendering this item is not available"
+msgstr ""
+
+msgid "Install the {{appName}} app from the App Hub"
+msgstr ""
+
 msgid "No data to display"
 msgstr "没有数据可显示"
+
+msgid ""
+"Install Line Listing app version ${minLLVersion.join(\n"
+"                                '.'\n"
+"                            )} or higher in order to display this item."
+msgstr ""
+
+msgid "Filters are not applied to line list dashboard items."
+msgstr ""
+
+msgid "Show without filters"
+msgstr ""
 
 msgid "There was an error loading data for this item"
 msgstr ""
@@ -139,6 +163,9 @@ msgstr "事件报表"
 
 msgid "Event charts"
 msgstr "事件图表"
+
+msgid "Line lists"
+msgstr ""
 
 msgid "Apps"
 msgstr "Apps"
@@ -210,7 +237,7 @@ msgid "Cancel"
 msgstr "取消"
 
 msgid "Discard changes"
-msgstr ""
+msgstr "忽略修改"
 
 msgid ""
 "This dashboard has unsaved changes. Are you sure you want to leave and "
@@ -446,10 +473,10 @@ msgid "Star dashboard"
 msgstr ""
 
 msgid "Hide description"
-msgstr ""
+msgstr "隐藏说明"
 
 msgid "Show description"
-msgstr ""
+msgstr "显示说明"
 
 msgid "One item per page"
 msgstr ""
