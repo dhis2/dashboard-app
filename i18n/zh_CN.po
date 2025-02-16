@@ -1,14 +1,14 @@
 # 
 # Translators:
-# easylin <lin_xd@126.com>, 2022
 # 晓东 林 <13981924470@126.com>, 2023
+# easylin <lin_xd@126.com>, 2025
 # 
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
 "POT-Creation-Date: 2021-10-28T06:43:54.981Z\n"
 "PO-Revision-Date: 2021-09-03 23:41+0000\n"
-"Last-Translator: 晓东 林 <13981924470@126.com>, 2023\n"
+"Last-Translator: easylin <lin_xd@126.com>, 2025\n"
 "Language-Team: Chinese (China) (https://app.transifex.com/hisp-uio/teams/100509/zh_CN/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -205,7 +205,7 @@ msgid "Cancel"
 msgstr "取消"
 
 msgid "Discard changes"
-msgstr ""
+msgstr "忽略修改"
 
 msgid ""
 "This dashboard has unsaved changes. Are you sure you want to leave and "
@@ -435,10 +435,10 @@ msgid "Star dashboard"
 msgstr ""
 
 msgid "Hide description"
-msgstr ""
+msgstr "隐藏说明"
 
 msgid "Show description"
-msgstr ""
+msgstr "显示说明"
 
 msgid "One item per page"
 msgstr ""
