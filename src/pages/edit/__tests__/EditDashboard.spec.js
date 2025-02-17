@@ -1,7 +1,6 @@
-import { render } from '@testing-library/react'
+import { render, act } from '@testing-library/react'
 import { createMemoryHistory } from 'history'
 import React from 'react'
-import { act } from 'react-dom/test-utils.js'
 import { Provider } from 'react-redux'
 import { Router, Route } from 'react-router-dom'
 import configureMockStore from 'redux-mock-store'
@@ -11,7 +10,6 @@ import EditDashboard from '../EditDashboard.js'
 
 jest.mock('../../../api/fetchDashboard')
 
-/* eslint-disable react/prop-types */
 jest.mock('@dhis2/ui', () => {
     const originalModule = jest.requireActual('@dhis2/ui')
 
@@ -23,8 +21,6 @@ jest.mock('@dhis2/ui', () => {
         },
     }
 })
-
-/* eslint-enable react/prop-types */
 
 jest.mock(
     '../../../components/Notice.js',

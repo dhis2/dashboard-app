@@ -1,11 +1,10 @@
-import { useD2 } from '@dhis2/app-runtime-adapter-d2'
+import { useCachedDataQuery } from '@dhis2/analytics'
 import { CssVariables } from '@dhis2/ui'
 import PropTypes from 'prop-types'
 import React, { useEffect } from 'react'
 import { connect } from 'react-redux'
 import { Redirect, HashRouter as Router, Route, Switch } from 'react-router-dom'
 import { acClearActiveModalDimension } from '../actions/activeModalDimension.js'
-import { tSetControlBarRows } from '../actions/controlBar.js'
 import { tFetchDashboards } from '../actions/dashboards.js'
 import { acClearDashboardsFilter } from '../actions/dashboardsFilter.js'
 import { acClearEditDashboard } from '../actions/editDashboard.js'
@@ -26,12 +25,11 @@ import 'react-resizable/css/styles.css'
 import './styles/ItemGrid.css'
 
 const App = (props) => {
-    const { d2 } = useD2()
     const { systemSettings } = useSystemSettings()
+    const { currentUser } = useCachedDataQuery()
 
     useEffect(() => {
         props.fetchDashboards()
-        props.setControlBarRows()
         props.setShowDescription()
 
         // store the headerbar height for controlbar height calculations
@@ -48,7 +46,7 @@ const App = (props) => {
     return (
         systemSettings && (
             <>
-                <CssVariables colors spacers />
+                <CssVariables colors spacers elevations />
                 <Router>
                     <Switch>
                         <Route
@@ -60,7 +58,7 @@ const App = (props) => {
                                 ) : (
                                     <ViewDashboard
                                         {...props}
-                                        username={d2.currentUser.username}
+                                        username={currentUser.username}
                                     />
                                 )
                             }
@@ -70,7 +68,7 @@ const App = (props) => {
                             path={ROUTE_START_PATH}
                             render={() => (
                                 <LandingPage
-                                    username={d2.currentUser.username}
+                                    username={currentUser.username}
                                     onMount={props.resetState}
                                 />
                             )}
@@ -86,7 +84,7 @@ const App = (props) => {
                             render={(props) => (
                                 <ViewDashboard
                                     {...props}
-                                    username={d2.currentUser.username}
+                                    username={currentUser.username}
                                 />
                             )}
                         />
@@ -117,13 +115,11 @@ const App = (props) => {
 App.propTypes = {
     fetchDashboards: PropTypes.func,
     resetState: PropTypes.func,
-    setControlBarRows: PropTypes.func,
     setShowDescription: PropTypes.func,
 }
 
 const mapDispatchToProps = {
     fetchDashboards: tFetchDashboards,
-    setControlBarRows: tSetControlBarRows,
     setShowDescription: tSetShowDescription,
     resetState: () => (dispatch) => {
         dispatch(acSetSelected({}))

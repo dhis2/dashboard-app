@@ -1,0 +1,11 @@
+.content {
+    margin-block-start: 0;
+    margin-block-end: var(--item-content-padding);
+    margin-inline: var(--item-content-padding);
+    overflow: hidden;
+}
+
+.fullscreen {
+    margin-block-end: 0;
+    margin-inline: 0;
+}

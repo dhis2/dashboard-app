@@ -1,12 +1,12 @@
 .container {
     display: flex;
     flex-direction: column;
-    height: 100%;
+    block-size: 100%;
 }
 
 .wrapper {
-    background-color: #f4f6f8;
-    padding-left: 44px;
+    background-color: var(--colors-grey200);
+    padding-inline-start: 44px;
     overflow-y: auto;
 }
 
@@ -15,22 +15,22 @@
     background-color: white;
     border-radius: 3px;
     box-shadow: 0px 0px 3px 0px var(--colors-grey500);
-    margin-bottom: 50px;
-    width: var(--a4-landscape-width-px);
+    margin-block-end: 50px;
+    inline-size: var(--a4-landscape-width-px);
 }
 
 @media only screen and (max-width: 480px) {
     .wrapper {
-        padding-left: var(--spacers-dp12);
+        padding-inline-start: var(--spacers-dp12);
     }
 }
 
 @media print {
     .wrapper {
         background-color: white;
-        height: auto !important;
+        block-size: auto !important;
         overflow: visible !important;
-        padding-left: 0px;
+        padding-inline-start: 0px;
     }
 
     .pageOuter {

@@ -60,7 +60,7 @@ export const LayoutModal = ({ columns, onSaveLayout, onClose }) => {
             <ModalContent>
                 <div
                     className={cx(classes.option, {
-                        [classes.active]: !isColumns(cols),
+                        [classes.activeOption]: !isColumns(cols),
                     })}
                     onClick={() => setCols(0)}
                 >
@@ -124,6 +124,7 @@ export const LayoutModal = ({ columns, onSaveLayout, onClose }) => {
                             <div className={classes.columnOptions}>
                                 <InputField
                                     inputWidth="100px"
+                                    dense
                                     type="number"
                                     min="1"
                                     max={String(GRID_COLUMNS)}

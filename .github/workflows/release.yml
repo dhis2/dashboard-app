@@ -1,0 +1,143 @@
+name: 'release app'
+
+on:
+    push:
+        branches:
+            - 'master'
+
+env:
+    GIT_AUTHOR_NAME: '@dhis2-bot'
+    GIT_AUTHOR_EMAIL: 'apps@dhis2.org'
+    GIT_COMMITTER_NAME: '@dhis2-bot'
+    GIT_COMMITTER_EMAIL: 'apps@dhis2.org'
+    GH_TOKEN: ${{secrets.DHIS2_BOT_GITHUB_TOKEN}}
+    D2_APP_HUB_TOKEN: ${{secrets.DHIS2_BOT_APPHUB_TOKEN}}
+    CI: true
+
+jobs:
+    release:
+        runs-on: ubuntu-latest
+        if: >
+            ${{ !github.event.push.repository.fork &&
+            github.actor != 'dependabot[bot]' }}
+        outputs:
+            build_exists: ${{ steps.check_build.outputs.build_exists }}
+        steps:
+            - uses: actions/checkout@v4
+              with:
+                  token: ${{ secrets.DHIS2_BOT_GITHUB_TOKEN }}
+
+            - uses: actions/setup-node@v4
+              with:
+                  node-version: 20.x
+
+            - name: Install
+              run: yarn install --frozen-lockfile
+
+            # This step will push a new commit to master with [skip release] in the commit message
+            - name: Run Semantic Release
+              run: npx semantic-release
+              env:
+                  GITHUB_TOKEN: ${{ secrets.DHIS2_BOT_GITHUB_TOKEN }}
+
+            - name: Set build_exists output
+              id: check_build
+              run: |
+                  if ls build/bundle/dashboard-*.zip 1> /dev/null 2>&1; then
+                      echo "build_exists=yes" >> $GITHUB_OUTPUT
+                  else
+                      echo "build_exists=no" >> $GITHUB_OUTPUT
+                  fi
+
+            - name: Publish to AppHub
+              if: ${{ steps.check_build.outputs.build_exists == 'yes' }}
+              run: yarn run d2-app-scripts publish
+
+    report-release-result:
+        runs-on: ubuntu-latest
+        needs: release
+        if: ${{ always() }}
+        steps:
+            - name: Checkout code
+              if: ${{ needs.release.outputs.build_exists == 'yes' && success() }}
+              uses: actions/checkout@v4
+              with:
+                  ref: master
+                  fetch-depth: 0
+
+            - name: Extract version
+              if: ${{ needs.release.outputs.build_exists == 'yes' && success() }}
+              id: extract_version
+              uses: Saionaro/extract-package-version@v1.3.0
+
+            - name: Send success message to analytics-internal-bot slack channel
+              if: ${{ needs.release.outputs.build_exists == 'yes' && success() }}
+              id: slack_success
+              uses: slackapi/slack-github-action@v1.27.0
+              with:
+                  channel-id: ${{ secrets.SLACK_CHANNEL_ID }}
+                  payload: |
+                      {
+                        "text": "Dashboard app release ${{ steps.extract_version.outputs.version }} succeeded",
+                        "blocks": [
+                          {
+                            "type": "header",
+                            "text": {
+                                "type": "plain_text",
+                                "text": ":large_green_circle: :dashboard-app: Dashboard version ${{ steps.extract_version.outputs.version }} released :tada:",
+                                "emoji": true
+                            }
+                          },
+                          {
+                            "type": "divider"
+                          },
+                          {
+                            "type": "section",
+                            "text": {
+                                "type": "mrkdwn",
+                                "text": "*Release Notes*"
+                            }
+                          },
+                            {
+                              "type": "section",
+                              "text": {
+                                "type": "mrkdwn",
+                                "text": ${{ toJSON(github.event.head_commit.message) }}
+                              }
+                            },
+                            {
+                              "type": "divider"
+                            },
+                            {
+                              "type": "section",
+                              "text": {
+                                "type": "mrkdwn",
+                                "text": "Link to <https://github.com/dhis2/dashboard-app/actions/workflows/release.yml?query=branch%3Amaster+is%3Asuccess|build>"
+                              }
+                            }
+                          ]
+                      }
+              env:
+                  SLACK_BOT_TOKEN: ${{ secrets.SLACK_BOT_TOKEN }}
+
+            - name: Send failure message to analytics-internal-bot slack channel
+              if: ${{ failure() && !cancelled() }}
+              id: slack_failure
+              uses: slackapi/slack-github-action@v1.27.0
+              with:
+                  channel-id: ${{ secrets.SLACK_CHANNEL_ID }}
+                  payload: |
+                      {
+                          "text": ":small_red_triangle_down: :dashboard-app: Dashboard release <https://github.com/dhis2/dashboard-app/actions/workflows/release.yml?query=branch%3Amaster+is%3Afailure|failed>",
+                          "blocks": [
+                            {
+                              "type": "section",
+                              "text": {
+                                "type": "mrkdwn",
+                                "text": ":small_red_triangle_down: :dashboard-app: Dashboard release <https://github.com/dhis2/dashboard-app/actions/workflows/release.yml?query=branch%3Amaster+is%3Afailure|failed>"
+                              }
+                            }
+                          ]
+                      }
+              env:
+                  SLACK_BOT_TOKEN: ${{ secrets.SLACK_BOT_TOKEN }}

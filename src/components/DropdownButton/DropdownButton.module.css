@@ -1,3 +1,9 @@
+.container {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
 .arrow {
-    margin-left: var(--spacers-dp12);
+    margin-inline-start: var(--spacers-dp12);
 }

@@ -1,7 +1,6 @@
 import { fireEvent } from '@testing-library/dom'
-import { render, waitFor, screen } from '@testing-library/react'
+import { render, waitFor } from '@testing-library/react'
 import React from 'react'
-import { getGridItemDomElementClassName } from '../../../../../modules/getGridItemDomElementClassName.js'
 import { useSystemSettings } from '../../../../SystemSettingsProvider.js'
 import WindowDimensionsProvider from '../../../../WindowDimensionsProvider.js'
 import ItemContextMenu from '../ItemContextMenu.js'
@@ -64,34 +63,6 @@ test('renders just the button when menu closed', () => {
     expect(queryByText('Open in Data Visualizer app')).toBeNull()
     expect(queryByText('Show details and interpretations')).toBeNull()
     expect(queryByText('View fullscreen')).toBeNull()
-})
-
-test('renders exit fullscreen button', () => {
-    useSystemSettings.mockReturnValue(mockSystemSettingsDefault)
-    const gridItemClassName = getGridItemDomElementClassName(
-        defaultProps.item.id
-    )
-
-    const { rerender } = render(
-        <WindowDimensionsProvider>
-            <div className={gridItemClassName}>
-                <ItemContextMenu {...defaultProps} />
-            </div>
-        </WindowDimensionsProvider>
-    )
-
-    document.fullscreenElement = document.querySelector(`.${gridItemClassName}`)
-
-    rerender(
-        <WindowDimensionsProvider>
-            <div className={{ gridItemClassName }}>
-                <ItemContextMenu {...defaultProps} />
-            </div>
-        </WindowDimensionsProvider>
-    )
-
-    document.fullscreenElement = null
-    expect(screen.getByTestId('exit-fullscreen-button')).toBeTruthy()
 })
 
 test('renders popover menu for BAR chart', async () => {

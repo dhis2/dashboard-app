@@ -1,6 +1,5 @@
-import { render } from '@testing-library/react'
+import { render, act } from '@testing-library/react'
 import React from 'react'
-import { act } from 'react-dom/test-utils.js'
 import { Provider } from 'react-redux'
 import configureMockStore from 'redux-mock-store'
 import thunk from 'redux-thunk'
@@ -8,7 +7,15 @@ import { apiFetchDashboards } from '../../api/fetchAllDashboards.js'
 import App from '../App.js'
 import { useSystemSettings } from '../SystemSettingsProvider.js'
 
-jest.mock('@dhis2/analytics')
+jest.mock('@dhis2/analytics', () => ({
+    useCachedDataQuery: () => ({
+        currentUser: {
+            username: 'rainbowDash',
+            id: 'r3nb0d5h',
+        },
+    }),
+    getDimensionById: jest.fn(),
+}))
 jest.mock('@dhis2/app-runtime', () => ({
     useDhis2ConnectionStatus: jest.fn(() => ({
         isConnected: true,
@@ -44,23 +51,22 @@ jest.mock('../../api/dataStatistics.js', () => {
     }
 })
 
+jest.mock('../../api/description.js', () => {
+    return {
+        apiGetShowDescription: jest.fn(() => ({
+            showDescription: 'false',
+        })),
+    }
+})
+
 jest.mock(
-    '../DashboardsBar/DashboardsBar',
+    '../DashboardsBar/index.js',
     () =>
         function MockDashboardsBar() {
             return <div>DashboardsBar</div>
         }
 )
 
-jest.mock('@dhis2/app-runtime-adapter-d2', () => {
-    return {
-        useD2: jest.fn(() => ({
-            d2: {
-                currentUser: { username: 'rainbowDash' },
-            },
-        })),
-    }
-})
 jest.mock('../../pages/view', () => {
     return {
         ViewDashboard: function Mock() {

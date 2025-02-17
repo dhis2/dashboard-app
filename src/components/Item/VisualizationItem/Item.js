@@ -5,10 +5,12 @@ import {
 } from '@dhis2/analytics'
 import i18n from '@dhis2/d2-i18n'
 import { Tag, Tooltip } from '@dhis2/ui'
+import cx from 'classnames'
 import PropTypes from 'prop-types'
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { acSetItemActiveType } from '../../../actions/itemActiveTypes.js'
+import { acSetSlideshow } from '../../../actions/slideshow.js'
 import { acAddVisualization } from '../../../actions/visualizations.js'
 import { apiPostDataStatistics } from '../../../api/dataStatistics.js'
 import { apiFetchVisualization } from '../../../api/fetchVisualization.js'
@@ -17,7 +19,6 @@ import {
     isPrintMode,
     isViewMode,
 } from '../../../modules/dashboardModes.js'
-import { getItemHeightPx } from '../../../modules/gridUtil.js'
 import {
     getVisualizationId,
     getVisualizationName,
@@ -28,6 +29,7 @@ import {
     CHART,
     EVENT_VISUALIZATION,
     VISUALIZATION,
+    EVENT_REPORT,
 } from '../../../modules/itemTypes.js'
 import { sGetIsEditing } from '../../../reducers/editDashboard.js'
 import { sGetItemActiveType } from '../../../reducers/itemActiveTypes.js'
@@ -37,14 +39,12 @@ import {
 } from '../../../reducers/itemFilters.js'
 import { sGetVisualization } from '../../../reducers/visualizations.js'
 import { SystemSettingsCtx } from '../../SystemSettingsProvider.js'
-import { WindowDimensionsCtx } from '../../WindowDimensionsProvider.js'
+import FatalErrorBoundary from '../FatalErrorBoundary.js'
+import { getAvailableDimensions } from '../getAvailableDimensions.js'
 import ItemHeader from '../ItemHeader/ItemHeader.js'
-import FatalErrorBoundary from './FatalErrorBoundary.js'
-import { getGridItemElement } from './getGridItemElement.js'
-import { isElementFullscreen } from './isElementFullscreen.js'
 import ItemContextMenu from './ItemContextMenu/ItemContextMenu.js'
 import ItemFooter from './ItemFooter.js'
-import memoizeOne from './memoizeOne.js'
+import styles from './styles/Item.module.css'
 import { pluginIsAvailable } from './Visualization/plugin.js'
 import Visualization from './Visualization/Visualization.js'
 
@@ -61,42 +61,27 @@ class Item extends Component {
 
         this.contentRef = React.createRef()
         this.headerRef = React.createRef()
-
-        const style = window.getComputedStyle(document.documentElement)
-        this.itemContentPadding = parseInt(
-            style.getPropertyValue('--item-content-padding').replace('px', '')
-        )
-
-        this.itemHeaderTotalMargin =
-            parseInt(
-                style
-                    .getPropertyValue('--item-header-margin-top')
-                    .replace('px', '')
-            ) +
-            parseInt(
-                style
-                    .getPropertyValue('--item-header-margin-bottom')
-                    .replace('px', '')
-            )
-
-        this.memoizedGetContentHeight = memoizeOne(
-            (calculatedHeight, measuredHeight, preferMeasured) =>
-                preferMeasured
-                    ? measuredHeight || calculatedHeight
-                    : calculatedHeight
-        )
     }
 
     async componentDidMount() {
-        // Avoid refetching the visualization already in the Redux store
-        // when the same dashboard item is added again.
-        // This also solves a flashing of all the "duplicated" dashboard items.
-        !this.props.visualization.id &&
-            this.props.setVisualization(
-                await apiFetchVisualization(this.props.item)
-            )
-
         try {
+            // Avoid refetching the visualization already in the Redux store
+            // when the same dashboard item is added again.
+            // This also solves a flashing of all the "duplicated" dashboard items.
+            if (!this.props.visualization.id) {
+                const vis = await apiFetchVisualization(
+                    this.props.item,
+                    this.props.engine
+                )
+
+                this.props.setVisualization(vis[this.props.item.type])
+            }
+
+            // force fetch when recording to allow caching of the visualizations request
+            if (this.props.isRecording) {
+                apiFetchVisualization(this.props.item, this.props.engine)
+            }
+
             if (
                 this.props.settings
                     .keyGatherAnalyticalObjectStatisticsInDashboardViews &&
@@ -104,7 +89,8 @@ class Item extends Component {
             ) {
                 await apiPostDataStatistics(
                     getDataStatisticsName(this.props.item.type),
-                    getVisualizationId(this.props.item)
+                    getVisualizationId(this.props.item),
+                    this.props.engine
                 )
             }
         } catch (e) {
@@ -119,32 +105,12 @@ class Item extends Component {
             this.props.isRecording &&
             this.props.isRecording !== prevProps.isRecording
         ) {
-            apiFetchVisualization(this.props.item)
+            apiFetchVisualization(this.props.item, this.props.engine)
         }
-    }
-
-    isFullscreenSupported = () => {
-        const el = getGridItemElement(this.props.item.id)
-        return !!(el?.requestFullscreen || el?.webkitRequestFullscreen)
     }
 
     onClickNoFiltersOverlay = () =>
         this.setState({ showNoFiltersOverlay: false })
-
-    onToggleFullscreen = () => {
-        if (!isElementFullscreen(this.props.item.id)) {
-            const el = getGridItemElement(this.props.item.id)
-            if (el?.requestFullscreen) {
-                el.requestFullscreen()
-            } else if (el?.webkitRequestFullscreen) {
-                el.webkitRequestFullscreen()
-            }
-        } else {
-            document.exitFullscreen
-                ? document.exitFullscreen()
-                : document.webkitExitFullscreen()
-        }
-    }
 
     onToggleFooter = () => {
         this.setState(
@@ -165,60 +131,37 @@ class Item extends Component {
         return this.props.activeType || getItemTypeForVis(this.props.item)
     }
 
-    getAvailableHeight = ({ width, height }) => {
-        if (isElementFullscreen(this.props.item.id)) {
-            return (
-                height -
-                this.headerRef.current.clientHeight -
-                this.itemHeaderTotalMargin -
-                this.itemContentPadding
-            )
-        }
-
-        const calculatedHeight =
-            getItemHeightPx(this.props.item, width) -
-            this.headerRef.current.clientHeight -
-            this.itemHeaderTotalMargin -
-            this.itemContentPadding
-
-        return this.memoizedGetContentHeight(
-            calculatedHeight,
-            this.contentRef ? this.contentRef.offsetHeight : null,
-            isEditMode(this.props.dashboardMode) ||
-                isPrintMode(this.props.dashboardMode)
-        )
-    }
-
-    getAvailableWidth = () => {
-        const rect = getGridItemElement(
-            this.props.item.id
-        )?.getBoundingClientRect()
-
-        return rect && rect.width - this.itemContentPadding * 2
-    }
-
     onFatalError = () => {
         this.setState({ loadItemFailed: true })
     }
 
     render() {
-        const { item, dashboardMode, itemFilters } = this.props
+        const {
+            item,
+            dashboardMode,
+            itemFilters,
+            isFullscreen,
+            isSlideshowView,
+            setSlideshow,
+            sortIndex,
+            windowDimensions,
+        } = this.props
         const { showFooter, showNoFiltersOverlay } = this.state
         const originalType = getItemTypeForVis(item)
         const activeType = this.getActiveType()
 
         const actionButtons =
-            pluginIsAvailable(activeType || item.type, this.props.d2) &&
-            isViewMode(dashboardMode) ? (
+            pluginIsAvailable(activeType || item.type, this.props.apps) &&
+            isViewMode(dashboardMode) &&
+            !isSlideshowView ? (
                 <ItemContextMenu
                     item={item}
                     visualization={this.props.visualization}
                     onSelectActiveType={this.setActiveType}
                     onToggleFooter={this.onToggleFooter}
-                    onToggleFullscreen={this.onToggleFullscreen}
+                    enterFullscreen={() => setSlideshow(sortIndex)}
                     activeType={activeType}
                     activeFooter={showFooter}
-                    fullscreenSupported={this.isFullscreenSupported()}
                     loadItemFailed={this.state.loadItemFailed}
                 />
             ) : null
@@ -286,34 +229,39 @@ class Item extends Component {
                     onFatalError={this.onFatalError}
                 >
                     <div
-                        className="dashboard-item-content"
-                        ref={(ref) => (this.contentRef = ref)}
+                        className={cx(activeType, styles.content, {
+                            [styles.fullscreen]: isFullscreen,
+                            [styles.scrollbox]: activeType === EVENT_REPORT,
+                            [styles.edit]: isEditMode(dashboardMode),
+                            [styles.print]: isPrintMode(dashboardMode),
+                        })}
+                        ref={this.contentRef}
                     >
                         {this.state.configLoaded && (
-                            <WindowDimensionsCtx.Consumer>
-                                {(dimensions) => (
-                                    <Visualization
-                                        item={item}
-                                        visualization={this.props.visualization}
-                                        originalType={originalType}
-                                        activeType={activeType}
-                                        itemFilters={itemFilters}
-                                        availableHeight={this.getAvailableHeight(
-                                            dimensions
-                                        )}
-                                        availableWidth={this.getAvailableWidth()}
-                                        gridWidth={this.props.gridWidth}
-                                        dashboardMode={dashboardMode}
-                                        showNoFiltersOverlay={Boolean(
-                                            Object.keys(itemFilters).length &&
-                                                showNoFiltersOverlay
-                                        )}
-                                        onClickNoFiltersOverlay={
-                                            this.onClickNoFiltersOverlay
-                                        }
-                                    />
+                            <Visualization
+                                item={item}
+                                visualization={this.props.visualization}
+                                originalType={originalType}
+                                activeType={activeType}
+                                itemFilters={itemFilters}
+                                style={getAvailableDimensions({
+                                    item,
+                                    headerRef: this.headerRef,
+                                    contentRef: this.contentRef,
+                                    dashboardMode,
+                                    windowDimensions,
+                                    isFullscreen,
+                                })}
+                                gridWidth={this.props.gridWidth}
+                                dashboardMode={dashboardMode}
+                                showNoFiltersOverlay={Boolean(
+                                    Object.keys(itemFilters).length &&
+                                        showNoFiltersOverlay
                                 )}
-                            </WindowDimensionsCtx.Consumer>
+                                onClickNoFiltersOverlay={
+                                    this.onClickNoFiltersOverlay
+                                }
+                            />
                         )}
                     </div>
                 </FatalErrorBoundary>
@@ -327,17 +275,23 @@ class Item extends Component {
 
 Item.propTypes = {
     activeType: PropTypes.string,
-    d2: PropTypes.object,
+    apps: PropTypes.array,
     dashboardMode: PropTypes.string,
+    engine: PropTypes.object,
     gridWidth: PropTypes.number,
     isEditing: PropTypes.bool,
+    isFullscreen: PropTypes.bool,
     isRecording: PropTypes.bool,
+    isSlideshowView: PropTypes.bool,
     item: PropTypes.object,
     itemFilters: PropTypes.object,
     setActiveType: PropTypes.func,
+    setSlideshow: PropTypes.func,
     setVisualization: PropTypes.func,
     settings: PropTypes.object,
+    sortIndex: PropTypes.number,
     visualization: PropTypes.object,
+    windowDimensions: PropTypes.object,
     onToggleItemExpanded: PropTypes.func,
 }
 
@@ -366,6 +320,7 @@ const mapStateToProps = (state, ownProps) => {
 const mapDispatchToProps = {
     setActiveType: acSetItemActiveType,
     setVisualization: acAddVisualization,
+    setSlideshow: acSetSlideshow,
 }
 
 const ItemWithSettings = (props) => (

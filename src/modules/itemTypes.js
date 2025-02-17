@@ -71,6 +71,7 @@ export const itemTypeMap = {
         appName: 'Data Visualizer',
         appKey: 'data-visualizer',
         defaultItemCount: 10,
+        supportsFullscreen: true,
     },
     [REPORT_TABLE]: {
         id: REPORT_TABLE,
@@ -82,6 +83,7 @@ export const itemTypeMap = {
         isVisualizationType: true,
         appUrl: (id) => `dhis-web-data-visualizer/#/${id}`,
         appName: 'Data Visualizer',
+        supportsFullscreen: true,
     },
     [CHART]: {
         id: CHART,
@@ -93,6 +95,7 @@ export const itemTypeMap = {
         isVisualizationType: true,
         appUrl: (id) => `dhis-web-data-visualizer/#/${id}`,
         appName: 'Data Visualizer',
+        supportsFullscreen: true,
     },
     [MAP]: {
         id: MAP,
@@ -104,6 +107,7 @@ export const itemTypeMap = {
         isVisualizationType: true,
         appUrl: (id) => `dhis-web-maps/?id=${id}`,
         appName: 'Maps',
+        supportsFullscreen: true,
     },
     [EVENT_REPORT]: {
         id: EVENT_REPORT,
@@ -115,6 +119,7 @@ export const itemTypeMap = {
         isVisualizationType: true,
         appUrl: (id) => `dhis-web-event-reports/?id=${id}`,
         appName: 'Event Reports',
+        supportsFullscreen: true,
     },
     [EVENT_CHART]: {
         id: EVENT_CHART,
@@ -126,6 +131,7 @@ export const itemTypeMap = {
         isVisualizationType: true,
         appUrl: (id) => `dhis-web-event-visualizer/?id=${id}`,
         appName: 'Event Visualizer',
+        supportsFullscreen: true,
     },
     [EVENT_VISUALIZATION]: {
         id: EVENT_VISUALIZATION,
@@ -139,11 +145,14 @@ export const itemTypeMap = {
         appUrl: (id) => `api/apps/line-listing/index.html#/${id}`,
         appName: 'Line Listing',
         appKey: 'line-listing',
+        supportsFullscreen: true,
     },
     [APP]: {
+        id: APP,
         endPointName: 'apps',
         propName: 'appKey',
         pluralTitle: i18n.t('Apps'),
+        supportsFullscreen: true,
     },
     [REPORTS]: {
         id: REPORTS,
@@ -161,6 +170,7 @@ export const itemTypeMap = {
                     return `api/reports/${id}/data.pdf?t=${new Date().getTime()}`
             }
         },
+        supportsFullscreen: true,
     },
     [RESOURCES]: {
         id: RESOURCES,
@@ -168,6 +178,7 @@ export const itemTypeMap = {
         propName: 'resources',
         pluralTitle: i18n.t('Resources'),
         appUrl: (id) => `api/documents/${id}/data`,
+        supportsFullscreen: true,
     },
     [USERS]: {
         id: USERS,
@@ -176,22 +187,28 @@ export const itemTypeMap = {
         pluralTitle: i18n.t('Users'),
         appUrl: (id) =>
             `dhis-web-dashboard-integration/profile.action?id=${id}`,
+        supportsFullscreen: false,
     },
     [TEXT]: {
         id: TEXT,
         propName: 'text',
+        supportsFullscreen: true,
     },
     [MESSAGES]: {
         propName: 'messages',
+        supportsFullscreen: false,
     },
     [SPACER]: {
         propName: 'text',
+        supportsFullscreen: false,
     },
     [PAGEBREAK]: {
         propName: 'text',
+        supportsFullscreen: false,
     },
     [PRINT_TITLE_PAGE]: {
         propName: 'text',
+        supportsFullscreen: false,
     },
 }
 
@@ -213,6 +230,9 @@ export const getItemUrl = (type, item, baseUrl) => {
 
     return url
 }
+
+export const itemTypeSupportsFullscreen = (type) =>
+    itemTypeMap[type]?.supportsFullscreen
 
 export const getItemIcon = (type) => {
     switch (type) {

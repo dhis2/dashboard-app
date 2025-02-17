@@ -1,0 +1,73 @@
+.container {
+    position: fixed;
+    inset-block-end: 0;
+    inline-size: 100vw;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: black;
+    padding-inline-start: 4px;
+    padding-inline-end: 4px;
+    z-index: 10;
+}
+.start,
+.middle,
+.end {
+    display: flex;
+    align-items: center;
+    inline-size: calc(100% / 3);
+}
+
+.start {
+    justify-content: start;
+}
+
+.middle {
+    justify-content: center;
+}
+
+.end {
+    justify-content: end;
+}
+
+.container button {
+    color: var(--colors-grey300);
+    background-color: #171819;
+    border-radius: 3px;
+    border: none;
+    padding: 4px;
+    cursor: pointer;
+    flex-grow: 0;
+}
+
+.container button:hover {
+    background-color: #202124;
+}
+
+.container button:disabled {
+    cursor: not-allowed;
+}
+
+.container button.squareButton {
+    inline-size: 32px;
+    block-size: 32px;
+}
+
+.controls {
+    padding: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.pageCounter {
+    font-weight: 400;
+    font-style: normal;
+    color: var(--colors-grey300);
+    font-size: 14px;
+    margin: 0 8px;
+    min-inline-size: 60px;
+    /* avoid moving buttons for most counts below 999 items */
+    text-align: center;
+    user-select: none;
+}

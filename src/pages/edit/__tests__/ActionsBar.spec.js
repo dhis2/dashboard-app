@@ -1,4 +1,3 @@
-import { useD2 } from '@dhis2/app-runtime-adapter-d2'
 import { render } from '@testing-library/react'
 import React from 'react'
 import { Provider } from 'react-redux'
@@ -8,10 +7,8 @@ import ActionsBar from '../ActionsBar.js'
 
 const mockStore = configureMockStore()
 
-jest.mock('@dhis2/app-runtime-adapter-d2')
 jest.mock('@dhis2/app-runtime')
 
-/* eslint-disable react/prop-types */
 jest.mock('@dhis2/ui', () => {
     const originalModule = jest.requireActual('@dhis2/ui')
 
@@ -26,9 +23,7 @@ jest.mock('@dhis2/ui', () => {
         },
     }
 })
-/* eslint-enable react/prop-types */
 
-/* eslint-disable react/prop-types */
 jest.mock('@dhis2/analytics', () => {
     const originalModule = jest.requireActual('@dhis2/analytics')
 
@@ -38,9 +33,14 @@ jest.mock('@dhis2/analytics', () => {
         OfflineTooltip: function Mock({ children }) {
             return <div className="OfflineTooltip">{children}</div>
         },
+        useCachedDataQuery: () => ({
+            currentUser: {
+                username: 'rainbowDash',
+                id: 'r3nb0d5h',
+            },
+        }),
     }
 })
-/* eslint-enable react/prop-types */
 
 jest.mock(
     '../FilterSettingsDialog',
@@ -50,7 +50,6 @@ jest.mock(
         }
 )
 
-/* eslint-disable react/prop-types */
 jest.mock(
     '../../../components/ConfirmActionDialog',
     () =>
@@ -58,13 +57,6 @@ jest.mock(
             return open ? <div className="mock-confirm-action-dialog" /> : null
         }
 )
-/* eslint-enable react/prop-types */
-
-useD2.mockReturnValue({
-    d2: {
-        currentUser: 'rainbowDash',
-    },
-})
 
 jest.mock('@dhis2/app-runtime', () => ({
     useDhis2ConnectionStatus: jest.fn(() => ({

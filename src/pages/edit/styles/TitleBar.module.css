@@ -1,68 +1,70 @@
-.container {
-    background: var(--colors-grey100);
-}
-
 .inputWrapper {
     display: flex;
     flex-wrap: wrap;
-    margin-top: var(--spacers-dp8);
+    margin-block-start: var(--spacers-dp8);
 }
 
 .inputWrapper > div {
     flex-grow: 1;
-    min-width: 350px;
-    margin-bottom: var(--spacers-dp8);
+    min-inline-size: 350px;
+    margin-block-end: var(--spacers-dp8);
 }
 
 .inputWrapper > div:first-child {
-    margin-right: var(--spacers-dp8);
+    margin-inline-end: var(--spacers-dp8);
 }
 
 .inputFieldWrapper {
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    gap: 6px;
 }
 
 .inputFieldWrapper > :not(:first-child) {
-    padding-top: var(--spacers-dp8);
+    padding-block-start: var(--spacers-dp8);
 }
 
 .searchContainer {
     display: flex;
     flex-wrap: wrap;
-    background: var(--colors-grey200);
+    background: var(--colors-grey050);
     border: 1px solid var(--colors-grey400);
     border-radius: 6px;
-    padding: var(--spacers-dp4) var(--spacers-dp4) 0 var(--spacers-dp12);
+    padding-block-start: var(--spacers-dp8);
+    padding-block-end: var(--spacers-dp4);
+    padding-inline-start: var(--spacers-dp12);
+    padding-inline-end: var(--spacers-dp12);
 }
 
 .searchContainer > :not(:last-child) {
-    margin-right: 32px;
+    margin-inline-end: 32px;
 }
 
 .searchContainer > div {
-    margin-bottom: var(--spacers-dp8);
+    margin-block-end: var(--spacers-dp8);
 }
 
 .searchWrapper {
     flex-grow: 1;
-    min-width: 300px;
+    min-inline-size: 300px;
 }
 
 .layoutWrapper {
-    min-width: 230px;
+    min-inline-size: 230px;
 }
 
 .positionWrapper {
-    min-width: 280px;
+    min-inline-size: 280px;
 }
 
 .label {
     font-size: 13px;
     font-weight: 500;
     color: var(--colors-grey800);
-    margin: 5px 0 3px;
+    margin-block-start: 5px;
+    margin-block-end: 3px;
+    margin-inline-start: 0;
+    margin-inline-end: 0;
 }
 
 .layoutValue {
@@ -77,20 +79,20 @@
 }
 
 .layoutOption > svg {
-    height: 14px;
-    width: 14px;
+    block-size: 14px;
+    inline-size: 14px;
     fill: var(--colors-grey700);
 }
 
 .layoutOption > :not(:last-child) {
-    margin-right: var(--spacers-dp8);
+    margin-inline-end: var(--spacers-dp8);
 }
 
 .positionOptions {
     display: flex;
-    padding-top: 4px;
+    padding-block-start: 4px;
 }
 
 .positionOptions > :not(:last-child) {
-    margin-right: var(--spacers-dp8);
+    margin-inline-end: var(--spacers-dp8);
 }

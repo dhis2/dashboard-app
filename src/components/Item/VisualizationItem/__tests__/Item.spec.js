@@ -1,12 +1,11 @@
-import { render } from '@testing-library/react'
+import { render, act } from '@testing-library/react'
 import React from 'react'
-import { act } from 'react-dom/test-utils.js'
 import { Provider } from 'react-redux'
 import configureMockStore from 'redux-mock-store'
 import { apiFetchVisualization } from '../../../../api/fetchVisualization.js'
 import SystemSettingsProvider from '../../../SystemSettingsProvider.js'
 import WindowDimensionsProvider from '../../../WindowDimensionsProvider.js'
-import Item from '../Item.js'
+import { Item } from '../../Item.js'
 
 jest.mock('../../../../api/fetchVisualization')
 jest.mock('../../../SystemSettingsProvider')
@@ -24,7 +23,6 @@ jest.mock(
         }
 )
 
-/* eslint-disable react/prop-types, react/no-unknown-property */
 jest.mock(
     '../Visualization/Visualization',
     () =>
@@ -42,7 +40,6 @@ jest.mock(
             )
         }
 )
-/* eslint-enable react/prop-types, react/no-unknown-property */
 
 const mockStore = configureMockStore()
 
@@ -54,6 +51,7 @@ test('Visualization/Item renders view mode', async () => {
         itemActiveTypes: {},
         editDashboard: {},
         visualizations: {},
+        slideshow: null,
     }
 
     const item = {

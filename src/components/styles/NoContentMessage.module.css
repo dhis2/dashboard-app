@@ -1,7 +1,10 @@
 .container {
-    padding: var(--spacers-dp48) var(--spacers-dp8) 0 var(--spacers-dp8);
+    padding-block-start: var(--spacers-dp48);
+    padding-block-end: 0;
+    padding-inline-start: var(--spacers-dp8);
+    padding-inline-end: var(--spacers-dp8);
     text-align: center;
-    font-size: 15px;
-    font-weight: 500;
+    font-size: 14px;
+    font-weight: 400;
     color: var(--colors-grey600);
 }

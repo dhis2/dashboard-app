@@ -1,22 +1,22 @@
-import { render } from '@testing-library/react'
+import { render, act } from '@testing-library/react'
+import { createMemoryHistory } from 'history'
 import React from 'react'
-import { act } from 'react-dom/test-utils.js'
 import { Provider } from 'react-redux'
+import { Router } from 'react-router-dom'
 import configureMockStore from 'redux-mock-store'
 import thunk from 'redux-thunk'
 import { apiPostDataStatistics } from '../../../api/dataStatistics.js'
 import { apiFetchDashboard } from '../../../api/fetchDashboard.js'
 import ViewDashboard from '../ViewDashboard.js'
 
-jest.mock('@dhis2/app-runtime-adapter-d2', () => ({
-    useD2: () => ({
-        d2: {
-            currentUser: {
-                username: 'rainbowDash',
-                id: 'r3nb0d5h',
-            },
+jest.mock('@dhis2/analytics', () => ({
+    useCachedDataQuery: () => ({
+        currentUser: {
+            username: 'rainbowDash',
+            id: 'r3nb0d5h',
         },
     }),
+    getDimensionById: jest.fn(),
 }))
 
 jest.mock('@dhis2/app-runtime', () => ({
@@ -25,23 +25,20 @@ jest.mock('@dhis2/app-runtime', () => ({
         isCached: false,
         recordingState: 'default',
     })),
+    useDataEngine: jest.fn(),
+    useAlert: jest.fn(() => ({
+        show: () => {},
+        hide: () => {},
+    })),
 }))
 
 jest.mock('../../../api/fetchDashboard')
 
 jest.mock(
-    '../../../components/DashboardsBar/DashboardsBar',
+    '../../../components/DashboardsBar/index.js',
     () =>
         function MockDashboardsBar() {
             return <div>DashboardsBar</div>
-        }
-)
-
-jest.mock(
-    '../TitleBar/TitleBar',
-    () =>
-        function MockTitleBar() {
-            return <div>TitleBar</div>
         }
 )
 
@@ -99,7 +96,9 @@ test('ViewDashboard renders dashboard', async () => {
         <>
             <header />
             <Provider store={mockStore(store)}>
-                <ViewDashboard requestedId={dashboardId} />
+                <Router history={createMemoryHistory()}>
+                    <ViewDashboard requestedId={dashboardId} />
+                </Router>
             </Provider>
         </>
     )
@@ -121,7 +120,9 @@ test('ViewDashboard does not post passive view to api if passive view has been r
         <>
             <header />
             <Provider store={mockStore(store)}>
-                <ViewDashboard id={dashboardId} />
+                <Router history={createMemoryHistory()}>
+                    <ViewDashboard requestedId={dashboardId} />
+                </Router>
             </Provider>
         </>
     )
@@ -143,7 +144,9 @@ test('ViewDashboard posts passive view to api if passive view has not been regis
         <>
             <header />
             <Provider store={mockStore(store)}>
-                <ViewDashboard id={dashboardId} />
+                <Router history={createMemoryHistory()}>
+                    <ViewDashboard requestedId={dashboardId} />
+                </Router>
             </Provider>
         </>
     )

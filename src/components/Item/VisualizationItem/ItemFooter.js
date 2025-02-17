@@ -1,12 +1,15 @@
-import { AboutAOUnit, InterpretationsUnit } from '@dhis2/analytics'
+import {
+    AboutAOUnit,
+    InterpretationsUnit,
+    useCachedDataQuery,
+} from '@dhis2/analytics'
 import { useConfig } from '@dhis2/app-runtime'
-import { useD2 } from '@dhis2/app-runtime-adapter-d2'
 import i18n from '@dhis2/d2-i18n'
 import PropTypes from 'prop-types'
 import React, { useState } from 'react'
 import { getVisualizationId } from '../../../modules/item.js'
 import { getItemUrl, itemTypeMap } from '../../../modules/itemTypes.js'
-import FatalErrorBoundary from './FatalErrorBoundary.js'
+import FatalErrorBoundary from '../FatalErrorBoundary.js'
 import { InterpretationReplyForm } from './InterpretationReplyForm.js'
 import classes from './styles/ItemFooter.module.css'
 
@@ -14,7 +17,7 @@ const ItemFooter = ({ item }) => {
     const { baseUrl } = useConfig()
     const [interpretationId, setInterpretationId] = useState(null)
     const [replyInitialFocus, setReplyInitialFocus] = useState(false)
-    const { d2 } = useD2()
+    const { currentUser } = useCachedDataQuery()
 
     const setReplyToInterpretation = (id) => {
         setInterpretationId(id)
@@ -48,7 +51,7 @@ const ItemFooter = ({ item }) => {
                     />
                     {interpretationId ? (
                         <InterpretationReplyForm
-                            currentUser={d2.currentUser}
+                            currentUser={currentUser}
                             interpretationId={interpretationId}
                             dashboardRedirectUrl={dashboardRedirectUrl}
                             onGoBackClicked={clearInterpretation}
@@ -57,7 +60,7 @@ const ItemFooter = ({ item }) => {
                         />
                     ) : (
                         <InterpretationsUnit
-                            currentUser={d2.currentUser}
+                            currentUser={currentUser}
                             type={itemTypeMap[item.type]?.propName}
                             id={id}
                             dashboardRedirectUrl={dashboardRedirectUrl}

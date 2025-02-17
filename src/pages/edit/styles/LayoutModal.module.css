@@ -3,23 +3,26 @@
     align-items: flex-start;
     cursor: pointer;
     padding: var(--spacers-dp16);
-    margin-bottom: var(--spacers-dp8);
-    border: 1px solid var(--colors-grey300);
-    border-radius: 3px;
+    margin-block-end: var(--spacers-dp8);
+    border: 1px solid var(--colors-grey400);
+    border-radius: 6px;
 }
 
 .activeOption {
-    border-color: var(--colors-teal400);
-    background: var(--colors-teal050);
+    border-color: var(--colors-teal500);
+    background: var(--colors-teal100);
+    box-shadow: var(--elevations-e100);
 }
 
 .radio {
-    margin-top: var(--spacers-dp16);
-    margin-right: var(--spacers-dp8);
+    margin-block-start: var(--spacers-dp12);
 }
 
 .iconWrapper {
-    margin: 2px var(--spacers-dp16) 0 var(--spacers-dp24);
+    margin-block-start: 2px;
+    margin-block-end: 0;
+    margin-inline-start: var(--spacers-dp24);
+    margin-inline-end: var(--spacers-dp16);
     fill: var(--colors-grey500);
 }
 
@@ -28,21 +31,26 @@
 }
 
 .title {
-    margin: 0 0 var(--spacers-dp8) 0;
-    font-size: 20px;
+    margin-block-start: 0;
+    margin-block-end: var(--spacers-dp4);
+    margin-inline-start: 0;
+    margin-inline-end: 0;
+    font-size: 15px;
+    font-weight: 500;
 }
 
 .description {
     margin: 0;
-    font-size: 14px;
+    font-size: 13px;
+    line-height: 18px;
     color: var(--colors-grey700);
 }
 
 .columnOptions {
     display: flex;
-    margin-top: var(--spacers-dp16);
+    margin-block-start: var(--spacers-dp8);
 }
 
 .gap {
-    margin-left: var(--spacers-dp16);
+    margin-inline-start: var(--spacers-dp16);
 }

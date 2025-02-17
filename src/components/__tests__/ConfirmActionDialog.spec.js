@@ -2,7 +2,6 @@ import { render } from '@testing-library/react'
 import React from 'react'
 import ConfirmActionDialog from '../ConfirmActionDialog.js'
 
-/* eslint-disable react/prop-types */
 jest.mock('@dhis2/ui', () => {
     const originalModule = jest.requireActual('@dhis2/ui')
 
@@ -29,7 +28,6 @@ jest.mock('@dhis2/ui', () => {
         },
     }
 })
-/* eslint-enable react/prop-types */
 
 test('ConfirmActionDialog renders confirm delete dialog', () => {
     const { container } = render(

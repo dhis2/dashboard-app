@@ -1,0 +1,32 @@
+.container {
+    display: flex;
+    flex-grow: 1;
+    align-items: center;
+    justify-content: space-between;
+    block-size: 100%;
+}
+
+.titleContainer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    block-size: 100%;
+    padding: 0 var(--spacers-dp8) 0 var(--spacers-dp12);
+    gap: var(--spacers-dp4);
+}
+
+.title {
+    font-size: 16px;
+    line-height: 16px;
+    font-weight: 500;
+    margin: 0;
+    color: var(--colors-grey900);
+    padding-block-start: var(--spacers-dp4);
+    padding-block-end: var(--spacers-dp4);
+}
+
+@media only screen and (max-width: 480px) {
+    .title {
+        inset-block-start: 3px;
+    }
+}
