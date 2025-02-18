@@ -38,22 +38,6 @@ export const sGetDashboardsRoot = (state) => state.dashboards
 
 // selector level 1
 
-/**
- * Selector which returns a dashboard by id from the state object
- * If no matching dashboard is found it returns undefined
- * If dashboards is null, then the dashboards api request
- * has not yet completed. If dashboards is an empty object
- * then the dashboards api request is complete, but no dashboards
- * were returned
- *
- * @function
- * @param {Object} state The current state
- * @param {Number} id The id of the dashboard
- * @returns {Object | undefined}
- */
-export const sGetDashboardById = (state, id) =>
-    (sGetDashboardsRoot(state) || EMPTY_DASHBOARDS)[id]
-
 const sGetAllDashboards = (state) => orObject(sGetDashboardsRoot(state))
 
 // selector level 2
