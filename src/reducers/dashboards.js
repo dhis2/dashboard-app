@@ -54,13 +54,6 @@ export const sGetDashboardsRoot = (state) => state.dashboards
 export const sGetDashboardById = (state, id) =>
     (sGetDashboardsRoot(state) || EMPTY_DASHBOARDS)[id]
 
-export const sGetDashboardStarred = (state, id) =>
-    sGetDashboardById(state, id).starred
-
-export const sDashboardsIsFetching = (state) => {
-    return sGetDashboardsRoot(state) === null
-}
-
 const sGetAllDashboards = (state) => orObject(sGetDashboardsRoot(state))
 
 // selector level 2
