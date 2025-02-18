@@ -71,14 +71,7 @@ export const sDashboardsIsFetching = (state) => {
     return sGetDashboardsRoot(state) === null
 }
 
-/**
- * Selector which returns all dashboards
- *
- * @function
- * @param {Object} state The current state
- * @returns {Object | undefined}
- */
-export const sGetAllDashboards = (state) => orObject(sGetDashboardsRoot(state))
+const sGetAllDashboards = (state) => orObject(sGetDashboardsRoot(state))
 
 // selector level 2
 

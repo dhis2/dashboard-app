@@ -8,7 +8,6 @@ import {
     CLEAR_SELECTED,
     sGetSelectedId,
 } from '../reducers/selected.js'
-import { acAppendDashboards } from './dashboards.js'
 import { acClearItemActiveTypes } from './itemActiveTypes.js'
 import { acClearItemFilters } from './itemFilters.js'
 import { acClearVisualizations } from './visualizations.js'
@@ -30,15 +29,6 @@ export const tSetSelectedDashboardById =
         const dashboard = await apiFetchDashboard(dataEngine, id, {
             mode: VIEW,
         })
-        dispatch(
-            acAppendDashboards([
-                {
-                    id: dashboard.id,
-                    displayName: dashboard.displayName,
-                    starred: dashboard.starred,
-                },
-            ])
-        )
 
         if (username) {
             storePreferredDashboardId(username, id)
