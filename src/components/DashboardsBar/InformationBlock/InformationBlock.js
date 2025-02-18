@@ -3,7 +3,7 @@ import i18n from '@dhis2/d2-i18n'
 import PropTypes from 'prop-types'
 import React, { useCallback } from 'react'
 import { connect } from 'react-redux'
-import { acSetDashboardStarred } from '../../../actions/dashboards.js'
+import { acSetSelectedStarred } from '../../../actions/selected.js'
 import {
     sGetSelected,
     sGetSelectedStarred,
@@ -30,7 +30,7 @@ const InformationBlock = ({
         () =>
             apiStarDashboard(dataEngine, id, !starred)
                 .then(() => {
-                    setDashboardStarred(id, !starred)
+                    setDashboardStarred(!starred)
                 })
                 .catch(() => {
                     const msg = starred
@@ -84,5 +84,5 @@ const mapStateToProps = (state) => {
 }
 
 export default connect(mapStateToProps, {
-    setDashboardStarred: acSetDashboardStarred,
+    setDashboardStarred: acSetSelectedStarred,
 })(InformationBlock)

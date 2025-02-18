@@ -6,6 +6,7 @@ import { storePreferredDashboardId } from '../modules/localStorage.js'
 import {
     SET_SELECTED,
     CLEAR_SELECTED,
+    SET_SELECTED_STARRED,
     sGetSelectedId,
 } from '../reducers/selected.js'
 import { acClearItemActiveTypes } from './itemActiveTypes.js'
@@ -21,6 +22,11 @@ export const acSetSelected = (value) => ({
 
 export const acClearSelected = () => ({
     type: CLEAR_SELECTED,
+})
+
+export const acSetSelectedStarred = (isStarred) => ({
+    type: SET_SELECTED_STARRED,
+    value: isStarred,
 })
 
 // thunks

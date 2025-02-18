@@ -5,7 +5,6 @@ import { orObject } from '../modules/util.js'
 
 export const SET_DASHBOARDS = 'SET_DASHBOARDS'
 export const ADD_DASHBOARDS = 'ADD_DASHBOARDS'
-export const SET_DASHBOARD_STARRED = 'SET_DASHBOARD_STARRED'
 
 export const EMPTY_DASHBOARDS = {}
 export const DEFAULT_STATE_DASHBOARDS = null
@@ -26,15 +25,6 @@ export default (state = DEFAULT_STATE_DASHBOARDS, action) => {
             return {
                 ...state,
                 ...action.value,
-            }
-        }
-        case SET_DASHBOARD_STARRED: {
-            return {
-                ...state,
-                [action.id]: {
-                    ...state[action.id],
-                    starred: action.value,
-                },
             }
         }
         default:
