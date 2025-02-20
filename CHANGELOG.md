@@ -1,3 +1,10 @@
+## [101.0.3](https://github.com/dhis2/dashboard-app/compare/v101.0.2...v101.0.3) (2025-02-20)
+
+
+### Bug Fixes
+
+* report correct data statistics eventType ([#3223](https://github.com/dhis2/dashboard-app/issues/3223)) ([117d7b7](https://github.com/dhis2/dashboard-app/commit/117d7b7d6409e540cbb689a43ba91295b4f177c8))
+
 ## [101.0.2](https://github.com/dhis2/dashboard-app/compare/v101.0.1...v101.0.2) (2025-02-18)
 
 
