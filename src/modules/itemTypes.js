@@ -76,7 +76,7 @@ export const itemTypeMap = {
     [REPORT_TABLE]: {
         id: REPORT_TABLE,
         endPointName: 'visualizations',
-        dataStatisticsName: 'REPORT_TABLE_VIEW',
+        dataStatisticsName: 'VISUALIZATION_VIEW',
         propName: 'visualization',
         pluralTitle: i18n.t('Pivot tables'),
         domainType: DOMAIN_TYPE_AGGREGATE,
@@ -89,7 +89,7 @@ export const itemTypeMap = {
         id: CHART,
         endPointName: 'visualizations',
         propName: 'visualization',
-        dataStatisticsName: 'CHART_VIEW',
+        dataStatisticsName: 'VISUALIZATION_VIEW',
         pluralTitle: i18n.t('Charts'),
         domainType: DOMAIN_TYPE_AGGREGATE,
         isVisualizationType: true,
@@ -112,6 +112,7 @@ export const itemTypeMap = {
     [EVENT_REPORT]: {
         id: EVENT_REPORT,
         endPointName: 'eventReports',
+        dataStatisticsName: 'EVENT_REPORT_VIEW',
         propName: 'eventReport',
         pluralTitle: i18n.t('Event reports'),
         domainType: DOMAIN_TYPE_TRACKER,
@@ -123,6 +124,7 @@ export const itemTypeMap = {
     [EVENT_CHART]: {
         id: EVENT_CHART,
         endPointName: 'eventCharts',
+        dataStatisticsName: 'EVENT_CHART_VIEW',
         propName: 'eventChart',
         pluralTitle: i18n.t('Event charts'),
         domainType: DOMAIN_TYPE_TRACKER,
@@ -134,6 +136,7 @@ export const itemTypeMap = {
     [EVENT_VISUALIZATION]: {
         id: EVENT_VISUALIZATION,
         endPointName: 'eventVisualizations',
+        dataStatisticsName: 'EVENT_VISUALIZATION_VIEW',
         propName: 'eventVisualization',
         pluralTitle: i18n.t('Line lists'),
         domainType: DOMAIN_TYPE_TRACKER,
