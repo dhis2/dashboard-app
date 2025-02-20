@@ -136,14 +136,35 @@ msgstr "Pesquisar um painel"
 msgid "No dashboards found for \"{{- filterText}}\""
 msgstr ""
 
-msgid "{{appKey}} app not found"
+msgid "There was a problem loading this dashboard item"
+msgstr "Ocorreu um problema ao carregar este item do painel"
+
+msgid "Open menu"
 msgstr ""
+
+msgid "Open in {{appName}}"
+msgstr ""
+
+msgid "View fullscreen"
+msgstr "Ver em tela cheia"
 
 msgid "Remove this item"
 msgstr "Remover este item"
 
 msgid "This item has been shortened to fit on one page"
 msgstr "Este item foi reduzido para caber em uma página"
+
+msgid "The plugin needed to display this item is not available"
+msgstr ""
+
+msgid "Install the {{pluginName}} plugin from the App Hub"
+msgstr ""
+
+msgid "There was an error loading data for this item"
+msgstr "Ocorreu um erro ao carregar os dados deste item"
+
+msgid "Open this item in {{appName}}"
+msgstr "Abra este item em {{appName}}"
 
 msgid "Remove"
 msgstr "Remover"
@@ -197,23 +218,14 @@ msgstr ""
 msgid "Some filters not applied"
 msgstr "Alguns filtros não aplicados"
 
-msgid "There was a problem loading this dashboard item"
-msgstr "Ocorreu um problema ao carregar este item do painel"
-
 msgid "Hide details and interpretations"
 msgstr "Ocultar detalhes e interpretações"
 
 msgid "Show details and interpretations"
 msgstr "Mostrar detalhes e interpretações"
 
-msgid "Open menu"
-msgstr ""
-
 msgid "Open in {{appName}} app"
 msgstr "Abrir no aplicativo {{appName}}"
-
-msgid "View fullscreen"
-msgstr "Ver em tela cheia"
 
 msgid "This map can't be displayed as a chart"
 msgstr "Este mapa não pode ser exibido como um gráfico"
@@ -239,40 +251,37 @@ msgstr "Ver como mapa"
 msgid "There was a problem loading interpretations for this item"
 msgstr "Ocorreu um problema ao carregar as interpretações para este item"
 
-msgid "The plugin for rendering this item is not available"
-msgstr "O plug-in para renderizar este item não está disponível"
-
-msgid "Install the {{appName}} app from the App Hub"
-msgstr "Instalar a aplicação {{appName}} a partir do App Hub"
-
 msgid "No data to display"
 msgstr "Nenhum dado para exibir"
 
 msgid ""
-"Install Line Listing app version ${minLLVersion.join(\n"
-"                                '.'\n"
-"                            )} or higher in order to display this item."
+"Install Data Visualizer app ${minDVVersion.join(\n"
+"                            '.'\n"
+"                        )} or higher in order to display this item."
 msgstr ""
-"Instalar a versão da aplicação Lista de Linhas ${minLLVersion.join(\n"
-"                                '.'\n"
-"                            )} ou superior para exibir este item."
 
 msgid "Show without filters"
 msgstr "Mostrar sem filtros"
+
+msgid ""
+"Install Line Listing app ${minLLVersion.join(\n"
+"                            '.'\n"
+"                        )} or higher in order to display this item."
+msgstr ""
 
 msgid "Maps with Earth Engine layers cannot be displayed when offline"
 msgstr ""
 "Os mapas com camadas do Sistema Terra não podem ser apresentados quando "
 "estão offline"
 
+msgid ""
+"Install Maps app ${minMapsVersion.join(\n"
+"                            '.'\n"
+"                        )} or higher in order to display this item."
+msgstr ""
+
 msgid "Unable to load the plugin for this item"
 msgstr "Não foi possível carregar o plug-in para este item"
-
-msgid "There was an error loading data for this item"
-msgstr "Ocorreu um erro ao carregar os dados deste item"
-
-msgid "Open this item in {{appName}}"
-msgstr "Abra este item em {{appName}}"
 
 msgid "Resources"
 msgstr "Recursos"
