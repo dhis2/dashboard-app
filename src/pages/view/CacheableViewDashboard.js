@@ -1,7 +1,6 @@
 import { useCachedDataQuery } from '@dhis2/analytics'
-import { CacheableSection } from '@dhis2/app-runtime'
+import { CacheableSection, useDataQuery } from '@dhis2/app-runtime'
 import i18n from '@dhis2/d2-i18n'
-import isEmpty from 'lodash/isEmpty.js'
 import PropTypes from 'prop-types'
 import React, { useEffect } from 'react'
 import { connect } from 'react-redux'
@@ -11,22 +10,23 @@ import LoadingMask from '../../components/LoadingMask.js'
 import NoContentMessage from '../../components/NoContentMessage.js'
 import getCacheableSectionId from '../../modules/getCacheableSectionId.js'
 import { getPreferredDashboardId } from '../../modules/localStorage.js'
-import {
-    sDashboardsIsFetching,
-    sGetDashboardById,
-    sGetDashboardsSortedByStarred,
-} from '../../reducers/dashboards.js'
 import { sGetSelectedId } from '../../reducers/selected.js'
 import ViewDashboard from './ViewDashboard.js'
 
-const CacheableViewDashboard = ({
-    clearSelectedDashboard,
-    dashboardsIsEmpty,
-    dashboardsLoaded,
-    id,
-    selectedId,
-}) => {
+const query = {
+    dashboards: {
+        resource: 'dashboards',
+        params: {
+            fields: 'id',
+            paging: true,
+            pageSize: 1,
+        },
+    },
+}
+
+const CacheableViewDashboard = ({ clearSelectedDashboard, id, selectedId }) => {
     const { currentUser } = useCachedDataQuery()
+    const { data, loading, fetching } = useDataQuery(query)
 
     useEffect(() => {
         if (id === null && selectedId !== null) {
@@ -34,17 +34,17 @@ const CacheableViewDashboard = ({
         }
     }, [id, selectedId, clearSelectedDashboard])
 
-    if (!dashboardsLoaded) {
+    if (loading || fetching) {
         return <LoadingMask />
     }
 
-    if (dashboardsIsEmpty || id === null) {
+    if (!data?.dashboards.dashboards.length || id === null) {
         return (
             <>
                 <DashboardsBar />
                 <NoContentMessage
                     text={
-                        dashboardsIsEmpty
+                        !data?.dashboards.dashboards.length
                             ? i18n.t(
                                   'No dashboards found. Use the + button to create a new dashboard.'
                               )
@@ -70,30 +70,19 @@ const CacheableViewDashboard = ({
 
 CacheableViewDashboard.propTypes = {
     clearSelectedDashboard: PropTypes.func,
-    dashboardsIsEmpty: PropTypes.bool,
-    dashboardsLoaded: PropTypes.bool,
     id: PropTypes.string,
     selectedId: PropTypes.string,
 }
 
 const mapStateToProps = (state, ownProps) => {
-    const dashboards = sGetDashboardsSortedByStarred(state)
     // match is provided by the react-router-dom
     const routeId = ownProps.match?.params?.dashboardId || null
 
-    let dashboardToSelect = null
-    if (routeId) {
-        dashboardToSelect = sGetDashboardById(state, routeId) || null
-    } else {
-        const lastStoredDashboardId = getPreferredDashboardId(ownProps.username)
-        const dash = sGetDashboardById(state, lastStoredDashboardId)
-        dashboardToSelect = lastStoredDashboardId && dash ? dash : dashboards[0]
-    }
+    const dashboardIdToSelect =
+        routeId || getPreferredDashboardId(ownProps.username)
 
     return {
-        dashboardsIsEmpty: isEmpty(dashboards),
-        dashboardsLoaded: !sDashboardsIsFetching(state),
-        id: dashboardToSelect?.id || null,
+        id: dashboardIdToSelect || null,
         selectedId: sGetSelectedId(state) || null,
     }
 }
