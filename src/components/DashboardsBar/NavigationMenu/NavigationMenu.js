@@ -20,7 +20,7 @@ const dashboardsQuery = {
             order: 'favorite:desc,displayName:asc',
             filter: searchTerm ? `displayName:ilike:${searchTerm}` : undefined,
             paging: true,
-            pageSize: 8,
+            pageSize: 40,
             page,
         }
     },

@@ -17,7 +17,7 @@
      * is 45px and the filter-wrap is 44px, so total height above
      * is 137px so 100vh - 152px ensures that 15px of whitespace
      * is visible below the menu. */
-    max-block-size: min(130px, calc(100vh - 152px));
+    max-block-size: min(1000px, calc(100vh - 152px));
     overflow-y: auto;
     scroll-behavior: smooth;
 }
