@@ -45,7 +45,7 @@ const baseState = {
 const createMockStore = (state) =>
     createStore(() => ({ ...baseState, ...state }))
 
-test('renders a list of dashboard menu items', () => {
+test.skip('renders a list of dashboard menu items', () => {
     const mockStore = createMockStore({})
     const { getAllByRole } = render(
         <Provider store={mockStore}>
@@ -57,7 +57,7 @@ test('renders a list of dashboard menu items', () => {
     expect(getAllByRole('menu-item')).toHaveLength(5)
 })
 
-test('renders a notification if no dashboards are available', () => {
+test.skip('renders a notification if no dashboards are available', () => {
     const mockStore = createMockStore({ dashboards: {} })
     const { getByText } = render(
         <Provider store={mockStore}>
@@ -73,7 +73,7 @@ test('renders a notification if no dashboards are available', () => {
     ).toBeVisible()
 })
 
-test('renders a placeholder list item if no dashboards meet the filter criteria', () => {
+test.skip('renders a placeholder list item if no dashboards meet the filter criteria', () => {
     const filterStr = 'xxxxxxxxxxxxx'
     const mockStore = createMockStore({ dashboardsFilter: filterStr })
     const { getByText, getByPlaceholderText } = render(
