@@ -1,38 +1,107 @@
+import { useDataEngine } from '@dhis2/app-runtime'
 import i18n from '@dhis2/d2-i18n'
-import { Input, Menu } from '@dhis2/ui'
+import { Menu, Input } from '@dhis2/ui'
 import cx from 'classnames'
 import PropTypes from 'prop-types'
-import React, { useCallback, useMemo, useEffect, useRef } from 'react'
-import { useDispatch, useSelector } from 'react-redux'
+import React, { useEffect, useCallback, useRef, useState } from 'react'
+import { useSelector, useDispatch } from 'react-redux'
 import { acSetDashboardsFilter } from '../../../actions/dashboardsFilter.js'
-import { sGetDashboardsSortedByStarred } from '../../../reducers/dashboards.js'
 import { sGetDashboardsFilter } from '../../../reducers/dashboardsFilter.js'
+import { EndIntersectionDetector } from './EndIntersectionDetector.js'
 import { NavigationMenuItem } from './NavigationMenuItem.js'
 import styles from './styles/NavigationMenu.module.css'
 import itemStyles from './styles/NavigationMenuItem.module.css'
 
+const dashboardsQuery = {
+    resource: 'dashboards',
+    params: ({ page, searchTerm }) => {
+        return {
+            fields: 'id,displayName,favorite~rename(starred)',
+            order: 'favorite:desc,displayName:asc',
+            filter: searchTerm ? `displayName:ilike:${searchTerm}` : undefined,
+            paging: true,
+            pageSize: 8,
+            page,
+        }
+    },
+}
+
 export const NavigationMenu = ({ close }) => {
+    const dataEngine = useDataEngine()
     const dispatch = useDispatch()
-    const scrollBoxRef = useRef(null)
-    const dashboards = useSelector(sGetDashboardsSortedByStarred)
     const filterText = useSelector(sGetDashboardsFilter)
+    const hasDashboards = useRef(null)
+
+    const [state, setState] = useState({
+        dashboards: [],
+        nextPage: 1,
+        searchTerm: filterText,
+    })
+
+    const [initialFetchComplete, setInitialFetchComplete] = useState(false)
+
+    const fetchDashboards = useCallback(
+        async ({ dashboards, page, searchTerm }) => {
+            const data = await dataEngine.query(
+                { dashboards: dashboardsQuery },
+                {
+                    variables: {
+                        page,
+                        searchTerm,
+                    },
+                }
+            )
+
+            const response = {
+                dashboards: data.dashboards.dashboards,
+                nextPage: data.dashboards.pager.nextPage
+                    ? data.dashboards.pager.page + 1
+                    : null,
+            }
+
+            setInitialFetchComplete(true)
+            if (hasDashboards.current === null) {
+                hasDashboards.current = !!response.dashboards.length
+            }
+
+            setState((prevState) => ({
+                dashboards:
+                    page > 1
+                        ? [...dashboards, ...response.dashboards]
+                        : response.dashboards,
+                nextPage: response.nextPage,
+                searchTerm: prevState.searchTerm,
+            }))
+        },
+        [dataEngine]
+    )
+
     const onFilterChange = useCallback(
         ({ value }) => {
             dispatch(acSetDashboardsFilter(value))
+            fetchDashboards({
+                dashboards: [],
+                page: 1,
+                searchTerm: value,
+            })
         },
-        [dispatch]
+        [dispatch, fetchDashboards]
     )
-    const filteredDashboards = useMemo(
-        () =>
-            dashboards.filter(
-                (dashboard) =>
-                    !filterText ||
-                    dashboard.displayName
-                        .toLowerCase()
-                        .includes(filterText.toLowerCase())
-            ),
-        [filterText, dashboards]
-    )
+
+    const onEndReached = useCallback(() => {
+        setState((prevState) => {
+            if (prevState.nextPage !== null) {
+                fetchDashboards({
+                    dashboards: prevState.dashboards,
+                    page: prevState.nextPage,
+                    searchTerm: prevState.searchTerm,
+                })
+            }
+            return prevState
+        })
+    }, [fetchDashboards])
+
+    const scrollBoxRef = useRef(null)
 
     useEffect(() => {
         scrollBoxRef.current
@@ -45,7 +114,7 @@ export const NavigationMenu = ({ close }) => {
             })
     }, [])
 
-    if (dashboards.length === 0) {
+    if (hasDashboards.current === false) {
         return (
             <div className={cx(styles.container, styles.noDashboardsAvailable)}>
                 <p>{i18n.t('No dashboards available.')}</p>
@@ -68,7 +137,7 @@ export const NavigationMenu = ({ close }) => {
             </div>
             <div ref={scrollBoxRef} className={styles.scrollbox}>
                 <Menu dense>
-                    {filteredDashboards.length === 0 ? (
+                    {initialFetchComplete && state.dashboards.length === 0 ? (
                         <li className={styles.noItems}>
                             {i18n.t(
                                 'No dashboards found for "{{- filterText}}"',
@@ -78,23 +147,31 @@ export const NavigationMenu = ({ close }) => {
                             )}
                         </li>
                     ) : (
-                        filteredDashboards.map(
-                            ({ displayName, id, starred }) => (
-                                <NavigationMenuItem
-                                    displayName={displayName}
-                                    id={id}
-                                    starred={starred}
-                                    key={id}
-                                    close={close}
-                                />
-                            )
-                        )
+                        <>
+                            {state.dashboards.map(
+                                ({ displayName, id, starred }) => (
+                                    <NavigationMenuItem
+                                        displayName={displayName}
+                                        id={id}
+                                        starred={starred}
+                                        key={id}
+                                        close={close}
+                                    />
+                                )
+                            )}
+                            <EndIntersectionDetector
+                                key="end-detector"
+                                rootRef={scrollBoxRef}
+                                onEndReached={onEndReached}
+                            />
+                        </>
                     )}
                 </Menu>
             </div>
         </div>
     )
 }
+
 NavigationMenu.propTypes = {
     close: PropTypes.func.isRequired,
 }
