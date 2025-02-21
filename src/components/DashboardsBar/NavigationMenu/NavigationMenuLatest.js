@@ -1,6 +1,7 @@
 import { useDataEngine } from '@dhis2/app-runtime'
 import i18n from '@dhis2/d2-i18n'
 import { Menu, Input } from '@dhis2/ui'
+import cx from 'classnames'
 import PropTypes from 'prop-types'
 import React, { useEffect, useCallback, useRef, useState } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
@@ -29,12 +30,15 @@ export const NavigationMenu = ({ close }) => {
     const dataEngine = useDataEngine()
     const dispatch = useDispatch()
     const filterText = useSelector(sGetDashboardsFilter)
+    const hasDashboards = useRef(null)
 
     const [state, setState] = useState({
         dashboards: [],
         nextPage: 1,
         searchTerm: filterText,
     })
+
+    const [initialFetchComplete, setInitialFetchComplete] = useState(false)
 
     const fetchDashboards = useCallback(
         async ({ page, searchTerm }) => {
@@ -55,6 +59,11 @@ export const NavigationMenu = ({ close }) => {
                 nextPage: dashboards.pager.nextPage
                     ? dashboards.pager.page + 1
                     : null,
+            }
+
+            setInitialFetchComplete(true)
+            if (hasDashboards.current === null) {
+                hasDashboards.current = !!response.dashboards.length
             }
 
             setState((prevState) => ({
@@ -111,6 +120,15 @@ export const NavigationMenu = ({ close }) => {
             })
     }, [])
 
+    if (hasDashboards.current === false) {
+        return (
+            <div className={cx(styles.container, styles.noDashboardsAvailable)}>
+                <p>{i18n.t('No dashboards available.')}</p>
+                <p>{i18n.t('Create a new dashboard using the + button.')}</p>
+            </div>
+        )
+    }
+
     return (
         <div className={styles.container}>
             <div className={styles.filterWrap}>
@@ -125,20 +143,35 @@ export const NavigationMenu = ({ close }) => {
             </div>
             <div ref={scrollBoxRef} className={styles.scrollbox}>
                 <Menu dense>
-                    {state.dashboards.map(({ displayName, id, starred }) => (
-                        <NavigationMenuItem
-                            displayName={displayName}
-                            id={id}
-                            starred={starred}
-                            key={id}
-                            close={close}
-                        />
-                    ))}
-                    <EndIntersectionDetector
-                        key="end-detector"
-                        rootRef={scrollBoxRef}
-                        onEndReached={onEndReached}
-                    />
+                    {initialFetchComplete && state.dashboards.length === 0 ? (
+                        <li className={styles.noItems}>
+                            {i18n.t(
+                                'No dashboards found for "{{- filterText}}"',
+                                {
+                                    filterText,
+                                }
+                            )}
+                        </li>
+                    ) : (
+                        <>
+                            {state.dashboards.map(
+                                ({ displayName, id, starred }) => (
+                                    <NavigationMenuItem
+                                        displayName={displayName}
+                                        id={id}
+                                        starred={starred}
+                                        key={id}
+                                        close={close}
+                                    />
+                                )
+                            )}
+                            <EndIntersectionDetector
+                                key="end-detector"
+                                rootRef={scrollBoxRef}
+                                onEndReached={onEndReached}
+                            />
+                        </>
+                    )}
                 </Menu>
             </div>
         </div>
