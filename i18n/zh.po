@@ -126,16 +126,37 @@ msgid "Search for a dashboard"
 msgstr "搜索仪表盘"
 
 msgid "No dashboards found for \"{{- filterText}}\""
+msgstr "未找到适用于 \"{{- filterText}}\" 的仪表盘"
+
+msgid "There was a problem loading this dashboard item"
+msgstr "载入仪表盘有问题"
+
+msgid "Open menu"
+msgstr "打开菜单"
+
+msgid "Open in {{appName}}"
 msgstr ""
 
-msgid "{{appKey}} app not found"
-msgstr "{{appKey}} 未找到应用程序"
+msgid "View fullscreen"
+msgstr "全屏查看"
 
 msgid "Remove this item"
 msgstr "删除该条目"
 
 msgid "This item has been shortened to fit on one page"
 msgstr "此项已缩短为适合一页"
+
+msgid "The plugin needed to display this item is not available"
+msgstr ""
+
+msgid "Install the {{pluginName}} plugin from the App Hub"
+msgstr ""
+
+msgid "There was an error loading data for this item"
+msgstr "加载此项目的数据时出错"
+
+msgid "Open this item in {{appName}}"
+msgstr "在 {{appName}} 中打开此条目"
 
 msgid "Remove"
 msgstr "移除"
@@ -183,23 +204,14 @@ msgstr "仅可对此项应用期间和组织机构过滤器"
 msgid "Some filters not applied"
 msgstr "某些过滤器未应用"
 
-msgid "There was a problem loading this dashboard item"
-msgstr "载入仪表盘有问题"
-
 msgid "Hide details and interpretations"
 msgstr "隐藏细节和解释"
 
 msgid "Show details and interpretations"
 msgstr "显示细节和解释"
 
-msgid "Open menu"
-msgstr "打开菜单"
-
 msgid "Open in {{appName}} app"
 msgstr "在{{appName}} 应用中打开"
-
-msgid "View fullscreen"
-msgstr "全屏查看"
 
 msgid "This map can't be displayed as a chart"
 msgstr "该地图无法显示为图表"
@@ -225,38 +237,35 @@ msgstr "查看地图"
 msgid "There was a problem loading interpretations for this item"
 msgstr "加载该项目的解释时出现问题"
 
-msgid "The plugin for rendering this item is not available"
-msgstr "渲染该项目的插件不可用"
-
-msgid "Install the {{appName}} app from the App Hub"
-msgstr "从 App Hub 安装 {{appName}} 应用程序"
-
 msgid "No data to display"
 msgstr "没有数据可显示"
 
 msgid ""
-"Install Line Listing app version ${minLLVersion.join(\n"
-"                                '.'\n"
-"                            )} or higher in order to display this item."
+"Install Data Visualizer app ${minDVVersion.join(\n"
+"                            '.'\n"
+"                        )} or higher in order to display this item."
 msgstr ""
-"安装行列表应用程序版本 ${minLLVersion.join(\n"
-"                                '.'\n"
-"                            )} 或更高版本以显示此项。"
 
 msgid "Show without filters"
 msgstr "显示无过滤器"
 
+msgid ""
+"Install Line Listing app ${minLLVersion.join(\n"
+"                            '.'\n"
+"                        )} or higher in order to display this item."
+msgstr ""
+
 msgid "Maps with Earth Engine layers cannot be displayed when offline"
 msgstr "离线时无法显示带有地球引擎图层的地图"
 
+msgid ""
+"Install Maps app ${minMapsVersion.join(\n"
+"                            '.'\n"
+"                        )} or higher in order to display this item."
+msgstr ""
+
 msgid "Unable to load the plugin for this item"
 msgstr "不能载入该条目的插件"
-
-msgid "There was an error loading data for this item"
-msgstr "加载此项目的数据时出错"
-
-msgid "Open this item in {{appName}}"
-msgstr "在 {{appName}} 中打开此条目"
 
 msgid "Resources"
 msgstr "资源管理"
@@ -343,7 +352,7 @@ msgid ""
 "Deleting dashboard \"{{- dashboardName }}\" will remove it for all users. "
 "This action cannot be undone. Are you sure you want to permanently delete "
 "this dashboard?"
-msgstr ""
+msgstr "删除仪表板 \"{{- dashboardName }}\" 将删除所有用户的仪表板。此操作无法撤销。您确定要永久删除此仪表板吗？"
 
 msgid "Discard changes"
 msgstr "忽略修改"
