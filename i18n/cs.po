@@ -127,14 +127,35 @@ msgstr "Vyhledat ovládací panel"
 msgid "No dashboards found for \"{{- filterText}}\""
 msgstr ""
 
-msgid "{{appKey}} app not found"
+msgid "There was a problem loading this dashboard item"
+msgstr "Při načítání této položky ovládacího panelu došlo k problému"
+
+msgid "Open menu"
 msgstr ""
+
+msgid "Open in {{appName}}"
+msgstr ""
+
+msgid "View fullscreen"
+msgstr "Zobrazit na celou obrazovku"
 
 msgid "Remove this item"
 msgstr "Odebrat tuto položku"
 
 msgid "This item has been shortened to fit on one page"
 msgstr "Tato položka byla zkrácena tak, aby se vešla na jednu stránku"
+
+msgid "The plugin needed to display this item is not available"
+msgstr ""
+
+msgid "Install the {{pluginName}} plugin from the App Hub"
+msgstr ""
+
+msgid "There was an error loading data for this item"
+msgstr "Při načítání dat této položky došlo k chybě"
+
+msgid "Open this item in {{appName}}"
+msgstr "Otevřít tuto položku v aplikaci {{appName}}"
 
 msgid "Remove"
 msgstr "Odebrat"
@@ -184,23 +205,14 @@ msgstr ""
 msgid "Some filters not applied"
 msgstr ""
 
-msgid "There was a problem loading this dashboard item"
-msgstr "Při načítání této položky ovládacího panelu došlo k problému"
-
 msgid "Hide details and interpretations"
 msgstr "Skrýt podrobnosti a interpretace"
 
 msgid "Show details and interpretations"
 msgstr "Zobrazit podrobnosti a interpretace"
 
-msgid "Open menu"
-msgstr ""
-
 msgid "Open in {{appName}} app"
 msgstr "Otevřít v aplikaci {{appName}}"
-
-msgid "View fullscreen"
-msgstr "Zobrazit na celou obrazovku"
 
 msgid "This map can't be displayed as a chart"
 msgstr "Tuto mapu nelze zobrazit jako graf"
@@ -226,38 +238,35 @@ msgstr "Zobrazit jako mapu"
 msgid "There was a problem loading interpretations for this item"
 msgstr "Při načítání interpretací této položky došlo k problému"
 
-msgid "The plugin for rendering this item is not available"
-msgstr "Plugin pro vykreslení této položky není k dispozici"
-
-msgid "Install the {{appName}} app from the App Hub"
-msgstr "Nainstalujte si aplikaci {{appName}} z App Hub"
-
 msgid "No data to display"
 msgstr "Žádná data k zobrazení"
 
 msgid ""
-"Install Line Listing app version ${minLLVersion.join(\n"
-"                                '.'\n"
-"                            )} or higher in order to display this item."
+"Install Data Visualizer app ${minDVVersion.join(\n"
+"                            '.'\n"
+"                        )} or higher in order to display this item."
 msgstr ""
-"Nainstalovat aplikaci Line Listing verze ${minLLVersion.join(\n"
-"                                '.'\n"
-"                            )} nebo vyšší pro zobrazení této položky."
 
 msgid "Show without filters"
 msgstr "Zobrazit bez filtrů"
 
+msgid ""
+"Install Line Listing app ${minLLVersion.join(\n"
+"                            '.'\n"
+"                        )} or higher in order to display this item."
+msgstr ""
+
 msgid "Maps with Earth Engine layers cannot be displayed when offline"
 msgstr "Mapy s vrstvami Earth Engine nelze zobrazit v režimu offline"
 
+msgid ""
+"Install Maps app ${minMapsVersion.join(\n"
+"                            '.'\n"
+"                        )} or higher in order to display this item."
+msgstr ""
+
 msgid "Unable to load the plugin for this item"
 msgstr "Nelze načíst plugin pro tuto položku"
-
-msgid "There was an error loading data for this item"
-msgstr "Při načítání dat této položky došlo k chybě"
-
-msgid "Open this item in {{appName}}"
-msgstr "Otevřít tuto položku v aplikaci {{appName}}"
 
 msgid "Resources"
 msgstr "Zdroje"

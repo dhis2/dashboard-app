@@ -129,14 +129,35 @@ msgstr "Бошқариш панелида излаш"
 msgid "No dashboards found for \"{{- filterText}}\""
 msgstr ""
 
-msgid "{{appKey}} app not found"
+msgid "There was a problem loading this dashboard item"
+msgstr "Ушбу панел элементлари юкланишида муаамога дуч келинди"
+
+msgid "Open menu"
 msgstr ""
+
+msgid "Open in {{appName}}"
+msgstr ""
+
+msgid "View fullscreen"
+msgstr "Экранни тўлдириб кўрсатиш"
 
 msgid "Remove this item"
 msgstr "Ушбу элементни олиб ташлаш"
 
 msgid "This item has been shortened to fit on one page"
 msgstr "Ушбу элемент бир саҳифага жойлаштириш учун мослаштирилди"
+
+msgid "The plugin needed to display this item is not available"
+msgstr ""
+
+msgid "Install the {{pluginName}} plugin from the App Hub"
+msgstr ""
+
+msgid "There was an error loading data for this item"
+msgstr "Ушбу элемент маълумотларини юклашда хатолик юз берди"
+
+msgid "Open this item in {{appName}}"
+msgstr " {{appName}}да ушбу элементни очмоқ"
 
 msgid "Remove"
 msgstr "Олиб ташлаш"
@@ -187,23 +208,14 @@ msgstr ""
 msgid "Some filters not applied"
 msgstr ""
 
-msgid "There was a problem loading this dashboard item"
-msgstr "Ушбу панел элементлари юкланишида муаамога дуч келинди"
-
 msgid "Hide details and interpretations"
 msgstr "Деталлар ва тавсифларни яшириш"
 
 msgid "Show details and interpretations"
 msgstr "Деталлар ва тавсифларни кўрсатиш"
 
-msgid "Open menu"
-msgstr ""
-
 msgid "Open in {{appName}} app"
 msgstr "Иловада {{appName}} да очиш"
-
-msgid "View fullscreen"
-msgstr "Экранни тўлдириб кўрсатиш"
 
 msgid "This map can't be displayed as a chart"
 msgstr "Ушбу харитани диаграмма сифатида кўрсатиб бўлмайди"
@@ -229,39 +241,37 @@ msgstr "Харита сифатида кўриш"
 msgid "There was a problem loading interpretations for this item"
 msgstr "Ушбу элемент тавсифини юклашда хатолик юз берди"
 
-msgid "The plugin for rendering this item is not available"
-msgstr "Ушбу элементни кўрсатиш учун плагин мавжуд эмас"
-
-msgid "Install the {{appName}} app from the App Hub"
-msgstr "App Hub дан {{appName}} иловасини ўрнатинг"
-
 msgid "No data to display"
 msgstr "Маълумот экранга чиқарилмади"
 
 msgid ""
-"Install Line Listing app version ${minLLVersion.join(\n"
-"                                '.'\n"
-"                            )} or higher in order to display this item."
+"Install Data Visualizer app ${minDVVersion.join(\n"
+"                            '.'\n"
+"                        )} or higher in order to display this item."
 msgstr ""
-"Ушбу элементни кўрсатиш учун Line Listing иловасининг ${minLLVersion.join( "
-"'.' )} ёки юқори версиясини ўрнатинг."
 
 msgid "Show without filters"
 msgstr "Фильтрларсиз кўрсатиш"
+
+msgid ""
+"Install Line Listing app ${minLLVersion.join(\n"
+"                            '.'\n"
+"                        )} or higher in order to display this item."
+msgstr ""
 
 msgid "Maps with Earth Engine layers cannot be displayed when offline"
 msgstr ""
 "Оффлайн ҳолатда Earth Engine қаватлари ва хариталарни экранда кўрсатиш "
 "имкони мавжуд эмас"
 
+msgid ""
+"Install Maps app ${minMapsVersion.join(\n"
+"                            '.'\n"
+"                        )} or higher in order to display this item."
+msgstr ""
+
 msgid "Unable to load the plugin for this item"
 msgstr "Ушбу элемент учун плагин юкланмади"
-
-msgid "There was an error loading data for this item"
-msgstr "Ушбу элемент маълумотларини юклашда хатолик юз берди"
-
-msgid "Open this item in {{appName}}"
-msgstr " {{appName}}да ушбу элементни очмоқ"
 
 msgid "Resources"
 msgstr "Ресурслар"

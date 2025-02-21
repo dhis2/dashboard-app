@@ -137,14 +137,36 @@ msgstr "Пошук інформаційної панелі"
 msgid "No dashboards found for \"{{- filterText}}\""
 msgstr ""
 
-msgid "{{appKey}} app not found"
+msgid "There was a problem loading this dashboard item"
 msgstr ""
+"Під час завантаження цього елемента інформаційної панелі сталася помилка"
+
+msgid "Open menu"
+msgstr ""
+
+msgid "Open in {{appName}}"
+msgstr ""
+
+msgid "View fullscreen"
+msgstr "Перегляд у повноекранному режимі"
 
 msgid "Remove this item"
 msgstr "Видалити цей об'єкт"
 
 msgid "This item has been shortened to fit on one page"
 msgstr "Цей об'єкт скорочено для розміщення на одній сторінці"
+
+msgid "The plugin needed to display this item is not available"
+msgstr ""
+
+msgid "Install the {{pluginName}} plugin from the App Hub"
+msgstr ""
+
+msgid "There was an error loading data for this item"
+msgstr "Сталася помилка під час завантаження даних для цього елемента"
+
+msgid "Open this item in {{appName}}"
+msgstr "Відкрити цей елемент у {{appName}}"
 
 msgid "Remove"
 msgstr "Видалити"
@@ -195,24 +217,14 @@ msgstr ""
 msgid "Some filters not applied"
 msgstr ""
 
-msgid "There was a problem loading this dashboard item"
-msgstr ""
-"Під час завантаження цього елемента інформаційної панелі сталася помилка"
-
 msgid "Hide details and interpretations"
 msgstr "Приховати подробиці та інтерпретації"
 
 msgid "Show details and interpretations"
 msgstr "Показати подробиці та інтерпретації"
 
-msgid "Open menu"
-msgstr ""
-
 msgid "Open in {{appName}} app"
 msgstr "Відкрити в додатку {{appName}}"
-
-msgid "View fullscreen"
-msgstr "Перегляд у повноекранному режимі"
 
 msgid "This map can't be displayed as a chart"
 msgstr "Цю мапу неможливо відобразити у вигляді діаграми"
@@ -238,39 +250,36 @@ msgstr "Переглянути як мапу"
 msgid "There was a problem loading interpretations for this item"
 msgstr "Під час завантаження інтерпретацій для цього об'єкта сталася помилка"
 
-msgid "The plugin for rendering this item is not available"
-msgstr "Плагін для відтворення цього елемента недоступний"
-
-msgid "Install the {{appName}} app from the App Hub"
-msgstr "Установіть програму {{appName}} із App Hub"
-
 msgid "No data to display"
 msgstr "Немає даних для відображення"
 
 msgid ""
-"Install Line Listing app version ${minLLVersion.join(\n"
-"                                '.'\n"
-"                            )} or higher in order to display this item."
+"Install Data Visualizer app ${minDVVersion.join(\n"
+"                            '.'\n"
+"                        )} or higher in order to display this item."
 msgstr ""
-"Встановіть версію програми Line Listing ${minLLVersion.join(\n"
-"                                '.'\n"
-"                            )} або вище, щоб відобразити цей елемент."
 
 msgid "Show without filters"
 msgstr "Показати без фільтрів"
+
+msgid ""
+"Install Line Listing app ${minLLVersion.join(\n"
+"                            '.'\n"
+"                        )} or higher in order to display this item."
+msgstr ""
 
 msgid "Maps with Earth Engine layers cannot be displayed when offline"
 msgstr ""
 "Мапи з шарами Earth Engine не можуть відображатися в автономному режимі"
 
+msgid ""
+"Install Maps app ${minMapsVersion.join(\n"
+"                            '.'\n"
+"                        )} or higher in order to display this item."
+msgstr ""
+
 msgid "Unable to load the plugin for this item"
 msgstr "Неможливо завантажити плагін для цього елемента"
-
-msgid "There was an error loading data for this item"
-msgstr "Сталася помилка під час завантаження даних для цього елемента"
-
-msgid "Open this item in {{appName}}"
-msgstr "Відкрити цей елемент у {{appName}}"
 
 msgid "Resources"
 msgstr "Ресурси"
