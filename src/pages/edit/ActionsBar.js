@@ -1,4 +1,8 @@
-import { OfflineTooltip, TranslationDialog } from '@dhis2/analytics'
+import {
+    OfflineTooltip,
+    TranslationDialog,
+    useCachedDataQuery,
+} from '@dhis2/analytics'
 import {
     useDhis2ConnectionStatus,
     useDataEngine,
@@ -20,6 +24,7 @@ import {
 import { acClearPrintDashboard } from '../../actions/printDashboard.js'
 import { acClearSelected } from '../../actions/selected.js'
 import ConfirmActionDialog from '../../components/ConfirmActionDialog.js'
+import { removePreferredDashboardId } from '../../modules/localStorage.js'
 import {
     sGetEditDashboardRoot,
     sGetIsPrintPreviewView,
@@ -45,6 +50,7 @@ const deleteFailedMessage = i18n.t(
 const fieldsToTranslate = ['name', 'description']
 
 const EditBar = ({ dashboard, ...props }) => {
+    const { currentUser } = useCachedDataQuery()
     const dataEngine = useDataEngine()
     const { isConnected: online } = useDhis2ConnectionStatus()
     const [translationDlgIsOpen, setTranslationDlgIsOpen] = useState(false)
@@ -81,6 +87,7 @@ const EditBar = ({ dashboard, ...props }) => {
             })
             .then(() => {
                 props.clearSelected()
+                removePreferredDashboardId(currentUser.username)
             })
             .then(() => setRedirectUrl('/'))
             .catch(deleteFailureAlert.show)
