@@ -50,6 +50,13 @@ export const SupersetDashboard = () => {
         dispatch({ type: LOAD_INIT })
         try {
             const { id, dashboardUiConfig } = embedData
+            /* We call this manually first, so that if it throws, the embedDashboard
+             * function will not be called, thus avoiding briefly showing an error UI
+             * in the iframe. The error has a localised message based on an error code,
+             * so is informative to the user */
+            await postSupersetGuestToken()
+            /* This could still throw as well and still cause briefly showing the
+             * error UI in the iframe, but I don't think we can do much about that */
             await embedDashboard({
                 id,
                 supersetDomain,
@@ -59,6 +66,7 @@ export const SupersetDashboard = () => {
             })
             dispatch({ type: LOAD_SUCCESS })
         } catch (error) {
+            console.error(error)
             dispatch({ type: LOAD_ERROR, payload: error })
         }
     }, [embedData, postSupersetGuestToken, supersetDomain])
@@ -93,7 +101,8 @@ export const SupersetDashboard = () => {
                     {error && (
                         <NoticeBox error title={i18n.t('Error')}>
                             <p className={styles.errorText}>
-                                {i18n.t('Could not load Superset dashboard')}
+                                {error.message ??
+                                    i18n.t('Could not load Superset dashboard')}
                             </p>
                             <Button
                                 secondary

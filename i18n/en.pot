@@ -5,11 +5,33 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1)\n"
-"POT-Creation-Date: 2025-02-12T15:35:10.919Z\n"
-"PO-Revision-Date: 2025-02-12T15:35:10.920Z\n"
+"POT-Creation-Date: 2025-02-25T11:42:45.699Z\n"
+"PO-Revision-Date: 2025-02-25T11:42:45.699Z\n"
 
 msgid "Untitled dashboard"
 msgstr "Untitled dashboard"
+
+msgid "Could not get info from Superset gateway endpoint"
+msgstr "Could not get info from Superset gateway endpoint"
+
+msgid "Dashboard with ID \"{{dashboardId}}\" not found or not accessible"
+msgstr "Dashboard with ID \"{{dashboardId}}\" not found or not accessible"
+
+msgid "Dashboard with ID \"{{dashboardId}}\" is not embedded"
+msgstr "Dashboard with ID \"{{dashboardId}}\" is not embedded"
+
+msgid "Embedded provider must be \"SUPERSET\" for dashboard ID \"{{dashboardId}}\""
+msgstr "Embedded provider must be \"SUPERSET\" for dashboard ID \"{{dashboardId}}\""
+
+msgid "Superset Embed UUID not found for dashboard ID \"{{dashboardId}}\""
+msgstr "Superset Embed UUID not found for dashboard ID \"{{dashboardId}}\""
+
+msgid ""
+"Could not get guest token from Superset Gateway for dashboard ID "
+"\"{{dashboardId}}\""
+msgstr ""
+"Could not get guest token from Superset Gateway for dashboard ID "
+"\"{{dashboardId}}\""
 
 msgid "New dashboard: external"
 msgstr "New dashboard: external"
