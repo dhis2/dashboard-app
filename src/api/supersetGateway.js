@@ -1,4 +1,5 @@
 import { useConfig } from '@dhis2/app-service-config'
+import i18n from '@dhis2/d2-i18n'
 import { useCallback, useMemo } from 'react'
 
 /* Since the superset gateway is not part of the DHIS2 Core Web API
@@ -27,16 +28,16 @@ export const useFetchSupersetBaseUrl = () => {
     const url = useSupersetGatewayApiUrl('info')
     // Note that this is an unauthenticated request
     const fetchSupersetBaseUrl = useCallback(async () => {
-        const response = await fetch(url)
-        if (!response.ok) {
-            console.error(response)
+        try {
+            const response = await fetch(url)
+            const { supersetBaseUrl } = await response.json()
+            return supersetBaseUrl
+        } catch (error) {
+            console.error(error)
             throw new Error(
-                `Could not fetch info from the superset gateway: STATUS ${response.status}`
+                i18n.t('Could not get info from Superset gateway endpoint')
             )
         }
-
-        const data = await response.json()
-        return data.supersetBaseUrl
     }, [url])
 
     return fetchSupersetBaseUrl
@@ -48,20 +49,46 @@ export const usePostSupersetGuestToken = (dashboardId) => {
     )
     // This is an authenticated request which relies on the cookie set by DHIS2 Core
     const postSupersetGuestToken = useCallback(async () => {
-        const response = await fetch(url, {
-            method: 'POST',
-            credentials: 'include',
-        })
-
-        if (!response.ok) {
-            console.error(response)
-            throw new Error(
-                `Could not POST guest token to superset gateway: STATUS ${response.status}`
-            )
+        try {
+            const response = await fetch(url, {
+                method: 'POST',
+                credentials: 'include',
+            })
+            const { token } = await response.json()
+            return token
+        } catch (error) {
+            throw new Error(parseMessageForErrorCode(dashboardId, error.code))
         }
-
-        const data = await response.json()
-        return data.token
-    }, [url])
+    }, [dashboardId, url])
     return postSupersetGuestToken
+}
+
+function parseMessageForErrorCode(dashboardId, errorCode) {
+    switch (errorCode) {
+        case 'E1001':
+            return i18n.t(
+                'Dashboard with ID "{{dashboardId}}" not found or not accessible',
+                { dashboardId }
+            )
+        case 'E1002':
+            return i18n.t(
+                'Dashboard with ID "{{dashboardId}}" is not embedded',
+                { dashboardId }
+            )
+        case 'E1003':
+            return i18n.t(
+                'Embedded provider must be "SUPERSET" for dashboard ID "{{dashboardId}}"',
+                { dashboardId }
+            )
+        case 'E1004':
+            return i18n.t(
+                'Superset Embed UUID not found for dashboard ID "{{dashboardId}}"',
+                { dashboardId }
+            )
+        default:
+            return i18n.t(
+                'Could not get guest token from Superset Gateway for dashboard ID "{{dashboardId}}"',
+                { dashboardId }
+            )
+    }
 }
