@@ -1,4 +1,4 @@
-Implements [DHIS2-XXXX](https://dhis2.atlassian.net/browse/DHIS2-XXXX)
+Implements [DHIS2-XXXX](https://jira.dhis2.org/browse/DHIS2-XXXX)
 
 **Requires https://github.com/dhis2/analytics/pull/XXX**
 
@@ -18,13 +18,17 @@ _text_
 
 ### TODO
 
--   [ ] _task_
+- [ ] Tests added (Cypress and/or Jest)
+- [ ] Docs added
+- [ ] i18n strings generated
+- [ ] d2-ci dependency replaced
+- [ ] _todo_
 
 ---
 
 ### Known issues
 
--   [ ] _issue_
+- [ ] _issue_
 
 ---
 
