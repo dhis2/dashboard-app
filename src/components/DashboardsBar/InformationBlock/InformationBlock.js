@@ -71,7 +71,7 @@ const InformationBlock = ({
                         {(props) => (
                             <div {...props}>
                                 <Tag maxWidth="200px">
-                                    {i18n.t('External data')}
+                                    {i18n.t('External source')}
                                 </Tag>
                             </div>
                         )}
