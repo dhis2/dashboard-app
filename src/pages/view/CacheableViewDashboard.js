@@ -40,35 +40,60 @@ const CacheableViewDashboard = ({ match }) => {
     const engine = useDataEngine()
     const dispatch = useDispatch()
     const [idToLoad, setIdToLoad] = useState(undefined)
-    let preferredId = getPreferredDashboardId(currentUser.username)
+    const [fetchError, setFetchError] = useState(false)
     const selectedId = useSelector(sGetSelectedId)
+    const preferredId = getPreferredDashboardId(currentUser.username) || null
     // match comes from react-router-dom
     const routeId = match?.params?.dashboardId || null
 
-    // TODO - is this really needed?
-    if (preferredId === 'null') {
-        preferredId = null
-    }
-
-    const id = routeId || preferredId
-
     useEffect(() => {
-        if (id === null && selectedId !== null) {
+        if (routeId === null && preferredId === null && selectedId !== null) {
             dispatch(acClearSelected())
         }
-    }, [id, selectedId, dispatch])
+    }, [routeId, preferredId, selectedId, dispatch])
 
     useEffect(() => {
         const fetchIdToLoad = async () => {
             try {
+                if (!routeId && !preferredId) {
+                    const { dashboards } = await engine.query(
+                        firstDashboardQuery
+                    )
+                    if (dashboards.dashboards.length === 0) {
+                        setIdToLoad(null)
+                        return
+                    }
+                    const firstDashboardId = dashboards?.dashboards[0]?.id
+                    setIdToLoad(firstDashboardId)
+                    return
+                }
+
+                if (routeId) {
+                    const { dashboard } = await engine.query(
+                        requestedDashboardQuery,
+                        {
+                            variables: { id: routeId },
+                        }
+                    )
+                    setIdToLoad(dashboard.id)
+                    return
+                }
+
                 const { dashboard } = await engine.query(
                     requestedDashboardQuery,
                     {
-                        variables: { id },
+                        variables: { id: preferredId },
                     }
                 )
                 setIdToLoad(dashboard.id)
+                return
             } catch (error) {
+                if (routeId) {
+                    setFetchError(error.details?.httpStatusCode)
+                    setIdToLoad(null)
+                    return
+                }
+
                 const { dashboards } = await engine.query(firstDashboardQuery)
 
                 if (dashboards.dashboards.length === 0) {
@@ -79,9 +104,21 @@ const CacheableViewDashboard = ({ match }) => {
                 setIdToLoad(firstDashboardId)
             }
         }
+        setFetchError(false)
 
         fetchIdToLoad()
-    }, [engine, id])
+    }, [engine, routeId, preferredId])
+
+    if (fetchError) {
+        return (
+            <>
+                <DashboardsBar />
+                <NoContentMessage
+                    text={i18n.t('Requested dashboard not found')}
+                />
+            </>
+        )
+    }
 
     if (idToLoad === undefined) {
         return <LoadingMask />
