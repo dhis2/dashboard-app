@@ -3,7 +3,7 @@ import { CacheableSection, useDataEngine } from '@dhis2/app-runtime'
 import i18n from '@dhis2/d2-i18n'
 import PropTypes from 'prop-types'
 import React, { useEffect, useState } from 'react'
-import { connect } from 'react-redux'
+import { useSelector, useDispatch } from 'react-redux'
 import { acClearSelected } from '../../actions/selected.js'
 import DashboardsBar from '../../components/DashboardsBar/index.js'
 import LoadingMask from '../../components/LoadingMask.js'
@@ -35,16 +35,28 @@ const requestedDashboardQuery = {
     },
 }
 
-const CacheableViewDashboard = ({ clearSelectedDashboard, id, selectedId }) => {
+const CacheableViewDashboard = ({ match }) => {
     const { currentUser } = useCachedDataQuery()
     const engine = useDataEngine()
+    const dispatch = useDispatch()
     const [idToLoad, setIdToLoad] = useState(undefined)
+    let preferredId = getPreferredDashboardId(currentUser.username)
+    const selectedId = useSelector(sGetSelectedId)
+    // match comes from react-router-dom
+    const routeId = match?.params?.dashboardId || null
+
+    // TODO - is this really needed?
+    if (preferredId === 'null') {
+        preferredId = null
+    }
+
+    const id = routeId || preferredId
 
     useEffect(() => {
         if (id === null && selectedId !== null) {
-            clearSelectedDashboard()
+            dispatch(acClearSelected())
         }
-    }, [id, selectedId, clearSelectedDashboard])
+    }, [id, selectedId, dispatch])
 
     useEffect(() => {
         const fetchIdToLoad = async () => {
@@ -102,33 +114,7 @@ const CacheableViewDashboard = ({ clearSelectedDashboard, id, selectedId }) => {
 }
 
 CacheableViewDashboard.propTypes = {
-    clearSelectedDashboard: PropTypes.func,
-    id: PropTypes.string,
-    selectedId: PropTypes.string,
+    match: PropTypes.object,
 }
 
-const mapStateToProps = (state, ownProps) => {
-    // match is provided by the react-router-dom
-    const routeId = ownProps.match?.params?.dashboardId || null
-    let preferredId = getPreferredDashboardId(ownProps.username)
-
-    if (preferredId === 'null') {
-        preferredId = null
-    }
-
-    const dashboardIdToSelect = routeId || preferredId
-
-    return {
-        id: dashboardIdToSelect,
-        selectedId: sGetSelectedId(state) || null,
-    }
-}
-
-const mapDispatchToProps = {
-    clearSelectedDashboard: acClearSelected,
-}
-
-export default connect(
-    mapStateToProps,
-    mapDispatchToProps
-)(CacheableViewDashboard)
+export default CacheableViewDashboard

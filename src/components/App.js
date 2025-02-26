@@ -45,10 +45,7 @@ const App = (props) => {
                                 systemSettings.startModuleEnableLightweight ? (
                                     <Redirect to={ROUTE_START_PATH} />
                                 ) : (
-                                    <ViewDashboard
-                                        {...props}
-                                        username={currentUser.username}
-                                    />
+                                    <ViewDashboard {...props} />
                                 )
                             }
                         />
@@ -70,12 +67,7 @@ const App = (props) => {
                         <Route
                             exact
                             path="/:dashboardId"
-                            render={(props) => (
-                                <ViewDashboard
-                                    {...props}
-                                    username={currentUser.username}
-                                />
-                            )}
+                            render={(props) => <ViewDashboard {...props} />}
                         />
                         <Route
                             exact
