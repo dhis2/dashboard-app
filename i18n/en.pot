@@ -5,8 +5,8 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1)\n"
-"POT-Creation-Date: 2025-02-26T08:16:23.175Z\n"
-"PO-Revision-Date: 2025-02-26T08:16:23.176Z\n"
+"POT-Creation-Date: 2025-02-26T10:07:16.167Z\n"
+"PO-Revision-Date: 2025-02-26T10:07:16.167Z\n"
 
 msgid "Untitled dashboard"
 msgstr "Untitled dashboard"
@@ -240,8 +240,17 @@ msgstr "No dashboards found for \"{{- filterText}}\""
 msgid "Dashboards"
 msgstr "Dashboards"
 
-msgid "{{appKey}} app not found"
-msgstr "{{appKey}} app not found"
+msgid "There was a problem loading this dashboard item"
+msgstr "There was a problem loading this dashboard item"
+
+msgid "Open menu"
+msgstr "Open menu"
+
+msgid "Open in {{appName}}"
+msgstr "Open in {{appName}}"
+
+msgid "View fullscreen"
+msgstr "View fullscreen"
 
 msgid "Remove this item"
 msgstr "Remove this item"
