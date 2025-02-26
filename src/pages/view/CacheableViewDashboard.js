@@ -35,12 +35,15 @@ const requestedDashboardQuery = {
     },
 }
 
+const NO_DASHBOARDS_FOUND = 'NO_DASHBOARDS_FOUND'
+const REQUESTED_DASHBOARD_NOT_FOUND = 'REQUESTED_DASHBOARD_NOT_FOUND'
+
 const CacheableViewDashboard = ({ match }) => {
     const { currentUser } = useCachedDataQuery()
     const engine = useDataEngine()
     const dispatch = useDispatch()
-    const [idToLoad, setIdToLoad] = useState(undefined)
-    const [fetchError, setFetchError] = useState(false)
+    const [idToLoad, setIdToLoad] = useState(null)
+    const [fetchError, setFetchError] = useState(null)
     const selectedId = useSelector(sGetSelectedId)
     const preferredId = getPreferredDashboardId(currentUser.username) || null
     // match comes from react-router-dom
@@ -60,7 +63,7 @@ const CacheableViewDashboard = ({ match }) => {
                         firstDashboardQuery
                     )
                     if (dashboards.dashboards.length === 0) {
-                        setIdToLoad(null)
+                        setFetchError(NO_DASHBOARDS_FOUND)
                         return
                     }
                     const firstDashboardId = dashboards?.dashboards[0]?.id
@@ -89,14 +92,15 @@ const CacheableViewDashboard = ({ match }) => {
                 return
             } catch (error) {
                 if (routeId) {
-                    setFetchError(error.details?.httpStatusCode)
                     setIdToLoad(null)
+                    setFetchError(REQUESTED_DASHBOARD_NOT_FOUND)
                     return
                 }
 
                 const { dashboards } = await engine.query(firstDashboardQuery)
 
                 if (dashboards.dashboards.length === 0) {
+                    setFetchError(NO_DASHBOARDS_FOUND)
                     setIdToLoad(null)
                     return
                 }
@@ -104,7 +108,7 @@ const CacheableViewDashboard = ({ match }) => {
                 setIdToLoad(firstDashboardId)
             }
         }
-        setFetchError(false)
+        setFetchError(null)
 
         fetchIdToLoad()
     }, [engine, routeId, preferredId])
@@ -113,28 +117,24 @@ const CacheableViewDashboard = ({ match }) => {
         return (
             <>
                 <DashboardsBar />
+
                 <NoContentMessage
-                    text={i18n.t('Requested dashboard not found')}
+                    text={
+                        fetchError === REQUESTED_DASHBOARD_NOT_FOUND
+                            ? i18n.t('Requested dashboard not found')
+                            : i18n.t(
+                                  'No dashboards found. Use the + button to create a new dashboard.'
+                              )
+                    }
                 />
             </>
         )
     }
 
-    if (idToLoad === undefined) {
-        return <LoadingMask />
-    }
+    console.log('jj ', { idToLoad, fetchError, routeId, preferredId })
 
     if (idToLoad === null) {
-        return (
-            <>
-                <DashboardsBar />
-                <NoContentMessage
-                    text={i18n.t(
-                        'No dashboards found. Use the + button to create a new dashboard.'
-                    )}
-                />
-            </>
-        )
+        return <LoadingMask />
     }
 
     const cacheSectionId = getCacheableSectionId(currentUser.id, idToLoad)
