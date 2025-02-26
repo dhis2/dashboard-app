@@ -16,15 +16,18 @@ jest.mock('../../../../actions/dashboardsFilter', () => ({
 
 jest.mock('../EndIntersectionDetector.js', () => {
     const React = require('react')
-    return {
-        EndIntersectionDetector: ({ onEndReached }) => {
-            // Simulate intersection
-            React.useEffect(() => {
-                onEndReached()
-            }, [onEndReached])
-            return <div className="MockEndIntersectionDetector" />
-        },
+    const PropTypes = require('prop-types')
+    const EndIntersectionDetector = ({ onEndReached }) => {
+        // Simulate intersection
+        React.useEffect(() => {
+            onEndReached()
+        }, [onEndReached])
+        return <div className="MockEndIntersectionDetector" />
     }
+    EndIntersectionDetector.propTypes = {
+        onEndReached: PropTypes.func.isRequired,
+    }
+    return { EndIntersectionDetector }
 })
 
 jest.mock('../NavigationMenuItem.js', () => {
