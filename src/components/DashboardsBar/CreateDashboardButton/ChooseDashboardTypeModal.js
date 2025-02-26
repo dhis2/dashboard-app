@@ -55,9 +55,7 @@ export const ChooseDashboardTypeModal = ({
                             checked={selectedType === TYPE_SUPERSET}
                             onChange={handleDashboardTypeChange}
                             title={i18n.t('External')}
-                            subtitle={i18n.t(
-                                'Embed a dashboard from a third-party source, like Superset.'
-                            )}
+                            subtitle={i18n.t('Embed a superset dashboard')}
                         />
                     </fieldset>
                 </ModalContent>
