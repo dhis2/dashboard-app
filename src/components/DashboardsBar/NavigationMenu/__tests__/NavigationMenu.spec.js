@@ -28,7 +28,6 @@ jest.mock('../EndIntersectionDetector.js', () => {
 })
 
 jest.mock('../NavigationMenuItem.js', () => {
-    const React = require('react')
     return {
         NavigationMenuItem: ({ displayName }) => (
             <li role="menu-item">{displayName}</li>
