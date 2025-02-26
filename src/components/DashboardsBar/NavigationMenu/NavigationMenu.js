@@ -30,7 +30,7 @@ export const NavigationMenu = ({ close }) => {
     const dataEngine = useDataEngine()
     const dispatch = useDispatch()
     const filterText = useSelector(sGetDashboardsFilter)
-    const hasDashboards = useRef(null)
+    const [hasDashboards, setHasDashboards] = useState(null)
 
     const [state, setState] = useState({
         dashboards: [],
@@ -60,9 +60,7 @@ export const NavigationMenu = ({ close }) => {
             }
 
             setInitialFetchComplete(true)
-            if (hasDashboards.current === null) {
-                hasDashboards.current = !!response.dashboards.length
-            }
+            setHasDashboards(!!response.dashboards.length)
 
             setState((prevState) => ({
                 dashboards:
@@ -114,7 +112,7 @@ export const NavigationMenu = ({ close }) => {
             })
     }, [])
 
-    if (hasDashboards.current === false) {
+    if (hasDashboards === false && !filterText) {
         return (
             <div className={cx(styles.container, styles.noDashboardsAvailable)}>
                 <p>{i18n.t('No dashboards available.')}</p>
