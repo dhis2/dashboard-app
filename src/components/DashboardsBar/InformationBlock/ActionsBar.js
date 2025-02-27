@@ -298,6 +298,7 @@ const ActionsBar = ({
             </div>
             {id && sharingDialogIsOpen && (
                 <SharingDialog
+                    cascadeDashboardSharing={!embedded}
                     id={id}
                     type="dashboard"
                     onClose={onToggleSharingDialog}
