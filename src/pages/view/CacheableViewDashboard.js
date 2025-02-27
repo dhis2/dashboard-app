@@ -131,8 +131,6 @@ const CacheableViewDashboard = ({ match }) => {
         )
     }
 
-    console.log('jj ', { idToLoad, fetchError, routeId, preferredId })
-
     if (idToLoad === null) {
         return <LoadingMask />
     }
