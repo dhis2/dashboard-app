@@ -59,7 +59,7 @@ jobs:
                   record: ${{ contains(github.event.pull_request.labels.*.name, 'e2e record') }}
                   parallel: ${{ contains(github.event.pull_request.labels.*.name, 'e2e record') }}
                   browser: chrome
-                  group: E2E Suite against Dev container ${{ matrix.container }}
+                  group: E2E Suite against Dev container ${{ matrix.containers }}
                   ci-build-id: ${{ inputs.should_record && github.run_id || '' }}
               env:
                   CI: true
