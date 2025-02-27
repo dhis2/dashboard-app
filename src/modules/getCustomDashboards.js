@@ -15,6 +15,7 @@ export const getCustomDashboards = (data) =>
         displayName: d.displayName,
         description: d.description,
         displayDescription: d.displayDescription,
+        embedded: d.embedded,
         starred: d.starred,
         created: d.created,
         lastUpdated: d.lastUpdated,
