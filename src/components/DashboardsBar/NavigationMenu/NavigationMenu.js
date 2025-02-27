@@ -30,15 +30,12 @@ export const NavigationMenu = ({ close }) => {
     const dataEngine = useDataEngine()
     const dispatch = useDispatch()
     const filterText = useSelector(sGetDashboardsFilter)
-    const [hasDashboards, setHasDashboards] = useState(null)
-
+    const [initialFetchComplete, setInitialFetchComplete] = useState(false)
     const [state, setState] = useState({
         dashboards: [],
         nextPage: 1,
         searchTerm: filterText,
     })
-
-    const [initialFetchComplete, setInitialFetchComplete] = useState(false)
 
     const fetchDashboards = useCallback(
         async ({ dashboards, page, searchTerm }) => {
@@ -59,8 +56,9 @@ export const NavigationMenu = ({ close }) => {
                     : null,
             }
 
-            setInitialFetchComplete(true)
-            setHasDashboards(!!response.dashboards.length)
+            if (initialFetchComplete === false) {
+                setInitialFetchComplete(response.dashboards.length)
+            }
 
             setState((prevState) => ({
                 dashboards:
@@ -71,7 +69,7 @@ export const NavigationMenu = ({ close }) => {
                 searchTerm: prevState.searchTerm,
             }))
         },
-        [dataEngine]
+        [dataEngine, initialFetchComplete]
     )
 
     const onFilterChange = useCallback(
@@ -112,7 +110,7 @@ export const NavigationMenu = ({ close }) => {
             })
     }, [])
 
-    if (hasDashboards === false && !filterText) {
+    if (initialFetchComplete === 0) {
         return (
             <div className={cx(styles.container, styles.noDashboardsAvailable)}>
                 <p>{i18n.t('No dashboards available.')}</p>
