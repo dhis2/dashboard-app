@@ -1,4 +1,8 @@
-import { OfflineTooltip, TranslationDialog } from '@dhis2/analytics'
+import {
+    OfflineTooltip,
+    TranslationDialog,
+    useCachedDataQuery,
+} from '@dhis2/analytics'
 import {
     useDhis2ConnectionStatus,
     useDataEngine,
@@ -10,7 +14,6 @@ import PropTypes from 'prop-types'
 import React, { useState } from 'react'
 import { connect } from 'react-redux'
 import { Redirect } from 'react-router-dom'
-import { tFetchDashboards } from '../../actions/dashboards.js'
 import {
     tSaveDashboard,
     acClearEditDashboard,
@@ -21,6 +24,7 @@ import {
 import { acClearPrintDashboard } from '../../actions/printDashboard.js'
 import { acClearSelected } from '../../actions/selected.js'
 import ConfirmActionDialog from '../../components/ConfirmActionDialog.js'
+import { removePreferredDashboardId } from '../../modules/localStorage.js'
 import {
     sGetEditDashboardRoot,
     sGetIsPrintPreviewView,
@@ -46,6 +50,7 @@ const deleteFailedMessage = i18n.t(
 const fieldsToTranslate = ['name', 'description']
 
 const EditBar = ({ dashboard, ...props }) => {
+    const { currentUser } = useCachedDataQuery()
     const dataEngine = useDataEngine()
     const { isConnected: online } = useDhis2ConnectionStatus()
     const [translationDlgIsOpen, setTranslationDlgIsOpen] = useState(false)
@@ -82,8 +87,7 @@ const EditBar = ({ dashboard, ...props }) => {
             })
             .then(() => {
                 props.clearSelected()
-
-                return props.fetchDashboards()
+                removePreferredDashboardId(currentUser.username)
             })
             .then(() => setRedirectUrl('/'))
             .catch(deleteFailureAlert.show)
@@ -333,7 +337,6 @@ const mapDispatchToProps = {
     clearSelected: () => (dispatch) => dispatch(acClearSelected()),
     saveDashboard: () => (dispatch) =>
         dispatch(tSaveDashboard()).then((id) => id),
-    fetchDashboards: () => (dispatch) => dispatch(tFetchDashboards()),
     onDiscardChanges: () => (dispatch) => dispatch(acClearEditDashboard()),
     setFilterSettings: (value) => (dispatch) =>
         dispatch(acSetFilterSettings(value)),

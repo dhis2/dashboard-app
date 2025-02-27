@@ -3,9 +3,11 @@ import i18n from '@dhis2/d2-i18n'
 import PropTypes from 'prop-types'
 import React, { useCallback } from 'react'
 import { connect } from 'react-redux'
-import { acSetDashboardStarred } from '../../../actions/dashboards.js'
-import { sGetDashboardStarred } from '../../../reducers/dashboards.js'
-import { sGetSelected } from '../../../reducers/selected.js'
+import { acSetSelectedStarred } from '../../../actions/selected.js'
+import {
+    sGetSelected,
+    sGetSelectedStarred,
+} from '../../../reducers/selected.js'
 import ActionsBar from './ActionsBar.js'
 import { apiStarDashboard } from './apiStarDashboard.js'
 import LastUpdatedTag from './LastUpdatedTag.js'
@@ -28,7 +30,7 @@ const InformationBlock = ({
         () =>
             apiStarDashboard(dataEngine, id, !starred)
                 .then(() => {
-                    setDashboardStarred(id, !starred)
+                    setDashboardStarred(!starred)
                 })
                 .catch(() => {
                     const msg = starred
@@ -77,12 +79,10 @@ const mapStateToProps = (state) => {
     return {
         displayName: dashboard.displayName,
         id: dashboard.id,
-        starred: dashboard.id
-            ? sGetDashboardStarred(state, dashboard.id)
-            : false,
+        starred: dashboard.id ? sGetSelectedStarred(state) : false,
     }
 }
 
 export default connect(mapStateToProps, {
-    setDashboardStarred: acSetDashboardStarred,
+    setDashboardStarred: acSetSelectedStarred,
 })(InformationBlock)

@@ -5,6 +5,10 @@ export const storePreferredDashboardId = (username, dashboardId) => {
     localStorage.setItem(`dhis2.dashboard.current.${username}`, dashboardId)
 }
 
+export const removePreferredDashboardId = (username) => {
+    localStorage.removeItem(`dhis2.dashboard.current.${username}`)
+}
+
 export const getPluginOverrides = () =>
     (process.env.NODE_ENV !== 'production' &&
         JSON.parse(localStorage.getItem('dhis2.dashboard.pluginOverrides'))) ||
