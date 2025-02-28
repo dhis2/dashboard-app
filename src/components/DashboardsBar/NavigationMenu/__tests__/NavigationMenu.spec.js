@@ -1,17 +1,11 @@
 import { render, waitFor, act } from '@testing-library/react'
 import { createMemoryHistory } from 'history'
 import React from 'react'
-import { Provider } from 'react-redux'
 import { Router } from 'react-router-dom'
-import { createStore } from 'redux'
 import { NavigationMenu } from '../NavigationMenu.js'
 
 jest.mock('@dhis2/app-runtime', () => ({
     useDataEngine: jest.fn(),
-}))
-
-jest.mock('../../../../actions/dashboardsFilter', () => ({
-    acSetDashboardsFilter: jest.fn(),
 }))
 
 jest.mock('../EndIntersectionDetector.js', () => {
@@ -37,10 +31,6 @@ jest.mock('../NavigationMenuItem.js', () => {
         ),
     }
 })
-
-const baseState = {
-    dashboardsFilter: '',
-}
 
 const dashboards = {
     nghVC4wtyzi: {
@@ -70,15 +60,10 @@ const dashboards = {
     },
 }
 
-const createMockStore = (state) =>
-    createStore(() => ({ ...baseState, ...state }))
-
 describe('NavigationMenu', () => {
-    let store
     let dataEngine
 
     beforeEach(() => {
-        store = createMockStore({})
         dataEngine = {
             query: jest.fn().mockResolvedValue({
                 dashboards: {
@@ -95,11 +80,9 @@ describe('NavigationMenu', () => {
 
     it('requests the dashboards using the correct parameters', async () => {
         const { getAllByRole } = render(
-            <Provider store={store}>
-                <Router history={createMemoryHistory()}>
-                    <NavigationMenu close={() => {}} />
-                </Router>
-            </Provider>
+            <Router history={createMemoryHistory()}>
+                <NavigationMenu close={() => {}} />
+            </Router>
         )
 
         await waitFor(() => {
@@ -113,7 +96,6 @@ describe('NavigationMenu', () => {
     })
 
     it('renders a notification if no dashboards are available', async () => {
-        const mockStore = createMockStore({ dashboards: {} })
         dataEngine.query.mockResolvedValueOnce({
             dashboards: {
                 dashboards: [],
@@ -127,11 +109,9 @@ describe('NavigationMenu', () => {
         let getByText
         await act(async () => {
             const renderResult = render(
-                <Provider store={mockStore}>
-                    <Router history={createMemoryHistory()}>
-                        <NavigationMenu close={() => {}} />
-                    </Router>
-                </Provider>
+                <Router history={createMemoryHistory()}>
+                    <NavigationMenu close={() => {}} />
+                </Router>
             )
             getByText = renderResult.getByText
         })
@@ -144,7 +124,6 @@ describe('NavigationMenu', () => {
 
     it.skip('renders a placeholder list item if no dashboards meet the filter criteria', async () => {
         const filterStr = 'xxxxxxxxxxxxx'
-        const mockStore = createMockStore({ dashboardsFilter: filterStr })
 
         // dataEngine.query.mockResolvedValueOnce({
         //     dashboards: {
@@ -182,11 +161,9 @@ describe('NavigationMenu', () => {
 
         await act(async () => {
             const renderResult = render(
-                <Provider store={mockStore}>
-                    <Router history={createMemoryHistory()}>
-                        <NavigationMenu close={() => {}} />
-                    </Router>
-                </Provider>
+                <Router history={createMemoryHistory()}>
+                    <NavigationMenu close={() => {}} />
+                </Router>
             )
             getByText = renderResult.getByText
             getByPlaceholderText = renderResult.getByPlaceholderText

@@ -4,9 +4,6 @@ import { Input, Menu } from '@dhis2/ui'
 import cx from 'classnames'
 import PropTypes from 'prop-types'
 import React, { useCallback, useEffect, useRef, useState } from 'react'
-import { useDispatch, useSelector } from 'react-redux'
-import { acSetDashboardsFilter } from '../../../actions/dashboardsFilter.js'
-import { sGetDashboardsFilter } from '../../../reducers/dashboardsFilter.js'
 import { EndIntersectionDetector } from './EndIntersectionDetector.js'
 import { NavigationMenuItem } from './NavigationMenuItem.js'
 import styles from './styles/NavigationMenu.module.css'
@@ -20,7 +17,7 @@ const dashboardsQuery = {
             order: 'favorite:desc,displayName:asc',
             filter: searchTerm ? `displayName:ilike:${searchTerm}` : undefined,
             paging: true,
-            pageSize: 40,
+            pageSize: 8,
             page,
         }
     },
@@ -28,23 +25,19 @@ const dashboardsQuery = {
 
 export const NavigationMenu = ({ close }) => {
     const dataEngine = useDataEngine()
-    const dispatch = useDispatch()
-    const filterText = useSelector(sGetDashboardsFilter)
-    const [initialFetchComplete, setInitialFetchComplete] = useState(false)
-    const [state, setState] = useState({
-        dashboards: [],
-        nextPage: 1,
-        searchTerm: filterText,
-    })
+    const [initialDashboardsCount, setInitialDashboardsCount] = useState(null)
+    const [dashboards, setDashboards] = useState([])
+    const [filterText, setFilterText] = useState('')
+    const [page, setPage] = useState(1)
 
-    const fetchDashboards = useCallback(
-        async ({ dashboards, page, searchTerm }) => {
+    useEffect(() => {
+        const fetchDashboards = async () => {
             const data = await dataEngine.query(
                 { dashboards: dashboardsQuery },
                 {
                     variables: {
                         page,
-                        searchTerm,
+                        searchTerm: filterText,
                     },
                 }
             )
@@ -56,46 +49,34 @@ export const NavigationMenu = ({ close }) => {
                     : null,
             }
 
-            if (initialFetchComplete === false) {
-                setInitialFetchComplete(response.dashboards.length)
+            if (initialDashboardsCount === null) {
+                setInitialDashboardsCount(response.dashboards.length)
             }
 
-            setState((prevState) => ({
-                dashboards:
-                    page > 1
-                        ? [...dashboards, ...response.dashboards]
-                        : response.dashboards,
-                nextPage: response.nextPage,
-                searchTerm: prevState.searchTerm,
-            }))
-        },
-        [dataEngine, initialFetchComplete]
-    )
+            setDashboards((currentDashboards) =>
+                page > 1
+                    ? [...currentDashboards, ...response.dashboards]
+                    : response.dashboards
+            )
 
-    const onFilterChange = useCallback(
-        ({ value }) => {
-            dispatch(acSetDashboardsFilter(value))
-            fetchDashboards({
-                dashboards: [],
-                page: 1,
-                searchTerm: value,
-            })
-        },
-        [dispatch, fetchDashboards]
-    )
+            if (response.nextPage === null) {
+                setPage(null)
+            }
+        }
+
+        if (page !== null) {
+            fetchDashboards()
+        }
+    }, [dataEngine, initialDashboardsCount, page, filterText])
+
+    const onFilterChange = useCallback(({ value }) => {
+        setFilterText(value)
+        setPage(1)
+    }, [])
 
     const onEndReached = useCallback(() => {
-        setState((prevState) => {
-            if (prevState.nextPage !== null) {
-                fetchDashboards({
-                    dashboards: prevState.dashboards,
-                    page: prevState.nextPage,
-                    searchTerm: prevState.searchTerm,
-                })
-            }
-            return prevState
-        })
-    }, [fetchDashboards])
+        setPage((prevPage) => (prevPage !== null ? prevPage + 1 : prevPage))
+    }, [])
 
     const scrollBoxRef = useRef(null)
 
@@ -110,7 +91,7 @@ export const NavigationMenu = ({ close }) => {
             })
     }, [])
 
-    if (initialFetchComplete === 0) {
+    if (initialDashboardsCount === 0) {
         return (
             <div className={cx(styles.container, styles.noDashboardsAvailable)}>
                 <p>{i18n.t('No dashboards available.')}</p>
@@ -131,39 +112,41 @@ export const NavigationMenu = ({ close }) => {
                     initialFocus={true}
                 />
             </div>
-            <div ref={scrollBoxRef} className={styles.scrollbox}>
-                <Menu dense>
-                    {initialFetchComplete && state.dashboards.length === 0 ? (
-                        <li className={styles.noItems}>
-                            {i18n.t(
-                                'No dashboards found for "{{- filterText}}"',
-                                {
-                                    filterText,
-                                }
-                            )}
-                        </li>
-                    ) : (
-                        <>
-                            {state.dashboards.map(
-                                ({ displayName, id, starred }) => (
-                                    <NavigationMenuItem
-                                        displayName={displayName}
-                                        id={id}
-                                        starred={starred}
-                                        key={id}
-                                        close={close}
-                                    />
-                                )
-                            )}
-                            <EndIntersectionDetector
-                                key="end-detector"
-                                rootRef={scrollBoxRef}
-                                onEndReached={onEndReached}
-                            />
-                        </>
-                    )}
-                </Menu>
-            </div>
+            {initialDashboardsCount !== null && (
+                <div ref={scrollBoxRef} className={styles.scrollbox}>
+                    <Menu dense>
+                        {dashboards.length === 0 ? (
+                            <li className={styles.noItems}>
+                                {i18n.t(
+                                    'No dashboards found for "{{- filterText}}"',
+                                    {
+                                        filterText,
+                                    }
+                                )}
+                            </li>
+                        ) : (
+                            <>
+                                {dashboards.map(
+                                    ({ displayName, id, starred }) => (
+                                        <NavigationMenuItem
+                                            displayName={displayName}
+                                            id={id}
+                                            starred={starred}
+                                            key={id}
+                                            close={close}
+                                        />
+                                    )
+                                )}
+                                <EndIntersectionDetector
+                                    key="end-detector"
+                                    rootRef={scrollBoxRef}
+                                    onEndReached={onEndReached}
+                                />
+                            </>
+                        )}
+                    </Menu>
+                </div>
+            )}
         </div>
     )
 }

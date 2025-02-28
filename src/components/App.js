@@ -5,7 +5,6 @@ import React, { useEffect } from 'react'
 import { connect } from 'react-redux'
 import { Redirect, HashRouter as Router, Route, Switch } from 'react-router-dom'
 import { acClearActiveModalDimension } from '../actions/activeModalDimension.js'
-import { acClearDashboardsFilter } from '../actions/dashboardsFilter.js'
 import { acClearEditDashboard } from '../actions/editDashboard.js'
 import { acClearItemActiveTypes } from '../actions/itemActiveTypes.js'
 import { acClearItemFilters } from '../actions/itemFilters.js'
@@ -102,7 +101,6 @@ const mapDispatchToProps = {
     setShowDescription: tSetShowDescription,
     resetState: () => (dispatch) => {
         dispatch(acSetSelected({}))
-        dispatch(acClearDashboardsFilter())
         dispatch(acClearVisualizations())
         dispatch(acClearEditDashboard())
         dispatch(acClearPrintDashboard())
