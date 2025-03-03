@@ -8,7 +8,6 @@ env:
     CI: true
     DEV_URL: 'https://test.e2e.dhis2.org/analytics-dev'
     API_VERSION: 42
-    SHOULD_RUN: ${{ contains(github.event.pull_request.labels.*.name, 'e2e dev') }}
     SHOULD_RECORD: ${{ contains(github.event.pull_request.labels.*.name, 'e2e record') }}
 
 concurrency:
@@ -21,7 +20,7 @@ defaults:
 
 jobs:
     setup-matrix:
-        if: ${{ env.SHOULD_RUN }}
+        if: ${{ contains(github.event.pull_request.labels.*.name, 'e2e dev') }}
         runs-on: ubuntu-latest
         outputs:
             matrix: ${{ steps.set-matrix.outputs.specs }}
@@ -33,7 +32,7 @@ jobs:
 
     e2e-dev:
         needs: setup-matrix
-        if: ${{ env.SHOULD_RUN }}
+        if: ${{ contains(github.event.pull_request.labels.*.name, 'e2e dev') }}
         runs-on: ubuntu-latest
         strategy:
             fail-fast: false
