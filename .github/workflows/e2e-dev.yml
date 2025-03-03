@@ -1,4 +1,4 @@
-name: 'E2E - Development'
+name: 'e2e development'
 
 on:
     pull_request:
