@@ -5,8 +5,8 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1)\n"
-"POT-Creation-Date: 2025-02-26T10:24:56.989Z\n"
-"PO-Revision-Date: 2025-02-26T10:24:56.990Z\n"
+"POT-Creation-Date: 2025-03-03T12:06:41.491Z\n"
+"PO-Revision-Date: 2025-03-03T12:06:41.491Z\n"
 
 msgid "Untitled dashboard"
 msgstr "Untitled dashboard"
@@ -25,6 +25,9 @@ msgstr "Embedded provider must be \"SUPERSET\" for dashboard ID \"{{dashboardId}
 
 msgid "Superset Embed UUID not found for dashboard ID \"{{dashboardId}}\""
 msgstr "Superset Embed UUID not found for dashboard ID \"{{dashboardId}}\""
+
+msgid "Dashboard with ID \"{{dashboardId}}\" not found on the Superset service"
+msgstr "Dashboard with ID \"{{dashboardId}}\" not found on the Superset service"
 
 msgid ""
 "Could not get guest token from Superset Gateway for dashboard ID "
