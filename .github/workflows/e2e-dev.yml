@@ -1,0 +1,73 @@
+name: 'E2E - Development'
+
+on:
+    pull_request:
+        types: ['opened', 'labeled', 'reopened', 'synchronize']
+
+env:
+    CI: true
+    DEV_URL: 'https://test.e2e.dhis2.org/analytics-dev'
+
+concurrency:
+    group: ${{ github.workflow}}-${{ github.ref }}
+    cancel-in-progress: true
+
+defaults:
+    run:
+        shell: bash
+
+jobs:
+    compute-dev-version:
+        if: contains(github.event.pull_request.labels.*.name, 'e2e dev')
+        runs-on: ubuntu-latest
+        outputs:
+            version: ${{ steps.instance-version.outputs.version }}
+        steps:
+            - name: Output dev version
+              id: instance-version
+              uses: dhis2/action-instance-version@v1
+              with:
+                  instance-url: ${{ env.DEV_URL }}
+                  username: ${{ secrets.CYPRESS_DHIS2_USERNAME }}
+                  password: ${{ secrets.CYPRESS_DHIS2_PASSWORD }}
+
+    e2e-dev:
+        needs: compute-dev-version
+        if: contains(github.event.pull_request.labels.*.name, 'e2e dev')
+        runs-on: ubuntu-latest
+        strategy:
+            fail-fast: false
+            matrix:
+                containers: [1, 2, 3, 4]
+        steps:
+            - uses: actions/checkout@v4
+            - uses: actions/setup-node@v4
+              with:
+                  node-version: 20.x
+            - name: Install
+              run: yarn install --frozen-lockfile
+
+            - name: Generate translations
+              run: yarn d2-app-scripts i18n generate
+
+            - name: Run e2e tests
+              uses: cypress-io/github-action@v5
+              with:
+                  start: yarn d2-app-scripts start
+                  wait-on: 'http://localhost:3000'
+                  wait-on-timeout: 300
+                  record: ${{ contains(github.event.pull_request.labels.*.name, 'e2e record') }}
+                  parallel: ${{ contains(github.event.pull_request.labels.*.name, 'e2e record') }}
+                  browser: chrome
+                  group: E2E Suite against Dev container ${{ matrix.containers }}
+                  ci-build-id: ${{ inputs.should_record && github.run_id || '' }}
+              env:
+                  CI: true
+                  BROWSER: none
+                  CYPRESS_RECORD_KEY: ${{ secrets.recordkey }}
+                  CYPRESS_dhis2BaseUrl: ${{ env.DEV_URL }}
+                  CYPRESS_dhis2InstanceVersion: ${{ needs.compute-dev-version.outputs.version }}
+                  CYPRESS_dhis2Username: ${{ secrets.CYPRESS_DHIS2_USERNAME }}
+                  CYPRESS_dhis2Password: ${{ secrets.CYPRESS_DHIS2_PASSWORD }}
+                  CYPRESS_networkMode: live
+                  GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
