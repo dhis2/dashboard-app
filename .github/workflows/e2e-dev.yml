@@ -18,7 +18,7 @@ defaults:
 
 jobs:
     compute-dev-version:
-        if: contains(github.event.pull_request.labels.*.name, 'e2e-record')
+        if: contains(github.event.pull_request.labels.*.name, 'e2e dev')
         runs-on: ubuntu-latest
         outputs:
             version: ${{ steps.instance-version.outputs.version }}
@@ -31,9 +31,9 @@ jobs:
                   username: ${{ secrets.CYPRESS_DHIS2_USERNAME }}
                   password: ${{ secrets.CYPRESS_DHIS2_PASSWORD }}
 
-    e2e-record:
+    e2e-dev:
         needs: compute-dev-version
-        if: contains(github.event.pull_request.labels.*.name, 'e2e-record')
+        if: contains(github.event.pull_request.labels.*.name, 'e2e dev')
         runs-on: ubuntu-latest
         strategy:
             fail-fast: false
