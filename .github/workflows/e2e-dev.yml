@@ -50,10 +50,13 @@ jobs:
               run: yarn d2-app-scripts i18n generate
 
             - name: Debug Cypress arguments
+              env:
+                  GROUP: env.SHOULD_RECORD && ${{ format('e2e-chrome-parallel-{0}', matrix.spec-group.id) }} || ''
+                  CI_BUILD_ID: env.SHOULD_RECORD && ${{ github.run_id }} || ''
               run: |
                   echo "env.SHOULD_RECORD: ${{ env.SHOULD_RECORD }}"
-                  echo "Group: ${{ env.SHOULD_RECORD && format('e2e-chrome-parallel-{0}', matrix.spec-group.id) || '' }}"
-                  echo "CI Build ID: ${{ env.SHOULD_RECORD && github.run_id || '' }}"
+                  echo "Group: ${{ env.GROUP }}"
+                  echo "CI Build ID: ${{ env.CI_BUILD_ID }}"
 
             - name: Run e2e tests
               uses: cypress-io/github-action@v5
@@ -65,8 +68,8 @@ jobs:
                   parallel: ${{ env.SHOULD_RECORD }}
                   browser: chrome
                   spec: ${{ join(matrix.spec-group.tests, ',') }}
-                  group: ${{ env.SHOULD_RECORD && format('e2e-chrome-parallel-{0}', matrix.spec-group.id) || '' }}
-                  ci-build-id: ${{ env.SHOULD_RECORD && github.run_id || '' }}
+                  group: env.SHOULD_RECORD && ${{ format('e2e-chrome-parallel-{0}', matrix.spec-group.id) }} || ''
+                  ci-build-id: env.SHOULD_RECORD && ${{ github.run_id }} || ''
               env:
                   CI: true
                   BROWSER: none
