@@ -91,7 +91,6 @@ class SupersetGatewayGuestTokenError extends Error {
 function parseMessageForErrorCode(dashboardId, errorCode) {
     switch (errorCode) {
         case 'E1001':
-        case 'E1005':
             return i18n.t(
                 'Dashboard with ID "{{dashboardId}}" not found or not accessible',
                 { dashboardId }
@@ -109,6 +108,11 @@ function parseMessageForErrorCode(dashboardId, errorCode) {
         case 'E1004':
             return i18n.t(
                 'Superset Embed UUID not found for dashboard ID "{{dashboardId}}"',
+                { dashboardId }
+            )
+        case 'E1005':
+            return i18n.t(
+                'Dashboard with ID "{{dashboardId}}" not found on the Superset service',
                 { dashboardId }
             )
         default:
