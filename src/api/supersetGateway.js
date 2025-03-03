@@ -30,8 +30,13 @@ export const useFetchSupersetBaseUrl = () => {
     const fetchSupersetBaseUrl = useCallback(async () => {
         try {
             const response = await fetch(url)
-            const { supersetBaseUrl } = await response.json()
-            return supersetBaseUrl
+
+            if (!response.ok) {
+                throw new Error(`Response from ${url} was not OK`)
+            } else {
+                const { supersetBaseUrl } = await response.json()
+                return supersetBaseUrl
+            }
         } catch (error) {
             console.error(error)
             throw new Error(
@@ -54,18 +59,39 @@ export const usePostSupersetGuestToken = (dashboardId) => {
                 method: 'POST',
                 credentials: 'include',
             })
-            const { token } = await response.json()
-            return token
+
+            if (!response.ok) {
+                const { errorCode } = await response.json()
+                throw new SupersetGatewayGuestTokenError(dashboardId, errorCode)
+            } else {
+                const { token } = await response.json()
+                return token
+            }
         } catch (error) {
-            throw new Error(parseMessageForErrorCode(dashboardId, error.code))
+            console.error(error)
+            if (error instanceof SupersetGatewayGuestTokenError) {
+                // Error based on error code in response, so we show a specific localised message
+                throw error
+            } else {
+                // Unexpected error occurred, so we show the default localised message
+                throw new SupersetGatewayGuestTokenError(dashboardId)
+            }
         }
     }, [dashboardId, url])
     return postSupersetGuestToken
 }
 
+class SupersetGatewayGuestTokenError extends Error {
+    constructor(dashboardId, errorCode) {
+        super(parseMessageForErrorCode(dashboardId, errorCode))
+        this.errorCode = errorCode
+    }
+}
+
 function parseMessageForErrorCode(dashboardId, errorCode) {
     switch (errorCode) {
         case 'E1001':
+        case 'E1005':
             return i18n.t(
                 'Dashboard with ID "{{dashboardId}}" not found or not accessible',
                 { dashboardId }
