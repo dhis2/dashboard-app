@@ -1,0 +1,29 @@
+.container {
+    cursor: pointer;
+}
+
+.container svg {
+    fill: var(--colors-grey700);
+}
+
+.container.checked svg {
+    fill: var(--colors-teal700);
+}
+
+.container .title {
+    color: var(--colors-grey900);
+    font-weight: 500;
+    margin: 0;
+}
+
+.subtitle {
+    margin: 0;
+    margin-inline-start: var(--spacers-dp24);
+}
+
+.container input {
+    appearance: none;
+    inline-size: 0;
+    block-size: 0;
+    opacity: 0;
+}
