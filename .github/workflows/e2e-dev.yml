@@ -49,12 +49,6 @@ jobs:
             - name: Generate translations
               run: yarn d2-app-scripts i18n generate
 
-            - name: Debug Cypress arguments
-              run: |
-                  echo "env.SHOULD_RECORD: ${{ env.SHOULD_RECORD }}"
-                  echo "Group: ${{ env.SHOULD_RECORD == 'true' && format('e2e-chrome-parallel-{0}', matrix.spec-group.id) || '' }}"
-                  echo "CI Build ID: ${{ env.SHOULD_RECORD == 'true'&& github.run_id || '' }}"
-
             - name: Run e2e tests
               uses: cypress-io/github-action@v5
               with:
