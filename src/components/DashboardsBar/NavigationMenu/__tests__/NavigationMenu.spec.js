@@ -81,14 +81,14 @@ describe('NavigationMenu', () => {
     it('requests the dashboards using the correct parameters', async () => {
         const { getAllByRole } = render(
             <Router history={createMemoryHistory()}>
-                <NavigationMenu close={() => {}} />
+                <NavigationMenu close={() => {}} hasDashboards={true} />
             </Router>
         )
 
         await waitFor(() => {
             expect(dataEngine.query).toHaveBeenCalledWith(
                 { dashboards: expect.any(Object) },
-                { variables: { page: 1, searchTerm: '' } }
+                { variables: { page: 1, filterText: '' } }
             )
         })
 
@@ -110,7 +110,7 @@ describe('NavigationMenu', () => {
         await act(async () => {
             const renderResult = render(
                 <Router history={createMemoryHistory()}>
-                    <NavigationMenu close={() => {}} />
+                    <NavigationMenu close={() => {}} hasDashboards={false} />
                 </Router>
             )
             getByText = renderResult.getByText

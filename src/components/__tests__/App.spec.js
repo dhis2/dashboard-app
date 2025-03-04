@@ -21,6 +21,7 @@ jest.mock('@dhis2/app-runtime', () => ({
         isDisconnected: false,
     })),
     useDataEngine: jest.fn(() => ({ query: Function.prototype })),
+    useDataQuery: jest.fn(() => ({ query: Function.prototype })),
     useCacheableSection: jest.fn,
 }))
 
