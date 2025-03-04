@@ -4,6 +4,7 @@ import { Input, Menu } from '@dhis2/ui'
 import cx from 'classnames'
 import PropTypes from 'prop-types'
 import React, { useCallback, useEffect, useRef, useState } from 'react'
+import useDebounce from '../../../modules/useDebounce.js'
 import { EndIntersectionDetector } from './EndIntersectionDetector.js'
 import { NavigationMenuItem } from './NavigationMenuItem.js'
 import styles from './styles/NavigationMenu.module.css'
@@ -29,6 +30,8 @@ export const NavigationMenu = ({ close, hasDashboards }) => {
     const [dashboards, setDashboards] = useState([])
     const [filterText, setFilterText] = useState('')
     const [page, setPage] = useState(1)
+    const debouncedFilterText = useDebounce(filterText, 300)
+    const debouncedPage = useDebounce(page, 500)
 
     useEffect(() => {
         const fetchDashboards = async () => {
@@ -36,8 +39,8 @@ export const NavigationMenu = ({ close, hasDashboards }) => {
                 { dashboards: dashboardsQuery },
                 {
                     variables: {
-                        page,
-                        searchTerm: filterText,
+                        page: debouncedPage,
+                        searchTerm: debouncedFilterText,
                     },
                 }
             )
@@ -52,7 +55,7 @@ export const NavigationMenu = ({ close, hasDashboards }) => {
             setInitialFetchComplete(true)
 
             setDashboards((currentDashboards) =>
-                page > 1
+                debouncedPage > 1
                     ? [...currentDashboards, ...response.dashboards]
                     : response.dashboards
             )
@@ -62,15 +65,16 @@ export const NavigationMenu = ({ close, hasDashboards }) => {
             }
         }
 
-        if (page !== null) {
+        if (debouncedPage !== null) {
             fetchDashboards()
         }
-    }, [dataEngine, page, filterText])
+    }, [dataEngine, debouncedPage, debouncedFilterText])
 
     const onFilterChange = useCallback(({ value }) => {
-        setFilterText(value)
         setPage(1)
-        // to prevent onEndReached from firing when the user is typing
+        setFilterText(value)
+
+        // prevent onEndReached from firing when the user changing filter text
         scrollBoxRef.current?.scrollTo({
             top: 0,
             left: 0,
