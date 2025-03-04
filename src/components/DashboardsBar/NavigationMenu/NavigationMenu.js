@@ -9,6 +9,8 @@ import { NavigationMenuItem } from './NavigationMenuItem.js'
 import styles from './styles/NavigationMenu.module.css'
 import itemStyles from './styles/NavigationMenuItem.module.css'
 
+const hasDashboards = true
+
 const dashboardsQuery = {
     resource: 'dashboards',
     params: ({ page, searchTerm }) => {
@@ -25,7 +27,7 @@ const dashboardsQuery = {
 
 export const NavigationMenu = ({ close }) => {
     const dataEngine = useDataEngine()
-    const [initialDashboardsCount, setInitialDashboardsCount] = useState(null)
+    const [initialFetchComplete, setInitialFetchComplete] = useState(null)
     const [dashboards, setDashboards] = useState([])
     const [filterText, setFilterText] = useState('')
     const [page, setPage] = useState(1)
@@ -49,9 +51,7 @@ export const NavigationMenu = ({ close }) => {
                     : null,
             }
 
-            if (initialDashboardsCount === null) {
-                setInitialDashboardsCount(response.dashboards.length)
-            }
+            setInitialFetchComplete(true)
 
             setDashboards((currentDashboards) =>
                 page > 1
@@ -67,19 +67,27 @@ export const NavigationMenu = ({ close }) => {
         if (page !== null) {
             fetchDashboards()
         }
-    }, [dataEngine, initialDashboardsCount, page, filterText])
+    }, [dataEngine, page, filterText])
 
     const onFilterChange = useCallback(({ value }) => {
         setFilterText(value)
         setPage(1)
+        // to prevent onEndReached from firing when the user is typing
+        scrollBoxRef.current?.scrollTo({
+            top: 0,
+            left: 0,
+            behavior: 'smooth',
+            instant: false,
+        })
     }, [])
 
     const onEndReached = useCallback(() => {
-        setPage((prevPage) => (prevPage !== null ? prevPage + 1 : prevPage))
+        setPage((currPage) => (currPage !== null ? currPage + 1 : currPage))
     }, [])
 
     const scrollBoxRef = useRef(null)
 
+    // scroll initially to the selected item
     useEffect(() => {
         scrollBoxRef.current
             ?.getElementsByClassName(itemStyles.selectedItem)
@@ -91,7 +99,7 @@ export const NavigationMenu = ({ close }) => {
             })
     }, [])
 
-    if (initialDashboardsCount === 0) {
+    if (!hasDashboards) {
         return (
             <div className={cx(styles.container, styles.noDashboardsAvailable)}>
                 <p>{i18n.t('No dashboards available.')}</p>
@@ -112,7 +120,7 @@ export const NavigationMenu = ({ close }) => {
                     initialFocus={true}
                 />
             </div>
-            {initialDashboardsCount !== null && (
+            {initialFetchComplete !== null && (
                 <div ref={scrollBoxRef} className={styles.scrollbox}>
                     <Menu dense>
                         {dashboards.length === 0 ? (
