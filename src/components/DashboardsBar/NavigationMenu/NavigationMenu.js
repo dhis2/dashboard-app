@@ -12,11 +12,11 @@ import itemStyles from './styles/NavigationMenuItem.module.css'
 
 const dashboardsQuery = {
     resource: 'dashboards',
-    params: ({ page, searchTerm }) => {
+    params: ({ page, filterText }) => {
         return {
             fields: 'id,displayName,favorite~rename(starred)',
             order: 'favorite:desc,displayName:asc',
-            filter: searchTerm ? `displayName:ilike:${searchTerm}` : undefined,
+            filter: filterText ? `displayName:ilike:${filterText}` : undefined,
             paging: true,
             pageSize: 8,
             page,
@@ -28,19 +28,21 @@ export const NavigationMenu = ({ close, hasDashboards }) => {
     const dataEngine = useDataEngine()
     const [initialFetchComplete, setInitialFetchComplete] = useState(null)
     const [dashboards, setDashboards] = useState([])
-    const [filterText, setFilterText] = useState('')
-    const [page, setPage] = useState(1)
-    const debouncedFilterText = useDebounce(filterText, 300)
-    const debouncedPage = useDebounce(page, 500)
+    const [requestParams, setRequestParams] = useState({
+        page: 1,
+        filterText: '',
+    })
+    const debouncedRequestParams = useDebounce(requestParams, 300)
 
     useEffect(() => {
         const fetchDashboards = async () => {
+            const { page, filterText } = debouncedRequestParams
             const data = await dataEngine.query(
                 { dashboards: dashboardsQuery },
                 {
                     variables: {
-                        page: debouncedPage,
-                        searchTerm: debouncedFilterText,
+                        page,
+                        filterText,
                     },
                 }
             )
@@ -55,24 +57,23 @@ export const NavigationMenu = ({ close, hasDashboards }) => {
             setInitialFetchComplete(true)
 
             setDashboards((currentDashboards) =>
-                debouncedPage > 1
+                page > 1
                     ? [...currentDashboards, ...response.dashboards]
                     : response.dashboards
             )
 
             if (response.nextPage === null) {
-                setPage(null)
+                setRequestParams({ page: null, filterText })
             }
         }
 
-        if (debouncedPage !== null) {
+        if (debouncedRequestParams.page !== null) {
             fetchDashboards()
         }
-    }, [dataEngine, debouncedPage, debouncedFilterText])
+    }, [dataEngine, debouncedRequestParams])
 
     const onFilterChange = useCallback(({ value }) => {
-        setPage(1)
-        setFilterText(value)
+        setRequestParams({ page: 1, filterText: value })
 
         // prevent onEndReached from firing when the user changing filter text
         scrollBoxRef.current?.scrollTo({
@@ -84,7 +85,13 @@ export const NavigationMenu = ({ close, hasDashboards }) => {
     }, [])
 
     const onEndReached = useCallback(() => {
-        setPage((currPage) => (currPage !== null ? currPage + 1 : currPage))
+        setRequestParams((currParams) => ({
+            ...currParams,
+            page:
+                currParams.page !== null
+                    ? currParams.page + 1
+                    : currParams.page,
+        }))
     }, [])
 
     const scrollBoxRef = useRef(null)
@@ -117,7 +124,7 @@ export const NavigationMenu = ({ close, hasDashboards }) => {
                     dense
                     type="search"
                     placeholder={i18n.t('Search for a dashboard')}
-                    value={filterText}
+                    value={requestParams.filterText}
                     onChange={onFilterChange}
                     initialFocus={true}
                 />
@@ -130,7 +137,7 @@ export const NavigationMenu = ({ close, hasDashboards }) => {
                                 {i18n.t(
                                     'No dashboards found for "{{- filterText}}"',
                                     {
-                                        filterText,
+                                        filterText: requestParams.filterText,
                                     }
                                 )}
                             </li>
