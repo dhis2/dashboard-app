@@ -21,6 +21,7 @@ import {
     REPORT_TABLE,
 } from '../../../../modules/itemTypes.js'
 import { sGetSelectedId } from '../../../../reducers/selected.js'
+import { useInstalledAppVersions } from '../../../InstalledAppVersionsProvider.js'
 import getFilteredVisualization from './getFilteredVisualization.js'
 import getVisualizationConfig from './getVisualizationConfig.js'
 import IframePlugin from './IframePlugin.js'
@@ -47,12 +48,9 @@ const Visualization = ({
 }) => {
     const dashboardId = useSelector(sGetSelectedId)
     const { isDisconnected: offline } = useDhis2ConnectionStatus()
-    const {
-        dataVisualizerAppVersion,
-        lineListingAppVersion,
-        mapsAppVersion,
-        apps,
-    } = useCachedDataQuery()
+    const { apps } = useCachedDataQuery()
+    const { dataVisualizerAppVersion, lineListingAppVersion, mapsAppVersion } =
+        useInstalledAppVersions()
 
     const visualizationConfig = useMemo(() => {
         if (originalType === EVENT_VISUALIZATION) {
