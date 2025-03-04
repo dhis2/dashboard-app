@@ -20,7 +20,6 @@ import DashboardContainer from '../../components/DashboardContainer.js'
 import DashboardsBar from '../../components/DashboardsBar/index.js'
 import { setHeaderbarVisible } from '../../modules/setHeaderbarVisible.js'
 import { useCacheableSection } from '../../modules/useCacheableSection.js'
-import { sGetDashboardById } from '../../reducers/dashboards.js'
 import { sGetPassiveViewRegistered } from '../../reducers/passiveViewRegistered.js'
 import { sGetSelectedId } from '../../reducers/selected.js'
 import classes from './styles/ViewDashboard.module.css'
@@ -30,9 +29,9 @@ const ViewDashboard = ({
     clearEditDashboard,
     clearPrintDashboard,
     fetchDashboard,
+    hasDashboards,
     passiveViewRegistered,
     registerPassiveView,
-    requestedDashboardName,
     requestedId,
     setSelectedAsOffline,
     username,
@@ -50,14 +49,10 @@ const ViewDashboard = ({
     const loadDashboard = useCallback(async () => {
         setLoading(true)
 
-        alertTimeoutRef.current = setTimeout(() => {
-            const message = requestedDashboardName
-                ? i18n.t('Loading dashboard – {{name}}', {
-                      name: requestedDashboardName,
-                  })
-                : i18n.t('Loading dashboard')
-            showAlert({ message })
-        }, 500)
+        alertTimeoutRef.current = setTimeout(
+            () => showAlert({ message: i18n.t('Loading dashboard') }),
+            500
+        )
 
         try {
             await fetchDashboard(requestedId, username)
@@ -69,14 +64,7 @@ const ViewDashboard = ({
             setLoading(false)
             clearTimeout(alertTimeoutRef.current)
         }
-    }, [
-        fetchDashboard,
-        requestedDashboardName,
-        requestedId,
-        setSelectedAsOffline,
-        showAlert,
-        username,
-    ])
+    }, [fetchDashboard, requestedId, setSelectedAsOffline, showAlert, username])
 
     useEffect(() => {
         if (!loading && !loaded && !loadFailed) {
@@ -134,7 +122,7 @@ const ViewDashboard = ({
             className={cx(classes.container, 'dashboard-scroll-container')}
             data-test="outer-scroll-container"
         >
-            <DashboardsBar />
+            <DashboardsBar hasDashboards={hasDashboards} />
             <DashboardContainer>
                 <ViewDashboardContent
                     isCached={isCached}
@@ -151,20 +139,17 @@ ViewDashboard.propTypes = {
     clearEditDashboard: PropTypes.func,
     clearPrintDashboard: PropTypes.func,
     fetchDashboard: PropTypes.func,
+    hasDashboards: PropTypes.bool,
     passiveViewRegistered: PropTypes.bool,
     registerPassiveView: PropTypes.func,
-    requestedDashboardName: PropTypes.string,
     requestedId: PropTypes.string,
     setSelectedAsOffline: PropTypes.func,
     username: PropTypes.string,
 }
 
-const mapStateToProps = (state, ownProps) => {
-    const dashboard = sGetDashboardById(state, ownProps.requestedId) || {}
-
+const mapStateToProps = (state) => {
     return {
         passiveViewRegistered: sGetPassiveViewRegistered(state),
-        requestedDashboardName: dashboard.displayName || null,
         currentId: sGetSelectedId(state),
     }
 }
