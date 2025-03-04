@@ -7,7 +7,7 @@ import InformationBlock from './InformationBlock/InformationBlock.js'
 import { IconNavigation, NavigationMenu } from './NavigationMenu/index.js'
 import styles from './styles/DashboardsBar.module.css'
 
-export const DashboardsBar = ({ hasDashboards }) => {
+export const DashboardsBar = (props) => {
     const history = useHistory()
     const [navigationMenuOpen, setNavigationMenuOpen] = useState(false)
 
@@ -32,7 +32,7 @@ export const DashboardsBar = ({ hasDashboards }) => {
                     component={
                         <NavigationMenu
                             close={() => setNavigationMenuOpen(false)}
-                            hasDashboards={hasDashboards}
+                            {...props}
                         />
                     }
                 >
@@ -44,8 +44,4 @@ export const DashboardsBar = ({ hasDashboards }) => {
             <InformationBlock />
         </div>
     )
-}
-
-DashboardsBar.propTypes = {
-    hasDashboards: PropTypes.bool,
 }

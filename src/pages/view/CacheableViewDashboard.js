@@ -69,6 +69,7 @@ const CacheableViewDashboard = ({ match }) => {
                         setHasDashboards(false)
                         return
                     }
+
                     const firstDashboardId = dashboards?.dashboards[0]?.id
                     setIdToLoad(firstDashboardId)
                     return
