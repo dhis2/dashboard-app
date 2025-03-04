@@ -1,12 +1,13 @@
 import i18n from '@dhis2/d2-i18n'
 import { Button, IconAdd16, DropdownButton } from '@dhis2/ui'
+import PropTypes from 'prop-types'
 import React, { useState } from 'react'
 import { useHistory } from 'react-router-dom'
 import InformationBlock from './InformationBlock/InformationBlock.js'
 import { IconNavigation, NavigationMenu } from './NavigationMenu/index.js'
 import styles from './styles/DashboardsBar.module.css'
 
-export const DashboardsBar = () => {
+export const DashboardsBar = ({ hasDashboards }) => {
     const history = useHistory()
     const [navigationMenuOpen, setNavigationMenuOpen] = useState(false)
 
@@ -31,6 +32,7 @@ export const DashboardsBar = () => {
                     component={
                         <NavigationMenu
                             close={() => setNavigationMenuOpen(false)}
+                            hasDashboards={hasDashboards}
                         />
                     }
                 >
@@ -42,4 +44,8 @@ export const DashboardsBar = () => {
             <InformationBlock />
         </div>
     )
+}
+
+DashboardsBar.propTypes = {
+    hasDashboards: PropTypes.bool,
 }

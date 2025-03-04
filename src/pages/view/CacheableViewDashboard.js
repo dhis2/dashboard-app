@@ -44,6 +44,7 @@ const CacheableViewDashboard = ({ match }) => {
     const dispatch = useDispatch()
     const [idToLoad, setIdToLoad] = useState(null)
     const [fetchError, setFetchError] = useState(null)
+    const [hasDashboards, setHasDashboards] = useState(true)
     const selectedId = useSelector(sGetSelectedId)
     const preferredId = getPreferredDashboardId(currentUser.username) || null
     // match comes from react-router-dom
@@ -58,12 +59,14 @@ const CacheableViewDashboard = ({ match }) => {
     useEffect(() => {
         const fetchIdToLoad = async () => {
             try {
+                // no dashboard id provided so fetch the first starred/alphabetical dashboard
                 if (!routeId && !preferredId) {
                     const { dashboards } = await engine.query(
                         firstDashboardQuery
                     )
                     if (dashboards.dashboards.length === 0) {
                         setFetchError(NO_DASHBOARDS_FOUND)
+                        setHasDashboards(false)
                         return
                     }
                     const firstDashboardId = dashboards?.dashboards[0]?.id
@@ -71,6 +74,7 @@ const CacheableViewDashboard = ({ match }) => {
                     return
                 }
 
+                // get the dashboard by id
                 if (routeId) {
                     const { dashboard } = await engine.query(
                         requestedDashboardQuery,
@@ -82,6 +86,7 @@ const CacheableViewDashboard = ({ match }) => {
                     return
                 }
 
+                // get the preferred dashboard
                 const { dashboard } = await engine.query(
                     requestedDashboardQuery,
                     {
@@ -94,17 +99,20 @@ const CacheableViewDashboard = ({ match }) => {
                 if (routeId) {
                     setIdToLoad(null)
                     setFetchError(REQUESTED_DASHBOARD_NOT_FOUND)
-                    return
                 }
 
                 const { dashboards } = await engine.query(firstDashboardQuery)
 
                 if (dashboards.dashboards.length === 0) {
-                    setFetchError(NO_DASHBOARDS_FOUND)
+                    setHasDashboards(false)
+
+                    if (!routeId) {
+                        setFetchError(NO_DASHBOARDS_FOUND)
+                    }
                     setIdToLoad(null)
                     return
                 }
-                const firstDashboardId = dashboards?.dashboards[0]?.id
+                const firstDashboardId = dashboards.dashboards[0].id
                 setIdToLoad(firstDashboardId)
             }
         }
@@ -116,7 +124,7 @@ const CacheableViewDashboard = ({ match }) => {
     if (fetchError) {
         return (
             <>
-                <DashboardsBar />
+                <DashboardsBar hasDashboards={hasDashboards} />
 
                 <NoContentMessage
                     text={
@@ -143,6 +151,7 @@ const CacheableViewDashboard = ({ match }) => {
                 key={cacheSectionId}
                 requestedId={idToLoad}
                 username={currentUser.username}
+                hasDashboards={hasDashboards}
             />
         </CacheableSection>
     )

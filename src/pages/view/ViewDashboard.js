@@ -29,6 +29,7 @@ const ViewDashboard = ({
     clearEditDashboard,
     clearPrintDashboard,
     fetchDashboard,
+    hasDashboards,
     passiveViewRegistered,
     registerPassiveView,
     requestedId,
@@ -121,7 +122,7 @@ const ViewDashboard = ({
             className={cx(classes.container, 'dashboard-scroll-container')}
             data-test="outer-scroll-container"
         >
-            <DashboardsBar />
+            <DashboardsBar hasDashboards={hasDashboards} />
             <DashboardContainer>
                 <ViewDashboardContent
                     isCached={isCached}
@@ -138,6 +139,7 @@ ViewDashboard.propTypes = {
     clearEditDashboard: PropTypes.func,
     clearPrintDashboard: PropTypes.func,
     fetchDashboard: PropTypes.func,
+    hasDashboards: PropTypes.bool,
     passiveViewRegistered: PropTypes.bool,
     registerPassiveView: PropTypes.func,
     requestedId: PropTypes.string,

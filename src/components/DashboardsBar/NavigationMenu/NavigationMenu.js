@@ -9,8 +9,6 @@ import { NavigationMenuItem } from './NavigationMenuItem.js'
 import styles from './styles/NavigationMenu.module.css'
 import itemStyles from './styles/NavigationMenuItem.module.css'
 
-const hasDashboards = true
-
 const dashboardsQuery = {
     resource: 'dashboards',
     params: ({ page, searchTerm }) => {
@@ -25,7 +23,7 @@ const dashboardsQuery = {
     },
 }
 
-export const NavigationMenu = ({ close }) => {
+export const NavigationMenu = ({ close, hasDashboards }) => {
     const dataEngine = useDataEngine()
     const [initialFetchComplete, setInitialFetchComplete] = useState(null)
     const [dashboards, setDashboards] = useState([])
@@ -161,4 +159,5 @@ export const NavigationMenu = ({ close }) => {
 
 NavigationMenu.propTypes = {
     close: PropTypes.func.isRequired,
+    hasDashboards: PropTypes.bool.isRequired,
 }
