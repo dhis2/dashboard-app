@@ -1,3 +1,10 @@
+## [101.0.4](https://github.com/dhis2/dashboard-app/compare/v101.0.3...v101.0.4) (2025-03-05)
+
+
+### Bug Fixes
+
+* retrieve the correct plugin versions for installed and bundled apps [DHIS2-19138] ([#3236](https://github.com/dhis2/dashboard-app/issues/3236)) ([4082158](https://github.com/dhis2/dashboard-app/commit/40821588f71570d624e0fe7d95360f080a67ffdf))
+
 ## [101.0.3](https://github.com/dhis2/dashboard-app/compare/v101.0.2...v101.0.3) (2025-02-20)
 
 
