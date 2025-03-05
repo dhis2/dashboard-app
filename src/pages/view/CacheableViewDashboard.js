@@ -5,6 +5,10 @@ import PropTypes from 'prop-types'
 import React, { useEffect, useState } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import { acClearSelected } from '../../actions/selected.js'
+import {
+    firstDashboardQuery,
+    requestedDashboardQuery,
+} from '../../api/fetchDashboards.js'
 import DashboardsBar from '../../components/DashboardsBar/index.js'
 import LoadingMask from '../../components/LoadingMask.js'
 import NoContentMessage from '../../components/NoContentMessage.js'
@@ -12,28 +16,6 @@ import getCacheableSectionId from '../../modules/getCacheableSectionId.js'
 import { getPreferredDashboardId } from '../../modules/localStorage.js'
 import { sGetSelectedId } from '../../reducers/selected.js'
 import ViewDashboard from './ViewDashboard.js'
-
-const firstDashboardQuery = {
-    dashboards: {
-        resource: 'dashboards',
-        params: {
-            fields: 'id,favorite,displayName',
-            order: 'favorite:desc,displayName:asc',
-            paging: true,
-            pageSize: 1,
-        },
-    },
-}
-
-const requestedDashboardQuery = {
-    dashboard: {
-        resource: 'dashboards',
-        id: ({ id }) => id,
-        params: {
-            fields: ['id', 'displayName'],
-        },
-    },
-}
 
 const NO_DASHBOARDS_FOUND = 'NO_DASHBOARDS_FOUND'
 const REQUESTED_DASHBOARD_NOT_FOUND = 'REQUESTED_DASHBOARD_NOT_FOUND'

@@ -24,7 +24,6 @@ import {
 import { acClearPrintDashboard } from '../../actions/printDashboard.js'
 import { acClearSelected } from '../../actions/selected.js'
 import ConfirmActionDialog from '../../components/ConfirmActionDialog.js'
-import { removePreferredDashboardId } from '../../modules/localStorage.js'
 import {
     sGetEditDashboardRoot,
     sGetIsPrintPreviewView,
@@ -87,7 +86,6 @@ const EditBar = ({ dashboard, ...props }) => {
             })
             .then(() => {
                 props.clearSelected()
-                removePreferredDashboardId(currentUser.username)
             })
             .then(() => setRedirectUrl('/'))
             .catch(deleteFailureAlert.show)

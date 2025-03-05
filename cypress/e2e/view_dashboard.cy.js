@@ -66,6 +66,7 @@ describe('view dashboard', () => {
         getNavigationMenuFilter().type('Immun')
         getNavigationMenuItem('Immunization', true).should('be.visible')
         getNavigationMenuItem('Immunization data', true).should('be.visible')
+        getNavigationMenuItem('Delivery', true).should('not.exist')
 
         // open the Immunization dashboard
         getNavigationMenuItem('Immunization', true).click()
@@ -105,8 +106,6 @@ describe('view dashboard', () => {
             .and('contain', 'Delivery')
     })
 
-    //     Given I open the "Delivery" dashboard with shapes removed
-    //     Then the "Delivery" dashboard displays in view mode
     it('display dashboard with items lacking shape', () => {
         const title = 'Delivery'
         const regex = new RegExp(`dashboards/${dashboards[title].id}`, 'g')
