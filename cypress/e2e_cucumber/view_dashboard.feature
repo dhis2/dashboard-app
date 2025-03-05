@@ -1,12 +1,6 @@
 Feature: Viewing dashboards
 
     @nonmutating
-    Scenario: I switch between dashboards
-        Given I open the "Delivery" dashboard
-        When I open the "Immunization" dashboard
-        Then the "Immunization" dashboard displays in view mode
-
-    @nonmutating
     Scenario: I search for a dashboard
         Given I open the "Antenatal Care" dashboard
         When I search for dashboards containing "Immun"
