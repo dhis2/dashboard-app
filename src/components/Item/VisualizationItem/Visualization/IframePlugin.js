@@ -1,4 +1,3 @@
-import { useCachedDataQuery } from '@dhis2/analytics'
 import { useConfig } from '@dhis2/app-runtime'
 // eslint-disable-next-line import/no-unresolved
 import { Plugin } from '@dhis2/app-runtime/experimental'
@@ -20,6 +19,7 @@ import {
     INSTALLATION_STATUS_UNKNOWN,
     sGetIframePluginStatus,
 } from '../../../../reducers/iframePluginStatus.js'
+import { useInstalledApps } from '../../../InstalledAppsProvider.js'
 import { useUserSettings } from '../../../UserSettingsProvider.js'
 import MissingPluginMessage from '../../ItemMessage/MissingPluginMessage.js'
 import VisualizationErrorMessage from '../../ItemMessage/VisualizationErrorMessage.js'
@@ -41,7 +41,7 @@ const IframePlugin = ({
     const { baseUrl } = useConfig()
     const { userSettings } = useUserSettings()
     const [error, setError] = useState(null)
-    const { apps } = useCachedDataQuery()
+    const apps = useInstalledApps()
 
     // When this mounts, check if the dashboard is recording
     const { isCached } = useCacheableSection(dashboardId)

@@ -5,8 +5,8 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1)\n"
-"POT-Creation-Date: 2025-02-07T10:20:57.831Z\n"
-"PO-Revision-Date: 2025-02-07T10:20:57.833Z\n"
+"POT-Creation-Date: 2025-03-05T13:32:39.554Z\n"
+"PO-Revision-Date: 2025-03-05T13:32:39.569Z\n"
 
 msgid "Untitled dashboard"
 msgstr "Untitled dashboard"
@@ -119,6 +119,12 @@ msgstr "Search for a dashboard"
 
 msgid "No dashboards found for \"{{- filterText}}\""
 msgstr "No dashboards found for \"{{- filterText}}\""
+
+msgid "Could not fetch bundled apps"
+msgstr "Could not fetch bundled apps"
+
+msgid "Network error"
+msgstr "Network error"
 
 msgid "There was a problem loading this dashboard item"
 msgstr "There was a problem loading this dashboard item"
