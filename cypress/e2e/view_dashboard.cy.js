@@ -1,18 +1,31 @@
 import { dashboards } from '../assets/backends/index.js'
-// import { gridItemSel, chartSel } from '../elements/dashboardItem.js'
-import { getNavigationMenuItem } from '../elements/navigationMenu.js'
+import {
+    getNavigationMenuDropdown,
+    getNavigationMenuItem,
+    closeNavigationMenu,
+} from '../elements/navigationMenu.js'
 import { dashboardTitleSel, newButtonSel } from '../elements/viewDashboard.js'
 
+const assertDashboardDisplayed = (title) => {
+    cy.location().should((loc) => {
+        expect(loc.hash).to.equal(dashboards[title].route)
+    })
+    cy.get(dashboardTitleSel).should('be.visible').and('contain', title)
+}
 
 describe('view dashboard', () => {
     it('there are no dashboards', () => {
         cy.intercept('**/dashboards?*', { body: { dashboards: [] } })
         cy.visit('/')
 
+        // check that main dashboard area shows the no dashboards message
         cy.contains('No dashboards found').should('be.visible')
         cy.get(newButtonSel).should('be.visible')
 
-        // check the Navigation Menu
+        // check that NavigationMenu shows the no dashboards message
+        getNavigationMenuDropdown().click()
+        cy.getByDataTest('navmenu-no-dashboards-message').should('be.visible')
+        closeNavigationMenu()
     })
 
     it('dashboard not found', () => {
@@ -20,32 +33,23 @@ describe('view dashboard', () => {
 
         cy.contains('Requested dashboard not found').should('be.visible')
 
-        // When I open the "Delivery" dashboard
-        // Then the "Delivery" dashboard displays in view mode
-    })
-
-    // Scenario: I switch between dashboards
-    //     Given I open the "Delivery" dashboard
-    //     When I open the "Immunization" dashboard
-    //     Then the "Immunization" dashboard displays in view mode
-    it.only('switch between dashboards', () => {
+        // Open the Delivery dashboard
         const title = 'Delivery'
-        // open the Delivery dashboard
-        cy.visit('/')
         getNavigationMenuItem(title).click()
-        
-        cy.location().should((loc) => {
-            expect(loc.hash).to.equal(dashboards[title].route)
-        })
-        
-        cy.get(dashboardTitleSel).should('be.visible').and('contain', title)
-            // cy.get(`${gridItemSel}.VISUALIZATION`)
-            //     .first()
-            //     .getIframeBody()
-            //     .find(chartSel, EXTENDED_TIMEOUT)
-            //     .as('vis')
-            // cy.get('@vis').should('exist')
-
+        assertDashboardDisplayed(title)
     })
 
+    it('switch between dashboards', () => {
+        cy.visit('/')
+
+        // open the Delivery dashboard
+        const title = 'Delivery'
+        getNavigationMenuItem(title).click()
+        assertDashboardDisplayed(title)
+
+        // open the Immunization dashboard
+        const newTitle = 'Immunization'
+        getNavigationMenuItem(newTitle).click()
+        assertDashboardDisplayed(newTitle)
+    })
 })

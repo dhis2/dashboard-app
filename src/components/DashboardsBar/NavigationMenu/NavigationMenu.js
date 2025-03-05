@@ -110,7 +110,10 @@ export const NavigationMenu = ({ close, hasDashboards }) => {
 
     if (!hasDashboards) {
         return (
-            <div className={cx(styles.container, styles.noDashboardsAvailable)}>
+            <div
+                className={cx(styles.container, styles.noDashboardsAvailable)}
+                data-test="navmenu-no-dashboards-message"
+            >
                 <p>{i18n.t('No dashboards available.')}</p>
                 <p>{i18n.t('Create a new dashboard using the + button.')}</p>
             </div>
