@@ -117,7 +117,7 @@ const InstalledAppsProvider = ({ children }) => {
 
     const installedAppsData = useMemo(
         () => ({
-            apps: appsQuery.data.apps,
+            apps: appsQuery.data?.apps,
             bundledApps: bundledAppsQuery.data,
         }),
         [appsQuery.data, bundledAppsQuery.data]
