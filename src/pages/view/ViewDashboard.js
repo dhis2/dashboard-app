@@ -33,6 +33,7 @@ const ViewDashboard = ({
     passiveViewRegistered,
     registerPassiveView,
     requestedId,
+    currentId,
     setSelectedAsOffline,
     username,
 }) => {
@@ -46,6 +47,7 @@ const ViewDashboard = ({
     const { show: showAlert, hide: hideAlert } = useAlert(
         ({ message }) => message
     )
+
     const loadDashboard = useCallback(async () => {
         setLoading(true)
 
@@ -126,7 +128,7 @@ const ViewDashboard = ({
             <DashboardContainer>
                 <ViewDashboardContent
                     isCached={isCached}
-                    loading={loading}
+                    loading={requestedId !== currentId || loading}
                     loaded={loaded}
                     loadFailed={loadFailed}
                 />
@@ -138,6 +140,7 @@ const ViewDashboard = ({
 ViewDashboard.propTypes = {
     clearEditDashboard: PropTypes.func,
     clearPrintDashboard: PropTypes.func,
+    currentId: PropTypes.string,
     fetchDashboard: PropTypes.func,
     hasDashboards: PropTypes.bool,
     passiveViewRegistered: PropTypes.bool,
