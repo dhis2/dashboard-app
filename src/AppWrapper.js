@@ -3,7 +3,7 @@ import { useDataEngine } from '@dhis2/app-runtime'
 import React from 'react'
 import { Provider as ReduxProvider } from 'react-redux'
 import App from './components/App.js'
-import InstalledAppVersionsProvider from './components/InstalledAppVersionsProvider.js'
+import InstalledAppsProvider from './components/InstalledAppsProvider.js'
 import SystemSettingsProvider from './components/SystemSettingsProvider.js'
 import UserSettingsProvider from './components/UserSettingsProvider.js'
 import WindowDimensionsProvider from './components/WindowDimensionsProvider.js'
@@ -20,9 +20,6 @@ const query = {
             paging: false,
         },
     },
-    apps: {
-        resource: 'apps',
-    },
     currentUser: {
         resource: 'me',
         params: {
@@ -31,10 +28,9 @@ const query = {
     },
 }
 
-const providerDataTransformation = ({ rootOrgUnits, apps, currentUser }) => ({
+const providerDataTransformation = ({ rootOrgUnits, currentUser }) => ({
     rootOrgUnits: rootOrgUnits.organisationUnits,
     currentUser,
-    apps,
 })
 
 const AppWrapper = () => {
@@ -46,7 +42,7 @@ const AppWrapper = () => {
                 query={query}
                 dataTransformation={providerDataTransformation}
             >
-                <InstalledAppVersionsProvider>
+                <InstalledAppsProvider>
                     <SystemSettingsProvider>
                         <UserSettingsProvider>
                             <WindowDimensionsProvider>
@@ -54,7 +50,7 @@ const AppWrapper = () => {
                             </WindowDimensionsProvider>
                         </UserSettingsProvider>
                     </SystemSettingsProvider>
-                </InstalledAppVersionsProvider>
+                </InstalledAppsProvider>
             </CachedDataQueryProvider>
         </ReduxProvider>
     )

@@ -1,4 +1,3 @@
-import { useCachedDataQuery } from '@dhis2/analytics'
 import { useDhis2ConnectionStatus } from '@dhis2/app-runtime'
 import i18n from '@dhis2/d2-i18n'
 import { Button, Cover, IconInfo24, colors } from '@dhis2/ui'
@@ -21,7 +20,12 @@ import {
     REPORT_TABLE,
 } from '../../../../modules/itemTypes.js'
 import { sGetSelectedId } from '../../../../reducers/selected.js'
-import { useInstalledAppVersions } from '../../../InstalledAppVersionsProvider.js'
+import {
+    useInstalledApps,
+    useInstalledDVVersion,
+    useInstalledLLVersion,
+    useInstalledMapsVersion,
+} from '../../../InstalledAppsProvider.js'
 import getFilteredVisualization from './getFilteredVisualization.js'
 import getVisualizationConfig from './getVisualizationConfig.js'
 import IframePlugin from './IframePlugin.js'
@@ -48,9 +52,10 @@ const Visualization = ({
 }) => {
     const dashboardId = useSelector(sGetSelectedId)
     const { isDisconnected: offline } = useDhis2ConnectionStatus()
-    const { apps } = useCachedDataQuery()
-    const { dataVisualizerAppVersion, lineListingAppVersion, mapsAppVersion } =
-        useInstalledAppVersions()
+    const apps = useInstalledApps()
+    const dataVisualizerAppVersion = useInstalledDVVersion()
+    const lineListingAppVersion = useInstalledLLVersion()
+    const mapsAppVersion = useInstalledMapsVersion()
 
     const visualizationConfig = useMemo(() => {
         if (originalType === EVENT_VISUALIZATION) {
