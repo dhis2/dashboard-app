@@ -1,0 +1,66 @@
+.container,
+.iframeHost {
+    block-size: 100%;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+}
+.container {
+    position: relative;
+}
+
+.iframeHost {
+    opacity: 1;
+    transition: opacity 120ms ease-in;
+}
+.iframeHost :global(iframe) {
+    all: unset;
+    inline-size: 100%;
+    flex-grow: 1;
+}
+.iframeHost.opaque {
+    opacity: 0;
+}
+
+.contentOverlay {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.contentOverlay > :global(.error) {
+    align-self: baseline;
+    min-inline-size: 400px;
+    margin-block-start: var(--spacers-dp24);
+}
+.errorText {
+    margin-block-start: 0;
+    margin-block-end: var(--spacers-dp8);
+}
+
+.loaderContainer {
+    display: flex;
+    gap: var(--spacers-dp8);
+    animation: showLoader;
+    animation-duration: 120ms;
+    animation-delay: 400ms;
+    animation-fill-mode: forwards;
+    opacity: 0;
+}
+.loaderContainer > p {
+    all: unset;
+    color: var(--colors-grey600);
+}
+@keyframes showLoader {
+    0% {
+        opacity: 0;
+    }
+    50% {
+        opacity: 0.5;
+    }
+    100% {
+        opacity: 1;
+    }
+}
