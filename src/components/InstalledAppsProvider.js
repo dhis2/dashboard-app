@@ -115,6 +115,14 @@ const InstalledAppsProvider = ({ children }) => {
     const loading = appsQuery.loading || bundledAppsQuery.loading
     const error = appsQuery.error || bundledAppsQuery.error
 
+    const installedAppsData = useMemo(
+        () => ({
+            apps: appsQuery.data.apps,
+            bundledApps: bundledAppsQuery.data,
+        }),
+        [appsQuery.data, bundledAppsQuery.data]
+    )
+
     if (loading) {
         return (
             <Layer translucent>
@@ -134,12 +142,7 @@ const InstalledAppsProvider = ({ children }) => {
     }
 
     return (
-        <InstalledAppsCtx.Provider
-            value={{
-                apps: appsQuery.data.apps,
-                bundledApps: bundledAppsQuery.data,
-            }}
-        >
+        <InstalledAppsCtx.Provider value={installedAppsData}>
             {children}
         </InstalledAppsCtx.Provider>
     )
