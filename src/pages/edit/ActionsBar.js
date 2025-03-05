@@ -1,8 +1,4 @@
-import {
-    OfflineTooltip,
-    TranslationDialog,
-    useCachedDataQuery,
-} from '@dhis2/analytics'
+import { OfflineTooltip, TranslationDialog } from '@dhis2/analytics'
 import {
     useDhis2ConnectionStatus,
     useDataEngine,
@@ -49,7 +45,6 @@ const deleteFailedMessage = i18n.t(
 const fieldsToTranslate = ['name', 'description']
 
 const EditBar = ({ dashboard, ...props }) => {
-    const { currentUser } = useCachedDataQuery()
     const dataEngine = useDataEngine()
     const { isConnected: online } = useDhis2ConnectionStatus()
     const [translationDlgIsOpen, setTranslationDlgIsOpen] = useState(false)
