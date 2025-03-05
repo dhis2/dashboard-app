@@ -3,6 +3,7 @@ import {
     getNavigationMenuDropdown,
     getNavigationMenuItem,
     closeNavigationMenu,
+    getNavigationMenuFilter,
 } from '../elements/navigationMenu.js'
 import { dashboardTitleSel, newButtonSel } from '../elements/viewDashboard.js'
 
@@ -51,5 +52,78 @@ describe('view dashboard', () => {
         const newTitle = 'Immunization'
         getNavigationMenuItem(newTitle).click()
         assertDashboardDisplayed(newTitle)
+    })
+
+    it('search for a dashboard', () => {
+        cy.visit('/')
+
+        // open the Antenatal Care dashboard
+        const title = 'Antenatal Care'
+        getNavigationMenuItem(title).click()
+        assertDashboardDisplayed(title)
+
+        // search for Immun
+        getNavigationMenuFilter().type('Immun')
+        getNavigationMenuItem('Immunization', true).should('be.visible')
+        getNavigationMenuItem('Immunization data', true).should('be.visible')
+
+        // open the Immunization dashboard
+        getNavigationMenuItem('Immunization', true).click()
+        assertDashboardDisplayed('Immunization')
+    })
+
+    it('search for a dashboard with nonmatching search text', () => {
+        cy.visit('/')
+
+        // open the Antenatal Care dashboard
+        const title = 'Antenatal Care'
+        getNavigationMenuItem(title).click()
+        assertDashboardDisplayed(title)
+
+        // search for Noexist
+        getNavigationMenuFilter().type('xyzpdq')
+        cy.getByDataTest('navmenu-no-items-found')
+            .should('be.visible')
+            .and('contain', 'No dashboards found for "xyzpdq"')
+    })
+
+    it('user preferred dashboard', () => {
+        cy.visit('/')
+
+        // open the Antenatal Care dashboard
+        getNavigationMenuItem('Antenatal Care').click()
+        assertDashboardDisplayed('Antenatal Care')
+
+        // open the Delivery dashboard
+        getNavigationMenuItem('Delivery').click()
+        assertDashboardDisplayed('Delivery')
+
+        // open the root url which should display the Delivery dashboard
+        cy.visit('/')
+        cy.get(dashboardTitleSel)
+            .should('be.visible')
+            .and('contain', 'Delivery')
+    })
+
+    //     Given I open the "Delivery" dashboard with shapes removed
+    //     Then the "Delivery" dashboard displays in view mode
+    it('display dashboard with items lacking shape', () => {
+        const title = 'Delivery'
+        const regex = new RegExp(`dashboards/${dashboards[title].id}`, 'g')
+        cy.intercept(regex, (req) => {
+            req.reply((res) => {
+                res.body.dashboardItems.forEach((item) => {
+                    delete item.x
+                    delete item.y
+                    delete item.w
+                    delete item.h
+                })
+
+                res.send({ body: res.body })
+            })
+        })
+        getNavigationMenuItem(title).click()
+
+        assertDashboardDisplayed('Delivery')
     })
 })

@@ -136,7 +136,10 @@ export const NavigationMenu = ({ close, hasDashboards }) => {
                 <div ref={scrollBoxRef} className={styles.scrollbox}>
                     <Menu dense>
                         {dashboards.length === 0 ? (
-                            <li className={styles.noItems}>
+                            <li
+                                className={styles.noItems}
+                                data-test="navmenu-no-items-found"
+                            >
                                 {i18n.t(
                                     'No dashboards found for "{{- filterText}}"',
                                     {
