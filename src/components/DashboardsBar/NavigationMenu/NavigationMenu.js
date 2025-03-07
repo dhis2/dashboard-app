@@ -18,7 +18,7 @@ const dashboardsQuery = {
             order: 'favorite:desc,displayName:asc',
             filter: filterText ? `displayName:ilike:${filterText}` : undefined,
             paging: true,
-            pageSize: 50,
+            pageSize: 200,
             page,
         }
     },

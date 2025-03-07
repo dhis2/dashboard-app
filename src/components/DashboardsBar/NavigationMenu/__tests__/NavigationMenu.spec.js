@@ -96,16 +96,6 @@ describe('NavigationMenu', () => {
     })
 
     it('renders a notification if no dashboards are available', async () => {
-        dataEngine.query.mockResolvedValueOnce({
-            dashboards: {
-                dashboards: [],
-                pager: {
-                    page: 1,
-                    nextPage: null,
-                },
-            },
-        })
-
         let getByText
         await act(async () => {
             const renderResult = render(
@@ -119,61 +109,6 @@ describe('NavigationMenu', () => {
         expect(getByText('No dashboards available.')).toBeVisible()
         expect(
             getByText('Create a new dashboard using the + button.')
-        ).toBeVisible()
-    })
-
-    it.skip('renders a placeholder list item if no dashboards meet the filter criteria', async () => {
-        const filterStr = 'xxxxxxxxxxxxx'
-
-        // dataEngine.query.mockResolvedValueOnce({
-        //     dashboards: {
-        //         dashboards: [],
-        //         pager: {
-        //             page: 1,
-        //             nextPage: null,
-        //         },
-        //     },
-        // })
-        dataEngine = {
-            query: jest
-                .fn()
-                .mockResolvedValueOnce({
-                    dashboards: {
-                        dashboards: Object.values(dashboards),
-                        pager: {
-                            page: 1,
-                            nextPage: null,
-                        },
-                    },
-                })
-                .mockResolvedValueOnce({
-                    dashboards: {
-                        dashboards: [],
-                        pager: {
-                            page: 1,
-                            nextPage: null,
-                        },
-                    },
-                }),
-        }
-
-        let getByText, getByPlaceholderText
-
-        await act(async () => {
-            const renderResult = render(
-                <Router history={createMemoryHistory()}>
-                    <NavigationMenu close={() => {}} />
-                </Router>
-            )
-            getByText = renderResult.getByText
-            getByPlaceholderText = renderResult.getByPlaceholderText
-        })
-
-        expect(getByPlaceholderText('Search for a dashboard')).toHaveValue(
-            filterStr
-        )
-        expect(
-            getByText(`No dashboards found for "${filterStr}"`)
         ).toBeVisible()
     })
 })

@@ -44,7 +44,7 @@ describe('view dashboard', () => {
         cy.visit('/')
 
         // open the Delivery dashboard
-        const title = 'Delivery'
+        const title = 'Cases Malaria'
         getNavigationMenuItem(title).click()
         assertDashboardDisplayed(title)
 
