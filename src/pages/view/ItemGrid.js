@@ -1,4 +1,3 @@
-import { useCachedDataQuery } from '@dhis2/analytics'
 import { useDhis2ConnectionStatus } from '@dhis2/app-runtime'
 import i18n from '@dhis2/d2-i18n'
 import cx from 'classnames'
@@ -7,6 +6,7 @@ import React, { useCallback, useState, useEffect, useRef } from 'react'
 import { Responsive as ResponsiveReactGridLayout } from 'react-grid-layout'
 import { useSelector } from 'react-redux'
 import { useContainerWidth } from '../../components/DashboardContainer.js'
+import { useInstalledApps } from '../../components/InstalledAppsProvider.js'
 import { Item } from '../../components/Item/Item.js'
 import NoContentMessage from '../../components/NoContentMessage.js'
 import ProgressiveLoadingContainer from '../../components/ProgressiveLoadingContainer.js'
@@ -43,7 +43,7 @@ const ResponsiveItemGrid = ({ dashboardIsCached }) => {
     const dashboardItems = useSelector(sGetSelectedDashboardItems)
     const { width } = useWindowDimensions()
     const containerWidth = useContainerWidth()
-    const { apps } = useCachedDataQuery()
+    const apps = useInstalledApps()
     const [expandedItems, setExpandedItems] = useState({})
     const [displayItems, setDisplayItems] = useState(dashboardItems)
     const [layoutSm, setLayoutSm] = useState([])

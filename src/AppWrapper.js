@@ -3,6 +3,7 @@ import { useDataEngine } from '@dhis2/app-runtime'
 import React from 'react'
 import { Provider as ReduxProvider } from 'react-redux'
 import App from './components/App.js'
+import InstalledAppsProvider from './components/InstalledAppsProvider.js'
 import SystemSettingsProvider from './components/SystemSettingsProvider.js'
 import UserSettingsProvider from './components/UserSettingsProvider.js'
 import WindowDimensionsProvider from './components/WindowDimensionsProvider.js'
@@ -19,9 +20,6 @@ const query = {
             paging: false,
         },
     },
-    apps: {
-        resource: 'apps',
-    },
     currentUser: {
         resource: 'me',
         params: {
@@ -30,21 +28,10 @@ const query = {
     },
 }
 
-const providerDataTransformation = ({ rootOrgUnits, apps, currentUser }) => {
-    const dataVisualizerApp =
-        apps.find((app) => app.key === 'data-visualizer') || {}
-    const lineListingApp = apps.find((app) => app.key === 'line-listing') || {}
-    const mapsApp = apps.find((app) => app.key === 'maps') || {}
-
-    return {
-        rootOrgUnits: rootOrgUnits.organisationUnits,
-        dataVisualizerAppVersion: dataVisualizerApp.version || '0.0.0',
-        lineListingAppVersion: lineListingApp.version || '0.0.0',
-        mapsAppVersion: mapsApp.version || '0.0.0',
-        currentUser,
-        apps,
-    }
-}
+const providerDataTransformation = ({ rootOrgUnits, currentUser }) => ({
+    rootOrgUnits: rootOrgUnits.organisationUnits,
+    currentUser,
+})
 
 const AppWrapper = () => {
     const dataEngine = useDataEngine()
@@ -55,13 +42,15 @@ const AppWrapper = () => {
                 query={query}
                 dataTransformation={providerDataTransformation}
             >
-                <SystemSettingsProvider>
-                    <UserSettingsProvider>
-                        <WindowDimensionsProvider>
-                            <App />
-                        </WindowDimensionsProvider>
-                    </UserSettingsProvider>
-                </SystemSettingsProvider>
+                <InstalledAppsProvider>
+                    <SystemSettingsProvider>
+                        <UserSettingsProvider>
+                            <WindowDimensionsProvider>
+                                <App />
+                            </WindowDimensionsProvider>
+                        </UserSettingsProvider>
+                    </SystemSettingsProvider>
+                </InstalledAppsProvider>
             </CachedDataQueryProvider>
         </ReduxProvider>
     )
