@@ -57,6 +57,7 @@ const CacheableViewDashboard = ({ match }) => {
                 )
                 setDashboardName(dashboard.displayName)
                 setIdToLoad(dashboard.id)
+                setHasDashboards(true)
             } catch (error) {
                 if (routeId) {
                     // show error msg since routeId was requested but wasn't found
