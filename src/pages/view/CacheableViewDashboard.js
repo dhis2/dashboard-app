@@ -42,8 +42,7 @@ const CacheableViewDashboard = ({ match }) => {
     useEffect(() => {
         const fetchIdToLoad = async () => {
             try {
-                // no dashboard id provided so fetch the first
-                // starred/alphabetical dashboard in the catch block
+                // no id, so fetch the first starred/alphabetical dashboard in the catch block
                 if (!routeId && !preferredId) {
                     throw new Error('No dashboard id provided')
                 }
@@ -59,13 +58,6 @@ const CacheableViewDashboard = ({ match }) => {
                 setIdToLoad(dashboard.id)
                 setHasDashboards(true)
             } catch (error) {
-                if (routeId) {
-                    // show error msg since routeId was requested but wasn't found
-                    setIdToLoad(null)
-                    setDashboardName(null)
-                    setFetchError(REQUESTED_DASHBOARD_NOT_FOUND)
-                }
-                // still need to know if there are any dashboards for the navigation menu
                 const { dashboards } = await engine.query(firstDashboardQuery)
 
                 setHasDashboards(dashboards.dashboards.length > 0)
@@ -78,11 +70,14 @@ const CacheableViewDashboard = ({ match }) => {
                     setFetchError(
                         !dashboards.dashboards.length && NO_DASHBOARDS_FOUND
                     )
+                } else {
+                    setFetchError(REQUESTED_DASHBOARD_NOT_FOUND)
                 }
             }
         }
 
         setIdToLoad(null)
+        setDashboardName(null)
         setFetchError(null)
 
         fetchIdToLoad()
