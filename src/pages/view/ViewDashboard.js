@@ -156,6 +156,7 @@ ViewDashboard.propTypes = {
     hasDashboards: PropTypes.bool,
     passiveViewRegistered: PropTypes.bool,
     registerPassiveView: PropTypes.func,
+    requestedDashboardName: PropTypes.string,
     requestedId: PropTypes.string,
     setSelectedAsOffline: PropTypes.func,
     username: PropTypes.string,
