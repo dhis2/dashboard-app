@@ -25,81 +25,63 @@ const CacheableViewDashboard = ({ match }) => {
     const engine = useDataEngine()
     const dispatch = useDispatch()
     const [idToLoad, setIdToLoad] = useState(null)
+    const [dashboardName, setDashboardName] = useState(null)
     const [fetchError, setFetchError] = useState(null)
-    const [hasDashboards, setHasDashboards] = useState(true)
-    const selectedId = useSelector(sGetSelectedId)
+    const [hasDashboards, setHasDashboards] = useState(null)
+    const currentId = useSelector(sGetSelectedId)
     const preferredId = getPreferredDashboardId(currentUser.username) || null
     // match comes from react-router-dom
     const routeId = match?.params?.dashboardId || null
 
     useEffect(() => {
-        if (routeId === null && preferredId === null && selectedId !== null) {
+        if (routeId === null && preferredId === null && currentId !== null) {
             dispatch(acClearSelected())
         }
-    }, [routeId, preferredId, selectedId, dispatch])
+    }, [routeId, preferredId, currentId, dispatch])
 
     useEffect(() => {
         const fetchIdToLoad = async () => {
             try {
-                // no dashboard id provided so fetch the first starred/alphabetical dashboard
+                // no dashboard id provided so fetch the first
+                // starred/alphabetical dashboard in the catch block
                 if (!routeId && !preferredId) {
-                    const { dashboards } = await engine.query(
-                        firstDashboardQuery
-                    )
-                    if (dashboards.dashboards.length === 0) {
-                        setFetchError(NO_DASHBOARDS_FOUND)
-                        setHasDashboards(false)
-                        return
-                    }
-
-                    const firstDashboardId = dashboards?.dashboards[0]?.id
-                    setIdToLoad(firstDashboardId)
-                    return
+                    throw new Error('No dashboard id provided')
                 }
 
-                // get the dashboard by id
-                if (routeId) {
-                    const { dashboard } = await engine.query(
-                        requestedDashboardQuery,
-                        {
-                            variables: { id: routeId },
-                        }
-                    )
-                    setIdToLoad(dashboard.id)
-                    return
-                }
-
-                // get the preferred dashboard
+                // get the dashboard by id, throws an error if the dashboard is not found
                 const { dashboard } = await engine.query(
                     requestedDashboardQuery,
                     {
-                        variables: { id: preferredId },
+                        variables: { id: routeId || preferredId },
                     }
                 )
+                setDashboardName(dashboard.displayName)
                 setIdToLoad(dashboard.id)
-                return
             } catch (error) {
                 if (routeId) {
+                    // show error msg since routeId was requested but wasn't found
                     setIdToLoad(null)
+                    setDashboardName(null)
                     setFetchError(REQUESTED_DASHBOARD_NOT_FOUND)
                 }
-
+                // still need to know if there are any dashboards for the navigation menu
                 const { dashboards } = await engine.query(firstDashboardQuery)
 
-                if (dashboards.dashboards.length === 0) {
-                    setHasDashboards(false)
+                setHasDashboards(dashboards.dashboards.length > 0)
 
-                    if (!routeId) {
-                        setFetchError(NO_DASHBOARDS_FOUND)
-                    }
-                    setIdToLoad(null)
-                    return
+                if (!routeId) {
+                    setDashboardName(
+                        dashboards.dashboards[0]?.displayName || null
+                    )
+                    setIdToLoad(dashboards.dashboards[0]?.id || null)
+                    setFetchError(
+                        !dashboards.dashboards.length && NO_DASHBOARDS_FOUND
+                    )
                 }
-                const firstDashboardId = dashboards.dashboards[0].id
-                setHasDashboards(true)
-                setIdToLoad(firstDashboardId)
             }
         }
+
+        setIdToLoad(null)
         setFetchError(null)
 
         fetchIdToLoad()
@@ -109,7 +91,6 @@ const CacheableViewDashboard = ({ match }) => {
         return (
             <>
                 <DashboardsBar hasDashboards={hasDashboards} />
-
                 <NoContentMessage
                     text={
                         fetchError === REQUESTED_DASHBOARD_NOT_FOUND
@@ -136,6 +117,7 @@ const CacheableViewDashboard = ({ match }) => {
                 requestedId={idToLoad}
                 username={currentUser.username}
                 hasDashboards={hasDashboards}
+                requestedDashboardName={dashboardName}
             />
         </CacheableSection>
     )

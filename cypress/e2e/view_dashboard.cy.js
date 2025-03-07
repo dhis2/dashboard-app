@@ -40,6 +40,16 @@ describe('view dashboard', () => {
         assertDashboardDisplayed(title)
     })
 
+    it('dashboard not found and no dashboards available', () => {
+        cy.intercept('**/dashboards?*', { body: { dashboards: [] } })
+        cy.visit('#/invalid')
+
+        // check that NavigationMenu shows the no dashboards message
+        getNavigationMenuDropdown().click()
+        cy.getByDataTest('navmenu-no-dashboards-message').should('be.visible')
+        closeNavigationMenu()
+    })
+
     it('switch between dashboards', () => {
         cy.visit('/')
 

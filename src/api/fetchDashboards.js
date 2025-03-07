@@ -2,7 +2,7 @@ export const firstDashboardQuery = {
     dashboards: {
         resource: 'dashboards',
         params: {
-            fields: 'id,favorite,displayName',
+            fields: 'id,displayName',
             order: 'favorite:desc,displayName:asc',
             paging: true,
             pageSize: 1,

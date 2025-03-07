@@ -32,6 +32,7 @@ const ViewDashboard = ({
     hasDashboards,
     passiveViewRegistered,
     registerPassiveView,
+    requestedDashboardName,
     requestedId,
     currentId,
     setSelectedAsOffline,
@@ -47,14 +48,17 @@ const ViewDashboard = ({
     const { show: showAlert, hide: hideAlert } = useAlert(
         ({ message }) => message
     )
-
     const loadDashboard = useCallback(async () => {
         setLoading(true)
 
-        alertTimeoutRef.current = setTimeout(
-            () => showAlert({ message: i18n.t('Loading dashboard') }),
-            500
-        )
+        alertTimeoutRef.current = setTimeout(() => {
+            const message = requestedDashboardName
+                ? i18n.t('Loading dashboard – {{name}}', {
+                      name: requestedDashboardName,
+                  })
+                : i18n.t('Loading dashboard')
+            showAlert({ message })
+        }, 500)
 
         try {
             await fetchDashboard(requestedId, username)
@@ -66,7 +70,14 @@ const ViewDashboard = ({
             setLoading(false)
             clearTimeout(alertTimeoutRef.current)
         }
-    }, [fetchDashboard, requestedId, setSelectedAsOffline, showAlert, username])
+    }, [
+        fetchDashboard,
+        requestedDashboardName,
+        requestedId,
+        setSelectedAsOffline,
+        showAlert,
+        username,
+    ])
 
     useEffect(() => {
         if (!loading && !loaded && !loadFailed) {
