@@ -6,7 +6,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2025-02-07T10:20:57.831Z\n"
+"POT-Creation-Date: 2025-03-05T13:32:39.554Z\n"
 "PO-Revision-Date: 2019-06-25 12:37+0000\n"
 "Last-Translator: easylin <lin_xd@126.com>, 2025\n"
 "Language-Team: Chinese (China) (https://app.transifex.com/hisp-uio/teams/100509/zh_CN/)\n"
@@ -41,10 +41,10 @@ msgid "Star dashboard"
 msgstr ""
 
 msgid "Hide description"
-msgstr ""
+msgstr "隐藏说明"
 
 msgid "Show description"
-msgstr ""
+msgstr "显示说明"
 
 msgid "Print"
 msgstr "打印"
@@ -126,13 +126,40 @@ msgstr "搜索仪表盘"
 msgid "No dashboards found for \"{{- filterText}}\""
 msgstr ""
 
-msgid "{{appKey}} app not found"
+msgid "Could not fetch bundled apps"
+msgstr ""
+
+msgid "Network error"
+msgstr "网络错误"
+
+msgid "There was a problem loading this dashboard item"
+msgstr ""
+
+msgid "Open menu"
+msgstr ""
+
+msgid "Open in {{appName}}"
+msgstr ""
+
+msgid "View fullscreen"
 msgstr ""
 
 msgid "Remove this item"
 msgstr ""
 
 msgid "This item has been shortened to fit on one page"
+msgstr ""
+
+msgid "The plugin needed to display this item is not available"
+msgstr ""
+
+msgid "Install the {{pluginName}} plugin from the App Hub"
+msgstr ""
+
+msgid "There was an error loading data for this item"
+msgstr ""
+
+msgid "Open this item in {{appName}}"
 msgstr ""
 
 msgid "Remove"
@@ -181,22 +208,13 @@ msgstr ""
 msgid "Some filters not applied"
 msgstr ""
 
-msgid "There was a problem loading this dashboard item"
-msgstr ""
-
 msgid "Hide details and interpretations"
 msgstr ""
 
 msgid "Show details and interpretations"
 msgstr ""
 
-msgid "Open menu"
-msgstr ""
-
 msgid "Open in {{appName}} app"
-msgstr ""
-
-msgid "View fullscreen"
 msgstr ""
 
 msgid "This map can't be displayed as a chart"
@@ -223,35 +241,35 @@ msgstr ""
 msgid "There was a problem loading interpretations for this item"
 msgstr ""
 
-msgid "The plugin for rendering this item is not available"
-msgstr ""
-
-msgid "Install the {{appName}} app from the App Hub"
-msgstr ""
-
 msgid "No data to display"
 msgstr "没有数据可显示"
 
 msgid ""
-"Install Line Listing app version ${minLLVersion.join(\n"
-"                                '.'\n"
-"                            )} or higher in order to display this item."
+"Install Data Visualizer app ${minDVVersion.join(\n"
+"                            '.'\n"
+"                        )} or higher in order to display this item."
 msgstr ""
 
 msgid "Show without filters"
 msgstr ""
 
+msgid ""
+"Install Line Listing app ${minLLVersion.join(\n"
+"                            '.'\n"
+"                        )} or higher in order to display this item."
+msgstr ""
+
 msgid "Maps with Earth Engine layers cannot be displayed when offline"
+msgstr ""
+
+msgid ""
+"Install Maps app ${minMapsVersion.join(\n"
+"                            '.'\n"
+"                        )} or higher in order to display this item."
 msgstr ""
 
 msgid "Unable to load the plugin for this item"
 msgstr "不能该条目的插件"
-
-msgid "There was an error loading data for this item"
-msgstr ""
-
-msgid "Open this item in {{appName}}"
-msgstr ""
 
 msgid "Resources"
 msgstr "资源"
@@ -341,7 +359,7 @@ msgid ""
 msgstr ""
 
 msgid "Discard changes"
-msgstr ""
+msgstr "忽略修改"
 
 msgid ""
 "This dashboard has unsaved changes. Are you sure you want to leave and "
