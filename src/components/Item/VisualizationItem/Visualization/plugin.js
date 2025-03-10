@@ -6,6 +6,7 @@ import {
     MAP,
     EVENT_REPORT,
     EVENT_CHART,
+    EVENT_VISUALIZATION,
 } from '../../../../modules/itemTypes.js'
 import getVisualizationContainerDomId from '../getVisualizationContainerDomId.js'
 import { loadExternalScript } from './loadExternalScript.js'
@@ -22,7 +23,9 @@ const itemTypeToScriptPath = {
 }
 
 const hasIntegratedPlugin = (type) =>
-    [CHART, REPORT_TABLE, VISUALIZATION, MAP].includes(type)
+    [CHART, REPORT_TABLE, VISUALIZATION, MAP, EVENT_VISUALIZATION].includes(
+        type
+    )
 
 export const getPluginLaunchUrl = (type, apps, baseUrl) => {
     // 1. lookup in api/apps for the "manually installed" app, this can be a new version for a core (bundled) app
@@ -44,6 +47,9 @@ export const getPluginLaunchUrl = (type, apps, baseUrl) => {
             }
             case MAP: {
                 return `${baseUrl}/dhis-web-maps/plugin.html`
+            }
+            case EVENT_VISUALIZATION: {
+                return `${baseUrl}/dhis-web-line-listing/plugin.html`
             }
         }
     }
