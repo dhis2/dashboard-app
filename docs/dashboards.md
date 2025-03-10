@@ -6,13 +6,13 @@ The Dashboards app makes it possible to present a high level overview of your da
 
 Features of the Dashboards app include:
 
-- View and print dashboards
-- Slideshow
-- Create and edit dashboards
-- Share dashboards with users and user groups
-- Apply temporary filters while viewing dashboards
-- Responsive view on mobile devices and small screens
-- Access dashboards while offline
+-   View and print dashboards
+-   Slideshow
+-   Create and edit dashboards
+-   Share dashboards with users and user groups
+-   Apply temporary filters while viewing dashboards
+-   Responsive view on mobile devices and small screens
+-   Access dashboards while offline
 
 ## Dashboards app layout { #dashboards_setup }
 
@@ -29,8 +29,8 @@ Below is a dashboard named "Antenatal Care", which has been populated with chart
 
 To adjust the Dashboards app to suit your needs, you can:
 
-- [Star dashboards for quick access to your favorite dashboards](#dashboard-star-dashboard)
-- [Show or hide dashboard description](#dashboard-show-description)
+-   [Star dashboards for quick access to your favorite dashboards](#dashboard-star-dashboard)
+-   [Show or hide dashboard description](#dashboard-show-description)
 
 ### Responsive view on small screens
 
@@ -64,17 +64,17 @@ In some DHIS2 Core instances it is possible to either create a regular (internal
 
 Add items to the dashboard by searching for items using the **Search for items to add to this dashboard** dropdown selector. Item types are:
 
-- Visualizations (charts and pivot tables)
-- Maps
-- Line lists
-- Event reports
-- Event charts
-- Reports
-- Resources
-- Third party plugins and app widgets
-- Messages
-- Text boxes
-- Spacers
+-   Visualizations (charts and pivot tables)
+-   Maps
+-   Line lists
+-   Event reports
+-   Event charts
+-   Reports
+-   Resources
+-   Third party plugins and app widgets
+-   Messages
+-   Text boxes
+-   Spacers
 
 ![](resources/images/dashboard-item-selector.png)
 
@@ -84,8 +84,8 @@ The list of items in the dropdown initially displays 10 visualizations (charts a
 
 When adding items to the dashboard you can choose an overall layout by clicking on **Change layout** button. You can change this layout setting at any time.
 
-- With _Freeflow_ layout, the added items can be moved using the mouse by down-clicking on the item and dragging it to the desired position. Items can also be resized with the mouse by down-clicking on the drag handle in the lower right corner of the item and dragging to the desired size.
-- With _Fixed columns_ layout, you can choose the number of columns to have on the dashboard, and the dashboard will automatically be layed out for you. Items cannot be moved or resized in _Fixed columns_ layout. If you want to make custom adjustments to a _Fixed columns_ layout, return to a _Freeflow_ layout.
+-   With _Freeflow_ layout, the added items can be moved using the mouse by down-clicking on the item and dragging it to the desired position. Items can also be resized with the mouse by down-clicking on the drag handle in the lower right corner of the item and dragging to the desired size.
+-   With _Fixed columns_ layout, you can choose the number of columns to have on the dashboard, and the dashboard will automatically be layed out for you. Items cannot be moved or resized in _Fixed columns_ layout. If you want to make custom adjustments to a _Fixed columns_ layout, return to a _Freeflow_ layout.
 
 ![](resources/images/dashboard-layout-modal.png)
 
@@ -165,10 +165,10 @@ If you choose the "External" option here and click "continue", you will be taken
 
 The "Title", "Code" and "Description" fields in this form are identical to the fields with the same names you see when creating a regular (internal) dashboard, but there are also some notable differences:
 
-- Since the dashboard content is coming from an external system (Superset), there is no need to add dashboard items
-- A "Superset Embed ID" needs to be provided so the app can retrieve the correct dashboard from the external Superset service
-- The "Show chart controls on dashboard items" checkbox controls whether or not each embedded dashboard item has a dropdown menu
-- The "Expand filters" checkbox controls whether or not the filter section of the embedded dashboard is expanded or collapsed
+-   Since the dashboard content is coming from an external system (Superset), there is no need to add dashboard items
+-   A "Superset Embed ID" needs to be provided so the app can retrieve the correct dashboard from the external Superset service
+-   The "Show chart controls on dashboard items" checkbox controls whether or not each embedded dashboard item has a dropdown menu
+-   The "Expand filters" checkbox controls whether or not the filter section of the embedded dashboard is expanded or collapsed
 
 ![Superset dashboard with both checkboxes enabled](resources/images/superset-dashboard-with-annotations.png)
 
@@ -178,14 +178,14 @@ Once the dashboard is created, you can star/unstar, edit and share it. You can a
 
 The following actions are available on the dashboard in view mode:
 
-- Set the show/hide description setting
-- Star the dashboard so it appears first in the dashboard list
-- Filter the dashboard
-- Print the dashboard
-- Display the dashboard in a slideshow
-- Make the dashboard available offline
-- Share the dashboard with other users and user groups
-- Close the dashboard
+-   Set the show/hide description setting
+-   Star the dashboard so it appears first in the dashboard list
+-   Filter the dashboard
+-   Print the dashboard
+-   Display the dashboard in a slideshow
+-   Make the dashboard available offline
+-   Share the dashboard with other users and user groups
+-   Close the dashboard
 
 ![](resources/images/dashboard-more-menu.png)
 
@@ -262,9 +262,9 @@ From the **...** menu you can print the current dashboard. There are two styles 
 
 For best print results:
 
-- use Chrome or Edge
-- wait until all dashboard items have loaded before printing
-- use A4 landscape setting with default margins set and background graphics turned on
+-   use Chrome or Edge
+-   wait until all dashboard items have loaded before printing
+-   use A4 landscape setting with default margins set and background graphics turned on
 
 #### Print dashboard layout { #dashboard-print-layout }
 
@@ -322,15 +322,15 @@ In order to share the dashboard with users and user groups, click on the **Share
 
 There are three levels of sharing permissions available for a dashboard:
 
-- No access
+-   No access
 
     The user or user group cannot view or edit the dashboard. If they try to access the dashboard with the url, the Dashboards app will display the message "Requested dashboard not found".
 
-- View only
+-   View only
 
     The user or user group can view the dashboard but cannot edit it.
 
-- View and edit
+-   View and edit
 
     The user or user group can view and edit the dashboard. This level of sharing allows for all types of changes, including altering the layout, resizing and removing items, renaming and deleting the dashboard, etc.
 
