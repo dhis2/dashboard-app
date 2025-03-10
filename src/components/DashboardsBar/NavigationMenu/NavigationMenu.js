@@ -1,4 +1,4 @@
-import { useDataEngine } from '@dhis2/app-runtime'
+import { useDataEngine, useCachedSections } from '@dhis2/app-runtime'
 import i18n from '@dhis2/d2-i18n'
 import { Input, Menu } from '@dhis2/ui'
 import cx from 'classnames'
@@ -25,6 +25,7 @@ const dashboardsQuery = {
 }
 
 export const NavigationMenu = ({ close, hasDashboards }) => {
+    const { cachedSections } = useCachedSections()
     const dataEngine = useDataEngine()
     const [initialFetchComplete, setInitialFetchComplete] = useState(null)
     const [dashboards, setDashboards] = useState([])
@@ -33,6 +34,7 @@ export const NavigationMenu = ({ close, hasDashboards }) => {
         filterText: '',
     })
     const debouncedRequestParams = useDebounce(requestParams, 300)
+    console.log('jj cachedSections', cachedSections)
 
     useEffect(() => {
         const fetchDashboards = async () => {
