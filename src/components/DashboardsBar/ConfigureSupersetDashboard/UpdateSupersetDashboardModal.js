@@ -60,7 +60,7 @@ export const UpdateSupersetDashboardModal = ({ closeModal }) => {
         return (
             <Modal>
                 <ModalTitle>{i18n.t('Delete dashboard')}</ModalTitle>
-                <ModalContent>
+                <ModalContent className={styles.confirmDeleteTextWrap}>
                     <p className={styles.deleteConfirmPrimaryMessage}>
                         {i18n.t(
                             'Deleting dashboard "{{ dashboardName }}" will remove it for all users. This action cannot be undone. Are you sure you want to permanently delete this dashboard?',

@@ -33,6 +33,10 @@
     outline-offset: -3px !important;
     text-decoration: underline !important;
 }
+/* Prevent focus outline from shwoing on modal content */
+.confirmDeleteTextWrap:focus {
+    outline: none;
+}
 .deleteConfirmPrimaryMessage,
 .deleteConfirmSecondaryMessage {
     margin-block-start: 0;
