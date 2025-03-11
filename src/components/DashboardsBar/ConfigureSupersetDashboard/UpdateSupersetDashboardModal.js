@@ -83,6 +83,8 @@ export const UpdateSupersetDashboardModal = ({ closeModal }) => {
                                 event.preventDefault()
                                 handleDelete()
                             }}
+                            className={styles.confirmDeleteButton}
+                            initialFocus
                         >
                             {i18n.t('Delete')}
                         </Button>

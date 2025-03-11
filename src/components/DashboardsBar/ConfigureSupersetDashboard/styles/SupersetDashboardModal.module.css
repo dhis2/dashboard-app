@@ -26,6 +26,13 @@
 .deleteButton {
     margin-inline-end: auto;
 }
+/* Without this style the focus outline on the delete button does 
+   not show even though it does get intialFocus */
+.buttonStrip .confirmDeleteButton:not(.loading):focus {
+    outline: 3px solid var(--theme-focus) !important;
+    outline-offset: -3px !important;
+    text-decoration: underline !important;
+}
 .deleteConfirmPrimaryMessage,
 .deleteConfirmSecondaryMessage {
     margin-block-start: 0;

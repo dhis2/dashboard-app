@@ -46,7 +46,7 @@ const App = (props) => {
     return (
         systemSettings && (
             <>
-                <CssVariables colors spacers elevations />
+                <CssVariables colors spacers elevations theme />
                 <Router>
                     <Switch>
                         <Route
