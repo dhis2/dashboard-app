@@ -16,6 +16,8 @@ import { useSupersetDashboardMutation } from '../../../modules/useSupersetDashbo
 import styles from './styles/SupersetDashboardModal.module.css'
 import { SupersetDashboardFields } from './SupersetDashboardFields.js'
 
+const FORM_ID = 'update-superset-dashboard'
+
 export const UpdateSupersetDashboardModal = ({ closeModal }) => {
     const {
         queryLoading,
@@ -103,29 +105,30 @@ export const UpdateSupersetDashboardModal = ({ closeModal }) => {
 
     return (
         <Modal>
-            <form
-                onSubmit={(event) => {
-                    event.preventDefault()
-                    handleUpdate(values)
-                }}
-            >
-                <ModalTitle>{i18n.t('Edit external dashboard')}</ModalTitle>
-                <ModalContent className={styles.modalContent}>
-                    {(queryLoading || queryHasError) && (
-                        <div
-                            className={cx(styles.contentOverlay, {
-                                [styles.loading]: queryLoading,
-                                [styles.error]: queryHasError,
-                            })}
-                        >
-                            {queryLoading && <CircularLoader />}
-                            {queryHasError && (
-                                <NoticeBox error title={queryErrorTitle}>
-                                    {queryErrorMessage}
-                                </NoticeBox>
-                            )}
-                        </div>
-                    )}
+            <ModalTitle>{i18n.t('Edit external dashboard')}</ModalTitle>
+            <ModalContent className={styles.modalContent}>
+                {(queryLoading || queryHasError) && (
+                    <div
+                        className={cx(styles.contentOverlay, {
+                            [styles.loading]: queryLoading,
+                            [styles.error]: queryHasError,
+                        })}
+                    >
+                        {queryLoading && <CircularLoader />}
+                        {queryHasError && (
+                            <NoticeBox error title={queryErrorTitle}>
+                                {queryErrorMessage}
+                            </NoticeBox>
+                        )}
+                    </div>
+                )}
+                <form
+                    id={FORM_ID}
+                    onSubmit={(event) => {
+                        event.preventDefault()
+                        handleUpdate(values)
+                    }}
+                >
                     <SupersetDashboardFields
                         isSupersetEmbedIdValid={isSupersetEmbedIdValid}
                         isSupersetEmbedIdFieldTouched={
@@ -141,46 +144,47 @@ export const UpdateSupersetDashboardModal = ({ closeModal }) => {
                             {mutationErrorText}
                         </NoticeBox>
                     )}
-                </ModalContent>
-                <ModalActions>
-                    <div className={styles.buttonStrip}>
-                        {!queryHasError && (
-                            <Button
-                                loading={mutationLoading}
-                                type="submit"
-                                primary
-                                disabled={
-                                    !hasFieldChanges ||
-                                    !isSupersetEmbedIdValid ||
-                                    queryLoading
-                                }
-                            >
-                                {i18n.t('Save dashboard')}
-                            </Button>
-                        )}
+                </form>
+            </ModalContent>
+            <div className={styles.fullWidthModalActions}>
+                <div className={styles.buttonStrip}>
+                    {!queryHasError && (
                         <Button
-                            disabled={mutationLoading}
-                            secondary={!queryHasError}
-                            primary={queryHasError}
-                            onClick={closeModal}
-                            type={queryHasError ? 'submit' : undefined}
+                            loading={mutationLoading}
+                            primary
+                            type="submit"
+                            disabled={
+                                !hasFieldChanges ||
+                                !isSupersetEmbedIdValid ||
+                                queryLoading
+                            }
+                            form={FORM_ID}
                         >
-                            {i18n.t('Cancel')}
+                            {i18n.t('Save dashboard')}
                         </Button>
-                        {!queryHasError && dashboard?.access?.delete && (
-                            <Button
-                                destructive
-                                disabled={queryLoading || mutationLoading}
-                                secondary
-                                onClick={() => setShowDeleteConfirmDialog(true)}
-                                className={styles.deleteButton}
-                            >
-                                {i18n.t('Delete dashboard')}
-                            </Button>
-                        )}
-                    </div>
-                </ModalActions>
-            </form>
+                    )}
+                    <Button
+                        disabled={mutationLoading}
+                        secondary={!queryHasError}
+                        primary={queryHasError}
+                        onClick={closeModal}
+                        type={queryHasError ? 'submit' : undefined}
+                    >
+                        {i18n.t('Cancel')}
+                    </Button>
+                    {!queryHasError && dashboard?.access?.delete && (
+                        <Button
+                            destructive
+                            disabled={queryLoading || mutationLoading}
+                            secondary
+                            onClick={() => setShowDeleteConfirmDialog(true)}
+                            className={styles.deleteButton}
+                        >
+                            {i18n.t('Delete dashboard')}
+                        </Button>
+                    )}
+                </div>
+            </div>
         </Modal>
     )
 }

@@ -23,6 +23,7 @@ const postDashboardQuery = {
     type: 'create',
     data: ({ values }) => parseSupersetDashboardFieldValues(values),
 }
+const FORM_ID = 'create-superset-dashboard'
 
 export const CreateSupersetDashboardModal = ({
     backToChooseDashboardModal,
@@ -57,11 +58,11 @@ export const CreateSupersetDashboardModal = ({
 
     return (
         <Modal>
-            <form onSubmit={handleSubmit}>
-                <ModalTitle>
-                    {i18n.t('New dashboard: external', { nsSeparator: '###' })}
-                </ModalTitle>
-                <ModalContent>
+            <ModalTitle>
+                {i18n.t('New dashboard: external', { nsSeparator: '###' })}
+            </ModalTitle>
+            <ModalContent>
+                <form onSubmit={handleSubmit} id={FORM_ID}>
                     <SupersetDashboardFields
                         isSupersetEmbedIdValid={isSupersetEmbedIdValid}
                         isSupersetEmbedIdFieldTouched={
@@ -72,39 +73,37 @@ export const CreateSupersetDashboardModal = ({
                         onSupersetEmbedIdFieldBlur={onSupersetEmbedIdFieldBlur}
                         submitting={loading}
                     />
-                    {error && (
-                        <NoticeBox
-                            error
-                            title={i18n.t('Could not create dashboard')}
-                        >
-                            {error?.details?.response?.errorReports[0]
-                                ?.message ??
-                                i18n.t('An unknown error occurred')}
-                        </NoticeBox>
-                    )}
-                </ModalContent>
-                <ModalActions>
-                    <div className={styles.buttonStrip}>
-                        <Button
-                            loading={loading}
-                            type="submit"
-                            primary
-                            disabled={
-                                !hasFieldChanges || !isSupersetEmbedIdValid
-                            }
-                        >
-                            {i18n.t('Save dashboard')}
-                        </Button>
-                        <Button
-                            disabled={loading}
-                            secondary
-                            onClick={backToChooseDashboardModal}
-                        >
-                            {i18n.t('Back')}
-                        </Button>
-                    </div>
-                </ModalActions>
-            </form>
+                </form>
+                {error && (
+                    <NoticeBox
+                        error
+                        title={i18n.t('Could not create dashboard')}
+                    >
+                        {error?.details?.response?.errorReports[0]?.message ??
+                            i18n.t('An unknown error occurred')}
+                    </NoticeBox>
+                )}
+            </ModalContent>
+            <ModalActions>
+                <div className={styles.buttonStrip}>
+                    <Button
+                        loading={loading}
+                        type="submit"
+                        primary
+                        disabled={!hasFieldChanges || !isSupersetEmbedIdValid}
+                        form={FORM_ID}
+                    >
+                        {i18n.t('Save dashboard')}
+                    </Button>
+                    <Button
+                        disabled={loading}
+                        secondary
+                        onClick={backToChooseDashboardModal}
+                    >
+                        {i18n.t('Back')}
+                    </Button>
+                </div>
+            </ModalActions>
         </Modal>
     )
 }

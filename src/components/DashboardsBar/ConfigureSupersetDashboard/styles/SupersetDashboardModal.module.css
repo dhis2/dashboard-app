@@ -16,12 +16,21 @@
 .contentOverlay.error {
     flex-direction: column;
 }
-
+.fullWidthModalActions {
+    inline-size: 100%;
+    order: 3;
+    display: flex;
+    justify-content: flex-end;
+    align-self: flex-end;
+    margin: var(--spacers-dp16) 0 0;
+}
 .buttonStrip {
     display: flex;
     flex-direction: row-reverse;
     gap: var(--spacers-dp8);
     inline-size: 100%;
+    order: 3;
+    margin-block-start: 16px;
 }
 .deleteButton {
     margin-inline-end: auto;
