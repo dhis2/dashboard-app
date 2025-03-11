@@ -22,13 +22,18 @@ export const RESET_FIELD_STATE = 'RESET_FIELD_STATE'
 const UUID_PATTERN =
     /^[0-9a-f]{8}-[0-9a-f]{4}-[1-8][0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$/i
 export const isValidUuid = (string) => UUID_PATTERN.test(string)
-export const createInitialState = (initialValues = defaultInitialValues) => ({
-    initialValues,
-    values: initialValues,
-    isSupersetEmbedIdValid: isValidUuid(initialValues.supersetEmbedId),
-    isSupersetEmbedIdFieldTouched: false,
-    hasFieldChanges: false,
-})
+export const createInitialState = (initialValues = defaultInitialValues) => {
+    const isSupersetEmbedIdValid = isValidUuid(initialValues.supersetEmbedId)
+
+    return {
+        initialValues,
+        values: initialValues,
+        isSupersetEmbedIdValid,
+        shouldShowSupersetEmbedIdError:
+            !!initialValues.supersetEmbedId && !isSupersetEmbedIdValid,
+        hasFieldChanges: false,
+    }
+}
 
 export const reducer = (state, { type, payload }) => {
     switch (type) {
@@ -40,14 +45,19 @@ export const reducer = (state, { type, payload }) => {
                         ? payload.checked
                         : payload.value,
             }
+            const isSupersetEmbedIdFieldChange =
+                payload.name === FIELD_NAME_SUPERSET_EMBED_ID
+            const newIsSuperSetEmbedIdValid = isSupersetEmbedIdFieldChange
+                ? isValidUuid(payload.value)
+                : state.isSupersetEmbedIdValid
 
             return {
                 ...state,
                 values,
-                isSupersetEmbedIdValid:
-                    payload.name === FIELD_NAME_SUPERSET_EMBED_ID
-                        ? isValidUuid(payload.value)
-                        : state.isSupersetEmbedIdValid,
+                isSupersetEmbedIdValid: newIsSuperSetEmbedIdValid,
+                shouldShowSupersetEmbedIdError:
+                    // Show error whenever a valid UUID is changed to an invalid one
+                    state.isSupersetEmbedIdValid && !newIsSuperSetEmbedIdValid,
                 hasFieldChanges: Object.entries(values).some(
                     ([key, value]) => value !== state.initialValues[key]
                 ),
@@ -56,7 +66,7 @@ export const reducer = (state, { type, payload }) => {
         case SUPERSET_FIELD_BLUR:
             return {
                 ...state,
-                isSupersetEmbedIdFieldTouched: true,
+                shouldShowSupersetEmbedIdError: !state.isSupersetEmbedIdValid,
             }
         case RESET_FIELD_STATE:
             return createInitialState(payload)
@@ -85,7 +95,7 @@ export const useSupersetDashboardFieldsState = (
     return {
         ...state,
         onChange,
-        onSupersetEmbedIdFieldBlur: state.isSupersetEmbedIdFieldTouched
+        onSupersetEmbedIdFieldBlur: state.shouldShowSupersetEmbedIdError
             ? undefined
             : onSupersetEmbedIdFieldBlur,
         resetFieldsStateWithNewValues,

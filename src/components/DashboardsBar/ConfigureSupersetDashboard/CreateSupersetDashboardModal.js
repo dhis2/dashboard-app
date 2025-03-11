@@ -38,7 +38,7 @@ export const CreateSupersetDashboardModal = ({
     const {
         hasFieldChanges,
         isSupersetEmbedIdValid,
-        isSupersetEmbedIdFieldTouched,
+        shouldShowSupersetEmbedIdError,
         values,
         onChange,
         onSupersetEmbedIdFieldBlur,
@@ -64,9 +64,8 @@ export const CreateSupersetDashboardModal = ({
             <ModalContent>
                 <form onSubmit={handleSubmit} id={FORM_ID}>
                     <SupersetDashboardFields
-                        isSupersetEmbedIdValid={isSupersetEmbedIdValid}
-                        isSupersetEmbedIdFieldTouched={
-                            isSupersetEmbedIdFieldTouched
+                        shouldShowSupersetEmbedIdError={
+                            shouldShowSupersetEmbedIdError
                         }
                         values={values}
                         onChange={onChange}

@@ -17,11 +17,8 @@ export const SupersetDashboardFields = ({
     submitting,
     onChange,
     onSupersetEmbedIdFieldBlur,
-    isSupersetEmbedIdValid,
-    isSupersetEmbedIdFieldTouched,
+    shouldShowSupersetEmbedIdError,
 }) => {
-    const supersetEmbedIdFieldHasError =
-        isSupersetEmbedIdFieldTouched && !isSupersetEmbedIdValid
     return (
         <>
             <InputField
@@ -63,9 +60,9 @@ export const SupersetDashboardFields = ({
                 value={values.supersetEmbedId}
                 disabled={submitting}
                 name={FIELD_NAME_SUPERSET_EMBED_ID}
-                error={supersetEmbedIdFieldHasError}
+                error={shouldShowSupersetEmbedIdError}
                 validationText={
-                    supersetEmbedIdFieldHasError
+                    shouldShowSupersetEmbedIdError
                         ? i18n.t('Invalid UUID')
                         : undefined
                 }
@@ -96,8 +93,7 @@ export const SupersetDashboardFields = ({
 }
 
 SupersetDashboardFields.propTypes = {
-    isSupersetEmbedIdFieldTouched: PropTypes.bool,
-    isSupersetEmbedIdValid: PropTypes.bool,
+    shouldShowSupersetEmbedIdError: PropTypes.bool,
     submitting: PropTypes.bool,
     values: PropTypes.shape({
         code: PropTypes.string,

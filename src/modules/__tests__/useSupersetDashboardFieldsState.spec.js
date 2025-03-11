@@ -40,7 +40,7 @@ describe('superset embedded fields state reducer', () => {
                 initialValues: defaultInitialValues,
                 values: defaultInitialValues,
                 isSupersetEmbedIdValid: false,
-                isSupersetEmbedIdFieldTouched: false,
+                shouldShowSupersetEmbedIdError: false,
                 hasFieldChanges: false,
             })
         })
@@ -57,11 +57,11 @@ describe('superset embedded fields state reducer', () => {
                 initialValues: initialValues,
                 values: initialValues,
                 isSupersetEmbedIdValid: false,
-                isSupersetEmbedIdFieldTouched: false,
+                shouldShowSupersetEmbedIdError: false,
                 hasFieldChanges: false,
             })
         })
-        it('the initial state will have report a valid superset embed ID if a valid UUID was provided', () => {
+        it('the initial state reports a valid superset embed ID if a valid UUID was provided', () => {
             const initialValues = {
                 ...defaultInitialValues,
                 supersetEmbedId: UUID_V4,
@@ -70,7 +70,20 @@ describe('superset embedded fields state reducer', () => {
                 initialValues: initialValues,
                 values: initialValues,
                 isSupersetEmbedIdValid: true,
-                isSupersetEmbedIdFieldTouched: false,
+                shouldShowSupersetEmbedIdError: false,
+                hasFieldChanges: false,
+            })
+        })
+        it('the intial state reports that the superset embed ID error should be displayed if invalid UUID is provided', () => {
+            const initialValues = {
+                ...defaultInitialValues,
+                supersetEmbedId: 'a-bad-value',
+            }
+            expect(createInitialState(initialValues)).toEqual({
+                initialValues: initialValues,
+                values: initialValues,
+                isSupersetEmbedIdValid: false,
+                shouldShowSupersetEmbedIdError: true,
                 hasFieldChanges: false,
             })
         })
@@ -149,7 +162,7 @@ describe('superset embedded fields state reducer', () => {
             const initialState = createInitialState()
             expect(
                 reducer(initialState, { type: SUPERSET_FIELD_BLUR })
-            ).toEqual({ ...initialState, isSupersetEmbedIdFieldTouched: true })
+            ).toEqual({ ...initialState, shouldShowSupersetEmbedIdError: true })
         })
     })
     describe('state updates due to reset field state action', () => {
@@ -167,7 +180,7 @@ describe('superset embedded fields state reducer', () => {
             })
             expect(state.values.title).toBe(INITIAL_TITLE)
             expect(state.values.supersetEmbedId).toBe(UUID_V1)
-            expect(state.isSupersetEmbedIdFieldTouched).toBe(true)
+            expect(state.shouldShowSupersetEmbedIdError).toBe(false)
             expect(state.isSupersetEmbedIdValid).toBe(true)
             expect(state.hasFieldChanges).toBe(true)
 
@@ -188,7 +201,7 @@ describe('superset embedded fields state reducer', () => {
             expect(state.initialValues).toEqual(newValues)
             expect(state.values).toEqual(newValues)
             expect(state.isSupersetEmbedIdValid).toBe(false)
-            expect(state.isSupersetEmbedIdFieldTouched).toBe(false)
+            expect(state.shouldShowSupersetEmbedIdError).toBe(true)
             // Note that this is by design, the initalValues are also reset
             expect(state.hasFieldChanges).toBe(false)
         })

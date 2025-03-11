@@ -37,7 +37,7 @@ export const UpdateSupersetDashboardModal = ({ closeModal }) => {
     const {
         hasFieldChanges,
         isSupersetEmbedIdValid,
-        isSupersetEmbedIdFieldTouched,
+        shouldShowSupersetEmbedIdError,
         values,
         onChange,
         onSupersetEmbedIdFieldBlur,
@@ -130,9 +130,8 @@ export const UpdateSupersetDashboardModal = ({ closeModal }) => {
                     }}
                 >
                     <SupersetDashboardFields
-                        isSupersetEmbedIdValid={isSupersetEmbedIdValid}
-                        isSupersetEmbedIdFieldTouched={
-                            isSupersetEmbedIdFieldTouched
+                        shouldShowSupersetEmbedIdError={
+                            shouldShowSupersetEmbedIdError
                         }
                         values={values}
                         onChange={onChange}
