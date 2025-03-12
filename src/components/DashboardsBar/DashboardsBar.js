@@ -6,7 +6,7 @@ import InformationBlock from './InformationBlock/InformationBlock.js'
 import { IconNavigation, NavigationMenu } from './NavigationMenu/index.js'
 import styles from './styles/DashboardsBar.module.css'
 
-export const DashboardsBar = () => {
+export const DashboardsBar = (props) => {
     const history = useHistory()
     const [navigationMenuOpen, setNavigationMenuOpen] = useState(false)
 
@@ -31,6 +31,7 @@ export const DashboardsBar = () => {
                     component={
                         <NavigationMenu
                             close={() => setNavigationMenuOpen(false)}
+                            {...props}
                         />
                     }
                 >
