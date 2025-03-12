@@ -1,4 +1,4 @@
-import { FILTER_ORG_UNIT, FILTER_PE } from '../../../actions/itemFilters.js'
+import { FILTER_ORG_UNIT } from '../../../actions/itemFilters.js'
 
 export const getIframeSrc = (appDetails, item, itemFilters) => {
     let iframeSrc = `${appDetails.launchUrl}?dashboardItemId=${item.id}`
@@ -16,7 +16,6 @@ export const getIframeSrc = (appDetails, item, itemFilters) => {
         const peValues = itemFilters[FILTER_PE].map(x => x.id).join(',');
         iframeSrc += `&period=${peValues}`;
     }
-
 
     return iframeSrc
 }
