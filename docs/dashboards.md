@@ -58,7 +58,7 @@ In create/edit mode, you can add or change the dashboard title, description, das
 
 ![](resources/images/dashboard-create-mode.png)
 
-In some DHIS2 Core instances it is possible to either create a regular (internal) dashboard, or to embed a dashboard from an external source. See [this section](#creating-and-editing-an-external-dashboard) for more information about this.
+If the system has been configured to support embedded dashboards, then you will have the option of creating a regular (internal) dashboard or embedding a dashboard from an external source. See [this section](#creating-and-editing-an-external-dashboard) for more information.
 
 ### Adding items to the dashboard
 
@@ -168,11 +168,11 @@ The "Title", "Code" and "Description" fields in this form are identical to the f
 -   Since the dashboard content is coming from an external system (Superset), there is no need to add dashboard items
 -   A "Superset Embed ID" needs to be provided so the app can retrieve the correct dashboard from the external Superset service
 -   The "Show chart controls on dashboard items" checkbox controls whether or not each embedded dashboard item has a dropdown menu
--   The "Expand filters" checkbox controls whether or not the filter section of the embedded dashboard is expanded or collapsed
+-   The "Expand filters" checkbox controls whether or not the filter section of the embedded dashboard is initially expanded or collapsed
 
 ![Superset dashboard with both checkboxes enabled](resources/images/superset-dashboard-with-annotations.png)
 
-Once the dashboard is created, you can star/unstar, edit and share it. You can also show and hide the description and close the dashboard. But it is not possible to show it in slideshow mode, filter it, or enter print view mode.
+Once the dashboard is created, you can star/unstar, edit and share it. You can also show and hide the description and close the dashboard. It is not possible to show it in slideshow mode, filter it, or enter print view mode.
 
 ## Viewing a dashboard
 
