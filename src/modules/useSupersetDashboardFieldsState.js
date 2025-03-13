@@ -45,19 +45,22 @@ export const reducer = (state, { type, payload }) => {
                         ? payload.checked
                         : payload.value,
             }
-            const isSupersetEmbedIdFieldChange =
+            // recompute validity when relevant field changes only
+            const isSupersetEmbedIdValid =
                 payload.name === FIELD_NAME_SUPERSET_EMBED_ID
-            const newIsSuperSetEmbedIdValid = isSupersetEmbedIdFieldChange
-                ? isValidUuid(payload.value)
-                : state.isSupersetEmbedIdValid
+                    ? isValidUuid(payload.value)
+                    : state.isSupersetEmbedIdValid
+            // update error visibility when validity changes, otherwise use previous visibility state
+            const shouldShowSupersetEmbedIdError =
+                isSupersetEmbedIdValid !== state.isSupersetEmbedIdValid
+                    ? !isSupersetEmbedIdValid
+                    : state.shouldShowSupersetEmbedIdError
 
             return {
                 ...state,
                 values,
-                isSupersetEmbedIdValid: newIsSuperSetEmbedIdValid,
-                shouldShowSupersetEmbedIdError:
-                    // Show error whenever a valid UUID is changed to an invalid one
-                    state.isSupersetEmbedIdValid && !newIsSuperSetEmbedIdValid,
+                isSupersetEmbedIdValid,
+                shouldShowSupersetEmbedIdError,
                 hasFieldChanges: Object.entries(values).some(
                     ([key, value]) => value !== state.initialValues[key]
                 ),
