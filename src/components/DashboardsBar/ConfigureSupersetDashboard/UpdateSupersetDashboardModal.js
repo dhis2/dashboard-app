@@ -10,7 +10,7 @@ import {
 } from '@dhis2/ui'
 import cx from 'classnames'
 import PropTypes from 'prop-types'
-import React, { useEffect } from 'react'
+import React, { useEffect, useRef } from 'react'
 import { useSupersetDashboardFieldsState } from '../../../modules/useSupersetDashboardFieldsState.js'
 import { useSupersetDashboardMutation } from '../../../modules/useSupersetDashboardMutation.js'
 import styles from './styles/SupersetDashboardModal.module.css'
@@ -19,6 +19,7 @@ import { SupersetDashboardFields } from './SupersetDashboardFields.js'
 const FORM_ID = 'update-superset-dashboard'
 
 export const UpdateSupersetDashboardModal = ({ closeModal }) => {
+    const formRef = useRef(null)
     const {
         queryLoading,
         queryHasError,
@@ -55,6 +56,7 @@ export const UpdateSupersetDashboardModal = ({ closeModal }) => {
                     !dashboard.embedded.options.hideChartControls,
                 expandFilters: dashboard.embedded.options.filters.expanded,
             })
+            formRef.current?.getElementsByTagName('input')?.item(0)?.focus()
         }
     }, [dashboard, resetFieldsStateWithNewValues])
 
@@ -123,6 +125,7 @@ export const UpdateSupersetDashboardModal = ({ closeModal }) => {
                     </div>
                 )}
                 <form
+                    ref={formRef}
                     id={FORM_ID}
                     onSubmit={(event) => {
                         event.preventDefault()
