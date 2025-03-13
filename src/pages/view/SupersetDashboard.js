@@ -41,6 +41,8 @@ export const SupersetDashboard = () => {
         reducer,
         initialLoadState
     )
+    // For errors with an error code a retry will fail
+    const allowRetry = error && !error.errorCode
     const ref = useRef(null)
     const selectedId = useSelector(sGetSelectedId)
     const embedData = useSelector(msGetSelectedSupersetEmbedData)
@@ -104,16 +106,18 @@ export const SupersetDashboard = () => {
                                 {error.message ??
                                     i18n.t('Could not load Superset dashboard')}
                             </p>
-                            <Button
-                                secondary
-                                small
-                                onClick={() => {
-                                    dispatch({ type: LOAD_RESET })
-                                    loadSupersetDashboard()
-                                }}
-                            >
-                                {i18n.t('Retry')}
-                            </Button>
+                            {allowRetry && (
+                                <Button
+                                    secondary
+                                    small
+                                    onClick={() => {
+                                        dispatch({ type: LOAD_RESET })
+                                        loadSupersetDashboard()
+                                    }}
+                                >
+                                    {i18n.t('Retry')}
+                                </Button>
+                            )}
                         </NoticeBox>
                     )}
                 </div>
