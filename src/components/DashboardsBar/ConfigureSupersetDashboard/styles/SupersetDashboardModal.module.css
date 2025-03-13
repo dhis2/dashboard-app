@@ -42,7 +42,7 @@
     outline-offset: -3px !important;
     text-decoration: underline !important;
 }
-/* Prevent focus outline from shwoing on modal content */
+/* Prevent focus outline from showing on modal content */
 .confirmDeleteTextWrap:focus {
     outline: none;
 }
