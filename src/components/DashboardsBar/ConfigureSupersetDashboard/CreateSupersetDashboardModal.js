@@ -38,6 +38,7 @@ export const CreateSupersetDashboardModal = ({
     const {
         hasFieldChanges,
         isSupersetEmbedIdValid,
+        isCodeValid,
         shouldShowSupersetEmbedIdError,
         values,
         onChange,
@@ -71,6 +72,7 @@ export const CreateSupersetDashboardModal = ({
                         onChange={onChange}
                         onSupersetEmbedIdFieldBlur={onSupersetEmbedIdFieldBlur}
                         submitting={loading}
+                        isCodeValid={isCodeValid}
                     />
                 </form>
                 {error && (
@@ -89,7 +91,11 @@ export const CreateSupersetDashboardModal = ({
                         loading={loading}
                         type="submit"
                         primary
-                        disabled={!hasFieldChanges || !isSupersetEmbedIdValid}
+                        disabled={
+                            !hasFieldChanges ||
+                            !isSupersetEmbedIdValid ||
+                            !isCodeValid
+                        }
                         form={FORM_ID}
                     >
                         {i18n.t('Save dashboard')}

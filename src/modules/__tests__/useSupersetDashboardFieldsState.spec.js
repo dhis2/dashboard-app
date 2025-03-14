@@ -40,6 +40,7 @@ describe('superset embedded fields state reducer', () => {
                 initialValues: defaultInitialValues,
                 values: defaultInitialValues,
                 isSupersetEmbedIdValid: false,
+                isCodeValid: true,
                 shouldShowSupersetEmbedIdError: false,
                 hasFieldChanges: false,
             })
@@ -57,6 +58,7 @@ describe('superset embedded fields state reducer', () => {
                 initialValues: initialValues,
                 values: initialValues,
                 isSupersetEmbedIdValid: false,
+                isCodeValid: true,
                 shouldShowSupersetEmbedIdError: false,
                 hasFieldChanges: false,
             })
@@ -70,6 +72,7 @@ describe('superset embedded fields state reducer', () => {
                 initialValues: initialValues,
                 values: initialValues,
                 isSupersetEmbedIdValid: true,
+                isCodeValid: true,
                 shouldShowSupersetEmbedIdError: false,
                 hasFieldChanges: false,
             })
@@ -83,6 +86,7 @@ describe('superset embedded fields state reducer', () => {
                 initialValues: initialValues,
                 values: initialValues,
                 isSupersetEmbedIdValid: false,
+                isCodeValid: true,
                 shouldShowSupersetEmbedIdError: true,
                 hasFieldChanges: false,
             })
@@ -122,6 +126,29 @@ describe('superset embedded fields state reducer', () => {
                     payload: {
                         name: FIELD_NAME_SHOW_CHART_CONTROLS,
                         checked: false,
+                    },
+                })
+            ).toEqual(expectedState)
+        })
+        it('detects when an code field is invalid', () => {
+            const invalidCode =
+                '0123456789-0123456789-0123456789-0123456789-0123456789-'
+            const initialState = createInitialState()
+            const expectedState = {
+                ...initialState,
+                values: {
+                    ...initialState.values,
+                    code: invalidCode,
+                },
+                hasFieldChanges: true,
+                isCodeValid: false,
+            }
+            expect(
+                reducer(initialState, {
+                    type: FIELD_CHANGE,
+                    payload: {
+                        name: FIELD_NAME_CODE,
+                        value: invalidCode,
                     },
                 })
             ).toEqual(expectedState)

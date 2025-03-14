@@ -22,6 +22,7 @@ export const RESET_FIELD_STATE = 'RESET_FIELD_STATE'
 const UUID_PATTERN =
     /^[0-9a-f]{8}-[0-9a-f]{4}-[1-8][0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$/i
 export const isValidUuid = (string) => UUID_PATTERN.test(string)
+const isFiftyCharsOrLess = (string) => string.length <= 50
 export const createInitialState = (initialValues = defaultInitialValues) => {
     const isSupersetEmbedIdValid = isValidUuid(initialValues.supersetEmbedId)
 
@@ -29,6 +30,7 @@ export const createInitialState = (initialValues = defaultInitialValues) => {
         initialValues,
         values: initialValues,
         isSupersetEmbedIdValid,
+        isCodeValid: isFiftyCharsOrLess(initialValues.code),
         shouldShowSupersetEmbedIdError:
             !!initialValues.supersetEmbedId && !isSupersetEmbedIdValid,
         hasFieldChanges: false,
@@ -60,6 +62,7 @@ export const reducer = (state, { type, payload }) => {
                 ...state,
                 values,
                 isSupersetEmbedIdValid,
+                isCodeValid: isFiftyCharsOrLess(values.code),
                 shouldShowSupersetEmbedIdError,
                 hasFieldChanges: Object.entries(values).some(
                     ([key, value]) => value !== state.initialValues[key]

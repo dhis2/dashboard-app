@@ -38,6 +38,7 @@ export const UpdateSupersetDashboardModal = ({ closeModal }) => {
     const {
         hasFieldChanges,
         isSupersetEmbedIdValid,
+        isCodeValid,
         shouldShowSupersetEmbedIdError,
         values,
         onChange,
@@ -136,6 +137,7 @@ export const UpdateSupersetDashboardModal = ({ closeModal }) => {
                         shouldShowSupersetEmbedIdError={
                             shouldShowSupersetEmbedIdError
                         }
+                        isCodeValid={isCodeValid}
                         values={values}
                         onChange={onChange}
                         onSupersetEmbedIdFieldBlur={onSupersetEmbedIdFieldBlur}
@@ -158,6 +160,7 @@ export const UpdateSupersetDashboardModal = ({ closeModal }) => {
                             disabled={
                                 !hasFieldChanges ||
                                 !isSupersetEmbedIdValid ||
+                                !isCodeValid ||
                                 queryLoading
                             }
                             form={FORM_ID}

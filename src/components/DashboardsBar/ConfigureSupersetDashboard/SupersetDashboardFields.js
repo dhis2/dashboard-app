@@ -18,6 +18,7 @@ export const SupersetDashboardFields = ({
     onChange,
     onSupersetEmbedIdFieldBlur,
     shouldShowSupersetEmbedIdError,
+    isCodeValid,
 }) => {
     return (
         <>
@@ -42,6 +43,12 @@ export const SupersetDashboardFields = ({
                 disabled={submitting}
                 name={FIELD_NAME_CODE}
                 className={styles.textField}
+                error={!isCodeValid}
+                validationText={
+                    isCodeValid
+                        ? undefined
+                        : i18n.t("Code can't be longer than 50 characters")
+                }
             />
             <TextAreaField
                 label={i18n.t('Description')}
@@ -93,6 +100,7 @@ export const SupersetDashboardFields = ({
 }
 
 SupersetDashboardFields.propTypes = {
+    isCodeValid: PropTypes.bool,
     shouldShowSupersetEmbedIdError: PropTypes.bool,
     submitting: PropTypes.bool,
     values: PropTypes.shape({
