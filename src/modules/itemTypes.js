@@ -141,8 +141,7 @@ export const itemTypeMap = {
         pluralTitle: i18n.t('Line lists'),
         domainType: DOMAIN_TYPE_TRACKER,
         isVisualizationType: true,
-        // TODO change to the path for the bundled app
-        appUrl: (id) => `api/apps/line-listing/index.html#/${id}`,
+        appUrl: (id) => `dhis-web-line-listing/#/${id}`,
         appName: 'Line Listing',
         appKey: 'line-listing',
         supportsFullscreen: true,
