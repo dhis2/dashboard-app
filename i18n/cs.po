@@ -5,7 +5,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2025-02-07T10:20:57.831Z\n"
+"POT-Creation-Date: 2025-03-05T13:32:39.554Z\n"
 "PO-Revision-Date: 2019-06-25 12:37+0000\n"
 "Last-Translator: Jiří Podhorecký <jirka.p@volny.cz>, 2025\n"
 "Language-Team: Czech (https://app.transifex.com/hisp-uio/teams/100509/cs/)\n"
@@ -126,6 +126,12 @@ msgstr "Vyhledat ovládací panel"
 
 msgid "No dashboards found for \"{{- filterText}}\""
 msgstr ""
+
+msgid "Could not fetch bundled apps"
+msgstr ""
+
+msgid "Network error"
+msgstr "Chyba sítě"
 
 msgid "There was a problem loading this dashboard item"
 msgstr "Při načítání této položky ovládacího panelu došlo k problému"

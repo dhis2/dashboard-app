@@ -2,16 +2,16 @@
 # Translators:
 # Viktor Varland <viktor@dhis2.org>, 2021
 # Mai Nguyen <thanhmai.jica@gmail.com>, 2024
-# Thuy Nguyen <thuynguyen@hispvietnam.org>, 2025
 # Philip Larsen Donnelly, 2025
 # Em Le <em.hispvietnam@gmail.com>, 2025
+# Thuy Nguyen <thuynguyen@hispvietnam.org>, 2025
 # 
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2025-02-07T10:20:57.831Z\n"
+"POT-Creation-Date: 2025-03-05T13:32:39.554Z\n"
 "PO-Revision-Date: 2019-06-25 12:37+0000\n"
-"Last-Translator: Em Le <em.hispvietnam@gmail.com>, 2025\n"
+"Last-Translator: Thuy Nguyen <thuynguyen@hispvietnam.org>, 2025\n"
 "Language-Team: Vietnamese (https://app.transifex.com/hisp-uio/teams/100509/vi/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -130,6 +130,12 @@ msgstr "Tìm kiếm bảng thông tin"
 
 msgid "No dashboards found for \"{{- filterText}}\""
 msgstr ""
+
+msgid "Could not fetch bundled apps"
+msgstr ""
+
+msgid "Network error"
+msgstr "Lỗi mạng"
 
 msgid "There was a problem loading this dashboard item"
 msgstr "Đã xảy ra sự cố khi tải mục bảng thông tin này"

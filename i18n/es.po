@@ -7,16 +7,16 @@
 # Viktor Varland <viktor@dhis2.org>, 2021
 # Marta Vila <marta@dhis2.org>, 2023
 # Gabriela Rodriguez <grodriguezcoronado@gmail.com>, 2024
-# Enzo Nicolas Rossi <enzo@dhis2.org>, 2024
 # Philip Larsen Donnelly, 2025
 # Janeth Cruz, 2025
+# Enzo Nicolas Rossi <enzo@dhis2.org>, 2025
 # 
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2025-02-07T10:20:57.831Z\n"
+"POT-Creation-Date: 2025-03-05T13:32:39.554Z\n"
 "PO-Revision-Date: 2019-06-25 12:37+0000\n"
-"Last-Translator: Janeth Cruz, 2025\n"
+"Last-Translator: Enzo Nicolas Rossi <enzo@dhis2.org>, 2025\n"
 "Language-Team: Spanish (https://app.transifex.com/hisp-uio/teams/100509/es/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -136,6 +136,12 @@ msgstr "Buscar un tablero"
 
 msgid "No dashboards found for \"{{- filterText}}\""
 msgstr ""
+
+msgid "Could not fetch bundled apps"
+msgstr ""
+
+msgid "Network error"
+msgstr "Error de red"
 
 msgid "There was a problem loading this dashboard item"
 msgstr "Ha habido un problema al cargar este elemento del tablero"

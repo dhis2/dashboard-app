@@ -12,7 +12,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2025-02-07T10:20:57.831Z\n"
+"POT-Creation-Date: 2025-03-05T13:32:39.554Z\n"
 "PO-Revision-Date: 2019-06-25 12:37+0000\n"
 "Last-Translator: Shelsea Chumaio, 2025\n"
 "Language-Team: Portuguese (https://app.transifex.com/hisp-uio/teams/100509/pt/)\n"
@@ -135,6 +135,12 @@ msgstr "Pesquisar um painel"
 
 msgid "No dashboards found for \"{{- filterText}}\""
 msgstr ""
+
+msgid "Could not fetch bundled apps"
+msgstr ""
+
+msgid "Network error"
+msgstr " Erro de rede"
 
 msgid "There was a problem loading this dashboard item"
 msgstr "Ocorreu um problema ao carregar este item do painel"

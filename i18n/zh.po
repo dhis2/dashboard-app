@@ -8,7 +8,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2025-02-07T10:20:57.831Z\n"
+"POT-Creation-Date: 2025-03-05T13:32:39.554Z\n"
 "PO-Revision-Date: 2019-06-25 12:37+0000\n"
 "Last-Translator: easylin <lin_xd@126.com>, 2025\n"
 "Language-Team: Chinese (https://app.transifex.com/hisp-uio/teams/100509/zh/)\n"
@@ -127,6 +127,12 @@ msgstr "搜索仪表盘"
 
 msgid "No dashboards found for \"{{- filterText}}\""
 msgstr "未找到适用于 \"{{- filterText}}\" 的仪表盘"
+
+msgid "Could not fetch bundled apps"
+msgstr ""
+
+msgid "Network error"
+msgstr "网络错误"
 
 msgid "There was a problem loading this dashboard item"
 msgstr "载入仪表盘有问题"
