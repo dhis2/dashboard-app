@@ -1,3 +1,10 @@
+# [101.1.0](https://github.com/dhis2/dashboard-app/compare/v101.0.4...v101.1.0) (2025-03-14)
+
+
+### Features
+
+* External Superset dashboards [DHIS2-17891] ([#3205](https://github.com/dhis2/dashboard-app/issues/3205)) ([089a2c0](https://github.com/dhis2/dashboard-app/commit/089a2c0b7faa301e6cd4ff644fc40a62c26b7b93))
+
 ## [101.0.4](https://github.com/dhis2/dashboard-app/compare/v101.0.3...v101.0.4) (2025-03-05)
 
 

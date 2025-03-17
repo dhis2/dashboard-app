@@ -1,7 +1,12 @@
 export const dashboardsQuery = {
     resource: 'dashboards',
     params: {
-        fields: ['id', 'displayName', 'favorite~rename(starred)'],
+        fields: [
+            'id',
+            'displayName',
+            'favorite~rename(starred)',
+            'embedded[*]',
+        ],
         paging: false,
     },
 }
