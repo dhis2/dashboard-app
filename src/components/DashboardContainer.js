@@ -7,6 +7,8 @@ import React, {
     createContext,
     useContext,
 } from 'react'
+import { useSelector } from 'react-redux'
+import { sGetSelectedIsEmbedded } from '../reducers/selected.js'
 import classes from './styles/DashboardContainer.module.css'
 
 const ContainerWidthContext = createContext(0)
@@ -14,6 +16,7 @@ const ContainerWidthContext = createContext(0)
 const DashboardContainer = ({ children }) => {
     const [containerWidth, setContainerWidth] = useState(0)
     const ref = useRef(null)
+    const isEmbeddedDashboard = useSelector(sGetSelectedIsEmbedded)
 
     useEffect(() => {
         const resizeObserver = new ResizeObserver((entries) => {
@@ -28,7 +31,9 @@ const DashboardContainer = ({ children }) => {
 
     return (
         <div
-            className={cx(classes.container, 'dashboard-scroll-container')}
+            className={cx(classes.container, 'dashboard-scroll-container', {
+                [classes.embeddedDashboard]: isEmbeddedDashboard,
+            })}
             data-test="inner-scroll-container"
         >
             <div ref={ref} className={classes.contentWrap}>

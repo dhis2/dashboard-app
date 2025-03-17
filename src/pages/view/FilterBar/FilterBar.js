@@ -8,7 +8,7 @@ import {
     acClearItemFilters,
 } from '../../../actions/itemFilters.js'
 import ConfirmActionDialog from '../../../components/ConfirmActionDialog.js'
-import { sGetNamedItemFilters } from '../../../reducers/itemFilters.js'
+import { msGetNamedItemFilters } from '../../../reducers/itemFilters.js'
 import FilterBadge from './FilterBadge.js'
 import classes from './styles/FilterBar.module.css'
 
@@ -63,7 +63,7 @@ FilterBar.defaultProps = {
 }
 
 const mapStateToProps = (state) => ({
-    filters: sGetNamedItemFilters(state),
+    filters: msGetNamedItemFilters(state),
 })
 
 export default connect(mapStateToProps, {
