@@ -35,7 +35,7 @@ import ViewAsMenuItems from './ViewAsMenuItems.js'
 const ItemContextMenu = (props) => {
     const [menuIsOpen, setMenuIsOpen] = useState(false)
     const { width } = useWindowDimensions()
-    const { baseUrl } = useConfig()
+    const { baseUrl, apiVersion } = useConfig()
 
     const {
         allowVisOpenInApp,
@@ -92,9 +92,10 @@ const ItemContextMenu = (props) => {
 
     const buttonRef = createRef()
 
-    const itemHref = `${baseUrl}/${itemTypeMap[item.type].appUrl(
-        getVisualizationId(item)
-    )}`
+    const itemHref = `${baseUrl}/${itemTypeMap[item.type].appUrl({
+        id: getVisualizationId(item),
+        apiVersion,
+    })}`
 
     return (
         <>

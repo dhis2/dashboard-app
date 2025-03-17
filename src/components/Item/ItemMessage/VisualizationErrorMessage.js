@@ -12,11 +12,12 @@ const VisualizationErrorMessage = ({
     dashboardMode,
     visualizationId,
 }) => {
-    const { baseUrl } = useConfig()
+    const { baseUrl, apiVersion } = useConfig()
 
-    const visHref = `${baseUrl}/${itemTypeMap[itemType].appUrl(
-        visualizationId
-    )}`
+    const visHref = `${baseUrl}/${itemTypeMap[itemType].appUrl({
+        id: visualizationId,
+        apiVersion,
+    })}`
 
     return (
         <div className={classes.messageContent}>
