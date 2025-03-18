@@ -1,3 +1,10 @@
+## [101.1.3](https://github.com/dhis2/dashboard-app/compare/v101.1.2...v101.1.3) (2025-03-18)
+
+
+### Bug Fixes
+
+* support bundled LL app (DHIS2-17400) ([#3238](https://github.com/dhis2/dashboard-app/issues/3238)) ([4fb6e89](https://github.com/dhis2/dashboard-app/commit/4fb6e89376cc3394187083439c4cdd4a8f628d66))
+
 ## [101.1.2](https://github.com/dhis2/dashboard-app/compare/v101.1.1...v101.1.2) (2025-03-18)
 
 
