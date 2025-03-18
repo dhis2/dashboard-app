@@ -67,7 +67,7 @@ export const itemTypeMap = {
         pluralTitle: i18n.t('Visualizations'),
         domainType: DOMAIN_TYPE_AGGREGATE,
         isVisualizationType: true,
-        appUrl: (id) => `dhis-web-data-visualizer/#/${id}`,
+        appUrl: ({ id }) => `dhis-web-data-visualizer/#/${id}`,
         appName: 'Data Visualizer',
         appKey: 'data-visualizer',
         defaultItemCount: 10,
@@ -81,7 +81,7 @@ export const itemTypeMap = {
         pluralTitle: i18n.t('Pivot tables'),
         domainType: DOMAIN_TYPE_AGGREGATE,
         isVisualizationType: true,
-        appUrl: (id) => `dhis-web-data-visualizer/#/${id}`,
+        appUrl: ({ id }) => `dhis-web-data-visualizer/#/${id}`,
         appName: 'Data Visualizer',
         supportsFullscreen: true,
     },
@@ -93,7 +93,7 @@ export const itemTypeMap = {
         pluralTitle: i18n.t('Charts'),
         domainType: DOMAIN_TYPE_AGGREGATE,
         isVisualizationType: true,
-        appUrl: (id) => `dhis-web-data-visualizer/#/${id}`,
+        appUrl: ({ id }) => `dhis-web-data-visualizer/#/${id}`,
         appName: 'Data Visualizer',
         supportsFullscreen: true,
     },
@@ -105,7 +105,7 @@ export const itemTypeMap = {
         pluralTitle: i18n.t('Maps'),
         domainType: DOMAIN_TYPE_AGGREGATE,
         isVisualizationType: true,
-        appUrl: (id) => `dhis-web-maps/#/${id}`,
+        appUrl: ({ id }) => `dhis-web-maps/#/${id}`,
         appName: 'Maps',
         supportsFullscreen: true,
     },
@@ -117,7 +117,7 @@ export const itemTypeMap = {
         pluralTitle: i18n.t('Event reports'),
         domainType: DOMAIN_TYPE_TRACKER,
         isVisualizationType: true,
-        appUrl: (id) => `dhis-web-event-reports/?id=${id}`,
+        appUrl: ({ id }) => `dhis-web-event-reports/?id=${id}`,
         appName: 'Event Reports',
         supportsFullscreen: true,
     },
@@ -129,7 +129,7 @@ export const itemTypeMap = {
         pluralTitle: i18n.t('Event charts'),
         domainType: DOMAIN_TYPE_TRACKER,
         isVisualizationType: true,
-        appUrl: (id) => `dhis-web-event-visualizer/?id=${id}`,
+        appUrl: ({ id }) => `dhis-web-event-visualizer/?id=${id}`,
         appName: 'Event Visualizer',
         supportsFullscreen: true,
     },
@@ -141,8 +141,10 @@ export const itemTypeMap = {
         pluralTitle: i18n.t('Line lists'),
         domainType: DOMAIN_TYPE_TRACKER,
         isVisualizationType: true,
-        // TODO change to the path for the bundled app
-        appUrl: (id) => `api/apps/line-listing/index.html#/${id}`,
+        appUrl: ({ id, apiVersion }) =>
+            apiVersion >= 42
+                ? `dhis-web-line-listing/#/${id}`
+                : `api/apps/line-listing/index.html#/${id}`,
         appName: 'Line Listing',
         appKey: 'line-listing',
         supportsFullscreen: true,
@@ -159,7 +161,7 @@ export const itemTypeMap = {
         endPointName: 'reports',
         propName: 'reports',
         pluralTitle: i18n.t('Reports'),
-        appUrl: (id, type) => {
+        appUrl: ({ id, type }) => {
             switch (type) {
                 case 'HTML':
                     return `dhis-web-reports/#/standard-report/view/${id}`
@@ -177,7 +179,7 @@ export const itemTypeMap = {
         endPointName: 'resources',
         propName: 'resources',
         pluralTitle: i18n.t('Resources'),
-        appUrl: (id) => `api/documents/${id}/data`,
+        appUrl: ({ id }) => `api/documents/${id}/data`,
         supportsFullscreen: true,
     },
     [USERS]: {
@@ -185,7 +187,7 @@ export const itemTypeMap = {
         endPointName: 'users',
         propName: 'users',
         pluralTitle: i18n.t('Users'),
-        appUrl: (id) =>
+        appUrl: ({ id }) =>
             `dhis-web-dashboard-integration/profile.action?id=${id}`,
         supportsFullscreen: false,
     },
@@ -225,7 +227,10 @@ export const getItemUrl = (type, item, baseUrl) => {
     }
 
     if (itemTypeMap[type] && itemTypeMap[type].appUrl) {
-        url = `${baseUrl}/${itemTypeMap[type].appUrl(item.id, item.type)}`
+        url = `${baseUrl}/${itemTypeMap[type].appUrl({
+            id: item.id,
+            type: item.type,
+        })}`
     }
 
     return url
