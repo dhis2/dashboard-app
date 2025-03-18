@@ -1,6 +1,6 @@
 {
     "name": "dashboard-app",
-    "version": "101.1.0",
+    "version": "101.1.1",
     "description": "DHIS2 Dashboard app",
     "private": true,
     "license": "BSD-3-Clause",
