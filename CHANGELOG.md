@@ -1,3 +1,10 @@
+## [101.1.1](https://github.com/dhis2/dashboard-app/compare/v101.1.0...v101.1.1) (2025-03-18)
+
+
+### Bug Fixes
+
+* **deps:** cli-app-scripts 11.8.1 for pwa fix in global shell [DHIS2-18454] ([#3242](https://github.com/dhis2/dashboard-app/issues/3242)) ([170b526](https://github.com/dhis2/dashboard-app/commit/170b526e7e2312fdd93a0d93a127d269ad4d01b5)), closes [dhis2/app-platform#910](https://github.com/dhis2/app-platform/issues/910)
+
 # [101.1.0](https://github.com/dhis2/dashboard-app/compare/v101.0.4...v101.1.0) (2025-03-14)
 
 
