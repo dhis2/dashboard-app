@@ -105,7 +105,7 @@ export const itemTypeMap = {
         pluralTitle: i18n.t('Maps'),
         domainType: DOMAIN_TYPE_AGGREGATE,
         isVisualizationType: true,
-        appUrl: ({ id }) => `dhis-web-maps/?id=${id}`,
+        appUrl: ({ id }) => `dhis-web-maps/#/${id}`,
         appName: 'Maps',
         supportsFullscreen: true,
     },
