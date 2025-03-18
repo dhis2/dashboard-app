@@ -23,9 +23,7 @@ const itemTypeToScriptPath = {
 }
 
 const hasIntegratedPlugin = (type) =>
-    [CHART, REPORT_TABLE, VISUALIZATION, MAP, EVENT_VISUALIZATION].includes(
-        type
-    )
+    [CHART, REPORT_TABLE, VISUALIZATION, MAP].includes(type)
 
 export const getPluginLaunchUrl = (type, apps, baseUrl) => {
     // 1. lookup in api/apps for the "manually installed" app, this can be a new version for a core (bundled) app
