@@ -6,12 +6,10 @@ import {
     MAP,
     EVENT_REPORT,
     EVENT_CHART,
-    EVENT_VISUALIZATION,
 } from '../../../../modules/itemTypes.js'
 import getVisualizationContainerDomId from '../getVisualizationContainerDomId.js'
 import { loadExternalScript } from './loadExternalScript.js'
 
-//external plugins
 const itemTypeToGlobalVariable = {
     [EVENT_REPORT]: 'eventReportPlugin',
     [EVENT_CHART]: 'eventChartPlugin',
@@ -45,9 +43,6 @@ export const getPluginLaunchUrl = (type, apps, baseUrl) => {
             }
             case MAP: {
                 return `${baseUrl}/dhis-web-maps/plugin.html`
-            }
-            case EVENT_VISUALIZATION: {
-                return `${baseUrl}/dhis-web-line-listing/plugin.html`
             }
         }
     }
