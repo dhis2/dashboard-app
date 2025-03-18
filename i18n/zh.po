@@ -2,15 +2,15 @@
 # Translators:
 # Viktor Varland <viktor@dhis2.org>, 2021
 # Philip Larsen Donnelly, 2025
-# 晓东 林 <13981924470@126.com>, 2025
 # easylin <lin_xd@126.com>, 2025
+# 晓东 林 <13981924470@126.com>, 2025
 # 
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2025-02-07T10:20:57.831Z\n"
+"POT-Creation-Date: 2025-03-13T10:03:44.633Z\n"
 "PO-Revision-Date: 2019-06-25 12:37+0000\n"
-"Last-Translator: easylin <lin_xd@126.com>, 2025\n"
+"Last-Translator: 晓东 林 <13981924470@126.com>, 2025\n"
 "Language-Team: Chinese (https://app.transifex.com/hisp-uio/teams/100509/zh/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -21,8 +21,116 @@ msgstr ""
 msgid "Untitled dashboard"
 msgstr "未命名的仪表盘"
 
-msgid "Dashboards"
-msgstr "仪表盘"
+msgid "Could not get info from Superset gateway endpoint"
+msgstr ""
+
+msgid "Dashboard with ID \"{{dashboardId}}\" not found or not accessible"
+msgstr ""
+
+msgid "Dashboard with ID \"{{dashboardId}}\" is not embedded"
+msgstr ""
+
+msgid "Embedded provider must be \"SUPERSET\" for dashboard ID \"{{dashboardId}}\""
+msgstr ""
+
+msgid "Superset Embed UUID not found for dashboard ID \"{{dashboardId}}\""
+msgstr ""
+
+msgid "Dashboard with ID \"{{dashboardId}}\" not found on the Superset service"
+msgstr ""
+
+msgid ""
+"Could not get guest token from Superset Gateway for dashboard ID "
+"\"{{dashboardId}}\""
+msgstr ""
+
+msgid "New dashboard: external"
+msgstr ""
+
+msgid "Could not create dashboard"
+msgstr ""
+
+msgid "An unknown error occurred"
+msgstr ""
+
+msgid "Save dashboard"
+msgstr ""
+
+msgid "Back"
+msgstr ""
+
+msgid "Title"
+msgstr ""
+
+msgid "Code"
+msgstr ""
+
+msgid ""
+"A unique code to reference this dashboard in other apps and services. Max 50"
+" characters."
+msgstr ""
+
+msgid "Description"
+msgstr ""
+
+msgid "Superset Embed ID"
+msgstr ""
+
+msgid "Invalid UUID"
+msgstr ""
+
+msgid "Options"
+msgstr ""
+
+msgid "Show chart controls on dashboard items"
+msgstr ""
+
+msgid "Expand filters"
+msgstr ""
+
+msgid "Delete dashboard"
+msgstr "删除仪表盘"
+
+msgid ""
+"Deleting dashboard \"{{ dashboardName }}\" will remove it for all users. "
+"This action cannot be undone. Are you sure you want to permanently delete "
+"this dashboard?"
+msgstr "删除仪表盘 \"{{ dashboardName }}\" 将从所有用户仪表盘中移除。该操作不能撤销，你确信要永久删除该仪表盘条目？"
+
+msgid ""
+"Note: the source dashboard embedded by this external dashboard will not be "
+"deleted."
+msgstr ""
+
+msgid "Delete"
+msgstr "删除"
+
+msgid "Cancel"
+msgstr "取消"
+
+msgid "Edit external dashboard"
+msgstr ""
+
+msgid "New dashboard: choose type"
+msgstr ""
+
+msgid "Internal"
+msgstr ""
+
+msgid "Show data and visualizations from this DHIS2 instance."
+msgstr ""
+
+msgid "External"
+msgstr ""
+
+msgid "Embed a Superset dashboard"
+msgstr ""
+
+msgid "Continue"
+msgstr ""
+
+msgid "Not available for embedded dashboards"
+msgstr ""
 
 msgid "The dashboard couldn't be made available offline. Try again."
 msgstr "仪表盘无法离线使用。再试一次。"
@@ -89,9 +197,6 @@ msgstr "不，取消"
 msgid "Yes, clear filters and sync"
 msgstr "是的，清除过滤器并同步"
 
-msgid "Cancel"
-msgstr "取消"
-
 msgid "Confirm"
 msgstr "确认"
 
@@ -103,6 +208,12 @@ msgstr "无法取消仪表板的星标"
 
 msgid "Failed to star the dashboard"
 msgstr "无法为仪表板加注星标"
+
+msgid "This dashboard is showing data from outside this system"
+msgstr ""
+
+msgid "External source"
+msgstr ""
 
 msgid "Offline data last updated {{timeAgo}}"
 msgstr "离线数据最后更新时间 {{timeAgo}}"
@@ -128,6 +239,15 @@ msgstr "搜索仪表盘"
 msgid "No dashboards found for \"{{- filterText}}\""
 msgstr "未找到适用于 \"{{- filterText}}\" 的仪表盘"
 
+msgid "Dashboards"
+msgstr "仪表盘"
+
+msgid "Could not fetch bundled apps"
+msgstr "无法获取捆绑的应用程序"
+
+msgid "Network error"
+msgstr "网络错误"
+
 msgid "There was a problem loading this dashboard item"
 msgstr "载入仪表盘有问题"
 
@@ -135,7 +255,7 @@ msgid "Open menu"
 msgstr "打开菜单"
 
 msgid "Open in {{appName}}"
-msgstr ""
+msgstr "打开{{appName}}"
 
 msgid "View fullscreen"
 msgstr "全屏查看"
@@ -147,10 +267,10 @@ msgid "This item has been shortened to fit on one page"
 msgstr "此项已缩短为适合一页"
 
 msgid "The plugin needed to display this item is not available"
-msgstr ""
+msgstr "显示此项目所需的插件不可用"
 
 msgid "Install the {{pluginName}} plugin from the App Hub"
-msgstr ""
+msgstr "从 App Hub 安装{{pluginName}} 插件"
 
 msgid "There was an error loading data for this item"
 msgstr "加载此项目的数据时出错"
@@ -245,6 +365,9 @@ msgid ""
 "                            '.'\n"
 "                        )} or higher in order to display this item."
 msgstr ""
+"安装数据展示台应用程序 ${minDVVersion.join(\n"
+"                            '.'\n"
+"                        )}或更高版本才能显示此项目。"
 
 msgid "Show without filters"
 msgstr "显示无过滤器"
@@ -254,6 +377,9 @@ msgid ""
 "                            '.'\n"
 "                        )} or higher in order to display this item."
 msgstr ""
+"安装行列表应用程序 ${minLLVersion.join(\n"
+"                            '.'\n"
+"                        )} 或更高版本才能显示此项目。"
 
 msgid "Maps with Earth Engine layers cannot be displayed when offline"
 msgstr "离线时无法显示带有地球引擎图层的地图"
@@ -263,6 +389,9 @@ msgid ""
 "                            '.'\n"
 "                        )} or higher in order to display this item."
 msgstr ""
+"安装地图应用程序 ${minMapsVersion.join(\n"
+"                            '.'\n"
+"                        )}或更高版本才能显示此项目。"
 
 msgid "Unable to load the plugin for this item"
 msgstr "不能载入该条目的插件"
@@ -300,6 +429,15 @@ msgstr "应用商店"
 msgid "Users"
 msgstr "用户管理"
 
+msgid "Could not update dashboard {{name}}"
+msgstr ""
+
+msgid "Could not delete dashboard {{name}}"
+msgstr ""
+
+msgid "Could not load dashboard details"
+msgstr ""
+
 msgid ""
 "Failed to save dashboard. You might be offline or not have access to edit "
 "this dashboard."
@@ -336,17 +474,11 @@ msgstr "翻译"
 msgid "Cannot delete this dashboard while offline"
 msgstr "离线时无法删除此仪表板"
 
-msgid "Delete"
-msgstr "删除"
-
 msgid "Exit without saving"
 msgstr "不保存退出"
 
 msgid "Go to dashboards"
 msgstr "进到仪表盘"
-
-msgid "Delete dashboard"
-msgstr "删除仪表盘"
 
 msgid ""
 "Deleting dashboard \"{{- dashboardName }}\" will remove it for all users. "
@@ -579,6 +711,18 @@ msgstr "{{name}}:{{filter}}"
 msgid "{{count}} filters active"
 msgid_plural "{{count}} filters active"
 msgstr[0] "{{count}} 滤波器激活"
+
+msgid "Fetching external dashboard"
+msgstr ""
+
+msgid "Error"
+msgstr ""
+
+msgid "Could not load Superset dashboard"
+msgstr ""
+
+msgid "Retry"
+msgstr ""
 
 msgid "Loading dashboard – {{name}}"
 msgstr "加载仪表盘-{{name}}"
