@@ -23,7 +23,23 @@ const UUID_PATTERN =
     /^[0-9a-f]{8}-[0-9a-f]{4}-[1-8][0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$/i
 export const isValidUuid = (string) => UUID_PATTERN.test(string)
 const isFiftyCharsOrLess = (string) => string.length <= 50
-export const createInitialState = (initialValues = defaultInitialValues) => {
+export const createInitialState = (
+    providedInitialValues = defaultInitialValues
+) => {
+    // Prevent undefined values
+    const initialValues = Object.entries(providedInitialValues).reduce(
+        (acc, [key, value]) => {
+            acc[key] =
+                typeof value === 'undefined' ? defaultInitialValues[key] : value
+            return acc
+        },
+        {}
+    )
+    for (const key in initialValues) {
+        if (typeof initialValues[key] === 'undefined') {
+            initialValues[key] = defaultInitialValues[key]
+        }
+    }
     const isSupersetEmbedIdValid = isValidUuid(initialValues.supersetEmbedId)
 
     return {
