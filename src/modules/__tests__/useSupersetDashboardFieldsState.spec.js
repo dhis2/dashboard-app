@@ -63,6 +63,24 @@ describe('superset embedded fields state reducer', () => {
                 hasFieldChanges: false,
             })
         })
+        it('creates the expected initial state when some properties are undefined', () => {
+            const initialValues = {
+                title: undefined,
+                code: undefined,
+                description: undefined,
+                supersetEmbedId: undefined,
+                showChartControls: undefined,
+                expandFilters: undefined,
+            }
+            expect(createInitialState(initialValues)).toEqual({
+                initialValues: defaultInitialValues,
+                values: defaultInitialValues,
+                isSupersetEmbedIdValid: false,
+                isCodeValid: true,
+                shouldShowSupersetEmbedIdError: false,
+                hasFieldChanges: false,
+            })
+        })
         it('the initial state reports a valid superset embed ID if a valid UUID was provided', () => {
             const initialValues = {
                 ...defaultInitialValues,
