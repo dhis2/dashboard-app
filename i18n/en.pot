@@ -5,8 +5,8 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1)\n"
-"POT-Creation-Date: 2025-03-18T14:27:12.993Z\n"
-"PO-Revision-Date: 2025-03-18T14:27:12.995Z\n"
+"POT-Creation-Date: 2025-03-20T15:01:11.457Z\n"
+"PO-Revision-Date: 2025-03-20T15:01:11.457Z\n"
 
 msgid "Untitled dashboard"
 msgstr "Untitled dashboard"
@@ -404,6 +404,16 @@ msgstr "Resources"
 
 msgid "Reports"
 msgstr "Reports"
+
+msgid "System configuration issue"
+msgstr "System configuration issue"
+
+msgid ""
+"External Superset dashboards have been enabled, but the Superset Gateway "
+"was unavailble. Please contact your system administrator."
+msgstr ""
+"External Superset dashboards have been enabled, but the Superset Gateway "
+"was unavailble. Please contact your system administrator."
 
 msgid "Visualizations"
 msgstr "Visualizations"
