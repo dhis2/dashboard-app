@@ -35,11 +35,6 @@ export const createInitialState = (
         },
         {}
     )
-    for (const key in initialValues) {
-        if (typeof initialValues[key] === 'undefined') {
-            initialValues[key] = defaultInitialValues[key]
-        }
-    }
     const isSupersetEmbedIdValid = isValidUuid(initialValues.supersetEmbedId)
 
     return {
