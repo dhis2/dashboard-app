@@ -5,14 +5,131 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1)\n"
-"POT-Creation-Date: 2025-03-07T14:21:33.030Z\n"
-"PO-Revision-Date: 2025-03-07T14:21:33.031Z\n"
+"POT-Creation-Date: 2025-03-13T10:03:44.633Z\n"
+"PO-Revision-Date: 2025-03-13T10:03:44.634Z\n"
 
 msgid "Untitled dashboard"
 msgstr "Untitled dashboard"
 
-msgid "Dashboards"
-msgstr "Dashboards"
+msgid "Could not get info from Superset gateway endpoint"
+msgstr "Could not get info from Superset gateway endpoint"
+
+msgid "Dashboard with ID \"{{dashboardId}}\" not found or not accessible"
+msgstr "Dashboard with ID \"{{dashboardId}}\" not found or not accessible"
+
+msgid "Dashboard with ID \"{{dashboardId}}\" is not embedded"
+msgstr "Dashboard with ID \"{{dashboardId}}\" is not embedded"
+
+msgid "Embedded provider must be \"SUPERSET\" for dashboard ID \"{{dashboardId}}\""
+msgstr "Embedded provider must be \"SUPERSET\" for dashboard ID \"{{dashboardId}}\""
+
+msgid "Superset Embed UUID not found for dashboard ID \"{{dashboardId}}\""
+msgstr "Superset Embed UUID not found for dashboard ID \"{{dashboardId}}\""
+
+msgid "Dashboard with ID \"{{dashboardId}}\" not found on the Superset service"
+msgstr "Dashboard with ID \"{{dashboardId}}\" not found on the Superset service"
+
+msgid ""
+"Could not get guest token from Superset Gateway for dashboard ID "
+"\"{{dashboardId}}\""
+msgstr ""
+"Could not get guest token from Superset Gateway for dashboard ID "
+"\"{{dashboardId}}\""
+
+msgid "New dashboard: external"
+msgstr "New dashboard: external"
+
+msgid "Could not create dashboard"
+msgstr "Could not create dashboard"
+
+msgid "An unknown error occurred"
+msgstr "An unknown error occurred"
+
+msgid "Save dashboard"
+msgstr "Save dashboard"
+
+msgid "Back"
+msgstr "Back"
+
+msgid "Title"
+msgstr "Title"
+
+msgid "Code"
+msgstr "Code"
+
+msgid ""
+"A unique code to reference this dashboard in other apps and services. Max "
+"50 characters."
+msgstr ""
+"A unique code to reference this dashboard in other apps and services. Max "
+"50 characters."
+
+msgid "Description"
+msgstr "Description"
+
+msgid "Superset Embed ID"
+msgstr "Superset Embed ID"
+
+msgid "Invalid UUID"
+msgstr "Invalid UUID"
+
+msgid "Options"
+msgstr "Options"
+
+msgid "Show chart controls on dashboard items"
+msgstr "Show chart controls on dashboard items"
+
+msgid "Expand filters"
+msgstr "Expand filters"
+
+msgid "Delete dashboard"
+msgstr "Delete dashboard"
+
+msgid ""
+"Deleting dashboard \"{{ dashboardName }}\" will remove it for all users. "
+"This action cannot be undone. Are you sure you want to permanently delete "
+"this dashboard?"
+msgstr ""
+"Deleting dashboard \"{{ dashboardName }}\" will remove it for all users. "
+"This action cannot be undone. Are you sure you want to permanently delete "
+"this dashboard?"
+
+msgid ""
+"Note: the source dashboard embedded by this external dashboard will not be "
+"deleted."
+msgstr ""
+"Note: the source dashboard embedded by this external dashboard will not be "
+"deleted."
+
+msgid "Delete"
+msgstr "Delete"
+
+msgid "Cancel"
+msgstr "Cancel"
+
+msgid "Edit external dashboard"
+msgstr "Edit external dashboard"
+
+msgid "New dashboard: choose type"
+msgstr "New dashboard: choose type"
+
+msgid "Internal"
+msgstr "Internal"
+
+msgid "Show data and visualizations from this DHIS2 instance."
+msgstr "Show data and visualizations from this DHIS2 instance."
+
+msgid "External"
+msgstr "External"
+
+msgid "Embed a Superset dashboard"
+msgstr "Embed a Superset dashboard"
+
+msgid "Continue"
+msgstr "Continue"
+
+msgid "Not available for embedded dashboards"
+msgstr "Not available for embedded dashboards"
 
 msgid "The dashboard couldn't be made available offline. Try again."
 msgstr "The dashboard couldn't be made available offline. Try again."
@@ -81,9 +198,6 @@ msgstr "No, cancel"
 msgid "Yes, clear filters and sync"
 msgstr "Yes, clear filters and sync"
 
-msgid "Cancel"
-msgstr "Cancel"
-
 msgid "Confirm"
 msgstr "Confirm"
 
@@ -95,6 +209,12 @@ msgstr "Failed to unstar the dashboard"
 
 msgid "Failed to star the dashboard"
 msgstr "Failed to star the dashboard"
+
+msgid "This dashboard is showing data from outside this system"
+msgstr "This dashboard is showing data from outside this system"
+
+msgid "External source"
+msgstr "External source"
 
 msgid "Offline data last updated {{timeAgo}}"
 msgstr "Offline data last updated {{timeAgo}}"
@@ -119,6 +239,9 @@ msgstr "Search for a dashboard"
 
 msgid "No dashboards found for \"{{- filterText}}\""
 msgstr "No dashboards found for \"{{- filterText}}\""
+
+msgid "Dashboards"
+msgstr "Dashboards"
 
 msgid "Could not fetch bundled apps"
 msgstr "Could not fetch bundled apps"
@@ -306,6 +429,15 @@ msgstr "Apps"
 msgid "Users"
 msgstr "Users"
 
+msgid "Could not update dashboard {{name}}"
+msgstr "Could not update dashboard {{name}}"
+
+msgid "Could not delete dashboard {{name}}"
+msgstr "Could not delete dashboard {{name}}"
+
+msgid "Could not load dashboard details"
+msgstr "Could not load dashboard details"
+
 msgid ""
 "Failed to save dashboard. You might be offline or not have access to edit "
 "this dashboard."
@@ -348,17 +480,11 @@ msgstr "Translate"
 msgid "Cannot delete this dashboard while offline"
 msgstr "Cannot delete this dashboard while offline"
 
-msgid "Delete"
-msgstr "Delete"
-
 msgid "Exit without saving"
 msgstr "Exit without saving"
 
 msgid "Go to dashboards"
 msgstr "Go to dashboards"
-
-msgid "Delete dashboard"
-msgstr "Delete dashboard"
 
 msgid ""
 "Deleting dashboard \"{{- dashboardName }}\" will remove it for all users. "
@@ -615,6 +741,18 @@ msgid "{{count}} filters active"
 msgid_plural "{{count}} filters active"
 msgstr[0] "{{count}} filter active"
 msgstr[1] "{{count}} filters active"
+
+msgid "Fetching external dashboard"
+msgstr "Fetching external dashboard"
+
+msgid "Error"
+msgstr "Error"
+
+msgid "Could not load Superset dashboard"
+msgstr "Could not load Superset dashboard"
+
+msgid "Retry"
+msgstr "Retry"
 
 msgid "Loading dashboard – {{name}}"
 msgstr "Loading dashboard – {{name}}"
