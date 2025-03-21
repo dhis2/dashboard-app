@@ -1,9 +1,11 @@
-import { useDataEngine, useCachedSections } from '@dhis2/app-runtime'
+import { useDataEngine, useDhis2ConnectionStatus } from '@dhis2/app-runtime'
 import i18n from '@dhis2/d2-i18n'
 import { Input, Menu } from '@dhis2/ui'
 import cx from 'classnames'
+import orderBy from 'lodash/sortBy.js'
 import PropTypes from 'prop-types'
-import React, { useCallback, useEffect, useRef, useState } from 'react'
+import React, { useCallback, useEffect, useRef, useState, useMemo } from 'react'
+import { useSelector } from 'react-redux'
 import useDebounce from '../../../modules/useDebounce.js'
 import { EndIntersectionDetector } from './EndIntersectionDetector.js'
 import { NavigationMenuItem } from './NavigationMenuItem.js'
@@ -25,16 +27,29 @@ const dashboardsQuery = {
 }
 
 export const NavigationMenu = ({ close, hasDashboards }) => {
-    const { cachedSections } = useCachedSections()
+    const { isDisconnected: offline } = useDhis2ConnectionStatus()
     const dataEngine = useDataEngine()
+    const unorderedOfflineDashboards = useSelector(
+        (state) => state.offlineDashboards
+    )
     const [initialFetchComplete, setInitialFetchComplete] = useState(null)
     const [dashboards, setDashboards] = useState([])
     const [requestParams, setRequestParams] = useState({
         page: 1,
         filterText: '',
     })
+    const offlineDashboards = useMemo(
+        () =>
+            orderBy(unorderedOfflineDashboards, [
+                ['starred', 'displayName'],
+                'desc',
+                'asc',
+            ]),
+        [unorderedOfflineDashboards]
+    )
+
+    // console.log('jj NavMenu ordered offlineDashboards', offlineDashboards)
     const debouncedRequestParams = useDebounce(requestParams, 300)
-    console.log('jj cachedSections', cachedSections)
 
     useEffect(() => {
         const fetchDashboards = async () => {
@@ -69,10 +84,15 @@ export const NavigationMenu = ({ close, hasDashboards }) => {
             }
         }
 
-        if (debouncedRequestParams.page !== null) {
+        if (!offline && debouncedRequestParams.page !== null) {
             fetchDashboards()
         }
-    }, [dataEngine, debouncedRequestParams])
+
+        if (offline) {
+            setDashboards(offlineDashboards)
+            setInitialFetchComplete(true)
+        }
+    }, [dataEngine, debouncedRequestParams, offline, offlineDashboards])
 
     const onFilterChange = useCallback(({ value }) => {
         setRequestParams({ page: 1, filterText: value })

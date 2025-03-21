@@ -10,9 +10,7 @@ import {
 } from '@dhis2/ui'
 import PropTypes from 'prop-types'
 import React, { useCallback, useState } from 'react'
-import { useDispatch } from 'react-redux'
 import { useHistory } from 'react-router-dom'
-import { tFetchDashboards } from '../../../actions/dashboards.js'
 import { parseSupersetDashboardFieldValues } from '../../../modules/parseSupersetDashboardFieldValues.js'
 import { useSupersetDashboardFieldsState } from '../../../modules/useSupersetDashboardFieldsState.js'
 import styles from './styles/SupersetDashboardModal.module.css'
@@ -29,7 +27,6 @@ export const CreateSupersetDashboardModal = ({
     backToChooseDashboardModal,
     closeModal,
 }) => {
-    const dispatch = useDispatch()
     const history = useHistory()
     const [loading, setLoading] = useState(false)
     const [postDashboard, { error }] = useDataMutation(postDashboardQuery, {
@@ -49,12 +46,11 @@ export const CreateSupersetDashboardModal = ({
             event.preventDefault()
             setLoading(true)
             const { response } = await postDashboard({ values })
-            await dispatch(tFetchDashboards())
             setLoading(false)
             closeModal()
             history.push(`/${response.uid}`)
         },
-        [values, postDashboard, closeModal, dispatch, history]
+        [values, postDashboard, closeModal, history]
     )
 
     return (

@@ -2,28 +2,23 @@ import { Tag } from '@dhis2-ui/tag'
 import { useAlert, useDataEngine } from '@dhis2/app-runtime'
 import i18n from '@dhis2/d2-i18n'
 import { Tooltip } from '@dhis2/ui'
-import PropTypes from 'prop-types'
 import React, { useCallback } from 'react'
-import { connect } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
+import { acSetOfflineDashboardStarred } from '../../../actions/offlineDashboards.js'
 import { acSetSelectedStarred } from '../../../actions/selected.js'
-import {
-    sGetSelected,
-    sGetSelectedStarred,
-} from '../../../reducers/selected.js'
+import { sGetSelected } from '../../../reducers/selected.js'
 import ActionsBar from './ActionsBar.js'
 import { apiStarDashboard } from './apiStarDashboard.js'
 import LastUpdatedTag from './LastUpdatedTag.js'
 import StarDashboardButton from './StarDashboardButton.js'
 import classes from './styles/InformationBlock.module.css'
 
-const InformationBlock = ({
-    id,
-    isEmbeddedDashboard,
-    displayName,
-    starred,
-    setDashboardStarred,
-}) => {
+const InformationBlock = () => {
     const dataEngine = useDataEngine()
+    const dispatch = useDispatch()
+    const { id, displayName, starred, embedded } = useSelector(sGetSelected)
+    const isEmbeddedDashboard = !!embedded
+
     const { show: showAlert } = useAlert(
         ({ msg }) => msg,
         ({ isCritical }) =>
@@ -33,7 +28,10 @@ const InformationBlock = ({
         () =>
             apiStarDashboard(dataEngine, id, !starred)
                 .then(() => {
-                    setDashboardStarred(!starred)
+                    dispatch(acSetSelectedStarred(!starred))
+                    dispatch(
+                        acSetOfflineDashboardStarred({ id, starred: !starred })
+                    )
                 })
                 .catch(() => {
                     const msg = starred
@@ -41,7 +39,7 @@ const InformationBlock = ({
                         : i18n.t('Failed to star the dashboard')
                     showAlert({ msg, isCritical: false })
                 }),
-        [dataEngine, id, setDashboardStarred, showAlert, starred]
+        [dataEngine, id, showAlert, starred, dispatch]
     )
 
     if (!id) {
@@ -86,25 +84,4 @@ const InformationBlock = ({
     )
 }
 
-InformationBlock.propTypes = {
-    displayName: PropTypes.string,
-    id: PropTypes.string,
-    isEmbeddedDashboard: PropTypes.bool,
-    setDashboardStarred: PropTypes.func,
-    starred: PropTypes.bool,
-}
-
-const mapStateToProps = (state) => {
-    const dashboard = sGetSelected(state)
-
-    return {
-        displayName: dashboard.displayName,
-        id: dashboard.id,
-        starred: dashboard.id ? sGetSelectedStarred(state) : false,
-        isEmbeddedDashboard: sGetSelectedIsEmbedded(state),
-    }
-}
-
-export default connect(mapStateToProps, {
-    setDashboardStarred: acSetSelectedStarred,
-})(InformationBlock)
+export default InformationBlock

@@ -19,3 +19,17 @@ export const requestedDashboardQuery = {
         },
     },
 }
+
+export const dashboardsByIdsQuery = {
+    dashboards: {
+        resource: 'dashboards',
+        params: ({ ids }) => {
+            return {
+                fields: 'id,displayName,favorite~rename(starred)',
+                order: 'favorite:desc,displayName:asc',
+                filter: ids ? `id:in:[${ids.join(',')}]` : undefined,
+                paging: false,
+            }
+        },
+    },
+}
