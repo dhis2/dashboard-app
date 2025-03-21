@@ -14,6 +14,7 @@ describe('view dashboard', () => {
     it('should open the dashboard', () => {
         cy.visit('/')
         cy.getByDataTest('view-dashboard-title').should('be.visible')
+        cy.getByDataTest('headerbar-title').should('be.visible')
     })
 
     // Scenario: I view the print layout preview and then print one-item-per-page preview

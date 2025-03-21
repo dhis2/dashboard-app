@@ -7,13 +7,17 @@ export const setHeaderbarVisible = (show) => {
         '.global-shell-header'
     )
 
+    const setGlobalHeaderStyle = (value) => {
+        globalShellHeader.style.display = value
+    }
+
     if (show) {
         globalShellHeader
-            ? (globalShellHeader.style.display = 'block')
+            ? setGlobalHeaderStyle('block')
             : iframeHeader?.classList.remove('hidden')
     } else {
         globalShellHeader
-            ? (globalShellHeader.style.display = 'none')
+            ? setGlobalHeaderStyle('none')
             : iframeHeader?.classList.add('hidden')
     }
 }
