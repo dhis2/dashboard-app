@@ -5,8 +5,8 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1)\n"
-"POT-Creation-Date: 2025-03-13T10:03:44.633Z\n"
-"PO-Revision-Date: 2025-03-13T10:03:44.634Z\n"
+"POT-Creation-Date: 2025-03-18T14:27:12.993Z\n"
+"PO-Revision-Date: 2025-03-18T14:27:12.995Z\n"
 
 msgid "Untitled dashboard"
 msgstr "Untitled dashboard"
@@ -63,6 +63,9 @@ msgid ""
 msgstr ""
 "A unique code to reference this dashboard in other apps and services. Max "
 "50 characters."
+
+msgid "Code can't be longer than 50 characters"
+msgstr "Code can't be longer than 50 characters"
 
 msgid "Description"
 msgstr "Description"
@@ -621,9 +624,6 @@ msgstr "Dashboard title"
 
 msgid "Dashboard code"
 msgstr "Dashboard code"
-
-msgid "Code can't be longer than 50 characters"
-msgstr "Code can't be longer than 50 characters"
 
 msgid "Dashboard description"
 msgstr "Dashboard description"

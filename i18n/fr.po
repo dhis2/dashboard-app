@@ -8,15 +8,15 @@
 # Gabriela Rodriguez <grodriguezcoronado@gmail.com>, 2021
 # Alice Aké <aliceal@ifi.uio.no>, 2021
 # Edem Kossi <ekossi@hispwca.org>, 2024
-# Yao Selom SAKA (HISP WCA) <ysaka@hispwca.org>, 2025
 # Philip Larsen Donnelly, 2025
+# Yao Selom SAKA (HISP WCA) <ysaka@hispwca.org>, 2025
 # 
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2025-02-07T10:20:57.831Z\n"
+"POT-Creation-Date: 2025-03-05T13:32:39.554Z\n"
 "PO-Revision-Date: 2019-06-25 12:37+0000\n"
-"Last-Translator: Philip Larsen Donnelly, 2025\n"
+"Last-Translator: Yao Selom SAKA (HISP WCA) <ysaka@hispwca.org>, 2025\n"
 "Language-Team: French (https://app.transifex.com/hisp-uio/teams/100509/fr/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -140,14 +140,43 @@ msgstr "Rechercher un tableau de bord"
 msgid "No dashboards found for \"{{- filterText}}\""
 msgstr ""
 
-msgid "{{appKey}} app not found"
+msgid "Could not fetch bundled apps"
 msgstr ""
+
+msgid "Network error"
+msgstr "Erreur réseau"
+
+msgid "There was a problem loading this dashboard item"
+msgstr ""
+"Un problème est survenu lors du chargement de cet objet du tableau de bord"
+
+msgid "Open menu"
+msgstr ""
+
+msgid "Open in {{appName}}"
+msgstr ""
+
+msgid "View fullscreen"
+msgstr "Afficher en plein écran"
 
 msgid "Remove this item"
 msgstr "Supprimer cet item"
 
 msgid "This item has been shortened to fit on one page"
 msgstr "Cet élément a été réduit pour tenir sur une page"
+
+msgid "The plugin needed to display this item is not available"
+msgstr ""
+
+msgid "Install the {{pluginName}} plugin from the App Hub"
+msgstr ""
+
+msgid "There was an error loading data for this item"
+msgstr ""
+"Une erreur s'est produite lors du chargement des données pour cet élément"
+
+msgid "Open this item in {{appName}}"
+msgstr "Ouvrez cet élément dans {{appName}}"
 
 msgid "Remove"
 msgstr "Supprimer"
@@ -197,24 +226,14 @@ msgstr ""
 msgid "Some filters not applied"
 msgstr ""
 
-msgid "There was a problem loading this dashboard item"
-msgstr ""
-"Un problème est survenu lors du chargement de cet objet du tableau de bord"
-
 msgid "Hide details and interpretations"
 msgstr "Masquer les détails et les interprétations"
 
 msgid "Show details and interpretations"
 msgstr "Afficher les détails et les interprétations"
 
-msgid "Open menu"
-msgstr ""
-
 msgid "Open in {{appName}} app"
 msgstr "Ouvrir dans l'app {{appName}}"
-
-msgid "View fullscreen"
-msgstr "Afficher en plein écran"
 
 msgid "This map can't be displayed as a chart"
 msgstr "Cette carte ne peut pas être affichée sous forme de graphique"
@@ -242,22 +261,22 @@ msgstr ""
 "Un problème est survenu lors du chargement des interprétations pour cet "
 "élément"
 
-msgid "The plugin for rendering this item is not available"
-msgstr ""
-
-msgid "Install the {{appName}} app from the App Hub"
-msgstr ""
-
 msgid "No data to display"
 msgstr "Aucune donnée à afficher"
 
 msgid ""
-"Install Line Listing app version ${minLLVersion.join(\n"
-"                                '.'\n"
-"                            )} or higher in order to display this item."
+"Install Data Visualizer app ${minDVVersion.join(\n"
+"                            '.'\n"
+"                        )} or higher in order to display this item."
 msgstr ""
 
 msgid "Show without filters"
+msgstr ""
+
+msgid ""
+"Install Line Listing app ${minLLVersion.join(\n"
+"                            '.'\n"
+"                        )} or higher in order to display this item."
 msgstr ""
 
 msgid "Maps with Earth Engine layers cannot be displayed when offline"
@@ -265,15 +284,14 @@ msgstr ""
 "Impossible d'afficher les cartes contenant des couches Earth Engine en mode "
 "hors ligne."
 
+msgid ""
+"Install Maps app ${minMapsVersion.join(\n"
+"                            '.'\n"
+"                        )} or higher in order to display this item."
+msgstr ""
+
 msgid "Unable to load the plugin for this item"
 msgstr "Impossible de charger le plugin pour cet objet"
-
-msgid "There was an error loading data for this item"
-msgstr ""
-"Une erreur s'est produite lors du chargement des données pour cet élément"
-
-msgid "Open this item in {{appName}}"
-msgstr "Ouvrez cet élément dans {{appName}}"
 
 msgid "Resources"
 msgstr "Ressources"

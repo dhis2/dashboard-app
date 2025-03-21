@@ -1,3 +1,24 @@
+## [101.1.3](https://github.com/dhis2/dashboard-app/compare/v101.1.2...v101.1.3) (2025-03-18)
+
+
+### Bug Fixes
+
+* support bundled LL app (DHIS2-17400) ([#3238](https://github.com/dhis2/dashboard-app/issues/3238)) ([4fb6e89](https://github.com/dhis2/dashboard-app/commit/4fb6e89376cc3394187083439c4cdd4a8f628d66))
+
+## [101.1.2](https://github.com/dhis2/dashboard-app/compare/v101.1.1...v101.1.2) (2025-03-18)
+
+
+### Bug Fixes
+
+* **translations:** sync translations from transifex (master) ([#3237](https://github.com/dhis2/dashboard-app/issues/3237)) ([605407e](https://github.com/dhis2/dashboard-app/commit/605407e0d4e26420f11bafd6b2bb78da45918415))
+
+## [101.1.1](https://github.com/dhis2/dashboard-app/compare/v101.1.0...v101.1.1) (2025-03-18)
+
+
+### Bug Fixes
+
+* **deps:** cli-app-scripts 11.8.1 for pwa fix in global shell [DHIS2-18454] ([#3242](https://github.com/dhis2/dashboard-app/issues/3242)) ([170b526](https://github.com/dhis2/dashboard-app/commit/170b526e7e2312fdd93a0d93a127d269ad4d01b5)), closes [dhis2/app-platform#910](https://github.com/dhis2/app-platform/issues/910)
+
 # [101.1.0](https://github.com/dhis2/dashboard-app/compare/v101.0.4...v101.1.0) (2025-03-14)
 
 
