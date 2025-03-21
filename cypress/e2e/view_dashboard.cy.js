@@ -17,8 +17,6 @@ describe('view dashboard', () => {
         cy.getByDataTest('headerbar-title').should('be.visible')
     })
 
-    // Scenario: I view the print layout preview and then print one-item-per-page preview
-    //     Then the "Delivery" dashboard displays in view mode
     it('should view the print layout preview and then print one-item-per-page preview', () => {
         const title = 'Delivery'
         cy.visit('/')
