@@ -1,14 +1,14 @@
 # 
 # Translators:
-# KRG HIS <antonia.bezenchek@informa.pro>, 2021
-# Philip Larsen Donnelly, 2024
+# Philip Larsen Donnelly, 2025
+# KRG HIS <antonia.bezenchek@informa.pro>, 2025
 # 
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2024-12-19T11:30:27.893Z\n"
+"POT-Creation-Date: 2025-03-18T14:27:12.993Z\n"
 "PO-Revision-Date: 2019-06-25 12:37+0000\n"
-"Last-Translator: Philip Larsen Donnelly, 2024\n"
+"Last-Translator: KRG HIS <antonia.bezenchek@informa.pro>, 2025\n"
 "Language-Team: Arabic (Iraq) (https://app.transifex.com/hisp-uio/teams/100509/ar_IQ/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -19,7 +19,121 @@ msgstr ""
 msgid "Untitled dashboard"
 msgstr ""
 
-msgid "Dashboards"
+msgid "Could not get info from Superset gateway endpoint"
+msgstr ""
+
+msgid "Dashboard with ID \"{{dashboardId}}\" not found or not accessible"
+msgstr ""
+
+msgid "Dashboard with ID \"{{dashboardId}}\" is not embedded"
+msgstr ""
+
+msgid "Embedded provider must be \"SUPERSET\" for dashboard ID \"{{dashboardId}}\""
+msgstr ""
+
+msgid "Superset Embed UUID not found for dashboard ID \"{{dashboardId}}\""
+msgstr ""
+
+msgid "Dashboard with ID \"{{dashboardId}}\" not found on the Superset service"
+msgstr ""
+
+msgid ""
+"Could not get guest token from Superset Gateway for dashboard ID "
+"\"{{dashboardId}}\""
+msgstr ""
+
+msgid "New dashboard: external"
+msgstr ""
+
+msgid "Could not create dashboard"
+msgstr ""
+
+msgid "An unknown error occurred"
+msgstr ""
+
+msgid "Save dashboard"
+msgstr ""
+
+msgid "Back"
+msgstr ""
+
+msgid "Title"
+msgstr "العنوان"
+
+msgid "Code"
+msgstr ""
+
+msgid ""
+"A unique code to reference this dashboard in other apps and services. Max 50"
+" characters."
+msgstr ""
+
+msgid "Code can't be longer than 50 characters"
+msgstr ""
+
+msgid "Description"
+msgstr "الوصف"
+
+msgid "Superset Embed ID"
+msgstr ""
+
+msgid "Invalid UUID"
+msgstr ""
+
+msgid "Options"
+msgstr "الخيارات"
+
+msgid "Show chart controls on dashboard items"
+msgstr ""
+
+msgid "Expand filters"
+msgstr ""
+
+msgid "Delete dashboard"
+msgstr "حذف لوحة المعلومات"
+
+msgid ""
+"Deleting dashboard \"{{ dashboardName }}\" will remove it for all users. "
+"This action cannot be undone. Are you sure you want to permanently delete "
+"this dashboard?"
+msgstr ""
+"سيؤدي حذف لوحة المعلومات \"{{ dashboardName }}\" إلى إزالتها لجميع "
+"المستخدمين. لا يمكن التراجع عن هذا الإجراء. هل تريد بالتأكيد حذف لوحة "
+"المعلومات هذه نهائياً؟"
+
+msgid ""
+"Note: the source dashboard embedded by this external dashboard will not be "
+"deleted."
+msgstr ""
+
+msgid "Delete"
+msgstr "حذف"
+
+msgid "Cancel"
+msgstr "إلغاء"
+
+msgid "Edit external dashboard"
+msgstr ""
+
+msgid "New dashboard: choose type"
+msgstr ""
+
+msgid "Internal"
+msgstr ""
+
+msgid "Show data and visualizations from this DHIS2 instance."
+msgstr ""
+
+msgid "External"
+msgstr ""
+
+msgid "Embed a Superset dashboard"
+msgstr ""
+
+msgid "Continue"
+msgstr ""
+
+msgid "Not available for embedded dashboards"
 msgstr ""
 
 msgid "The dashboard couldn't be made available offline. Try again."
@@ -87,9 +201,6 @@ msgstr ""
 msgid "Yes, clear filters and sync"
 msgstr ""
 
-msgid "Cancel"
-msgstr "إلغاء"
-
 msgid "Confirm"
 msgstr "تأكيد"
 
@@ -100,6 +211,12 @@ msgid "Failed to unstar the dashboard"
 msgstr ""
 
 msgid "Failed to star the dashboard"
+msgstr ""
+
+msgid "This dashboard is showing data from outside this system"
+msgstr ""
+
+msgid "External source"
 msgstr ""
 
 msgid "Offline data last updated {{timeAgo}}"
@@ -123,16 +240,46 @@ msgstr ""
 msgid "Search for a dashboard"
 msgstr "البحث عن لوحة معلومات"
 
-msgid "No dashboards found"
+msgid "No dashboards found for \"{{- filterText}}\""
 msgstr ""
 
-msgid "{{appKey}} app not found"
+msgid "Dashboards"
+msgstr ""
+
+msgid "Could not fetch bundled apps"
+msgstr ""
+
+msgid "Network error"
+msgstr ""
+
+msgid "There was a problem loading this dashboard item"
+msgstr "حدثت مشكلة أثناء تحميل عنصر لوحة المعلومات هذا"
+
+msgid "Open menu"
+msgstr ""
+
+msgid "Open in {{appName}}"
+msgstr ""
+
+msgid "View fullscreen"
 msgstr ""
 
 msgid "Remove this item"
 msgstr ""
 
 msgid "This item has been shortened to fit on one page"
+msgstr ""
+
+msgid "The plugin needed to display this item is not available"
+msgstr ""
+
+msgid "Install the {{pluginName}} plugin from the App Hub"
+msgstr ""
+
+msgid "There was an error loading data for this item"
+msgstr ""
+
+msgid "Open this item in {{appName}}"
 msgstr ""
 
 msgid "Remove"
@@ -181,23 +328,14 @@ msgstr ""
 msgid "Some filters not applied"
 msgstr ""
 
-msgid "There was a problem loading this dashboard item"
-msgstr "حدثت مشكلة أثناء تحميل عنصر لوحة المعلومات هذا"
-
 msgid "Hide details and interpretations"
 msgstr ""
 
 msgid "Show details and interpretations"
 msgstr ""
 
-msgid "Open menu"
-msgstr ""
-
 msgid "Open in {{appName}} app"
 msgstr "إفتح في تطبيق {{appName}}"
-
-msgid "View fullscreen"
-msgstr ""
 
 msgid "This map can't be displayed as a chart"
 msgstr ""
@@ -223,35 +361,35 @@ msgstr "عرض كخريطة"
 msgid "There was a problem loading interpretations for this item"
 msgstr ""
 
-msgid "The plugin for rendering this item is not available"
-msgstr ""
-
-msgid "Install the {{appName}} app from the App Hub"
-msgstr ""
-
 msgid "No data to display"
 msgstr "لا توجد بيانات للعرض"
 
 msgid ""
-"Install Line Listing app version ${minLLVersion.join(\n"
-"                                '.'\n"
-"                            )} or higher in order to display this item."
+"Install Data Visualizer app ${minDVVersion.join(\n"
+"                            '.'\n"
+"                        )} or higher in order to display this item."
 msgstr ""
 
 msgid "Show without filters"
 msgstr ""
 
+msgid ""
+"Install Line Listing app ${minLLVersion.join(\n"
+"                            '.'\n"
+"                        )} or higher in order to display this item."
+msgstr ""
+
 msgid "Maps with Earth Engine layers cannot be displayed when offline"
+msgstr ""
+
+msgid ""
+"Install Maps app ${minMapsVersion.join(\n"
+"                            '.'\n"
+"                        )} or higher in order to display this item."
 msgstr ""
 
 msgid "Unable to load the plugin for this item"
 msgstr "تعذر تحميل المكوّن الإضافي لهذا العنصر"
-
-msgid "There was an error loading data for this item"
-msgstr ""
-
-msgid "Open this item in {{appName}}"
-msgstr ""
 
 msgid "Resources"
 msgstr "المصادر"
@@ -285,6 +423,15 @@ msgstr "التطبيقات"
 
 msgid "Users"
 msgstr "المستخدمون"
+
+msgid "Could not update dashboard {{name}}"
+msgstr ""
+
+msgid "Could not delete dashboard {{name}}"
+msgstr ""
+
+msgid "Could not load dashboard details"
+msgstr ""
 
 msgid ""
 "Failed to save dashboard. You might be offline or not have access to edit "
@@ -322,26 +469,17 @@ msgstr "ترجمة"
 msgid "Cannot delete this dashboard while offline"
 msgstr ""
 
-msgid "Delete"
-msgstr "حذف"
-
 msgid "Exit without saving"
 msgstr "الخروج من غير حفظ التغييرات"
 
 msgid "Go to dashboards"
 msgstr "الذهاب إلى لوحة المعلومات"
 
-msgid "Delete dashboard"
-msgstr "حذف لوحة المعلومات"
-
 msgid ""
-"Deleting dashboard \"{{ dashboardName }}\" will remove it for all users. "
+"Deleting dashboard \"{{- dashboardName }}\" will remove it for all users. "
 "This action cannot be undone. Are you sure you want to permanently delete "
 "this dashboard?"
 msgstr ""
-"سيؤدي حذف لوحة المعلومات \"{{ dashboardName }}\" إلى إزالتها لجميع "
-"المستخدمين. لا يمكن التراجع عن هذا الإجراء. هل تريد بالتأكيد حذف لوحة "
-"المعلومات هذه نهائياً؟"
 
 msgid "Discard changes"
 msgstr ""
@@ -452,9 +590,6 @@ msgid "Dashboard title"
 msgstr "عنوان لوحة المعلومات"
 
 msgid "Dashboard code"
-msgstr ""
-
-msgid "Code can't be longer than 50 characters"
 msgstr ""
 
 msgid "Dashboard description"
@@ -580,6 +715,18 @@ msgstr[2] ""
 msgstr[3] ""
 msgstr[4] ""
 msgstr[5] ""
+
+msgid "Fetching external dashboard"
+msgstr ""
+
+msgid "Error"
+msgstr "خطأ"
+
+msgid "Could not load Superset dashboard"
+msgstr ""
+
+msgid "Retry"
+msgstr ""
 
 msgid "Loading dashboard – {{name}}"
 msgstr ""
