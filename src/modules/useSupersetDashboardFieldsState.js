@@ -7,7 +7,7 @@ export const FIELD_NAME_SUPERSET_EMBED_ID = 'supersetEmbedId'
 export const FIELD_NAME_SHOW_CHART_CONTROLS = 'showChartControls'
 export const FIELD_NAME_EXPAND_FILTERS = 'expandFilters'
 
-export const defaultInitialValues = {
+const defaultInitialValues = {
     [FIELD_NAME_TITLE]: '',
     [FIELD_NAME_CODE]: '',
     [FIELD_NAME_DESCRIPTION]: '',
@@ -15,17 +15,15 @@ export const defaultInitialValues = {
     [FIELD_NAME_SHOW_CHART_CONTROLS]: true,
     [FIELD_NAME_EXPAND_FILTERS]: false,
 }
-export const FIELD_CHANGE = 'FIELD_CHANGE'
-export const SUPERSET_FIELD_BLUR = 'SUPERSET_FIELD_BLUR'
-export const RESET_FIELD_STATE = 'RESET_FIELD_STATE'
+const FIELD_CHANGE = 'FIELD_CHANGE'
+const SUPERSET_FIELD_BLUR = 'SUPERSET_FIELD_BLUR'
+const RESET_FIELD_STATE = 'RESET_FIELD_STATE'
 // Adapted from :https://github.com/uuidjs/uuid/blob/main/src/regex.ts
 const UUID_PATTERN =
     /^[0-9a-f]{8}-[0-9a-f]{4}-[1-8][0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$/i
-export const isValidUuid = (string) => UUID_PATTERN.test(string)
+const isValidUuid = (string) => UUID_PATTERN.test(string)
 const isFiftyCharsOrLess = (string) => string.length <= 50
-export const createInitialState = (
-    providedInitialValues = defaultInitialValues
-) => {
+const createInitialState = (providedInitialValues = defaultInitialValues) => {
     // Prevent undefined values
     const initialValues = Object.entries(providedInitialValues).reduce(
         (acc, [key, value]) => {
@@ -48,7 +46,7 @@ export const createInitialState = (
     }
 }
 
-export const reducer = (state, { type, payload }) => {
+const reducer = (state, { type, payload }) => {
     switch (type) {
         case FIELD_CHANGE: {
             const values = {
