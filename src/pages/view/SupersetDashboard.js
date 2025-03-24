@@ -37,6 +37,7 @@ const reducer = (state, action) => {
 }
 
 export const SupersetDashboard = () => {
+    const isMountedRef = useRef(false)
     const [{ loading, error, success }, dispatch] = useReducer(
         reducer,
         initialLoadState
@@ -81,7 +82,12 @@ export const SupersetDashboard = () => {
     }, [loading, error, success, loadSupersetDashboard])
 
     useEffect(() => {
-        dispatch({ type: LOAD_RESET })
+        if (isMountedRef.current) {
+            dispatch({ type: LOAD_RESET })
+        } else {
+            // Prevent calling load reset when component mounts
+            isMountedRef.current = true
+        }
     }, [embedData])
 
     return (
