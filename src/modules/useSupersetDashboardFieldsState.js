@@ -25,10 +25,12 @@ const isValidUuid = (string) => UUID_PATTERN.test(string)
 const isFiftyCharsOrLess = (string) => string.length <= 50
 const createInitialState = (providedInitialValues = defaultInitialValues) => {
     // Prevent undefined values
-    const initialValues = Object.entries(providedInitialValues).reduce(
-        (acc, [key, value]) => {
+    const initialValues = Object.entries(defaultInitialValues).reduce(
+        (acc, [key, defaultValue]) => {
             acc[key] =
-                typeof value === 'undefined' ? defaultInitialValues[key] : value
+                typeof providedInitialValues[key] === 'undefined'
+                    ? defaultValue
+                    : providedInitialValues[key]
             return acc
         },
         {}
