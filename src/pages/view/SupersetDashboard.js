@@ -36,6 +36,16 @@ const reducer = (state, action) => {
     }
 }
 
+class SupersetGatewayUnavailableError extends Error {
+    constructor() {
+        super(
+            i18n.t(
+                'Could not load dashboard content because Superset Gateway is unavailable'
+            )
+        )
+    }
+}
+
 export const SupersetDashboard = () => {
     const isMountedRef = useRef(false)
     const [{ loading, error, success }, dispatch] = useReducer(
@@ -43,7 +53,9 @@ export const SupersetDashboard = () => {
         initialLoadState
     )
     // For errors with an error code a retry will fail
-    const allowRetry = error && !error.errorCode
+    const allowRetry =
+        error &&
+        !(error.errorCode || error instanceof SupersetGatewayUnavailableError)
     const ref = useRef(null)
     const selectedId = useSelector(sGetSelectedId)
     const embedData = useSelector(msGetSelectedSupersetEmbedData)
@@ -75,11 +87,20 @@ export const SupersetDashboard = () => {
     }, [embedData, postSupersetGuestToken, supersetDomain])
 
     useEffect(() => {
-        if (loading || success || error) {
+        if (loading || success || error || !supersetDomain) {
             return
         }
         loadSupersetDashboard()
-    }, [loading, error, success, loadSupersetDashboard])
+    }, [loading, error, success, loadSupersetDashboard, supersetDomain])
+
+    useEffect(() => {
+        if (!supersetDomain) {
+            dispatch({
+                type: LOAD_ERROR,
+                payload: new SupersetGatewayUnavailableError(),
+            })
+        }
+    }, [supersetDomain])
 
     useEffect(() => {
         if (isMountedRef.current) {
