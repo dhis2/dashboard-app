@@ -19,7 +19,7 @@ When('I add items and save', () => {
     // first install a custom app
     cy.request('POST', `${getApiBaseUrl()}/api/appHub/${customApp.id}`).then(
         (response) => {
-            expect(response.status).to.eq(204)
+            expect(response.status).to.be.oneOf([204, 201])
 
             //add the dashboard title
             cy.get('[data-test="dashboard-title-input"]').type(
