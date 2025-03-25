@@ -40,7 +40,7 @@ class SupersetGatewayUnavailableError extends Error {
     constructor() {
         super(
             i18n.t(
-                'Could not load dashboard content because Superset Gateway is unavailable'
+                'There was a problem loading the embedded dashboard content from an external service'
             )
         )
     }
