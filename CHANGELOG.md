@@ -1,3 +1,10 @@
+## [101.1.4](https://github.com/dhis2/dashboard-app/compare/v101.1.3...v101.1.4) (2025-03-26)
+
+
+### Bug Fixes
+
+* Ensure external dashboard fields do not have undefined initial values ([#3246](https://github.com/dhis2/dashboard-app/issues/3246)) ([d63eaa6](https://github.com/dhis2/dashboard-app/commit/d63eaa6c89ee603af13cd15a9d9e6054fb249bfa))
+
 ## [101.1.3](https://github.com/dhis2/dashboard-app/compare/v101.1.2...v101.1.3) (2025-03-18)
 
 
