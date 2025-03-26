@@ -25,6 +25,7 @@ export const SupersetDashboardFields = ({
             <InputField
                 initialFocus
                 label={i18n.t('Title')}
+                placeholder={i18n.t('Untitled dashboard')}
                 type="text"
                 onChange={onChange}
                 value={values.title}
