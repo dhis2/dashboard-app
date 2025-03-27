@@ -20,7 +20,7 @@ _text_
 
 - [ ] Tests added (Cypress and/or Jest)
 - [ ] Docs added
-- [ ] i18n strings generated
+- [ ] All supported versions with and without global shell tested
 - [ ] d2-ci dependency replaced
 - [ ] _todo_
 
