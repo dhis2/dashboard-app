@@ -6,7 +6,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2025-02-07T10:20:57.831Z\n"
+"POT-Creation-Date: 2025-03-18T14:27:12.993Z\n"
 "PO-Revision-Date: 2019-06-25 12:37+0000\n"
 "Last-Translator: Yury Rogachev <yury@dhis2.org>, 2025\n"
 "Language-Team: Uzbek (Latin) (https://app.transifex.com/hisp-uio/teams/100509/uz@Latn/)\n"
@@ -19,8 +19,123 @@ msgstr ""
 msgid "Untitled dashboard"
 msgstr "Nomsiz boshqaruv paneli"
 
-msgid "Dashboards"
-msgstr "Boshqaruv Paneli"
+msgid "Could not get info from Superset gateway endpoint"
+msgstr ""
+
+msgid "Dashboard with ID \"{{dashboardId}}\" not found or not accessible"
+msgstr ""
+
+msgid "Dashboard with ID \"{{dashboardId}}\" is not embedded"
+msgstr ""
+
+msgid "Embedded provider must be \"SUPERSET\" for dashboard ID \"{{dashboardId}}\""
+msgstr ""
+
+msgid "Superset Embed UUID not found for dashboard ID \"{{dashboardId}}\""
+msgstr ""
+
+msgid "Dashboard with ID \"{{dashboardId}}\" not found on the Superset service"
+msgstr ""
+
+msgid ""
+"Could not get guest token from Superset Gateway for dashboard ID "
+"\"{{dashboardId}}\""
+msgstr ""
+
+msgid "New dashboard: external"
+msgstr ""
+
+msgid "Could not create dashboard"
+msgstr ""
+
+msgid "An unknown error occurred"
+msgstr ""
+
+msgid "Save dashboard"
+msgstr ""
+
+msgid "Back"
+msgstr "Orqaga"
+
+msgid "Title"
+msgstr "Sarlavha"
+
+msgid "Code"
+msgstr "Kod"
+
+msgid ""
+"A unique code to reference this dashboard in other apps and services. Max 50"
+" characters."
+msgstr ""
+
+msgid "Code can't be longer than 50 characters"
+msgstr ""
+
+msgid "Description"
+msgstr "Tavsif"
+
+msgid "Superset Embed ID"
+msgstr ""
+
+msgid "Invalid UUID"
+msgstr ""
+
+msgid "Options"
+msgstr "Вариант"
+
+msgid "Show chart controls on dashboard items"
+msgstr ""
+
+msgid "Expand filters"
+msgstr ""
+
+msgid "Delete dashboard"
+msgstr "Boshqaruv panelini oʼchirib tashlash"
+
+msgid ""
+"Deleting dashboard \"{{ dashboardName }}\" will remove it for all users. "
+"This action cannot be undone. Are you sure you want to permanently delete "
+"this dashboard?"
+msgstr ""
+"Panelni oʼchirib tashlash {{ dashboardName }}, uni barcha foydalanuvchilar "
+"uchun oʼchirilishiga olib keladi. Bu harakatni orqaga qaytarib boʼlmaydi. "
+"Haqiqatdan ham ushbu panelni orqaga qaytarib boʼlmaslik sharti bilan "
+"oʼchirib tashlamoqchimisiz?"
+
+msgid ""
+"Note: the source dashboard embedded by this external dashboard will not be "
+"deleted."
+msgstr ""
+
+msgid "Delete"
+msgstr "Oʼchirib tashlash"
+
+msgid "Cancel"
+msgstr "Bekor qilish"
+
+msgid "Edit external dashboard"
+msgstr ""
+
+msgid "New dashboard: choose type"
+msgstr ""
+
+msgid "Internal"
+msgstr ""
+
+msgid "Show data and visualizations from this DHIS2 instance."
+msgstr ""
+
+msgid "External"
+msgstr ""
+
+msgid "Embed a Superset dashboard"
+msgstr ""
+
+msgid "Continue"
+msgstr "Davom etish"
+
+msgid "Not available for embedded dashboards"
+msgstr ""
 
 msgid "The dashboard couldn't be made available offline. Try again."
 msgstr ""
@@ -87,9 +202,6 @@ msgstr "Yoʼq, bekor qiling"
 msgid "Yes, clear filters and sync"
 msgstr ""
 
-msgid "Cancel"
-msgstr "Bekor qilish"
-
 msgid "Confirm"
 msgstr "Tasdiqlang"
 
@@ -100,6 +212,12 @@ msgid "Failed to unstar the dashboard"
 msgstr ""
 
 msgid "Failed to star the dashboard"
+msgstr ""
+
+msgid "This dashboard is showing data from outside this system"
+msgstr ""
+
+msgid "External source"
 msgstr ""
 
 msgid "Offline data last updated {{timeAgo}}"
@@ -126,7 +244,25 @@ msgstr "Boshqarish panelida izlash"
 msgid "No dashboards found for \"{{- filterText}}\""
 msgstr ""
 
-msgid "{{appKey}} app not found"
+msgid "Dashboards"
+msgstr "Boshqaruv Paneli"
+
+msgid "Could not fetch bundled apps"
+msgstr ""
+
+msgid "Network error"
+msgstr ""
+
+msgid "There was a problem loading this dashboard item"
+msgstr "Ushbu panel elementlari yuklanishida muaamoga duch kelindi"
+
+msgid "Open menu"
+msgstr ""
+
+msgid "Open in {{appName}}"
+msgstr ""
+
+msgid "View fullscreen"
 msgstr ""
 
 msgid "Remove this item"
@@ -134,6 +270,18 @@ msgstr ""
 
 msgid "This item has been shortened to fit on one page"
 msgstr "Ushbu element bir sahifaga joylashtirish uchun moslashtirildi"
+
+msgid "The plugin needed to display this item is not available"
+msgstr ""
+
+msgid "Install the {{pluginName}} plugin from the App Hub"
+msgstr ""
+
+msgid "There was an error loading data for this item"
+msgstr ""
+
+msgid "Open this item in {{appName}}"
+msgstr ""
 
 msgid "Remove"
 msgstr "Olib tashlash"
@@ -183,23 +331,14 @@ msgstr ""
 msgid "Some filters not applied"
 msgstr ""
 
-msgid "There was a problem loading this dashboard item"
-msgstr "Ushbu panel elementlari yuklanishida muaamoga duch kelindi"
-
 msgid "Hide details and interpretations"
 msgstr ""
 
 msgid "Show details and interpretations"
 msgstr ""
 
-msgid "Open menu"
-msgstr ""
-
 msgid "Open in {{appName}} app"
 msgstr "Ilovada {{appName}} da ochish"
-
-msgid "View fullscreen"
-msgstr ""
 
 msgid "This map can't be displayed as a chart"
 msgstr ""
@@ -225,35 +364,35 @@ msgstr "Xarita sifatida koʼrish"
 msgid "There was a problem loading interpretations for this item"
 msgstr ""
 
-msgid "The plugin for rendering this item is not available"
-msgstr ""
-
-msgid "Install the {{appName}} app from the App Hub"
-msgstr ""
-
 msgid "No data to display"
 msgstr "Maʼlumot ekranga chiqarilmadi"
 
 msgid ""
-"Install Line Listing app version ${minLLVersion.join(\n"
-"                                '.'\n"
-"                            )} or higher in order to display this item."
+"Install Data Visualizer app ${minDVVersion.join(\n"
+"                            '.'\n"
+"                        )} or higher in order to display this item."
 msgstr ""
 
 msgid "Show without filters"
 msgstr ""
 
+msgid ""
+"Install Line Listing app ${minLLVersion.join(\n"
+"                            '.'\n"
+"                        )} or higher in order to display this item."
+msgstr ""
+
 msgid "Maps with Earth Engine layers cannot be displayed when offline"
+msgstr ""
+
+msgid ""
+"Install Maps app ${minMapsVersion.join(\n"
+"                            '.'\n"
+"                        )} or higher in order to display this item."
 msgstr ""
 
 msgid "Unable to load the plugin for this item"
 msgstr "Ushbu element uchun plagin yuklanmadi"
-
-msgid "There was an error loading data for this item"
-msgstr ""
-
-msgid "Open this item in {{appName}}"
-msgstr ""
 
 msgid "Resources"
 msgstr "Resurslar"
@@ -287,6 +426,15 @@ msgstr "Ilova"
 
 msgid "Users"
 msgstr "Foydalanuvchilar"
+
+msgid "Could not update dashboard {{name}}"
+msgstr ""
+
+msgid "Could not delete dashboard {{name}}"
+msgstr ""
+
+msgid "Could not load dashboard details"
+msgstr ""
 
 msgid ""
 "Failed to save dashboard. You might be offline or not have access to edit "
@@ -324,17 +472,11 @@ msgstr "Tarjima qiling"
 msgid "Cannot delete this dashboard while offline"
 msgstr ""
 
-msgid "Delete"
-msgstr "Oʼchirib tashlash"
-
 msgid "Exit without saving"
 msgstr "Saqlamasdan chiqish"
 
 msgid "Go to dashboards"
 msgstr "Boshqaruv panellariga oʼtish"
-
-msgid "Delete dashboard"
-msgstr "Boshqaruv panelini oʼchirib tashlash"
 
 msgid ""
 "Deleting dashboard \"{{- dashboardName }}\" will remove it for all users. "
@@ -453,9 +595,6 @@ msgstr "Boshqaruv paneli nomlanishi"
 msgid "Dashboard code"
 msgstr ""
 
-msgid "Code can't be longer than 50 characters"
-msgstr ""
-
 msgid "Dashboard description"
 msgstr "Boshqaruv paneli tavsifi"
 
@@ -567,6 +706,18 @@ msgstr ""
 msgid "{{count}} filters active"
 msgid_plural "{{count}} filters active"
 msgstr[0] ""
+
+msgid "Fetching external dashboard"
+msgstr ""
+
+msgid "Error"
+msgstr "Xatolik"
+
+msgid "Could not load Superset dashboard"
+msgstr ""
+
+msgid "Retry"
+msgstr ""
 
 msgid "Loading dashboard – {{name}}"
 msgstr "Boshqaruv paneli yuklanmoqda - {{name}}"
