@@ -12,7 +12,7 @@ export const getIframeSrc = (item, itemFilters, appDetails = {}) => {
 
         return appDetails.pluginLaunchUrl
     } else {
-        let iframeSrc = `${appDetails.launchUrl}?dashboardItemId=${item.id}`
+        let iframeSrc = `${appDetails.launchUrl}?redirect=false&dashboardItemId=${item.id}`
 
         if (itemFilters[FILTER_ORG_UNIT]?.length) {
             const ouIds = itemFilters[FILTER_ORG_UNIT].map(({ id, path }) =>

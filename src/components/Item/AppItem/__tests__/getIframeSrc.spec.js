@@ -2,7 +2,7 @@ import { getIframeSrc } from '../getIframeSrc.js'
 
 const appDetails = { launchUrl: 'debug/dev' }
 const dashboardItem = { id: 'rainbowdashitem' }
-const expectedSrc = `${appDetails.launchUrl}?dashboardItemId=${dashboardItem.id}`
+const expectedSrc = `${appDetails.launchUrl}?redirect=false&dashboardItemId=${dashboardItem.id}`
 
 describe('getIframeSrc', () => {
     it('no ou filter', () => {
