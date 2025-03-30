@@ -1,13 +1,13 @@
 # 
 # Translators:
-# Jiří Podhorecký <jirka.p@volny.cz>, 2023
+# Jiří Podhorecký <jirka.p@volny.cz>, 2025
 # 
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
 "POT-Creation-Date: 2025-02-07T11:22:46.614Z\n"
 "PO-Revision-Date: 2022-10-15 22:30+0000\n"
-"Last-Translator: Jiří Podhorecký <jirka.p@volny.cz>, 2023\n"
+"Last-Translator: Jiří Podhorecký <jirka.p@volny.cz>, 2025\n"
 "Language-Team: Czech (https://app.transifex.com/hisp-uio/teams/100509/cs/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -19,7 +19,7 @@ msgid "Untitled dashboard"
 msgstr "Ovládací panel bez názvu"
 
 msgid "No dashboards found for \"{{- filterText}}\""
-msgstr ""
+msgstr "Nenalezeny žádné ovládací panely pro \"{{- filterText}}\""
 
 msgid "Cannot create a dashboard while offline"
 msgstr "V režimu offline nelze vytvořit ovládací panel"
