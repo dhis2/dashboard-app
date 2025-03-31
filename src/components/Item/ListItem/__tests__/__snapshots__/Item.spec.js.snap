@@ -46,7 +46,7 @@ exports[`ListItem component renders correctly in fullscreen mode 1`] = `
           <a
             class="link"
             href="../api/documents/resource1/data"
-            rel="noopener noreferrer"
+            rel="noopener"
             style="color: rgb(33, 41, 52);"
             tabindex="0"
             target="_top"
@@ -76,7 +76,7 @@ exports[`ListItem component renders correctly in fullscreen mode 1`] = `
           <a
             class="link"
             href="../api/documents/resource2/data"
-            rel="noopener noreferrer"
+            rel="noopener"
             style="color: rgb(33, 41, 52);"
             tabindex="0"
             target="_top"
@@ -136,7 +136,7 @@ exports[`ListItem component renders correctly in view mode with content items 1`
           <a
             class="link"
             href="../api/documents/resource1/data"
-            rel="noopener noreferrer"
+            rel="noopener"
             style="color: rgb(33, 41, 52);"
             tabindex="0"
             target="_top"
@@ -166,7 +166,7 @@ exports[`ListItem component renders correctly in view mode with content items 1`
           <a
             class="link"
             href="../api/documents/resource2/data"
-            rel="noopener noreferrer"
+            rel="noopener"
             style="color: rgb(33, 41, 52);"
             tabindex="0"
             target="_top"
