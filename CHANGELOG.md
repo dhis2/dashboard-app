@@ -1,3 +1,10 @@
+## [101.1.5](https://github.com/dhis2/dashboard-app/compare/v101.1.4...v101.1.5) (2025-03-31)
+
+
+### Bug Fixes
+
+* ensure widgets work with global shell (DHIS2-19276) ([#3253](https://github.com/dhis2/dashboard-app/issues/3253)) ([6790b73](https://github.com/dhis2/dashboard-app/commit/6790b734483e98fa6707441b1a23b34450bf13fe))
+
 ## [101.1.4](https://github.com/dhis2/dashboard-app/compare/v101.1.3...v101.1.4) (2025-03-26)
 
 
