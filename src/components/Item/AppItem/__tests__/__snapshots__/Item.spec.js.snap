@@ -138,7 +138,7 @@ exports[`renders a valid widget AppItem 1`] = `
     class="content"
   >
     <iframe
-      src="https://iframe/app/widget/scorecard?dashboardItemId=applejack"
+      src="https://iframe/app/widget/scorecard?redirect=false&dashboardItemId=applejack"
       title="Scorecard"
     />
   </div>
@@ -163,7 +163,7 @@ exports[`renders a valid widget AppItem when in slideshow 1`] = `
     class="content"
   >
     <iframe
-      src="https://iframe/app/widget/scorecard?dashboardItemId=applejack"
+      src="https://iframe/app/widget/scorecard?redirect=false&dashboardItemId=applejack"
       title="Scorecard"
     />
   </div>
@@ -196,7 +196,7 @@ exports[`renders a valid widget AppItem with title in edit mode irrespective of 
     class="content"
   >
     <iframe
-      src="https://iframe/app/widget/scorecard?dashboardItemId=twilightsparkle"
+      src="https://iframe/app/widget/scorecard?redirect=false&dashboardItemId=twilightsparkle"
       title="Scorecard but hide the title"
     />
   </div>
@@ -219,7 +219,7 @@ exports[`renders a valid widget AppItem without title in view mode if specified 
     class="content hiddenTitle"
   >
     <iframe
-      src="https://iframe/app/widget/scorecard?dashboardItemId=twilightsparkle"
+      src="https://iframe/app/widget/scorecard?redirect=false&dashboardItemId=twilightsparkle"
       title="Scorecard but hide the title"
     />
   </div>
