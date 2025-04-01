@@ -67,7 +67,7 @@ const ListItem = ({
                     href={getItemUrl(item.type, contentItem, baseUrl)}
                     tabIndex={isSlideshowView ? '-1' : '0'}
                     target="_top"
-                    rel="noopener"
+                    rel="noreferrer"
                 >
                     {contentItem.name}
                 </a>
