@@ -20,7 +20,7 @@ _text_
 
 - [ ] Tests added (Cypress and/or Jest)
 - [ ] Docs added
-- [ ] All supported versions with and without global shell tested
+- [ ] Tested with and without the global shell
 - [ ] d2-ci dependency replaced
 - [ ] _todo_
 
