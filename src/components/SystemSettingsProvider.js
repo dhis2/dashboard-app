@@ -33,8 +33,12 @@ const SystemSettingsProvider = ({ children }) => {
                 ...renameSystemSettings(systemSettings),
             }
             if (resolvedSystemSettings.embeddedDashboardsEnabled) {
-                resolvedSystemSettings.supersetBaseUrl =
-                    await fetchSupersetBaseUrl()
+                try {
+                    resolvedSystemSettings.supersetBaseUrl =
+                        await fetchSupersetBaseUrl()
+                } catch {
+                    resolvedSystemSettings.supersetBaseUrl = null
+                }
             }
 
             setSettings(resolvedSystemSettings)
@@ -64,7 +68,14 @@ export const useIsSupersetSupported = () => {
     const {
         systemSettings: { embeddedDashboardsEnabled, supersetBaseUrl },
     } = useSystemSettings()
-    return embeddedDashboardsEnabled && !!supersetBaseUrl
+
+    return (
+        embeddedDashboardsEnabled &&
+        // A populated string if a response was received from the Superset Gateway
+        ((typeof supersetBaseUrl === 'string' && supersetBaseUrl.length > 0) ||
+            // Or `null` if it was not possible to retreive the baseUrl
+            supersetBaseUrl === null)
+    )
 }
 export const useSupersetBaseUrl = () => {
     const {
