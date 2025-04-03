@@ -12,7 +12,7 @@ describe('getIframeSrc', () => {
         expect(src).toEqual(expectedSrc)
     })
 
-    it('org units chosen from the trees', () => {
+    it('org units chosen from the tree', () => {
         const ouFilter = [
             {
                 id: 'fdc6uOvgoji',
