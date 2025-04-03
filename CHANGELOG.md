@@ -1,3 +1,10 @@
+# [101.2.0](https://github.com/dhis2/dashboard-app/compare/v101.1.7...v101.2.0) (2025-04-03)
+
+
+### Features
+
+* display error when Superset gateway configuration is invalid [DHIS2-19275] ([#3247](https://github.com/dhis2/dashboard-app/issues/3247)) ([32a007c](https://github.com/dhis2/dashboard-app/commit/32a007c7e45f6d6d9d2368e70d2b3c711bbc2d9c))
+
 ## [101.1.7](https://github.com/dhis2/dashboard-app/compare/v101.1.6...v101.1.7) (2025-04-03)
 
 
