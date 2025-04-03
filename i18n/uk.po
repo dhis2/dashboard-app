@@ -1,15 +1,15 @@
 # 
 # Translators:
-# Viktor Varland <viktor@dhis2.org>, 2019
 # Wanda <wanda@frontlineaids.org>, 2021
-# Nadiia <semchuk@aph.org.ua>, 2023
+# Viktor Varland <viktor@dhis2.org>, 2025
 # Philip Larsen Donnelly, 2025
+# Nadiia <semchuk@aph.org.ua>, 2025
 # Éva Tamási, 2025
 # 
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2025-02-07T10:20:57.831Z\n"
+"POT-Creation-Date: 2025-03-18T14:27:12.993Z\n"
 "PO-Revision-Date: 2019-06-25 12:37+0000\n"
 "Last-Translator: Éva Tamási, 2025\n"
 "Language-Team: Ukrainian (https://app.transifex.com/hisp-uio/teams/100509/uk/)\n"
@@ -22,8 +22,122 @@ msgstr ""
 msgid "Untitled dashboard"
 msgstr "Інформаційна панель без назви"
 
-msgid "Dashboards"
-msgstr "Інформаційні панелі (дашборди)"
+msgid "Could not get info from Superset gateway endpoint"
+msgstr ""
+
+msgid "Dashboard with ID \"{{dashboardId}}\" not found or not accessible"
+msgstr ""
+
+msgid "Dashboard with ID \"{{dashboardId}}\" is not embedded"
+msgstr ""
+
+msgid "Embedded provider must be \"SUPERSET\" for dashboard ID \"{{dashboardId}}\""
+msgstr ""
+
+msgid "Superset Embed UUID not found for dashboard ID \"{{dashboardId}}\""
+msgstr ""
+
+msgid "Dashboard with ID \"{{dashboardId}}\" not found on the Superset service"
+msgstr ""
+
+msgid ""
+"Could not get guest token from Superset Gateway for dashboard ID "
+"\"{{dashboardId}}\""
+msgstr ""
+
+msgid "New dashboard: external"
+msgstr ""
+
+msgid "Could not create dashboard"
+msgstr ""
+
+msgid "An unknown error occurred"
+msgstr ""
+
+msgid "Save dashboard"
+msgstr ""
+
+msgid "Back"
+msgstr "Назад"
+
+msgid "Title"
+msgstr "Назва"
+
+msgid "Code"
+msgstr "Код"
+
+msgid ""
+"A unique code to reference this dashboard in other apps and services. Max 50"
+" characters."
+msgstr ""
+
+msgid "Code can't be longer than 50 characters"
+msgstr "Довжина коду не може перевищувати 50 символів"
+
+msgid "Description"
+msgstr "Опис"
+
+msgid "Superset Embed ID"
+msgstr ""
+
+msgid "Invalid UUID"
+msgstr ""
+
+msgid "Options"
+msgstr "Опції"
+
+msgid "Show chart controls on dashboard items"
+msgstr ""
+
+msgid "Expand filters"
+msgstr ""
+
+msgid "Delete dashboard"
+msgstr "Видалити інформаційну панель"
+
+msgid ""
+"Deleting dashboard \"{{ dashboardName }}\" will remove it for all users. "
+"This action cannot be undone. Are you sure you want to permanently delete "
+"this dashboard?"
+msgstr ""
+"Після видалення інформаційної панелі \"{{ dashboardName }}\" її буде "
+"видалено для всіх користувачів. Цю дію неможливо скасувати. Ви дійсно хочете"
+" остаточно видалити цю інформаційну панель?"
+
+msgid ""
+"Note: the source dashboard embedded by this external dashboard will not be "
+"deleted."
+msgstr ""
+
+msgid "Delete"
+msgstr "Видалити"
+
+msgid "Cancel"
+msgstr "Скасувати"
+
+msgid "Edit external dashboard"
+msgstr ""
+
+msgid "New dashboard: choose type"
+msgstr ""
+
+msgid "Internal"
+msgstr ""
+
+msgid "Show data and visualizations from this DHIS2 instance."
+msgstr ""
+
+msgid "External"
+msgstr ""
+
+msgid "Embed a Superset dashboard"
+msgstr ""
+
+msgid "Continue"
+msgstr "Продовжити"
+
+msgid "Not available for embedded dashboards"
+msgstr ""
 
 msgid "The dashboard couldn't be made available offline. Try again."
 msgstr ""
@@ -95,9 +209,6 @@ msgstr "Ні, скасувати"
 msgid "Yes, clear filters and sync"
 msgstr "Так, очистити фільтри та синхронізувати"
 
-msgid "Cancel"
-msgstr "Скасувати"
-
 msgid "Confirm"
 msgstr "Підтвердити"
 
@@ -109,6 +220,12 @@ msgstr "Не вдалося зняти позначку зірочки з інф
 
 msgid "Failed to star the dashboard"
 msgstr "Не вдалося позначити інформаційну панель зірочкою"
+
+msgid "This dashboard is showing data from outside this system"
+msgstr ""
+
+msgid "External source"
+msgstr ""
 
 msgid "Offline data last updated {{timeAgo}}"
 msgstr "Автономні дані востаннє оновлено {{timeAgo}}"
@@ -135,6 +252,15 @@ msgid "Search for a dashboard"
 msgstr "Пошук інформаційної панелі"
 
 msgid "No dashboards found for \"{{- filterText}}\""
+msgstr ""
+
+msgid "Dashboards"
+msgstr "Інформаційні панелі (дашборди)"
+
+msgid "Could not fetch bundled apps"
+msgstr ""
+
+msgid "Network error"
 msgstr ""
 
 msgid "There was a problem loading this dashboard item"
@@ -314,6 +440,15 @@ msgstr "Додатки"
 msgid "Users"
 msgstr "Користувачі"
 
+msgid "Could not update dashboard {{name}}"
+msgstr ""
+
+msgid "Could not delete dashboard {{name}}"
+msgstr ""
+
+msgid "Could not load dashboard details"
+msgstr ""
+
 msgid ""
 "Failed to save dashboard. You might be offline or not have access to edit "
 "this dashboard."
@@ -358,17 +493,11 @@ msgstr "Перекласти"
 msgid "Cannot delete this dashboard while offline"
 msgstr "Неможливо видалити цю інформаційну панель в автономному режимі"
 
-msgid "Delete"
-msgstr "Видалити"
-
 msgid "Exit without saving"
 msgstr "Вийти без збереження"
 
 msgid "Go to dashboards"
 msgstr "Перейти до інформаційних панелей"
-
-msgid "Delete dashboard"
-msgstr "Видалити інформаційну панель"
 
 msgid ""
 "Deleting dashboard \"{{- dashboardName }}\" will remove it for all users. "
@@ -503,9 +632,6 @@ msgstr "Заголовок інформаційної панелі"
 msgid "Dashboard code"
 msgstr "Код інформаційної панелі"
 
-msgid "Code can't be longer than 50 characters"
-msgstr "Довжина коду не може перевищувати 50 символів"
-
 msgid "Dashboard description"
 msgstr "Опис інформаційної панелі"
 
@@ -631,6 +757,18 @@ msgstr[0] ""
 msgstr[1] ""
 msgstr[2] ""
 msgstr[3] ""
+
+msgid "Fetching external dashboard"
+msgstr ""
+
+msgid "Error"
+msgstr "Помилка"
+
+msgid "Could not load Superset dashboard"
+msgstr ""
+
+msgid "Retry"
+msgstr ""
 
 msgid "Loading dashboard – {{name}}"
 msgstr "Завантаження інформаційної панелі – {{name}}"
