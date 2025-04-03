@@ -1,3 +1,24 @@
+## [101.1.7](https://github.com/dhis2/dashboard-app/compare/v101.1.6...v101.1.7) (2025-04-03)
+
+
+### Bug Fixes
+
+* **translations:** sync translations from transifex (master) ([fdf56d2](https://github.com/dhis2/dashboard-app/commit/fdf56d26ac25081b5aaeeab32efe88205dbe9b95))
+
+## [101.1.6](https://github.com/dhis2/dashboard-app/compare/v101.1.5...v101.1.6) (2025-04-01)
+
+
+### Bug Fixes
+
+* ensure hyperlinks in text and list items work when using the global shell [DHIS2-19274] ([#3252](https://github.com/dhis2/dashboard-app/issues/3252)) ([1fca676](https://github.com/dhis2/dashboard-app/commit/1fca676086d96a7f94deec217607176e9ef4e98b))
+
+## [101.1.5](https://github.com/dhis2/dashboard-app/compare/v101.1.4...v101.1.5) (2025-03-31)
+
+
+### Bug Fixes
+
+* ensure widgets work with global shell (DHIS2-19276) ([#3253](https://github.com/dhis2/dashboard-app/issues/3253)) ([6790b73](https://github.com/dhis2/dashboard-app/commit/6790b734483e98fa6707441b1a23b34450bf13fe))
+
 ## [101.1.4](https://github.com/dhis2/dashboard-app/compare/v101.1.3...v101.1.4) (2025-03-26)
 
 
