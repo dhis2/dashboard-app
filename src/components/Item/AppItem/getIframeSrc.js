@@ -1,4 +1,4 @@
-import { FILTER_ORG_UNIT } from '../../../actions/itemFilters.js'
+import { FILTER_ORG_UNIT, FILTER_PE } from '../../../actions/itemFilters.js'
 import { getPluginOverrides } from '../../../modules/localStorage.js'
 
 export const getIframeSrc = (item, itemFilters, appDetails = {}) => {
@@ -18,8 +18,12 @@ export const getIframeSrc = (item, itemFilters, appDetails = {}) => {
             const ouIds = itemFilters[FILTER_ORG_UNIT].map(({ id, path }) =>
                 path ? path.split('/').slice(-1)[0] : id
             )
-
             iframeSrc += `&userOrgUnit=${ouIds.join(',')}`
+        }
+
+        if (itemFilters[FILTER_PE]?.length) {
+            const peValues = itemFilters[FILTER_PE].map((x) => x.id).join(',')
+            iframeSrc += `&period=${peValues}`
         }
 
         return iframeSrc
