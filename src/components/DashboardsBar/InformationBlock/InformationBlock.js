@@ -6,11 +6,13 @@ import PropTypes from 'prop-types'
 import React, { useCallback } from 'react'
 import { connect } from 'react-redux'
 import { acSetDashboardStarred } from '../../../actions/dashboards.js'
+import { isSmallScreen } from '../../../modules/smallScreen.js'
 import { sGetDashboardStarred } from '../../../reducers/dashboards.js'
 import {
     sGetSelected,
     sGetSelectedIsEmbedded,
 } from '../../../reducers/selected.js'
+import { useWindowDimensions } from '../../WindowDimensionsProvider.js'
 import ActionsBar from './ActionsBar.js'
 import { apiStarDashboard } from './apiStarDashboard.js'
 import LastUpdatedTag from './LastUpdatedTag.js'
@@ -45,6 +47,8 @@ const InformationBlock = ({
         [dataEngine, id, setDashboardStarred, showAlert, starred]
     )
 
+    const { width } = useWindowDimensions()
+
     if (!id) {
         return null
     }
@@ -59,7 +63,7 @@ const InformationBlock = ({
                     starred={starred}
                     onClick={toggleDashboardStarred}
                 />
-                <LastUpdatedTag id={id} />
+                {!isSmallScreen(width) && <LastUpdatedTag id={id} />}
                 {isEmbeddedDashboard && (
                     <Tooltip
                         content={i18n.t(

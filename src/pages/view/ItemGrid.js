@@ -6,6 +6,7 @@ import React, { useCallback, useState, useEffect, useRef } from 'react'
 import { Responsive as ResponsiveReactGridLayout } from 'react-grid-layout'
 import { useSelector } from 'react-redux'
 import { useContainerWidth } from '../../components/DashboardContainer.js'
+import LastUpdatedTag from '../../components/DashboardsBar/InformationBlock/LastUpdatedTag.js'
 import { useInstalledApps } from '../../components/InstalledAppsProvider.js'
 import { Item } from '../../components/Item/Item.js'
 import NoContentMessage from '../../components/NoContentMessage.js'
@@ -195,6 +196,7 @@ const ResponsiveItemGrid = ({ dashboardIsCached }) => {
             })}
             ref={slideshowElementRef}
         >
+            {isSmallScreen(width) && <LastUpdatedTag id={dashboardId} />}
             <ResponsiveReactGridLayout
                 className={cx(classes.grid, {
                     [classes.slideshowGrid]: isSlideshowView,
