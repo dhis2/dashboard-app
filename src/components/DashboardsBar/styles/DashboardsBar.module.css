@@ -15,3 +15,9 @@
     padding: var(--spacers-dp8) var(--spacers-dp12) 9px var(--spacers-dp8);
     border-inline-end: 1px solid var(--colors-grey400);
 }
+
+@media only screen and (max-width: 480px) {
+    .creationNavigationBlock {
+        padding: var(--spacers-dp4) var(--spacers-dp8) 5px var(--spacers-dp4);
+    }
+}
