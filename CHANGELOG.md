@@ -1,3 +1,10 @@
+## [101.2.1](https://github.com/dhis2/dashboard-app/compare/v101.2.0...v101.2.1) (2025-04-08)
+
+
+### Bug Fixes
+
+* hide the global header in print mode [DHIS2-19241] ([#3245](https://github.com/dhis2/dashboard-app/issues/3245)) ([e745560](https://github.com/dhis2/dashboard-app/commit/e745560f8f31a19aefd3ade71c8a8b2409b1cbc4))
+
 # [101.2.0](https://github.com/dhis2/dashboard-app/compare/v101.1.7...v101.2.0) (2025-04-03)
 
 
