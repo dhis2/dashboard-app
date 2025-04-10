@@ -6,6 +6,7 @@ import React, { useCallback, useState, useEffect, useRef } from 'react'
 import { Responsive as ResponsiveReactGridLayout } from 'react-grid-layout'
 import { useSelector } from 'react-redux'
 import { useContainerWidth } from '../../components/DashboardContainer.js'
+import ExternalSourceTag from '../../components/DashboardsBar/InformationBlock/ExternalSourceTag.js'
 import LastUpdatedTag from '../../components/DashboardsBar/InformationBlock/LastUpdatedTag.js'
 import { useInstalledApps } from '../../components/InstalledAppsProvider.js'
 import { Item } from '../../components/Item/Item.js'
@@ -31,6 +32,7 @@ import { useCacheableSection } from '../../modules/useCacheableSection.js'
 import {
     sGetSelectedId,
     sGetSelectedDashboardItems,
+    sGetSelectedIsEmbedded,
 } from '../../reducers/selected.js'
 import SlideshowControlbar from './SlideshowControlbar.js'
 import classes from './styles/ItemGrid.module.css'
@@ -42,6 +44,7 @@ const EXPANDED_HEIGHT_SM = 15
 const ResponsiveItemGrid = ({ dashboardIsCached }) => {
     const dashboardId = useSelector(sGetSelectedId)
     const dashboardItems = useSelector(sGetSelectedDashboardItems)
+    const isEmbeddedDashboard = useSelector(sGetSelectedIsEmbedded)
     const { width } = useWindowDimensions()
     const containerWidth = useContainerWidth()
     const apps = useInstalledApps()
@@ -196,7 +199,12 @@ const ResponsiveItemGrid = ({ dashboardIsCached }) => {
             })}
             ref={slideshowElementRef}
         >
-            {isSmallScreen(width) && <LastUpdatedTag id={dashboardId} />}
+            {isSmallScreen(width) && (
+                <>
+                    <LastUpdatedTag id={dashboardId} />
+                    {isEmbeddedDashboard && <ExternalSourceTag />}
+                </>
+            )}
             <ResponsiveReactGridLayout
                 className={cx(classes.grid, {
                     [classes.slideshowGrid]: isSlideshowView,
