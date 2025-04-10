@@ -3,6 +3,7 @@ import { dimensionsModalSel } from '../../elements/dashboardFilter.js'
 import { gridItemSel } from '../../elements/dashboardItem.js'
 import { titleInputSel } from '../../elements/editDashboard.js'
 import {
+    dashboardsNavMenuButtonSel,
     dashboardTitleSel,
     newButtonSel,
 } from '../../elements/viewDashboard.js'
@@ -22,6 +23,7 @@ When('dashboard title is changed', () => {
 
 Then('the small screen view is shown', () => {
     //controlbar - no search dashboard field
+    cy.get(dashboardsNavMenuButtonSel).should('be.visible')
     cy.get(newButtonSel).should('not.be.visible')
 
     //titlebar - only the More button and the title
@@ -37,6 +39,7 @@ When('I restore the wide screen', () => {
 })
 
 Then('the wide screen view is shown', () => {
+    cy.get(dashboardsNavMenuButtonSel).should('be.visible')
     cy.get(newButtonSel).should('be.visible')
 
     cy.get('button').contains('Edit').should('be.visible')
