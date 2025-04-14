@@ -29,9 +29,9 @@ describe('Creating, viewing, editing and deleting an embedded superset dashboard
     before(function () {
         // Skip this test if the DHIS2 Core version is below 42
         const versionString = Cypress.env('dhis2InstanceVersion')
-        expect(typeof versionString).to.be('string')
-        expect(versionString).to.be('2.41')
-        expect(typeof versionString.split).to.be('function')
+        expect(typeof versionString).to.equal('string')
+        expect(versionString).to.equal('2.41')
+        expect(typeof versionString.split).to.equal('function')
         const version = parseInt(
             // Support both '2.41' and '41'
             Cypress.env('dhis2InstanceVersion').split('.').pop()
