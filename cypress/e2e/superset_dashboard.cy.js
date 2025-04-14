@@ -28,7 +28,10 @@ const getInputByLabelText = (labelText, inputTag = 'input') =>
 describe('Creating, viewing, editing and deleting an embedded superset dashboard', function () {
     before(function () {
         // Skip this test if the DHIS2 Core version is below 42
-        const version = parseInt(Cypress.env('dhis2InstanceVersion'))
+        const version = parseInt(
+            // Support both '2.41' and '41'
+            Cypress.env('dhis2InstanceVersion').split('.').pop()
+        )
         if (version < 42) {
             this.skip()
         }
