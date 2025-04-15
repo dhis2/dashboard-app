@@ -139,31 +139,18 @@ describe('Creating, viewing, editing and deleting an embedded superset dashboard
         cy.get('.backdrop').should('be.visible').click()
     })
 
-    it('shows the Tag in the correct position in small screen', () => {
-        cy.viewport(460, 600)
-        // to account for debounced window resize
-        cy.wait(1000) // eslint-disable-line cypress/no-unnecessary-waiting
-
-        cy.getByDataTest('title-bar')
-            .contains('External source')
-            .should('not.exist')
-        cy.getByDataTest('inner-scroll-container')
-            .contains('External source')
-            .should('be.visible')
-
-        // TODO restore the viewport - should be possible to get it from cypress.config.just
-        // cy.viewport(x,y)
-
-        // to account for debounced window resize
-        // cy.wait(1000) // eslint-disable-line cypress/no-unnecessary-waiting
-
-        // cy.getByDataTest('title-bar')
-        //     .contains('External source')
-        //     .should('be.visible')
-        // cy.getByDataTest('inner-scroll-container')
-        //     .contains('External source')
-        //     .should('not.exist')
-    })
+    it(
+        'shows the External source tag in the correct position in small screen',
+        { viewportWidth: 460, viewportHeight: 600 },
+        () => {
+            cy.getByDataTest('title-bar')
+                .contains('External source')
+                .should('not.exist')
+            cy.getByDataTest('inner-scroll-container')
+                .contains('External source')
+                .should('be.visible')
+        }
+    )
 
     it('shows and hides the description', () => {
         cy.getByDataTest('more-actions-button').should('be.enabled').click()
