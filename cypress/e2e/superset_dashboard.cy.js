@@ -1,5 +1,5 @@
 import { newButtonSel } from '../elements/viewDashboard.js'
-import { EXTENDED_TIMEOUT } from '../support/utils.js'
+import { EXTENDED_TIMEOUT, parseVersionFromEnvToInt } from '../support/utils.js'
 
 const SUPERSET_BASE_URL = 'https://superset-test.dhis2.org'
 const NAME = 'My new dashboard'
@@ -28,7 +28,12 @@ const getInputByLabelText = (labelText, inputTag = 'input') =>
 describe('Creating, viewing, editing and deleting an embedded superset dashboard', function () {
     before(function () {
         // Skip this test if the DHIS2 Core version is below 42
-        const version = parseInt(Cypress.env('dhis2InstanceVersion'))
+        const version = parseVersionFromEnvToInt()
+
+        expect(typeof version).to.equal('number')
+        expect(Number.isInteger(version)).to.equal(true)
+        expect(version).to.be.within(39, 100)
+
         if (version < 42) {
             this.skip()
         }
