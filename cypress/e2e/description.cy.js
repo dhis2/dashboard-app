@@ -5,7 +5,7 @@ const RESP_CODE_200 = 200
 const RESP_CODE_201 = 201
 
 describe('description', () => {
-    it('toggle show description', () => {
+    before(() => {
         // Ensure that the description is not currently shown
         cy.request({
             method: 'PUT',
@@ -19,7 +19,9 @@ describe('description', () => {
         cy.get('@resetToHiddenRequest').should((response) => {
             expect(response.status).to.be.oneOf([RESP_CODE_201, RESP_CODE_200])
         })
+    })
 
+    it('toggle show description', () => {
         //  Open dashboard and confirm that the description is not shown
         cy.visit('/')
         cy.getByDataTest('view-dashboard-title').should('be.visible')
