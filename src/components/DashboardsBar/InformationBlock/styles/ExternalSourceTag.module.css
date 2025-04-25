@@ -1,0 +1,10 @@
+@media only screen and (max-width: 480px) {
+    .externalSourceTag {
+        margin-block-start: var(--spacers-dp4);
+    }
+
+    .padded {
+        padding-inline: var(--spacers-dp8);
+        padding-block-end: var(--spacers-dp8);
+    }
+}
