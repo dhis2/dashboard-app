@@ -109,7 +109,12 @@ describe('Creating, viewing, editing and deleting an embedded superset dashboard
         cy.contains('Save dashboard').should('be.enabled').click()
 
         cy.contains('h3', NAME).should('be.visible')
-        cy.contains('External source').should('be.visible')
+        cy.getByDataTest('title-bar')
+            .contains('External source')
+            .should('be.visible')
+        cy.getByDataTest('inner-scroll-container')
+            .contains('External source')
+            .should('not.exist')
         // An iframe should be visible with the UUID in the src
         cy.get('iframe')
             .should('be.visible')
@@ -133,6 +138,19 @@ describe('Creating, viewing, editing and deleting an embedded superset dashboard
         // Close the menu by clicking the backdrop
         cy.get('.backdrop').should('be.visible').click()
     })
+
+    it(
+        'shows the External source tag in the correct position in small screen',
+        { viewportWidth: 460, viewportHeight: 600 },
+        () => {
+            cy.getByDataTest('title-bar')
+                .contains('External source')
+                .should('not.exist')
+            cy.getByDataTest('inner-scroll-container')
+                .contains('External source')
+                .should('be.visible')
+        }
+    )
 
     it('shows and hides the description', () => {
         cy.getByDataTest('more-actions-button').should('be.enabled').click()
@@ -186,7 +204,9 @@ describe('Creating, viewing, editing and deleting an embedded superset dashboard
         cy.contains('Save dashboard').should('be.enabled').click()
 
         cy.contains('h3', NAME_UPDATED).should('be.visible')
-        cy.contains('External source').should('be.visible')
+        cy.getByDataTest('title-bar')
+            .contains('External source')
+            .should('be.visible')
 
         // First show the description
         cy.getByDataTest('more-actions-button').should('be.enabled').click()
