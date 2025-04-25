@@ -1,3 +1,10 @@
+## [101.2.2](https://github.com/dhis2/dashboard-app/compare/v101.2.1...v101.2.2) (2025-04-25)
+
+
+### Bug Fixes
+
+* show dashboard selector in small screens (DHIS2-19273) ([#3256](https://github.com/dhis2/dashboard-app/issues/3256)) ([1623d2a](https://github.com/dhis2/dashboard-app/commit/1623d2aa1b590158c1a9a0c70007e585759b9d1d))
+
 ## [101.2.1](https://github.com/dhis2/dashboard-app/compare/v101.2.0...v101.2.1) (2025-04-08)
 
 
