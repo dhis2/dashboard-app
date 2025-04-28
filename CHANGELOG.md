@@ -1,3 +1,10 @@
+## [101.2.3](https://github.com/dhis2/dashboard-app/compare/v101.2.2...v101.2.3) (2025-04-28)
+
+
+### Bug Fixes
+
+* use correct icon for Line List items in item selector (DHIS2-18470) ([#3260](https://github.com/dhis2/dashboard-app/issues/3260)) ([94491fb](https://github.com/dhis2/dashboard-app/commit/94491fb2bba4264402413b8bd683339cce1e584d))
+
 ## [101.2.2](https://github.com/dhis2/dashboard-app/compare/v101.2.1...v101.2.2) (2025-04-25)
 
 
