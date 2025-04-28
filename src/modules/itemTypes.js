@@ -5,6 +5,7 @@ import {
     IconEmptyFrame24,
     IconFileDocument24,
     IconLink24,
+    IconVisualizationLinelist24,
     IconMail24,
     IconQuestion24,
     IconTable24,
@@ -248,8 +249,9 @@ export const getItemIcon = (type) => {
             return IconFileDocument24
         case CHART:
         case EVENT_CHART:
-        case EVENT_VISUALIZATION:
             return IconVisualizationColumn24
+        case EVENT_VISUALIZATION:
+            return IconVisualizationLinelist24
         case MAP:
             return IconWorld24
         case APP:
