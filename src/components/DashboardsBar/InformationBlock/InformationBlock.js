@@ -1,18 +1,19 @@
-import { Tag } from '@dhis2-ui/tag'
 import { useAlert, useDataEngine } from '@dhis2/app-runtime'
 import i18n from '@dhis2/d2-i18n'
-import { Tooltip } from '@dhis2/ui'
 import PropTypes from 'prop-types'
 import React, { useCallback } from 'react'
 import { connect } from 'react-redux'
 import { acSetDashboardStarred } from '../../../actions/dashboards.js'
+import { isSmallScreen } from '../../../modules/smallScreen.js'
 import { sGetDashboardStarred } from '../../../reducers/dashboards.js'
 import {
     sGetSelected,
     sGetSelectedIsEmbedded,
 } from '../../../reducers/selected.js'
+import { useWindowDimensions } from '../../WindowDimensionsProvider.js'
 import ActionsBar from './ActionsBar.js'
 import { apiStarDashboard } from './apiStarDashboard.js'
+import ExternalSourceTag from './ExternalSourceTag.js'
 import LastUpdatedTag from './LastUpdatedTag.js'
 import StarDashboardButton from './StarDashboardButton.js'
 import classes from './styles/InformationBlock.module.css'
@@ -45,6 +46,8 @@ const InformationBlock = ({
         [dataEngine, id, setDashboardStarred, showAlert, starred]
     )
 
+    const { width } = useWindowDimensions()
+
     if (!id) {
         return null
     }
@@ -59,23 +62,9 @@ const InformationBlock = ({
                     starred={starred}
                     onClick={toggleDashboardStarred}
                 />
-                <LastUpdatedTag id={id} />
-                {isEmbeddedDashboard && (
-                    <Tooltip
-                        content={i18n.t(
-                            'This dashboard is showing data from outside this system'
-                        )}
-                        openDelay={200}
-                        closeDelay={100}
-                    >
-                        {(props) => (
-                            <div {...props}>
-                                <Tag maxWidth="200px">
-                                    {i18n.t('External source')}
-                                </Tag>
-                            </div>
-                        )}
-                    </Tooltip>
+                {!isSmallScreen(width) && <LastUpdatedTag id={id} />}
+                {isEmbeddedDashboard && !isSmallScreen(width) && (
+                    <ExternalSourceTag />
                 )}
             </div>
             <ActionsBar

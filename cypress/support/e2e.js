@@ -1,11 +1,6 @@
-// import '@dhis2/cypress-commands'
-import { enableAutoLogin } from '@dhis2/cypress-commands'
 import 'cypress-real-events'
 import './commands.js'
 
-enableAutoLogin()
-
-// const LOGIN_ENDPOINT = 'dhis-web-commons-security/login.action'
 const SESSION_COOKIE_NAME = 'JSESSIONID'
 const LOCAL_STORAGE_KEY = 'DHIS2_BASE_URL'
 
@@ -30,8 +25,12 @@ Cypress.on('uncaught:exception', (err) => {
 })
 
 before(() => {
+    const username = Cypress.env('dhis2Username')
+    const password = Cypress.env('dhis2Password')
     const baseUrl = Cypress.env('dhis2BaseUrl')
     const instanceVersion = Cypress.env('dhis2InstanceVersion')
+
+    cy.loginByApi({ username, password, baseUrl })
 
     cy.getAllCookies()
         .should((cookies) => {

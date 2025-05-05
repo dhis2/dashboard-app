@@ -1,3 +1,31 @@
+## [101.2.3](https://github.com/dhis2/dashboard-app/compare/v101.2.2...v101.2.3) (2025-04-28)
+
+
+### Bug Fixes
+
+* use correct icon for Line List items in item selector (DHIS2-18470) ([#3260](https://github.com/dhis2/dashboard-app/issues/3260)) ([94491fb](https://github.com/dhis2/dashboard-app/commit/94491fb2bba4264402413b8bd683339cce1e584d))
+
+## [101.2.2](https://github.com/dhis2/dashboard-app/compare/v101.2.1...v101.2.2) (2025-04-25)
+
+
+### Bug Fixes
+
+* show dashboard selector in small screens (DHIS2-19273) ([#3256](https://github.com/dhis2/dashboard-app/issues/3256)) ([1623d2a](https://github.com/dhis2/dashboard-app/commit/1623d2aa1b590158c1a9a0c70007e585759b9d1d))
+
+## [101.2.1](https://github.com/dhis2/dashboard-app/compare/v101.2.0...v101.2.1) (2025-04-08)
+
+
+### Bug Fixes
+
+* hide the global header in print mode [DHIS2-19241] ([#3245](https://github.com/dhis2/dashboard-app/issues/3245)) ([e745560](https://github.com/dhis2/dashboard-app/commit/e745560f8f31a19aefd3ade71c8a8b2409b1cbc4))
+
+# [101.2.0](https://github.com/dhis2/dashboard-app/compare/v101.1.7...v101.2.0) (2025-04-03)
+
+
+### Features
+
+* display error when Superset gateway configuration is invalid [DHIS2-19275] ([#3247](https://github.com/dhis2/dashboard-app/issues/3247)) ([32a007c](https://github.com/dhis2/dashboard-app/commit/32a007c7e45f6d6d9d2368e70d2b3c711bbc2d9c))
+
 ## [101.1.7](https://github.com/dhis2/dashboard-app/compare/v101.1.6...v101.1.7) (2025-04-03)
 
 

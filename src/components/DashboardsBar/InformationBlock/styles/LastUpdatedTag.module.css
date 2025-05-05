@@ -1,0 +1,5 @@
+@media only screen and (max-width: 480px) {
+    .lastUpdatedTag {
+        margin-block-start: var(--spacers-dp4);
+    }
+}

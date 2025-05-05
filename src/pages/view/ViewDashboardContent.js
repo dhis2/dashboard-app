@@ -3,8 +3,11 @@ import PropTypes from 'prop-types'
 import React from 'react'
 import { useSelector } from 'react-redux'
 import { Link } from 'react-router-dom'
+import ExternalSourceTag from '../../components/DashboardsBar/InformationBlock/ExternalSourceTag.js'
 import LoadingMask from '../../components/LoadingMask.js'
 import Notice from '../../components/Notice.js'
+import { useWindowDimensions } from '../../components/WindowDimensionsProvider.js'
+import { isSmallScreen } from '../../modules/smallScreen.js'
 import { sGetSelectedIsEmbedded } from '../../reducers/selected.js'
 import { ROUTE_START_PATH } from '../start/index.js'
 import { Description } from './Description.js'
@@ -20,6 +23,7 @@ export const ViewDashboardContent = ({
     isCached,
 }) => {
     const isEmbeddedDashboard = useSelector(sGetSelectedIsEmbedded)
+    const { width } = useWindowDimensions()
 
     if (loading) {
         return <LoadingMask />
@@ -42,7 +46,10 @@ export const ViewDashboardContent = ({
                 <Description />
                 {!isEmbeddedDashboard && <FilterBar />}
                 {isEmbeddedDashboard ? (
-                    <SupersetDashboard />
+                    <>
+                        {isSmallScreen(width) && <ExternalSourceTag />}
+                        <SupersetDashboard />
+                    </>
                 ) : (
                     <ItemGrid dashboardIsCached={isCached} />
                 )}

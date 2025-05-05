@@ -5,8 +5,8 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1)\n"
-"POT-Creation-Date: 2025-03-18T14:27:12.993Z\n"
-"PO-Revision-Date: 2025-03-18T14:27:12.995Z\n"
+"POT-Creation-Date: 2025-04-10T08:11:48.789Z\n"
+"PO-Revision-Date: 2025-04-10T08:11:48.789Z\n"
 
 msgid "Untitled dashboard"
 msgstr "Untitled dashboard"
@@ -201,6 +201,12 @@ msgstr "No, cancel"
 msgid "Yes, clear filters and sync"
 msgstr "Yes, clear filters and sync"
 
+msgid "This dashboard is showing data from outside this system"
+msgstr "This dashboard is showing data from outside this system"
+
+msgid "External source"
+msgstr "External source"
+
 msgid "Confirm"
 msgstr "Confirm"
 
@@ -212,12 +218,6 @@ msgstr "Failed to unstar the dashboard"
 
 msgid "Failed to star the dashboard"
 msgstr "Failed to star the dashboard"
-
-msgid "This dashboard is showing data from outside this system"
-msgstr "This dashboard is showing data from outside this system"
-
-msgid "External source"
-msgstr "External source"
 
 msgid "Offline data last updated {{timeAgo}}"
 msgstr "Offline data last updated {{timeAgo}}"
@@ -741,6 +741,13 @@ msgid "{{count}} filters active"
 msgid_plural "{{count}} filters active"
 msgstr[0] "{{count}} filter active"
 msgstr[1] "{{count}} filters active"
+
+msgid ""
+"There was a problem loading the embedded dashboard content from an external "
+"service"
+msgstr ""
+"There was a problem loading the embedded dashboard content from an external "
+"service"
 
 msgid "Fetching external dashboard"
 msgstr "Fetching external dashboard"
