@@ -1,3 +1,10 @@
+# [101.3.0](https://github.com/dhis2/dashboard-app/compare/v101.2.3...v101.3.0) (2025-05-05)
+
+
+### Features
+
+* allow widgets to be filtered by period [DHIS2-19186] ([#3255](https://github.com/dhis2/dashboard-app/issues/3255)) ([1e0ddc9](https://github.com/dhis2/dashboard-app/commit/1e0ddc904b799036730de50c919a8309a514af12))
+
 ## [101.2.3](https://github.com/dhis2/dashboard-app/compare/v101.2.2...v101.2.3) (2025-04-28)
 
 
