@@ -56,8 +56,8 @@ This opens up for a better integration and user experience.
 
 The plugin component defined as the entrypoint receives the following props:
 
-- **dashboardItemId**: each dashboard item has an unique id; this can be used to store different configurations of the plugin and have multiple instances of the plugin in the same dashboard
-- **dashboardItemFilters**: an object with the global filters applied to the dashboard (ou, pe, other dimensions):
+-   **dashboardItemId**: each dashboard item has an unique id; this can be used to store different configurations of the plugin and have multiple instances of the plugin in the same dashboard
+-   **dashboardItemFilters**: an object with the global filters applied to the dashboard (ou, pe, other dimensions):
 
 ```ts
 {
@@ -77,8 +77,8 @@ The plugin component defined as the entrypoint receives the following props:
 }
 ```
 
-- **dashboardMode**: indicates if the dashboard is in `view`, `edit` or `print` mode; it can be used for example for showing the configuration interface when in edit mode and the content when in view mode
-- **setDashboardItemDetails**: a callback function the plugin can call to pass a custom title and URL and a callback function called when the dashboard item containing the plugin is removed from the dashboard:
+-   **dashboardMode**: indicates if the dashboard is in `view`, `edit` or `print` mode; it can be used for example for showing the configuration interface when in edit mode and the content when in view mode
+-   **setDashboardItemDetails**: a callback function the plugin can call to pass a custom title and URL and a callback function called when the dashboard item containing the plugin is removed from the dashboard:
 
 ```ts
 setDashboardItemDetails({

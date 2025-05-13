@@ -15,7 +15,7 @@ without having to fork or maintain a separate version of the app.
 
 The Dashboard app supports the following types of plugins:
 
-- [Dashboard Plugins](/docs/dashboard-plugins/developer/develop-a-dashboard-plugin)
+-   [Dashboard Plugins](/docs/dashboard-plugins/developer/develop-a-dashboard-plugin)
 
 :::tip
 Want to learn more about what plugins are and how they work under the hood? [Read more about the core plugin technology](/docs/app-runtime/components/Plugin.md)
