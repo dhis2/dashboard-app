@@ -1,7 +1,7 @@
 import { fireEvent } from '@testing-library/dom'
 import { render, waitFor } from '@testing-library/react'
 import React from 'react'
-import { useSystemSettings } from '../../../../SystemSettingsProvider.js'
+import { useSystemSettings } from '../../../../AppDataProvider/AppDataProvider.js'
 import WindowDimensionsProvider from '../../../../WindowDimensionsProvider.js'
 import ItemContextMenu from '../ItemContextMenu.js'
 

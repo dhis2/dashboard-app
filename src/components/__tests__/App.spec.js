@@ -5,7 +5,7 @@ import configureMockStore from 'redux-mock-store'
 import thunk from 'redux-thunk'
 import { apiFetchDashboards } from '../../api/fetchAllDashboards.js'
 import App from '../App.js'
-import { useSystemSettings } from '../SystemSettingsProvider.js'
+import { useSystemSettings } from '../AppDataProvider/AppDataProvider.js'
 
 jest.mock('@dhis2/analytics', () => ({
     useCachedDataQuery: () => ({
