@@ -3,12 +3,21 @@ import React from 'react'
 import { Provider } from 'react-redux'
 import configureMockStore from 'redux-mock-store'
 import { apiFetchVisualization } from '../../../../api/fetchVisualization.js'
-import SystemSettingsProvider from '../../../AppDataProvider/AppDataProvider.js'
+import * as mockData from '../../../__mocks__/AppData.js'
+import AppDataProvider from '../../../AppDataProvider/AppDataProvider.js'
 import WindowDimensionsProvider from '../../../WindowDimensionsProvider.js'
 import { Item } from '../../Item.js'
 
 jest.mock('../../../../api/fetchVisualization')
-jest.mock('../../../SystemSettingsProvider')
+jest.mock('../../../AppDataProvider/AppDataProvider', () => ({
+    ...jest.requireActual('../../../AppDataProvider/AppDataProvider'),
+    __esModule: true,
+    default: ({ children }) => children,
+    useInstalledApps: () => mockData.apps,
+    useCurrentUser: () => mockData.currentUser,
+    useSystemSettings: () => mockData.systemSettings,
+}))
+
 jest.mock('../Visualization/plugin', () => {
     return {
         pluginIsAvailable: () => true,
@@ -70,11 +79,11 @@ test('Visualization/Item renders view mode', async () => {
     })
     const { container } = render(
         <Provider store={mockStore(store)}>
-            <SystemSettingsProvider>
+            <AppDataProvider>
                 <WindowDimensionsProvider>
                     <Item item={item} dashboardMode="view" />
                 </WindowDimensionsProvider>
-            </SystemSettingsProvider>
+            </AppDataProvider>
         </Provider>
     )
 
@@ -109,11 +118,11 @@ test('Visualization/Item renders edit mode', async () => {
     })
     const { container } = render(
         <Provider store={mockStore(store)}>
-            <SystemSettingsProvider>
+            <AppDataProvider>
                 <WindowDimensionsProvider>
                     <Item item={item} dashboardMode="edit" />
                 </WindowDimensionsProvider>
-            </SystemSettingsProvider>
+            </AppDataProvider>
         </Provider>
     )
 

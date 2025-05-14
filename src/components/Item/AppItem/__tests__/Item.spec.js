@@ -3,18 +3,12 @@ import React from 'react'
 import { Provider } from 'react-redux'
 import configureMockStore from 'redux-mock-store'
 import { APP } from '../../../../modules/itemTypes.js'
-import InstalledAppsProvider from '../../../AppDataProvider/AppDataProvider.js'
-import SystemSettingsProvider from '../../../AppDataProvider/AppDataProvider.js'
+import * as mockData from '../../../__mocks__/AppData.js'
+import AppDataProvider from '../../../AppDataProvider/AppDataProvider.js'
 import WindowDimensionsProvider from '../../../WindowDimensionsProvider.js'
 import { Item } from '../../Item.js'
 
 jest.mock('@dhis2/analytics', () => ({
-    useCachedDataQuery: () => ({
-        currentUser: {
-            username: 'rainbowDash',
-            id: 'r3nb0d5h',
-        },
-    }),
     getDimensionById: jest.fn(),
 }))
 
@@ -53,8 +47,15 @@ jest.mock('@dhis2/app-runtime/experimental', () => ({
     },
 }))
 
-jest.mock('../../../InstalledAppsProvider')
-jest.mock('../../../SystemSettingsProvider')
+jest.mock('../../../AppDataProvider/AppDataProvider', () => ({
+    ...jest.requireActual('../../../AppDataProvider/AppDataProvider'),
+    __esModule: true,
+    default: ({ children }) => children,
+    useInstalledApps: () => mockData.apps,
+    useCurrentUser: () => mockData.currentUser,
+    useSystemSettings: () => mockData.systemSettings,
+}))
+
 jest.mock(
     '../../ItemHeader/DeleteItemButton.js',
     () =>
@@ -99,13 +100,11 @@ test('renders a valid plugin AppItem in view mode', () => {
     }
     const { container } = render(
         <Provider store={mockStore(store)}>
-            <InstalledAppsProvider>
-                <SystemSettingsProvider>
-                    <WindowDimensionsProvider>
-                        <Item item={pluginItem} dashboardMode={'view'} />
-                    </WindowDimensionsProvider>
-                </SystemSettingsProvider>
-            </InstalledAppsProvider>
+            <AppDataProvider>
+                <WindowDimensionsProvider>
+                    <Item item={pluginItem} dashboardMode={'view'} />
+                </WindowDimensionsProvider>
+            </AppDataProvider>
         </Provider>
     )
     expect(container).toMatchSnapshot()
@@ -122,13 +121,11 @@ test('renders a valid plugin AppItem with filter in view mode', () => {
 
     const { container } = render(
         <Provider store={mockStore(store)}>
-            <InstalledAppsProvider>
-                <SystemSettingsProvider>
-                    <WindowDimensionsProvider>
-                        <Item item={pluginItem} dashboardMode={'view'} />
-                    </WindowDimensionsProvider>
-                </SystemSettingsProvider>
-            </InstalledAppsProvider>
+            <AppDataProvider>
+                <WindowDimensionsProvider>
+                    <Item item={pluginItem} dashboardMode={'view'} />
+                </WindowDimensionsProvider>
+            </AppDataProvider>
         </Provider>
     )
     expect(container).toMatchSnapshot()
@@ -149,13 +146,11 @@ test('renders a valid plugin AppItem with filter in edit mode', () => {
 
     const { container } = render(
         <Provider store={mockStore(store)}>
-            <InstalledAppsProvider>
-                <SystemSettingsProvider>
-                    <WindowDimensionsProvider>
-                        <Item item={pluginItem} dashboardMode={'edit'} />
-                    </WindowDimensionsProvider>
-                </SystemSettingsProvider>
-            </InstalledAppsProvider>
+            <AppDataProvider>
+                <WindowDimensionsProvider>
+                    <Item item={pluginItem} dashboardMode={'edit'} />
+                </WindowDimensionsProvider>
+            </AppDataProvider>
         </Provider>
     )
     expect(container).toMatchSnapshot()
@@ -170,16 +165,14 @@ test('renders a valid widget AppItem without title in view mode if specified in 
 
     const { container } = render(
         <Provider store={mockStore(store)}>
-            <InstalledAppsProvider>
-                <SystemSettingsProvider>
-                    <WindowDimensionsProvider>
-                        <Item
-                            item={widgetItemWithoutTitle}
-                            dashboardMode={'view'}
-                        />
-                    </WindowDimensionsProvider>
-                </SystemSettingsProvider>
-            </InstalledAppsProvider>
+            <AppDataProvider>
+                <WindowDimensionsProvider>
+                    <Item
+                        item={widgetItemWithoutTitle}
+                        dashboardMode={'view'}
+                    />
+                </WindowDimensionsProvider>
+            </AppDataProvider>
         </Provider>
     )
     expect(container).toMatchSnapshot()
@@ -197,16 +190,14 @@ test('renders a valid widget AppItem with title in edit mode irrespective of app
 
     const { container } = render(
         <Provider store={mockStore(store)}>
-            <InstalledAppsProvider>
-                <SystemSettingsProvider>
-                    <WindowDimensionsProvider>
-                        <Item
-                            item={widgetItemWithoutTitle}
-                            dashboardMode={'edit'}
-                        />
-                    </WindowDimensionsProvider>
-                </SystemSettingsProvider>
-            </InstalledAppsProvider>
+            <AppDataProvider>
+                <WindowDimensionsProvider>
+                    <Item
+                        item={widgetItemWithoutTitle}
+                        dashboardMode={'edit'}
+                    />
+                </WindowDimensionsProvider>
+            </AppDataProvider>
         </Provider>
     )
     expect(container).toMatchSnapshot()
@@ -221,13 +212,11 @@ test('renders a valid widget AppItem', () => {
     }
     const { container } = render(
         <Provider store={mockStore(store)}>
-            <InstalledAppsProvider>
-                <SystemSettingsProvider>
-                    <WindowDimensionsProvider>
-                        <Item item={widgetItem} dashboardMode={'view'} />
-                    </WindowDimensionsProvider>
-                </SystemSettingsProvider>
-            </InstalledAppsProvider>
+            <AppDataProvider>
+                <WindowDimensionsProvider>
+                    <Item item={widgetItem} dashboardMode={'view'} />
+                </WindowDimensionsProvider>
+            </AppDataProvider>
         </Provider>
     )
     expect(container).toMatchSnapshot()
@@ -242,13 +231,11 @@ test('renders a valid widget AppItem when in slideshow', () => {
     }
     const { container } = render(
         <Provider store={mockStore(store)}>
-            <InstalledAppsProvider>
-                <SystemSettingsProvider>
-                    <WindowDimensionsProvider>
-                        <Item item={widgetItem} dashboardMode={'view'} />
-                    </WindowDimensionsProvider>
-                </SystemSettingsProvider>
-            </InstalledAppsProvider>
+            <AppDataProvider>
+                <WindowDimensionsProvider>
+                    <Item item={widgetItem} dashboardMode={'view'} />
+                </WindowDimensionsProvider>
+            </AppDataProvider>
         </Provider>
     )
     expect(container).toMatchSnapshot()
@@ -272,13 +259,11 @@ test('renders an invalid AppItem', () => {
 
     const { container } = render(
         <Provider store={mockStore(store)}>
-            <InstalledAppsProvider>
-                <SystemSettingsProvider>
-                    <WindowDimensionsProvider>
-                        <Item item={invalidItem} dashboardMode={'edit'} />
-                    </WindowDimensionsProvider>
-                </SystemSettingsProvider>
-            </InstalledAppsProvider>
+            <AppDataProvider>
+                <WindowDimensionsProvider>
+                    <Item item={invalidItem} dashboardMode={'edit'} />
+                </WindowDimensionsProvider>
+            </AppDataProvider>
         </Provider>
     )
     expect(container).toMatchSnapshot()
