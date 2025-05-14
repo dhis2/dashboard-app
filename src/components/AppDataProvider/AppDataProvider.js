@@ -168,3 +168,7 @@ export function useUserSettings() {
     const { settings } = useCurrentUser()
     return settings
 }
+export function useRootOrgUnits() {
+    const { rootOrgUnits } = useContext(AppDataCtx)
+    return rootOrgUnits
+}
