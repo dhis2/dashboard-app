@@ -4,7 +4,7 @@ import { EXTENDED_TIMEOUT, parseVersionFromEnvToInt } from '../support/utils.js'
 const SUPERSET_BASE_URL = 'https://superset-test.dhis2.org'
 const NAME = 'My new dashboard'
 const NAME_UPDATED = 'My updated dashboard'
-const CODE = 'MY_CODE'
+const BASE_CODE = 'MY_CODE'
 const DESCRIPTION = 'My dashboard description text'
 const DESCRIPTION_UPATED = 'My updated dashboard description'
 const UUID = '2e5ae28f-60d1-4fb9-a609-5bd4586bf4ac'
@@ -26,7 +26,10 @@ const getInputByLabelText = (labelText, inputTag = 'input') =>
     cy.get('form').contains('label', labelText).parent().find(inputTag)
 
 describe('Creating, viewing, editing and deleting an embedded superset dashboard', function () {
+    let UNIQUE_CODE = null
+
     before(function () {
+        UNIQUE_CODE = `${BASE_CODE}_${Date.now().toString().substring(8)}`
         // Skip this test if the DHIS2 Core version is below 42
         const version = parseVersionFromEnvToInt()
 
@@ -93,7 +96,7 @@ describe('Creating, viewing, editing and deleting an embedded superset dashboard
 
         // Check all initial values and change them
         getInputByLabelText('Title').should('have.value', '').type(NAME)
-        getInputByLabelText('Code').should('have.value', '').type(CODE)
+        getInputByLabelText('Code').should('have.value', '').type(UNIQUE_CODE)
         getInputByLabelText('Description', 'textarea')
             .should('have.value', '')
             .type(DESCRIPTION)
@@ -186,7 +189,7 @@ describe('Creating, viewing, editing and deleting an embedded superset dashboard
             .should('have.value', NAME)
             .clear()
             .type(NAME_UPDATED)
-        getInputByLabelText('Code').should('have.value', CODE)
+        getInputByLabelText('Code').should('have.value', UNIQUE_CODE)
         getInputByLabelText('Description', 'textarea')
             .should('have.value', DESCRIPTION)
             .clear()
