@@ -49,7 +49,7 @@ module.exports = {
 
 Implement your plugin using React components, just as you would implememt a regular DHIS2 custom app.
 
-The dashboard plugin does not need any integration with the Dashboard app in order to work. However, the new plugin framework added a two-way communication between the Dashboard app and the plugins that enables an enhanced user experience. This is done via properties that the Dashboard app provides to the plugin:
+The dashboard plugin does not need any integration with the Dashboard app in order to work. However, the new plugin framework added two-way communication between the Dashboard app and the plugin that enables an enhanced user experience. This is done via properties that the Dashboard app provides to the plugin:
 
 -   **dashboardItemId**: each dashboard item has an unique id; this can be used to store different configurations of the plugin and allow multiple instances of the plugin in the same dashboard
 -   **dashboardItemFilters**: an object with the global filters applied to the dashboard (organisation unit, period, other dimensions):
