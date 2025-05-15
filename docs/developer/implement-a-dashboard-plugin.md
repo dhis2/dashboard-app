@@ -1,11 +1,11 @@
 ---
-sidebar_label: Developing a plugin
-title: Developing a Dashboard plugin
-description: Learn how to develop a plugin for the DHIS2 Dashboard app.
-id: develop-a-dashboard-plugin
+sidebar_label: Implementing a plugin
+title: Implementing a Dashboard plugin
+description: Learn how to implement a plugin for the DHIS2 Dashboard app.
+id: implement-a-dashboard-plugin
 ---
 
-Implementing a dashboard plugin is very similar to implementing a regular DHIS2 custom app, with a few differences in how you structure your plugin and how you configure it to work with the DHIS2 Dashboard app. These are outlined in the steps below.
+Implementing a dashboard plugin is very similar to implementing a regular DHIS2 custom app, with a few differences in how you configure it to work with the DHIS2 Dashboard app. These are outlined in the steps below.
 
 Here's an example of a dashboard plugin implemented following this documentation.
 
