@@ -25,7 +25,7 @@ d2 app scripts init my-dashboard-plugin
 
 ## Step 2: Add a plugin entrypoint
 
-To make your custom app a form field plugin, you need to add a plugin entrypoint inside the `d2.config.js` file.
+To make your custom app a dashboard plugin, you need to add a plugin entrypoint inside the `d2.config.js` file.
 
 Here is an example of how you can add a plugin entrypoint:
 
@@ -93,7 +93,7 @@ setDashboardItemDetails({
 
 All of the above details are not required.
 
-The `onRename` callback does not block the dashboard app from removing a dashboard item, regardless of the outcome.
+The `onRemove` callback does not block the dashboard app from removing a dashboard item, regardless of the outcome.
 It's only useful to the plugin for internal clean up purposes, for example when a plugin stores configurations by dashboard item id and wants to clear them up when dashboard items are removed.
 
 ## Step 4: Build and deploy your plugin
