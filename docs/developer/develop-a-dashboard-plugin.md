@@ -23,7 +23,7 @@ d2 app scripts init my-dashboard-plugin
 
 ## Step 2: Add a plugin entry point
 
-To make your custom app a dashboard plugin, set the `pluginType` property to "DASHBOARD" and add a `plugin` propertry to the `entryPoints` property containing the path to the Plugin entry point file:
+To make your custom app a dashboard plugin, set the `pluginType` property to "DASHBOARD" and add a `plugin` property to the `entryPoints` property containing the path to the Plugin entry point file:
 
 Below is an example of a d2.config.js file configured with a Dashboard plugin.
 
