@@ -31,6 +31,8 @@ before(() => {
     const instanceVersion = Cypress.env('dhis2InstanceVersion')
 
     cy.loginByApi({ username, password, baseUrl })
+        .its('status')
+        .should('equal', 200)
 
     cy.getAllCookies()
         .should((cookies) => {
