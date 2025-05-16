@@ -5,7 +5,7 @@ import configureMockStore from 'redux-mock-store'
 import thunk from 'redux-thunk'
 import { apiFetchDashboards } from '../../api/fetchAllDashboards.js'
 import App from '../App.js'
-import { useSystemSettings } from '../SystemSettingsProvider.js'
+import { useSystemSettings } from '../AppDataProvider/AppDataProvider.js'
 
 jest.mock('@dhis2/analytics', () => ({
     useCachedDataQuery: () => ({
@@ -75,22 +75,15 @@ jest.mock('../../pages/view', () => {
     }
 })
 
-jest.mock('../SystemSettingsProvider', () => {
+jest.mock('../AppDataProvider/AppDataProvider', () => {
     return {
+        ...jest.requireActual('../AppDataProvider/AppDataProvider'),
         __esModule: true,
-        default: jest.fn((children) => <div>{children}</div>),
         useSystemSettings: jest.fn(() => ({
-            systemSettings: { startModuleEnableLightweight: false },
+            startModuleEnableLightweight: false,
         })),
-    }
-})
-
-jest.mock('../UserSettingsProvider', () => {
-    return {
-        __esModule: true,
-        default: jest.fn((children) => <div>{children}</div>),
         useUserSettings: jest.fn(() => ({
-            userSettings: { keyAnalysisDisplayProperty: 'displayName' },
+            keyAnalysisDisplayProperty: 'displayName',
         })),
     }
 })
@@ -125,9 +118,7 @@ const middlewares = [thunk.withExtraArgument(dataEngine)]
 const mockStore = configureMockStore(middlewares)
 
 test('renders the app with a dashboard', () => {
-    useSystemSettings.mockReturnValue({
-        systemSettings: { startModuleEnableLightweight: false },
-    })
+    useSystemSettings.mockReturnValue({ startModuleEnableLightweight: false })
     const { container } = render(
         <>
             <header style={{ height: '48px' }} />
@@ -144,9 +135,7 @@ test('renders the app with a dashboard', () => {
 
 test('renders the app with the start page', async () => {
     const promise = Promise.resolve()
-    useSystemSettings.mockReturnValue({
-        systemSettings: { startModuleEnableLightweight: true },
-    })
+    useSystemSettings.mockReturnValue({ startModuleEnableLightweight: true })
     const { container } = render(
         <>
             <header style={{ height: '48px' }} />

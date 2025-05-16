@@ -19,8 +19,10 @@ import {
     INSTALLATION_STATUS_UNKNOWN,
     sGetIframePluginStatus,
 } from '../../../../reducers/iframePluginStatus.js'
-import { useInstalledApps } from '../../../InstalledAppsProvider.js'
-import { useUserSettings } from '../../../UserSettingsProvider.js'
+import {
+    useInstalledApps,
+    useUserSettings,
+} from '../../../AppDataProvider/AppDataProvider.js'
 import MissingPluginMessage from '../../ItemMessage/MissingPluginMessage.js'
 import VisualizationErrorMessage from '../../ItemMessage/VisualizationErrorMessage.js'
 import { getPluginLaunchUrl } from './plugin.js'
@@ -39,7 +41,7 @@ const IframePlugin = ({
     const dispatch = useDispatch()
     const iframePluginStatus = useSelector(sGetIframePluginStatus)
     const { baseUrl } = useConfig()
-    const { userSettings } = useUserSettings()
+    const userSettings = useUserSettings()
     const [error, setError] = useState(null)
     const apps = useInstalledApps()
 

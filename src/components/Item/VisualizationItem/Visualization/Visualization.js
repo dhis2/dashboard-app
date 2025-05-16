@@ -25,7 +25,7 @@ import {
     useInstalledDVVersion,
     useInstalledLLVersion,
     useInstalledMapsVersion,
-} from '../../../InstalledAppsProvider.js'
+} from '../../../AppDataProvider/AppDataProvider.js'
 import getFilteredVisualization from './getFilteredVisualization.js'
 import getVisualizationConfig from './getVisualizationConfig.js'
 import IframePlugin from './IframePlugin.js'

@@ -27,8 +27,8 @@ import {
     EVENT_VISUALIZATION,
 } from '../../../../modules/itemTypes.js'
 import { isSmallScreen } from '../../../../modules/smallScreen.js'
+import { useSystemSettings } from '../../../AppDataProvider/AppDataProvider.js'
 import MenuItem from '../../../MenuItemWithTooltip.js'
-import { useSystemSettings } from '../../../SystemSettingsProvider.js'
 import { useWindowDimensions } from '../../../WindowDimensionsProvider.js'
 import ViewAsMenuItems from './ViewAsMenuItems.js'
 
@@ -42,7 +42,7 @@ const ItemContextMenu = (props) => {
         allowVisShowInterpretations,
         allowVisViewAs,
         allowVisFullscreen,
-    } = useSystemSettings().systemSettings
+    } = useSystemSettings()
 
     const noOptionsEnabled =
         !allowVisOpenInApp &&

@@ -1,14 +1,11 @@
-import {
-    AboutAOUnit,
-    InterpretationsUnit,
-    useCachedDataQuery,
-} from '@dhis2/analytics'
+import { AboutAOUnit, InterpretationsUnit } from '@dhis2/analytics'
 import { useConfig } from '@dhis2/app-runtime'
 import i18n from '@dhis2/d2-i18n'
 import PropTypes from 'prop-types'
 import React, { useState } from 'react'
 import { getVisualizationId } from '../../../modules/item.js'
 import { getItemUrl, itemTypeMap } from '../../../modules/itemTypes.js'
+import { useCurrentUser } from '../../AppDataProvider/AppDataProvider.js'
 import FatalErrorBoundary from '../FatalErrorBoundary.js'
 import { InterpretationReplyForm } from './InterpretationReplyForm.js'
 import classes from './styles/ItemFooter.module.css'
@@ -17,7 +14,7 @@ const ItemFooter = ({ item }) => {
     const { baseUrl } = useConfig()
     const [interpretationId, setInterpretationId] = useState(null)
     const [replyInitialFocus, setReplyInitialFocus] = useState(false)
-    const { currentUser } = useCachedDataQuery()
+    const currentUser = useCurrentUser()
 
     const setReplyToInterpretation = (id) => {
         setInterpretationId(id)

@@ -1,4 +1,3 @@
-import { useCachedDataQuery } from '@dhis2/analytics'
 import { CacheableSection } from '@dhis2/app-runtime'
 import i18n from '@dhis2/d2-i18n'
 import isEmpty from 'lodash/isEmpty.js'
@@ -6,6 +5,7 @@ import PropTypes from 'prop-types'
 import React, { useEffect } from 'react'
 import { connect } from 'react-redux'
 import { acClearSelected } from '../../actions/selected.js'
+import { useCurrentUser } from '../../components/AppDataProvider/AppDataProvider.js'
 import DashboardsBar from '../../components/DashboardsBar/index.js'
 import LoadingMask from '../../components/LoadingMask.js'
 import NoContentMessage from '../../components/NoContentMessage.js'
@@ -26,7 +26,7 @@ const CacheableViewDashboard = ({
     id,
     selectedId,
 }) => {
-    const { currentUser } = useCachedDataQuery()
+    const currentUser = useCurrentUser()
 
     useEffect(() => {
         if (id === null && selectedId !== null) {

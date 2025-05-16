@@ -1,11 +1,11 @@
 import { fireEvent } from '@testing-library/dom'
 import { render, waitFor } from '@testing-library/react'
 import React from 'react'
-import { useSystemSettings } from '../../../../SystemSettingsProvider.js'
+import { useSystemSettings } from '../../../../AppDataProvider/AppDataProvider.js'
 import WindowDimensionsProvider from '../../../../WindowDimensionsProvider.js'
 import ItemContextMenu from '../ItemContextMenu.js'
 
-jest.mock('../../../../SystemSettingsProvider', () => {
+jest.mock('../../../../AppDataProvider/AppDataProvider', () => {
     return {
         __esModule: true,
         default: jest.fn((children) => <div>{children}</div>),
@@ -22,12 +22,10 @@ jest.mock('@dhis2/app-runtime', () => ({
 }))
 
 const mockSystemSettingsDefault = {
-    systemSettings: {
-        allowVisOpenInApp: true,
-        allowVisShowInterpretations: true,
-        allowVisViewAs: true,
-        allowVisFullscreen: true,
-    },
+    allowVisOpenInApp: true,
+    allowVisShowInterpretations: true,
+    allowVisViewAs: true,
+    allowVisFullscreen: true,
 }
 
 const defaultProps = {
@@ -284,13 +282,8 @@ test('renders popover menu when interpretations displayed', async () => {
 
 test('does not render "View as" options if settings do not allow', async () => {
     useSystemSettings.mockReturnValue({
-        systemSettings: Object.assign(
-            {},
-            mockSystemSettingsDefault.systemSettings,
-            {
-                allowVisViewAs: false,
-            }
-        ),
+        ...mockSystemSettingsDefault,
+        allowVisViewAs: false,
     })
 
     const { getByRole, queryAllByText } = render(
@@ -307,13 +300,8 @@ test('does not render "View as" options if settings do not allow', async () => {
 
 test('does not render "Open in [app]" option if settings do not allow', async () => {
     useSystemSettings.mockReturnValue({
-        systemSettings: Object.assign(
-            {},
-            mockSystemSettingsDefault.systemSettings,
-            {
-                allowVisOpenInApp: false,
-            }
-        ),
+        ...mockSystemSettingsDefault,
+        allowVisOpenInApp: false,
     })
 
     const { getByRole, queryByText } = render(
@@ -360,13 +348,8 @@ test('renders only View in App when item load failed', async () => {
 
 test('does not render "fullscreen" option if settings do not allow', async () => {
     useSystemSettings.mockReturnValue({
-        systemSettings: Object.assign(
-            {},
-            mockSystemSettingsDefault.systemSettings,
-            {
-                allowVisFullscreen: false,
-            }
-        ),
+        ...mockSystemSettingsDefault,
+        allowVisFullscreen: false,
     })
 
     const { getByRole, queryByText } = render(
@@ -383,13 +366,8 @@ test('does not render "fullscreen" option if settings do not allow', async () =>
 
 test('does not render "Show interpretations" option if settings do not allow', async () => {
     useSystemSettings.mockReturnValue({
-        systemSettings: Object.assign(
-            {},
-            mockSystemSettingsDefault.systemSettings,
-            {
-                allowVisShowInterpretations: false,
-            }
-        ),
+        ...mockSystemSettingsDefault,
+        allowVisShowInterpretations: false,
     })
 
     const { getByRole, queryByText } = render(
@@ -406,12 +384,10 @@ test('does not render "Show interpretations" option if settings do not allow', a
 
 test('renders null if all relevant settings are false', async () => {
     useSystemSettings.mockReturnValue({
-        systemSettings: {
-            allowVisOpenInApp: false,
-            allowVisShowInterpretations: false,
-            allowVisViewAs: false,
-            allowVisFullscreen: false,
-        },
+        allowVisOpenInApp: false,
+        allowVisShowInterpretations: false,
+        allowVisViewAs: false,
+        allowVisFullscreen: false,
     })
 
     const { container } = render(

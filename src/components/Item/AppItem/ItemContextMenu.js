@@ -11,8 +11,8 @@ import {
 import PropTypes from 'prop-types'
 import React, { useRef, useState } from 'react'
 import { isSmallScreen } from '../../../modules/smallScreen.js'
+import { useSystemSettings } from '../../AppDataProvider/AppDataProvider.js'
 import MenuItem from '../../MenuItemWithTooltip.js'
-import { useSystemSettings } from '../../SystemSettingsProvider.js'
 import { useWindowDimensions } from '../../WindowDimensionsProvider.js'
 
 export const ItemContextMenu = ({
@@ -25,8 +25,7 @@ export const ItemContextMenu = ({
     const [menuIsOpen, setMenuIsOpen] = useState(false)
     const { width } = useWindowDimensions()
 
-    const { allowVisOpenInApp, allowVisFullscreen } =
-        useSystemSettings().systemSettings
+    const { allowVisOpenInApp, allowVisFullscreen } = useSystemSettings()
 
     const noOptionsEnabled = !allowVisOpenInApp && !allowVisFullscreen
 

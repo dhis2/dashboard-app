@@ -5,8 +5,8 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1)\n"
-"POT-Creation-Date: 2025-04-10T08:11:48.789Z\n"
-"PO-Revision-Date: 2025-04-10T08:11:48.789Z\n"
+"POT-Creation-Date: 2025-05-14T10:27:41.184Z\n"
+"PO-Revision-Date: 2025-05-14T10:27:41.185Z\n"
 
 msgid "Untitled dashboard"
 msgstr "Untitled dashboard"
@@ -35,6 +35,12 @@ msgid ""
 msgstr ""
 "Could not get guest token from Superset Gateway for dashboard ID "
 "\"{{dashboardId}}\""
+
+msgid "Network error"
+msgstr "Network error"
+
+msgid "Could not load app data"
+msgstr "Could not load app data"
 
 msgid "New dashboard: external"
 msgstr "New dashboard: external"
@@ -245,12 +251,6 @@ msgstr "No dashboards found for \"{{- filterText}}\""
 
 msgid "Dashboards"
 msgstr "Dashboards"
-
-msgid "Could not fetch bundled apps"
-msgstr "Could not fetch bundled apps"
-
-msgid "Network error"
-msgstr "Network error"
 
 msgid "There was a problem loading this dashboard item"
 msgstr "There was a problem loading this dashboard item"
