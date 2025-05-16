@@ -122,4 +122,4 @@ You can do this by uploading the ZIP file to the _App management_ app in your DH
 
 ## Step 5: Using the plugin in Dashboard app
 
-Once deployed, the plugin should appear listed under the Apps section in the Dashboard item selector (`edit` mode), and can be added to a dashboard like any other item.
+Once deployed, the plugin should appear listed under the Apps section in the Dashboard item selector (`edit` mode), and can be [added to a dashboard](https://docs.dhis2.org/en/use/user-guides/dhis-core-version-master/analysing-data/dashboards.html#adding-items-to-the-dashboard) like any other item.
