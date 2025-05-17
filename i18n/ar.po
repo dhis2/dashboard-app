@@ -3,13 +3,14 @@
 # Philip Larsen Donnelly, 2025
 # Viktor Varland <viktor@dhis2.org>, 2025
 # Hamza Assada <7amza.it@gmail.com>, 2025
+# Nadiia <semchuk@aph.org.ua>, 2025
 # 
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2025-03-18T14:27:12.993Z\n"
+"POT-Creation-Date: 2025-04-10T08:11:48.789Z\n"
 "PO-Revision-Date: 2019-06-25 12:37+0000\n"
-"Last-Translator: Hamza Assada <7amza.it@gmail.com>, 2025\n"
+"Last-Translator: Nadiia <semchuk@aph.org.ua>, 2025\n"
 "Language-Team: Arabic (https://app.transifex.com/hisp-uio/teams/100509/ar/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -204,6 +205,12 @@ msgstr "لا، الغاء"
 msgid "Yes, clear filters and sync"
 msgstr "نعم ، امسح عوامل التصفية وقم بالمزامنة"
 
+msgid "This dashboard is showing data from outside this system"
+msgstr ""
+
+msgid "External source"
+msgstr ""
+
 msgid "Confirm"
 msgstr "تأكيد"
 
@@ -215,12 +222,6 @@ msgstr "فشل إلغاء تمييز لوحة المعلومات بنجمة"
 
 msgid "Failed to star the dashboard"
 msgstr "فشل تمييز لوحة المعلومات بنجمة"
-
-msgid "This dashboard is showing data from outside this system"
-msgstr ""
-
-msgid "External source"
-msgstr ""
 
 msgid "Offline data last updated {{timeAgo}}"
 msgstr "آخر تحديث للبيانات بلا اتصال بالإنترنت {{timeAgo}}"
@@ -253,7 +254,7 @@ msgid "Could not fetch bundled apps"
 msgstr ""
 
 msgid "Network error"
-msgstr ""
+msgstr "خطأ في الشبكة"
 
 msgid "There was a problem loading this dashboard item"
 msgstr "حدثت مشكلة أثناء تحميل عنصر لوحة المعلومات هذا"
@@ -740,6 +741,11 @@ msgstr[2] ""
 msgstr[3] ""
 msgstr[4] ""
 msgstr[5] ""
+
+msgid ""
+"There was a problem loading the embedded dashboard content from an external "
+"service"
+msgstr ""
 
 msgid "Fetching external dashboard"
 msgstr ""
