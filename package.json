@@ -42,11 +42,11 @@
     },
     "devDependencies": {
         "@babel/plugin-syntax-dynamic-import": "^7.8.3",
-        "@badeball/cypress-cucumber-preprocessor": "^22.0.0",
-        "@bahmutov/cypress-esbuild-preprocessor": "^2.2.1",
-        "@cypress/webpack-preprocessor": "^6.0.2",
+        "@badeball/cypress-cucumber-preprocessor": "^22.0.1",
+        "@bahmutov/cypress-esbuild-preprocessor": "^2.2.5",
+        "@cypress/webpack-preprocessor": "^6.0.4",
         "@dhis2/cli-app-scripts": "^11.8.2",
-        "@dhis2/cli-style": "^10.7.3",
+        "@dhis2/cli-style": "^10.7.7",
         "@dhis2/cypress-commands": "^10.1.0",
         "@dhis2/cypress-plugins": "^10.1.0",
         "@semantic-release/changelog": "^6",
@@ -56,7 +56,7 @@
         "@testing-library/react": "^12",
         "@testing-library/react-hooks": "^8.0.1",
         "cypress": "^13.13.1",
-        "cypress-real-events": "^1.13.0",
+        "cypress-real-events": "^1.14.0",
         "cypress-tags": "^1.2.2",
         "d2-manifest": "^1.0.0",
         "eslint-plugin-cypress": "^3.3.0",
@@ -64,11 +64,11 @@
         "import": "^0.0.6",
         "patch-package": "^7",
         "postinstall-postinstall": "^2.1.0",
-        "redux-mock-store": "^1.5.4",
+        "redux-mock-store": "^1.5.5",
         "resize-observer-polyfill": "^1.5.1",
         "semantic-release": "^20",
         "start-server-and-test": "^1.14.0",
-        "typescript": "^5.7.3"
+        "typescript": "^5.8.3"
     },
     "jest": {
         "moduleNameMapper": {
