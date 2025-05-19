@@ -23,9 +23,9 @@ d2 app scripts init my-dashboard-plugin
 
 ## Step 2: Add a plugin entry point
 
-To make your custom app a dashboard plugin, set the `pluginType` property to "DASHBOARD" and add a `plugin` property to the `entryPoints` property containing the path to the Plugin entry point file:
+To make your custom app a dashboard plugin, set the `pluginType` property to `"DASHBOARD"` and add a `plugin` property to the `entryPoints` property containing the path to the Plugin entry point file:
 
-Below is an example of a d2.config.js file configured with a Dashboard plugin.
+Below is an example of a `d2.config.js` file configured with a Dashboard plugin.
 
 ```js
 module.exports = {
@@ -45,11 +45,15 @@ module.exports = {
 }
 ```
 
+:::tip
+Note that an `app` entry point is not required if a `plugin` entry point is defined.
+:::
+
 ## Step 3: Implement your plugin
 
-Implement your plugin using React components, just as you would implememt a regular DHIS2 custom app.
+Implement your plugin using React components, just as you would implement a regular DHIS2 custom app.
 
-The dashboard plugin does not need any integration with the Dashboard app in order to work. However, the new plugin framework added two-way communication between the Dashboard app and the plugin that enables an enhanced user experience. This is done via properties that the Dashboard app provides to the plugin:
+The dashboard plugin does not need any integration with the Dashboard app in order to work. However, the new plugin framework adds two-way communication between the Dashboard app and the plugin that enables an enhanced user experience. This is done via properties that the Dashboard app provides to the plugin:
 
 -   **dashboardItemId**: each dashboard item has an unique id; this can be used to store different configurations of the plugin and allow multiple instances of the plugin in the same dashboard
 -   **dashboardItemFilters**: an object with the global filters applied to the dashboard (organisation unit, period, other dimensions):
@@ -86,8 +90,24 @@ setDashboardItemDetails({
 })
 ```
 
-The `onRemove` callback does not block the dashboard app from removing a dashboard item, regardless of the outcome.
+The `onRemove` callback does not block the Dashboard app from removing a dashboard item, regardless of the outcome.
 Its purpose is to trigger the plugin's own internal clean up, for example when a plugin stores configurations by dashboard item id and wants to delete them when dashboard items are removed.
+
+### Using the props from the Dashboard
+
+The props from the Dashboard app are passed as React props to the component that's exported from the file specified by the `plugin` entry point in `d2.config.js`:
+
+```js title="src/Plugin.tsx"
+const DashboardPlugin = ({
+    dashboardItemId,
+    dashboardItemFilter,
+    dashboardMode,
+    setDashboardItemDetails,
+}) => {
+    // Your plugin components here...
+}
+export default DashboardPlugin
+```
 
 ## Step 4: Build and deploy your plugin
 
@@ -95,11 +115,11 @@ After you have implemented your plugin, you need to build and deploy it to your 
 
 To build your plugin, you can use the provided build script from `d2-app-scripts`.
 
-Run `yarn build` or (`d2-app-scripts build`) to build a production version of your plugin.
+Run `yarn build` or (`yarn d2-app-scripts build`) to build a production version of your plugin.
 
 After building your plugin, you can deploy it to your DHIS2 instance.
-You can do this by uploading the ZIP file to the _App management_ app in your DHIS2 instance, or publishing it to the App Hub.
+You can do this by uploading the ZIP file to the _App management_ app in your DHIS2 instance, using the [`@dhis2/cli-app-scripts` deploy command](http://localhost:3000/docs/app-platform/scripts/deploy), or publishing it to the App Hub.
 
 ## Step 5: Using the plugin in Dashboard app
 
-Once deployed, the plugin should appear listed under the Apps section in the Dashboard item selector (`edit` mode), and can be added to a dashboard like any other item.
+Once deployed, the plugin should appear listed under the Apps section in the Dashboard item selector (`edit` mode), and can be [added to a dashboard](https://docs.dhis2.org/en/use/user-guides/dhis-core-version-master/analysing-data/dashboards.html#adding-items-to-the-dashboard) like any other item.
