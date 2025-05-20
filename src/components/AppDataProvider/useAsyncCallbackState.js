@@ -24,7 +24,7 @@ function reducer(state, action) {
 
 export function useAsyncCallbackState(asyncCallback) {
     const [state, dispatch] = useReducer(reducer, initalState)
-    const callAsyncCalback = useCallback(async () => {
+    const callAsyncCallback = useCallback(async () => {
         dispatch({ type: SET_LOADING })
         try {
             const data = await asyncCallback()
@@ -37,9 +37,9 @@ export function useAsyncCallbackState(asyncCallback) {
 
     useEffect(() => {
         if (!state.loading && !state.error && !state.data) {
-            callAsyncCalback()
+            callAsyncCallback()
         }
-    }, [state, callAsyncCalback])
+    }, [state, callAsyncCallback])
 
     return state
 }
