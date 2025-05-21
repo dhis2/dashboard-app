@@ -5,7 +5,7 @@ import cx from 'classnames'
 import React, { useCallback, useEffect, useReducer, useRef } from 'react'
 import { useSelector } from 'react-redux'
 import { usePostSupersetGuestToken } from '../../api/supersetGateway.js'
-import { useSupersetBaseUrl } from '../../components/SystemSettingsProvider.js'
+import { useSupersetBaseUrl } from '../../components/AppDataProvider/AppDataProvider.js'
 import {
     msGetSelectedSupersetEmbedData,
     sGetSelectedId,
