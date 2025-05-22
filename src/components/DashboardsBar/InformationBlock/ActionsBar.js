@@ -16,10 +16,10 @@ import { acClearItemFilters } from '../../../actions/itemFilters.js'
 import { acSetShowDescription } from '../../../actions/showDescription.js'
 import { acSetSlideshow } from '../../../actions/slideshow.js'
 import { apiPostShowDescription } from '../../../api/description.js'
+import { useSystemSettings } from '../../../components/AppDataProvider/AppDataProvider.js'
 import ConfirmActionDialog from '../../../components/ConfirmActionDialog.js'
 import DropdownButton from '../../../components/DropdownButton/DropdownButton.js'
 import MenuItem from '../../../components/MenuItemWithTooltip.js'
-import { useSystemSettings } from '../../../components/SystemSettingsProvider.js'
 import { itemTypeSupportsFullscreen } from '../../../modules/itemTypes.js'
 import { useCacheableSection } from '../../../modules/useCacheableSection.js'
 import { orObject } from '../../../modules/util.js'
@@ -64,7 +64,7 @@ const ActionsBar = ({
     const { isDisconnected: offline } = useDhis2ConnectionStatus()
     const { lastUpdated, isCached, startRecording, remove } =
         useCacheableSection(id)
-    const { allowVisFullscreen } = useSystemSettings().systemSettings
+    const { allowVisFullscreen } = useSystemSettings()
     const notAvailableForEmbeddedDashboardsMsg = i18n.t(
         'Not available for embedded dashboards'
     )

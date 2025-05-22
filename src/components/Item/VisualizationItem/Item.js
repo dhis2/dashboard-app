@@ -38,7 +38,7 @@ import {
     DEFAULT_STATE_ITEM_FILTERS,
 } from '../../../reducers/itemFilters.js'
 import { sGetVisualization } from '../../../reducers/visualizations.js'
-import { SystemSettingsCtx } from '../../SystemSettingsProvider.js'
+import { useSystemSettings } from '../../AppDataProvider/AppDataProvider.js'
 import FatalErrorBoundary from '../FatalErrorBoundary.js'
 import { getAvailableDimensions } from '../getAvailableDimensions.js'
 import ItemHeader from '../ItemHeader/ItemHeader.js'
@@ -323,10 +323,9 @@ const mapDispatchToProps = {
     setSlideshow: acSetSlideshow,
 }
 
-const ItemWithSettings = (props) => (
-    <SystemSettingsCtx.Consumer>
-        {({ systemSettings }) => <Item settings={systemSettings} {...props} />}
-    </SystemSettingsCtx.Consumer>
-)
+const ItemWithSettings = (props) => {
+    const systemSettings = useSystemSettings()
+    return <Item settings={systemSettings} {...props} />
+}
 
 export default connect(mapStateToProps, mapDispatchToProps)(ItemWithSettings)
