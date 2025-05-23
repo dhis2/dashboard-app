@@ -82,7 +82,7 @@ jobs:
     call-workflow-e2e-prod:
         if: ${{ !contains(github.event.head_commit.message, '[skip ci]') }}
         needs: [build, lint, test, setup-matrix]
-        uses: dhis2/workflows/.github/workflows/analytics-e2e-tests-prod.yml@feat/support-hardcoded-dev-version
+        uses: dhis2/workflows/.github/workflows/analytics-e2e-tests-prod.yml@feat/hardcoded-dev-version-minor
         with:
             should_record: ${{ contains(github.event.head_commit.message, '[e2e record]') || contains(join(github.event.pull_request.labels.*.name), 'e2e record')}}
             spec-group: ${{ needs.setup-matrix.outputs.matrix }}
