@@ -100,7 +100,7 @@ The props from the Dashboard app are passed as React props to the component that
 ```js title="src/Plugin.tsx"
 const DashboardPlugin = ({
     dashboardItemId,
-    dashboardItemFilter,
+    dashboardItemFilters,
     dashboardMode,
     setDashboardItemDetails,
 }) => {
