@@ -5,7 +5,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2025-03-18T14:27:12.993Z\n"
+"POT-Creation-Date: 2025-05-14T10:27:41.184Z\n"
 "PO-Revision-Date: 2019-06-25 12:37+0000\n"
 "Last-Translator: Jiří Podhorecký <jirka.p@volny.cz>, 2025\n"
 "Language-Team: Czech (https://app.transifex.com/hisp-uio/teams/100509/cs/)\n"
@@ -39,6 +39,12 @@ msgstr ""
 msgid ""
 "Could not get guest token from Superset Gateway for dashboard ID "
 "\"{{dashboardId}}\""
+msgstr ""
+
+msgid "Network error"
+msgstr "Chyba sítě"
+
+msgid "Could not load app data"
 msgstr ""
 
 msgid "New dashboard: external"
@@ -206,6 +212,12 @@ msgstr "Ne, zrušit"
 msgid "Yes, clear filters and sync"
 msgstr "Ano, vymazat filtry a synchronizovat"
 
+msgid "This dashboard is showing data from outside this system"
+msgstr "Tento ovládací panel zobrazuje data mimo tento systém"
+
+msgid "External source"
+msgstr "Externí zdroj"
+
 msgid "Confirm"
 msgstr "Potvrdit"
 
@@ -217,12 +229,6 @@ msgstr "Zrušit označení hvězdičky na ovládacím panelu se nezdařilo"
 
 msgid "Failed to star the dashboard"
 msgstr "Označení ovládacího panelu hvězdičkou se nezdařilo"
-
-msgid "This dashboard is showing data from outside this system"
-msgstr "Tento ovládací panel zobrazuje data mimo tento systém"
-
-msgid "External source"
-msgstr "Externí zdroj"
 
 msgid "Offline data last updated {{timeAgo}}"
 msgstr "Offline data naposledy aktualizována {{timeAgo}}"
@@ -250,12 +256,6 @@ msgstr "Nenalezeny žádné ovládací panely pro \"{{- filterText}}\""
 
 msgid "Dashboards"
 msgstr "Ovládací panely"
-
-msgid "Could not fetch bundled apps"
-msgstr "Nelze načíst přibalené aplikace"
-
-msgid "Network error"
-msgstr "Chyba sítě"
 
 msgid "There was a problem loading this dashboard item"
 msgstr "Při načítání této položky ovládacího panelu došlo k problému"
@@ -742,6 +742,11 @@ msgstr[0] "{{count}} aktivní filtr"
 msgstr[1] "{{count}} aktivní filtry"
 msgstr[2] "{{count}} aktivní filtry"
 msgstr[3] "{{count}} aktivní filtry"
+
+msgid ""
+"There was a problem loading the embedded dashboard content from an external "
+"service"
+msgstr ""
 
 msgid "Fetching external dashboard"
 msgstr "Získání externího ovládacího panelu"
