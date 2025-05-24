@@ -1,12 +1,12 @@
 # 
 # Translators:
-# 晓东 林 <13981924470@126.com>, 2023
+# 晓东 林 <13981924470@126.com>, 2025
 # easylin <lin_xd@126.com>, 2025
 # 
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2025-03-05T13:32:39.554Z\n"
+"POT-Creation-Date: 2025-05-14T10:27:41.184Z\n"
 "PO-Revision-Date: 2019-06-25 12:37+0000\n"
 "Last-Translator: easylin <lin_xd@126.com>, 2025\n"
 "Language-Team: Chinese (China) (https://app.transifex.com/hisp-uio/teams/100509/zh_CN/)\n"
@@ -17,28 +17,145 @@ msgstr ""
 "Plural-Forms: nplurals=1; plural=0;\n"
 
 msgid "Untitled dashboard"
+msgstr "未命名的仪表盘"
+
+msgid "Could not get info from Superset gateway endpoint"
+msgstr "无法从 Superset 网关端点获取信息"
+
+msgid "Dashboard with ID \"{{dashboardId}}\" not found or not accessible"
+msgstr "ID 为 \"{{dashboardId}}\" 的仪表板未找到或无法访问"
+
+msgid "Dashboard with ID \"{{dashboardId}}\" is not embedded"
+msgstr "ID 为 \"{{dashboardId}}\" 的仪表板未嵌入"
+
+msgid "Embedded provider must be \"SUPERSET\" for dashboard ID \"{{dashboardId}}\""
+msgstr "嵌入式提供程序必须是仪表板 ID \"{{dashboardId}}\" 的 \"SUPERSET\"。"
+
+msgid "Superset Embed UUID not found for dashboard ID \"{{dashboardId}}\""
+msgstr "未找到仪表板 ID \"{{dashboardId}}\" 的Superset 嵌入 UUID"
+
+msgid "Dashboard with ID \"{{dashboardId}}\" not found on the Superset service"
+msgstr "在 Superset 服务中找不到 ID 为 \"{{dashboardId}}\" 的仪表板"
+
+msgid ""
+"Could not get guest token from Superset Gateway for dashboard ID "
+"\"{{dashboardId}}\""
+msgstr "无法从Superset 网关获取仪表板 ID \"{{dashboardId}}\" 的访客令牌"
+
+msgid "Network error"
+msgstr "网络错误"
+
+msgid "Could not load app data"
 msgstr ""
 
-msgid "Dashboards"
-msgstr "仪表盘"
+msgid "New dashboard: external"
+msgstr "新仪表盘：外部"
+
+msgid "Could not create dashboard"
+msgstr "无法创建仪表盘"
+
+msgid "An unknown error occurred"
+msgstr "发生一个未知错误"
+
+msgid "Save dashboard"
+msgstr "保存仪表盘"
+
+msgid "Back"
+msgstr "后退"
+
+msgid "Title"
+msgstr "称谓"
+
+msgid "Code"
+msgstr "代码"
+
+msgid ""
+"A unique code to reference this dashboard in other apps and services. Max 50"
+" characters."
+msgstr "用于在其他应用程序和服务中引用此仪表盘的唯一代码。最多 50 个字符。"
+
+msgid "Code can't be longer than 50 characters"
+msgstr "代码不能超过 50 个字符"
+
+msgid "Description"
+msgstr "描述"
+
+msgid "Superset Embed ID"
+msgstr "Superset 嵌入 ID"
+
+msgid "Invalid UUID"
+msgstr "无效的 UUID"
+
+msgid "Options"
+msgstr "选项"
+
+msgid "Show chart controls on dashboard items"
+msgstr "在仪表盘条目上显示图表控件"
+
+msgid "Expand filters"
+msgstr "扩展过滤器"
+
+msgid "Delete dashboard"
+msgstr "删除仪表盘"
+
+msgid ""
+"Deleting dashboard \"{{ dashboardName }}\" will remove it for all users. "
+"This action cannot be undone. Are you sure you want to permanently delete "
+"this dashboard?"
+msgstr "删除仪表盘 \"{{ dashboardName }}\" 将从所有用户仪表盘中移除。该操作不能撤销，你确信要永久删除该仪表盘条目？"
+
+msgid ""
+"Note: the source dashboard embedded by this external dashboard will not be "
+"deleted."
+msgstr "注意：该外部仪表盘嵌入的源仪表板不会被删除。"
+
+msgid "Delete"
+msgstr "删除"
+
+msgid "Cancel"
+msgstr "取消"
+
+msgid "Edit external dashboard"
+msgstr "编辑外部仪表板"
+
+msgid "New dashboard: choose type"
+msgstr "新仪表盘：选择类型"
+
+msgid "Internal"
+msgstr "内部"
+
+msgid "Show data and visualizations from this DHIS2 instance."
+msgstr "显示该 DHIS2 实例的数据和可视化效果。"
+
+msgid "External"
+msgstr "外部"
+
+msgid "Embed a Superset dashboard"
+msgstr "嵌入Superset 仪表盘"
+
+msgid "Continue"
+msgstr "继续"
+
+msgid "Not available for embedded dashboards"
+msgstr "不适用于嵌入式仪表盘"
 
 msgid "The dashboard couldn't be made available offline. Try again."
-msgstr ""
+msgstr "仪表盘无法离线使用。再试一次。"
 
 msgid "Remove from offline storage"
-msgstr ""
+msgstr "从离线存储中删除"
 
 msgid "Make available offline"
-msgstr ""
+msgstr "离线使用"
 
 msgid "Sync offline data now"
-msgstr ""
+msgstr "立即同步离线数据"
 
 msgid "Unstar dashboard"
-msgstr ""
+msgstr "取消星标仪表盘"
 
 msgid "Star dashboard"
-msgstr ""
+msgstr "标星仪表板"
 
 msgid "Hide description"
 msgstr "隐藏说明"
@@ -50,117 +167,117 @@ msgid "Print"
 msgstr "打印"
 
 msgid "Dashboard layout"
-msgstr ""
+msgstr "仪表盘布局"
 
 msgid "One item per page"
-msgstr ""
+msgstr "每页一项"
 
 msgid "Close dashboard"
-msgstr ""
+msgstr "关闭仪表盘"
 
 msgid "No dashboard items to show in slideshow"
-msgstr ""
+msgstr "幻灯片中不显示仪表板项目"
 
 msgid "Not available offline"
-msgstr ""
+msgstr "离线不可用"
 
 msgid "Edit"
-msgstr "编辑<br>"
+msgstr "编辑"
 
 msgid "Share"
-msgstr "共享"
+msgstr "分享"
 
 msgid "Slideshow"
-msgstr ""
+msgstr "幻灯片"
 
 msgid "Clear dashboard filters?"
-msgstr ""
+msgstr "清除仪表板过滤器？"
 
 msgid ""
 "A dashboard's filters can’t be saved offline. Do you want to remove the "
 "filters and make this dashboard available offline?"
-msgstr ""
+msgstr "仪表板的过滤器无法离线保存。是否要删除过滤器并使此仪表板脱机可用？"
 
 msgid "No, cancel"
 msgstr "不，取消"
 
 msgid "Yes, clear filters and sync"
-msgstr ""
+msgstr "是的，清除过滤器并同步"
 
-msgid "Cancel"
-msgstr "取消"
+msgid "This dashboard is showing data from outside this system"
+msgstr "该仪表盘显示的数据来自本系统之外"
+
+msgid "External source"
+msgstr "外部数据源"
 
 msgid "Confirm"
 msgstr "确认"
 
 msgid "Filter"
-msgstr "筛选"
+msgstr "过滤器"
 
 msgid "Failed to unstar the dashboard"
-msgstr ""
+msgstr "无法取消仪表板的星标"
 
 msgid "Failed to star the dashboard"
-msgstr ""
+msgstr "无法为仪表板加注星标"
 
 msgid "Offline data last updated {{timeAgo}}"
-msgstr ""
+msgstr "离线数据最后更新时间 {{timeAgo}}"
 
 msgid "Synced {{timeAgo}}"
-msgstr ""
+msgstr "同步{{timeAgo}}"
 
 msgid "Cannot unstar this dashboard while offline"
-msgstr ""
+msgstr "离线时无法取消此仪表板的星标"
 
 msgid "Cannot star this dashboard while offline"
-msgstr ""
+msgstr "离线时无法为该仪表板加注星标"
 
 msgid "No dashboards available."
-msgstr ""
+msgstr "没有仪表盘。"
 
 msgid "Create a new dashboard using the + button."
-msgstr ""
+msgstr "使用 + 按钮创建新仪表板。"
 
 msgid "Search for a dashboard"
 msgstr "搜索仪表盘"
 
 msgid "No dashboards found for \"{{- filterText}}\""
-msgstr ""
+msgstr "未找到适用于 \"{{- filterText}}\" 的仪表盘"
 
-msgid "Could not fetch bundled apps"
-msgstr ""
-
-msgid "Network error"
-msgstr "网络错误"
+msgid "Dashboards"
+msgstr "仪表盘"
 
 msgid "There was a problem loading this dashboard item"
-msgstr ""
+msgstr "载入仪表盘有问题"
 
 msgid "Open menu"
-msgstr ""
+msgstr "打开菜单"
 
 msgid "Open in {{appName}}"
-msgstr ""
+msgstr "打开{{appName}}"
 
 msgid "View fullscreen"
-msgstr ""
+msgstr "全屏查看"
 
 msgid "Remove this item"
-msgstr ""
+msgstr "删除该条目"
 
 msgid "This item has been shortened to fit on one page"
-msgstr ""
+msgstr "此项已缩短为适合一页"
 
 msgid "The plugin needed to display this item is not available"
-msgstr ""
+msgstr "显示此项目所需的插件不可用"
 
 msgid "Install the {{pluginName}} plugin from the App Hub"
-msgstr ""
+msgstr "从 App Hub 安装{{pluginName}} 插件"
 
 msgid "There was an error loading data for this item"
-msgstr ""
+msgstr "加载此项目的数据时出错"
 
 msgid "Open this item in {{appName}}"
-msgstr ""
+msgstr "在 {{appName}} 中打开此条目"
 
 msgid "Remove"
 msgstr "移除"
@@ -169,77 +286,77 @@ msgid "Messages"
 msgstr "消息"
 
 msgid "See all messages"
-msgstr "发送所有消息"
+msgstr "查看所有消息"
 
 msgid "Item type \"{{type}}\" is not supported"
-msgstr ""
+msgstr "不支持项目类型“{{type}}”"
 
 msgid "The item type is missing"
-msgstr ""
+msgstr "缺少条目类型"
 
 msgid "Filters applied"
-msgstr ""
+msgstr "已应用的过滤器"
 
 msgid "Spacer"
-msgstr "空分割栏"
+msgstr "空白隔断"
 
 msgid ""
 "Use a spacer to create empty vertical space between other dashboard items."
-msgstr "使用空白在条目间创建垂直分割栏"
+msgstr "使用空白隔断在不同条目间创建垂直的空白区"
 
 msgid "Text box"
 msgstr "文本框"
 
 msgid "Add text here"
-msgstr "添加文本到这里"
+msgstr "在这里添加文本"
 
 msgid "Back to all interpretations"
-msgstr ""
+msgstr "回到所有注释"
 
 msgid "Filters are not applied to line list dashboard items"
-msgstr ""
+msgstr "过滤器不适用于行列表仪表板项目"
 
 msgid "Filters not applied"
-msgstr ""
+msgstr "未应用过滤器"
 
 msgid "Only Period and Organisation unit filters can be applied to this item"
-msgstr ""
+msgstr "仅可对此项应用期间和组织机构过滤器"
 
 msgid "Some filters not applied"
-msgstr ""
+msgstr "某些过滤器未应用"
 
 msgid "Hide details and interpretations"
-msgstr ""
+msgstr "隐藏细节和解释"
 
 msgid "Show details and interpretations"
-msgstr ""
+msgstr "显示细节和解释"
 
 msgid "Open in {{appName}} app"
-msgstr ""
+msgstr "在{{appName}} 应用中打开"
 
 msgid "This map can't be displayed as a chart"
-msgstr ""
+msgstr "该地图无法显示为图表"
 
 msgid "This map can't be displayed as a pivot table"
-msgstr ""
+msgstr "该地图无法显示为数据透视表"
 
 msgid "This visualization can't be displayed as a pivot table"
-msgstr ""
+msgstr "此可视化无法显示为数据透视表"
 
 msgid "This visualization can't be displayed as a map"
-msgstr ""
+msgstr "此可视化无法显示为地图"
 
 msgid "View as Chart"
-msgstr ""
+msgstr "查看图表"
 
 msgid "View as Pivot table"
-msgstr ""
+msgstr "以数据透视表形式查看"
 
 msgid "View as Map"
-msgstr ""
+msgstr "查看地图"
 
 msgid "There was a problem loading interpretations for this item"
-msgstr ""
+msgstr "加载该项目的解释时出现问题"
 
 msgid "No data to display"
 msgstr "没有数据可显示"
@@ -249,99 +366,114 @@ msgid ""
 "                            '.'\n"
 "                        )} or higher in order to display this item."
 msgstr ""
+"安装数据展示台应用程序 ${minDVVersion.join(\n"
+"                            '.'\n"
+"                        )}或更高版本才能显示此项目。"
 
 msgid "Show without filters"
-msgstr ""
+msgstr "显示无过滤器"
 
 msgid ""
 "Install Line Listing app ${minLLVersion.join(\n"
 "                            '.'\n"
 "                        )} or higher in order to display this item."
 msgstr ""
+"安装行列表应用程序 ${minLLVersion.join(\n"
+"                            '.'\n"
+"                        )} 或更高版本才能显示此项目。"
 
 msgid "Maps with Earth Engine layers cannot be displayed when offline"
-msgstr ""
+msgstr "离线时无法显示带有地球引擎图层的地图"
 
 msgid ""
 "Install Maps app ${minMapsVersion.join(\n"
 "                            '.'\n"
 "                        )} or higher in order to display this item."
 msgstr ""
+"安装地图应用程序 ${minMapsVersion.join(\n"
+"                            '.'\n"
+"                        )}或更高版本才能显示此项目。"
 
 msgid "Unable to load the plugin for this item"
-msgstr "不能该条目的插件"
+msgstr "不能载入该条目的插件"
 
 msgid "Resources"
-msgstr "资源"
+msgstr "资源管理"
 
 msgid "Reports"
-msgstr "报表"
+msgstr "报表管理"
 
 msgid "Visualizations"
-msgstr ""
+msgstr "可视化应用"
 
 msgid "Pivot tables"
-msgstr "透视表"
+msgstr "透视表应用"
 
 msgid "Charts"
-msgstr "图表"
+msgstr "可视化图表应用"
 
 msgid "Maps"
-msgstr "地图"
+msgstr "地图应用"
 
 msgid "Event reports"
-msgstr "事件报表"
+msgstr "事件报表应用"
 
 msgid "Event charts"
-msgstr "事件图表"
+msgstr "事件图表应用"
 
 msgid "Line lists"
-msgstr ""
+msgstr "行列表应用"
 
 msgid "Apps"
-msgstr "应用"
+msgstr "应用商店"
 
 msgid "Users"
-msgstr "用户"
+msgstr "用户管理"
+
+msgid "Could not update dashboard {{name}}"
+msgstr "无法更新仪表盘{{name}}"
+
+msgid "Could not delete dashboard {{name}}"
+msgstr "无法删除仪表盘{{name}}"
+
+msgid "Could not load dashboard details"
+msgstr "无法加载仪表盘详细信息"
 
 msgid ""
 "Failed to save dashboard. You might be offline or not have access to edit "
 "this dashboard."
-msgstr ""
+msgstr "保存仪表盘失败。您可能处于离线状态或无权编辑此仪表板。"
 
 msgid ""
 "Failed to save dashboard. This code is already being used on another "
 "dashboard."
-msgstr ""
+msgstr "未能保存仪表板。此代码已在另一个仪表板上使用。"
 
 msgid ""
 "Failed to delete dashboard. You might be offline or not have access to edit "
 "this dashboard."
-msgstr ""
+msgstr "删除仪表盘失败。您可能处于离线状态，或者无权编辑此仪表板。"
 
 msgid "Cannot save this dashboard while offline"
-msgstr ""
+msgstr "离线时无法保存此仪表板"
 
 msgid "Save changes"
-msgstr "保存更改"
+msgstr "保存改变"
 
 msgid "Exit print preview"
-msgstr ""
+msgstr "退出打印预览"
 
 msgid "Print preview"
-msgstr ""
+msgstr "打印预览"
 
 msgid "Filter settings"
-msgstr ""
+msgstr "筛选器设定"
 
 msgid "Translate"
 msgstr "翻译"
 
 msgid "Cannot delete this dashboard while offline"
-msgstr ""
-
-msgid "Delete"
-msgstr "删除"
+msgstr "离线时无法删除此仪表板"
 
 msgid "Exit without saving"
 msgstr "不保存退出"
@@ -349,14 +481,11 @@ msgstr "不保存退出"
 msgid "Go to dashboards"
 msgstr "进到仪表盘"
 
-msgid "Delete dashboard"
-msgstr ""
-
 msgid ""
 "Deleting dashboard \"{{- dashboardName }}\" will remove it for all users. "
 "This action cannot be undone. Are you sure you want to permanently delete "
 "this dashboard?"
-msgstr ""
+msgstr "删除仪表板 \"{{- dashboardName }}\" 将删除所有用户的仪表板。此操作无法撤销。您确定要永久删除此仪表板吗？"
 
 msgid "Discard changes"
 msgstr "忽略修改"
@@ -364,33 +493,33 @@ msgstr "忽略修改"
 msgid ""
 "This dashboard has unsaved changes. Are you sure you want to leave and "
 "discard these unsaved changes?"
-msgstr ""
+msgstr "此信息中心有未保存的更改。您确定要离开并丢弃这些未保存的更改吗？"
 
 msgid "No, stay here"
 msgstr "不，待在这里"
 
 msgid "Yes, discard changes"
-msgstr ""
+msgstr "是的，放弃更改"
 
 msgid "No access"
 msgstr "不能访问"
 
 msgid "Not supported"
-msgstr ""
+msgstr "不支持"
 
 msgid ""
 "Editing dashboards on small screens is not supported. Resize your screen to "
 "return to edit mode."
-msgstr ""
+msgstr "不支持在小屏幕上编辑仪表板。调整屏幕大小以返回编辑模式。"
 
 msgid "Allow filtering by all dimensions"
-msgstr ""
+msgstr "允许按所有维度进行过滤"
 
 msgid "Only allow filtering by selected dimensions"
-msgstr ""
+msgstr "仅允许按选定的维度进行过滤"
 
 msgid "Dashboard filter settings"
-msgstr ""
+msgstr "仪表板过滤器设置"
 
 msgid ""
 "Dashboards can be filtered by dimensions to change\n"
@@ -398,205 +527,223 @@ msgid ""
 "                                         as filters. Alternatively, only selected dimensions can\n"
 "                                         be made available on a dashboard."
 msgstr ""
+"仪表板可以按维度进行过滤以进行更改\n"
+"                                         显示的数据。默认情况下，所有尺寸均可用\n"
+"                                         作为过滤器。另外，只有选定的尺寸可以\n"
+"                                         在仪表板上可用。"
 
 msgid "Available Filters"
-msgstr ""
+msgstr "可用过滤器"
 
 msgid "Selected Filters"
-msgstr ""
+msgstr "选定的过滤器"
 
 msgid "There are no items on this dashboard"
 msgstr "该仪表盘没有条目"
 
 msgid "Show fewer"
-msgstr ""
+msgstr "显示较少"
 
 msgid "Show more"
-msgstr "更多"
+msgstr "显示更多"
 
 msgid "Open visualization in new tab"
-msgstr ""
+msgstr "在新标签页中打开可视化应用"
 
 msgid "Insert"
 msgstr "插入"
 
 msgid "Search for items to add to this dashboard"
-msgstr "搜索条目添加到仪表盘"
+msgstr "搜索条目添加到该仪表盘"
 
 msgid "Search for visualizations, reports and more"
-msgstr ""
+msgstr "搜索可视化、报告等"
 
 msgid "Cannot search for dashboard items while offline"
-msgstr ""
+msgstr "离线时无法搜索仪表盘项目"
 
 msgid "Additional items"
-msgstr ""
+msgstr "其它条目"
 
 msgid "Freeflow"
-msgstr ""
+msgstr "自由布局"
 
 msgid "Dashboard items can be placed anywhere, at any size."
-msgstr ""
+msgstr "仪表盘项目以任何大小放置在任何地方。"
 
 msgid "Fixed columns"
-msgstr ""
+msgstr "固定列数"
 
 msgid ""
 "Dashboard items are automatically placed within fixed, horizontal columns. "
 "The number of columns can be adjusted."
-msgstr ""
+msgstr "仪表板项目自动放置在固定的水平列中。列数可以调整。"
 
 msgid "Number of columns"
-msgstr ""
+msgstr "列数"
 
 msgid "Gap size between columns (px)"
-msgstr ""
+msgstr "列之间的间隙大小 (px)"
 
 msgid ""
 "Default height only applies to items added to a dashboard, this setting will"
 " not change existing items"
-msgstr ""
+msgstr "默认高度仅适用于添加到仪表板的项目，此设置不会更改现有项目"
 
 msgid "Default height for items added to dashboard (rows)"
-msgstr ""
+msgstr "添加到仪表板的项目的默认高度（行）"
 
 msgid "Save layout"
-msgstr ""
+msgstr "保存布局"
 
 msgid "Dashboard title"
-msgstr ""
+msgstr "仪表盘标题"
 
 msgid "Dashboard code"
-msgstr ""
-
-msgid "Code can't be longer than 50 characters"
-msgstr ""
+msgstr "仪表盘代码"
 
 msgid "Dashboard description"
-msgstr ""
+msgstr "仪表盘描述"
 
 msgid "Layout"
-msgstr ""
+msgstr "布局"
 
 msgid "{{count}} columns"
 msgid_plural "{{count}} columns"
-msgstr[0] ""
+msgstr[0] "{{count}} 列"
 
 msgid "Change layout"
-msgstr ""
+msgstr "更改布局"
 
 msgid "Add new items to"
-msgstr ""
+msgstr "将新项目添加到"
 
 msgid "End of dashboard"
-msgstr ""
+msgstr "仪表板结束"
 
 msgid "Start of dashboard"
-msgstr ""
+msgstr "仪表板的开始"
 
 msgid "dashboard layout"
-msgstr ""
+msgstr "仪表板布局"
 
 msgid "one item per page"
-msgstr ""
+msgstr "每页一项"
 
 msgid "Print Preview"
-msgstr ""
+msgstr "打印预览"
 
 msgid "For best print results"
-msgstr ""
+msgstr "以获得最佳打印效果"
 
 msgid "Use Chrome or Edge web browser"
-msgstr ""
+msgstr "使用Chrome或Edge网络浏览器"
 
 msgid "Wait for all dashboard items to load before printing"
-msgstr ""
+msgstr "等待所有仪表板项目加载后再打印"
 
 msgid ""
 "Use A4 landscape paper size, default margin settings and turn on background "
 "graphics in the browser print dialog"
-msgstr ""
+msgstr "使用 A4 横向纸张大小、默认边距设置并在浏览器打印对话框中打开背景图形"
 
 msgid "Getting started"
 msgstr "开始"
 
 msgid "Search for and open saved dashboards from the top bar."
-msgstr ""
+msgstr "从顶部栏中搜索并打开保存的仪表盘。"
 
 msgid ""
 "Click a dashboard chip to open it. Get back to this screen from the \"More\""
 " menu."
-msgstr ""
+msgstr "单击仪表盘芯片将其打开。从“更多”菜单返回此屏幕。"
 
 msgid "Create a new dashboard with the + button."
-msgstr ""
+msgstr "使用 + 按钮创建一个新仪表盘。"
 
 msgid "Your most viewed dashboards"
-msgstr ""
+msgstr "您最常查看的仪表盘"
 
 msgid "No dashboards found. Use the + button to create a new dashboard."
-msgstr "没有找到仪表盘条目，使用+ 按钮创建新的仪表盘条目。"
+msgstr "没有发现仪表盘，使用+按钮创建新的仪表盘"
 
 msgid "Requested dashboard not found"
-msgstr "请求的仪表盘条目没有找到"
+msgstr "请求的仪表盘没有找到"
 
 msgid "No description"
 msgstr "没有描述"
 
 msgid "{{count}} selected"
 msgid_plural "{{count}} selected"
-msgstr[0] "{{count}} 个已经选择"
+msgstr[0] "{{count}} 个被选择"
 
 msgid "Cannot edit filters while offline"
-msgstr ""
+msgstr "脱机时无法编辑筛选器"
 
 msgid "Cannot edit filters on a small screen"
-msgstr ""
+msgstr "无法在小屏幕上编辑筛选器"
 
 msgid "Removing filters while offline"
-msgstr ""
+msgstr "离线时删除过滤器"
 
 msgid ""
 "Removing this filter while offline will remove all other filters. Do you "
 "want to remove all filters on this dashboard?"
-msgstr ""
+msgstr "离线时删除此过滤器将删除所有其他过滤器。您要删除此仪表板上的所有过滤器吗？"
 
 msgid "Yes, remove filters"
-msgstr ""
+msgstr "是的，删除过滤器"
 
 msgid "Exit slideshow"
-msgstr ""
+msgstr "退出幻灯片"
 
 msgid "Previous item"
-msgstr ""
+msgstr "上一个项目"
 
 msgid "Next item"
-msgstr ""
+msgstr "下一个项目"
 
 msgid "{{name}}: {{filter}}"
-msgstr ""
+msgstr "{{name}}:{{filter}}"
 
 msgid "{{count}} filters active"
 msgid_plural "{{count}} filters active"
-msgstr[0] ""
+msgstr[0] "{{count}} 滤波器激活"
+
+msgid ""
+"There was a problem loading the embedded dashboard content from an external "
+"service"
+msgstr "从外部服务加载嵌入式仪表板内容时出现问题"
+
+msgid "Fetching external dashboard"
+msgstr "获取外部仪表盘"
+
+msgid "Error"
+msgstr "错误"
+
+msgid "Could not load Superset dashboard"
+msgstr "无法加载Superset 仪表盘"
+
+msgid "Retry"
+msgstr "重试"
 
 msgid "Loading dashboard – {{name}}"
-msgstr ""
+msgstr "加载仪表盘-{{name}}"
 
 msgid "Loading dashboard"
-msgstr ""
+msgstr "加载仪表板"
 
 msgid "Load dashboard failed"
-msgstr ""
+msgstr "加载仪表板失败"
 
 msgid "This dashboard could not be loaded. Please try again later."
-msgstr ""
+msgstr "无法加载此仪表板。请稍后再试。"
 
 msgid "Offline"
 msgstr "离线"
 
 msgid "This dashboard cannot be loaded while offline."
-msgstr ""
+msgstr "离线时无法加载此仪表板。"
 
 msgid "Go to start page"
-msgstr ""
+msgstr "转到起始页"
