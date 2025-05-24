@@ -8,7 +8,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2025-04-10T08:11:48.789Z\n"
+"POT-Creation-Date: 2025-05-14T10:27:41.184Z\n"
 "PO-Revision-Date: 2019-06-25 12:37+0000\n"
 "Last-Translator: easylin <lin_xd@126.com>, 2025\n"
 "Language-Team: Chinese (https://app.transifex.com/hisp-uio/teams/100509/zh/)\n"
@@ -43,6 +43,12 @@ msgid ""
 "Could not get guest token from Superset Gateway for dashboard ID "
 "\"{{dashboardId}}\""
 msgstr "无法从Superset 网关获取仪表板 ID \"{{dashboardId}}\" 的访客令牌"
+
+msgid "Network error"
+msgstr "网络错误"
+
+msgid "Could not load app data"
+msgstr ""
 
 msgid "New dashboard: external"
 msgstr "新仪表盘：外部"
@@ -244,12 +250,6 @@ msgstr "未找到适用于 \"{{- filterText}}\" 的仪表盘"
 
 msgid "Dashboards"
 msgstr "仪表盘"
-
-msgid "Could not fetch bundled apps"
-msgstr "无法获取捆绑的应用程序"
-
-msgid "Network error"
-msgstr "网络错误"
 
 msgid "There was a problem loading this dashboard item"
 msgstr "载入仪表盘有问题"
