@@ -179,7 +179,7 @@ Once the dashboard is created, you can star/unstar, edit and share it. You can a
 In order for the embedded Superset dashboards feature to work, the following prerequisites need to be met:
 
 -   The system must have access to a Superset service ([installation instructions](https://docs.ap.baosystems.com/sysadmin/apache-superset-installation/))
--   The Superset Gateway must be installed [instructions](https://docs.ap.baosystems.com/sysadmin/dhis2-superset-gateway-installation/)
+-   The Superset Gateway must be installed ([instructions](https://docs.ap.baosystems.com/sysadmin/dhis2-superset-gateway-installation/))
 -   Support for embedded dashboards must be enabled in the "Analytics" section of the [DHIS2 System Settings App](https://docs.dhis2.org/en/use/user-guides/dhis-core-version-master/configuring-the-system/system-settings.html?h=embedded+dashboards+master#system_analytics_settings)
 
 ## Viewing a dashboard
