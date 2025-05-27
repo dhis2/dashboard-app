@@ -174,6 +174,14 @@ The "Title", "Code" and "Description" fields in this form are identical to the f
 
 Once the dashboard is created, you can star/unstar, edit and share it. You can also show and hide the description and close the dashboard. It is not possible to show it in slideshow mode, filter it, or enter print view mode.
 
+#### Configuring the system for embedded Superset dashboards
+
+In order for the embedded Superset dashboards feature to work, the following prerequisites need to be met:
+
+-   The system must have access to a Superset service ([installation instructions](https://docs.ap.baosystems.com/sysadmin/apache-superset-installation/))
+-   The Superset Gateway must be installed ([instructions](https://docs.ap.baosystems.com/sysadmin/dhis2-superset-gateway-installation/))
+-   Support for embedded dashboards must be enabled in the "Analytics" section of the [DHIS2 System Settings App](https://docs.dhis2.org/en/use/user-guides/dhis-core-version-master/configuring-the-system/system-settings.html?h=embedded+dashboards+master#system_analytics_settings)
+
 ## Viewing a dashboard
 
 The following actions are available on the dashboard in view mode:
