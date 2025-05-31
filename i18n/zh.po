@@ -22,7 +22,7 @@ msgid "Untitled dashboard"
 msgstr "未命名的仪表盘"
 
 msgid "Could not get info from Superset gateway endpoint"
-msgstr "无法从 Superset 网关端点获取信息"
+msgstr "无法从 Superset 服务网关端点获取信息"
 
 msgid "Dashboard with ID \"{{dashboardId}}\" not found or not accessible"
 msgstr "ID 为 \"{{dashboardId}}\" 的仪表板未找到或无法访问"
@@ -31,7 +31,7 @@ msgid "Dashboard with ID \"{{dashboardId}}\" is not embedded"
 msgstr "ID 为 \"{{dashboardId}}\" 的仪表板未嵌入"
 
 msgid "Embedded provider must be \"SUPERSET\" for dashboard ID \"{{dashboardId}}\""
-msgstr "嵌入式提供程序必须是仪表板 ID \"{{dashboardId}}\" 的 \"SUPERSET\"。"
+msgstr "嵌入式提供程序仪表板 ID \"{{dashboardId}}\" 的 必须是\"SUPERSET\"。"
 
 msgid "Superset Embed UUID not found for dashboard ID \"{{dashboardId}}\""
 msgstr "未找到仪表板 ID \"{{dashboardId}}\" 的Superset 嵌入 UUID"
@@ -48,7 +48,7 @@ msgid "Network error"
 msgstr "网络错误"
 
 msgid "Could not load app data"
-msgstr ""
+msgstr "不能加载应用程序相关的数据"
 
 msgid "New dashboard: external"
 msgstr "新仪表盘：外部"
