@@ -1,16 +1,16 @@
 # 
 # Translators:
 # Viktor Varland <viktor@dhis2.org>, 2019
-# Yury Rogachev <yury@dhis2.org>, 2025
 # Philip Larsen Donnelly, 2025
 # Nadiia <semchuk@aph.org.ua>, 2025
+# Yury Rogachev <yury@dhis2.org>, 2025
 # 
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2025-03-18T14:27:12.993Z\n"
+"POT-Creation-Date: 2025-04-10T08:11:48.789Z\n"
 "PO-Revision-Date: 2019-06-25 12:37+0000\n"
-"Last-Translator: Nadiia <semchuk@aph.org.ua>, 2025\n"
+"Last-Translator: Yury Rogachev <yury@dhis2.org>, 2025\n"
 "Language-Team: Russian (https://app.transifex.com/hisp-uio/teams/100509/ru/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -48,13 +48,13 @@ msgid "New dashboard: external"
 msgstr ""
 
 msgid "Could not create dashboard"
-msgstr ""
+msgstr "Не удалось создать инфопанель"
 
 msgid "An unknown error occurred"
 msgstr ""
 
 msgid "Save dashboard"
-msgstr ""
+msgstr "Сохранить инфопанель"
 
 msgid "Back"
 msgstr "Назад"
@@ -89,7 +89,7 @@ msgid "Show chart controls on dashboard items"
 msgstr ""
 
 msgid "Expand filters"
-msgstr ""
+msgstr "Расширить фильтры"
 
 msgid "Delete dashboard"
 msgstr "Удалить инфопанель"
@@ -207,6 +207,12 @@ msgstr "Нет, отменить"
 msgid "Yes, clear filters and sync"
 msgstr "Да, удалить фильтры и синхронизировать"
 
+msgid "This dashboard is showing data from outside this system"
+msgstr ""
+
+msgid "External source"
+msgstr ""
+
 msgid "Confirm"
 msgstr "Подтвердить"
 
@@ -218,12 +224,6 @@ msgstr "Не удалось удалить метку \"звезда\" с инф
 
 msgid "Failed to star the dashboard"
 msgstr "Не удалось добавить метку \"звезда\" к инфопанели"
-
-msgid "This dashboard is showing data from outside this system"
-msgstr ""
-
-msgid "External source"
-msgstr ""
 
 msgid "Offline data last updated {{timeAgo}}"
 msgstr "Последнее обновление данных в автономном режиме: {{timeAgo}}"
@@ -247,7 +247,7 @@ msgid "Search for a dashboard"
 msgstr "Поиск инфопанели"
 
 msgid "No dashboards found for \"{{- filterText}}\""
-msgstr ""
+msgstr "Для \"{{- filterText}}\" инфрпанелей не найдено"
 
 msgid "Dashboards"
 msgstr "Информационные панели"
@@ -745,6 +745,11 @@ msgstr[0] ""
 msgstr[1] ""
 msgstr[2] ""
 msgstr[3] ""
+
+msgid ""
+"There was a problem loading the embedded dashboard content from an external "
+"service"
+msgstr ""
 
 msgid "Fetching external dashboard"
 msgstr ""
