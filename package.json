@@ -6,7 +6,7 @@
     "license": "BSD-3-Clause",
     "dependencies": {
         "@dhis2/analytics": "^26.13.3",
-        "@dhis2/app-runtime": "^3.13.2",
+        "@dhis2/app-runtime": "^3.14.3",
         "@dhis2/d2-i18n": "^1.1.3",
         "@dhis2/ui": "^10.3.0",
         "@krakenjs/post-robot": "^11.0.0",
