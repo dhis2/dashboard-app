@@ -62,6 +62,7 @@
         "eslint-plugin-cypress": "^3.3.0",
         "immutability-helper": "^3.1.1",
         "import": "^0.0.6",
+        "jest-webgl-canvas-mock": "^2.5.3",
         "patch-package": "^7",
         "postinstall-postinstall": "^2.1.0",
         "redux-mock-store": "^1.5.4",
