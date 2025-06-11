@@ -1,3 +1,10 @@
+## [101.3.1](https://github.com/dhis2/dashboard-app/compare/v101.3.0...v101.3.1) (2025-06-11)
+
+
+### Bug Fixes
+
+* avoid crash with TranslationDialog (DHIS2-19539) ([#3279](https://github.com/dhis2/dashboard-app/issues/3279)) ([c863da1](https://github.com/dhis2/dashboard-app/commit/c863da17a9e1c7ffb6b4c43685971211f7a87b2c))
+
 # [101.3.0](https://github.com/dhis2/dashboard-app/compare/v101.2.3...v101.3.0) (2025-05-05)
 
 
