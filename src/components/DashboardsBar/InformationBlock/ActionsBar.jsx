@@ -1,5 +1,5 @@
 import { OfflineTooltip } from '@dhis2/analytics'
-import { useDhis2ConnectionStatus } from '@dhis2/app-runtime'
+import { useDataEngine, useDhis2ConnectionStatus } from '@dhis2/app-runtime'
 import i18n from '@dhis2/d2-i18n'
 import {
     Button,
@@ -16,17 +16,21 @@ import { acClearItemFilters } from '../../../actions/itemFilters.js'
 import { acSetShowDescription } from '../../../actions/showDescription.js'
 import { acSetSlideshow } from '../../../actions/slideshow.js'
 import { apiPostShowDescription } from '../../../api/description.js'
+import { useSystemSettings } from '../../../components/AppDataProvider/AppDataProvider.jsx'
 import ConfirmActionDialog from '../../../components/ConfirmActionDialog.jsx'
 import DropdownButton from '../../../components/DropdownButton/DropdownButton.jsx'
 import MenuItem from '../../../components/MenuItemWithTooltip.jsx'
-import { useSystemSettings } from '../../../components/SystemSettingsProvider.jsx'
 import { itemTypeSupportsFullscreen } from '../../../modules/itemTypes.js'
 import { useCacheableSection } from '../../../modules/useCacheableSection.js'
 import { orObject } from '../../../modules/util.js'
 import { ROUTE_START_PATH } from '../../../pages/start/index.js'
-import { sGetNamedItemFilters } from '../../../reducers/itemFilters.js'
-import { sGetSelected } from '../../../reducers/selected.js'
+import { msGetNamedItemFilters } from '../../../reducers/itemFilters.js'
+import {
+    sGetSelected,
+    sGetSelectedIsEmbedded,
+} from '../../../reducers/selected.js'
 import { sGetShowDescription } from '../../../reducers/showDescription.js'
+import { UpdateSupersetDashboardModal } from '../ConfigureSupersetDashboard/UpdateSupersetDashboardModal.jsx'
 import FilterSelector from './FilterSelector.jsx'
 import classes from './styles/ActionsBar.module.css'
 
@@ -36,6 +40,7 @@ const ActionsBar = ({
     showDescription,
     starred,
     setSlideshow,
+    embedded,
     toggleDashboardStarred,
     showAlert,
     updateShowDescription,
@@ -46,15 +51,30 @@ const ActionsBar = ({
     dashboardItems,
 }) => {
     const history = useHistory()
+    const dataEngine = useDataEngine()
     const [moreOptionsIsOpen, setMoreOptionsIsOpen] = useState(false)
     const [sharingDialogIsOpen, setSharingDialogIsOpen] = useState(false)
     const [confirmCacheDialogIsOpen, setConfirmCacheDialogIsOpen] =
         useState(false)
+    const [
+        updateEmbeddedDashboardModalIsOpen,
+        setUpdateEmbeddedDashboardModalIsOpen,
+    ] = useState(false)
     const [redirectUrl, setRedirectUrl] = useState(null)
     const { isDisconnected: offline } = useDhis2ConnectionStatus()
     const { lastUpdated, isCached, startRecording, remove } =
         useCacheableSection(id)
-    const { allowVisFullscreen } = useSystemSettings().systemSettings
+    const { allowVisFullscreen } = useSystemSettings()
+    const notAvailableForEmbeddedDashboardsMsg = i18n.t(
+        'Not available for embedded dashboards'
+    )
+    const handleEditClick = useCallback(() => {
+        if (embedded) {
+            setUpdateEmbeddedDashboardModalIsOpen(true)
+        } else {
+            setRedirectUrl(`${id}/edit`)
+        }
+    }, [embedded, id, setRedirectUrl])
 
     const onRecordError = useCallback(() => {
         showAlert({
@@ -90,8 +110,8 @@ const ActionsBar = ({
     const onToggleShowDescription = useCallback(() => {
         updateShowDescription(!showDescription)
         setMoreOptionsIsOpen(false)
-        !offline && apiPostShowDescription(!showDescription)
-    }, [offline, showDescription, updateShowDescription])
+        !offline && apiPostShowDescription(!showDescription, dataEngine)
+    }, [offline, showDescription, updateShowDescription, dataEngine])
 
     const onToggleSharingDialog = useCallback(
         () => setSharingDialogIsOpen(!sharingDialogIsOpen),
@@ -116,9 +136,14 @@ const ActionsBar = ({
             ) : (
                 <MenuItem
                     dense
-                    disabled={offline}
+                    disabled={offline || embedded}
                     label={i18n.t('Make available offline')}
                     onClick={onAddToOffline}
+                    tooltip={
+                        embedded
+                            ? notAvailableForEmbeddedDashboardsMsg
+                            : undefined
+                    }
                 />
             )}
             {lastUpdated && (
@@ -137,7 +162,10 @@ const ActionsBar = ({
                         ? i18n.t('Unstar dashboard')
                         : i18n.t('Star dashboard')
                 }
-                onClick={toggleDashboardStarred}
+                onClick={() => {
+                    toggleDashboardStarred()
+                    setMoreOptionsIsOpen(false)
+                }}
             />
             <MenuItem
                 dense
@@ -151,10 +179,13 @@ const ActionsBar = ({
             />
             <MenuItem
                 dense
-                disabled={offline && !isCached}
+                disabled={(offline && !isCached) || embedded}
                 disabledWhenOffline={false}
                 label={i18n.t('Print')}
                 dataTest="print-menu-item"
+                tooltip={
+                    embedded ? notAvailableForEmbeddedDashboardsMsg : undefined
+                }
             >
                 <MenuItem
                     dense
@@ -187,12 +218,15 @@ const ActionsBar = ({
     }
 
     const getSlideshowTooltipContent = () => {
-        if (!hasSlideshowItems) {
+        if (embedded) {
+            return notAvailableForEmbeddedDashboardsMsg
+        } else if (!hasSlideshowItems) {
             return i18n.t('No dashboard items to show in slideshow')
         } else if (offline && !isCached) {
             return i18n.t('Not available offline')
+        } else {
+            return null
         }
-        return null
     }
 
     const slideshowTooltipContent = getSlideshowTooltipContent()
@@ -207,7 +241,7 @@ const ActionsBar = ({
                                 secondary
                                 small
                                 disabled={offline}
-                                onClick={() => setRedirectUrl(`${id}/edit`)}
+                                onClick={handleEditClick}
                             >
                                 {i18n.t('Edit')}
                             </Button>
@@ -264,6 +298,7 @@ const ActionsBar = ({
             </div>
             {id && sharingDialogIsOpen && (
                 <SharingDialog
+                    cascadeDashboardSharing={!embedded}
                     id={id}
                     type="dashboard"
                     onClose={onToggleSharingDialog}
@@ -280,6 +315,13 @@ const ActionsBar = ({
                 onCancel={() => setConfirmCacheDialogIsOpen(false)}
                 open={confirmCacheDialogIsOpen}
             />
+            {updateEmbeddedDashboardModalIsOpen && (
+                <UpdateSupersetDashboardModal
+                    closeModal={() =>
+                        setUpdateEmbeddedDashboardModalIsOpen(false)
+                    }
+                />
+            )}
         </>
     )
 }
@@ -288,6 +330,7 @@ ActionsBar.propTypes = {
     access: PropTypes.object,
     allowedFilters: PropTypes.array,
     dashboardItems: PropTypes.array,
+    embedded: PropTypes.bool,
     filtersLength: PropTypes.number,
     id: PropTypes.string,
     removeAllFilters: PropTypes.func,
@@ -305,7 +348,8 @@ const mapStateToProps = (state) => {
 
     return {
         ...dashboard,
-        filtersLength: sGetNamedItemFilters(state).length,
+        embedded: sGetSelectedIsEmbedded(state),
+        filtersLength: msGetNamedItemFilters(state).length,
         showDescription: sGetShowDescription(state),
     }
 }

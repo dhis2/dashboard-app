@@ -1,4 +1,3 @@
-import { useCachedDataQuery } from '@dhis2/analytics'
 import { CssVariables } from '@dhis2/ui'
 import PropTypes from 'prop-types'
 import React, { useEffect } from 'react'
@@ -18,15 +17,18 @@ import { NewDashboard, EditDashboard } from '../pages/edit/index.js'
 import { PrintDashboard, PrintLayoutDashboard } from '../pages/print/index.js'
 import { LandingPage, ROUTE_START_PATH } from '../pages/start/index.js'
 import { ViewDashboard } from '../pages/view/index.js'
-import { useSystemSettings } from './SystemSettingsProvider.jsx'
+import {
+    useCurrentUser,
+    useSystemSettings,
+} from './AppDataProvider/AppDataProvider.jsx'
 import './styles/App.css'
 import 'react-grid-layout/css/styles.css'
 import 'react-resizable/css/styles.css'
 import './styles/ItemGrid.css'
 
 const App = (props) => {
-    const { systemSettings } = useSystemSettings()
-    const { currentUser } = useCachedDataQuery()
+    const systemSettings = useSystemSettings()
+    const currentUser = useCurrentUser()
 
     useEffect(() => {
         props.fetchDashboards()
@@ -46,7 +48,7 @@ const App = (props) => {
     return (
         systemSettings && (
             <>
-                <CssVariables colors spacers elevations />
+                <CssVariables colors spacers elevations theme />
                 <Router>
                     <Switch>
                         <Route

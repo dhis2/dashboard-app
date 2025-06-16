@@ -1,0 +1,14 @@
+.textField {
+    margin-block-end: var(--spacers-dp12);
+}
+.textField textarea {
+    max-block-size: 180px;
+}
+.options {
+    all: unset;
+}
+.options legend {
+    font-size: 14px;
+    font-weight: 500;
+    margin-block-end: var(--spacers-dp4);
+}

@@ -1,15 +1,31 @@
-import { FILTER_ORG_UNIT } from '../../../actions/itemFilters.js'
+import { FILTER_ORG_UNIT, FILTER_PE } from '../../../actions/itemFilters.js'
+import { getPluginOverrides } from '../../../modules/localStorage.js'
 
-export const getIframeSrc = (appDetails, item, itemFilters) => {
-    let iframeSrc = `${appDetails.launchUrl}?dashboardItemId=${item.id}`
+export const getIframeSrc = (item, itemFilters, appDetails = {}) => {
+    if (appDetails.appType === 'APP') {
+        // pluginOverrides might be in use during development on localhost
+        const pluginOverrides = getPluginOverrides()
 
-    if (itemFilters[FILTER_ORG_UNIT] && itemFilters[FILTER_ORG_UNIT].length) {
-        const ouIds = itemFilters[FILTER_ORG_UNIT].map(({ id, path }) =>
-            path ? path.split('/').slice(-1)[0] : id
-        )
+        if (pluginOverrides?.[appDetails.key]) {
+            return pluginOverrides[appDetails.key]
+        }
 
-        iframeSrc += `&userOrgUnit=${ouIds.join(',')}`
+        return appDetails.pluginLaunchUrl
+    } else {
+        let iframeSrc = `${appDetails.launchUrl}?redirect=false&dashboardItemId=${item.id}`
+
+        if (itemFilters[FILTER_ORG_UNIT]?.length) {
+            const ouIds = itemFilters[FILTER_ORG_UNIT].map(({ id, path }) =>
+                path ? path.split('/').slice(-1)[0] : id
+            )
+            iframeSrc += `&userOrgUnit=${ouIds.join(',')}`
+        }
+
+        if (itemFilters[FILTER_PE]?.length) {
+            const peValues = itemFilters[FILTER_PE].map((x) => x.id).join(',')
+            iframeSrc += `&period=${peValues}`
+        }
+
+        return iframeSrc
     }
-
-    return iframeSrc
 }

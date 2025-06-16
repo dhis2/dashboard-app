@@ -5,6 +5,7 @@ import PropTypes from 'prop-types'
 import React from 'react'
 import { useWindowDimensions } from '../../../components/WindowDimensionsProvider.jsx'
 import { useCacheableSection } from '../../../modules/useCacheableSection.js'
+import classes from './styles/LastUpdatedTag.module.css'
 
 const LastUpdatedTag = ({ id }) => {
     const { lastUpdated } = useCacheableSection(id)
@@ -29,7 +30,7 @@ const LastUpdatedTag = ({ id }) => {
             closeDelay={100}
         >
             {(props) => (
-                <div {...props}>
+                <div className={classes.lastUpdatedTag} {...props}>
                     <Tag maxWidth="400px">{message} </Tag>
                 </div>
             )}

@@ -11,6 +11,7 @@ const DropdownButton = ({
     onClick,
     disabledWhenOffline,
     component,
+    content,
     ...rest
 }) => {
     const anchorRef = useRef()
@@ -18,14 +19,18 @@ const DropdownButton = ({
     const ArrowIconComponent = open ? ArrowUp : ArrowDown
     return (
         <div ref={anchorRef} className={styles.container}>
-            <OfflineTooltip disabledWhenOffline={disabledWhenOffline}>
+            <OfflineTooltip
+                content={content}
+                disabledWhenOffline={disabledWhenOffline}
+                disabled={rest.disabled}
+            >
                 <Button onClick={onClick} type="button" {...rest}>
                     {children}
                     <ArrowIconComponent className={styles.arrow} />
                 </Button>
             </OfflineTooltip>
             {open && (
-                <Layer onClick={onClick} transparent>
+                <Layer onBackdropClick={onClick} transparent>
                     <Popper placement="bottom-start" reference={anchorRef}>
                         {component}
                     </Popper>
@@ -40,6 +45,7 @@ DropdownButton.propTypes = {
     component: PropTypes.element.isRequired,
     open: PropTypes.bool.isRequired,
     onClick: PropTypes.func.isRequired,
+    content: PropTypes.string,
     disabledWhenOffline: PropTypes.bool,
 }
 

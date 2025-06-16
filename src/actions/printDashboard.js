@@ -1,4 +1,3 @@
-import { generateUid } from 'd2/uid.js'
 import {
     NEW_ITEM_SHAPE,
     getGridItemProperties,
@@ -6,6 +5,7 @@ import {
     getPrintTitlePageItemShape,
 } from '../modules/gridUtil.js'
 import { itemTypeMap, PAGEBREAK } from '../modules/itemTypes.js'
+import { generateUid } from '../modules/uid.js'
 import {
     SET_PRINT_DASHBOARD,
     CLEAR_PRINT_DASHBOARD,

@@ -5,6 +5,7 @@ import {
 } from '../reducers/itemFilters.js'
 
 export const FILTER_ORG_UNIT = 'ou'
+export const FILTER_PE = 'pe'
 
 // actions
 

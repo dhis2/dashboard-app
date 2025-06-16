@@ -2,13 +2,13 @@ import { getIframeSrc } from '../getIframeSrc.js'
 
 const appDetails = { launchUrl: 'debug/dev' }
 const dashboardItem = { id: 'rainbowdashitem' }
-const expectedSrc = `${appDetails.launchUrl}?dashboardItemId=${dashboardItem.id}`
+const expectedSrc = `${appDetails.launchUrl}?redirect=false&dashboardItemId=${dashboardItem.id}`
 
 describe('getIframeSrc', () => {
     it('no ou filter', () => {
         const ouFilter = []
 
-        const src = getIframeSrc(appDetails, dashboardItem, { ou: ouFilter })
+        const src = getIframeSrc(dashboardItem, { ou: ouFilter }, appDetails)
         expect(src).toEqual(expectedSrc)
     })
 
@@ -26,7 +26,7 @@ describe('getIframeSrc', () => {
             },
         ]
 
-        const src = getIframeSrc(appDetails, dashboardItem, { ou: ouFilter })
+        const src = getIframeSrc(dashboardItem, { ou: ouFilter }, appDetails)
         expect(src).toEqual(
             `${expectedSrc}&userOrgUnit=fdc6uOvgoji,lc3eMKXaEfw`
         )
@@ -45,7 +45,7 @@ describe('getIframeSrc', () => {
             },
         ]
 
-        const src = getIframeSrc(appDetails, dashboardItem, { ou: ouFilter })
+        const src = getIframeSrc(dashboardItem, { ou: ouFilter }, appDetails)
         expect(src).toEqual(
             `${expectedSrc}&userOrgUnit=OU_GROUP-b0EsAxm8Nge,lc3eMKXaEfw`
         )
@@ -64,7 +64,7 @@ describe('getIframeSrc', () => {
             },
         ]
 
-        const src = getIframeSrc(appDetails, dashboardItem, { ou: ouFilter })
+        const src = getIframeSrc(dashboardItem, { ou: ouFilter }, appDetails)
         expect(src).toEqual(
             `${expectedSrc}&userOrgUnit=LEVEL-m9lBJogzE95,fdc6uOvgoji`
         )
@@ -78,7 +78,7 @@ describe('getIframeSrc', () => {
             },
         ]
 
-        const src = getIframeSrc(appDetails, dashboardItem, { ou: ouFilter })
+        const src = getIframeSrc(dashboardItem, { ou: ouFilter }, appDetails)
         expect(src).toEqual(`${expectedSrc}&userOrgUnit=USER_ORGUNIT`)
     })
 
@@ -98,9 +98,81 @@ describe('getIframeSrc', () => {
             },
         ]
 
-        const src = getIframeSrc(appDetails, dashboardItem, { ou: ouFilter })
+        const src = getIframeSrc(dashboardItem, { ou: ouFilter }, appDetails)
         expect(src).toEqual(
             `${expectedSrc}&userOrgUnit=USER_ORGUNIT_CHILDREN,USER_ORGUNIT_GRANDCHILDREN,USER_ORGUNIT`
         )
+    })
+
+    it('only period filter with a single value', () => {
+        const peFilter = [{ id: 'LAST_MONTH' }]
+
+        const src = getIframeSrc(dashboardItem, { pe: peFilter }, appDetails)
+        expect(src).toEqual(`${expectedSrc}&period=LAST_MONTH`)
+    })
+
+    it('only period filter with multiple values', () => {
+        const peFilter = [{ id: 'LAST_MONTH' }, { id: 'LAST_3_MONTHS' }]
+
+        const src = getIframeSrc(dashboardItem, { pe: peFilter }, appDetails)
+        expect(src).toEqual(`${expectedSrc}&period=LAST_MONTH,LAST_3_MONTHS`)
+    })
+
+    it('period filter and org unit filter', () => {
+        const peFilter = [{ id: 'LAST_MONTH' }]
+        const ouFilter = [
+            {
+                id: 'fdc6uOvgoji',
+                path: '/ImspTQPwCqd/fdc6uOvgoji',
+                name: 'Bombali',
+            },
+        ]
+
+        const src = getIframeSrc(
+            dashboardItem,
+            {
+                pe: peFilter,
+                ou: ouFilter,
+            },
+            appDetails
+        )
+        expect(src).toEqual(
+            `${expectedSrc}&userOrgUnit=fdc6uOvgoji&period=LAST_MONTH`
+        )
+    })
+
+    it('period filter with multiple values and org unit filter', () => {
+        const peFilter = [{ id: 'LAST_MONTH' }, { id: 'LAST_3_MONTHS' }]
+        const ouFilter = [
+            {
+                id: 'fdc6uOvgoji',
+                path: '/ImspTQPwCqd/fdc6uOvgoji',
+                name: 'Bombali',
+            },
+            {
+                id: 'lc3eMKXaEfw',
+                path: '/ImspTQPwCqd/lc3eMKXaEfw',
+                name: 'Bonthe',
+            },
+        ]
+
+        const src = getIframeSrc(
+            dashboardItem,
+            {
+                pe: peFilter,
+                ou: ouFilter,
+            },
+            appDetails
+        )
+        expect(src).toEqual(
+            `${expectedSrc}&userOrgUnit=fdc6uOvgoji,lc3eMKXaEfw&period=LAST_MONTH,LAST_3_MONTHS`
+        )
+    })
+
+    it('empty pe filter', () => {
+        const peFilter = []
+
+        const src = getIframeSrc(dashboardItem, { pe: peFilter }, appDetails)
+        expect(src).toEqual(expectedSrc)
     })
 })

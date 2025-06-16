@@ -12,7 +12,6 @@ import {
 import { isEditMode } from '../../../modules/dashboardModes.js'
 import { itemTypeMap, getItemUrl } from '../../../modules/itemTypes.js'
 import { orArray } from '../../../modules/util.js'
-import { sGetSlideshow } from '../../../reducers/slideshow.js'
 import ItemHeader from '../ItemHeader/ItemHeader.jsx'
 import classes from './Item.module.css'
 
@@ -67,6 +66,8 @@ const ListItem = ({
                     style={{ color: colors.grey900 }}
                     href={getItemUrl(item.type, contentItem, baseUrl)}
                     tabIndex={isSlideshowView ? '-1' : '0'}
+                    target="_top"
+                    rel="noreferrer"
                 >
                     {contentItem.name}
                 </a>
@@ -113,11 +114,7 @@ ListItem.propTypes = {
     updateItem: PropTypes.func,
 }
 
-const mapStateToProps = (state) => ({
-    isSlideshowView: sGetSlideshow(state) !== null,
-})
-
-export default connect(mapStateToProps, {
+export default connect(null, {
     removeItem: acRemoveDashboardItem,
     updateItem: acUpdateDashboardItem,
 })(ListItem)

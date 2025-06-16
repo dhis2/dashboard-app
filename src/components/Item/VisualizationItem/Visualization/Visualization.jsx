@@ -1,15 +1,17 @@
-import { useCachedDataQuery } from '@dhis2/analytics'
 import { useDhis2ConnectionStatus } from '@dhis2/app-runtime'
 import i18n from '@dhis2/d2-i18n'
-import { Button, Cover, IconInfo24, IconWarning24, colors } from '@dhis2/ui'
-import uniqueId from 'lodash/uniqueId.js'
+import { Button, Cover, IconInfo24, colors } from '@dhis2/ui'
 import PropTypes from 'prop-types'
 import React, { useMemo } from 'react'
 import { useSelector } from 'react-redux'
 import {
+    isDVVersionCompatible,
     isLLVersionCompatible,
+    isMapsVersionCompatible,
+    minDVVersion,
     minLLVersion,
-} from '../../../../modules/isLLVersionCompatible.js'
+    minMapsVersion,
+} from '../../../../modules/isAppVersionCompatible.js'
 import {
     VISUALIZATION,
     EVENT_VISUALIZATION,
@@ -18,11 +20,18 @@ import {
     REPORT_TABLE,
 } from '../../../../modules/itemTypes.js'
 import { sGetSelectedId } from '../../../../reducers/selected.js'
+import {
+    useInstalledApps,
+    useInstalledDVVersion,
+    useInstalledLLVersion,
+    useInstalledMapsVersion,
+} from '../../../AppDataProvider/AppDataProvider.jsx'
 import getFilteredVisualization from './getFilteredVisualization.js'
 import getVisualizationConfig from './getVisualizationConfig.js'
 import IframePlugin from './IframePlugin.jsx'
 import LegacyPlugin from './LegacyPlugin.jsx'
 import { pluginIsAvailable } from './plugin.js'
+import { PluginWarningMessage } from './PluginWarningMessage.js'
 import classes from './styles/Visualization.module.css'
 
 const mapHasEELayer = (visualization) =>
@@ -33,8 +42,7 @@ const Visualization = ({
     activeType,
     item,
     itemFilters,
-    availableHeight,
-    availableWidth,
+    style,
     gridWidth,
     dashboardMode,
     originalType,
@@ -44,23 +52,10 @@ const Visualization = ({
 }) => {
     const dashboardId = useSelector(sGetSelectedId)
     const { isDisconnected: offline } = useDhis2ConnectionStatus()
-    const { lineListingAppVersion, apps } = useCachedDataQuery()
-
-    // NOTE:
-    // The following is all memoized because the IframePlugin (and potentially others)
-    // are wrapped in React.memo() to avoid unnecessary re-renders
-    // The main problem here was `item` which changes height when the interpretations panel is toggled
-    // causing all the chain of components to re-render.
-    // The only dependency using `item` is `item.id` which doesn't change so the memoized plugin props
-    // should also always be the same regardless of the `item` details.
-
-    const style = useMemo(
-        () => ({
-            height: availableHeight,
-            width: availableWidth || undefined,
-        }),
-        [availableHeight, availableWidth]
-    )
+    const apps = useInstalledApps()
+    const dataVisualizerAppVersion = useInstalledDVVersion()
+    const lineListingAppVersion = useInstalledLLVersion()
+    const mapsAppVersion = useInstalledMapsVersion()
 
     const visualizationConfig = useMemo(() => {
         if (originalType === EVENT_VISUALIZATION) {
@@ -73,14 +68,11 @@ const Visualization = ({
         )
     }, [visualization, activeType, originalType, itemFilters])
 
-    const filterVersion = useMemo(() => uniqueId(), [])
-
     const iFramePluginProps = useMemo(
         () => ({
             originalType,
             activeType,
             style,
-            filterVersion,
             dashboardMode,
             dashboardId,
             itemId: item.id,
@@ -91,7 +83,6 @@ const Visualization = ({
             originalType,
             activeType,
             style,
-            filterVersion,
             dashboardMode,
             dashboardId,
             item.id,
@@ -102,34 +93,10 @@ const Visualization = ({
 
     if (!visualization) {
         return (
-            <div style={style}>
-                <Cover>
-                    <div className={classes.messageContent}>
-                        <IconWarning24 color={colors.grey500} />
-                        {i18n.t('No data to display')}
-                    </div>
-                </Cover>
-            </div>
-        )
-    }
-
-    if (
-        activeType === EVENT_VISUALIZATION &&
-        !isLLVersionCompatible(lineListingAppVersion)
-    ) {
-        return (
-            <div style={style}>
-                <Cover>
-                    <div className={classes.messageContent}>
-                        <IconWarning24 color={colors.grey500} />
-                        {i18n.t(
-                            `Install Line Listing app version ${minLLVersion.join(
-                                '.'
-                            )} or higher in order to display this item.`
-                        )}
-                    </div>
-                </Cover>
-            </div>
+            <PluginWarningMessage
+                style={style}
+                message={i18n.t('No data to display')}
+            />
         )
     }
 
@@ -137,15 +104,24 @@ const Visualization = ({
         case CHART:
         case REPORT_TABLE:
         case VISUALIZATION: {
-            return (
+            return isDVVersionCompatible(dataVisualizerAppVersion) ? (
                 <IframePlugin
                     visualization={visualizationConfig}
                     {...iFramePluginProps}
                 />
+            ) : (
+                <PluginWarningMessage
+                    style={style}
+                    message={i18n.t(
+                        `Install Data Visualizer app ${minDVVersion.join(
+                            '.'
+                        )} or higher in order to display this item.`
+                    )}
+                />
             )
         }
         case EVENT_VISUALIZATION: {
-            return (
+            return isLLVersionCompatible(lineListingAppVersion) ? (
                 <>
                     {showNoFiltersOverlay ? (
                         <div style={style}>
@@ -171,49 +147,64 @@ const Visualization = ({
                         {...iFramePluginProps}
                     />
                 </>
+            ) : (
+                <PluginWarningMessage
+                    style={style}
+                    message={i18n.t(
+                        `Install Line Listing app ${minLLVersion.join(
+                            '.'
+                        )} or higher in order to display this item.`
+                    )}
+                />
             )
         }
         case MAP: {
-            return offline && mapHasEELayer(visualizationConfig) ? (
-                <div style={style}>
-                    <Cover>
-                        <div className={classes.messageContent}>
-                            <IconInfo24 color={colors.grey500} />
-                            <span>
-                                {i18n.t(
-                                    'Maps with Earth Engine layers cannot be displayed when offline'
-                                )}
-                            </span>
-                        </div>
-                    </Cover>
-                </div>
+            const getMapComponent = () => {
+                return offline && mapHasEELayer(visualizationConfig) ? (
+                    <div style={style}>
+                        <Cover>
+                            <div className={classes.messageContent}>
+                                <IconInfo24 color={colors.grey500} />
+                                <span>
+                                    {i18n.t(
+                                        'Maps with Earth Engine layers cannot be displayed when offline'
+                                    )}
+                                </span>
+                            </div>
+                        </Cover>
+                    </div>
+                ) : (
+                    <IframePlugin
+                        visualization={visualizationConfig}
+                        {...iFramePluginProps}
+                    />
+                )
+            }
+
+            return isMapsVersionCompatible(mapsAppVersion) ? (
+                getMapComponent()
             ) : (
-                <IframePlugin
-                    visualization={visualizationConfig}
-                    {...iFramePluginProps}
+                <PluginWarningMessage
+                    style={style}
+                    message={i18n.t(
+                        `Install Maps app ${minMapsVersion.join(
+                            '.'
+                        )} or higher in order to display this item.`
+                    )}
                 />
             )
         }
         default: {
             return !pluginIsAvailable(activeType || item.type, apps) ? (
-                <div style={style}>
-                    <Cover>
-                        <div className={classes.messageContent}>
-                            <IconWarning24 color={colors.grey500} />
-                            <span>
-                                {i18n.t(
-                                    'Unable to load the plugin for this item'
-                                )}
-                            </span>
-                        </div>
-                    </Cover>
-                </div>
+                <PluginWarningMessage
+                    style={style}
+                    message={i18n.t('Unable to load the plugin for this item')}
+                />
             ) : (
                 <LegacyPlugin
                     item={item}
                     activeType={activeType}
                     visualization={visualizationConfig}
-                    filterVersion={filterVersion}
                     style={style}
                     gridWidth={gridWidth}
                     {...rest}
@@ -225,14 +216,13 @@ const Visualization = ({
 
 Visualization.propTypes = {
     activeType: PropTypes.string,
-    availableHeight: PropTypes.string,
-    availableWidth: PropTypes.string,
     dashboardMode: PropTypes.string,
     gridWidth: PropTypes.number,
     item: PropTypes.object,
     itemFilters: PropTypes.object,
     originalType: PropTypes.string,
     showNoFiltersOverlay: PropTypes.bool,
+    style: PropTypes.object,
     visualization: PropTypes.object,
     onClickNoFiltersOverlay: PropTypes.func,
 }

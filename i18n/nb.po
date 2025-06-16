@@ -1,16 +1,16 @@
 # 
 # Translators:
-# Caroline Hesthagen Holen <caroline@devotta.no>, 2021
 # Jan Henrik Øverland, 2022
-# Philip Larsen Donnelly, 2024
-# Karoline Tufte Lien <karoline@dhis2.org>, 2024
+# Philip Larsen Donnelly, 2025
+# Karoline Tufte Lien <karoline@dhis2.org>, 2025
+# Caroline Hesthagen Holen <caroline@devotta.no>, 2025
 # 
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2024-03-19T12:31:03.302Z\n"
+"POT-Creation-Date: 2025-03-18T14:27:12.993Z\n"
 "PO-Revision-Date: 2019-06-25 12:37+0000\n"
-"Last-Translator: Karoline Tufte Lien <karoline@dhis2.org>, 2024\n"
+"Last-Translator: Caroline Hesthagen Holen <caroline@devotta.no>, 2025\n"
 "Language-Team: Norwegian Bokmål (https://app.transifex.com/hisp-uio/teams/100509/nb/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -21,26 +21,268 @@ msgstr ""
 msgid "Untitled dashboard"
 msgstr "Dashbord uten navn"
 
-msgid "Cannot create a dashboard while offline"
+msgid "Could not get info from Superset gateway endpoint"
 msgstr ""
 
-msgid "Create new dashboard"
-msgstr "Lag et nytt dashbord"
+msgid "Dashboard with ID \"{{dashboardId}}\" not found or not accessible"
+msgstr ""
+
+msgid "Dashboard with ID \"{{dashboardId}}\" is not embedded"
+msgstr ""
+
+msgid "Embedded provider must be \"SUPERSET\" for dashboard ID \"{{dashboardId}}\""
+msgstr ""
+
+msgid "Superset Embed UUID not found for dashboard ID \"{{dashboardId}}\""
+msgstr ""
+
+msgid "Dashboard with ID \"{{dashboardId}}\" not found on the Superset service"
+msgstr ""
+
+msgid ""
+"Could not get guest token from Superset Gateway for dashboard ID "
+"\"{{dashboardId}}\""
+msgstr ""
+
+msgid "New dashboard: external"
+msgstr ""
+
+msgid "Could not create dashboard"
+msgstr ""
+
+msgid "An unknown error occurred"
+msgstr "En ukjent feil oppsto"
+
+msgid "Save dashboard"
+msgstr ""
+
+msgid "Back"
+msgstr "Tilbake"
+
+msgid "Title"
+msgstr "Tittel"
+
+msgid "Code"
+msgstr "Kode"
+
+msgid ""
+"A unique code to reference this dashboard in other apps and services. Max 50"
+" characters."
+msgstr ""
+
+msgid "Code can't be longer than 50 characters"
+msgstr ""
+
+msgid "Description"
+msgstr "Beskrivelse"
+
+msgid "Superset Embed ID"
+msgstr ""
+
+msgid "Invalid UUID"
+msgstr ""
+
+msgid "Options"
+msgstr "Alternativ"
+
+msgid "Show chart controls on dashboard items"
+msgstr ""
+
+msgid "Expand filters"
+msgstr ""
+
+msgid "Delete dashboard"
+msgstr "Slett dashbord"
+
+msgid ""
+"Deleting dashboard \"{{ dashboardName }}\" will remove it for all users. "
+"This action cannot be undone. Are you sure you want to permanently delete "
+"this dashboard?"
+msgstr ""
+"Hvis du sletter dashbordet \"{{ dashboardName }}\", fjernes det for alle "
+"brukere. Denne handlingen kan ikke angres. Er du sikker på at du vil slette "
+"dette dashbordet permanent?"
+
+msgid ""
+"Note: the source dashboard embedded by this external dashboard will not be "
+"deleted."
+msgstr ""
+
+msgid "Delete"
+msgstr "Slett"
+
+msgid "Cancel"
+msgstr "Avbryt"
+
+msgid "Edit external dashboard"
+msgstr ""
+
+msgid "New dashboard: choose type"
+msgstr ""
+
+msgid "Internal"
+msgstr ""
+
+msgid "Show data and visualizations from this DHIS2 instance."
+msgstr ""
+
+msgid "External"
+msgstr ""
+
+msgid "Embed a Superset dashboard"
+msgstr ""
+
+msgid "Continue"
+msgstr "Fortsett"
+
+msgid "Not available for embedded dashboards"
+msgstr ""
+
+msgid "The dashboard couldn't be made available offline. Try again."
+msgstr ""
+
+msgid "Remove from offline storage"
+msgstr ""
+
+msgid "Make available offline"
+msgstr ""
+
+msgid "Sync offline data now"
+msgstr ""
+
+msgid "Unstar dashboard"
+msgstr "Fjern stjerne fra dashbordet"
+
+msgid "Star dashboard"
+msgstr "Merk dashbord med stjerne"
+
+msgid "Hide description"
+msgstr "Skjul beskrivelse"
+
+msgid "Show description"
+msgstr "Vis beskrivelse"
+
+msgid "Print"
+msgstr "Skriv ut"
+
+msgid "Dashboard layout"
+msgstr "Dashbordoppsett"
+
+msgid "One item per page"
+msgstr "Ett element per side"
+
+msgid "Close dashboard"
+msgstr ""
+
+msgid "No dashboard items to show in slideshow"
+msgstr ""
+
+msgid "Not available offline"
+msgstr "Ikke tilgjengelig i frakoblet modus"
+
+msgid "Edit"
+msgstr "Rediger"
+
+msgid "Share"
+msgstr "Del"
+
+msgid "Slideshow"
+msgstr ""
+
+msgid "Clear dashboard filters?"
+msgstr ""
+
+msgid ""
+"A dashboard's filters can’t be saved offline. Do you want to remove the "
+"filters and make this dashboard available offline?"
+msgstr ""
+
+msgid "No, cancel"
+msgstr "Nei, avbryt"
+
+msgid "Yes, clear filters and sync"
+msgstr ""
+
+msgid "Confirm"
+msgstr "Bekreft"
+
+msgid "Filter"
+msgstr "Filter"
+
+msgid "Failed to unstar the dashboard"
+msgstr "Kunne ikke fjerne stjernemerket på dashbordet"
+
+msgid "Failed to star the dashboard"
+msgstr "Kunne ikke stjernemerke dashbordet"
+
+msgid "This dashboard is showing data from outside this system"
+msgstr ""
+
+msgid "External source"
+msgstr ""
+
+msgid "Offline data last updated {{timeAgo}}"
+msgstr ""
+
+msgid "Synced {{timeAgo}}"
+msgstr ""
+
+msgid "Cannot unstar this dashboard while offline"
+msgstr ""
+
+msgid "Cannot star this dashboard while offline"
+msgstr ""
+
+msgid "No dashboards available."
+msgstr ""
+
+msgid "Create a new dashboard using the + button."
+msgstr ""
 
 msgid "Search for a dashboard"
 msgstr "Søk etter et dashbord"
 
-msgid "Show fewer dashboards"
-msgstr "Vis færre dashbord"
+msgid "No dashboards found for \"{{- filterText}}\""
+msgstr ""
 
-msgid "Show more dashboards"
-msgstr "Vis flere dashbord"
+msgid "Dashboards"
+msgstr "Dashbord"
+
+msgid "Could not fetch bundled apps"
+msgstr ""
+
+msgid "Network error"
+msgstr ""
+
+msgid "There was a problem loading this dashboard item"
+msgstr "Det oppstod et problem med å laste inn dette dashbordelementet"
+
+msgid "Open menu"
+msgstr ""
+
+msgid "Open in {{appName}}"
+msgstr ""
+
+msgid "View fullscreen"
+msgstr "Vis fullskjerm"
 
 msgid "Remove this item"
 msgstr "Fjern dette elementet"
 
 msgid "This item has been shortened to fit on one page"
 msgstr "Dette elementet har blitt forkortet for å passe på én side"
+
+msgid "The plugin needed to display this item is not available"
+msgstr ""
+
+msgid "Install the {{pluginName}} plugin from the App Hub"
+msgstr ""
+
+msgid "There was an error loading data for this item"
+msgstr ""
+
+msgid "Open this item in {{appName}}"
+msgstr ""
 
 msgid "Remove"
 msgstr "Fjern"
@@ -90,9 +332,6 @@ msgstr ""
 msgid "Some filters not applied"
 msgstr ""
 
-msgid "There was a problem loading this dashboard item"
-msgstr "Det oppstod et problem med å laste inn dette dashbordelementet"
-
 msgid "Hide details and interpretations"
 msgstr ""
 
@@ -101,9 +340,6 @@ msgstr ""
 
 msgid "Open in {{appName}} app"
 msgstr "Åpne i {{appName}} -appen"
-
-msgid "View fullscreen"
-msgstr "Vis fullskjerm"
 
 msgid "This map can't be displayed as a chart"
 msgstr "Dette kartet kan ikke vises som diagram"
@@ -129,38 +365,41 @@ msgstr "Vis som kart"
 msgid "There was a problem loading interpretations for this item"
 msgstr ""
 
-msgid "The plugin for rendering this item is not available"
-msgstr ""
-
-msgid "Install the {{appName}} app from the App Hub"
-msgstr ""
-
 msgid "No data to display"
 msgstr "Ingen data å vise"
 
 msgid ""
-"Install Line Listing app version ${minLLVersion.join(\n"
-"                                '.'\n"
-"                            )} or higher in order to display this item."
+"Install Data Visualizer app ${minDVVersion.join(\n"
+"                            '.'\n"
+"                        )} or higher in order to display this item."
 msgstr ""
 
 msgid "Show without filters"
 msgstr ""
 
+msgid ""
+"Install Line Listing app ${minLLVersion.join(\n"
+"                            '.'\n"
+"                        )} or higher in order to display this item."
+msgstr ""
+
 msgid "Maps with Earth Engine layers cannot be displayed when offline"
+msgstr ""
+
+msgid ""
+"Install Maps app ${minMapsVersion.join(\n"
+"                            '.'\n"
+"                        )} or higher in order to display this item."
 msgstr ""
 
 msgid "Unable to load the plugin for this item"
 msgstr "Kan ikke laste inn plugin-modulen for dette elementet"
 
-msgid "There was an error loading data for this item"
-msgstr ""
+msgid "Resources"
+msgstr "Ressurser"
 
-msgid "Open this item in {{appName}}"
-msgstr ""
-
-msgid "Not available offline"
-msgstr "Ikke tilgjengelig i frakoblet modus"
+msgid "Reports"
+msgstr "Rapporter"
 
 msgid "Visualizations"
 msgstr "Visualiseringer"
@@ -186,14 +425,17 @@ msgstr ""
 msgid "Apps"
 msgstr "Applikasjoner"
 
-msgid "Reports"
-msgstr "Rapporter"
-
-msgid "Resources"
-msgstr "Ressurser"
-
 msgid "Users"
 msgstr "Brukere"
+
+msgid "Could not update dashboard {{name}}"
+msgstr ""
+
+msgid "Could not delete dashboard {{name}}"
+msgstr ""
+
+msgid "Could not load dashboard details"
+msgstr ""
 
 msgid ""
 "Failed to save dashboard. You might be offline or not have access to edit "
@@ -233,29 +475,17 @@ msgstr "Oversett"
 msgid "Cannot delete this dashboard while offline"
 msgstr ""
 
-msgid "Delete"
-msgstr "Slett"
-
 msgid "Exit without saving"
 msgstr "Avslutte uten å lagre"
 
 msgid "Go to dashboards"
 msgstr "Gå til dashbordene"
 
-msgid "Delete dashboard"
-msgstr "Slett dashbord"
-
 msgid ""
-"Deleting dashboard \"{{ dashboardName }}\" will remove it for all users. "
+"Deleting dashboard \"{{- dashboardName }}\" will remove it for all users. "
 "This action cannot be undone. Are you sure you want to permanently delete "
 "this dashboard?"
 msgstr ""
-"Hvis du sletter dashbordet \"{{ dashboardName }}\", fjernes det for alle "
-"brukere. Denne handlingen kan ikke angres. Er du sikker på at du vil slette "
-"dette dashbordet permanent?"
-
-msgid "Cancel"
-msgstr "Avbryt"
 
 msgid "Discard changes"
 msgstr "Forkast endringer"
@@ -310,9 +540,6 @@ msgstr "Tilgjengelige filtere"
 msgid "Selected Filters"
 msgstr "Valgte filtere"
 
-msgid "Confirm"
-msgstr "Bekreft"
-
 msgid "There are no items on this dashboard"
 msgstr "Det er ingen elementer på dette dashbordet"
 
@@ -321,6 +548,9 @@ msgstr "Vis færre"
 
 msgid "Show more"
 msgstr "Vis mer"
+
+msgid "Open visualization in new tab"
+msgstr ""
 
 msgid "Insert"
 msgstr "Sett inn"
@@ -336,9 +566,6 @@ msgstr ""
 
 msgid "Additional items"
 msgstr "Ytterligere elementer"
-
-msgid "Dashboard layout"
-msgstr "Dashbordoppsett"
 
 msgid "Freeflow"
 msgstr ""
@@ -377,9 +604,6 @@ msgstr "Dashbordtittel"
 msgid "Dashboard code"
 msgstr ""
 
-msgid "Code can't be longer than 50 characters"
-msgstr ""
-
 msgid "Dashboard description"
 msgstr "Beskrivelse av dashbord"
 
@@ -402,9 +626,6 @@ msgstr ""
 
 msgid "Start of dashboard"
 msgstr ""
-
-msgid "Print"
-msgstr "Skriv ut"
 
 msgid "dashboard layout"
 msgstr "dashbordoppsett"
@@ -452,12 +673,18 @@ msgstr "Ingen dashbord funnet. Bruk + -knappen for å lage et nytt dashbord."
 msgid "Requested dashboard not found"
 msgstr "Forespurt dashbord ikke funnet"
 
+msgid "No description"
+msgstr "Ingen beskrivelse"
+
 msgid "{{count}} selected"
 msgid_plural "{{count}} selected"
 msgstr[0] "{{count}} valgt"
 msgstr[1] "{{count}} valgt"
 
-msgid "Cannot remove filters while offline"
+msgid "Cannot edit filters while offline"
+msgstr ""
+
+msgid "Cannot edit filters on a small screen"
 msgstr ""
 
 msgid "Removing filters while offline"
@@ -468,87 +695,48 @@ msgid ""
 "want to remove all filters on this dashboard?"
 msgstr ""
 
-msgid "No, cancel"
-msgstr "Nei, avbryt"
-
 msgid "Yes, remove filters"
 msgstr ""
 
-msgid "The dashboard couldn't be made available offline. Try again."
+msgid "Exit slideshow"
 msgstr ""
 
-msgid "Failed to unstar the dashboard"
-msgstr "Kunne ikke fjerne stjernemerket på dashbordet"
-
-msgid "Failed to star the dashboard"
-msgstr "Kunne ikke stjernemerke dashbordet"
-
-msgid "Remove from offline storage"
+msgid "Previous item"
 msgstr ""
 
-msgid "Make available offline"
+msgid "Next item"
 msgstr ""
 
-msgid "Sync offline data now"
+msgid "{{name}}: {{filter}}"
 msgstr ""
 
-msgid "Unstar dashboard"
-msgstr "Fjern stjerne fra dashbordet"
+msgid "{{count}} filters active"
+msgid_plural "{{count}} filters active"
+msgstr[0] ""
+msgstr[1] ""
 
-msgid "Star dashboard"
-msgstr "Merk dashbord med stjerne"
-
-msgid "Hide description"
-msgstr "Skjul beskrivelse"
-
-msgid "Show description"
-msgstr "Vis beskrivelse"
-
-msgid "One item per page"
-msgstr "Ett element per side"
-
-msgid "Close dashboard"
+msgid "Fetching external dashboard"
 msgstr ""
 
-msgid "More"
-msgstr "Mer"
+msgid "Error"
+msgstr "Feil"
 
-msgid "Edit"
-msgstr "Rediger"
-
-msgid "Share"
-msgstr "Del"
-
-msgid "Clear dashboard filters?"
+msgid "Could not load Superset dashboard"
 msgstr ""
 
-msgid ""
-"A dashboard's filters can’t be saved offline. Do you want to remove the "
-"filters and make this dashboard available offline?"
-msgstr ""
-
-msgid "Yes, clear filters and sync"
-msgstr ""
-
-msgid "No description"
-msgstr "Ingen beskrivelse"
-
-msgid "Add filter"
-msgstr "Legg til filter"
-
-msgid "Offline data last updated {{time}}"
-msgstr ""
-
-msgid "Cannot unstar this dashboard while offline"
-msgstr ""
-
-msgid "Cannot star this dashboard while offline"
+msgid "Retry"
 msgstr ""
 
 msgid "Loading dashboard – {{name}}"
 msgstr "Laster dashbord - {{name}}"
 
 msgid "Loading dashboard"
+msgstr ""
+
+msgid "Load dashboard failed"
+msgstr ""
+
+msgid "This dashboard could not be loaded. Please try again later."
 msgstr ""
 
 msgid "Offline"
@@ -558,10 +746,4 @@ msgid "This dashboard cannot be loaded while offline."
 msgstr ""
 
 msgid "Go to start page"
-msgstr ""
-
-msgid "Load dashboard failed"
-msgstr ""
-
-msgid "This dashboard could not be loaded. Please try again later."
 msgstr ""

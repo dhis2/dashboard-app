@@ -107,7 +107,7 @@ const ItemSelector = () => {
                 />
             </span>
             {isOpen && (
-                <Layer onClick={closeMenu}>
+                <Layer onBackdropClick={closeMenu}>
                     <Popper reference={inputRef} placement="bottom-start">
                         <div className={classes.popover}>
                             <FlyoutMenu

@@ -27,30 +27,28 @@ import {
     EVENT_VISUALIZATION,
 } from '../../../../modules/itemTypes.js'
 import { isSmallScreen } from '../../../../modules/smallScreen.js'
+import { useSystemSettings } from '../../../AppDataProvider/AppDataProvider.jsx'
 import MenuItem from '../../../MenuItemWithTooltip.jsx'
-import { useSystemSettings } from '../../../SystemSettingsProvider.jsx'
 import { useWindowDimensions } from '../../../WindowDimensionsProvider.jsx'
 import ViewAsMenuItems from './ViewAsMenuItems.jsx'
 
 const ItemContextMenu = (props) => {
     const [menuIsOpen, setMenuIsOpen] = useState(false)
     const { width } = useWindowDimensions()
-    const { baseUrl } = useConfig()
+    const { baseUrl, apiVersion } = useConfig()
 
     const {
         allowVisOpenInApp,
         allowVisShowInterpretations,
         allowVisViewAs,
         allowVisFullscreen,
-    } = useSystemSettings().systemSettings
-
-    const fullscreenAllowed = props.fullscreenSupported && allowVisFullscreen
+    } = useSystemSettings()
 
     const noOptionsEnabled =
         !allowVisOpenInApp &&
         !allowVisShowInterpretations &&
         !allowVisViewAs &&
-        !fullscreenAllowed
+        !allowVisFullscreen
 
     if (noOptionsEnabled || (!allowVisOpenInApp && props.loadItemFailed)) {
         return null
@@ -94,9 +92,10 @@ const ItemContextMenu = (props) => {
 
     const buttonRef = createRef()
 
-    const itemHref = `${baseUrl}/${itemTypeMap[item.type].appUrl(
-        getVisualizationId(item)
-    )}`
+    const itemHref = `${baseUrl}/${itemTypeMap[item.type].appUrl({
+        id: getVisualizationId(item),
+        apiVersion,
+    })}`
 
     return (
         <>
@@ -108,7 +107,6 @@ const ItemContextMenu = (props) => {
                     onClick={openMenu}
                     dataTest="dashboarditem-menu-button"
                     icon={<IconMore16 color={colors.grey700} />}
-                    tabIndex={props.tabIndex}
                 />
             </div>
             {menuIsOpen && (
@@ -130,7 +128,7 @@ const ItemContextMenu = (props) => {
                                 {(allowVisShowInterpretations ||
                                     (allowVisOpenInApp &&
                                         !isSmallScreen(width)) ||
-                                    fullscreenAllowed) && (
+                                    allowVisFullscreen) && (
                                     <Divider dataTest="divider" />
                                 )}
                             </>
@@ -153,7 +151,7 @@ const ItemContextMenu = (props) => {
                                 onClick={toggleInterpretations}
                             />
                         )}
-                        {fullscreenAllowed && !loadItemFailed && (
+                        {allowVisFullscreen && !loadItemFailed && (
                             <MenuItem
                                 disabledWhenOffline={false}
                                 icon={<IconFullscreen16 />}
@@ -172,10 +170,8 @@ ItemContextMenu.propTypes = {
     activeFooter: PropTypes.bool,
     activeType: PropTypes.string,
     enterFullscreen: PropTypes.func,
-    fullscreenSupported: PropTypes.bool,
     item: PropTypes.object,
     loadItemFailed: PropTypes.bool,
-    tabIndex: PropTypes.string,
     visualization: PropTypes.object,
     onSelectActiveType: PropTypes.func,
     onToggleFooter: PropTypes.func,

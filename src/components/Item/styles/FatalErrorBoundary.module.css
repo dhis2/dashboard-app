@@ -1,0 +1,8 @@
+.container {
+    text-align: center;
+    margin: 5px;
+    position: absolute;
+    inset-block-start: 50%;
+    inset-inline-start: 50%;
+    transform: translate(-50%, -50%);
+}

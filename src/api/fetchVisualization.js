@@ -1,4 +1,3 @@
-import { getInstance } from 'd2'
 import { getVisualizationId } from '../modules/item.js'
 import {
     getEndPointName,
@@ -7,7 +6,7 @@ import {
 } from '../modules/itemTypes.js'
 import { getMapFields, getFavoriteFields } from './metadata.js'
 
-export const apiFetchVisualization = async (item) => {
+export const apiFetchVisualization = async (item, dataEngine) => {
     const id = getVisualizationId(item)
     const fields =
         item.type === MAP
@@ -18,9 +17,13 @@ export const apiFetchVisualization = async (item) => {
                   withRepetition: item.type === EVENT_VISUALIZATION,
               })
 
-    const d2 = await getInstance()
-
-    return await d2.Api.getApi().get(`${getEndPointName(item.type)}/${id}`, {
-        fields,
+    return await dataEngine.query({
+        [item.type]: {
+            resource: getEndPointName(item.type),
+            id,
+            params: {
+                fields,
+            },
+        },
     })
 }

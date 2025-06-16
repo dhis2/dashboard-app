@@ -5,14 +5,140 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1)\n"
-"POT-Creation-Date: 2024-12-19T11:30:27.893Z\n"
-"PO-Revision-Date: 2024-12-19T11:30:27.893Z\n"
+"POT-Creation-Date: 2025-05-14T10:27:41.184Z\n"
+"PO-Revision-Date: 2025-05-14T10:27:41.185Z\n"
 
 msgid "Untitled dashboard"
 msgstr "Untitled dashboard"
 
-msgid "Dashboards"
-msgstr "Dashboards"
+msgid "Could not get info from Superset gateway endpoint"
+msgstr "Could not get info from Superset gateway endpoint"
+
+msgid "Dashboard with ID \"{{dashboardId}}\" not found or not accessible"
+msgstr "Dashboard with ID \"{{dashboardId}}\" not found or not accessible"
+
+msgid "Dashboard with ID \"{{dashboardId}}\" is not embedded"
+msgstr "Dashboard with ID \"{{dashboardId}}\" is not embedded"
+
+msgid "Embedded provider must be \"SUPERSET\" for dashboard ID \"{{dashboardId}}\""
+msgstr "Embedded provider must be \"SUPERSET\" for dashboard ID \"{{dashboardId}}\""
+
+msgid "Superset Embed UUID not found for dashboard ID \"{{dashboardId}}\""
+msgstr "Superset Embed UUID not found for dashboard ID \"{{dashboardId}}\""
+
+msgid "Dashboard with ID \"{{dashboardId}}\" not found on the Superset service"
+msgstr "Dashboard with ID \"{{dashboardId}}\" not found on the Superset service"
+
+msgid ""
+"Could not get guest token from Superset Gateway for dashboard ID "
+"\"{{dashboardId}}\""
+msgstr ""
+"Could not get guest token from Superset Gateway for dashboard ID "
+"\"{{dashboardId}}\""
+
+msgid "Network error"
+msgstr "Network error"
+
+msgid "Could not load app data"
+msgstr "Could not load app data"
+
+msgid "New dashboard: external"
+msgstr "New dashboard: external"
+
+msgid "Could not create dashboard"
+msgstr "Could not create dashboard"
+
+msgid "An unknown error occurred"
+msgstr "An unknown error occurred"
+
+msgid "Save dashboard"
+msgstr "Save dashboard"
+
+msgid "Back"
+msgstr "Back"
+
+msgid "Title"
+msgstr "Title"
+
+msgid "Code"
+msgstr "Code"
+
+msgid ""
+"A unique code to reference this dashboard in other apps and services. Max "
+"50 characters."
+msgstr ""
+"A unique code to reference this dashboard in other apps and services. Max "
+"50 characters."
+
+msgid "Code can't be longer than 50 characters"
+msgstr "Code can't be longer than 50 characters"
+
+msgid "Description"
+msgstr "Description"
+
+msgid "Superset Embed ID"
+msgstr "Superset Embed ID"
+
+msgid "Invalid UUID"
+msgstr "Invalid UUID"
+
+msgid "Options"
+msgstr "Options"
+
+msgid "Show chart controls on dashboard items"
+msgstr "Show chart controls on dashboard items"
+
+msgid "Expand filters"
+msgstr "Expand filters"
+
+msgid "Delete dashboard"
+msgstr "Delete dashboard"
+
+msgid ""
+"Deleting dashboard \"{{ dashboardName }}\" will remove it for all users. "
+"This action cannot be undone. Are you sure you want to permanently delete "
+"this dashboard?"
+msgstr ""
+"Deleting dashboard \"{{ dashboardName }}\" will remove it for all users. "
+"This action cannot be undone. Are you sure you want to permanently delete "
+"this dashboard?"
+
+msgid ""
+"Note: the source dashboard embedded by this external dashboard will not be "
+"deleted."
+msgstr ""
+"Note: the source dashboard embedded by this external dashboard will not be "
+"deleted."
+
+msgid "Delete"
+msgstr "Delete"
+
+msgid "Cancel"
+msgstr "Cancel"
+
+msgid "Edit external dashboard"
+msgstr "Edit external dashboard"
+
+msgid "New dashboard: choose type"
+msgstr "New dashboard: choose type"
+
+msgid "Internal"
+msgstr "Internal"
+
+msgid "Show data and visualizations from this DHIS2 instance."
+msgstr "Show data and visualizations from this DHIS2 instance."
+
+msgid "External"
+msgstr "External"
+
+msgid "Embed a Superset dashboard"
+msgstr "Embed a Superset dashboard"
+
+msgid "Continue"
+msgstr "Continue"
+
+msgid "Not available for embedded dashboards"
+msgstr "Not available for embedded dashboards"
 
 msgid "The dashboard couldn't be made available offline. Try again."
 msgstr "The dashboard couldn't be made available offline. Try again."
@@ -81,8 +207,11 @@ msgstr "No, cancel"
 msgid "Yes, clear filters and sync"
 msgstr "Yes, clear filters and sync"
 
-msgid "Cancel"
-msgstr "Cancel"
+msgid "This dashboard is showing data from outside this system"
+msgstr "This dashboard is showing data from outside this system"
+
+msgid "External source"
+msgstr "External source"
 
 msgid "Confirm"
 msgstr "Confirm"
@@ -117,17 +246,41 @@ msgstr "Create a new dashboard using the + button."
 msgid "Search for a dashboard"
 msgstr "Search for a dashboard"
 
-msgid "No dashboards found"
-msgstr "No dashboards found"
+msgid "No dashboards found for \"{{- filterText}}\""
+msgstr "No dashboards found for \"{{- filterText}}\""
 
-msgid "{{appKey}} app not found"
-msgstr "{{appKey}} app not found"
+msgid "Dashboards"
+msgstr "Dashboards"
+
+msgid "There was a problem loading this dashboard item"
+msgstr "There was a problem loading this dashboard item"
+
+msgid "Open menu"
+msgstr "Open menu"
+
+msgid "Open in {{appName}}"
+msgstr "Open in {{appName}}"
+
+msgid "View fullscreen"
+msgstr "View fullscreen"
 
 msgid "Remove this item"
 msgstr "Remove this item"
 
 msgid "This item has been shortened to fit on one page"
 msgstr "This item has been shortened to fit on one page"
+
+msgid "The plugin needed to display this item is not available"
+msgstr "The plugin needed to display this item is not available"
+
+msgid "Install the {{pluginName}} plugin from the App Hub"
+msgstr "Install the {{pluginName}} plugin from the App Hub"
+
+msgid "There was an error loading data for this item"
+msgstr "There was an error loading data for this item"
+
+msgid "Open this item in {{appName}}"
+msgstr "Open this item in {{appName}}"
 
 msgid "Remove"
 msgstr "Remove"
@@ -174,23 +327,14 @@ msgstr "Only Period and Organisation unit filters can be applied to this item"
 msgid "Some filters not applied"
 msgstr "Some filters not applied"
 
-msgid "There was a problem loading this dashboard item"
-msgstr "There was a problem loading this dashboard item"
-
 msgid "Hide details and interpretations"
 msgstr "Hide details and interpretations"
 
 msgid "Show details and interpretations"
 msgstr "Show details and interpretations"
 
-msgid "Open menu"
-msgstr "Open menu"
-
 msgid "Open in {{appName}} app"
 msgstr "Open in {{appName}} app"
-
-msgid "View fullscreen"
-msgstr "View fullscreen"
 
 msgid "This map can't be displayed as a chart"
 msgstr "This map can't be displayed as a chart"
@@ -216,38 +360,44 @@ msgstr "View as Map"
 msgid "There was a problem loading interpretations for this item"
 msgstr "There was a problem loading interpretations for this item"
 
-msgid "The plugin for rendering this item is not available"
-msgstr "The plugin for rendering this item is not available"
-
-msgid "Install the {{appName}} app from the App Hub"
-msgstr "Install the {{appName}} app from the App Hub"
-
 msgid "No data to display"
 msgstr "No data to display"
 
 msgid ""
-"Install Line Listing app version ${minLLVersion.join(\n"
-"                                '.'\n"
-"                            )} or higher in order to display this item."
+"Install Data Visualizer app ${minDVVersion.join(\n"
+"                            '.'\n"
+"                        )} or higher in order to display this item."
 msgstr ""
-"Install Line Listing app version ${minLLVersion.join(\n"
-"                                '.'\n"
-"                            )} or higher in order to display this item."
+"Install Data Visualizer app ${minDVVersion.join(\n"
+"                            '.'\n"
+"                        )} or higher in order to display this item."
 
 msgid "Show without filters"
 msgstr "Show without filters"
 
+msgid ""
+"Install Line Listing app ${minLLVersion.join(\n"
+"                            '.'\n"
+"                        )} or higher in order to display this item."
+msgstr ""
+"Install Line Listing app ${minLLVersion.join(\n"
+"                            '.'\n"
+"                        )} or higher in order to display this item."
+
 msgid "Maps with Earth Engine layers cannot be displayed when offline"
 msgstr "Maps with Earth Engine layers cannot be displayed when offline"
 
+msgid ""
+"Install Maps app ${minMapsVersion.join(\n"
+"                            '.'\n"
+"                        )} or higher in order to display this item."
+msgstr ""
+"Install Maps app ${minMapsVersion.join(\n"
+"                            '.'\n"
+"                        )} or higher in order to display this item."
+
 msgid "Unable to load the plugin for this item"
 msgstr "Unable to load the plugin for this item"
-
-msgid "There was an error loading data for this item"
-msgstr "There was an error loading data for this item"
-
-msgid "Open this item in {{appName}}"
-msgstr "Open this item in {{appName}}"
 
 msgid "Resources"
 msgstr "Resources"
@@ -281,6 +431,15 @@ msgstr "Apps"
 
 msgid "Users"
 msgstr "Users"
+
+msgid "Could not update dashboard {{name}}"
+msgstr "Could not update dashboard {{name}}"
+
+msgid "Could not delete dashboard {{name}}"
+msgstr "Could not delete dashboard {{name}}"
+
+msgid "Could not load dashboard details"
+msgstr "Could not load dashboard details"
 
 msgid ""
 "Failed to save dashboard. You might be offline or not have access to edit "
@@ -324,24 +483,18 @@ msgstr "Translate"
 msgid "Cannot delete this dashboard while offline"
 msgstr "Cannot delete this dashboard while offline"
 
-msgid "Delete"
-msgstr "Delete"
-
 msgid "Exit without saving"
 msgstr "Exit without saving"
 
 msgid "Go to dashboards"
 msgstr "Go to dashboards"
 
-msgid "Delete dashboard"
-msgstr "Delete dashboard"
-
 msgid ""
-"Deleting dashboard \"{{ dashboardName }}\" will remove it for all users. "
+"Deleting dashboard \"{{- dashboardName }}\" will remove it for all users. "
 "This action cannot be undone. Are you sure you want to permanently delete "
 "this dashboard?"
 msgstr ""
-"Deleting dashboard \"{{ dashboardName }}\" will remove it for all users. "
+"Deleting dashboard \"{{- dashboardName }}\" will remove it for all users. "
 "This action cannot be undone. Are you sure you want to permanently delete "
 "this dashboard?"
 
@@ -472,9 +625,6 @@ msgstr "Dashboard title"
 msgid "Dashboard code"
 msgstr "Dashboard code"
 
-msgid "Code can't be longer than 50 characters"
-msgstr "Code can't be longer than 50 characters"
-
 msgid "Dashboard description"
 msgstr "Dashboard description"
 
@@ -591,6 +741,25 @@ msgid "{{count}} filters active"
 msgid_plural "{{count}} filters active"
 msgstr[0] "{{count}} filter active"
 msgstr[1] "{{count}} filters active"
+
+msgid ""
+"There was a problem loading the embedded dashboard content from an external "
+"service"
+msgstr ""
+"There was a problem loading the embedded dashboard content from an external "
+"service"
+
+msgid "Fetching external dashboard"
+msgstr "Fetching external dashboard"
+
+msgid "Error"
+msgstr "Error"
+
+msgid "Could not load Superset dashboard"
+msgstr "Could not load Superset dashboard"
+
+msgid "Retry"
+msgstr "Retry"
 
 msgid "Loading dashboard – {{name}}"
 msgstr "Loading dashboard – {{name}}"

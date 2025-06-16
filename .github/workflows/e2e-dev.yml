@@ -1,0 +1,73 @@
+name: 'e2e development'
+
+on:
+    pull_request:
+        types: ['opened', 'labeled', 'reopened', 'synchronize']
+
+env:
+    CI: true
+    DEV_URL: 'https://test.e2e.dhis2.org/analytics-dev'
+    API_VERSION: 42
+    SHOULD_RECORD: ${{ contains(github.event.pull_request.labels.*.name, 'e2e record') }}
+
+concurrency:
+    group: ${{ github.workflow}}-${{ github.ref }}
+    cancel-in-progress: true
+
+defaults:
+    run:
+        shell: bash
+
+jobs:
+    setup-matrix:
+        if: ${{ contains(github.event.pull_request.labels.*.name, 'e2e dev') }}
+        runs-on: ubuntu-latest
+        outputs:
+            matrix: ${{ steps.set-matrix.outputs.specs }}
+        steps:
+            - uses: actions/checkout@v4
+            - name: Generate Test matrix
+              id: set-matrix
+              run: echo "::set-output name=specs::$(node cypress/support/generateTestMatrix.js)"
+
+    e2e-dev:
+        needs: setup-matrix
+        if: ${{ contains(github.event.pull_request.labels.*.name, 'e2e dev') }}
+        runs-on: ubuntu-latest
+        strategy:
+            fail-fast: false
+            matrix:
+                spec-group: ${{ fromJson(needs.setup-matrix.outputs.matrix) }}
+        steps:
+            - uses: actions/checkout@v4
+            - uses: actions/setup-node@v4
+              with:
+                  node-version: 20.x
+            - name: Install
+              run: yarn install --frozen-lockfile
+
+            - name: Generate translations
+              run: yarn d2-app-scripts i18n generate
+
+            - name: Run e2e tests
+              uses: cypress-io/github-action@v5
+              with:
+                  start: yarn d2-app-scripts start
+                  wait-on: 'http://localhost:3000'
+                  wait-on-timeout: 300
+                  record: ${{ env.SHOULD_RECORD  == 'true' }}
+                  parallel: ${{ env.SHOULD_RECORD == 'true' }}
+                  browser: chrome
+                  spec: ${{ join(matrix.spec-group.tests, ',') }}
+                  group: ${{ env.SHOULD_RECORD == 'true' && format('e2e-chrome-parallel-{0}', matrix.spec-group.id) || '' }}
+                  ci-build-id: ${{ env.SHOULD_RECORD == 'true' && github.run_id || '' }}
+              env:
+                  CI: true
+                  BROWSER: none
+                  CYPRESS_RECORD_KEY: ${{ secrets.recordkey }}
+                  CYPRESS_dhis2BaseUrl: ${{ env.DEV_URL }}
+                  CYPRESS_dhis2InstanceVersion: ${{ env.API_VERSION }}
+                  CYPRESS_dhis2Username: ${{ secrets.CYPRESS_DHIS2_USERNAME }}
+                  CYPRESS_dhis2Password: ${{ secrets.CYPRESS_DHIS2_PASSWORD }}
+                  CYPRESS_networkMode: live
+                  GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

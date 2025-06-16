@@ -6,7 +6,7 @@
     align-items: center;
 }
 
-.blockCreationNavigation {
+.creationNavigationBlock {
     display: flex;
     block-size: 100%;
     align-items: center;
@@ -17,8 +17,7 @@
 }
 
 @media only screen and (max-width: 480px) {
-    .blockCreationNavigation .createDashboardButton,
-    .navMenuButtonText {
-        display: none;
+    .creationNavigationBlock {
+        padding: var(--spacers-dp4) var(--spacers-dp8) 5px var(--spacers-dp4);
     }
 }

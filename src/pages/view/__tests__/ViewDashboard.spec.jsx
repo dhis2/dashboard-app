@@ -32,6 +32,10 @@ jest.mock('@dhis2/app-runtime', () => ({
     })),
 }))
 
+jest.mock('../../../components/WindowDimensionsProvider.js', () => ({
+    useWindowDimensions: jest.fn(() => ({ width: 1920, height: 1080 })),
+}))
+
 jest.mock('../../../api/fetchDashboard')
 
 jest.mock(

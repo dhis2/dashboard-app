@@ -1,0 +1,210 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ListItem component renders correctly in fullscreen mode 1`] = `
+<DocumentFragment>
+  <div
+    class="itemHeaderWrap"
+  >
+    <p
+      class="itemTitle"
+    >
+      Resources
+    </p>
+    <div
+      class="itemHeaderRightWrap"
+    />
+  </div>
+  <div
+    class="jsx-742385706 jsx-3230761442 "
+    data-test="dhis2-uicore-divider"
+    role="separator"
+  />
+  <div
+    class="content fullscreen"
+  >
+    <ul
+      class="list"
+    >
+      <li
+        class="item"
+      >
+        <span
+          class="itemContent"
+        >
+          <svg
+            color="#6C7787"
+            height="16"
+            viewBox="0 0 16 16"
+            width="16"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M9 1l4 4v9a1 1 0 01-1 1H4a1 1 0 01-1-1V2a1 1 0 011-1zM8 2H4v12h8V6H8zm-.5 9a.5.5 0 110 1h-2a.5.5 0 110-1zm1-2a.5.5 0 010 1h-3a.5.5 0 010-1zm2-2a.5.5 0 110 1h-5a.5.5 0 010-1zM9 2.415V5h2.586z"
+              fill="currentColor"
+            />
+          </svg>
+          <a
+            class="link"
+            href="../api/documents/resource1/data"
+            rel="noreferrer"
+            style="color: rgb(33, 41, 52);"
+            tabindex="0"
+            target="_top"
+          >
+            Resource 1
+          </a>
+        </span>
+      </li>
+      <li
+        class="item"
+      >
+        <span
+          class="itemContent"
+        >
+          <svg
+            color="#6C7787"
+            height="16"
+            viewBox="0 0 16 16"
+            width="16"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M9 1l4 4v9a1 1 0 01-1 1H4a1 1 0 01-1-1V2a1 1 0 011-1zM8 2H4v12h8V6H8zm-.5 9a.5.5 0 110 1h-2a.5.5 0 110-1zm1-2a.5.5 0 010 1h-3a.5.5 0 010-1zm2-2a.5.5 0 110 1h-5a.5.5 0 010-1zM9 2.415V5h2.586z"
+              fill="currentColor"
+            />
+          </svg>
+          <a
+            class="link"
+            href="../api/documents/resource2/data"
+            rel="noreferrer"
+            style="color: rgb(33, 41, 52);"
+            tabindex="0"
+            target="_top"
+          >
+            Resource 2
+          </a>
+        </span>
+      </li>
+    </ul>
+  </div>
+</DocumentFragment>
+`;
+
+exports[`ListItem component renders correctly in view mode with content items 1`] = `
+<DocumentFragment>
+  <div
+    class="itemHeaderWrap"
+  >
+    <p
+      class="itemTitle"
+    >
+      Resources
+    </p>
+    <div
+      class="itemHeaderRightWrap"
+    />
+  </div>
+  <div
+    class="jsx-742385706 jsx-3230761442 "
+    data-test="dhis2-uicore-divider"
+    role="separator"
+  />
+  <div
+    class="content"
+  >
+    <ul
+      class="list"
+    >
+      <li
+        class="item"
+      >
+        <span
+          class="itemContent"
+        >
+          <svg
+            color="#6C7787"
+            height="16"
+            viewBox="0 0 16 16"
+            width="16"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M9 1l4 4v9a1 1 0 01-1 1H4a1 1 0 01-1-1V2a1 1 0 011-1zM8 2H4v12h8V6H8zm-.5 9a.5.5 0 110 1h-2a.5.5 0 110-1zm1-2a.5.5 0 010 1h-3a.5.5 0 010-1zm2-2a.5.5 0 110 1h-5a.5.5 0 010-1zM9 2.415V5h2.586z"
+              fill="currentColor"
+            />
+          </svg>
+          <a
+            class="link"
+            href="../api/documents/resource1/data"
+            rel="noreferrer"
+            style="color: rgb(33, 41, 52);"
+            tabindex="0"
+            target="_top"
+          >
+            Resource 1
+          </a>
+        </span>
+      </li>
+      <li
+        class="item"
+      >
+        <span
+          class="itemContent"
+        >
+          <svg
+            color="#6C7787"
+            height="16"
+            viewBox="0 0 16 16"
+            width="16"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M9 1l4 4v9a1 1 0 01-1 1H4a1 1 0 01-1-1V2a1 1 0 011-1zM8 2H4v12h8V6H8zm-.5 9a.5.5 0 110 1h-2a.5.5 0 110-1zm1-2a.5.5 0 010 1h-3a.5.5 0 010-1zm2-2a.5.5 0 110 1h-5a.5.5 0 010-1zM9 2.415V5h2.586z"
+              fill="currentColor"
+            />
+          </svg>
+          <a
+            class="link"
+            href="../api/documents/resource2/data"
+            rel="noreferrer"
+            style="color: rgb(33, 41, 52);"
+            tabindex="0"
+            target="_top"
+          >
+            Resource 2
+          </a>
+        </span>
+      </li>
+    </ul>
+  </div>
+</DocumentFragment>
+`;
+
+exports[`ListItem component renders correctly with no content items 1`] = `
+<DocumentFragment>
+  <div
+    class="itemHeaderWrap"
+  >
+    <p
+      class="itemTitle"
+    >
+      Resources
+    </p>
+    <div
+      class="itemHeaderRightWrap"
+    />
+  </div>
+  <div
+    class="jsx-742385706 jsx-3230761442 "
+    data-test="dhis2-uicore-divider"
+    role="separator"
+  />
+  <div
+    class="content"
+  >
+    <ul
+      class="list"
+    />
+  </div>
+</DocumentFragment>
+`;

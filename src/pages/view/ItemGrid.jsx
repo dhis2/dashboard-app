@@ -1,12 +1,13 @@
-import { useCachedDataQuery } from '@dhis2/analytics'
 import { useDhis2ConnectionStatus } from '@dhis2/app-runtime'
 import i18n from '@dhis2/d2-i18n'
 import cx from 'classnames'
 import PropTypes from 'prop-types'
-import React, { useState, useEffect, useRef } from 'react'
+import React, { useCallback, useState, useEffect, useRef } from 'react'
 import { Responsive as ResponsiveReactGridLayout } from 'react-grid-layout'
 import { useSelector } from 'react-redux'
+import { useInstalledApps } from '../../components/AppDataProvider/AppDataProvider.jsx'
 import { useContainerWidth } from '../../components/DashboardContainer.jsx'
+import LastUpdatedTag from '../../components/DashboardsBar/InformationBlock/LastUpdatedTag.jsx'
 import { Item } from '../../components/Item/Item.jsx'
 import NoContentMessage from '../../components/NoContentMessage.jsx'
 import ProgressiveLoadingContainer from '../../components/ProgressiveLoadingContainer.jsx'
@@ -43,7 +44,7 @@ const ResponsiveItemGrid = ({ dashboardIsCached }) => {
     const dashboardItems = useSelector(sGetSelectedDashboardItems)
     const { width } = useWindowDimensions()
     const containerWidth = useContainerWidth()
-    const { apps } = useCachedDataQuery()
+    const apps = useInstalledApps()
     const [expandedItems, setExpandedItems] = useState({})
     const [displayItems, setDisplayItems] = useState(dashboardItems)
     const [layoutSm, setLayoutSm] = useState([])
@@ -94,16 +95,19 @@ const ResponsiveItemGrid = ({ dashboardIsCached }) => {
         }
     }, [recordingState])
 
-    const onToggleItemExpanded = (clickedId) => {
-        const isExpanded =
-            typeof expandedItems[clickedId] === 'boolean'
-                ? expandedItems[clickedId]
-                : false
+    const onToggleItemExpanded = useCallback(
+        (clickedId) => {
+            const isExpanded =
+                typeof expandedItems[clickedId] === 'boolean'
+                    ? expandedItems[clickedId]
+                    : false
 
-        const newExpandedItems = { ...expandedItems }
-        newExpandedItems[clickedId] = !isExpanded
-        setExpandedItems(newExpandedItems)
-    }
+            const newExpandedItems = { ...expandedItems }
+            newExpandedItems[clickedId] = !isExpanded
+            setExpandedItems(newExpandedItems)
+        },
+        [expandedItems]
+    )
 
     const getItemComponent = (item) => {
         if (!layoutSm.length) {
@@ -165,6 +169,7 @@ const ResponsiveItemGrid = ({ dashboardIsCached }) => {
                     onToggleItemExpanded={onToggleItemExpanded}
                     isFullscreen={itemIsFullscreen}
                     sortIndex={sortedItems.findIndex((i) => i.id === item.id)}
+                    isSlideshowView={isSlideshowView}
                 />
             </ProgressiveLoadingContainer>
         )
@@ -186,9 +191,12 @@ const ResponsiveItemGrid = ({ dashboardIsCached }) => {
 
     return (
         <div
-            className={cx({ [classes.slideshowContainer]: isSlideshowView })}
+            className={cx(classes.container, {
+                [classes.slideshowContainer]: isSlideshowView,
+            })}
             ref={slideshowElementRef}
         >
+            {isSmallScreen(width) && <LastUpdatedTag id={dashboardId} />}
             <ResponsiveReactGridLayout
                 className={cx(classes.grid, {
                     [classes.slideshowGrid]: isSlideshowView,

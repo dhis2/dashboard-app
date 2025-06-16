@@ -13,7 +13,6 @@ import {
     BIWEEKLY,
     MONTHLY,
     BIMONTHLY,
-    useCachedDataQuery,
 } from '@dhis2/analytics'
 import i18n from '@dhis2/d2-i18n'
 import {
@@ -32,8 +31,11 @@ import {
     acRemoveItemFilter,
 } from '../../../actions/itemFilters.js'
 import { sGetItemFiltersRoot } from '../../../reducers/itemFilters.js'
-import { useSystemSettings } from '../../SystemSettingsProvider.jsx'
-import { useUserSettings } from '../../UserSettingsProvider.jsx'
+import {
+    useRootOrgUnits,
+    useSystemSettings,
+    useUserSettings,
+} from '../../AppDataProvider/AppDataProvider.jsx'
 
 const FilterDialog = ({
     dimension,
@@ -43,9 +45,9 @@ const FilterDialog = ({
     onClose,
 }) => {
     const [filters, setFilters] = useState(initiallySelectedItems)
-    const { userSettings } = useUserSettings()
-    const { systemSettings } = useSystemSettings()
-    const { rootOrgUnits } = useCachedDataQuery()
+    const userSettings = useUserSettings()
+    const systemSettings = useSystemSettings()
+    const rootOrgUnits = useRootOrgUnits()
 
     const onSelectItems = ({ dimensionId, items }) => {
         setFilters({ [dimensionId]: items })
