@@ -12,7 +12,7 @@ import {
 import DeleteItemButton from './DeleteItemButton.jsx'
 import classes from './styles/ItemHeader.module.css'
 
-const EditItemActions = ({ itemId, onDelete }) => {
+const EditItemActions = ({ itemId, onDelete = () => Promise.resolve() }) => {
     const dispatch = useDispatch()
     const columns = useSelector(sGetLayoutColumns)
     const dashboardItems = useSelector(sGetEditDashboardItems)
@@ -36,10 +36,6 @@ const EditItemActions = ({ itemId, onDelete }) => {
             <DeleteItemButton onClick={() => onDeleteItem(itemId)} />
         </div>
     )
-}
-
-EditItemActions.defaultProps = {
-    onDelete: () => Promise.resolve(),
 }
 
 EditItemActions.propTypes = {

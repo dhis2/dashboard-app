@@ -316,12 +316,10 @@ EditBar.propTypes = {
     onDiscardChanges: PropTypes.func,
 }
 
-EditBar.defaultProps = {
-    columns: [...Array(5).keys()].map((i) => ({ index: i })),
-}
-
 const mapStateToProps = (state) => ({
-    columns: sGetLayoutColumns(state),
+    columns:
+        sGetLayoutColumns(state) ||
+        [...Array(5).keys()].map((i) => ({ index: i })),
     dashboard: sGetEditDashboardRoot(state),
     isPrintPreviewView: sGetIsPrintPreviewView(state),
     isDirty: sGetEditIsDirty(state),

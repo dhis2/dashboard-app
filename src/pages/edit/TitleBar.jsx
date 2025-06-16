@@ -26,11 +26,11 @@ import { LayoutModal } from './LayoutModal.jsx'
 import classes from './styles/TitleBar.module.css'
 
 const EditTitleBar = ({
-    insertPosition,
+    insertPosition = 'END',
     columns,
-    description,
-    name,
-    code,
+    description = '',
+    name = '',
+    code = '',
     onChangeCode,
     onChangeInsertPosition,
     onChangeTitle,
@@ -175,13 +175,6 @@ EditTitleBar.propTypes = {
     description: PropTypes.string,
     insertPosition: PropTypes.string,
     name: PropTypes.string,
-}
-
-EditTitleBar.defaultProps = {
-    name: '',
-    code: '',
-    description: '',
-    insertPosition: 'END',
 }
 
 const mapStateToProps = (state) => {

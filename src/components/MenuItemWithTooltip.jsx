@@ -6,10 +6,10 @@ import PropTypes from 'prop-types'
 import React from 'react'
 
 const MenuItemWithTooltip = ({
-    disabledWhenOffline,
-    tooltip,
+    disabledWhenOffline = true,
+    tooltip = '',
     label,
-    disabled,
+    disabled = false,
     ...rest
 }) => {
     const { isDisconnected: offline } = useDhis2ConnectionStatus()
@@ -45,12 +45,6 @@ MenuItemWithTooltip.propTypes = {
     disabledWhenOffline: PropTypes.bool,
     label: PropTypes.string,
     tooltip: PropTypes.string,
-}
-
-MenuItemWithTooltip.defaultProps = {
-    disabled: false,
-    disabledWhenOffline: true,
-    tooltip: '',
 }
 
 export default MenuItemWithTooltip
