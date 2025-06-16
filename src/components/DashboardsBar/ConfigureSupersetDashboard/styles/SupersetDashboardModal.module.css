@@ -1,0 +1,56 @@
+.modalContent {
+    position: relative;
+}
+.contentOverlay {
+    position: absolute;
+    inset: 0;
+    z-index: 10;
+    background-color: var(--colors-white);
+    display: flex;
+}
+.contentOverlay.loading {
+    opacity: 0.75;
+    align-items: center;
+    justify-content: center;
+}
+.contentOverlay.error {
+    flex-direction: column;
+}
+.fullWidthModalActions {
+    inline-size: 100%;
+    order: 3;
+    display: flex;
+    justify-content: flex-end;
+    align-self: flex-end;
+    margin: var(--spacers-dp16) 0 0;
+}
+.buttonStrip {
+    display: flex;
+    flex-direction: row-reverse;
+    gap: var(--spacers-dp8);
+    inline-size: 100%;
+    order: 3;
+    margin-block-start: 16px;
+}
+.deleteButton {
+    margin-inline-end: auto;
+}
+/* Without this style the focus outline on the delete button does 
+   not show even though it does get intialFocus */
+.buttonStrip .confirmDeleteButton:not(.loading):focus {
+    outline: 3px solid var(--theme-focus) !important;
+    outline-offset: -3px !important;
+    text-decoration: underline !important;
+}
+/* Prevent focus outline from showing on modal content */
+.confirmDeleteTextWrap:focus {
+    outline: none;
+}
+.deleteConfirmPrimaryMessage,
+.deleteConfirmSecondaryMessage {
+    margin-block-start: 0;
+}
+.deleteConfirmSecondaryMessage {
+    margin-block-end: 0;
+    color: var(--colors-grey600);
+}

@@ -1,10 +1,10 @@
 // Dimensions for the react-grid-layout
-import { generateUid } from 'd2/uid.js'
 import sortBy from 'lodash/sortBy.js'
 import {
     acSetHideGrid,
     acUpdateDashboardItemShapes,
 } from '../actions/editDashboard.js'
+import { generateUid } from '../modules/uid.js'
 import {
     isVisualizationType,
     itemTypeMap,

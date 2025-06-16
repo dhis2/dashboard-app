@@ -1,14 +1,20 @@
 import i18n from '@dhis2/d2-i18n'
 import PropTypes from 'prop-types'
 import React from 'react'
+import { useSelector } from 'react-redux'
 import { Link } from 'react-router-dom'
+import ExternalSourceTag from '../../components/DashboardsBar/InformationBlock/ExternalSourceTag.jsx'
 import LoadingMask from '../../components/LoadingMask.jsx'
 import Notice from '../../components/Notice.jsx'
+import { useWindowDimensions } from '../../components/WindowDimensionsProvider.jsx'
+import { isSmallScreen } from '../../modules/smallScreen.js'
+import { sGetSelectedIsEmbedded } from '../../reducers/selected.js'
 import { ROUTE_START_PATH } from '../start/index.js'
 import { Description } from './Description.jsx'
 import FilterBar from './FilterBar/FilterBar.jsx'
 import ItemGrid from './ItemGrid.jsx'
 import classes from './styles/ViewDashboard.module.css'
+import { SupersetDashboard } from './SupersetDashboard.js'
 
 export const ViewDashboardContent = ({
     loading,
@@ -16,6 +22,9 @@ export const ViewDashboardContent = ({
     loadFailed,
     isCached,
 }) => {
+    const isEmbeddedDashboard = useSelector(sGetSelectedIsEmbedded)
+    const { width } = useWindowDimensions()
+
     if (loading) {
         return <LoadingMask />
     }
@@ -35,8 +44,15 @@ export const ViewDashboardContent = ({
         return (
             <>
                 <Description />
-                <FilterBar />
-                <ItemGrid dashboardIsCached={isCached} />
+                {!isEmbeddedDashboard && <FilterBar />}
+                {isEmbeddedDashboard ? (
+                    <>
+                        {isSmallScreen(width) && <ExternalSourceTag />}
+                        <SupersetDashboard />
+                    </>
+                ) : (
+                    <ItemGrid dashboardIsCached={isCached} />
+                )}
             </>
         )
     }

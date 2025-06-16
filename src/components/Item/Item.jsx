@@ -1,4 +1,3 @@
-import { useCachedDataQuery } from '@dhis2/analytics'
 import { useDataEngine } from '@dhis2/app-runtime'
 import PropTypes from 'prop-types'
 import React from 'react'
@@ -20,6 +19,8 @@ import {
     PAGEBREAK,
     PRINT_TITLE_PAGE,
 } from '../../modules/itemTypes.js'
+import { useInstalledApps } from '../AppDataProvider/AppDataProvider.jsx'
+import { WindowDimensionsCtx } from '../WindowDimensionsProvider.jsx'
 import AppItem from './AppItem/Item.jsx'
 import ListItem from './ListItem/Item.jsx'
 import MessagesItem from './MessagesItem/Item.jsx'
@@ -62,11 +63,22 @@ const getGridItem = (type) => {
 }
 
 export const Item = (props) => {
-    const { apps } = useCachedDataQuery()
+    const apps = useInstalledApps()
     const engine = useDataEngine()
     const GridItem = getGridItem(props.item.type)
 
-    return <GridItem apps={apps} {...props} engine={engine} />
+    return (
+        <WindowDimensionsCtx.Consumer>
+            {(windowDimensions) => (
+                <GridItem
+                    apps={apps}
+                    {...props}
+                    engine={engine}
+                    windowDimensions={windowDimensions}
+                />
+            )}
+        </WindowDimensionsCtx.Consumer>
+    )
 }
 
 Item.propTypes = {

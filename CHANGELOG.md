@@ -1,3 +1,167 @@
+## [101.3.1](https://github.com/dhis2/dashboard-app/compare/v101.3.0...v101.3.1) (2025-06-11)
+
+
+### Bug Fixes
+
+* avoid crash with TranslationDialog (DHIS2-19539) ([#3279](https://github.com/dhis2/dashboard-app/issues/3279)) ([c863da1](https://github.com/dhis2/dashboard-app/commit/c863da17a9e1c7ffb6b4c43685971211f7a87b2c))
+
+# [101.3.0](https://github.com/dhis2/dashboard-app/compare/v101.2.3...v101.3.0) (2025-05-05)
+
+
+### Features
+
+* allow widgets to be filtered by period [DHIS2-19186] ([#3255](https://github.com/dhis2/dashboard-app/issues/3255)) ([1e0ddc9](https://github.com/dhis2/dashboard-app/commit/1e0ddc904b799036730de50c919a8309a514af12))
+
+## [101.2.3](https://github.com/dhis2/dashboard-app/compare/v101.2.2...v101.2.3) (2025-04-28)
+
+
+### Bug Fixes
+
+* use correct icon for Line List items in item selector (DHIS2-18470) ([#3260](https://github.com/dhis2/dashboard-app/issues/3260)) ([94491fb](https://github.com/dhis2/dashboard-app/commit/94491fb2bba4264402413b8bd683339cce1e584d))
+
+## [101.2.2](https://github.com/dhis2/dashboard-app/compare/v101.2.1...v101.2.2) (2025-04-25)
+
+
+### Bug Fixes
+
+* show dashboard selector in small screens (DHIS2-19273) ([#3256](https://github.com/dhis2/dashboard-app/issues/3256)) ([1623d2a](https://github.com/dhis2/dashboard-app/commit/1623d2aa1b590158c1a9a0c70007e585759b9d1d))
+
+## [101.2.1](https://github.com/dhis2/dashboard-app/compare/v101.2.0...v101.2.1) (2025-04-08)
+
+
+### Bug Fixes
+
+* hide the global header in print mode [DHIS2-19241] ([#3245](https://github.com/dhis2/dashboard-app/issues/3245)) ([e745560](https://github.com/dhis2/dashboard-app/commit/e745560f8f31a19aefd3ade71c8a8b2409b1cbc4))
+
+# [101.2.0](https://github.com/dhis2/dashboard-app/compare/v101.1.7...v101.2.0) (2025-04-03)
+
+
+### Features
+
+* display error when Superset gateway configuration is invalid [DHIS2-19275] ([#3247](https://github.com/dhis2/dashboard-app/issues/3247)) ([32a007c](https://github.com/dhis2/dashboard-app/commit/32a007c7e45f6d6d9d2368e70d2b3c711bbc2d9c))
+
+## [101.1.7](https://github.com/dhis2/dashboard-app/compare/v101.1.6...v101.1.7) (2025-04-03)
+
+
+### Bug Fixes
+
+* **translations:** sync translations from transifex (master) ([fdf56d2](https://github.com/dhis2/dashboard-app/commit/fdf56d26ac25081b5aaeeab32efe88205dbe9b95))
+
+## [101.1.6](https://github.com/dhis2/dashboard-app/compare/v101.1.5...v101.1.6) (2025-04-01)
+
+
+### Bug Fixes
+
+* ensure hyperlinks in text and list items work when using the global shell [DHIS2-19274] ([#3252](https://github.com/dhis2/dashboard-app/issues/3252)) ([1fca676](https://github.com/dhis2/dashboard-app/commit/1fca676086d96a7f94deec217607176e9ef4e98b))
+
+## [101.1.5](https://github.com/dhis2/dashboard-app/compare/v101.1.4...v101.1.5) (2025-03-31)
+
+
+### Bug Fixes
+
+* ensure widgets work with global shell (DHIS2-19276) ([#3253](https://github.com/dhis2/dashboard-app/issues/3253)) ([6790b73](https://github.com/dhis2/dashboard-app/commit/6790b734483e98fa6707441b1a23b34450bf13fe))
+
+## [101.1.4](https://github.com/dhis2/dashboard-app/compare/v101.1.3...v101.1.4) (2025-03-26)
+
+
+### Bug Fixes
+
+* Ensure external dashboard fields do not have undefined initial values ([#3246](https://github.com/dhis2/dashboard-app/issues/3246)) ([d63eaa6](https://github.com/dhis2/dashboard-app/commit/d63eaa6c89ee603af13cd15a9d9e6054fb249bfa))
+
+## [101.1.3](https://github.com/dhis2/dashboard-app/compare/v101.1.2...v101.1.3) (2025-03-18)
+
+
+### Bug Fixes
+
+* support bundled LL app (DHIS2-17400) ([#3238](https://github.com/dhis2/dashboard-app/issues/3238)) ([4fb6e89](https://github.com/dhis2/dashboard-app/commit/4fb6e89376cc3394187083439c4cdd4a8f628d66))
+
+## [101.1.2](https://github.com/dhis2/dashboard-app/compare/v101.1.1...v101.1.2) (2025-03-18)
+
+
+### Bug Fixes
+
+* **translations:** sync translations from transifex (master) ([#3237](https://github.com/dhis2/dashboard-app/issues/3237)) ([605407e](https://github.com/dhis2/dashboard-app/commit/605407e0d4e26420f11bafd6b2bb78da45918415))
+
+## [101.1.1](https://github.com/dhis2/dashboard-app/compare/v101.1.0...v101.1.1) (2025-03-18)
+
+
+### Bug Fixes
+
+* **deps:** cli-app-scripts 11.8.1 for pwa fix in global shell [DHIS2-18454] ([#3242](https://github.com/dhis2/dashboard-app/issues/3242)) ([170b526](https://github.com/dhis2/dashboard-app/commit/170b526e7e2312fdd93a0d93a127d269ad4d01b5)), closes [dhis2/app-platform#910](https://github.com/dhis2/app-platform/issues/910)
+
+# [101.1.0](https://github.com/dhis2/dashboard-app/compare/v101.0.4...v101.1.0) (2025-03-14)
+
+
+### Features
+
+* External Superset dashboards [DHIS2-17891] ([#3205](https://github.com/dhis2/dashboard-app/issues/3205)) ([089a2c0](https://github.com/dhis2/dashboard-app/commit/089a2c0b7faa301e6cd4ff644fc40a62c26b7b93))
+
+## [101.0.4](https://github.com/dhis2/dashboard-app/compare/v101.0.3...v101.0.4) (2025-03-05)
+
+
+### Bug Fixes
+
+* retrieve the correct plugin versions for installed and bundled apps [DHIS2-19138] ([#3236](https://github.com/dhis2/dashboard-app/issues/3236)) ([4082158](https://github.com/dhis2/dashboard-app/commit/40821588f71570d624e0fe7d95360f080a67ffdf))
+
+## [101.0.3](https://github.com/dhis2/dashboard-app/compare/v101.0.2...v101.0.3) (2025-02-20)
+
+
+### Bug Fixes
+
+* report correct data statistics eventType ([#3223](https://github.com/dhis2/dashboard-app/issues/3223)) ([117d7b7](https://github.com/dhis2/dashboard-app/commit/117d7b7d6409e540cbb689a43ba91295b4f177c8))
+
+## [101.0.2](https://github.com/dhis2/dashboard-app/compare/v101.0.1...v101.0.2) (2025-02-18)
+
+
+### Bug Fixes
+
+* **translations:** sync translations from transifex (master) ([#3218](https://github.com/dhis2/dashboard-app/issues/3218)) ([928cdc1](https://github.com/dhis2/dashboard-app/commit/928cdc184e5cf4ea65b525f5f3a7ab7ffbbe721a))
+
+## [101.0.1](https://github.com/dhis2/dashboard-app/compare/v101.0.0...v101.0.1) (2025-02-14)
+
+
+### Bug Fixes
+
+* **translations:** sync translations from transifex (master) ([#3199](https://github.com/dhis2/dashboard-app/issues/3199)) ([f7810f4](https://github.com/dhis2/dashboard-app/commit/f7810f483e3db397e0e7e93725d9421fbcef4647))
+
+# [101.0.0](https://github.com/dhis2/dashboard-app/compare/v100.5.0...v101.0.0) (2025-02-14)
+
+
+### Features
+
+* support custom 3rd party plugins along with platform plugins ([#3184](https://github.com/dhis2/dashboard-app/issues/3184)) ([9d25bb1](https://github.com/dhis2/dashboard-app/commit/9d25bb160066b9aeff3195502153e3dd1dd5b02c))
+
+
+### BREAKING CHANGES
+
+* this version is only compatible with plugin versions ->
+* Maps plugin >= v101.0.0
+* Line Listing plugin >= v102.0.0
+* Data Visualizer plugin >= v101.0.0
+
+Implements:
+* DHIS2-17283
+Support dashboard plugins built with the App Platform
+
+* DHIS2-17268
+Visualizations render twice when loading a dashboard,
+creating a flashing effect
+
+* DHIS2-18576
+If you add a filter that results in "no data" for a chart,
+removing the filter does not reload the original chart
+
+Key features
+* Add support for 3rd party dashboard plugins
+* Add item menu on plugin items that includes fullscreen button
+
+# [100.5.0](https://github.com/dhis2/dashboard-app/compare/v100.4.2...v100.5.0) (2025-02-07)
+
+
+### Features
+
+* show user's search text in the no dashboards found message ([#3207](https://github.com/dhis2/dashboard-app/issues/3207)) ([00cd977](https://github.com/dhis2/dashboard-app/commit/00cd9770027eb90f4fc1d0811c4f5c0bc2f719b6))
+
 ## [100.4.2](https://github.com/dhis2/dashboard-app/compare/v100.4.1...v100.4.2) (2025-01-22)
 
 

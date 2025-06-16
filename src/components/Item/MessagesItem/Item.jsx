@@ -6,8 +6,7 @@ import React from 'react'
 import { connect } from 'react-redux'
 import { isViewMode } from '../../../modules/dashboardModes.js'
 import { sGetMessagesRoot } from '../../../reducers/messages.js'
-import { sGetSlideshow } from '../../../reducers/slideshow.js'
-import { useUserSettings } from '../../UserSettingsProvider.jsx'
+import { useUserSettings } from '../../AppDataProvider/AppDataProvider.jsx'
 import ItemHeader from '../ItemHeader/ItemHeader.jsx'
 import { getFormattedDate } from './getFormattedDate.js'
 import classes from './styles/Item.module.css'
@@ -24,7 +23,7 @@ const messageTypes = {
 
 const MessagesItem = ({ messages, item, dashboardMode, isSlideshowView }) => {
     const { baseUrl } = useConfig()
-    const { userSettings } = useUserSettings()
+    const userSettings = useUserSettings()
 
     const getMessageHref = (msg) => {
         const msgIdentifier = msg ? `#/${msg.messageType}/${msg.id}` : ''
@@ -110,7 +109,6 @@ MessagesItem.propTypes = {
 const mapStateToProps = (state) => {
     return {
         messages: Object.values(sGetMessagesRoot(state)),
-        isSlideshowView: sGetSlideshow(state) !== null,
     }
 }
 

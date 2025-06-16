@@ -10,7 +10,6 @@ import {
 import getVisualizationContainerDomId from '../getVisualizationContainerDomId.js'
 import { loadExternalScript } from './loadExternalScript.js'
 
-//external plugins
 const itemTypeToGlobalVariable = {
     [EVENT_REPORT]: 'eventReportPlugin',
     [EVENT_CHART]: 'eventChartPlugin',

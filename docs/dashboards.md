@@ -2,7 +2,7 @@
 
 ## About the Dashboards app
 
-The Dashboards app makes it possible to present a high level overview of your data, including displaying analytical objects such as maps, charts, reports, tables, and line lists, as well as displaying text-based information, resource links, and app widgets.
+The Dashboards app makes it possible to present a high level overview of your data, including displaying analytical objects such as maps, charts, reports, tables, and line lists, as well as displaying text-based information, resource links, plugins and app widgets.
 
 Features of the Dashboards app include:
 
@@ -58,6 +58,8 @@ In create/edit mode, you can add or change the dashboard title, description, das
 
 ![](resources/images/dashboard-create-mode.png)
 
+If the system has been configured to support embedded dashboards, then you will have the option of creating a regular (internal) dashboard or embedding a dashboard from an external source. See [this section](#creating-and-editing-an-external-dashboard) for more information.
+
 ### Adding items to the dashboard
 
 Add items to the dashboard by searching for items using the **Search for items to add to this dashboard** dropdown selector. Item types are:
@@ -69,7 +71,7 @@ Add items to the dashboard by searching for items using the **Search for items t
 -   Event charts
 -   Reports
 -   Resources
--   Apps
+-   Third party plugins and app widgets
 -   Messages
 -   Text boxes
 -   Spacers
@@ -151,6 +153,35 @@ If you have access to delete the dashboard, then there will be a **Delete** butt
 
 ![Dashboard confirm delete](resources/images/dashboard-confirm-delete.png){ .center width=30% }
 
+### Creating and editing an external dashboard
+
+If the system has been configured to support embedded (Superset) dashboards, and you start creating a new dashboard by clicking the **+** button, you will be presented with a choice:
+
+![Choose dashboard type modal](resources/images/dashboard-new-choose-type.png){ .center width=70% }
+
+If you choose the "External" option here and click "continue", you will be taken to a modal form where you can create an embedded dashboard:
+
+![Create external dashboard](resources/images/external-dashboard-create.png){ .center width=70% }
+
+The "Title", "Code" and "Description" fields in this form are identical to the fields with the same names you see when creating a regular (internal) dashboard, but there are also some notable differences:
+
+-   Since the dashboard content is coming from an external system (Superset), there is no need to add dashboard items
+-   A "Superset Embed ID" needs to be provided so the app can retrieve the correct dashboard from the external Superset service
+-   The "Show chart controls on dashboard items" checkbox controls whether or not each embedded dashboard item has a dropdown menu
+-   The "Expand filters" checkbox controls whether or not the filter section of the embedded dashboard is initially expanded or collapsed
+
+![Superset dashboard with both checkboxes enabled](resources/images/superset-dashboard-with-annotations.png)
+
+Once the dashboard is created, you can star/unstar, edit and share it. You can also show and hide the description and close the dashboard. It is not possible to show it in slideshow mode, filter it, or enter print view mode.
+
+#### Configuring the system for embedded Superset dashboards
+
+In order for the embedded Superset dashboards feature to work, the following prerequisites need to be met:
+
+-   The system must have access to a Superset service ([installation instructions](https://docs.ap.baosystems.com/sysadmin/apache-superset-installation/))
+-   The Superset Gateway must be installed ([instructions](https://docs.ap.baosystems.com/sysadmin/dhis2-superset-gateway-installation/))
+-   Support for embedded dashboards must be enabled in the "Analytics" section of the [DHIS2 System Settings App](https://docs.dhis2.org/en/use/user-guides/dhis-core-version-master/configuring-the-system/system-settings.html?h=embedded+dashboards+master#system_analytics_settings)
+
 ## Viewing a dashboard
 
 The following actions are available on the dashboard in view mode:
@@ -211,6 +242,8 @@ When you enter the slideshow, you'll find navigation buttons and an exit button 
 
 To make a dashboard available offline, choose the **Make available offline** option in the **...** menu. This will cause a reload of the dashboard where requests to the server are recorded and saved in browser storage. Note that offline dashboards are only available on the computer and browser where you set it to offline. If you currently have a filter applied when requesting the dashboard be made available offline, a dialog will appear to confirm the removal of the filters.
 
+Note that some dashboard items may not be displayed when offline. Specifically, third party plugins that have not implemented offline handling, as well as maps with Google Earth Engine layers will not be displayed when offline.
+
 ![](resources/images/dashboard-clear-filters-to-sync.png)
 
 Dashboards that have been saved for offline display a tag next to the dashboard title showing the time it was saved. In the dashboard selector, an icon is displayed if the dashboard is available offline.
@@ -223,7 +256,7 @@ You can remove a dashboard from offline storaged by choosing **Remove from offli
 
 ![](resources/images/dashboard-sync-remove-offline.png)
 
-#### Other notes about Dashboards app when you are offline:
+#### Other notes about Dashboards app when you are offline
 
 If you manually log out of the DHIS2 instance, all cached dashboards will be cleared and they will no longer be available offline.
 
@@ -319,7 +352,7 @@ To share a dashboard with specific users and user groups, type the name in the i
 
 You can provide users with the url of the dashboard, allowing them to navigate directly to the dashboard. To get the dashboard url, just open the dashboard in view mode, and copy the browser url. For example, the url to the Antenatal Care dashboard in play.dhis2.org/dev is:
 
-https://play.dhis2.org/dev/dhis-web-dashboard/#/nghVC4wtyzi
+<https://play.dhis2.org/dev/dhis-web-dashboard/#/nghVC4wtyzi>
 
 ### Cascade sharing of visualizations on the dashboard
 
