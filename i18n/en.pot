@@ -5,8 +5,8 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1)\n"
-"POT-Creation-Date: 2025-05-14T10:27:41.184Z\n"
-"PO-Revision-Date: 2025-05-14T10:27:41.185Z\n"
+"POT-Creation-Date: 2025-06-18T10:05:31.915Z\n"
+"PO-Revision-Date: 2025-06-18T10:05:31.915Z\n"
 
 msgid "Untitled dashboard"
 msgstr "Untitled dashboard"
@@ -725,6 +725,24 @@ msgstr ""
 msgid "Yes, remove filters"
 msgstr "Yes, remove filters"
 
+msgid "5 seconds per slide"
+msgstr "5 seconds per slide"
+
+msgid "10 seconds per slide"
+msgstr "10 seconds per slide"
+
+msgid "20 seconds per slide"
+msgstr "20 seconds per slide"
+
+msgid "30 seconds per slide"
+msgstr "30 seconds per slide"
+
+msgid "1 minute per slide"
+msgstr "1 minute per slide"
+
+msgid "2 minutes per slide"
+msgstr "2 minutes per slide"
+
 msgid "Exit slideshow"
 msgstr "Exit slideshow"
 
@@ -733,6 +751,9 @@ msgstr "Previous item"
 
 msgid "Next item"
 msgstr "Next item"
+
+msgid "Slideshow started over 24 hours ago"
+msgstr "Slideshow started over 24 hours ago"
 
 msgid "{{name}}: {{filter}}"
 msgstr "{{name}}: {{filter}}"
