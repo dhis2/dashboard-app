@@ -88,3 +88,11 @@
     justify-content: center;
     block-size: 32px;
 }
+
+.menuItem {
+    padding-inline-end: 80px !important;
+}
+
+.unselectedMenuItem svg {
+    display: none;
+}

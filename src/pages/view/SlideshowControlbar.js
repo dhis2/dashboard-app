@@ -100,7 +100,7 @@ const SlideshowControlbar = ({
     useEffect(() => {
         const outdatedTimeout = setTimeout(
             () => setSlideshowOutdated(true),
-            1000 // 24 hours
+            24 * 60 * 1000 // 24 hours
         )
 
         return () => clearTimeout(outdatedTimeout)
@@ -220,23 +220,12 @@ const SlideshowControlbar = ({
                                 <Menu dense>
                                     {Object.entries(timingOptions).map(
                                         ([key, value]) => {
-                                            const iconColor =
-                                                msPerSlide === value.ms
-                                                    ? colors.green700
-                                                    : colors.transparent
-                                            console.log(
-                                                'jj iconColor',
-                                                iconColor
-                                            )
                                             return (
                                                 <MenuItem
                                                     className={cx(
                                                         styles.menuItem,
                                                         {
-                                                            [styles.selected]:
-                                                                msPerSlide ===
-                                                                value.ms,
-                                                            [styles.unselected]:
+                                                            [styles.unselectedMenuItem]:
                                                                 msPerSlide !==
                                                                 value.ms,
                                                         }
