@@ -31,7 +31,7 @@ import getVisualizationConfig from './getVisualizationConfig.js'
 import IframePlugin from './IframePlugin.jsx'
 import LegacyPlugin from './LegacyPlugin.jsx'
 import { pluginIsAvailable } from './plugin.js'
-import { PluginWarningMessage } from './PluginWarningMessage.js'
+import { PluginWarningMessage } from './PluginWarningMessage.jsx'
 import classes from './styles/Visualization.module.css'
 
 const mapHasEELayer = (visualization) =>

@@ -1,1 +1,1 @@
-export { CreateDashboardButton } from './CreateDashboardButton.js'
+export { CreateDashboardButton } from './CreateDashboardButton.jsx'

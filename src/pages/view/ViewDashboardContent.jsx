@@ -14,7 +14,7 @@ import { Description } from './Description.jsx'
 import FilterBar from './FilterBar/FilterBar.jsx'
 import ItemGrid from './ItemGrid.jsx'
 import classes from './styles/ViewDashboard.module.css'
-import { SupersetDashboard } from './SupersetDashboard.js'
+import { SupersetDashboard } from './SupersetDashboard.jsx'
 
 export const ViewDashboardContent = ({
     loading,
