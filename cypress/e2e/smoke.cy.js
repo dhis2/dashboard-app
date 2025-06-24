@@ -6,9 +6,8 @@ import { dashboardTitleSel } from '../elements/viewDashboard.js'
 
 // Scenario: I open the dashboard app
 //     Given I open the dashboard app
-//     Then the default dashboard displays in view mode
-it('I open the dashboard app', () => {
-    // console.log('jj TEST ************************** I open the dashboard app')
+//     Dashboard title and headerbar title are displayed
+it('Opens the dashboard app', () => {
     cy.visit('/')
     cy.get(dashboardTitleSel).should('be.visible')
     cy.getByDataTest('headerbar-title')
@@ -19,7 +18,7 @@ it('I open the dashboard app', () => {
 // Scenario: I open a specific dashboard
 //     Given I open the "Delivery" dashboard
 //     Then the "Delivery" dashboard displays in view mode
-it('I open a dashboard in the app', () => {
+it('Opens a dashboard in the app', () => {
     cy.visit('/')
     getNavigationMenuItem(dashboards.Delivery.title).click()
     cy.get(dashboardTitleSel)
@@ -34,10 +33,13 @@ it('I open a dashboard in the app', () => {
 //     Given I open the dashboard app with no dashboards
 //     Then the "No dashboards found" message is displayed
 //     And the "New" button is displayed
-it('handles no dashboards', () => {
-    // console.log('jj TEST ************************** handles no dashboards')
-    cy.intercept('**/dashboards?*', { body: { dashboards: [] } })
-    // console.log('jj after the intercept')
+it('Informs that there are no dashboards', () => {
+    cy.intercept(/\/dashboards\?[^#]*fields=id/, {
+        body: {
+            dashboards: [],
+        },
+    })
+
     cy.visit('/')
     cy.contains('No dashboards found').should('be.visible')
     cy.getByDataTest('new-button').should('be.visible')

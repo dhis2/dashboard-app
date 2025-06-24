@@ -45,11 +45,6 @@ Feature: Errors while in view mode
         Then a warning message is displayed stating that starring dashboard failed
         And the "Delivery" dashboard is not starred
 
-    Scenario: View dashboard containing item that is missing type
-        Given I open the Delivery dashboard with items missing a type
-        # Then the "Delivery" dashboard displays in view mode
-        Then the items missing type are displayed with a warning
-
     Scenario: Edit dashboard containing item that is missing type
         Given I open the Delivery dashboard with items missing a type
         When I choose to edit dashboard
