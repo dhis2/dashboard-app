@@ -3,7 +3,7 @@ import React, { useCallback, useState } from 'react'
 import { useHistory } from 'react-router-dom'
 import { useIsSupersetSupported } from '../../AppDataProvider/AppDataProvider.jsx'
 import { CreateSupersetDashboardModal } from '../ConfigureSupersetDashboard/index.js'
-import { ChooseDashboardTypeModal } from './ChooseDashboardTypeModal.js'
+import { ChooseDashboardTypeModal } from './ChooseDashboardTypeModal.jsx'
 import styles from './styles/CreateDashboardButton.module.css'
 
 export const CreateDashboardButton = () => {

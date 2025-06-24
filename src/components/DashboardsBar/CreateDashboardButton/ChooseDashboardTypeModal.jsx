@@ -8,7 +8,7 @@ import {
 } from '@dhis2/ui'
 import PropTypes from 'prop-types'
 import React, { useCallback, useState } from 'react'
-import { DashboardTypeRadio } from './DashboardTypeRadio.js'
+import { DashboardTypeRadio } from './DashboardTypeRadio.jsx'
 import styles from './styles/ChooseDashboardTypeModal.module.css'
 
 const TYPE_INTERNAL = 'INTERNAL'
