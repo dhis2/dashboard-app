@@ -34,7 +34,7 @@ it('Opens a dashboard in the app', () => {
 //     Then the "No dashboards found" message is displayed
 //     And the "New" button is displayed
 it('Informs that there are no dashboards', () => {
-    cy.intercept(/\/dashboards\?[^#]*fields=id/, {
+    cy.intercept(/\/dashboards\?/, {
         body: {
             dashboards: [],
         },
