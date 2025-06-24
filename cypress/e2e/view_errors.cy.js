@@ -305,7 +305,6 @@ it('Print dashboard containing item that is missing type', () => {
 //     Given I open a dashboard with a chart that will fail
 //     Then I delete the created dashboard
 
-
 // export const TEST_DASHBOARD_TITLE = createDashboardTitle('0ff')
 
 // Scenario: Item visualization fails when filter applied [DHIS2-11303]
@@ -341,39 +340,39 @@ it('Print dashboard containing item that is missing type', () => {
 // )
 
 // Then('an error message is displayed on the item', () => {
-    // FIXME
-    // cy.get(`${gridItemSel}.VISUALIZATION`)
-    //     .first()
-    //     .contains('There was an error loading data for this item')
-    //     .should('be.visible')
+// FIXME
+// cy.get(`${gridItemSel}.VISUALIZATION`)
+//     .first()
+//     .contains('There was an error loading data for this item')
+//     .should('be.visible')
 
-    // cy.get(`${gridItemSel}.VISUALIZATION`)
-    //     .first()
-    //     .contains('Open this item in Data Visualizer')
-    //     .should('be.visible')
+// cy.get(`${gridItemSel}.VISUALIZATION`)
+//     .first()
+//     .contains('Open this item in Data Visualizer')
+//     .should('be.visible')
 
-    // FIXME
-    //    cy.get(`${gridItemSel}.VISUALIZATION`)
-    //        .first()
-    //        .getIframeBody()
-    //        .find(chartSel)
-    //        .should('not.exist')
+// FIXME
+//    cy.get(`${gridItemSel}.VISUALIZATION`)
+//        .first()
+//        .getIframeBody()
+//        .find(chartSel)
+//        .should('not.exist')
 // })
 
 // Then('an error message not including a link is displayed on the item', () => {
-    // eslint-disable-next-line cypress/unsafe-to-chain-command
-    // cy.contains('There was an error loading data for this item')
-    //     .scrollIntoView()
-    //     .should('be.visible')
+// eslint-disable-next-line cypress/unsafe-to-chain-command
+// cy.contains('There was an error loading data for this item')
+//     .scrollIntoView()
+//     .should('be.visible')
 
-    // cy.contains('Open this item in Data Visualizer').should('not.exist')
+// cy.contains('Open this item in Data Visualizer').should('not.exist')
 
-    // FIXME
-    // cy.get(`${gridItemSel}.VISUALIZATION`)
-    //     .first()
-    //     .find('iframe')
-    //     .should('not.exist')
-})
+// FIXME
+// cy.get(`${gridItemSel}.VISUALIZATION`)
+//     .first()
+//     .find('iframe')
+//     .should('not.exist')
+// })
 
 // When('I view as chart', () => {
 //     cy.get(itemMenuButtonSel).click()
@@ -424,4 +423,3 @@ it('Print dashboard containing item that is missing type', () => {
 
 //     cy.get(dashboardTitleSel).should('exist').should('not.be.empty')
 // })
-
