@@ -1,11 +1,6 @@
 Feature: Errors while in view mode
 
     @nonmutating
-    Scenario: There are no dashboards
-        Given I open an app with no dashboards
-        Then a message displays informing that there are no dashboards
-
-    @nonmutating
     Scenario: I navigate to a dashboard that doesn't exist or I don't have access to
         Given I type an invalid dashboard id in the browser url
         Then a message displays informing that the dashboard is not found

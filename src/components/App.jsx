@@ -26,24 +26,14 @@ import 'react-grid-layout/css/styles.css'
 import 'react-resizable/css/styles.css'
 import './styles/ItemGrid.css'
 
-const App = (props) => {
+const App = ({ fetchDashboards, setShowDescription, resetState }) => {
     const systemSettings = useSystemSettings()
     const currentUser = useCurrentUser()
 
     useEffect(() => {
-        props.fetchDashboards()
-        props.setShowDescription()
-
-        // store the headerbar height for controlbar height calculations
-        const headerbarHeight = document
-            .querySelector('header')
-            .getBoundingClientRect().height
-
-        document.documentElement.style.setProperty(
-            '--headerbar-height',
-            `${headerbarHeight}px`
-        )
-    }, [])
+        fetchDashboards()
+        setShowDescription()
+    }, [fetchDashboards, setShowDescription])
 
     return (
         systemSettings && (
@@ -71,7 +61,7 @@ const App = (props) => {
                             render={() => (
                                 <LandingPage
                                     username={currentUser.username}
-                                    onMount={props.resetState}
+                                    onMount={resetState}
                                 />
                             )}
                         />
