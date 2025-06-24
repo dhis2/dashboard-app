@@ -360,7 +360,7 @@ it('Print dashboard containing item that is missing type', () => {
 // })
 
 // Then('an error message not including a link is displayed on the item', () => {
-// eslint-disable-next-line cypress/unsafe-to-chain-command
+
 // cy.contains('There was an error loading data for this item')
 //     .scrollIntoView()
 //     .should('be.visible')
