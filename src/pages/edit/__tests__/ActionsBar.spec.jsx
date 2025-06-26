@@ -30,7 +30,7 @@ jest.mock('@dhis2/analytics', () => {
     return {
         __esModule: true,
         ...originalModule,
-        OfflineTooltip: function Mock({ children }) {
+        OfflineTooltip: function Mock({ children }) /* NOSONAR */ {
             return <div className="OfflineTooltip">{children}</div>
         },
         useCachedDataQuery: () => ({
@@ -53,7 +53,7 @@ jest.mock(
 jest.mock(
     '../../../components/ConfirmActionDialog.jsx',
     () =>
-        function MockConfirmActionDialog({ open }) {
+        function MockConfirmActionDialog({ open }) /* NOSONAR */ {
             return open ? <div className="mock-confirm-action-dialog" /> : null
         }
 )

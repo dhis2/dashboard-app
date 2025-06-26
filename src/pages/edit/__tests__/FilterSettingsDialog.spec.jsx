@@ -15,7 +15,7 @@ jest.mock('@dhis2/ui', () => {
         Modal: function Mock({ children }) /* NOSONAR */ {
             return <div className="ui-Modal">{children}</div>
         },
-        Transfer: function MockTransfer(props) {
+        Transfer: function MockTransfer(props) /* NOSONAR */ {
             return (
                 <div
                     className="ui-Transfer"
