@@ -18,6 +18,7 @@ jest.mock('@dhis2/app-runtime', () => ({
 }))
 
 jest.mock('@dhis2/app-runtime/experimental', () => ({
+    //NOSONAR
     Plugin: ({ pluginSource, width, height, ...pluginProps }) => {
         const lowerCaseProps = Object.keys(pluginProps).reduce((acc, key) => {
             const value = pluginProps[key]
