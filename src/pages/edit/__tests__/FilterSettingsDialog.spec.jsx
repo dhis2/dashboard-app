@@ -12,8 +12,8 @@ jest.mock('@dhis2/ui', () => {
     return {
         __esModule: true,
         ...originalModule,
-        Modal: function Mock(props) {
-            return <div className="ui-Modal">{props.children}</div>
+        Modal: function Mock({ children }) /* NOSONAR */ {
+            return <div className="ui-Modal">{children}</div>
         },
         Transfer: function MockTransfer(props) {
             return (
@@ -26,24 +26,24 @@ jest.mock('@dhis2/ui', () => {
                 />
             )
         },
-        Button: function Mock({ children }) {
+        Button: function Mock({ children }) /* NOSONAR */ {
             return <div className="ui-Button">{children}</div>
         },
-        Radio: function Mock({ checked, dense, ...props }) {
+        Radio: function Mock({ checked, dense, ...props }) /* NOSONAR */ {
             return (
                 <div className="ui-Radio" data-checked={checked} {...props} />
             )
         },
-        ButtonStrip: function Mock({ children }) {
+        ButtonStrip: function Mock({ children }) /* NOSONAR */ {
             return <div className="ui-ButtonStrip">{children}</div>
         },
-        ModalActions: function Mock({ children }) {
+        ModalActions: function Mock({ children }) /* NOSONAR */ {
             return <div className="ui-ModalActions">{children}</div>
         },
-        ModalContent: function Mock({ children }) {
+        ModalContent: function Mock({ children }) /* NOSONAR */ {
             return <div className="ui-ModalContent">{children}</div>
         },
-        ModalTitle: function Mock({ children }) {
+        ModalTitle: function Mock({ children }) /* NOSONAR */ {
             return <div className="ui-ModalTitle">{children}</div>
         },
     }

@@ -20,16 +20,20 @@ jest.mock('@dhis2/ui', () => {
     return {
         __esModule: true,
         ...originalModule,
-        InputField: function Mock({ dense, dataTest, ...props }) {
+        InputField: function Mock({ dense, dataTest, ...props }) /* NOSONAR */ {
             return <div className="ui-InputField" {...props} />
         },
-        Button: function Mock({ children }) {
+        Button: function Mock({ children }) /* NOSONAR */ {
             return <div className="ui-Button">{children}</div>
         },
-        TextAreaField: function Mock({ dense, dataTest, ...props }) {
+        TextAreaField: function Mock({
+            dense, // NOSONAR
+            dataTest, // NOSONAR
+            ...props // NOSONAR
+        }) {
             return <div className="ui-TextAreaField" {...props} />
         },
-        Radio: function Mock({ children, dense, ...props }) {
+        Radio: function Mock({ children, dense, ...props }) /* NOSONAR */ {
             return (
                 <div className="ui-Radio" {...props}>
                     {children}

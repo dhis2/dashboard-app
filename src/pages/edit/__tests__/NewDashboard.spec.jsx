@@ -11,7 +11,7 @@ jest.mock('@dhis2/ui', () => {
     return {
         __esModule: true,
         ...originalModule,
-        NoticeBox: function Mock({ warning, ...props }) {
+        NoticeBox: function Mock({ warning, ...props }) /* NOSONAR */ {
             return (
                 <div
                     className="ui-NoticeBox"
@@ -20,7 +20,7 @@ jest.mock('@dhis2/ui', () => {
                 />
             )
         },
-        CenteredContent: function Mock({ children }) {
+        CenteredContent: function Mock({ children }) /* NOSONAR */ {
             return <div className="ui-CenteredContent">{children}</div>
         },
     }
