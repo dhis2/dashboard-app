@@ -114,9 +114,11 @@ class PrintLayoutItemGrid extends Component {
         // the last page break is before the last item(s) so
         // maxHeight is one page beyond the last page break
         const maxHeight = pageBreakBottom + PAGE_HEIGHT
-        
+
         const gridElement = document.querySelector('.react-grid-layout')
-        gridElement?.style.height = `${maxHeight}px`
+        if (gridElement) {
+            gridElement.style.height = `${maxHeight}px`
+        }
 
         if (this.props.isEditing) {
             scrollToFirstPageBreak()
