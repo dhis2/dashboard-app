@@ -132,7 +132,6 @@ Then('the dashboard is deleted and first starred dashboard displayed', () => {
 Scenario: I move an item on a dashboard
 */
 
-// FIXME
 // Then('the chart item is displayed', () => {
 //     cy.get(`${gridItemSel}.VISUALIZATION`)
 //         .first()
@@ -159,7 +158,6 @@ Then('no analytics requests are made when item is moved', () => {
         .trigger('mousemove', { clientX: 400 })
         .trigger('mouseup')
 
-    // FIXME
     // cy.get(gridItemSel)
     //     .first()
     //     .getIframeBody()

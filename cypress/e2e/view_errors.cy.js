@@ -340,7 +340,6 @@ it('Print dashboard containing item that is missing type', () => {
 // )
 
 // Then('an error message is displayed on the item', () => {
-// FIXME
 // cy.get(`${gridItemSel}.VISUALIZATION`)
 //     .first()
 //     .contains('There was an error loading data for this item')
@@ -351,7 +350,6 @@ it('Print dashboard containing item that is missing type', () => {
 //     .contains('Open this item in Data Visualizer')
 //     .should('be.visible')
 
-// FIXME
 //    cy.get(`${gridItemSel}.VISUALIZATION`)
 //        .first()
 //        .getIframeBody()
@@ -367,7 +365,6 @@ it('Print dashboard containing item that is missing type', () => {
 
 // cy.contains('Open this item in Data Visualizer').should('not.exist')
 
-// FIXME
 // cy.get(`${gridItemSel}.VISUALIZATION`)
 //     .first()
 //     .find('iframe')
@@ -393,7 +390,6 @@ it('Print dashboard containing item that is missing type', () => {
 //     cy.wait(4000) // eslint-disable-line cypress/no-unnecessary-waiting
 // })
 
-// FIXME
 // Then('the {string} is displayed correctly', (visType) => {
 //     if (visType === 'chart') {
 //         cy.get(`${gridItemSel}.VISUALIZATION`)
