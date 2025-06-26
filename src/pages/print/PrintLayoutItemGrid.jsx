@@ -15,6 +15,19 @@ import { sGetPrintDashboardItems } from '../../reducers/printDashboard.js'
 import { getDomGridItemsSortedByYPos, getTransformYPx } from './printUtils.js'
 import StaticGrid from './StaticGrid.jsx'
 
+const PAGE_HEIGHT = 720
+
+const scrollToFirstPageBreak = () => {
+    //scroll to below the title page - which is middle of the first pagebreak
+    const firstBreak = document.querySelector('.first-page-break')
+    if (!firstBreak?.style?.transform) {
+        return
+    }
+    const yPos = getTransformYPx(firstBreak.style)
+    const scrollArea = document.querySelector('.scroll-area')
+
+    scrollArea && scrollArea.scroll(0, yPos + 50)
+}
 class PrintLayoutItemGrid extends Component {
     onLayoutChange = (newLayout) => {
         this.props.updateDashboardLayout(newLayout)
@@ -98,25 +111,15 @@ class PrintLayoutItemGrid extends Component {
             }
         }
 
-        const pageHeight = 720
-        const gridElement = document.querySelector('.react-grid-layout')
         // the last page break is before the last item(s) so
         // maxHeight is one page beyond the last page break
-        const maxHeight = pageBreakBottom + pageHeight
-
-        if (gridElement) {
-            gridElement.style.height = `${maxHeight}px`
-        }
+        const maxHeight = pageBreakBottom + PAGE_HEIGHT
+        
+        const gridElement = document.querySelector('.react-grid-layout')
+        gridElement?.style.height = `${maxHeight}px`
 
         if (this.props.isEditing) {
-            //scroll to below the title page - which is middle of the first pagebreak
-            const firstBreak = document.querySelector('.first-page-break')
-            if (firstBreak?.style?.transform) {
-                const yPos = getTransformYPx(firstBreak.style)
-                const scrollArea = document.querySelector('.scroll-area')
-
-                scrollArea && scrollArea.scroll(0, yPos + 50)
-            }
+            scrollToFirstPageBreak()
         }
     }
 
