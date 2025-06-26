@@ -41,6 +41,7 @@ const EditDashboard = (props) => {
                 setHasUpdateAccess(dashboard.access?.update || false)
                 setIsLoading(false)
             } catch (error) {
+                console.error('Error fetching dashboard:', error)
                 setRedirectUrl(props.id ? `/${props.id}` : '/')
                 setIsLoading(false)
             }

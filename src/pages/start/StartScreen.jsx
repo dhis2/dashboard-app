@@ -19,7 +19,7 @@ const StartScreen = ({ username }) => {
             )
             const dashboards = mostViewedDashboardsResult.dashboard
 
-            if (dashboards && dashboards.length) {
+            if (dashboards?.length) {
                 setMostViewedDashboards(dashboards)
             }
         }
@@ -51,8 +51,8 @@ const StartScreen = ({ username }) => {
                     <h3 className={styles.title}>
                         {i18n.t('Your most viewed dashboards')}
                     </h3>
-                    {mostViewedDashboards.map((dashboard, index) => (
-                        <p key={`dashboard-link-${index}`}>
+                    {mostViewedDashboards.map((dashboard) => (
+                        <p key={`link-dashboard-${dashboard.id}`}>
                             <DashboardLink {...dashboard} />
                         </p>
                     ))}

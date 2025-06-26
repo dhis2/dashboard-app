@@ -16,19 +16,13 @@ const StarDashboardButton = ({ starred, onClick }) => {
 
     let tooltipContent
     if (online) {
-        if (starred) {
-            tooltipContent = i18n.t('Unstar dashboard')
-        } else {
-            tooltipContent = i18n.t('Star dashboard')
-        }
+        tooltipContent = starred
+            ? i18n.t('Unstar dashboard')
+            : i18n.t('Star dashboard')
     } else {
-        if (starred) {
-            tooltipContent = i18n.t(
-                'Cannot unstar this dashboard while offline'
-            )
-        } else {
-            tooltipContent = i18n.t('Cannot star this dashboard while offline')
-        }
+        tooltipContent = starred
+            ? i18n.t('Cannot unstar this dashboard while offline')
+            : i18n.t('Cannot star this dashboard while offline')
     }
 
     return (
