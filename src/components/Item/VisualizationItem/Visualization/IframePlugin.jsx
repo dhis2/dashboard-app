@@ -75,12 +75,7 @@ const IframePlugin = ({
             visualization,
             onError,
             onInstallationStatusChange,
-
-            // For caching: ---
-            // Add user & dashboard IDs to cache ID to avoid removing a cached
-            // plugin that might be used in another dashboard also
-            // TODO: May also want user ID too for multi-user situations
-            cacheId: `${dashboardId}-${itemId}`,
+            cacheId: `${dashboardId}-${itemId}`, // see DHIS2-19799
             isParentCached: isCached,
         }),
         [

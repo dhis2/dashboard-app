@@ -9,7 +9,7 @@ import { NavigationMenu } from '../NavigationMenu.jsx'
 jest.mock('../NavigationMenuItem.jsx', () => ({
     NavigationMenuItem: (
         { displayName } // NOSONAR
-    ) => <li role="menu-item">{displayName}</li>,
+    ) => <li role="presentation">{displayName}</li>,
 }))
 const baseState = {
     dashboards: {
@@ -54,7 +54,7 @@ test('renders a list of dashboard menu items', () => {
             </Router>
         </Provider>
     )
-    expect(getAllByRole('menu-item')).toHaveLength(5)
+    expect(getAllByRole('presentation')).toHaveLength(5)
 })
 
 test('renders a notification if no dashboards are available', () => {
