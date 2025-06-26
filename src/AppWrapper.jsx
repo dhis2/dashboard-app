@@ -8,6 +8,10 @@ import configureStore from './configureStore.js'
 
 import './locales/index.js'
 
+if (typeof global === 'undefined') {
+    window.global = window
+}
+
 const AppWrapper = () => {
     const dataEngine = useDataEngine()
 
