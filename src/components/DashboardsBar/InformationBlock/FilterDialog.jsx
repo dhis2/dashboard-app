@@ -57,7 +57,7 @@ const FilterDialog = ({
         const id = dimension.id
         const filterItems = filters[id]
 
-        if (filterItems && filterItems.length) {
+        if (filterItems?.length) {
             addItemFilter({
                 id,
                 value: [...filterItems],

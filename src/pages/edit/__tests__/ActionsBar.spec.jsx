@@ -15,10 +15,10 @@ jest.mock('@dhis2/ui', () => {
     return {
         __esModule: true,
         ...originalModule,
-        ButtonStrip: function Mock({ children }) {
+        ButtonStrip: function Mock({ children }) /* NOSONAR */ {
             return <div className="ui-ButtonStrip">{children}</div>
         },
-        Button: function Mock({ children }) {
+        Button: function Mock({ children }) /* NOSONAR */ {
             return <div className="ui-Button">{children}</div>
         },
     }
