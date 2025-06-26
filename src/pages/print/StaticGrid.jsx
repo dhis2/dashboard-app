@@ -13,7 +13,12 @@ import {
 
 const PAGE_PADDING_PX = 24
 
-const StaticGrid = ({ layout, children, onLayoutChange, className }) => {
+const StaticGrid = ({
+    layout,
+    children,
+    onLayoutChange = Function.prototype,
+    className,
+}) => {
     if (!layout.length) {
         return (
             <NoContentMessage
@@ -46,10 +51,6 @@ const StaticGrid = ({ layout, children, onLayoutChange, className }) => {
             </ReactGridLayout>
         </>
     )
-}
-
-StaticGrid.defaultProps = {
-    onLayoutChange: Function.prototype,
 }
 
 StaticGrid.propTypes = {

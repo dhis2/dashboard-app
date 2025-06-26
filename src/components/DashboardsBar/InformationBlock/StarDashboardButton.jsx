@@ -55,12 +55,8 @@ const StarDashboardButton = ({ starred, onClick }) => {
 }
 
 StarDashboardButton.propTypes = {
+    onClick: PropTypes.func.isRequired,
     starred: PropTypes.bool,
-    onClick: PropTypes.func,
-}
-
-StarDashboardButton.defaultProps = {
-    onClick: Function.prototype,
 }
 
 export default StarDashboardButton

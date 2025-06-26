@@ -48,7 +48,6 @@ const Visualization = ({
     originalType,
     showNoFiltersOverlay,
     onClickNoFiltersOverlay,
-    ...rest
 }) => {
     const dashboardId = useSelector(sGetSelectedId)
     const { isDisconnected: offline } = useDhis2ConnectionStatus()
@@ -207,7 +206,6 @@ const Visualization = ({
                     visualization={visualizationConfig}
                     style={style}
                     gridWidth={gridWidth}
-                    {...rest}
                 />
             )
         }

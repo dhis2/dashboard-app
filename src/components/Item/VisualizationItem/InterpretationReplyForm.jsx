@@ -36,7 +36,6 @@ export const InterpretationReplyForm = ({
     currentUser,
     interpretationId,
     onGoBackClicked,
-    onInterpretationDeleted,
     dashboardRedirectUrl,
     initialFocus,
 }) => {
@@ -86,7 +85,7 @@ export const InterpretationReplyForm = ({
                 currentUser={currentUser}
                 fetching={fetching}
                 interpretation={interpretation}
-                onInterpretationDeleted={onInterpretationDeleted}
+                onInterpretationDeleted={Function.prototype}
                 onThreadUpdated={onThreadUpdated}
                 initialFocus={initialFocus}
                 dashboardRedirectUrl={dashboardRedirectUrl}
@@ -97,15 +96,10 @@ export const InterpretationReplyForm = ({
 
 InterpretationReplyForm.displayName = 'InterpretationReplyForm'
 
-InterpretationReplyForm.defaultProps = {
-    onInterpretationDeleted: Function.prototype,
-}
-
 InterpretationReplyForm.propTypes = {
     currentUser: PropTypes.object.isRequired,
     interpretationId: PropTypes.string.isRequired,
     onGoBackClicked: PropTypes.func.isRequired,
     dashboardRedirectUrl: PropTypes.string,
     initialFocus: PropTypes.bool,
-    onInterpretationDeleted: PropTypes.func,
 }

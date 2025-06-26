@@ -15,11 +15,13 @@ import {
 import { sGetShowDescription } from '../../../reducers/showDescription.js'
 import classes from './styles/Item.module.css'
 
+const EMPTY_ARRAY = []
+
 const PrintTitlePageItem = ({
-    name,
-    description,
-    itemFilters,
-    showDescription,
+    name = '',
+    description = '',
+    itemFilters = EMPTY_ARRAY,
+    showDescription = false,
 }) => {
     const getItemFilterList = () => {
         const listItems = itemFilters.map(({ name, values }) => (
@@ -54,12 +56,6 @@ PrintTitlePageItem.propTypes = {
     itemFilters: PropTypes.array,
     name: PropTypes.string,
     showDescription: PropTypes.bool,
-}
-
-PrintTitlePageItem.defaultProps = {
-    description: '',
-    name: '',
-    showDescription: false,
 }
 
 const mapStateToProps = (state) => {

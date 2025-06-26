@@ -52,7 +52,6 @@ const ItemFooter = ({ item }) => {
                             interpretationId={interpretationId}
                             dashboardRedirectUrl={dashboardRedirectUrl}
                             onGoBackClicked={clearInterpretation}
-                            onInterpretationDeleted={Function.prototype}
                             initialFocus={replyInitialFocus}
                         />
                     ) : (

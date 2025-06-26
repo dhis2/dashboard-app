@@ -58,10 +58,6 @@ FilterBar.propTypes = {
     removeFilter: PropTypes.func.isRequired,
 }
 
-FilterBar.defaultProps = {
-    filters: [],
-}
-
 const mapStateToProps = (state) => ({
     filters: msGetNamedItemFilters(state),
 })
