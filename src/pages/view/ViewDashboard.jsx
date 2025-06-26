@@ -63,6 +63,7 @@ const ViewDashboard = ({
             await fetchDashboard(requestedId, username)
             setLoaded(true)
         } catch (e) {
+            console.error(`Error loading dashboard with id ${requestedId}:`, e)
             setLoadFailed(true)
             setSelectedAsOffline(requestedId, username)
         } finally {

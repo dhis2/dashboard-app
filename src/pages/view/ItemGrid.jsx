@@ -75,10 +75,11 @@ const ResponsiveItemGrid = ({ dashboardIsCached }) => {
                     const expandedHeight = isSmallScreen(width)
                         ? EXPANDED_HEIGHT_SM
                         : EXPANDED_HEIGHT
-                    return Object.assign({}, item, {
+                    return {
+                        ...item,
                         h: item.h + expandedHeight,
                         smallOriginalH: getProportionalHeight(item, width),
-                    })
+                    }
                 }
 
                 return item

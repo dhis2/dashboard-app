@@ -48,11 +48,7 @@ const PrintDashboard = ({
                 //sort the items by Y pos so they print in order of top to bottom
                 const sortedItems = sortBy(dashboard.dashboardItems, ['y', 'x'])
 
-                setPrintDashboard(
-                    Object.assign({}, dashboard, {
-                        dashboardItems: sortedItems,
-                    })
-                )
+                setPrintDashboard({ ...dashboard, dashboardItems: sortedItems })
 
                 // remove spacers - don't want empty pages
                 let spacerCount = 0
@@ -65,12 +61,11 @@ const PrintDashboard = ({
 
                 // Resize the items to the full page size
                 sortedItems.forEach((item) => {
-                    updateDashboardItem(
-                        Object.assign({}, item, {
-                            w: MAX_ITEM_GRID_WIDTH_OIPP,
-                            h: MAX_ITEM_GRID_HEIGHT_OIPP,
-                        })
-                    )
+                    updateDashboardItem({
+                        ...item,
+                        w: MAX_ITEM_GRID_WIDTH_OIPP,
+                        h: MAX_ITEM_GRID_HEIGHT_OIPP,
+                    })
                 })
 
                 // insert page breaks into the document flow to create the "pages"
@@ -94,6 +89,7 @@ const PrintDashboard = ({
 
                 setIsLoading(false)
             } catch (error) {
+                console.error('Error loading dashboard:', error)
                 setRedirectUrl(id ? `/${id}` : '/')
                 setIsLoading(false)
             }

@@ -33,13 +33,14 @@ const defaultProps = {
 
 test('renders menu for active type MAP and type CHART', async () => {
     useDhis2ConnectionStatus.mockImplementation(jest.fn(() => online))
-    const props = Object.assign({}, defaultProps, {
+    const props = {
+        ...defaultProps,
         activeType: MAP,
         type: CHART,
         visualization: {
             type: 'COLUMN',
         },
-    })
+    }
 
     const { queryByText } = render(<ViewAsMenuItems {...props} />)
 
@@ -50,13 +51,14 @@ test('renders menu for active type MAP and type CHART', async () => {
 
 test('renders menu for active type CHART and type MAP', async () => {
     useDhis2ConnectionStatus.mockImplementation(jest.fn(() => online))
-    const props = Object.assign({}, defaultProps, {
+    const props = {
+        ...defaultProps,
         activeType: CHART,
         type: MAP,
         visualization: {
             mapViews: [{ layer: 'thematic' }],
         },
-    })
+    }
 
     const { queryByText } = render(<ViewAsMenuItems {...props} />)
 
@@ -68,13 +70,14 @@ test('renders menu for active type CHART and type MAP', async () => {
 test('renders disabled menu items when offline', () => {
     useDhis2ConnectionStatus.mockImplementation(jest.fn(() => offline))
 
-    const props = Object.assign({}, defaultProps, {
+    const props = {
+        ...defaultProps,
         type: CHART,
         activeType: MAP,
         visualization: {
             type: 'COLUMN',
         },
-    })
+    }
 
     const { container } = render(<ViewAsMenuItems {...props} />)
 
@@ -86,13 +89,14 @@ test('renders disabled menu items when offline', () => {
 
 test('renders menu for active type MAP and type MAP without Thematic layer', async () => {
     useDhis2ConnectionStatus.mockImplementation(jest.fn(() => online))
-    const props = Object.assign({}, defaultProps, {
+    const props = {
+        ...defaultProps,
         activeType: MAP,
         type: MAP,
         visualization: {
             mapViews: [{ layer: 'earthEngine' }],
         },
-    })
+    }
 
     const { container, queryByText } = render(<ViewAsMenuItems {...props} />)
 
@@ -109,13 +113,14 @@ test('renders menu for active type MAP and type MAP without Thematic layer', asy
 
 test('renders menu for active type MAP and type MAP without Thematic layer when offline', async () => {
     useDhis2ConnectionStatus.mockImplementation(jest.fn(() => offline))
-    const props = Object.assign({}, defaultProps, {
+    const props = {
+        ...defaultProps,
         activeType: MAP,
         type: MAP,
         visualization: {
             mapViews: [{ layer: 'earthEngine' }],
         },
-    })
+    }
 
     const { container, queryByText } = render(<ViewAsMenuItems {...props} />)
 
@@ -132,11 +137,12 @@ test('renders menu for active type MAP and type MAP without Thematic layer when 
 
 test('renders menu for active type REPORT_TABLE and type CHART', async () => {
     useDhis2ConnectionStatus.mockImplementation(jest.fn(() => online))
-    const props = Object.assign({}, defaultProps, {
+    const props = {
+        ...defaultProps,
         activeType: REPORT_TABLE,
         type: CHART,
         visualization: { type: 'COLUMN' },
-    })
+    }
 
     const { queryByText } = render(<ViewAsMenuItems {...props} />)
 
@@ -147,11 +153,12 @@ test('renders menu for active type REPORT_TABLE and type CHART', async () => {
 
 test('renders menu for active type CHART and type REPORT_TABLE', async () => {
     useDhis2ConnectionStatus.mockImplementation(jest.fn(() => online))
-    const props = Object.assign({}, defaultProps, {
+    const props = {
+        ...defaultProps,
         activeType: CHART,
         type: REPORT_TABLE,
         visualization: { type: 'PIVOT_TABLE' },
-    })
+    }
 
     const { queryByText } = render(<ViewAsMenuItems {...props} />)
 
@@ -162,11 +169,12 @@ test('renders menu for active type CHART and type REPORT_TABLE', async () => {
 
 test('renders menu for active type EVENT_REPORT and type EVENT_CHART', async () => {
     useDhis2ConnectionStatus.mockImplementation(jest.fn(() => online))
-    const props = Object.assign({}, defaultProps, {
+    const props = {
+        ...defaultProps,
         activeType: EVENT_REPORT,
         type: EVENT_CHART,
         visualization: {},
-    })
+    }
 
     const { queryByText } = render(<ViewAsMenuItems {...props} />)
 
@@ -177,11 +185,12 @@ test('renders menu for active type EVENT_REPORT and type EVENT_CHART', async () 
 
 test('renders menu for active type EVENT_CHART and type EVENT_REPORT', async () => {
     useDhis2ConnectionStatus.mockImplementation(jest.fn(() => online))
-    const props = Object.assign({}, defaultProps, {
+    const props = {
+        ...defaultProps,
         activeType: EVENT_CHART,
         type: EVENT_REPORT,
         visualization: {},
-    })
+    }
 
     const { queryByText } = render(<ViewAsMenuItems {...props} />)
 

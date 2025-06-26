@@ -33,23 +33,21 @@ const StaticGrid = ({
     )
 
     return (
-        <>
-            <ReactGridLayout
-                margin={MARGIN_PX}
-                cols={GRID_COLUMNS}
-                rowHeight={GRID_ROW_HEIGHT_PX}
-                width={pageWidthPx - PAGE_PADDING_PX}
-                compactType={GRID_COMPACT_TYPE}
-                isDraggable={false}
-                isResizable={false}
-                draggableCancel="input,textarea"
-                className={cx('layout', className)}
-                layout={layout}
-                onLayoutChange={onLayoutChange}
-            >
-                {children}
-            </ReactGridLayout>
-        </>
+        <ReactGridLayout
+            margin={MARGIN_PX}
+            cols={GRID_COLUMNS}
+            rowHeight={GRID_ROW_HEIGHT_PX}
+            width={pageWidthPx - PAGE_PADDING_PX}
+            compactType={GRID_COMPACT_TYPE}
+            isDraggable={false}
+            isResizable={false}
+            draggableCancel="input,textarea"
+            className={cx('layout', className)}
+            layout={layout}
+            onLayoutChange={onLayoutChange}
+        >
+            {children}
+        </ReactGridLayout>
     )
 }
 

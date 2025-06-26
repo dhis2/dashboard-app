@@ -118,16 +118,6 @@ const EditBar = ({ dashboard, ...props }) => {
         }
     }
 
-    const onConfirmDiscard = () => {
-        // disabling dirty check in 2.37
-
-        // if (props.isDirty) {
-        //     setConfirmDiscardDlgIsOpen(true)
-        // } else {
-        onDiscardConfirmed()
-        // }
-    }
-
     const onDiscardConfirmed = () => {
         props.onDiscardChanges()
         const redirectUrl = dashboard.id ? `/${dashboard.id}` : '/'
@@ -261,7 +251,7 @@ const EditBar = ({ dashboard, ...props }) => {
                 <div className={classes.controls}>
                     {dashboard.access?.update ? renderActionButtons() : null}
                     {!props.isPrintPreviewView && (
-                        <Button small secondary onClick={onConfirmDiscard}>
+                        <Button small secondary onClick={onDiscardConfirmed}>
                             {dashboard.access?.update
                                 ? i18n.t('Exit without saving')
                                 : i18n.t('Go to dashboards')}

@@ -63,9 +63,7 @@ jest.mock(
 )
 
 jest.mock('../../../api/dataStatistics', () => ({
-    apiPostDataStatistics: jest.fn(() => {
-        return new Promise((resolve) => resolve(true))
-    }),
+    apiPostDataStatistics: jest.fn(() => Promise.resolve(true)),
 }))
 
 const dashboardId = 'rainbowdash'

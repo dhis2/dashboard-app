@@ -136,33 +136,10 @@ export const LayoutModal = ({ columns, onSaveLayout, onClose }) => {
                                         setColsWrapper(value)
                                     }
                                 />
-                                {/* <InputField
-                                    inputWidth="100px"
-                                    type="number"
-                                    label={i18n.t(
-                                        'Gap size between columns (px)'
-                                    )}
-                                    className={classes.gap}
-                                    // default value 16?
-                                /> */}
                             </div>
                         )}
                     </div>
                 </div>
-                {/* <Divider />
-                <InputField
-                    helpText={i18n.t(
-                        'Default height only applies to items added to a dashboard, this setting will not change existing items'
-                    )}
-                    label={i18n.t(
-                        'Default height for items added to dashboard (rows)'
-                    )}
-                    name="defaultName"
-                    placeholder=""
-                    type="number"
-                    inputWidth="100px"
-                    // default value 64?
-                /> */}
             </ModalContent>
             <ModalActions>
                 <ButtonStrip end>
@@ -181,7 +158,6 @@ export const LayoutModal = ({ columns, onSaveLayout, onClose }) => {
                             {i18n.t('Save layout')}
                         </Button>
                     </OfflineTooltip>
-                    {/* TODO: Only save the layout when "Save" is clicked? */}
                 </ButtonStrip>
             </ModalActions>
         </Modal>

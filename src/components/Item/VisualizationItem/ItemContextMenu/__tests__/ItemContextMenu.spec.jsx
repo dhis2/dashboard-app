@@ -65,11 +65,12 @@ test('renders just the button when menu closed', () => {
 
 test('renders popover menu for BAR chart', async () => {
     useSystemSettings.mockReturnValue(mockSystemSettingsDefault)
-    const props = Object.assign({}, defaultProps, {
+    const props = {
+        ...defaultProps,
         visualization: {
             type: 'BAR',
         },
-    })
+    }
 
     const { getByRole, queryByText, queryByTestId } = render(
         <WindowDimensionsProvider>
@@ -92,11 +93,12 @@ test('renders popover menu for BAR chart', async () => {
 
 test('renders popover menu for SINGLE_VALUE chart', async () => {
     useSystemSettings.mockReturnValue(mockSystemSettingsDefault)
-    const props = Object.assign({}, defaultProps, {
+    const props = {
+        ...defaultProps,
         visualization: {
             type: 'SINGLE_VALUE',
         },
-    })
+    }
 
     const { getByRole, queryByTestId, queryByText } = render(
         <WindowDimensionsProvider>
@@ -119,11 +121,12 @@ test('renders popover menu for SINGLE_VALUE chart', async () => {
 
 test('renders popover menu for YEAR_OVER_YEAR_LINE chart', async () => {
     useSystemSettings.mockReturnValue(mockSystemSettingsDefault)
-    const props = Object.assign({}, defaultProps, {
+    const props = {
+        ...defaultProps,
         visualization: {
             type: 'YEAR_OVER_YEAR_LINE',
         },
-    })
+    }
 
     const { getByRole, queryByTestId, queryByText } = render(
         <WindowDimensionsProvider>
@@ -146,11 +149,12 @@ test('renders popover menu for YEAR_OVER_YEAR_LINE chart', async () => {
 
 test('renders popover menu for GAUGE chart', async () => {
     useSystemSettings.mockReturnValue(mockSystemSettingsDefault)
-    const props = Object.assign({}, defaultProps, {
+    const props = {
+        ...defaultProps,
         visualization: {
             type: 'GAUGE',
         },
-    })
+    }
 
     const { getByRole, queryByTestId, queryByText } = render(
         <WindowDimensionsProvider>
@@ -173,11 +177,12 @@ test('renders popover menu for GAUGE chart', async () => {
 
 test('renders popover menu for PIE chart', async () => {
     useSystemSettings.mockReturnValue(mockSystemSettingsDefault)
-    const props = Object.assign({}, defaultProps, {
+    const props = {
+        ...defaultProps,
         visualization: {
             type: 'PIE',
         },
-    })
+    }
 
     const { getByRole, queryByTestId, queryByText } = render(
         <WindowDimensionsProvider>
@@ -200,7 +205,8 @@ test('renders popover menu for PIE chart', async () => {
 
 test('renders popover menu for PIVOT_TABLE', async () => {
     useSystemSettings.mockReturnValue(mockSystemSettingsDefault)
-    const props = Object.assign({}, defaultProps, {
+    const props = {
+        ...defaultProps,
         item: {
             type: 'REPORT_TABLE',
         },
@@ -208,7 +214,7 @@ test('renders popover menu for PIVOT_TABLE', async () => {
             type: 'PIVOT_TABLE',
         },
         activeType: 'REPORT_TABLE',
-    })
+    }
 
     const { getByRole, queryByTestId, queryByText } = render(
         <WindowDimensionsProvider>
@@ -231,13 +237,14 @@ test('renders popover menu for PIVOT_TABLE', async () => {
 
 test('renders popover menu for MAP', async () => {
     useSystemSettings.mockReturnValue(mockSystemSettingsDefault)
-    const props = Object.assign({}, defaultProps, {
+    const props = {
+        ...defaultProps,
         item: {
             type: 'MAP',
         },
         visualization: {},
         activeType: 'MAP',
-    })
+    }
 
     const { getByRole, queryByTestId, queryByText } = render(
         <WindowDimensionsProvider>
@@ -260,12 +267,13 @@ test('renders popover menu for MAP', async () => {
 
 test('renders popover menu when interpretations displayed', async () => {
     useSystemSettings.mockReturnValue(mockSystemSettingsDefault)
-    const props = Object.assign({}, defaultProps, {
+    const props = {
+        ...defaultProps,
         visualization: {
             type: 'BAR',
         },
         activeFooter: true,
-    })
+    }
 
     const { getByRole, queryByText } = render(
         <WindowDimensionsProvider>
@@ -318,14 +326,15 @@ test('does not render "Open in [app]" option if settings do not allow', async ()
 
 test('renders only View in App when item load failed', async () => {
     useSystemSettings.mockReturnValue(mockSystemSettingsDefault)
-    const props = Object.assign({}, defaultProps, {
+    const props = {
+        ...defaultProps,
         item: {
             type: 'MAP',
         },
         visualization: {},
         activeType: 'MAP',
         loadItemFailed: true,
-    })
+    }
 
     const { getByRole, queryByTestId, queryByText } = render(
         <WindowDimensionsProvider>
@@ -428,11 +437,12 @@ test('renders correct options for PIE in small screen', async () => {
     global.innerWidth = 480
     useSystemSettings.mockReturnValue(mockSystemSettingsDefault)
 
-    const props = Object.assign({}, defaultProps, {
+    const props = {
+        ...defaultProps,
         visualization: {
             type: 'PIE',
         },
-    })
+    }
 
     const { getByRole, queryByTestId, queryByText } = render(
         <WindowDimensionsProvider>

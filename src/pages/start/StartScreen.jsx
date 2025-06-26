@@ -52,7 +52,7 @@ const StartScreen = ({ username }) => {
                         {i18n.t('Your most viewed dashboards')}
                     </h3>
                     {mostViewedDashboards.map((dashboard, index) => (
-                        <p key={index}>
+                        <p key={`dashboard-link-${index}`}>
                             <DashboardLink {...dashboard} />
                         </p>
                     ))}

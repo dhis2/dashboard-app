@@ -51,9 +51,7 @@ const PrintLayoutDashboard = ({
         dboard.dashboardItems.forEach((item) => {
             if (item.h > MAX_ITEM_GRID_HEIGHT) {
                 item.shortened = true
-                updateDashboardItem(
-                    Object.assign({}, item, { h: MAX_ITEM_GRID_HEIGHT })
-                )
+                updateDashboardItem({ ...item, h: MAX_ITEM_GRID_HEIGHT })
             }
         })
 
@@ -76,6 +74,7 @@ const PrintLayoutDashboard = ({
                 setPrintDashboard(dashboard)
                 customizePrintLayoutDashboard(dashboard)
             } catch (error) {
+                console.error('Error loading dashboard:', error)
                 setRedirectUrl(id ? `/${id}` : '/')
                 setIsLoading(false)
             }
