@@ -111,7 +111,7 @@ class PrintLayoutItemGrid extends Component {
         if (this.props.isEditing) {
             //scroll to below the title page - which is middle of the first pagebreak
             const firstBreak = document.querySelector('.first-page-break')
-            if (firstBreak?.style && firstBreak.style.transform) {
+            if (firstBreak?.style?.transform) {
                 const yPos = getTransformYPx(firstBreak.style)
                 const scrollArea = document.querySelector('.scroll-area')
 

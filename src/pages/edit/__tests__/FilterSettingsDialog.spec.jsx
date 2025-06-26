@@ -19,10 +19,10 @@ jest.mock('@dhis2/ui', () => {
             return (
                 <div
                     className="ui-Transfer"
-                    options={props.options
-                        .map((option) => `${option.label}`)
+                    options={props.options // NOSONAR
+                        .map((option) => `${option.label}`) // NOSONAR
                         .join(', ')}
-                    selecteddimensions={props.selected.join(', ')}
+                    selecteddimensions={props.selected.join(', ')} // NOSONAR
                 />
             )
         },

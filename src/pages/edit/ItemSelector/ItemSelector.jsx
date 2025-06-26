@@ -52,7 +52,7 @@ const ItemSelector = () => {
         return categorizedItems
             .filter((type) => {
                 const itemType = itemTypeMap[type]
-                return items && items[itemType.endPointName]
+                return items?.[itemType.endPointName]
             })
             .map((type) => {
                 const itemType = itemTypeMap[type]

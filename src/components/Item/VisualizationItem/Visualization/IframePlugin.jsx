@@ -97,7 +97,7 @@ const IframePlugin = ({
         // 1. check if there is an override for the plugin
         const pluginOverrides = getPluginOverrides()
 
-        if (pluginOverrides && pluginOverrides[pluginType]) {
+        if (pluginOverrides?.[pluginType]) {
             return pluginOverrides[pluginType]
         }
 
