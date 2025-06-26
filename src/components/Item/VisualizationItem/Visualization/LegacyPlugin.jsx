@@ -8,7 +8,6 @@ const LegacyPlugin = ({
     item,
     activeType,
     visualization,
-    options,
     style,
     gridWidth,
 }) => {
@@ -28,7 +27,7 @@ const LegacyPlugin = ({
                 10
             )
         }
-    }, [style, gridWidth, item.id])
+    }, [style.width, style.height, gridWidth, item.id])
 
     useEffect(() => {
         if (
@@ -41,7 +40,6 @@ const LegacyPlugin = ({
             load(item, visualization, {
                 credentials: { baseUrl },
                 activeType,
-                options,
             })
         }
 
@@ -50,25 +48,17 @@ const LegacyPlugin = ({
         prevVisualization.current = visualization
 
         return () => unmount(item, item.type || activeType)
-    }, [item, visualization, activeType, baseUrl, options])
+    }, [item, visualization, activeType, baseUrl])
 
     return <div id={getVisualizationContainerDomId(item.id)} style={style} />
 }
 
 LegacyPlugin.propTypes = {
+    item: PropTypes.object.isRequired,
+    style: PropTypes.object.isRequired,
+    visualization: PropTypes.object.isRequired,
     activeType: PropTypes.string,
     gridWidth: PropTypes.number,
-    item: PropTypes.object,
-    options: PropTypes.object,
-    style: PropTypes.object,
-    visualization: PropTypes.object,
-}
-
-LegacyPlugin.defaultProps = {
-    style: {},
-    item: {},
-    options: {},
-    visualization: {},
 }
 
 export default LegacyPlugin

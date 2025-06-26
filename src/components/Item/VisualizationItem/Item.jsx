@@ -48,6 +48,8 @@ import styles from './styles/Item.module.css'
 import { pluginIsAvailable } from './Visualization/plugin.js'
 import Visualization from './Visualization/Visualization.jsx'
 
+const DEFAULT_VISUALIZATION = {}
+
 class Item extends Component {
     state = {
         showFooter: false,
@@ -274,6 +276,8 @@ class Item extends Component {
 }
 
 Item.propTypes = {
+    item: PropTypes.object.isRequired,
+    itemFilters: PropTypes.object.isRequired,
     activeType: PropTypes.string,
     apps: PropTypes.array,
     dashboardMode: PropTypes.string,
@@ -283,8 +287,6 @@ Item.propTypes = {
     isFullscreen: PropTypes.bool,
     isRecording: PropTypes.bool,
     isSlideshowView: PropTypes.bool,
-    item: PropTypes.object,
-    itemFilters: PropTypes.object,
     setActiveType: PropTypes.func,
     setSlideshow: PropTypes.func,
     setVisualization: PropTypes.func,
@@ -296,9 +298,8 @@ Item.propTypes = {
 }
 
 Item.defaultProps = {
-    item: {},
     onToggleItemExpanded: Function.prototype,
-    visualization: {},
+    visualization: DEFAULT_VISUALIZATION,
 }
 
 const mapStateToProps = (state, ownProps) => {
