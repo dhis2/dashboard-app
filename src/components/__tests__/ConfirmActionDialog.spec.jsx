@@ -8,21 +8,27 @@ jest.mock('@dhis2/ui', () => {
     return {
         __esModule: true,
         ...originalModule,
-        Modal: function Mock(props) {
-            return <div className="ui-Modal">{props.children}</div>
+        // NOSONAR
+        Modal: function Mock({ children }) {
+            return <div className="ui-Modal">{children}</div>
         },
+        // NOSONAR
         Button: function Mock({ children }) {
             return <div className="ui-Button">{children}</div>
         },
+        // NOSONAR
         ButtonStrip: function Mock({ children }) {
             return <div className="ui-ButtonStrip">{children}</div>
         },
+        // NOSONAR
         ModalActions: function Mock({ children }) {
             return <div className="ui-ModalActions">{children}</div>
         },
+        // NOSONAR
         ModalContent: function Mock({ children }) {
             return <div className="ui-ModalContent">{children}</div>
         },
+        // NOSONAR
         ModalTitle: function Mock({ children }) {
             return <div className="ui-ModalTitle">{children}</div>
         },
