@@ -7,6 +7,7 @@ import { createStore } from 'redux'
 import { NavigationMenu } from '../NavigationMenu.jsx'
 
 jest.mock('../NavigationMenuItem.jsx', () => ({
+    // NOSONAR
     NavigationMenuItem: ({ displayName }) => (
         <li role="menu-item">{displayName}</li>
     ),
