@@ -9,7 +9,7 @@ import { NavigationMenu } from '../NavigationMenu.jsx'
 jest.mock('../NavigationMenuItem.jsx', () => ({
     NavigationMenuItem: (
         { displayName } // NOSONAR
-    ) => <li role="presentation">{displayName}</li>,
+    ) => <li role="presentation">{displayName}</li>, // NOSONAR
 }))
 const baseState = {
     dashboards: {
