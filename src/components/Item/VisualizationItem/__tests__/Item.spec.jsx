@@ -39,13 +39,13 @@ jest.mock(
             return (
                 <div
                     className="visualization"
-                    item={props.item}
-                    activetype={props.activeType}
-                    itemfilters={props.itemFilters}
-                    availableheight={props.availableheight}
-                    availablewidth={props.availablewidth}
-                    gridwidth={props.gridWidth}
-                />
+                    // NOSONAR
+                    item={props.item} // NOSONAR
+                    activetype={props.activeType} // NOSONAR
+                    itemfilters={props.itemFilters} // NOSONAR
+                    availableheight={props.availableheight} // NOSONAR
+                    availablewidth={props.availablewidth} // NOSONAR
+                    gridwidth={props.gridWidth} // NOSONAR 
             )
         }
 )
