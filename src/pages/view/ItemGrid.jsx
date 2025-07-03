@@ -24,7 +24,7 @@ import {
     MARGIN_SM_PX,
     GRID_COLUMNS,
     getSmallLayout,
-    getProportionalHeight,
+    getItemsWithAdjustedHeight,
 } from '../../modules/gridUtil.js'
 import { getBreakpoint, isSmallScreen } from '../../modules/smallScreen.js'
 import { useCacheableSection } from '../../modules/useCacheableSection.js'
@@ -35,9 +35,6 @@ import {
 import SlideshowControlbar from './SlideshowControlbar.jsx'
 import classes from './styles/ItemGrid.module.css'
 import useSlideshow from './useSlideshow.js'
-
-const EXPANDED_HEIGHT = 19
-const EXPANDED_HEIGHT_SM = 15
 
 const ResponsiveItemGrid = ({ dashboardIsCached }) => {
     const dashboardId = useSelector(sGetSelectedId)
@@ -67,27 +64,20 @@ const ResponsiveItemGrid = ({ dashboardIsCached }) => {
     const isSlideshowView = slideshowItemIndex !== null
 
     useEffect(() => {
-        const getItemsWithAdjustedHeight = (items) =>
-            items.map((item) => {
-                const expandedItem = expandedItems[item.id]
-
-                if (expandedItem && expandedItem === true) {
-                    const expandedHeight = isSmallScreen(width)
-                        ? EXPANDED_HEIGHT_SM
-                        : EXPANDED_HEIGHT
-                    return {
-                        ...item,
-                        h: item.h + expandedHeight,
-                        smallOriginalH: getProportionalHeight(item, width),
-                    }
-                }
-
-                return item
-            })
         setLayoutSm(
-            getItemsWithAdjustedHeight(getSmallLayout(dashboardItems, width))
+            getItemsWithAdjustedHeight({
+                items: getSmallLayout(dashboardItems, width),
+                expandedItems,
+                width,
+            })
         )
-        setDisplayItems(getItemsWithAdjustedHeight(dashboardItems))
+        setDisplayItems(
+            getItemsWithAdjustedHeight({
+                items: dashboardItems,
+                expandedItems,
+                width,
+            })
+        )
     }, [expandedItems, width, dashboardItems])
 
     useEffect(() => {

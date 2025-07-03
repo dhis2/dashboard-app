@@ -109,16 +109,17 @@ class Item extends Component {
         ) {
             apiFetchVisualization(this.props.item, this.props.engine)
         }
+
+        if (this.props.item.h !== prevProps.item.h) {
+            this.setState({ showFooter: !this.state.showFooter })
+        }
     }
 
     onClickNoFiltersOverlay = () =>
         this.setState({ showNoFiltersOverlay: false })
 
     onToggleFooter = () => {
-        this.setState(
-            { showFooter: !this.state.showFooter },
-            this.props.onToggleItemExpanded(this.props.item.id)
-        )
+        this.props.onToggleItemExpanded(this.props.item.id)
     }
 
     setActiveType = (type) => {
