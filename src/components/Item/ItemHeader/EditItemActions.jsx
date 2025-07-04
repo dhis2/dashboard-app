@@ -12,7 +12,9 @@ import {
 import DeleteItemButton from './DeleteItemButton.jsx'
 import classes from './styles/ItemHeader.module.css'
 
-const EditItemActions = ({ itemId, onDelete = () => Promise.resolve() }) => {
+const noop = () => Promise.resolve()
+
+const EditItemActions = ({ itemId, onDelete = noop }) => {
     const dispatch = useDispatch()
     const columns = useSelector(sGetLayoutColumns)
     const dashboardItems = useSelector(sGetEditDashboardItems)
