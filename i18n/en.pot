@@ -5,8 +5,8 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1)\n"
-"POT-Creation-Date: 2025-06-27T07:24:53.674Z\n"
-"PO-Revision-Date: 2025-06-27T07:24:53.674Z\n"
+"POT-Creation-Date: 2025-07-04T15:00:39.114Z\n"
+"PO-Revision-Date: 2025-07-04T15:00:39.114Z\n"
 
 msgid "Untitled dashboard"
 msgstr "Untitled dashboard"
@@ -768,11 +768,3 @@ msgstr "This dashboard cannot be loaded while offline."
 
 msgid "Go to start page"
 msgstr "Go to start page"
-
-msgctxt "Application title"
-msgid "__MANIFEST_APP_TITLE"
-msgstr "Dashboard"
-
-msgctxt "Application description"
-msgid "__MANIFEST_APP_DESCRIPTION"
-msgstr "DHIS2 Dashboard app"

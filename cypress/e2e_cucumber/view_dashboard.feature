@@ -26,6 +26,7 @@ Feature: Viewing dashboards
         Then the "Delivery" dashboard displays in view mode
 
 # @nonmutating
+# FIXME
 # Scenario: Maps with tracked entities show layer names in legend
 #     Given I open the Cases Malaria dashboard
 #     When I hover over the map legend button
@@ -38,3 +39,19 @@ Feature: Viewing dashboards
         And I open the "Delivery" dashboard
         And I open the dashboard app with the root url
         Then the "Delivery" dashboard displays
+
+
+# TODO: flaky test
+# @mutating
+# Scenario: I change the height of the control bar
+#     Given I open the "Delivery" dashboard
+#     When I drag to increase the height of the control bar
+#     Then the control bar height should be updated
+
+# TODO: flaky test
+# @mutating
+# Scenario: I change the height of an expanded control bar
+#     Given I open the "Delivery" dashboard
+#     When I toggle show more dashboards
+#     And I drag to decrease the height of the control bar
+#     Then the control bar height should be updated

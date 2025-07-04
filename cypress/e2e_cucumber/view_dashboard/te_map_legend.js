@@ -18,6 +18,7 @@ Given('I open the Cases Malaria dashboard', () => {
     })
 
     cy.get(dashboardTitleSel).should('be.visible').and('contain', title)
+    // FIXME
     // cy.get(`${gridItemSel}.MAP`)
     //     .first()
     //     .getIframeBody()
