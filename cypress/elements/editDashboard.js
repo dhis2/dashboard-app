@@ -34,3 +34,16 @@ export const createDashboard = (title, items) => {
 
     cy.get('button').contains('Save changes', EXTENDED_TIMEOUT).click()
 }
+
+export const getRouteFromHash = (hash) => {
+    const lastSlashIdx = hash.lastIndexOf('/')
+    return hash.slice(lastSlashIdx + 1)
+}
+
+export const confirmEditMode = () => {
+    cy.get(titleInputSel).should('exist')
+
+    cy.location().should((loc) => {
+        expect(getRouteFromHash(loc.hash)).to.eq('edit')
+    })
+}
