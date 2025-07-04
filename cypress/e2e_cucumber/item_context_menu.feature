@@ -1,6 +1,5 @@
 Feature: Item context menu
 
-    # FIXME
     # @nonmutating
 #    Scenario: View chart as table
 #        Given I open the "Delivery" dashboard
