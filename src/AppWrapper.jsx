@@ -8,6 +8,9 @@ import configureStore from './configureStore.js'
 
 import './locales/index.js'
 
+/** global needs to be defined because the legacy plugins
+ * for event visualization and event reports are on it.
+ **/
 if (typeof global === 'undefined') {
     window.global = window
 }
