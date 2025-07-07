@@ -4,7 +4,7 @@ module.exports = {
     extends: [config.eslintReact, 'plugin:cypress/recommended'],
     overrides: [
         {
-            files: ['src/**/*.spec.js'],
+            files: ['src/**/*.spec.jsx'],
             rules: {
                 'react/prop-types': 'off',
                 'react/display-name': 'off',

@@ -1,3 +1,3 @@
-import { DashboardsBar } from './DashboardsBar.js'
+import { DashboardsBar } from './DashboardsBar.jsx'
 
 export default DashboardsBar

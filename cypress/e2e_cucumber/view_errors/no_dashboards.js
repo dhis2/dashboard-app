@@ -3,7 +3,7 @@ import { newButtonSel } from '../../elements/viewDashboard.js'
 
 // Scenario: There are no dashboards
 Given('I open an app with no dashboards', () => {
-    cy.intercept('**/dashboards?*', { body: { dashboards: [] } })
+    cy.intercept(/\/dashboards\?/, { body: { dashboards: [] } })
     cy.visit('/')
 })
 

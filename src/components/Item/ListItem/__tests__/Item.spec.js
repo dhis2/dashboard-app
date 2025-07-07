@@ -3,7 +3,7 @@ import React from 'react'
 import { Provider } from 'react-redux'
 import configureMockStore from 'redux-mock-store'
 import { RESOURCES } from '../../../../modules/itemTypes.js'
-import ListItem from '../Item.js'
+import ListItem from '../Item.jsx'
 
 const mockStore = configureMockStore([])
 

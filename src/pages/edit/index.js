@@ -1,4 +1,4 @@
-import EditDashboard from './EditDashboard.js'
-import NewDashboard from './NewDashboard.js'
+import EditDashboard from './EditDashboard.jsx'
+import NewDashboard from './NewDashboard.jsx'
 
 export { EditDashboard, NewDashboard }
