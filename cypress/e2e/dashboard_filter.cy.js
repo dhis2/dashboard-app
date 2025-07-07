@@ -5,6 +5,7 @@ import {
     assertPeriodFilterApplied,
     removeFilter,
     addFilter,
+    addDashboardItem,
     newButtonSel,
     gridItemSel,
     dashboardTitleSel,
@@ -33,7 +34,7 @@ const customApp = {
 }
 
 const assertDashboardVisible = () => {
-    // Then the dashboard displays in view mode and visualizations are visible
+    // Assert dashboard displays in view mode and visualizations are visible
     cy.get(dashboardTitleSel)
         .should('be.visible')
         .and('contain', TEST_DASHBOARD_TITLE)
@@ -66,45 +67,13 @@ describe('Dashboard Filter Tests', () => {
         ).then((response) => {
             expect(response.status).to.be.oneOf([204, 201])
 
-            //add the dashboard title
+            // add the dashboard title
             cy.getByDataTest('dashboard-title-input').type(TEST_DASHBOARD_TITLE)
 
-            // open item selector
-            cy.getByDataTest('item-search').click()
-            cy.getByDataTest('item-search')
-                .find('input')
-                .type('Inpatient', { force: true })
-
-            //CHART
-            cy.get(
-                '[data-test="menu-item-Inpatient: BMI this year by districts"]'
-            ).click()
-
-            cy.getByDataTest('dhis2-uicore-layer').click('topLeft')
-
-            cy.getByDataTest('item-search').click()
-            cy.getByDataTest('item-search')
-                .find('input')
-                .type('ipt 2', { force: true })
-
-            //MAP
-            cy.get(
-                '[data-test="menu-item-ANC: IPT 2 Coverage this year"]'
-            ).click()
-
-            // close the item selector
-            cy.getByDataTest('dhis2-uicore-layer').click('topLeft')
-
-            //add a custom app item
-            cy.getByDataTest('item-search').click()
-            cy.getByDataTest('item-search')
-                .find('input')
-                .type('Role Monitor', { force: true })
-
-            cy.contains('Role Monitor Widget').click()
-
-            // close the item selector
-            cy.getByDataTest('dhis2-uicore-layer').click('topLeft')
+            // add dashboard items
+            addDashboardItem('Inpatient: BMI this year by districts') //CHART
+            addDashboardItem('ANC: IPT 2 Coverage this year') //MAP
+            addDashboardItem('Role Monitor') //CUSTOM APP
 
             //move things so the dashboard is more compact
             // eslint-disable-next-line cypress/unsafe-to-chain-command
@@ -118,29 +87,29 @@ describe('Dashboard Filter Tests', () => {
 
             assertDashboardVisible()
 
-            // When I add a "Period" filter
+            // add a "Period" filter
             addFilter('Period')
 
-            // Then the Period filter is applied to the dashboard
+            // Assert Period filter is applied to the dashboard
             assertPeriodFilterApplied()
-            // When I remove the "Period" filter
+            // remove the "Period" filter
             removeFilter()
-            // Then the filter is removed from the dashboard
+            // Assert filter is removed from the dashboard
             assertFilterRemoved()
 
-            // When I add a "Organisation unit" filter
+            // add a "Organisation unit" filter
             addFilter('Organisation unit')
 
-            // Then the Organisation unit filter is applied to the dashboard
+            // Assert Organisation unit filter is applied to the dashboard
             assertOrgUnitFilterApplied()
-            // When I remove the "OrgUnit" filter
+            // remove the "OrgUnit" filter
             removeFilter()
-            // Then the filter is removed from the dashboard
+            // Assert filter is removed from the dashboard
             assertFilterRemoved()
-            // When I add a "Facility Type" filter
+            // add a "Facility Type" filter
             addFilter('Facility Type')
 
-            // Then the Facility Type filter is applied to the dashboard
+            // Assert Facility Type filter is applied to the dashboard
             assertFacilityTypeFilterApplied()
         })
     })
@@ -151,11 +120,11 @@ describe('Dashboard Filter Tests', () => {
         // Given I open an existing dashboard
         getNavigationMenuItem(TEST_DASHBOARD_TITLE).click()
 
-        // Then the dashboard displays in view mode and visualizations are visible
+        // Assert dashboard displays in view mode and visualizations are visible
         assertDashboardVisible()
-        // When I add a "Org unit group" filter
+        // add a "Org unit group" filter
         addFilter('Org unit group')
-        // Then the Org unit group filter is applied to the dashboard
+        // Assert Org unit group filter is applied to the dashboard
         assertOrgUnitGroupFilterApplied()
     })
     it('opens the dimensions modal from the filter badge', () => {
@@ -163,7 +132,7 @@ describe('Dashboard Filter Tests', () => {
 
         // Given I open an existing dashboard
         getNavigationMenuItem(TEST_DASHBOARD_TITLE).click()
-        // When I add a "Period" filter
+        // add a "Period" filter
         addFilter('Period')
         // And I click on the "Period" filter badge
         cy.get(filterBadgeSel)
@@ -171,7 +140,7 @@ describe('Dashboard Filter Tests', () => {
             .contains('Period')
             .click({ force: true })
 
-        // Then the filter modal is opened
+        // Assert filter modal is opened
         assertFilterModalOpened()
 
         cy.getByDataTest('dimension-modal')
