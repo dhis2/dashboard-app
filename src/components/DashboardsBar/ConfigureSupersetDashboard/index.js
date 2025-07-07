@@ -1,2 +1,2 @@
-export { CreateSupersetDashboardModal } from './CreateSupersetDashboardModal.js'
-export { UpdateSupersetDashboardModal } from './UpdateSupersetDashboardModal.js'
+export { CreateSupersetDashboardModal } from './CreateSupersetDashboardModal.jsx'
+export { UpdateSupersetDashboardModal } from './UpdateSupersetDashboardModal.jsx'
