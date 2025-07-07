@@ -1,3 +1,4 @@
+![React 18](https://img.shields.io/badge/react-18-blue)
 This project was bootstrapped with [DHIS2 Application Platform](https://github.com/dhis2/app-platform).
 
 ## Development
