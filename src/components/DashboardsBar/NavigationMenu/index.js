@@ -1,1 +1,1 @@
-export { NavigationMenuDropdownButton } from './NavigationMenuDropdownButton.js'
+export { NavigationMenuDropdownButton } from './NavigationMenuDropdownButton.jsx'

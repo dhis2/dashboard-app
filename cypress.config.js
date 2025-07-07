@@ -30,7 +30,7 @@ module.exports = defineConfig({
         specPattern: ['cypress/e2e_cucumber/*.feature', 'cypress/e2e/*.cy.js'],
         viewportWidth: 1280,
         viewportHeight: 800,
-        defaultCommandTimeout: 45000,
+        defaultCommandTimeout: 15000,
         /* Globally disable test isolation because the test suite
          * contains many tests with sequential steps */
         testIsolation: false,

@@ -1,1 +1,1 @@
-export { default as InformationBlock } from './InformationBlock.js'
+export { default as InformationBlock } from './InformationBlock.jsx'

@@ -118,6 +118,27 @@ export const getProportionalHeight = (item, gridWidthPx) => {
         : h
 }
 
+const EXPANDED_HEIGHT = 19
+const EXPANDED_HEIGHT_SM = 15
+
+export const getItemsWithAdjustedHeight = ({ items, expandedItems, width }) =>
+    items.map((item) => {
+        const expandedItem = expandedItems[item.id]
+
+        if (expandedItem && expandedItem === true) {
+            const expandedHeight = isSmallScreen(width)
+                ? EXPANDED_HEIGHT_SM
+                : EXPANDED_HEIGHT
+            return {
+                ...item,
+                h: item.h + expandedHeight,
+                smallOriginalH: getProportionalHeight(item, width),
+            }
+        }
+
+        return item
+    })
+
 export const getSmallLayout = (items, windowWidthPx) =>
     sortBy(items, ['y', 'x']).map((item, i) =>
         Object.assign({}, item, {

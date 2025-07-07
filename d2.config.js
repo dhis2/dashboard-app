@@ -28,7 +28,7 @@ const config = {
     },
 
     entryPoints: {
-        app: './src/AppWrapper.js',
+        app: './src/AppWrapper.jsx',
     },
 }
 
