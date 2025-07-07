@@ -29,7 +29,7 @@ export const createDashboard = (title, items) => {
 
         cy.get(`[data-test="menu-item-${itemName}"]`).click()
 
-        cy.get('[data-test="dhis2-uicore-layer"]').click('topLeft')
+        cy.getByDataTest('dhis2-uicore-layer').click('topLeft')
     })
 
     cy.get('button').contains('Save changes', EXTENDED_TIMEOUT).click()
@@ -46,4 +46,26 @@ export const confirmEditMode = () => {
     cy.location().should((loc) => {
         expect(getRouteFromHash(loc.hash)).to.eq('edit')
     })
+}
+
+export const clickEditButton = () => {
+    cy.getByDataTest('title-bar', EXTENDED_TIMEOUT)
+        .find('button')
+        .contains('Edit', EXTENDED_TIMEOUT)
+        .click()
+
+    confirmEditMode()
+}
+
+export const addDashboardItem = (itemName) => {
+    cy.getByDataTest('item-search').click()
+    cy.getByDataTest('item-search')
+        .find('input')
+        .type(itemName, { force: true })
+
+    cy.get(`[data-test="menu-item-${itemName}"]`).click()
+
+    // close modal
+    cy.log('Close modal after adding item', itemName)
+    cy.getByDataTest('dhis2-uicore-layer').click('topLeft')
 }
