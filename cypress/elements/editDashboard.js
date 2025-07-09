@@ -66,6 +66,6 @@ export const addDashboardItem = (itemName) => {
     cy.get(`[data-test="menu-item-${itemName}"]`).click()
 
     // close modal
-    cy.log('Close modal after adding item', itemName)
     cy.getByDataTest('dhis2-uicore-layer').click('topLeft')
+    cy.getByDataTest('item-menu').should('not.exist')
 }
