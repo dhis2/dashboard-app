@@ -5,7 +5,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2025-05-14T10:27:41.184Z\n"
+"POT-Creation-Date: 2025-07-04T15:00:39.114Z\n"
 "PO-Revision-Date: 2019-06-25 12:37+0000\n"
 "Last-Translator: Jiří Podhorecký <jirka.p@volny.cz>, 2025\n"
 "Language-Team: Czech (https://app.transifex.com/hisp-uio/teams/100509/cs/)\n"
@@ -594,19 +594,6 @@ msgstr ""
 
 msgid "Number of columns"
 msgstr "Počet sloupců"
-
-msgid "Gap size between columns (px)"
-msgstr "Velikost mezery mezi sloupci (px)"
-
-msgid ""
-"Default height only applies to items added to a dashboard, this setting will"
-" not change existing items"
-msgstr ""
-"Výchozí výška platí pouze pro položky přidané na ovládací panel, toto "
-"nastavení nezmění stávající položky"
-
-msgid "Default height for items added to dashboard (rows)"
-msgstr "Výchozí výška pro položky přidané na ovládací panel (řádky)"
 
 msgid "Save layout"
 msgstr "Uložit rozvržení"

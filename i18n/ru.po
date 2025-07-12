@@ -8,7 +8,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2025-04-10T08:11:48.789Z\n"
+"POT-Creation-Date: 2025-07-04T15:00:39.114Z\n"
 "PO-Revision-Date: 2019-06-25 12:37+0000\n"
 "Last-Translator: Yury Rogachev <yury@dhis2.org>, 2025\n"
 "Language-Team: Russian (https://app.transifex.com/hisp-uio/teams/100509/ru/)\n"
@@ -42,6 +42,12 @@ msgstr ""
 msgid ""
 "Could not get guest token from Superset Gateway for dashboard ID "
 "\"{{dashboardId}}\""
+msgstr ""
+
+msgid "Network error"
+msgstr "Ошибка сети"
+
+msgid "Could not load app data"
 msgstr ""
 
 msgid "New dashboard: external"
@@ -251,12 +257,6 @@ msgstr "Для \"{{- filterText}}\" инфрпанелей не найдено"
 
 msgid "Dashboards"
 msgstr "Информационные панели"
-
-msgid "Could not fetch bundled apps"
-msgstr ""
-
-msgid "Network error"
-msgstr "Ошибка сети"
 
 msgid "There was a problem loading this dashboard item"
 msgstr "Возникла проблема с загрузкой данного элемента инфопанели."
@@ -599,19 +599,6 @@ msgstr ""
 
 msgid "Number of columns"
 msgstr "Количество столбцов"
-
-msgid "Gap size between columns (px)"
-msgstr "Размер промежутка между столбцами (px)"
-
-msgid ""
-"Default height only applies to items added to a dashboard, this setting will"
-" not change existing items"
-msgstr ""
-"Высота по умолчанию применяется только к элементам, добавляемым на "
-"инфопанель, эта настройка не изменит существующие элементы."
-
-msgid "Default height for items added to dashboard (rows)"
-msgstr "Высота по умолчанию для элементов, добавляемых на инфопанель (ряды)"
 
 msgid "Save layout"
 msgstr "Сохранить дизайн"

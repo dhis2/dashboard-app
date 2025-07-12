@@ -2,13 +2,13 @@
 # Translators:
 # Philip Larsen Donnelly, 2025
 # Viktor Varland <viktor@dhis2.org>, 2025
-# Hamza Assada <7amza.it@gmail.com>, 2025
+# Hamza <7amza.it@gmail.com>, 2025
 # Nadiia <semchuk@aph.org.ua>, 2025
 # 
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2025-04-10T08:11:48.789Z\n"
+"POT-Creation-Date: 2025-07-04T15:00:39.114Z\n"
 "PO-Revision-Date: 2019-06-25 12:37+0000\n"
 "Last-Translator: Nadiia <semchuk@aph.org.ua>, 2025\n"
 "Language-Team: Arabic (https://app.transifex.com/hisp-uio/teams/100509/ar/)\n"
@@ -42,6 +42,12 @@ msgstr ""
 msgid ""
 "Could not get guest token from Superset Gateway for dashboard ID "
 "\"{{dashboardId}}\""
+msgstr ""
+
+msgid "Network error"
+msgstr "خطأ في الشبكة"
+
+msgid "Could not load app data"
 msgstr ""
 
 msgid "New dashboard: external"
@@ -249,12 +255,6 @@ msgstr ""
 
 msgid "Dashboards"
 msgstr "لوحات المعلومات"
-
-msgid "Could not fetch bundled apps"
-msgstr ""
-
-msgid "Network error"
-msgstr "خطأ في الشبكة"
 
 msgid "There was a problem loading this dashboard item"
 msgstr "حدثت مشكلة أثناء تحميل عنصر لوحة المعلومات هذا"
@@ -589,19 +589,6 @@ msgstr ""
 
 msgid "Number of columns"
 msgstr "عدد الأعمدة"
-
-msgid "Gap size between columns (px)"
-msgstr "حجم الفجوة بين الأعمدة (بكسل)"
-
-msgid ""
-"Default height only applies to items added to a dashboard, this setting will"
-" not change existing items"
-msgstr ""
-"ينطبق الارتفاع الافتراضي فقط على العناصر المضافة إلى لوحة المعلومات، ولن "
-"يغير هذا الإعداد العناصر الموجودة"
-
-msgid "Default height for items added to dashboard (rows)"
-msgstr "الارتفاع الافتراضي للعناصر المضافة إلى لوحة المعلومات (الصفوف)"
 
 msgid "Save layout"
 msgstr "حفظ التخطيط"
