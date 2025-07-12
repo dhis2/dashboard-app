@@ -1,16 +1,16 @@
 # 
 # Translators:
-# Viktor Varland <viktor@dhis2.org>, 2021
+# Viktor Varland <viktor@dhis2.org>, 2025
+# 晓东 林 <13981924470@126.com>, 2025
 # Philip Larsen Donnelly, 2025
 # easylin <lin_xd@126.com>, 2025
-# 晓东 林 <13981924470@126.com>, 2025
 # 
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2025-03-13T10:03:44.633Z\n"
+"POT-Creation-Date: 2025-07-04T15:00:39.114Z\n"
 "PO-Revision-Date: 2019-06-25 12:37+0000\n"
-"Last-Translator: 晓东 林 <13981924470@126.com>, 2025\n"
+"Last-Translator: easylin <lin_xd@126.com>, 2025\n"
 "Language-Team: Chinese (https://app.transifex.com/hisp-uio/teams/100509/zh/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -22,71 +22,80 @@ msgid "Untitled dashboard"
 msgstr "未命名的仪表盘"
 
 msgid "Could not get info from Superset gateway endpoint"
-msgstr ""
+msgstr "无法从 Superset 服务网关端点获取信息"
 
 msgid "Dashboard with ID \"{{dashboardId}}\" not found or not accessible"
-msgstr ""
+msgstr "ID 为 \"{{dashboardId}}\" 的仪表板未找到或无法访问"
 
 msgid "Dashboard with ID \"{{dashboardId}}\" is not embedded"
-msgstr ""
+msgstr "ID 为 \"{{dashboardId}}\" 的仪表板未嵌入"
 
 msgid "Embedded provider must be \"SUPERSET\" for dashboard ID \"{{dashboardId}}\""
-msgstr ""
+msgstr "嵌入式提供程序仪表板 ID \"{{dashboardId}}\" 的 必须是\"SUPERSET\"。"
 
 msgid "Superset Embed UUID not found for dashboard ID \"{{dashboardId}}\""
-msgstr ""
+msgstr "未找到仪表板 ID \"{{dashboardId}}\" 的Superset 嵌入 UUID"
 
 msgid "Dashboard with ID \"{{dashboardId}}\" not found on the Superset service"
-msgstr ""
+msgstr "在 Superset 服务中找不到 ID 为 \"{{dashboardId}}\" 的仪表板"
 
 msgid ""
 "Could not get guest token from Superset Gateway for dashboard ID "
 "\"{{dashboardId}}\""
-msgstr ""
+msgstr "无法从Superset 网关获取仪表板 ID \"{{dashboardId}}\" 的访客令牌"
+
+msgid "Network error"
+msgstr "网络错误"
+
+msgid "Could not load app data"
+msgstr "不能加载应用程序相关的数据"
 
 msgid "New dashboard: external"
-msgstr ""
+msgstr "新仪表盘：外部"
 
 msgid "Could not create dashboard"
-msgstr ""
+msgstr "无法创建仪表盘"
 
 msgid "An unknown error occurred"
-msgstr ""
+msgstr "发生一个未知错误"
 
 msgid "Save dashboard"
-msgstr ""
+msgstr "保存仪表盘"
 
 msgid "Back"
-msgstr ""
+msgstr "后退"
 
 msgid "Title"
-msgstr ""
+msgstr "称谓"
 
 msgid "Code"
-msgstr ""
+msgstr "代码"
 
 msgid ""
 "A unique code to reference this dashboard in other apps and services. Max 50"
 " characters."
-msgstr ""
+msgstr "用于在其他应用程序和服务中引用此仪表盘的唯一代码。最多 50 个字符。"
+
+msgid "Code can't be longer than 50 characters"
+msgstr "代码不能超过 50 个字符"
 
 msgid "Description"
-msgstr ""
+msgstr "描述"
 
 msgid "Superset Embed ID"
-msgstr ""
+msgstr "Superset 嵌入 ID"
 
 msgid "Invalid UUID"
-msgstr ""
+msgstr "无效的 UUID"
 
 msgid "Options"
-msgstr ""
+msgstr "选项"
 
 msgid "Show chart controls on dashboard items"
-msgstr ""
+msgstr "在仪表盘条目上显示图表控件"
 
 msgid "Expand filters"
-msgstr ""
+msgstr "扩展过滤器"
 
 msgid "Delete dashboard"
 msgstr "删除仪表盘"
@@ -100,7 +109,7 @@ msgstr "删除仪表盘 \"{{ dashboardName }}\" 将从所有用户仪表盘中�
 msgid ""
 "Note: the source dashboard embedded by this external dashboard will not be "
 "deleted."
-msgstr ""
+msgstr "注意：该外部仪表盘嵌入的源仪表板不会被删除。"
 
 msgid "Delete"
 msgstr "删除"
@@ -109,28 +118,28 @@ msgid "Cancel"
 msgstr "取消"
 
 msgid "Edit external dashboard"
-msgstr ""
+msgstr "编辑外部仪表板"
 
 msgid "New dashboard: choose type"
-msgstr ""
+msgstr "新仪表盘：选择类型"
 
 msgid "Internal"
-msgstr ""
+msgstr "内部"
 
 msgid "Show data and visualizations from this DHIS2 instance."
-msgstr ""
+msgstr "显示该 DHIS2 实例的数据和可视化效果。"
 
 msgid "External"
-msgstr ""
+msgstr "外部"
 
 msgid "Embed a Superset dashboard"
-msgstr ""
+msgstr "嵌入Superset 仪表盘"
 
 msgid "Continue"
-msgstr ""
+msgstr "继续"
 
 msgid "Not available for embedded dashboards"
-msgstr ""
+msgstr "不适用于嵌入式仪表盘"
 
 msgid "The dashboard couldn't be made available offline. Try again."
 msgstr "仪表盘无法离线使用。再试一次。"
@@ -197,6 +206,12 @@ msgstr "不，取消"
 msgid "Yes, clear filters and sync"
 msgstr "是的，清除过滤器并同步"
 
+msgid "This dashboard is showing data from outside this system"
+msgstr "该仪表盘显示的数据来自本系统之外"
+
+msgid "External source"
+msgstr "外部数据源"
+
 msgid "Confirm"
 msgstr "确认"
 
@@ -208,12 +223,6 @@ msgstr "无法取消仪表板的星标"
 
 msgid "Failed to star the dashboard"
 msgstr "无法为仪表板加注星标"
-
-msgid "This dashboard is showing data from outside this system"
-msgstr ""
-
-msgid "External source"
-msgstr ""
 
 msgid "Offline data last updated {{timeAgo}}"
 msgstr "离线数据最后更新时间 {{timeAgo}}"
@@ -241,12 +250,6 @@ msgstr "未找到适用于 \"{{- filterText}}\" 的仪表盘"
 
 msgid "Dashboards"
 msgstr "仪表盘"
-
-msgid "Could not fetch bundled apps"
-msgstr "无法获取捆绑的应用程序"
-
-msgid "Network error"
-msgstr "网络错误"
 
 msgid "There was a problem loading this dashboard item"
 msgstr "载入仪表盘有问题"
@@ -430,13 +433,13 @@ msgid "Users"
 msgstr "用户管理"
 
 msgid "Could not update dashboard {{name}}"
-msgstr ""
+msgstr "无法更新仪表盘{{name}}"
 
 msgid "Could not delete dashboard {{name}}"
-msgstr ""
+msgstr "无法删除仪表盘{{name}}"
 
 msgid "Could not load dashboard details"
-msgstr ""
+msgstr "无法加载仪表盘详细信息"
 
 msgid ""
 "Failed to save dashboard. You might be offline or not have access to edit "
@@ -526,9 +529,9 @@ msgid ""
 "                                         as filters. Alternatively, only selected dimensions can\n"
 "                                         be made available on a dashboard."
 msgstr ""
-"仪表板可以按维度进行过滤以进行更改\n"
-"                                         显示的数据。默认情况下，所有尺寸均可用\n"
-"                                         作为过滤器。另外，只有选定的尺寸可以\n"
+"仪表盘可按维度过滤，以更改\n"
+"                                         显示的数据。默认情况下，所有维度都可\n"
+"                                         作为筛选器。或者，也可以只在选定的维度\n"
 "                                         在仪表板上可用。"
 
 msgid "Available Filters"
@@ -581,17 +584,6 @@ msgstr "仪表板项目自动放置在固定的水平列中。列数可以调整
 msgid "Number of columns"
 msgstr "列数"
 
-msgid "Gap size between columns (px)"
-msgstr "列之间的间隙大小 (px)"
-
-msgid ""
-"Default height only applies to items added to a dashboard, this setting will"
-" not change existing items"
-msgstr "默认高度仅适用于添加到仪表板的项目，此设置不会更改现有项目"
-
-msgid "Default height for items added to dashboard (rows)"
-msgstr "添加到仪表板的项目的默认高度（行）"
-
 msgid "Save layout"
 msgstr "保存布局"
 
@@ -600,9 +592,6 @@ msgstr "仪表盘标题"
 
 msgid "Dashboard code"
 msgstr "仪表盘代码"
-
-msgid "Code can't be longer than 50 characters"
-msgstr "代码不能超过 50 个字符"
 
 msgid "Dashboard description"
 msgstr "仪表盘描述"
@@ -712,17 +701,22 @@ msgid "{{count}} filters active"
 msgid_plural "{{count}} filters active"
 msgstr[0] "{{count}} 滤波器激活"
 
+msgid ""
+"There was a problem loading the embedded dashboard content from an external "
+"service"
+msgstr "从外部服务加载嵌入式仪表板内容时出现问题"
+
 msgid "Fetching external dashboard"
-msgstr ""
+msgstr "获取外部仪表盘"
 
 msgid "Error"
-msgstr ""
+msgstr "错误"
 
 msgid "Could not load Superset dashboard"
-msgstr ""
+msgstr "无法加载Superset 仪表盘"
 
 msgid "Retry"
-msgstr ""
+msgstr "重试"
 
 msgid "Loading dashboard – {{name}}"
 msgstr "加载仪表盘-{{name}}"
