@@ -1,20 +1,21 @@
 # 
 # Translators:
-# Viktor Varland <viktor@dhis2.org>, 2019
 # Ge Joao <gsimango@saudigitus.org>, 2021
 # Sheila André <sandre@saudigitus.org>, 2021
 # Fernando Jorge Bade, 2021
-# David Júnior <davidjr.mondlane@gmail.com>, 2022
-# Philip Larsen Donnelly, 2025
 # Gabriela Rodriguez <grodriguezcoronado@gmail.com>, 2025
 # Shelsea Chumaio, 2025
+# Helton Dias, 2025
+# Viktor Varland <viktor@dhis2.org>, 2025
+# David Júnior <davidjr.mondlane@gmail.com>, 2025
+# Philip Larsen Donnelly, 2025
 # 
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2025-03-05T13:32:39.554Z\n"
+"POT-Creation-Date: 2025-07-04T15:00:39.114Z\n"
 "PO-Revision-Date: 2019-06-25 12:37+0000\n"
-"Last-Translator: Shelsea Chumaio, 2025\n"
+"Last-Translator: Philip Larsen Donnelly, 2025\n"
 "Language-Team: Portuguese (https://app.transifex.com/hisp-uio/teams/100509/pt/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -25,8 +26,128 @@ msgstr ""
 msgid "Untitled dashboard"
 msgstr "Painel sem título"
 
-msgid "Dashboards"
-msgstr "Painel"
+msgid "Could not get info from Superset gateway endpoint"
+msgstr ""
+
+msgid "Dashboard with ID \"{{dashboardId}}\" not found or not accessible"
+msgstr ""
+
+msgid "Dashboard with ID \"{{dashboardId}}\" is not embedded"
+msgstr ""
+
+msgid "Embedded provider must be \"SUPERSET\" for dashboard ID \"{{dashboardId}}\""
+msgstr ""
+
+msgid "Superset Embed UUID not found for dashboard ID \"{{dashboardId}}\""
+msgstr ""
+
+msgid "Dashboard with ID \"{{dashboardId}}\" not found on the Superset service"
+msgstr ""
+
+msgid ""
+"Could not get guest token from Superset Gateway for dashboard ID "
+"\"{{dashboardId}}\""
+msgstr ""
+
+msgid "Network error"
+msgstr " Erro de rede"
+
+msgid "Could not load app data"
+msgstr ""
+
+msgid "New dashboard: external"
+msgstr ""
+
+msgid "Could not create dashboard"
+msgstr ""
+
+msgid "An unknown error occurred"
+msgstr "Ocorreu um erro desconhecido"
+
+msgid "Save dashboard"
+msgstr ""
+
+msgid "Back"
+msgstr "Costas"
+
+msgid "Title"
+msgstr "Título"
+
+msgid "Code"
+msgstr "Código"
+
+msgid ""
+"A unique code to reference this dashboard in other apps and services. Max 50"
+" characters."
+msgstr ""
+
+msgid "Code can't be longer than 50 characters"
+msgstr "O código não pode ter mais de 50 caracteres"
+
+msgid "Description"
+msgstr "Descrição"
+
+msgid "Superset Embed ID"
+msgstr ""
+
+msgid "Invalid UUID"
+msgstr ""
+
+msgid "Options"
+msgstr "Opções"
+
+msgid "Show chart controls on dashboard items"
+msgstr ""
+
+msgid "Expand filters"
+msgstr ""
+
+msgid "Delete dashboard"
+msgstr "Excluir painel"
+
+msgid ""
+"Deleting dashboard \"{{ dashboardName }}\" will remove it for all users. "
+"This action cannot be undone. Are you sure you want to permanently delete "
+"this dashboard?"
+msgstr ""
+"A exclusão do painel \"{{ dashboardName }}\" o removerá para todos os "
+"utilizadores. Essa acção não pode ser desfeita. Tem certeza de que deseja "
+"excluir permanentemente este painel?"
+
+msgid ""
+"Note: the source dashboard embedded by this external dashboard will not be "
+"deleted."
+msgstr ""
+
+msgid "Delete"
+msgstr "Apagar"
+
+msgid "Cancel"
+msgstr "Cancelar"
+
+msgid "Edit external dashboard"
+msgstr ""
+
+msgid "New dashboard: choose type"
+msgstr ""
+
+msgid "Internal"
+msgstr "Interno"
+
+msgid "Show data and visualizations from this DHIS2 instance."
+msgstr ""
+
+msgid "External"
+msgstr "Externo"
+
+msgid "Embed a Superset dashboard"
+msgstr ""
+
+msgid "Continue"
+msgstr "Continuar"
+
+msgid "Not available for embedded dashboards"
+msgstr ""
 
 msgid "The dashboard couldn't be made available offline. Try again."
 msgstr "O painel não pôde ser disponibilizado offline. Tente novamente."
@@ -95,8 +216,11 @@ msgstr "Não, cancelar"
 msgid "Yes, clear filters and sync"
 msgstr "Sim, limpar filtros e sincronizar"
 
-msgid "Cancel"
-msgstr "Cancelar"
+msgid "This dashboard is showing data from outside this system"
+msgstr ""
+
+msgid "External source"
+msgstr ""
 
 msgid "Confirm"
 msgstr "Confirmar"
@@ -136,11 +260,8 @@ msgstr "Pesquisar um painel"
 msgid "No dashboards found for \"{{- filterText}}\""
 msgstr ""
 
-msgid "Could not fetch bundled apps"
-msgstr ""
-
-msgid "Network error"
-msgstr " Erro de rede"
+msgid "Dashboards"
+msgstr "Painel"
 
 msgid "There was a problem loading this dashboard item"
 msgstr "Ocorreu um problema ao carregar este item do painel"
@@ -322,6 +443,15 @@ msgstr "Aplicações"
 msgid "Users"
 msgstr "Utilizadores"
 
+msgid "Could not update dashboard {{name}}"
+msgstr ""
+
+msgid "Could not delete dashboard {{name}}"
+msgstr ""
+
+msgid "Could not load dashboard details"
+msgstr ""
+
 msgid ""
 "Failed to save dashboard. You might be offline or not have access to edit "
 "this dashboard."
@@ -363,17 +493,11 @@ msgstr "Traduzir"
 msgid "Cannot delete this dashboard while offline"
 msgstr "Não é possível excluir este painel enquanto estiver off-line"
 
-msgid "Delete"
-msgstr "Apagar"
-
 msgid "Exit without saving"
 msgstr "Sair sem gravar"
 
 msgid "Go to dashboards"
 msgstr "Ir para painéis"
-
-msgid "Delete dashboard"
-msgstr "Excluir painel"
 
 msgid ""
 "Deleting dashboard \"{{- dashboardName }}\" will remove it for all users. "
@@ -484,19 +608,6 @@ msgstr ""
 msgid "Number of columns"
 msgstr "Numero de colunas"
 
-msgid "Gap size between columns (px)"
-msgstr "Tamanho do intervalo entre as colunas (px)"
-
-msgid ""
-"Default height only applies to items added to a dashboard, this setting will"
-" not change existing items"
-msgstr ""
-"A altura padrão se aplica apenas a itens adicionados a um painel, essa "
-"configuração não altera os itens existentes"
-
-msgid "Default height for items added to dashboard (rows)"
-msgstr "Altura padrão para itens adicionados ao painel (linhas)"
-
 msgid "Save layout"
 msgstr "Gravar disposição"
 
@@ -505,9 +616,6 @@ msgstr "Título do painel"
 
 msgid "Dashboard code"
 msgstr "Código do painel"
-
-msgid "Code can't be longer than 50 characters"
-msgstr "O código não pode ter mais de 50 caracteres"
 
 msgid "Dashboard description"
 msgstr "Descrição do painel"
@@ -629,6 +737,23 @@ msgid_plural "{{count}} filters active"
 msgstr[0] ""
 msgstr[1] ""
 msgstr[2] ""
+
+msgid ""
+"There was a problem loading the embedded dashboard content from an external "
+"service"
+msgstr ""
+
+msgid "Fetching external dashboard"
+msgstr ""
+
+msgid "Error"
+msgstr "Erro"
+
+msgid "Could not load Superset dashboard"
+msgstr ""
+
+msgid "Retry"
+msgstr "Repetir"
 
 msgid "Loading dashboard – {{name}}"
 msgstr "Carregando painel– {{name}}"

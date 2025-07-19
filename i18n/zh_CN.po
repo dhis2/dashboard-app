@@ -6,7 +6,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2025-05-14T10:27:41.184Z\n"
+"POT-Creation-Date: 2025-07-04T15:00:39.114Z\n"
 "PO-Revision-Date: 2019-06-25 12:37+0000\n"
 "Last-Translator: easylin <lin_xd@126.com>, 2025\n"
 "Language-Team: Chinese (China) (https://app.transifex.com/hisp-uio/teams/100509/zh_CN/)\n"
@@ -581,17 +581,6 @@ msgstr "仪表板项目自动放置在固定的水平列中。列数可以调整
 
 msgid "Number of columns"
 msgstr "列数"
-
-msgid "Gap size between columns (px)"
-msgstr "列之间的间隙大小 (px)"
-
-msgid ""
-"Default height only applies to items added to a dashboard, this setting will"
-" not change existing items"
-msgstr "默认高度仅适用于添加到仪表板的项目，此设置不会更改现有项目"
-
-msgid "Default height for items added to dashboard (rows)"
-msgstr "添加到仪表板的项目的默认高度（行）"
 
 msgid "Save layout"
 msgstr "保存布局"

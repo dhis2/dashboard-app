@@ -8,7 +8,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2025-04-10T08:11:48.789Z\n"
+"POT-Creation-Date: 2025-07-04T15:00:39.114Z\n"
 "PO-Revision-Date: 2019-06-25 12:37+0000\n"
 "Last-Translator: Enzo Nicolas Rossi <enzo@dhis2.org>, 2025\n"
 "Language-Team: Dutch (https://app.transifex.com/hisp-uio/teams/100509/nl/)\n"
@@ -42,6 +42,12 @@ msgstr ""
 msgid ""
 "Could not get guest token from Superset Gateway for dashboard ID "
 "\"{{dashboardId}}\""
+msgstr ""
+
+msgid "Network error"
+msgstr "Netwerkfout"
+
+msgid "Could not load app data"
 msgstr ""
 
 msgid "New dashboard: external"
@@ -252,12 +258,6 @@ msgstr ""
 
 msgid "Dashboards"
 msgstr ""
-
-msgid "Could not fetch bundled apps"
-msgstr ""
-
-msgid "Network error"
-msgstr "Netwerkfout"
 
 msgid "There was a problem loading this dashboard item"
 msgstr "Er is een probleem opgetreden bij het laden van dit dashboarditem"
@@ -599,19 +599,6 @@ msgstr ""
 
 msgid "Number of columns"
 msgstr "Aantal kolommen"
-
-msgid "Gap size between columns (px)"
-msgstr "Tussenruimte tussen kolommen (px)"
-
-msgid ""
-"Default height only applies to items added to a dashboard, this setting will"
-" not change existing items"
-msgstr ""
-"De standaardhoogte is alleen van toepassing op items die aan een dashboard "
-"zijn toegevoegd, deze instelling zal bestaande items niet wijzigen"
-
-msgid "Default height for items added to dashboard (rows)"
-msgstr "Standaardhoogte voor items toegevoegd aan dashboard (rijen)"
 
 msgid "Save layout"
 msgstr "Lay-out opslaan"
