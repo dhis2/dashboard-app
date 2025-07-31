@@ -13,6 +13,7 @@ import {
     closeNavigationMenu,
     navMenuItemStarIconSel,
     getSharingDialogUserSearch,
+    gridItemSel,
 } from '../elements/index.js'
 import { EXTENDED_TIMEOUT, createDashboardTitle } from '../support/utils.js'
 
@@ -235,36 +236,52 @@ describe('Edit Dashboard', () => {
         cy.get('hr').should('have.length', 4)
         cy.get('div').contains(USER_NAME, EXTENDED_TIMEOUT).should('be.visible')
     })
+
+    it.skip('moves an item on the dashboard without triggering analytics requests', () => {
+        cy.visit('/')
+        const TEST_DASHBOARD_TITLE = createDashboardTitle('e2e-move-item')
+
+        // Start a new dashboard
+        cy.get(newButtonSel, EXTENDED_TIMEOUT).click()
+
+        // Add dashboard title
+        cy.getByDataTest('dashboard-title-input').type(TEST_DASHBOARD_TITLE)
+
+        // Add dashboard items
+        addDashboardItem('Inpatient: BMI this year by districts') // Chart
+
+        // Save dashboard
+        clickEditActionButton('Save changes')
+
+        confirmViewMode(TEST_DASHBOARD_TITLE)
+
+        // TODO: assert the chart item is displayed
+
+        // Open edit mode
+        clickViewActionButton('Edit')
+        confirmEditMode()
+
+        // No analytics requests are made when item is moved
+        const WRONG_SUBTITLE = 'WRONG_SUBTITLE'
+        cy.intercept(/analytics\.json(\S)*skipMeta=false/, (req) => {
+            req.reply((res) => {
+                // modify the chart subtitle so we can check whether the api request
+                // was made. (It shouldn't be - that's the test)
+                res.body.metaData.items.THIS_YEAR.name = WRONG_SUBTITLE
+                res.send({ body: res.body })
+            })
+        })
+        // eslint-disable-next-line cypress/unsafe-to-chain-command
+        cy.get(gridItemSel)
+            .first()
+            .trigger('mousedown')
+            .trigger('mousemove', { clientX: 400 })
+            .trigger('mouseup')
+        // cy.get(gridItemSel)
+        //     .first()
+        //     .getIframeBody()
+        //     .find(chartSubtitleSel, EXTENDED_TIMEOUT)
+        //     .contains(WRONG_SUBTITLE)
+        //     .should('not.exist')
+    })
 })
-
-// Scenario: I move an item on a dashboard
-//    Given I open existing dashboard
-//    When I choose to edit dashboard
-//    And the chart item is displayed
-//    Then no analytics requests are made when item is moved
-
-// Then('no analytics requests are made when item is moved', () => {
-//     const WRONG_SUBTITLE = 'WRONG_SUBTITLE'
-//     cy.intercept(/analytics\.json(\S)*skipMeta=false/, (req) => {
-//         req.reply((res) => {
-//             // modify the chart subtitle so we can check whether the api request
-//             // was made. (It shouldn't be - that's the test)
-//             res.body.metaData.items.THIS_YEAR.name = WRONG_SUBTITLE
-//             res.send({ body: res.body })
-//         })
-//     })
-
-//     // eslint-disable-next-line cypress/unsafe-to-chain-command
-//     cy.get(gridItemSel)
-//         .first()
-//         .trigger('mousedown')
-//         .trigger('mousemove', { clientX: 400 })
-//         .trigger('mouseup')
-
-//     // cy.get(gridItemSel)
-//     //     .first()
-//     //     .getIframeBody()
-//     //     .find(chartSubtitleSel, EXTENDED_TIMEOUT)
-//     //     .contains(WRONG_SUBTITLE)
-//     //     .should('not.exist')
-// })
