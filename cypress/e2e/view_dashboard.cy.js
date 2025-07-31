@@ -132,7 +132,7 @@ describe('view dashboard', () => {
             .and('contain', 'Delivery')
     })
 
-    it('should view the print layout preview and then print one-item-per-page preview', () => {
+    it('displays print layout preview and then print one-item-per-page preview', () => {
         const title = 'Delivery'
         getNavigationMenuItem(title).click()
 
@@ -178,6 +178,7 @@ describe('view dashboard', () => {
         cy.visit(`/${dashboards['Cases Malaria'].route}`)
         confirmViewMode('Cases Malaria')
         // When I hover over the map legend button
+        const mapItemUid = dashboards['Cases Malaria'].items.map.itemUid
         getDashboardItem(mapItemUid)
             .getIframeBody()
             .find('.dhis2-map-legend-button', EXTENDED_TIMEOUT)
