@@ -1,6 +1,19 @@
 import { dashboards } from '../assets/backends/index.js'
 import { getNavigationMenuItem } from '../elements/navigationMenu.js'
 import { dashboardTitleSel } from '../elements/viewDashboard.js'
+import { getApiBaseUrl } from '../support/utils.js'
+
+// TODO - needed?
+beforeEach(() => {
+    // set dblocale to English
+    cy.request(
+        'POST',
+        `${getApiBaseUrl()}/api/userSettings/keyDbLocale`,
+        'en'
+    ).then((response) => {
+        expect(response.status).to.equal(200)
+    })
+})
 
 // Smoke test - check that dashboard app and dashboard loads
 
