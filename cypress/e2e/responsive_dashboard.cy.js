@@ -1,8 +1,8 @@
+import { dashboards } from '../assets/backends/sierraLeone_236.js'
 import {
     dashboardTitleSel,
     dashboardsNavMenuButtonSel,
     newButtonSel,
-    getNavigationMenuItem,
     gridItemSel,
     outerScrollContainerSel,
     confirmViewMode,
@@ -35,15 +35,8 @@ const switchToWideScreen = () => {
 }
 
 describe('Responsive Dashboard', () => {
-    beforeEach(() => {
-        cy.visit('/')
-    })
-
     it('views a dashboard on small and wide screens', () => {
-        // Open the "Delivery" dashboard
-        getNavigationMenuItem('Delivery').click()
-
-        // Verify dashboard is loaded
+        cy.visit(`/${dashboards.Delivery.route}`)
         confirmViewMode('Delivery')
 
         switchToSmallScreen()
@@ -69,10 +62,7 @@ describe('Responsive Dashboard', () => {
     })
 
     it('edits an existing dashboard on small and wide screens', () => {
-        // Open the "Delivery" dashboard
-        getNavigationMenuItem('Delivery').click()
-
-        // Verify dashboard is loaded
+        cy.visit(`/${dashboards.Delivery.route}`)
         confirmViewMode('Delivery')
 
         // Choose to edit dashboard
@@ -164,8 +154,7 @@ describe('Responsive Dashboard', () => {
     })
 
     it('changes url to new while in small screen', () => {
-        // Open the "Delivery" dashboard
-        getNavigationMenuItem('Delivery').click()
+        cy.visit(`/${dashboards.Delivery.route}`)
         confirmViewMode('Delivery')
 
         // Switch to small screen
@@ -196,8 +185,7 @@ describe('Responsive Dashboard', () => {
     })
 
     it('changes url to edit while in small screen', () => {
-        // Open the "Delivery" dashboard
-        getNavigationMenuItem('Delivery').click()
+        cy.visit(`/${dashboards.Delivery.route}`)
         confirmViewMode('Delivery')
 
         // Switch to small screen
@@ -220,8 +208,7 @@ describe('Responsive Dashboard', () => {
     })
 
     it('cannot edit dashboard filter while in small screen', () => {
-        // Open the "Delivery" dashboard
-        getNavigationMenuItem('Delivery').click()
+        cy.visit(`/${dashboards.Delivery.route}`)
         confirmViewMode('Delivery')
 
         // Add a "Period" filter
@@ -241,8 +228,7 @@ describe('Responsive Dashboard', () => {
     })
 
     it('edit bar scrolls away in phone landscape', () => {
-        // Open the "Delivery" dashboard
-        getNavigationMenuItem('Delivery').click()
+        cy.visit(`/${dashboards.Delivery.route}`)
         confirmViewMode('Delivery')
 
         // Choose to edit dashboard
@@ -278,8 +264,7 @@ describe('Responsive Dashboard', () => {
     })
 
     it('dashboards bar scrolls away in phone landscape', () => {
-        // Open the "Delivery" dashboard
-        getNavigationMenuItem('Delivery').click()
+        cy.visit(`/${dashboards.Delivery.route}`)
         confirmViewMode('Delivery')
 
         // Assert the dashboards bar is visible

@@ -4,18 +4,13 @@ import {
     getDashboardItem,
     itemDetailsSel,
     itemMenuButtonSel,
-    getNavigationMenuItem,
     confirmViewMode,
 } from '../elements/index.js'
 import { getApiBaseUrl } from '../support/utils.js'
 
 describe('Item context menu', () => {
-    beforeEach(() => {
-        cy.visit('/')
-    })
-
     it('should have the correct link for Open in app menu option', () => {
-        getNavigationMenuItem('Delivery').click()
+        cy.visit(`/${dashboards.Delivery.route}`)
         confirmViewMode('Delivery')
 
         // ensure Delivery dashboard is displayed
@@ -58,8 +53,7 @@ describe('Item context menu', () => {
     })
 
     it('opens the interpretations panel', () => {
-        // Open the "Delivery" dashboard
-        getNavigationMenuItem('Delivery').click()
+        cy.visit(`/${dashboards.Delivery.route}`)
         confirmViewMode('Delivery')
 
         // Click Show details and interpretations on a chart dashboard item
@@ -84,8 +78,7 @@ describe('Item context menu', () => {
     })
 
     it('verifies text item does not have a context menu', () => {
-        // Open the "Antenatal Care" dashboard
-        getNavigationMenuItem('Antenatal Care').click()
+        cy.visit(`/${dashboards['Antenatal Care'].route}`)
         confirmViewMode('Antenatal Care')
 
         // Assert the text item does not have a context menu
@@ -95,33 +88,11 @@ describe('Item context menu', () => {
     })
 
     it('verifies chart item has a fullscreen option', () => {
-        // Open the "Antenatal Care" dashboard
-        getNavigationMenuItem('Antenatal Care').click()
+        cy.visit(`/${dashboards['Antenatal Care'].route}`)
         confirmViewMode('Antenatal Care')
 
         // Assert the chart item has a fullscreen option in the context menu
         clickMenuButton(dashboards['Antenatal Care'].items.chart.itemUid)
         cy.contains('View fullscreen').should('be.visible')
     })
-
-    // Scenario: View chart as table
-    //     Given I open the "Delivery" dashboard
-    //     And the chart dashboard item displays as a chart
-    //     And the table dashboard item displays as a table
-    //     When I click View As Table on a chart dashboard item
-    //     Then the chart dashboard item displays as a table
-
-    //  Scenario: View chart as map
-    //     Given I open the "Delivery" dashboard
-    //     And the chart dashboard item displays as a chart
-    //     And the table dashboard item displays as a table
-    //     When I click View As Map on a chart dashboard item
-    //     Then the chart dashboard item displays as a map
-
-    //  Scenario: View table as chart
-    //     Given I open the "Delivery" dashboard
-    //     And the chart dashboard item displays as a chart
-    //     And the table dashboard item displays as a table
-    //     When I click View As Chart on a table dashboard item
-    //     Then the table dashboard item displays as a chart
 })

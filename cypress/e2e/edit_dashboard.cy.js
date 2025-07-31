@@ -12,6 +12,7 @@ import {
     getNavigationMenuItem,
     closeNavigationMenu,
     navMenuItemStarIconSel,
+    getSharingDialogUserSearch,
 } from '../elements/index.js'
 import { EXTENDED_TIMEOUT, createDashboardTitle } from '../support/utils.js'
 
@@ -61,6 +62,7 @@ describe('Edit Dashboard', () => {
 
         // And I click Exit without saving
         clickEditActionButton('Exit without saving')
+
         // Then the dashboard displays in view mode
         confirmViewMode(TEST_DASHBOARD_TITLE)
 
@@ -76,10 +78,11 @@ describe('Edit Dashboard', () => {
         cy.get(confirmActionDialogSel).find('button').contains('Cancel').click()
         confirmEditMode()
 
+        // Finally, delete it for real
         deleteDashboard(TEST_DASHBOARD_TITLE)
     })
 
-    it('Returns to view mode without confirmation when exit without saving', () => {
+    it('returns to view mode without confirmation when exit without saving', () => {
         cy.visit('/')
         // Start a new dashboard
         cy.get(newButtonSel, EXTENDED_TIMEOUT).click()
@@ -98,7 +101,7 @@ describe('Edit Dashboard', () => {
         confirmViewMode()
     })
 
-    it('star a dashboard', () => {
+    it('stars and unstars a dashboard', () => {
         cy.visit('/')
         const TEST_DASHBOARD_TITLE = createDashboardTitle('e2e-star')
 
@@ -168,6 +171,70 @@ describe('Edit Dashboard', () => {
         clickViewActionButton('Edit')
         deleteDashboard(TEST_DASHBOARD_TITLE)
     })
+
+    // Scenario: I change sharing settings of a dashboard
+    it('changes sharing settings', () => {
+        const USER_NAME = 'Kevin Boateng'
+        //     create a dashboard
+        cy.visit('/')
+        const TEST_DASHBOARD_TITLE = createDashboardTitle('e2e-sharing')
+
+        // Start a new dashboard
+        cy.get(newButtonSel, EXTENDED_TIMEOUT).click()
+
+        // Add dashboard title
+        cy.getByDataTest('dashboard-title-input').type(TEST_DASHBOARD_TITLE)
+
+        // Add dashboard items
+        addDashboardItem('Inpatient: BMI this year by districts') // Chart
+
+        // Save dashboard
+        clickEditActionButton('Save changes')
+
+        confirmViewMode(TEST_DASHBOARD_TITLE)
+
+        // Open edit mode
+        clickViewActionButton('Edit')
+        confirmEditMode()
+
+        //     Change sharing settings
+        cy.get('button').contains('Share', EXTENDED_TIMEOUT).click()
+
+        //confirm that Boateng is not currently listed
+        cy.get('hr').should('have.length', 3)
+
+        getSharingDialogUserSearch().type('Boateng')
+        cy.contains(USER_NAME).click()
+
+        cy.get('div').contains(USER_NAME).should('be.visible')
+
+        cy.get('button').contains('close', { matchCase: false }).click()
+
+        //     edit dashboard
+        clickViewActionButton('Edit')
+        confirmEditMode()
+
+        //     And dashboard is saved
+        clickEditActionButton('Save changes')
+        cy.get(dashboardTitleSel, EXTENDED_TIMEOUT)
+            .should('be.visible')
+            .and('contain', TEST_DASHBOARD_TITLE)
+
+        //     The new sharing settings should be preserved
+        cy.visit('/')
+        // open TEST_DASHBOARD_TITLE dashboard
+        getNavigationMenuItem(TEST_DASHBOARD_TITLE).click()
+        confirmViewMode(TEST_DASHBOARD_TITLE)
+
+        cy.get(dashboardTitleSel, EXTENDED_TIMEOUT).should('be.visible')
+        cy.get('button')
+            .contains('Share', EXTENDED_TIMEOUT)
+            .should('be.visible')
+        cy.get('button').contains('Share', EXTENDED_TIMEOUT).click()
+
+        cy.get('hr').should('have.length', 4)
+        cy.get('div').contains(USER_NAME, EXTENDED_TIMEOUT).should('be.visible')
+    })
 })
 
 // Scenario: I move an item on a dashboard
@@ -175,27 +242,6 @@ describe('Edit Dashboard', () => {
 //    When I choose to edit dashboard
 //    And the chart item is displayed
 //    Then no analytics requests are made when item is moved
-
-// Scenario: I add translations to a dashboard and save dashboard
-//     Given I open existing dashboard
-//     When I choose to edit dashboard
-//     And I add translations for dashboard name and description
-//     And dashboard is saved
-//     Then Norwegian title and description are displayed
-
-// Scenario: I add translations to a dashboard and discard dashboard changes
-//     Given I open existing dashboard
-//     When I choose to edit dashboard
-//     And I add translations for dashboard name and description
-//     And I click Exit without saving
-//     Then Norwegian title and description are displayed
-
-// Scenario: I change sharing settings of a dashboard
-//     Given I open existing dashboard
-//     When I change sharing settings
-//     And I choose to edit dashboard
-//     And dashboard is saved
-//     Then the new sharing settings should be preserved
 
 // Then('no analytics requests are made when item is moved', () => {
 //     const WRONG_SUBTITLE = 'WRONG_SUBTITLE'

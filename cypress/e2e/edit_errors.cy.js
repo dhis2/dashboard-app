@@ -8,11 +8,8 @@ import {
 } from '../elements/index.js'
 
 describe('Edit Dashboard Errors', () => {
-    beforeEach(() => {
-        cy.visit('/')
-    })
-
     it('shows error when saving a dashboard without access', () => {
+        cy.visit('/')
         // Open the "Delivery" dashboard
         getNavigationMenuItem('Delivery').click()
         confirmViewMode('Delivery')
@@ -45,6 +42,7 @@ describe('Edit Dashboard Errors', () => {
     })
 
     it('shows error when 500 error is thrown while saving dashboard', () => {
+        cy.visit('/')
         // Open the "Delivery" dashboard
         getNavigationMenuItem('Delivery').click()
         confirmViewMode('Delivery')
@@ -77,6 +75,7 @@ describe('Edit Dashboard Errors', () => {
     })
 
     it('shows error when 500 error is thrown while deleting dashboard', () => {
+        cy.visit('/')
         // Open the "Delivery" dashboard
         getNavigationMenuItem('Delivery').click()
         confirmViewMode('Delivery')

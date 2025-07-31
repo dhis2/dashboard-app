@@ -21,7 +21,7 @@ describe('description', () => {
         })
     })
 
-    it('toggle show description', () => {
+    it('toggles show description', () => {
         //  Open dashboard and confirm that the description is not shown
         cy.visit('/')
         cy.getByDataTest('view-dashboard-title').should('be.visible')

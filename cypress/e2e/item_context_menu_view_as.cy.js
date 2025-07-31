@@ -1,48 +1,44 @@
-import { When, Then } from '@badeball/cypress-cucumber-preprocessor'
-import { dashboards } from '../../assets/backends/index.js'
+import { dashboards } from '../assets/backends/index.js'
 import {
     chartSel,
     mapSel,
     tableSel,
     clickMenuButton,
     getDashboardItem,
-} from '../../elements/dashboardItem.js'
-import { EXTENDED_TIMEOUT } from '../../support/utils.js'
+    confirmViewMode,
+} from '../elements/index.js'
+import { EXTENDED_TIMEOUT } from '../support/utils.js'
 
-// these tests being run on the "Delivery" dashboard
 const chartItemUid = dashboards.Delivery.items.chart.itemUid
 const tableItemUid = dashboards.Delivery.items.table.itemUid
 
-/*
-Background
-*/
-
-Then('the chart dashboard item displays as a chart', () => {
+const assertChartItemDisplayedAsChart = () => {
     getDashboardItem(chartItemUid)
         .getIframeBody()
         .find(chartSel, EXTENDED_TIMEOUT)
         .as('chart')
     cy.get('@chart').should('exist').and('be.visible')
-})
-
-Then('the table dashboard item displays as a table', () => {
+}
+const assertTableItemDisplayedAsTable = () => {
     getDashboardItem(tableItemUid)
         .getIframeBody()
         .find(tableSel, EXTENDED_TIMEOUT)
         .as('table')
     cy.get('@table').should('exist').should('exist').and('be.visible')
-})
+}
 
-/*
-Scenario: View chart as table
-*/
+it('displays chart as table', () => {
+    cy.visit(`/${dashboards.Delivery.route}`)
+    confirmViewMode('Delivery')
 
-When('I click View As Table on a chart dashboard item', () => {
+    assertChartItemDisplayedAsChart()
+    assertTableItemDisplayedAsTable()
+
+    // click view as table
     clickMenuButton(chartItemUid)
     cy.contains('View as Pivot table').click()
-})
 
-Then('the chart dashboard item displays as a table', () => {
+    // chart item displays as a table
     getDashboardItem(chartItemUid)
         .getIframeBody()
         .find(tableSel, EXTENDED_TIMEOUT)
@@ -50,16 +46,18 @@ Then('the chart dashboard item displays as a table', () => {
     cy.get('@vis').should('exist').should('exist').and('be.visible')
 })
 
-/*
-Scenario: View chart as map
-*/
+it('displays chart as map', () => {
+    cy.visit(`/${dashboards.Delivery.route}`)
+    confirmViewMode('Delivery')
 
-When('I click View As Map on a chart dashboard item', () => {
+    assertChartItemDisplayedAsChart()
+    assertTableItemDisplayedAsTable()
+
+    // click view as map
     clickMenuButton(chartItemUid)
     cy.contains('View as Map').click()
-})
 
-Then('the chart dashboard item displays as a map', () => {
+    // chart item displays as a map
     getDashboardItem(chartItemUid)
         .getIframeBody()
         .find(mapSel, EXTENDED_TIMEOUT)
@@ -67,19 +65,27 @@ Then('the chart dashboard item displays as a map', () => {
     cy.get('@vis').should('exist').should('exist').and('be.visible')
 })
 
-/*
-Scenario: View table as chart
-*/
+it('displays table as chart', () => {
+    cy.visit(`/${dashboards.Delivery.route}`)
+    confirmViewMode('Delivery')
 
-When('I click View As Chart on a table dashboard item', () => {
+    assertChartItemDisplayedAsChart()
+    assertTableItemDisplayedAsTable()
+
+    // click view as chart
     clickMenuButton(tableItemUid)
     cy.contains('View as Chart').click()
-})
 
-Then('the table dashboard item displays as a chart', () => {
+    // table item displays as a chart
     getDashboardItem(tableItemUid)
         .getIframeBody()
         .find(chartSel, EXTENDED_TIMEOUT)
         .as('vis')
     cy.get('@vis').should('exist').and('be.visible')
 })
+
+// TODO: gaps
+// view map as chart
+// view map as table
+// view event report as event chart
+// view event chart as event report

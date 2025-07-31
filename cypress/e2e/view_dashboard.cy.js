@@ -5,6 +5,7 @@ import {
     getNavigationMenu,
     dashboardTitleSel,
     confirmViewMode,
+    getDashboardItem,
 } from '../elements/index.js'
 import { EXTENDED_TIMEOUT } from '../support/utils.js'
 
@@ -17,12 +18,9 @@ import { EXTENDED_TIMEOUT } from '../support/utils.js'
 // }
 
 describe('view dashboard', () => {
-    beforeEach(() => {
-        cy.visit('/')
-    })
-
     it('switches between dashboards', () => {
         // Open the "Delivery" dashboard
+        cy.visit('/')
         getNavigationMenuItem('Delivery').click()
         confirmViewMode('Delivery')
         cy.location().should((loc) => {
@@ -40,6 +38,7 @@ describe('view dashboard', () => {
     })
 
     it('searches for a dashboard', () => {
+        cy.visit('/')
         confirmViewMode()
         // Open the "Antenatal Care" dashboard
         getNavigationMenuItem('Antenatal Care').click()
@@ -62,6 +61,7 @@ describe('view dashboard', () => {
     })
 
     it('searches for a dashboard with nonmatching search text', () => {
+        cy.visit('/')
         // Open the "Antenatal Care" dashboard
         getNavigationMenuItem('Antenatal Care').click()
         confirmViewMode('Antenatal Care')
@@ -93,6 +93,7 @@ describe('view dashboard', () => {
         })
 
         // Open the "Delivery" dashboard with shapes removed
+        cy.visit('/')
         getNavigationMenuItem('Delivery').click()
 
         // Assert the "Delivery" dashboard displays in view mode
@@ -101,6 +102,7 @@ describe('view dashboard', () => {
 
     it("opens user's preferred dashboard", () => {
         // Open the "Antenatal Care" dashboard
+        cy.visit('/')
         getNavigationMenuItem('Antenatal Care').click()
         confirmViewMode('Antenatal Care')
 
@@ -171,17 +173,20 @@ describe('view dashboard', () => {
         confirmViewMode(title)
     })
 
-    // Scenario: Map with tracked entities show layer names in legend
-    // Given I open the Cases Malaria dashboard
-    // When I hover over the map legend button
-    // getDashboardItem(mapItemUid)
-    //         .getIframeBody()
-    //         .find('.dhis2-map-legend-button', EXTENDED_TIMEOUT)
-    //         .trigger('mouseover')
-    // Then the legend title shows the tracked entity name
-    // getDashboardItem(mapItemUid)
-    //         .getIframeBody()
-    //         .find('.dhis2-map-legend-title')
-    //         .contains('Malaria case registration')
-    //         .should('be.visible')
+    it.skip('shows layer names in legend for map with tracked entities', () => {
+        // Given I open the Cases Malaria dashboard
+        cy.visit(`/${dashboards['Cases Malaria'].route}`)
+        confirmViewMode('Cases Malaria')
+        // When I hover over the map legend button
+        getDashboardItem(mapItemUid)
+            .getIframeBody()
+            .find('.dhis2-map-legend-button', EXTENDED_TIMEOUT)
+            .trigger('mouseover')
+        // Then the legend title shows the tracked entity name
+        getDashboardItem(mapItemUid)
+            .getIframeBody()
+            .find('.dhis2-map-legend-title')
+            .contains('Malaria case registration')
+            .should('be.visible')
+    })
 })

@@ -17,11 +17,8 @@ const closeModal = () =>
 describe('Filter Restrictions', () => {
     let dashboardId
 
-    beforeEach(() => {
-        cy.visit('/')
-    })
-
     it('creates a new dashboard with no Filter Restrictions', () => {
+        cy.visit('/')
         // Start a new dashboard
         cy.get(newButtonSel).click()
 
