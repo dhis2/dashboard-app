@@ -16,7 +16,7 @@ import {
     assertFilterModalOpened,
     confirmActionDialogSel,
     filterBadgeSel,
-    titleBarSel,
+    clickViewActionButton,
     confirmEditMode,
     clickEditActionButton,
 } from '../elements/index.js'
@@ -59,8 +59,8 @@ describe('Dashboard Filter Tests', () => {
         // Start a new dashboard
         cy.get(newButtonSel, EXTENDED_TIMEOUT).click()
 
-        // And I add items and save
-        // first install a custom app
+        // Add items and save
+        // First install a custom app
         cy.request(
             'POST',
             `${getApiBaseUrl()}/api/appHub/${customApp.id}`
@@ -75,41 +75,30 @@ describe('Dashboard Filter Tests', () => {
             addDashboardItem('ANC: IPT 2 Coverage this year') //MAP
             addDashboardItem('Role Monitor') //CUSTOM APP
 
-            //move things so the dashboard is more compact
-            // eslint-disable-next-line cypress/unsafe-to-chain-command
-            cy.get(`${gridItemSel}.MAP`)
-                .trigger('mousedown')
-                .trigger('mousemove', { clientX: 650 })
-                .trigger('mouseup')
+            // move things so the dashboard is more compact
+            cy.get(`${gridItemSel}.MAP`).trigger('mousedown')
+            cy.document().trigger('mousemove', { clientX: 650 })
+            cy.get(`${gridItemSel}.MAP`).trigger('mouseup')
 
-            //save
+            // save
             cy.get('button').contains('Save changes', EXTENDED_TIMEOUT).click()
 
             assertDashboardVisible()
 
             // add a "Period" filter
             addFilter('Period')
-
-            // Assert Period filter is applied to the dashboard
             assertPeriodFilterApplied()
-            // remove the "Period" filter
             removeFilter()
-            // Assert filter is removed from the dashboard
             assertFilterRemoved()
 
             // add a "Organisation unit" filter
             addFilter('Organisation unit')
-
-            // Assert Organisation unit filter is applied to the dashboard
             assertOrgUnitFilterApplied()
-            // remove the "OrgUnit" filter
             removeFilter()
-            // Assert filter is removed from the dashboard
             assertFilterRemoved()
+
             // add a "Facility Type" filter
             addFilter('Facility Type')
-
-            // Assert Facility Type filter is applied to the dashboard
             assertFacilityTypeFilterApplied()
         })
     })
@@ -117,30 +106,27 @@ describe('Dashboard Filter Tests', () => {
     it('adds an Org unit group filter', () => {
         cy.visit('/')
 
-        // Given I open an existing dashboard
         getNavigationMenuItem(TEST_DASHBOARD_TITLE).click()
 
-        // Assert dashboard displays in view mode and visualizations are visible
         assertDashboardVisible()
-        // add a "Org unit group" filter
+
         addFilter('Org unit group')
-        // Assert Org unit group filter is applied to the dashboard
         assertOrgUnitGroupFilterApplied()
     })
+
     it('opens the dimensions modal from the filter badge', () => {
         cy.visit('/')
 
-        // Given I open an existing dashboard
         getNavigationMenuItem(TEST_DASHBOARD_TITLE).click()
-        // add a "Period" filter
+
         addFilter('Period')
-        // And I click on the "Period" filter badge
+
+        // click on the "Period" filter badge
         cy.get(filterBadgeSel)
             .find('button')
             .contains('Period')
             .click({ force: true })
 
-        // Assert filter modal is opened
         assertFilterModalOpened()
 
         cy.getByDataTest('dimension-modal')
@@ -150,13 +136,10 @@ describe('Dashboard Filter Tests', () => {
 
         assertDashboardVisible()
 
-        // Cleanup: delete the dashboard and remove custom app
-        cy.get(titleBarSel, EXTENDED_TIMEOUT)
-            .find('button')
-            .contains('Edit', EXTENDED_TIMEOUT)
-            .click()
-
+        // Cleanup: delete the dashboard and remove the custom app
+        clickViewActionButton('Edit')
         confirmEditMode()
+
         clickEditActionButton('Delete')
         cy.get(confirmActionDialogSel).find('button').contains('Delete').click()
         cy.get(dashboardTitleSel)

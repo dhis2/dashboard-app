@@ -25,7 +25,7 @@ const SUPERSET_DASHBOARD_STUB = `
 const getInputByLabelText = (labelText, inputTag = 'input') =>
     cy.get('form').contains('label', labelText).parent().find(inputTag)
 
-describe('Creating, viewing, editing and deleting an embedded superset dashboard', function () {
+describe('Creating, viewing, editing and deleting an embedded superset dashboard', () => {
     let UNIQUE_CODE = null
 
     before(function () {

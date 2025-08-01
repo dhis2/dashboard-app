@@ -1,6 +1,7 @@
 import {
     newButtonSel,
     dashboardTitleSel,
+    chartSubtitleSel,
     addDashboardItem,
     clickEditActionButton,
     clickViewActionButton,
@@ -249,17 +250,17 @@ describe('Edit Dashboard', () => {
                 res.send({ body: res.body })
             })
         })
-        // eslint-disable-next-line cypress/unsafe-to-chain-command
+        cy.get(gridItemSel).first().trigger('mousedown')
+        cy.document().trigger('mousemove', { clientX: 400 })
+        cy.get(gridItemSel).first().trigger('mouseup')
+
+        confirmEditMode()
+
         cy.get(gridItemSel)
             .first()
-            .trigger('mousedown')
-            .trigger('mousemove', { clientX: 400 })
-            .trigger('mouseup')
-        // cy.get(gridItemSel)
-        //     .first()
-        //     .getIframeBody()
-        //     .find(chartSubtitleSel, EXTENDED_TIMEOUT)
-        //     .contains(WRONG_SUBTITLE)
-        //     .should('not.exist')
+            .getIframeBody()
+            .find(chartSubtitleSel, EXTENDED_TIMEOUT)
+            .contains(WRONG_SUBTITLE)
+            .should('not.exist')
     })
 })

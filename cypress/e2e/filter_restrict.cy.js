@@ -15,7 +15,7 @@ const TEST_DASHBOARD_TITLE = createDashboardTitle('aaa')
 describe('Filter Restrictions', () => {
     let dashboardId
 
-    it('creates a new dashboard with no Filter Restrictions', () => {
+    it.only('creates a new dashboard with no Filter Restrictions', () => {
         cy.visit('/')
         // Start a new dashboard
         cy.get(newButtonSel).click()
@@ -44,7 +44,7 @@ describe('Filter Restrictions', () => {
         })
     })
 
-    it('changes Filter Restrictions but they do not persist when clicking away without confirming', () => {
+    it.only('changes Filter Restrictions but they do not persist when clicking away without confirming', () => {
         // Open an existing dashboard with non-restricted Filter settings in edit mode
         cy.visit(`/${dashboardId}/edit`)
 
@@ -70,7 +70,7 @@ describe('Filter Restrictions', () => {
         closeModal()
     })
 
-    it('shows Period and Organisation unit as selected by default when restricting dimensions', () => {
+    it.only('shows Period and Organisation unit as selected by default when restricting dimensions', () => {
         // Open an existing dashboard with non-restricted Filter settings in edit mode
         cy.visit(`/${dashboardId}/edit`)
 
@@ -93,7 +93,7 @@ describe('Filter Restrictions', () => {
         closeModal()
     })
 
-    it('persists Filter Restrictions changes while editing Filter settings', () => {
+    it.only('persists Filter Restrictions changes while editing Filter settings', () => {
         // Open an existing dashboard with non-restricted Filter settings in edit mode
         cy.visit(`/${dashboardId}/edit`)
 
@@ -107,9 +107,7 @@ describe('Filter Restrictions', () => {
 
         // Add Facility Ownership to selected filters
         cy.get('div').contains('Facility Ownership').click()
-        cy.get(
-            '[data-test="dhis2-uicore-transfer-actions-addindividual"]'
-        ).click()
+        cy.getByDataTest('dhis2-uicore-transfer-actions-addindividual').click()
 
         // Click to allow all filters
         cy.contains('Allow filtering by all dimensions').parent().click()
@@ -123,14 +121,14 @@ describe('Filter Restrictions', () => {
         cy.contains('Only allow filtering by selected dimensions')
             .find('input')
             .should('be.checked')
-        cy.get('[data-test="dhis2-uicore-transfer-rightside"]')
+        cy.getByDataTest('dhis2-uicore-transfer-rightside')
             .contains('Facility Ownership')
             .should('be.visible')
 
         closeModal()
     })
 
-    it('persists Filter Restrictions changes after clicking confirm', () => {
+    it.only('persists Filter Restrictions changes after clicking confirm', () => {
         // Open an existing dashboard with non-restricted Filter settings in edit mode
         cy.visit(`/${dashboardId}/edit`)
 
@@ -144,9 +142,7 @@ describe('Filter Restrictions', () => {
 
         // Add Facility Ownership to selected filters
         cy.get('div').contains('Facility Ownership').click()
-        cy.get(
-            '[data-test="dhis2-uicore-transfer-actions-addindividual"]'
-        ).click()
+        cy.getByDataTest('dhis2-uicore-transfer-actions-addindividual').click()
 
         // Click Confirm
         cy.get('button').contains('Confirm').click()
@@ -158,14 +154,14 @@ describe('Filter Restrictions', () => {
         cy.contains('Only allow filtering by selected dimensions')
             .find('input')
             .should('be.checked')
-        cy.get('[data-test="dhis2-uicore-transfer-rightside"]')
+        cy.getByDataTest('"dhis2-uicore-transfer-rightside')
             .contains('Facility Ownership')
             .should('be.visible')
 
         closeModal()
     })
 
-    it('does not persist Filter Restrictions changes when exiting without saving', () => {
+    it.only('does not persist Filter Restrictions changes when exiting without saving', () => {
         // Open an existing dashboard with non-restricted Filter settings in edit mode
         cy.visit(`/${dashboardId}/edit`)
 
@@ -179,9 +175,7 @@ describe('Filter Restrictions', () => {
 
         // Add Facility Ownership to selected filters
         cy.get('div').contains('Facility Ownership').click()
-        cy.get(
-            '[data-test="dhis2-uicore-transfer-actions-addindividual"]'
-        ).click()
+        cy.getByDataTest('dhis2-uicore-transfer-actions-addindividual').click()
 
         // Click Confirm
         cy.get('button').contains('Confirm').click()

@@ -14,7 +14,7 @@ describe('Edit Dashboard Errors', () => {
         getNavigationMenuItem('Delivery').click()
         confirmViewMode('Delivery')
 
-        // Choose to edit dashboard
+        // Edit dashboard
         clickViewActionButton('Edit')
         confirmEditMode()
 
@@ -30,8 +30,11 @@ describe('Edit Dashboard Errors', () => {
         cy.wait('@saveDashboard')
 
         // Assert I remain in edit mode and error message is displayed
+        cy.getByDataTest('dhis2-uicore-alertbar').should(
+            'have.class',
+            'critical'
+        )
         cy.getByDataTest('dhis2-uicore-alertbar')
-            .should('have.class', 'critical')
             .contains('Failed to save dashboard')
             .should('be.visible')
 
@@ -63,8 +66,11 @@ describe('Edit Dashboard Errors', () => {
         cy.wait('@saveDashboard')
 
         // Assert I remain in edit mode and error message is displayed
+        cy.getByDataTest('dhis2-uicore-alertbar').should(
+            'have.class',
+            'critical'
+        )
         cy.getByDataTest('dhis2-uicore-alertbar')
-            .should('have.class', 'critical')
             .contains('Failed to save dashboard')
             .should('be.visible')
 
@@ -97,8 +103,11 @@ describe('Edit Dashboard Errors', () => {
         cy.wait('@deleteDashboard')
 
         // Assert I remain in edit mode and error message is displayed
+        cy.getByDataTest('dhis2-uicore-alertbar').should(
+            'have.class',
+            'critical'
+        )
         cy.getByDataTest('dhis2-uicore-alertbar')
-            .should('have.class', 'critical')
             .contains('Failed to delete dashboard')
             .should('be.visible')
 
