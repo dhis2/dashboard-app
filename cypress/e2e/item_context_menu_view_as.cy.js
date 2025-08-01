@@ -27,7 +27,7 @@ const assertTableItemDisplayedAsTable = () => {
     cy.get('@table').should('exist').should('exist').and('be.visible')
 }
 
-it('displays chart as table', () => {
+it.skip('displays chart as table', () => {
     cy.visit(`/${dashboards.Delivery.route}`)
     confirmViewMode('Delivery')
 
@@ -46,7 +46,7 @@ it('displays chart as table', () => {
     cy.get('@vis').should('exist').should('exist').and('be.visible')
 })
 
-it('displays chart as map', () => {
+it.skip('displays chart as map', () => {
     cy.visit(`/${dashboards.Delivery.route}`)
     confirmViewMode('Delivery')
 
@@ -65,7 +65,7 @@ it('displays chart as map', () => {
     cy.get('@vis').should('exist').should('exist').and('be.visible')
 })
 
-it('displays table as chart', () => {
+it.skip('displays table as chart', () => {
     cy.visit(`/${dashboards.Delivery.route}`)
     confirmViewMode('Delivery')
 

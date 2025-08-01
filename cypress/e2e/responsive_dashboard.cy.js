@@ -228,7 +228,8 @@ describe('Responsive Dashboard', () => {
     })
 
     it('edit bar scrolls away in phone landscape', () => {
-        cy.visit(`/${dashboards.Delivery.route}`)
+        cy.visit(dashboards.Delivery.route)
+        switchToWideScreen()
         confirmViewMode('Delivery')
 
         // Choose to edit dashboard

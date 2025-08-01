@@ -12,8 +12,10 @@ import {
     getNavigationMenuItem,
     closeNavigationMenu,
     navMenuItemStarIconSel,
-    getSharingDialogUserSearch,
+    assertSharedToUser,
     gridItemSel,
+    findUser,
+    selectSharingLevel,
 } from '../elements/index.js'
 import { EXTENDED_TIMEOUT, createDashboardTitle } from '../support/utils.js'
 
@@ -36,7 +38,7 @@ const deleteDashboard = (dashboardTitle) => {
 describe('Edit Dashboard', () => {
     it('creates a dashboard', () => {
         cy.visit('/')
-        const TEST_DASHBOARD_TITLE = createDashboardTitle('e2e')
+        const TEST_DASHBOARD_TITLE = createDashboardTitle('e2e-create')
 
         // Start a new dashboard
         cy.get(newButtonSel, EXTENDED_TIMEOUT).click()
@@ -54,17 +56,15 @@ describe('Edit Dashboard', () => {
         // Dashboard displays in view mode
         confirmViewMode(TEST_DASHBOARD_TITLE)
 
-        // // Open edit mode
+        // Open edit mode
         clickViewActionButton('Edit')
         confirmEditMode()
 
         // // Add another dashboard item
         addDashboardItem('ANC: 3rd visit coverage last year by district') // Map
 
-        // And I click Exit without saving
+        // Exit without saving
         clickEditActionButton('Exit without saving')
-
-        // Then the dashboard displays in view mode
         confirmViewMode(TEST_DASHBOARD_TITLE)
 
         // Delete dashboard
@@ -173,7 +173,6 @@ describe('Edit Dashboard', () => {
         deleteDashboard(TEST_DASHBOARD_TITLE)
     })
 
-    // Scenario: I change sharing settings of a dashboard
     it('changes sharing settings', () => {
         const USER_NAME = 'Kevin Boateng'
         //     create a dashboard
@@ -186,55 +185,37 @@ describe('Edit Dashboard', () => {
         // Add dashboard title
         cy.getByDataTest('dashboard-title-input').type(TEST_DASHBOARD_TITLE)
 
-        // Add dashboard items
-        addDashboardItem('Inpatient: BMI this year by districts') // Chart
-
-        // Save dashboard
+        // Add dashboard item and save
+        addDashboardItem('Inpatient: BMI this year by districts')
         clickEditActionButton('Save changes')
 
         confirmViewMode(TEST_DASHBOARD_TITLE)
 
-        // Open edit mode
-        clickViewActionButton('Edit')
-        confirmEditMode()
+        // Change sharing settings
+        clickViewActionButton('Share')
+        assertSharedToUser(USER_NAME, false)
 
-        //     Change sharing settings
-        cy.get('button').contains('Share', EXTENDED_TIMEOUT).click()
+        findUser(USER_NAME)
+        selectSharingLevel('View only')
+        assertSharedToUser(USER_NAME, true)
 
-        //confirm that Boateng is not currently listed
-        cy.get('hr').should('have.length', 3)
+        // Close the sharing dialog
+        cy.get('button').contains('Close').click()
 
-        getSharingDialogUserSearch().type('Boateng')
-        cy.contains(USER_NAME).click()
-
-        cy.get('div').contains(USER_NAME).should('be.visible')
-
-        cy.get('button').contains('close', { matchCase: false }).click()
-
-        //     edit dashboard
-        clickViewActionButton('Edit')
-        confirmEditMode()
-
-        //     And dashboard is saved
-        clickEditActionButton('Save changes')
-        cy.get(dashboardTitleSel, EXTENDED_TIMEOUT)
-            .should('be.visible')
-            .and('contain', TEST_DASHBOARD_TITLE)
-
-        //     The new sharing settings should be preserved
+        // Reload the page and check sharing settings
         cy.visit('/')
-        // open TEST_DASHBOARD_TITLE dashboard
         getNavigationMenuItem(TEST_DASHBOARD_TITLE).click()
         confirmViewMode(TEST_DASHBOARD_TITLE)
 
-        cy.get(dashboardTitleSel, EXTENDED_TIMEOUT).should('be.visible')
-        cy.get('button')
-            .contains('Share', EXTENDED_TIMEOUT)
-            .should('be.visible')
-        cy.get('button').contains('Share', EXTENDED_TIMEOUT).click()
+        clickViewActionButton('Share')
+        assertSharedToUser(USER_NAME, true)
+        cy.get('button').contains('Close').click()
 
-        cy.get('hr').should('have.length', 4)
-        cy.get('div').contains(USER_NAME, EXTENDED_TIMEOUT).should('be.visible')
+        clickViewActionButton('Edit')
+        deleteDashboard(TEST_DASHBOARD_TITLE)
+
+        // TODO - gaps
+        // advanced sharing settings
     })
 
     it.skip('moves an item on the dashboard without triggering analytics requests', () => {
@@ -252,10 +233,7 @@ describe('Edit Dashboard', () => {
 
         // Save dashboard
         clickEditActionButton('Save changes')
-
         confirmViewMode(TEST_DASHBOARD_TITLE)
-
-        // TODO: assert the chart item is displayed
 
         // Open edit mode
         clickViewActionButton('Edit')

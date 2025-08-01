@@ -79,13 +79,7 @@ const assertItemsMissingTypeDisplayWithWarning = () => {
         .should('be.visible')
 }
 
-// Scenario: I navigate to a dashboard that doesn't exist or I don't have access to
-//     Given I type an invalid dashboard id in the browser url
-//     Then a message displays informing that the dashboard is not found
-//     When I open the "Delivery" dashboard
-//     Then the "Delivery" dashboard displays in view mode
 it("Navigate to a dashboard that doesn't exist or I don't have access to", () => {
-    //     Given I type an invalid dashboard id in the browser url
     cy.visit('#/invalid')
 
     assertDashboardNotFound()
@@ -96,13 +90,7 @@ it("Navigate to a dashboard that doesn't exist or I don't have access to", () =>
     cy.get(dashboardTitleSel).should('be.visible').and('contain', 'Delivery')
 })
 
-// Scenario: I navigate to edit dashboard that doesn't exist
-//     Given I type an invalid edit dashboard id in the browser url
-//     Then a message displays informing that the dashboard is not found
-//     When I open the "Delivery" dashboard
-//     Then the "Delivery" dashboard displays in view mode
 it("Navigate to edit dashboard that doesn't exist", () => {
-    // Type an invalid edit dashboard id in the browser url
     cy.visit('#/invalid/edit')
 
     assertDashboardNotFound()
@@ -114,9 +102,6 @@ it("Navigate to edit dashboard that doesn't exist", () => {
     cy.get(dashboardTitleSel).should('be.visible').and('contain', 'Delivery')
 })
 
-// Scenario: I navigate to a dashboard that fails to load
-//     Given I type a dashboard id in the browser url that fails to load
-//     Then a warning message is displayed stating that the dashboard could not be loaded
 it('Navigate to a dashboard that fails to load', () => {
     cy.intercept(`**/dashboards/${dashboards.Immunization.id}?*`, {
         statusCode: 500,
@@ -132,9 +117,6 @@ it('Navigate to a dashboard that fails to load', () => {
     ).should('exist')
 })
 
-// Scenario: I enter edit mode of a dashboard I do not have access to edit
-//     Given I open a non-editable dashboard in edit mode
-//     Then only the option to return to view mode is available
 it('Enter edit mode of a dashboard I do not have access to edit', () => {
     cy.intercept(`**/dashboards/${dashboards.Delivery.id}?*`, (req) => {
         req.reply((res) => {
@@ -153,10 +135,6 @@ it('Enter edit mode of a dashboard I do not have access to edit', () => {
     cy.contains('No access').should('be.visible')
 })
 
-// Scenario: View dashboard containing item that is missing type
-//     Given I open the Delivery dashboard with items missing a type
-//     # Then the "Delivery" dashboard displays in view mode
-//     Then the items missing type are displayed with a warning
 it('View dashboard containing item that is missing type', () => {
     interceptDashboardRequest()
     cy.visit('/')
@@ -169,11 +147,6 @@ it('View dashboard containing item that is missing type', () => {
     assertItemsMissingTypeDisplayWithWarning()
 })
 
-// Scenario: Starring a dashboard fails
-//     Given I open the "Delivery" dashboard
-//     When clicking to star "Delivery" dashboard fails
-//     Then a warning message is displayed stating that starring dashboard failed
-//     And the "Delivery" dashboard is not starred
 it('Starring a dashboard fails', () => {
     cy.visit(dashboards.Delivery.route, EXTENDED_TIMEOUT)
 
@@ -198,11 +171,6 @@ it('Starring a dashboard fails', () => {
     cy.get(dashboardStarredSel).should('not.exist')
 })
 
-// Scenario: Edit dashboard containing item that is missing type
-//     Given I open the Delivery dashboard with items missing a type
-//     When I choose to edit dashboard
-//     Then the items missing type are displayed with a warning
-//     And I can delete the items
 it('Edit dashboard containing item that is missing type', () => {
     interceptDashboardRequest()
     cy.visit('/')
@@ -231,11 +199,6 @@ it('Edit dashboard containing item that is missing type', () => {
     getDashboardItem(ITEM_3_UID).should('not.exist')
 })
 
-// Scenario: Print dashboard containing item that is missing type
-//     Given I open the Delivery dashboard with items missing a type
-//     When I click to preview the print layout
-//     Then the print layout displays for "Delivery" dashboard
-//     And the items missing type are displayed with a warning
 it('Print dashboard containing item that is missing type', () => {
     // open the Delivery dashboard with items missing a type
     interceptDashboardRequest()

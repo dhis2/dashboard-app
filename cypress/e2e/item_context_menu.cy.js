@@ -5,6 +5,7 @@ import {
     itemDetailsSel,
     itemMenuButtonSel,
     confirmViewMode,
+    closeModal,
 } from '../elements/index.js'
 import { getApiBaseUrl } from '../support/utils.js'
 
@@ -33,6 +34,8 @@ describe('Item context menu', () => {
         cy.contains('Open in Data Visualizer app')
             .should('have.attr', 'target')
             .and('include', '_blank')
+
+        closeModal()
 
         /**
          * Since Cypress cannot work with multiple tabs and more
@@ -94,5 +97,7 @@ describe('Item context menu', () => {
         // Assert the chart item has a fullscreen option in the context menu
         clickMenuButton(dashboards['Antenatal Care'].items.chart.itemUid)
         cy.contains('View fullscreen').should('be.visible')
+
+        closeModal()
     })
 })

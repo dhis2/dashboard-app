@@ -6,13 +6,11 @@ import {
     confirmActionDialogSel,
     filterDimensionsPanelSel,
     newButtonSel,
+    closeModal,
 } from '../elements/index.js'
 import { createDashboardTitle } from '../support/utils.js'
 
 const TEST_DASHBOARD_TITLE = createDashboardTitle('aaa')
-
-const closeModal = () =>
-    cy.get('[data-test="dhis2-uicore-layer"]').click('topLeft')
 
 describe('Filter Restrictions', () => {
     let dashboardId
