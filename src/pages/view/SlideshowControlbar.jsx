@@ -67,33 +67,83 @@ const SlideshowControlbar = ({
     const [msPerSlide, setMsPerSlide] = useState(timingOptions[FIVE_SECONDS].ms)
     const [slideshowOutdated, setSlideshowOutdated] = useState(false)
     const [secondsMenuOpen, setSecondsMenuOpen] = useState(false)
+    const [timeLeft, setTimeLeft] = useState(timingOptions[FIVE_SECONDS].ms)
 
     const secondsRef = createRef()
 
     const timeoutRef = useRef(null)
     const lastTickRef = useRef(Date.now())
-    const timeLeftRef = useRef(msPerSlide)
+    const timeLeftRef = useRef(timingOptions[FIVE_SECONDS].ms)
+    const countDownRef = useRef(null)
+
+    // track previous state
+    const prevNextItemRef = useRef(null)
+    const prevIsPlayingRef = useRef(null)
+    const prevMsPerSlideRef = useRef(null)
 
     const navigationEnabled = numItems > 1
 
     useEffect(() => {
+        const changedSlideTiming = msPerSlide !== prevMsPerSlideRef.current
+        const changedNextItem = nextItem !== prevNextItemRef.current
+
         if (isPlaying) {
+            // If slide changed manually or timing changed, reset timeLeft
+            if (changedNextItem || changedSlideTiming) {
+                timeLeftRef.current = msPerSlide
+                setTimeLeft(msPerSlide)
+            }
+
             timeoutRef.current = setTimeout(() => {
+                // Clear countdown interval first to prevent race condition
+                if (countDownRef.current) {
+                    clearInterval(countDownRef.current)
+                }
+
                 nextItem()
                 lastTickRef.current = Date.now()
                 timeLeftRef.current = msPerSlide
+                setTimeLeft(msPerSlide)
             }, timeLeftRef.current)
+
+            // Clear any existing countdown interval
+            if (countDownRef.current) {
+                clearInterval(countDownRef.current)
+            }
+
+            // Start the countdown interval
+            countDownRef.current = setInterval(() => {
+                setTimeLeft((prevTimeLeft) => {
+                    const newTimeLeft = prevTimeLeft - 1000
+                    return Math.max(newTimeLeft, 0)
+                })
+            }, 1000)
 
             lastTickRef.current = Date.now()
         } else {
             timeoutRef.current && clearTimeout(timeoutRef.current)
+            if (countDownRef.current) {
+                clearInterval(countDownRef.current)
+            }
 
-            const elapsed = Date.now() - lastTickRef.current
-            timeLeftRef.current = Math.max(timeLeftRef.current - elapsed, 0)
+            if (changedSlideTiming || changedNextItem) {
+                timeLeftRef.current = msPerSlide
+                setTimeLeft(msPerSlide)
+            } else {
+                const elapsed = Date.now() - lastTickRef.current
+                timeLeftRef.current = Math.max(timeLeftRef.current - elapsed, 0)
+                setTimeLeft(timeLeftRef.current)
+            }
         }
+
+        // set all the previous state refs
+        prevNextItemRef.current = nextItem
+        prevIsPlayingRef.current = isPlaying
+        prevMsPerSlideRef.current = msPerSlide
 
         return () => {
             timeoutRef.current && clearTimeout(timeoutRef.current)
+            countDownRef.current && clearInterval(countDownRef.current)
         }
     }, [isPlaying, msPerSlide, nextItem])
 
@@ -123,6 +173,7 @@ const SlideshowControlbar = ({
         setMsPerSlide(timingOptions[value].ms)
         // if slide timing is changed, then reset timeLeft
         timeLeftRef.current = timingOptions[value].ms
+        setTimeLeft(timingOptions[value].ms)
         toggleSecondsMenuOpen()
     }
 
@@ -189,6 +240,13 @@ const SlideshowControlbar = ({
                                 {i18n.t('Slideshow started over 24 hours ago')}
                             </span>
                         </div>
+                    )}
+                    {navigationEnabled && (
+                        <p className={styles.timeLeft}>
+                            {`Time left: ${Math.ceil(
+                                Math.round(timeLeft) / 1000
+                            )}`}
+                        </p>
                     )}
                     {navigationEnabled && (
                         <button
