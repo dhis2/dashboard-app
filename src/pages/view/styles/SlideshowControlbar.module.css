@@ -99,5 +99,7 @@
 
 .timeLeft {
     color: white;
-    margin-right: 100px;
+    position: absolute;
+    top: 0px;
+    left: 200px;
 }

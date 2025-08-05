@@ -105,7 +105,6 @@ const SlideshowControlbar = ({
                 setTimeLeft(ms)
             } catch (e) {
                 console.warn('Error fetching slideshow settings', e)
-                // Fallback to default timing if fetching fails
                 setMsPerSlide(DEFAULT_MS_PER_SLIDE)
                 timeLeftRef.current = DEFAULT_MS_PER_SLIDE
                 setTimeLeft(DEFAULT_MS_PER_SLIDE)
@@ -116,7 +115,7 @@ const SlideshowControlbar = ({
 
     useEffect(() => {
         if (msPerSlide === null) {
-            // do not start the timer until msPerSlide is set
+            // Do not start the timer until msPerSlide is set
             return
         }
         const changedSlideTiming = msPerSlide !== prevMsPerSlideRef.current
@@ -184,7 +183,8 @@ const SlideshowControlbar = ({
     useEffect(() => {
         const outdatedTimeout = setTimeout(
             () => setSlideshowOutdated(true),
-            24 * 60 * 1000 // 24 hours
+            // 24 * 60 * 60 * 1000 // 24 hours
+            60 * 1000 // 1 minute for testing
         )
 
         return () => clearTimeout(outdatedTimeout)
@@ -277,6 +277,13 @@ const SlideshowControlbar = ({
             <div className={styles.end}>
                 <SlideshowFiltersInfo />
                 <div className={styles.autoplayControls}>
+                    {navigationEnabled && (
+                        <p className={styles.timeLeft}>
+                            {`Time left: ${Math.ceil(
+                                Math.round(timeLeft) / 1000
+                            )}`}
+                        </p>
+                    )}
                     {slideshowOutdated && (
                         <div className={styles.outdatedMessage}>
                             <span>
@@ -286,13 +293,6 @@ const SlideshowControlbar = ({
                                 {i18n.t('Slideshow started over 24 hours ago')}
                             </span>
                         </div>
-                    )}
-                    {navigationEnabled && (
-                        <p className={styles.timeLeft}>
-                            {`Time left: ${Math.ceil(
-                                Math.round(timeLeft) / 1000
-                            )}`}
-                        </p>
                     )}
                     {navigationEnabled && (
                         <button
