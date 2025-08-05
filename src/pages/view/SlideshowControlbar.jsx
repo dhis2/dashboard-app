@@ -74,14 +74,20 @@ const SlideshowControlbar = ({
     const dataEngine = useDataEngine()
     const [isPlaying, setIsPlaying] = useState(true)
     const [msPerSlide, setMsPerSlide] = useState(null)
-    const [slideshowOutdated, setSlideshowOutdated] = useState(false)
-    const [secondsMenuOpen, setSecondsMenuOpen] = useState(false)
+    const [isSlideshowOutdated, setIsSlideshowOutdated] = useState(false)
+    const [timingOptionsMenuOpen, setTimingOptionsMenuOpen] = useState(false)
 
-    const secondsRef = createRef()
+    // For positioning the timing options pop-up
+    const timingPopperRef = createRef()
 
+    // Reference to the timeout that controls the slideshow
     const timeoutRef = useRef(null)
-    const lastTickRef = useRef(Date.now())
-    const timeLeftRef = useRef(null)
+
+    // Reference to the moment in time when the last slide change occurred
+    const slideChangedTimestampRef = useRef(null)
+
+    // Reference to the time remaining for the current slide
+    const slideTimeRemainingRef = useRef(null)
 
     // track previous state
     const prevNextItemRef = useRef(null)
@@ -89,72 +95,75 @@ const SlideshowControlbar = ({
 
     const navigationEnabled = numItems > 1
 
+    const setSlideTimeRemaining = (ms) => {
+        slideTimeRemainingRef.current = ms
+    }
+
     useEffect(() => {
-        const fetchSetting = async () => {
+        const fetchMsPerSlide = async () => {
+            let ms
             try {
                 const storedMsPerSlide = await apiGetUserDataStoreValue(
                     KEY_SLIDESHOW_MS_PER_SLIDE,
                     DEFAULT_MS_PER_SLIDE,
                     dataEngine
                 )
-                const ms = parseInt(storedMsPerSlide) || DEFAULT_MS_PER_SLIDE
-                setMsPerSlide(ms)
-                timeLeftRef.current = ms
+                ms = parseInt(storedMsPerSlide) || DEFAULT_MS_PER_SLIDE
             } catch (e) {
                 console.warn('Error fetching slideshow settings', e)
-                setMsPerSlide(DEFAULT_MS_PER_SLIDE)
-                timeLeftRef.current = DEFAULT_MS_PER_SLIDE
+                ms = DEFAULT_MS_PER_SLIDE
             }
+
+            setMsPerSlide(ms)
+            setSlideTimeRemaining(ms)
         }
-        fetchSetting()
+        fetchMsPerSlide()
     }, [dataEngine])
 
     useEffect(() => {
+        // Do not start the timer until msPerSlide is set
         if (msPerSlide === null) {
-            // Do not start the timer until msPerSlide is set
             return
         }
-        const changedSlideTiming = msPerSlide !== prevMsPerSlideRef.current
-        const changedNextItem = nextItem !== prevNextItemRef.current
+        const msPerSlideChanged = msPerSlide !== prevMsPerSlideRef.current
+        const nextItemChanged = nextItem !== prevNextItemRef.current
 
         if (isPlaying) {
-            // If slide changed manually or timing changed, reset timeLeft
-            if (changedNextItem || changedSlideTiming) {
-                timeLeftRef.current = msPerSlide
+            if (msPerSlideChanged || nextItemChanged) {
+                setSlideTimeRemaining(msPerSlide)
             }
 
             timeoutRef.current = setTimeout(() => {
                 nextItem()
-                lastTickRef.current = Date.now()
-                timeLeftRef.current = msPerSlide
-            }, timeLeftRef.current)
+                slideChangedTimestampRef.current = Date.now()
+                setSlideTimeRemaining(msPerSlide)
+            }, slideTimeRemainingRef.current)
 
-            lastTickRef.current = Date.now()
+            slideChangedTimestampRef.current = Date.now()
         } else {
             timeoutRef.current && clearTimeout(timeoutRef.current)
 
-            if (changedSlideTiming || changedNextItem) {
-                timeLeftRef.current = msPerSlide
+            if (msPerSlideChanged || nextItemChanged) {
+                setSlideTimeRemaining(msPerSlide)
             } else {
-                const elapsed = Date.now() - lastTickRef.current
-                timeLeftRef.current = Math.max(timeLeftRef.current - elapsed, 0)
+                const elapsed = Date.now() - slideChangedTimestampRef.current
+                setSlideTimeRemaining(
+                    Math.max(slideTimeRemainingRef.current - elapsed, 0)
+                )
             }
         }
 
-        // set all the previous state refs
         prevNextItemRef.current = nextItem
         prevMsPerSlideRef.current = msPerSlide
 
-        return () => {
-            timeoutRef.current && clearTimeout(timeoutRef.current)
-        }
+        return () => timeoutRef.current && clearTimeout(timeoutRef.current)
     }, [isPlaying, msPerSlide, nextItem])
 
     useEffect(() => {
         const outdatedTimeout = setTimeout(
-            () => setSlideshowOutdated(true),
+            () => setIsSlideshowOutdated(true),
             // 24 * 60 * 60 * 1000 // 24 hours
-            60 * 1000 // 1 minute for testing
+            60 * 1000 // TODO 1 minute for testing
         )
 
         return () => clearTimeout(outdatedTimeout)
@@ -173,14 +182,15 @@ const SlideshowControlbar = ({
         setIsPlaying(!isPlaying)
     }
 
-    const toggleSecondsMenuOpen = () => {
-        setSecondsMenuOpen(!secondsMenuOpen)
+    const toggleTimingOptionsMenu = () => {
+        setTimingOptionsMenuOpen(!timingOptionsMenuOpen)
     }
 
     const updateMsPerSlide = ({ value }) => {
         setMsPerSlide(timingOptions[value].ms)
-        timeLeftRef.current = timingOptions[value].ms
-        toggleSecondsMenuOpen()
+        setSlideTimeRemaining(timingOptions[value].ms)
+        toggleTimingOptionsMenu()
+
         try {
             apiPostUserDataStoreValue(
                 KEY_SLIDESHOW_MS_PER_SLIDE,
@@ -246,7 +256,7 @@ const SlideshowControlbar = ({
             <div className={styles.end}>
                 <SlideshowFiltersInfo />
                 <div className={styles.autoplayControls}>
-                    {slideshowOutdated && (
+                    {isSlideshowOutdated && (
                         <div className={styles.outdatedMessage}>
                             <span>
                                 <IconInfo24 />
@@ -257,30 +267,30 @@ const SlideshowControlbar = ({
                         </div>
                     )}
                     {navigationEnabled && (
-                        <button
-                            ref={secondsRef}
-                            className={styles.button}
-                            onClick={toggleSecondsMenuOpen}
-                        >
-                            <IconMore24 />
-                        </button>
+                        <>
+                            <button
+                                ref={timingPopperRef}
+                                className={styles.button}
+                                onClick={toggleTimingOptionsMenu}
+                            >
+                                <IconMore24 />
+                            </button>
+                            <button
+                                className={styles.button}
+                                onClick={toggleIsPlaying}
+                            >
+                                {isPlaying ? <PauseIcon /> : <PlayIcon />}
+                            </button>
+                        </>
                     )}
-                    {navigationEnabled && (
-                        <button
-                            className={styles.button}
-                            onClick={toggleIsPlaying}
-                        >
-                            {isPlaying ? <PauseIcon /> : <PlayIcon />}
-                        </button>
-                    )}
-                    {secondsMenuOpen && (
+                    {timingOptionsMenuOpen && (
                         <Layer
                             disablePortal
-                            onBackdropClick={toggleSecondsMenuOpen}
+                            onBackdropClick={toggleTimingOptionsMenu}
                         >
                             <Popper
                                 className={styles.popover}
-                                reference={secondsRef}
+                                reference={timingPopperRef}
                                 placement="top-end"
                             >
                                 <Menu dense>
