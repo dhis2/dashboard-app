@@ -76,14 +76,12 @@ const SlideshowControlbar = ({
     const [msPerSlide, setMsPerSlide] = useState(null)
     const [slideshowOutdated, setSlideshowOutdated] = useState(false)
     const [secondsMenuOpen, setSecondsMenuOpen] = useState(false)
-    const [timeLeft, setTimeLeft] = useState(null)
 
     const secondsRef = createRef()
 
     const timeoutRef = useRef(null)
     const lastTickRef = useRef(Date.now())
     const timeLeftRef = useRef(null)
-    const countDownRef = useRef(null)
 
     // track previous state
     const prevNextItemRef = useRef(null)
@@ -102,12 +100,10 @@ const SlideshowControlbar = ({
                 const ms = parseInt(storedMsPerSlide) || DEFAULT_MS_PER_SLIDE
                 setMsPerSlide(ms)
                 timeLeftRef.current = ms
-                setTimeLeft(ms)
             } catch (e) {
                 console.warn('Error fetching slideshow settings', e)
                 setMsPerSlide(DEFAULT_MS_PER_SLIDE)
                 timeLeftRef.current = DEFAULT_MS_PER_SLIDE
-                setTimeLeft(DEFAULT_MS_PER_SLIDE)
             }
         }
         fetchSetting()
@@ -125,48 +121,23 @@ const SlideshowControlbar = ({
             // If slide changed manually or timing changed, reset timeLeft
             if (changedNextItem || changedSlideTiming) {
                 timeLeftRef.current = msPerSlide
-                setTimeLeft(msPerSlide)
             }
 
             timeoutRef.current = setTimeout(() => {
-                // Clear countdown interval first to prevent race condition
-                if (countDownRef.current) {
-                    clearInterval(countDownRef.current)
-                }
-
                 nextItem()
                 lastTickRef.current = Date.now()
                 timeLeftRef.current = msPerSlide
-                setTimeLeft(msPerSlide)
             }, timeLeftRef.current)
-
-            // Clear any existing countdown interval
-            if (countDownRef.current) {
-                clearInterval(countDownRef.current)
-            }
-
-            // Start the countdown interval
-            countDownRef.current = setInterval(() => {
-                setTimeLeft((prevTimeLeft) => {
-                    const newTimeLeft = prevTimeLeft - 1000
-                    return Math.max(newTimeLeft, 0)
-                })
-            }, 1000)
 
             lastTickRef.current = Date.now()
         } else {
             timeoutRef.current && clearTimeout(timeoutRef.current)
-            if (countDownRef.current) {
-                clearInterval(countDownRef.current)
-            }
 
             if (changedSlideTiming || changedNextItem) {
                 timeLeftRef.current = msPerSlide
-                setTimeLeft(msPerSlide)
             } else {
                 const elapsed = Date.now() - lastTickRef.current
                 timeLeftRef.current = Math.max(timeLeftRef.current - elapsed, 0)
-                setTimeLeft(timeLeftRef.current)
             }
         }
 
@@ -176,7 +147,6 @@ const SlideshowControlbar = ({
 
         return () => {
             timeoutRef.current && clearTimeout(timeoutRef.current)
-            countDownRef.current && clearInterval(countDownRef.current)
         }
     }, [isPlaying, msPerSlide, nextItem])
 
@@ -210,7 +180,6 @@ const SlideshowControlbar = ({
     const updateMsPerSlide = ({ value }) => {
         setMsPerSlide(timingOptions[value].ms)
         timeLeftRef.current = timingOptions[value].ms
-        setTimeLeft(timingOptions[value].ms)
         toggleSecondsMenuOpen()
         try {
             apiPostUserDataStoreValue(
@@ -277,13 +246,6 @@ const SlideshowControlbar = ({
             <div className={styles.end}>
                 <SlideshowFiltersInfo />
                 <div className={styles.autoplayControls}>
-                    {navigationEnabled && (
-                        <p className={styles.timeLeft}>
-                            {`Time left: ${Math.ceil(
-                                Math.round(timeLeft) / 1000
-                            )}`}
-                        </p>
-                    )}
                     {slideshowOutdated && (
                         <div className={styles.outdatedMessage}>
                             <span>

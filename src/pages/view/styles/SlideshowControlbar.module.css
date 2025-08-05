@@ -96,10 +96,3 @@
 .unselectedMenuItem svg {
     display: none;
 }
-
-.timeLeft {
-    color: white;
-    position: absolute;
-    top: 0px;
-    left: 200px;
-}
