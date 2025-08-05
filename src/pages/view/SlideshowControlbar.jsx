@@ -1,3 +1,4 @@
+import { useDataEngine } from '@dhis2/app-runtime'
 import i18n from '@dhis2/d2-i18n'
 import {
     colors,
@@ -15,6 +16,10 @@ import {
 import cx from 'classnames'
 import PropTypes from 'prop-types'
 import React, { useState, useEffect, createRef, useRef } from 'react'
+import {
+    apiGetUserDataStoreValue,
+    apiPostUserDataStoreValue,
+} from '../../api/userDataStore.js'
 import PauseIcon from './slideshow/PauseIcon.jsx'
 import PlayIcon from './slideshow/PlayIcon.jsx'
 import { SlideshowFiltersInfo } from './SlideshowFiltersInfo.jsx'
@@ -54,7 +59,10 @@ const getTimingOptions = () => ({
     },
 })
 
+const KEY_SLIDESHOW_MS_PER_SLIDE = 'slideshowMsPerSlide'
+
 const timingOptions = getTimingOptions()
+const DEFAULT_MS_PER_SLIDE = timingOptions[FIVE_SECONDS].ms
 
 const SlideshowControlbar = ({
     slideshowItemIndex,
@@ -63,27 +71,54 @@ const SlideshowControlbar = ({
     prevItem,
     numItems,
 }) => {
+    const dataEngine = useDataEngine()
     const [isPlaying, setIsPlaying] = useState(true)
-    const [msPerSlide, setMsPerSlide] = useState(timingOptions[FIVE_SECONDS].ms)
+    const [msPerSlide, setMsPerSlide] = useState(null)
     const [slideshowOutdated, setSlideshowOutdated] = useState(false)
     const [secondsMenuOpen, setSecondsMenuOpen] = useState(false)
-    const [timeLeft, setTimeLeft] = useState(timingOptions[FIVE_SECONDS].ms)
+    const [timeLeft, setTimeLeft] = useState(null)
 
     const secondsRef = createRef()
 
     const timeoutRef = useRef(null)
     const lastTickRef = useRef(Date.now())
-    const timeLeftRef = useRef(timingOptions[FIVE_SECONDS].ms)
+    const timeLeftRef = useRef(null)
     const countDownRef = useRef(null)
 
     // track previous state
     const prevNextItemRef = useRef(null)
-    const prevIsPlayingRef = useRef(null)
     const prevMsPerSlideRef = useRef(null)
 
     const navigationEnabled = numItems > 1
 
     useEffect(() => {
+        const fetchSetting = async () => {
+            try {
+                const storedMsPerSlide = await apiGetUserDataStoreValue(
+                    KEY_SLIDESHOW_MS_PER_SLIDE,
+                    DEFAULT_MS_PER_SLIDE,
+                    dataEngine
+                )
+                const ms = parseInt(storedMsPerSlide) || DEFAULT_MS_PER_SLIDE
+                setMsPerSlide(ms)
+                timeLeftRef.current = ms
+                setTimeLeft(ms)
+            } catch (e) {
+                console.warn('Error fetching slideshow settings', e)
+                // Fallback to default timing if fetching fails
+                setMsPerSlide(DEFAULT_MS_PER_SLIDE)
+                timeLeftRef.current = DEFAULT_MS_PER_SLIDE
+                setTimeLeft(DEFAULT_MS_PER_SLIDE)
+            }
+        }
+        fetchSetting()
+    }, [dataEngine])
+
+    useEffect(() => {
+        if (msPerSlide === null) {
+            // do not start the timer until msPerSlide is set
+            return
+        }
         const changedSlideTiming = msPerSlide !== prevMsPerSlideRef.current
         const changedNextItem = nextItem !== prevNextItemRef.current
 
@@ -138,7 +173,6 @@ const SlideshowControlbar = ({
 
         // set all the previous state refs
         prevNextItemRef.current = nextItem
-        prevIsPlayingRef.current = isPlaying
         prevMsPerSlideRef.current = msPerSlide
 
         return () => {
@@ -156,6 +190,10 @@ const SlideshowControlbar = ({
         return () => clearTimeout(outdatedTimeout)
     }, [])
 
+    if (msPerSlide === null) {
+        return null
+    }
+
     const NextArrow =
         document.dir === 'ltr' ? IconChevronRight24 : IconChevronLeft24
     const PrevArrow =
@@ -171,10 +209,18 @@ const SlideshowControlbar = ({
 
     const updateMsPerSlide = ({ value }) => {
         setMsPerSlide(timingOptions[value].ms)
-        // if slide timing is changed, then reset timeLeft
         timeLeftRef.current = timingOptions[value].ms
         setTimeLeft(timingOptions[value].ms)
         toggleSecondsMenuOpen()
+        try {
+            apiPostUserDataStoreValue(
+                KEY_SLIDESHOW_MS_PER_SLIDE,
+                timingOptions[value].ms,
+                dataEngine
+            )
+        } catch (e) {
+            console.warn('Error saving slideshow settings', e)
+        }
     }
 
     return (
