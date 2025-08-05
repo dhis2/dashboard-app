@@ -15,7 +15,7 @@ import {
 } from '@dhis2/ui'
 import cx from 'classnames'
 import PropTypes from 'prop-types'
-import React, { useState, useEffect, createRef, useRef } from 'react'
+import React, { useState, useEffect, useRef } from 'react'
 import {
     apiGetUserDataStoreValue,
     apiPostUserDataStoreValue,
@@ -78,7 +78,7 @@ const SlideshowControlbar = ({
     const [timingOptionsMenuOpen, setTimingOptionsMenuOpen] = useState(false)
 
     // For positioning the timing options pop-up
-    const timingPopperRef = createRef()
+    const timingPopperRef = useRef()
 
     // Reference to the timeout that controls the slideshow
     const timeoutRef = useRef(null)
