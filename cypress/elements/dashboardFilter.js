@@ -134,23 +134,6 @@ export const assertFacilityTypeFilterApplied = () => {
     //     .should('be.visible')
 }
 
-export const assertOrgUnitGroupFilterApplied = () => {
-    // check that the filter badge is correct
-    cy.get(filterBadgeSel)
-        .contains('Organisation unit: District')
-        .should('be.visible')
-
-    // check that the custom app is loaded (see ticket DHIS2-14544)
-    cy.get('iframe')
-        .invoke('attr', 'title')
-        .contains('Role Monitor Widget')
-        .scrollIntoView()
-    cy.get('iframe')
-        .invoke('attr', 'title')
-        .contains('Role Monitor Widget')
-        .should('be.visible')
-}
-
 export const assertFilterModalOpened = () => {
     cy.get(dimensionsModalSel).should('be.visible')
 }

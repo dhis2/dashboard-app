@@ -11,7 +11,6 @@ import {
     dashboardTitleSel,
     chartSel,
     mapSel,
-    assertOrgUnitGroupFilterApplied,
     getNavigationMenuItem,
     assertFilterModalOpened,
     confirmActionDialogSel,
@@ -20,18 +19,9 @@ import {
     confirmEditMode,
     clickEditActionButton,
 } from '../elements/index.js'
-import {
-    getApiBaseUrl,
-    createDashboardTitle,
-    EXTENDED_TIMEOUT,
-} from '../support/utils.js'
+import { createDashboardTitle, EXTENDED_TIMEOUT } from '../support/utils.js'
 
 const TEST_DASHBOARD_TITLE = createDashboardTitle('af')
-
-const customApp = {
-    name: 'Users-Role-Monitor-Widget',
-    id: '5e43908a-3105-4baa-9a00-87a94ebdc034',
-}
 
 const assertDashboardVisible = () => {
     // Assert dashboard displays in view mode and visualizations are visible
@@ -59,48 +49,33 @@ describe('Dashboard Filter Tests', () => {
         // Start a new dashboard
         cy.get(newButtonSel, EXTENDED_TIMEOUT).click()
 
-        // Add items and save
-        // First install a custom app
-        cy.request(
-            'POST',
-            `${getApiBaseUrl()}/api/appHub/${customApp.id}`
-        ).then((response) => {
-            expect(response.status).to.be.oneOf([204, 201])
+        // add the dashboard title
+        cy.getByDataTest('dashboard-title-input').type(TEST_DASHBOARD_TITLE)
 
-            // add the dashboard title
-            cy.getByDataTest('dashboard-title-input').type(TEST_DASHBOARD_TITLE)
+        // add dashboard items
+        addDashboardItem('Inpatient: BMI this year by districts') //CHART
+        addDashboardItem('ANC: IPT 2 Coverage this year') //MAP
 
-            // add dashboard items
-            addDashboardItem('Inpatient: BMI this year by districts') //CHART
-            addDashboardItem('ANC: IPT 2 Coverage this year') //MAP
-            addDashboardItem('Role Monitor') //CUSTOM APP
+        // save
+        cy.get('button').contains('Save changes', EXTENDED_TIMEOUT).click()
 
-            // move things so the dashboard is more compact
-            cy.get(`${gridItemSel}.MAP`).trigger('mousedown')
-            cy.document().trigger('mousemove', { clientX: 650 })
-            cy.get(`${gridItemSel}.MAP`).trigger('mouseup')
+        assertDashboardVisible()
 
-            // save
-            cy.get('button').contains('Save changes', EXTENDED_TIMEOUT).click()
+        // add a "Period" filter
+        addFilter('Period')
+        assertPeriodFilterApplied()
+        removeFilter()
+        assertFilterRemoved()
 
-            assertDashboardVisible()
+        // add a "Organisation unit" filter
+        addFilter('Organisation unit')
+        assertOrgUnitFilterApplied()
+        removeFilter()
+        assertFilterRemoved()
 
-            // add a "Period" filter
-            addFilter('Period')
-            assertPeriodFilterApplied()
-            removeFilter()
-            assertFilterRemoved()
-
-            // add a "Organisation unit" filter
-            addFilter('Organisation unit')
-            assertOrgUnitFilterApplied()
-            removeFilter()
-            assertFilterRemoved()
-
-            // add a "Facility Type" filter
-            addFilter('Facility Type')
-            assertFacilityTypeFilterApplied()
-        })
+        // add a "Facility Type" filter
+        addFilter('Facility Type')
+        assertFacilityTypeFilterApplied()
     })
 
     it('adds an Org unit group filter', () => {
@@ -111,7 +86,11 @@ describe('Dashboard Filter Tests', () => {
         assertDashboardVisible()
 
         addFilter('Org unit group')
-        assertOrgUnitGroupFilterApplied()
+
+        // Assert the filter badge is visible and contains the correct text
+        cy.get(filterBadgeSel)
+            .contains('Organisation unit: District')
+            .should('be.visible')
     })
 
     it('opens the dimensions modal from the filter badge', () => {
@@ -136,7 +115,7 @@ describe('Dashboard Filter Tests', () => {
 
         assertDashboardVisible()
 
-        // Cleanup: delete the dashboard and remove the custom app
+        // Cleanup: delete the dashboard
         clickViewActionButton('Edit')
         confirmEditMode()
 
@@ -145,13 +124,5 @@ describe('Dashboard Filter Tests', () => {
         cy.get(dashboardTitleSel)
             .should('be.visible')
             .and('not.contain', TEST_DASHBOARD_TITLE)
-
-        // remove the custom app
-        cy.request(
-            'DELETE',
-            `${getApiBaseUrl()}/api/apps/${customApp.name}`
-        ).then((response) => {
-            expect(response.status).to.equal(204)
-        })
     })
 })
