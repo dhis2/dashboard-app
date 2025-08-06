@@ -32,9 +32,9 @@ import {
     sGetSelectedId,
     sGetSelectedDashboardItems,
 } from '../../reducers/selected.js'
-import SlideshowControlbar from './SlideshowControlbar.jsx'
+import SlideshowControlbar from './slideshow/SlideshowControlbar.jsx'
+import useSlideshow from './slideshow/useSlideshow.js'
 import classes from './styles/ItemGrid.module.css'
-import useSlideshow from './useSlideshow.js'
 
 const ResponsiveItemGrid = ({ dashboardIsCached }) => {
     const dashboardId = useSelector(sGetSelectedId)

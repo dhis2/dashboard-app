@@ -1,9 +1,9 @@
 import sortBy from 'lodash/sortBy.js'
 import { useState, useEffect, useMemo, useCallback } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
-import { acSetSlideshow } from '../../actions/slideshow.js'
-import { itemTypeSupportsFullscreen } from '../../modules/itemTypes.js'
-import { sGetSlideshow } from '../../reducers/slideshow.js'
+import { acSetSlideshow } from '../../../actions/slideshow.js'
+import { itemTypeSupportsFullscreen } from '../../../modules/itemTypes.js'
+import { sGetSlideshow } from '../../../reducers/slideshow.js'
 
 const useSlideshow = (displayItems, slideshowElementRef) => {
     const dispatch = useDispatch()
