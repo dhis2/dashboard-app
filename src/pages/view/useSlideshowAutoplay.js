@@ -50,6 +50,7 @@ const useSlideshowAutoplay = ({ nextItem }) => {
     const [isPlaying, setIsPlaying] = useState(true)
     const [msPerSlide, setMsPerSlide] = useState(null)
     const [isSlideshowOutdated, setIsSlideshowOutdated] = useState(false)
+
     // Reference to the timeout that controls the slideshow
     const timeoutRef = useRef(null)
 
@@ -57,14 +58,14 @@ const useSlideshowAutoplay = ({ nextItem }) => {
     const slideChangedTimestampRef = useRef(null)
 
     // Reference to the time remaining for the current slide
-    const slideTimeRemainingRef = useRef(null)
+    const slideMsRemainingRef = useRef(null)
 
-    // track previous state
+    // Previous values
     const prevNextItemRef = useRef(null)
     const prevMsPerSlideRef = useRef(null)
 
-    const setSlideTimeRemaining = (ms) => {
-        slideTimeRemainingRef.current = ms
+    const setSlideMsRemaining = (ms) => {
+        slideMsRemainingRef.current = ms
     }
 
     useEffect(() => {
@@ -83,7 +84,7 @@ const useSlideshowAutoplay = ({ nextItem }) => {
             }
 
             setMsPerSlide(ms)
-            setSlideTimeRemaining(ms)
+            setSlideMsRemaining(ms)
         }
         fetchMsPerSlide()
     }, [dataEngine])
@@ -98,25 +99,25 @@ const useSlideshowAutoplay = ({ nextItem }) => {
 
         if (isPlaying) {
             if (msPerSlideChanged || nextItemChanged) {
-                setSlideTimeRemaining(msPerSlide)
+                setSlideMsRemaining(msPerSlide)
             }
 
             timeoutRef.current = setTimeout(() => {
                 nextItem()
                 slideChangedTimestampRef.current = Date.now()
-                setSlideTimeRemaining(msPerSlide)
-            }, slideTimeRemainingRef.current)
+                setSlideMsRemaining(msPerSlide)
+            }, slideMsRemainingRef.current)
 
             slideChangedTimestampRef.current = Date.now()
         } else {
             timeoutRef.current && clearTimeout(timeoutRef.current)
 
             if (msPerSlideChanged || nextItemChanged) {
-                setSlideTimeRemaining(msPerSlide)
+                setSlideMsRemaining(msPerSlide)
             } else {
                 const elapsed = Date.now() - slideChangedTimestampRef.current
-                setSlideTimeRemaining(
-                    Math.max(slideTimeRemainingRef.current - elapsed, 0)
+                setSlideMsRemaining(
+                    Math.max(slideMsRemainingRef.current - elapsed, 0)
                 )
             }
         }
@@ -139,7 +140,7 @@ const useSlideshowAutoplay = ({ nextItem }) => {
 
     const updateMsPerSlide = (value) => {
         setMsPerSlide(timingOptions[value].ms)
-        setSlideTimeRemaining(timingOptions[value].ms)
+        setSlideMsRemaining(timingOptions[value].ms)
 
         try {
             apiPostUserDataStoreValue(
@@ -152,16 +153,15 @@ const useSlideshowAutoplay = ({ nextItem }) => {
         }
     }
 
-    const onPlayPauseToggled = () => setIsPlaying((prev) => !prev)
+    const togglePlayPause = () => setIsPlaying((prev) => !prev)
 
     return {
         isPlaying,
         isSlideshowOutdated,
         msPerSlide,
-        timingOptions,
         onTimingChanged: updateMsPerSlide,
-        onPlayPauseToggled,
+        onPlayPauseToggled: togglePlayPause,
     }
 }
 
-export default useSlideshowAutoplay
+export { useSlideshowAutoplay, timingOptions }

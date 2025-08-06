@@ -19,7 +19,7 @@ import PauseIcon from './slideshow/PauseIcon.jsx'
 import PlayIcon from './slideshow/PlayIcon.jsx'
 import { SlideshowFiltersInfo } from './SlideshowFiltersInfo.jsx'
 import styles from './styles/SlideshowControlbar.module.css'
-import useSlideshowAutoplay from './useSlideshowAutoplay.js'
+import { useSlideshowAutoplay, timingOptions } from './useSlideshowAutoplay.js'
 
 const SlideshowControlbar = ({
     slideshowItemIndex,
@@ -33,7 +33,6 @@ const SlideshowControlbar = ({
         isPlaying,
         isSlideshowOutdated,
         msPerSlide,
-        timingOptions,
         onTimingChanged,
         onPlayPauseToggled,
     } = useSlideshowAutoplay({ nextItem })
