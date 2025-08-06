@@ -28,6 +28,7 @@
 
 .end {
     justify-content: end;
+    gap: 4px;
 }
 
 .button {

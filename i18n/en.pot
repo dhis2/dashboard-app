@@ -5,8 +5,8 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1)\n"
-"POT-Creation-Date: 2025-08-06T08:54:26.347Z\n"
-"PO-Revision-Date: 2025-08-06T08:54:26.348Z\n"
+"POT-Creation-Date: 2025-08-06T12:31:38.579Z\n"
+"PO-Revision-Date: 2025-08-06T12:31:38.579Z\n"
 
 msgid "Untitled dashboard"
 msgstr "Untitled dashboard"
@@ -752,6 +752,9 @@ msgstr "This dashboard cannot be loaded while offline."
 msgid "Go to start page"
 msgstr "Go to start page"
 
+msgid "Slideshow started over 24 hours ago"
+msgstr "Slideshow started over 24 hours ago"
+
 msgid "Exit slideshow"
 msgstr "Exit slideshow"
 
@@ -760,9 +763,6 @@ msgstr "Previous item"
 
 msgid "Next item"
 msgstr "Next item"
-
-msgid "Slideshow started over 24 hours ago"
-msgstr "Slideshow started over 24 hours ago"
 
 msgid "{{name}}: {{filter}}"
 msgstr "{{name}}: {{filter}}"
