@@ -9,7 +9,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2025-03-18T14:27:12.993Z\n"
+"POT-Creation-Date: 2025-07-04T15:00:39.114Z\n"
 "PO-Revision-Date: 2019-06-25 12:37+0000\n"
 "Last-Translator: Éva Tamási, 2025\n"
 "Language-Team: Ukrainian (https://app.transifex.com/hisp-uio/teams/100509/uk/)\n"
@@ -43,6 +43,12 @@ msgstr ""
 msgid ""
 "Could not get guest token from Superset Gateway for dashboard ID "
 "\"{{dashboardId}}\""
+msgstr ""
+
+msgid "Network error"
+msgstr ""
+
+msgid "Could not load app data"
 msgstr ""
 
 msgid "New dashboard: external"
@@ -209,6 +215,12 @@ msgstr "Ні, скасувати"
 msgid "Yes, clear filters and sync"
 msgstr "Так, очистити фільтри та синхронізувати"
 
+msgid "This dashboard is showing data from outside this system"
+msgstr ""
+
+msgid "External source"
+msgstr ""
+
 msgid "Confirm"
 msgstr "Підтвердити"
 
@@ -220,12 +232,6 @@ msgstr "Не вдалося зняти позначку зірочки з інф
 
 msgid "Failed to star the dashboard"
 msgstr "Не вдалося позначити інформаційну панель зірочкою"
-
-msgid "This dashboard is showing data from outside this system"
-msgstr ""
-
-msgid "External source"
-msgstr ""
 
 msgid "Offline data last updated {{timeAgo}}"
 msgstr "Автономні дані востаннє оновлено {{timeAgo}}"
@@ -256,12 +262,6 @@ msgstr ""
 
 msgid "Dashboards"
 msgstr "Інформаційні панелі (дашборди)"
-
-msgid "Could not fetch bundled apps"
-msgstr ""
-
-msgid "Network error"
-msgstr ""
 
 msgid "There was a problem loading this dashboard item"
 msgstr ""
@@ -608,21 +608,6 @@ msgstr ""
 msgid "Number of columns"
 msgstr "Кількість стовпців"
 
-msgid "Gap size between columns (px)"
-msgstr "Розмір проміжку між стовпцями (пікс)"
-
-msgid ""
-"Default height only applies to items added to a dashboard, this setting will"
-" not change existing items"
-msgstr ""
-"Висота за замовчуванням застосовується лише до елементів, доданих до "
-"інформаційної панелі. Це налаштування не змінить існуючі елементи"
-
-msgid "Default height for items added to dashboard (rows)"
-msgstr ""
-"Висота за замовчуванням для елементів, доданих до інформаційної панелі "
-"(рядки)"
-
 msgid "Save layout"
 msgstr "Зберегти макет"
 
@@ -757,6 +742,11 @@ msgstr[0] ""
 msgstr[1] ""
 msgstr[2] ""
 msgstr[3] ""
+
+msgid ""
+"There was a problem loading the embedded dashboard content from an external "
+"service"
+msgstr ""
 
 msgid "Fetching external dashboard"
 msgstr ""
