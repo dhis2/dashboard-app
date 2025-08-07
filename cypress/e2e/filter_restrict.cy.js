@@ -15,7 +15,7 @@ const TEST_DASHBOARD_TITLE = createDashboardTitle('aaa')
 describe('Filter Restrictions', () => {
     let dashboardId
 
-    it.only('creates a new dashboard with no Filter Restrictions', () => {
+    it('creates a new dashboard with no Filter Restrictions', () => {
         cy.visit('/')
         // Start a new dashboard
         cy.get(newButtonSel).click()
@@ -44,7 +44,7 @@ describe('Filter Restrictions', () => {
         })
     })
 
-    it.only('changes Filter Restrictions but they do not persist when clicking away without confirming', () => {
+    it('changes Filter Restrictions but they do not persist when clicking away without confirming', () => {
         // Open an existing dashboard with non-restricted Filter settings in edit mode
         cy.visit(`/${dashboardId}/edit`)
 
@@ -70,7 +70,7 @@ describe('Filter Restrictions', () => {
         closeModal()
     })
 
-    it.only('shows Period and Organisation unit as selected by default when restricting dimensions', () => {
+    it('shows Period and Organisation unit as selected by default when restricting dimensions', () => {
         // Open an existing dashboard with non-restricted Filter settings in edit mode
         cy.visit(`/${dashboardId}/edit`)
 
@@ -93,7 +93,7 @@ describe('Filter Restrictions', () => {
         closeModal()
     })
 
-    it.only('persists Filter Restrictions changes while editing Filter settings', () => {
+    it('persists Filter Restrictions changes while editing Filter settings', () => {
         // Open an existing dashboard with non-restricted Filter settings in edit mode
         cy.visit(`/${dashboardId}/edit`)
 
@@ -128,7 +128,7 @@ describe('Filter Restrictions', () => {
         closeModal()
     })
 
-    it.only('persists Filter Restrictions changes after clicking confirm', () => {
+    it('persists Filter Restrictions changes after clicking confirm', () => {
         // Open an existing dashboard with non-restricted Filter settings in edit mode
         cy.visit(`/${dashboardId}/edit`)
 
@@ -154,14 +154,14 @@ describe('Filter Restrictions', () => {
         cy.contains('Only allow filtering by selected dimensions')
             .find('input')
             .should('be.checked')
-        cy.getByDataTest('"dhis2-uicore-transfer-rightside')
+        cy.getByDataTest('dhis2-uicore-transfer-rightside')
             .contains('Facility Ownership')
             .should('be.visible')
 
         closeModal()
     })
 
-    it.only('does not persist Filter Restrictions changes when exiting without saving', () => {
+    it('does not persist Filter Restrictions changes when exiting without saving', () => {
         // Open an existing dashboard with non-restricted Filter settings in edit mode
         cy.visit(`/${dashboardId}/edit`)
 
