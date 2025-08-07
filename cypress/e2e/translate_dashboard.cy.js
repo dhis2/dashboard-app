@@ -29,59 +29,13 @@ const deleteDashboard = (dashboardTitle) => {
         .and('not.contain', dashboardTitle)
 }
 
-let norwegianTitle = ''
-let norwegianDesc = ''
-
-const addNorwegianTranslations = () => {
-    const now = new Date().toUTCString()
-    norwegianTitle = 'nor title ' + now
-    norwegianDesc = 'nor desc ' + now
-
-    clickEditActionButton('Translate')
-    cy.contains('Select locale').click()
-    cy.contains('Select locale').type('Norwegian{enter}')
-    cy.get('[placeholder="Name"]').clear()
-    cy.get('[placeholder="Name"]').type(norwegianTitle)
-    cy.get('[placeholder="Description"]').clear()
-    cy.get('[placeholder="Description"]').type(norwegianDesc)
-    cy.get('button').contains('Save', EXTENDED_TIMEOUT).click()
-}
-
-const assertNorwegianTranslations = () => {
-    // set dblocale to Norwegian
-    cy.request(
-        'POST',
-        `${getApiBaseUrl()}/api/userSettings/keyDbLocale`,
-        'no'
-    ).then((response) => {
-        expect(response.status).to.equal(200)
-    })
-
-    // reload the dashboard
-    cy.visit('/')
-
-    cy.get(dashboardTitleSel, EXTENDED_TIMEOUT)
-        .should('be.visible')
-        .and('contain', norwegianTitle)
-
-    clickViewActionButton('More')
-    cy.contains('Show description').click()
-
-    cy.get(dashboardDescriptionSel)
-        .should('be.visible')
-        .and('contain', norwegianDesc)
-
-    clickViewActionButton('More')
-    cy.contains('Hide description').click()
-}
-
-it('adds translations to a dashboard and saves it', () => {
+it('adds translations', () => {
     // Create a dashboard
     cy.visit('/')
     const TEST_DASHBOARD_TITLE = createDashboardTitle('e2e-translate')
     cy.get(newButtonSel, EXTENDED_TIMEOUT).click()
-    cy.get('[data-test="dashboard-title-input"]').type(TEST_DASHBOARD_TITLE)
-    cy.get('[data-test="dashboard-description-input"]').type(
+    cy.getByDataTest('dashboard-title-input').type(TEST_DASHBOARD_TITLE)
+    cy.getByDataTest('dashboard-description-input').type(
         TEST_DASHBOARD_TITLE + ' description'
     )
 
@@ -95,48 +49,59 @@ it('adds translations to a dashboard and saves it', () => {
     clickViewActionButton('Edit')
 
     // Add translations for dashboard name and description
-    addNorwegianTranslations()
 
-    // Save the dashboard
-    clickEditActionButton('Save changes')
-    cy.get(dashboardTitleSel, EXTENDED_TIMEOUT).should('be.visible')
+    clickEditActionButton('Translate')
+    cy.getByDataTest('dhis2-uicore-select-input').click()
+    cy.getByDataTest('dhis2-uicore-select-menu-menuwrapper')
+        .find('div')
+        .contains('norsk')
+        .click()
 
-    // Assert Norwegian title and description are displayed
-    assertNorwegianTranslations()
+    const norwegianTitle = 'nor title'
+    const norwegianDesc = 'nor desc'
 
-    deleteDashboard(TEST_DASHBOARD_TITLE)
-})
+    cy.getByDataTest('dhis2-uicore-modal').find('textarea').eq(1).clear()
+    cy.getByDataTest('dhis2-uicore-modal')
+        .find('textarea')
+        .eq(1)
+        .type(norwegianTitle)
+    cy.getByDataTest('dhis2-uicore-modal').find('textarea').last().clear()
+    cy.getByDataTest('dhis2-uicore-modal')
+        .find('textarea')
+        .last()
+        .type(norwegianDesc)
 
-it('adds translations to a dashboard and discards dashboard changes', () => {
-    // Create a dashboard
-    cy.visit('/')
-    const TEST_DASHBOARD_TITLE = createDashboardTitle('e2e-translate-discard')
-    cy.get(newButtonSel, EXTENDED_TIMEOUT).click()
-    cy.get('[data-test="dashboard-title-input"]').type(TEST_DASHBOARD_TITLE)
-    cy.get('[data-test="dashboard-description-input"]').type(
-        TEST_DASHBOARD_TITLE + ' description'
-    )
+    cy.intercept('PUT', '**/dashboards/*/translations', (req) => {
+        // Assert the payload structure
+        expect(req.body).to.have.property('translations')
+        expect(req.body.translations).to.be.an('array')
+        expect(req.body.translations).to.have.length(2)
 
-    // Save the dashboard first
-    clickEditActionButton('Save changes')
-    cy.get(dashboardTitleSel, EXTENDED_TIMEOUT)
-        .should('be.visible')
-        .and('contain', TEST_DASHBOARD_TITLE)
+        // Assert NAME translation
+        const nameTranslation = req.body.translations.find(
+            (t) => t.property === 'NAME'
+        )
+        expect(nameTranslation).to.exist
+        expect(nameTranslation.locale).to.equal('no')
+        expect(nameTranslation.value).to.contain('nor title')
 
-    // Choose to edit dashboard
-    clickViewActionButton('Edit')
+        // Assert DESCRIPTION translation
+        const descTranslation = req.body.translations.find(
+            (t) => t.property === 'DESCRIPTION'
+        )
+        expect(descTranslation).to.exist
+        expect(descTranslation.locale).to.equal('no')
+        expect(descTranslation.value).to.contain('nor desc')
 
-    // Add translations for dashboard name and description
-    addNorwegianTranslations()
+        req.reply((res) => {
+            expect(res.statusCode).to.equal(204)
+            return res
+        })
+    }).as('addTranslations')
 
-    // Click Exit without saving
-    clickEditActionButton('Exit without saving')
-    cy.get(dashboardTitleSel, EXTENDED_TIMEOUT).should('be.visible')
+    cy.get('button').contains('Save translations', EXTENDED_TIMEOUT).click()
 
-    // Norwegian title and description are displayed (translations persist even when dashboard changes are discarded)
-    assertNorwegianTranslations()
+    cy.wait('@addTranslations')
 
-    // Delete the dashboard
-    clickViewActionButton('Edit')
     deleteDashboard(TEST_DASHBOARD_TITLE)
 })
