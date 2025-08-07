@@ -1,17 +1,12 @@
 import {
     clickEditActionButton,
     dashboardTitleSel,
-    dashboardDescriptionSel,
     clickViewActionButton,
     newButtonSel,
     getNavigationMenuItem,
     confirmActionDialogSel,
 } from '../elements/index.js'
-import {
-    getApiBaseUrl,
-    EXTENDED_TIMEOUT,
-    createDashboardTitle,
-} from '../support/utils.js'
+import { EXTENDED_TIMEOUT, createDashboardTitle } from '../support/utils.js'
 
 const deleteDashboard = (dashboardTitle) => {
     clickEditActionButton('Delete')
