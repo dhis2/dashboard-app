@@ -11,7 +11,6 @@ import {
     dashboardTitleSel,
     chartSel,
     mapSel,
-    getNavigationMenuItem,
     assertFilterModalOpened,
     confirmActionDialogSel,
     filterBadgeSel,
@@ -76,14 +75,9 @@ describe('Dashboard Filter Tests', () => {
         // add a "Facility Type" filter
         addFilter('Facility Type')
         assertFacilityTypeFilterApplied()
-    })
 
-    it('adds an Org unit group filter', () => {
-        cy.visit('/')
-
-        getNavigationMenuItem(TEST_DASHBOARD_TITLE).click()
-
-        assertDashboardVisible()
+        removeFilter()
+        assertFilterRemoved()
 
         addFilter('Org unit group')
 
@@ -91,12 +85,9 @@ describe('Dashboard Filter Tests', () => {
         cy.get(filterBadgeSel)
             .contains('Organisation unit: District')
             .should('be.visible')
-    })
 
-    it('opens the dimensions modal from the filter badge', () => {
-        cy.visit('/')
-
-        getNavigationMenuItem(TEST_DASHBOARD_TITLE).click()
+        removeFilter()
+        assertFilterRemoved()
 
         addFilter('Period')
 
