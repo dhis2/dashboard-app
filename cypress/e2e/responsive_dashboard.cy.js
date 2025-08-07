@@ -280,6 +280,12 @@ describe('Responsive Dashboard', () => {
         // Scroll down
         cy.get(outerScrollContainerSel, EXTENDED_TIMEOUT).scrollTo('bottom')
 
+        // This item is on the bottom of the Delivery dashboard
+        cy.contains(
+            'Births attended by skilled health personnel by orgunit last year',
+            EXTENDED_TIMEOUT
+        ).should('be.visible')
+
         // Assert the dashboards navigation button is not visible
         cy.get(dashboardsNavMenuButtonSel, EXTENDED_TIMEOUT).should(
             'not.be.visible'
