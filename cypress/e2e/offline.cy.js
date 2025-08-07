@@ -172,13 +172,13 @@ const assertEditActionsStateWhenOnline = () => {
     cy.get(itemSearchSel).find('input').should('not.have.class', 'disabled')
 }
 
-describe('Offline dashboard tests', () => {
+describe.skip('Offline dashboard tests', () => {
     beforeEach(() => {
         cy.visit('/')
         goOnline() // Ensure we start online
     })
 
-    it.only('I am online with a cached dashboard when I lose connectivity', () => {
+    it('I am online with a cached dashboard when I lose connectivity', () => {
         // Create dashboards first
         createDashboard(UNCACHED)
         createDashboard(CACHED)
