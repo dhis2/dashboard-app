@@ -153,7 +153,7 @@ describe('Responsive Dashboard', () => {
         confirmViewMode()
     })
 
-    it('changes url to new while in small screen', () => {
+    it('redirects from new to view mode while in small screen', () => {
         cy.visit(`/${dashboards.Delivery.route}`)
         confirmViewMode('Delivery')
 
@@ -184,7 +184,7 @@ describe('Responsive Dashboard', () => {
             .should('be.visible')
     })
 
-    it('changes url to edit while in small screen', () => {
+    it('redirects from edit to view mode while in small screen', () => {
         cy.visit(`/${dashboards.Delivery.route}`)
         confirmViewMode('Delivery')
 
@@ -234,8 +234,6 @@ describe('Responsive Dashboard', () => {
 
         // Choose to edit dashboard
         clickViewActionButton('Edit')
-
-        // Verify edit mode
         confirmEditMode()
 
         // Go to phone landscape
@@ -268,13 +266,13 @@ describe('Responsive Dashboard', () => {
         cy.visit(`/${dashboards.Delivery.route}`)
         confirmViewMode('Delivery')
 
-        // Assert the dashboards bar is visible
+        // Assert the dashboards navigation button is visible
         cy.get(dashboardsNavMenuButtonSel).should('be.visible')
 
         // Go to phone landscape
         switchToSmallScreen(false)
 
-        // Assert the dashboards bar is visible
+        // Assert the dashboards navigation button is visible
         cy.get(dashboardsNavMenuButtonSel, EXTENDED_TIMEOUT).should(
             'be.visible'
         )
@@ -282,7 +280,7 @@ describe('Responsive Dashboard', () => {
         // Scroll down
         cy.get(outerScrollContainerSel, EXTENDED_TIMEOUT).scrollTo('bottom')
 
-        // Assert the dashboards bar is not visible
+        // Assert the dashboards navigation button is not visible
         cy.get(dashboardsNavMenuButtonSel, EXTENDED_TIMEOUT).should(
             'not.be.visible'
         )
@@ -290,7 +288,7 @@ describe('Responsive Dashboard', () => {
         // Scroll to top
         cy.get(outerScrollContainerSel).scrollTo('top')
 
-        // Assert the dashboards bar is visible
+        // Assert the dashboards navigation button is visible
         cy.get(dashboardsNavMenuButtonSel).should('be.visible')
     })
 })
