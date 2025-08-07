@@ -83,10 +83,10 @@ describe('Filter Restrictions', () => {
             .click()
 
         // Assert Period and Organisation unit are displayed as selected by default
-        cy.get('[data-test="dhis2-uicore-transfer-rightside"]')
+        cy.getByDataTest('dhis2-uicore-transfer-rightside')
             .contains('Period')
             .should('be.visible')
-        cy.get('[data-test="dhis2-uicore-transfer-rightside"]')
+        cy.getByDataTest('dhis2-uicore-transfer-rightside')
             .contains('Organisation unit')
             .should('be.visible')
 
@@ -159,8 +159,11 @@ describe('Filter Restrictions', () => {
             .should('be.visible')
 
         closeModal()
+
+        clickEditActionButton('Exit without saving')
     })
 
+    // Tests start failing here
     it('does not persist Filter Restrictions changes when exiting without saving', () => {
         // Open an existing dashboard with non-restricted Filter settings in edit mode
         cy.visit(`/${dashboardId}/edit`)
@@ -215,13 +218,11 @@ describe('Filter Restrictions', () => {
             .click()
 
         // Remove all filters from selected filters
-        cy.get('[data-test="dhis2-uicore-transfer-actions-removeall"]').click()
+        cy.getByDataTest('dhis2-uicore-transfer-actions-removeall').click()
 
         // Add Facility Ownership to selected filters
         cy.get('div').contains('Facility Ownership').click()
-        cy.get(
-            '[data-test="dhis2-uicore-transfer-actions-addindividual"]'
-        ).click()
+        cy.getByDataTest('dhis2-uicore-transfer-actions-addindividual').click()
 
         // Click Confirm
         cy.get('button').contains('Confirm').click()
@@ -262,7 +263,7 @@ describe('Filter Restrictions', () => {
             .click()
 
         // Remove all filters from selected filters
-        cy.get('[data-test="dhis2-uicore-transfer-actions-removeall"]').click()
+        cy.getByDataTest('dhis2-uicore-transfer-actions-removeall').click()
 
         // Click Confirm
         cy.get('button').contains('Confirm').click()
