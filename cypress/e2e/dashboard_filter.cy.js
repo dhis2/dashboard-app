@@ -28,7 +28,7 @@ const assertDashboardVisible = () => {
         .should('be.visible')
         .and('contain', TEST_DASHBOARD_TITLE)
 
-    // check for a map canvas and a highcharts element
+    // Check for a map canvas and a highcharts element
     cy.get(`${gridItemSel}.VISUALIZATION`).getIframeBody().as('iframe')
     // eslint-disable-next-line cypress/no-unnecessary-waiting
     cy.wait(1000)
@@ -48,25 +48,19 @@ describe('Dashboard Filter Tests', () => {
         // Start a new dashboard
         cy.get(newButtonSel, EXTENDED_TIMEOUT).click()
 
-        // add the dashboard title
+        // Add the dashboard title
         cy.getByDataTest('dashboard-title-input').type(TEST_DASHBOARD_TITLE)
 
-        // add dashboard items
+        // Add dashboard items
         addDashboardItem('Inpatient: BMI this year by districts') //CHART
         addDashboardItem('ANC: IPT 2 Coverage this year') //MAP
 
         // save
-        cy.get('button').contains('Save changes', EXTENDED_TIMEOUT).click()
+        clickEditActionButton('Save changes')
 
         assertDashboardVisible()
 
-        // add a "Period" filter
-        addFilter('Period')
-        assertPeriodFilterApplied()
-        removeFilter()
-        assertFilterRemoved()
-
-        // add a "Organisation unit" filter
+        // Add an "Organisation unit" filter
         addFilter('Organisation unit')
         assertOrgUnitFilterApplied()
         removeFilter()
@@ -75,10 +69,10 @@ describe('Dashboard Filter Tests', () => {
         // add a "Facility Type" filter
         addFilter('Facility Type')
         assertFacilityTypeFilterApplied()
-
         removeFilter()
         assertFilterRemoved()
 
+        // Add an Org Unit Group filter
         addFilter('Org unit group')
 
         // Assert the filter badge is visible and contains the correct text
@@ -89,7 +83,9 @@ describe('Dashboard Filter Tests', () => {
         removeFilter()
         assertFilterRemoved()
 
+        // Add a "Period" filter
         addFilter('Period')
+        assertPeriodFilterApplied()
 
         // click on the "Period" filter badge
         cy.get(filterBadgeSel)
