@@ -48,7 +48,7 @@ it('adds translations', () => {
     cy.getByDataTest('dhis2-uicore-select-input').click()
     cy.getByDataTest('dhis2-uicore-select-menu-menuwrapper')
         .find('div')
-        .contains('norsk')
+        .contains('nor', { matchCase: false })
         .click()
 
     const norwegianTitle = 'nor title'
