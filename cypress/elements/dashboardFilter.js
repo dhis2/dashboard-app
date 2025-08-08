@@ -71,12 +71,9 @@ export const assertPeriodFilterApplied = () => {
 
     // cy.get(innerScrollContainerSel).scrollTo('top')
     // // check the MAP
-    // // TODO - restore the normal EXTENDED_TIMEOUT when
-    // // slow loading of this map has been fixes
-    // // https://dhis2.atlassian.net/browse/DHIS2-14365
     // cy.get(`${gridItemSel}.MAP`).getIframeBody().as('iframeBodyMap')
     // cy.get('@iframeBodyMap')
-    //     .find('.dhis2-map-legend-button', { timeout: 85000 })
+    //     .find('.dhis2-map-legend-button', EXTENDED_TIMEOUT)
     //     .trigger('mouseover')
     // cy.get(`${gridItemSel}.MAP`).getIframeBody().as('iframeBodyMap2')
     // cy.get('@iframeBodyMap2')
@@ -119,12 +116,9 @@ export const assertFacilityTypeFilterApplied = () => {
     //     .should('be.visible')
 
     // cy.get(innerScrollContainerSel).scrollTo('top')
-    // // TODO - restore the normal EXTENDED_TIMEOUT when
-    // // slow loading of this map has been fixes
-    // // https://dhis2.atlassian.net/browse/DHIS2-14365
     // cy.get(`${gridItemSel}.MAP`)
     //     .getIframeBody()
-    //     .find(mapLegendButtonSel, { timeout: 85000 })
+    //     .find(mapLegendButtonSel, EXTENDED_TIMEOUT)
     //     .trigger('mouseover')
     // cy.get(`${gridItemSel}.MAP`)
     //     .getIframeBody()

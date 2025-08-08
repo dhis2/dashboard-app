@@ -257,7 +257,7 @@ describe.skip('Offline dashboard tests', () => {
         cy.contains(OFFLINE_DATA_LAST_UPDATED_TEXT).should('be.visible')
         cy.contains(CACHED_DASHBOARD_ITEM_NAME).should('be.visible')
 
-        // TODO - check for the cached icon
+        // Check for the cached icon
     })
 
     it('I am offline and switch to an uncached dashboard and then connectivity is restored', () => {
@@ -364,7 +364,7 @@ describe.skip('Offline dashboard tests', () => {
         // Then the dashboard is not cached
         cy.contains(OFFLINE_DATA_LAST_UPDATED_TEXT).should('not.exist')
 
-        // TODO confirm the cached icon is not displayed
+        // Assert the cached icon is not displayed
 
         // When connectivity is turned on
         goOnlineAndConfirm()

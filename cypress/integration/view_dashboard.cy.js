@@ -71,7 +71,7 @@ describe('view dashboard', () => {
     it('views a dashboard with items lacking shape', () => {
         // Intercept the dashboard request and remove shape properties
         const regex = new RegExp(`dashboards/${dashboards['Delivery'].id}`, 'g')
-        cy.intercept(regex, (req) => {
+        const modifyRequest = (req) => {
             req.reply((res) => {
                 res.body.dashboardItems.forEach((item) => {
                     delete item.x
@@ -82,7 +82,8 @@ describe('view dashboard', () => {
 
                 res.send({ body: res.body })
             })
-        })
+        }
+        cy.intercept(regex, modifyRequest)
 
         // Open the Delivery dashboard with shapes removed
         cy.visit('/')
