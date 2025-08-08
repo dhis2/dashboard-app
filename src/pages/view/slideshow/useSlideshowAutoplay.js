@@ -142,15 +142,13 @@ const useSlideshowAutoplay = ({ nextItem }) => {
         setMsPerSlide(timingOptions[value].ms)
         setSlideMsRemaining(timingOptions[value].ms)
 
-        try {
-            apiPostUserDataStoreValue(
-                KEY_SLIDESHOW_MS_PER_SLIDE,
-                timingOptions[value].ms,
-                dataEngine
-            )
-        } catch (e) {
+        apiPostUserDataStoreValue(
+            KEY_SLIDESHOW_MS_PER_SLIDE,
+            timingOptions[value].ms,
+            dataEngine
+        ).catch((e) => {
             console.warn('Error saving slideshow settings', e)
-        }
+        })
     }
 
     const togglePlayPause = () => setIsPlaying((prev) => !prev)
