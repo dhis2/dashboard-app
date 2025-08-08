@@ -18,7 +18,11 @@ import {
     findUser,
     selectSharingLevel,
 } from '../elements/index.js'
-import { EXTENDED_TIMEOUT, createDashboardTitle } from '../support/utils.js'
+import {
+    EXTENDED_TIMEOUT,
+    createDashboardTitle,
+    getApiBaseUrl,
+} from '../support/utils.js'
 
 const deleteDashboard = (dashboardTitle) => {
     clickEditActionButton('Delete')
@@ -61,7 +65,7 @@ describe('Edit Dashboard', () => {
         clickViewActionButton('Edit')
         confirmEditMode()
 
-        // // Add another dashboard item
+        // Add another dashboard item
         addDashboardItem('ANC: 3rd visit coverage last year by district') // Map
 
         // Exit without saving
@@ -159,6 +163,7 @@ describe('Edit Dashboard', () => {
         // Unstar the dashboard
         cy.get(dashboardStarredSel).click()
 
+        // Assert dashboard is unstarred
         cy.wait('@unstarDashboard')
             .its('response.statusCode')
             .should('be.oneOf', [200, 204])
@@ -176,7 +181,7 @@ describe('Edit Dashboard', () => {
 
     it('changes sharing settings', () => {
         const USER_NAME = 'Kevin Boateng'
-        //     create a dashboard
+
         cy.visit('/')
         const TEST_DASHBOARD_TITLE = createDashboardTitle('e2e-sharing')
 
@@ -195,7 +200,6 @@ describe('Edit Dashboard', () => {
         // Change sharing settings
         clickViewActionButton('Share')
         assertSharedToUser(USER_NAME, false)
-
         findUser(USER_NAME)
         selectSharingLevel('View only')
         assertSharedToUser(USER_NAME, true)
@@ -214,9 +218,6 @@ describe('Edit Dashboard', () => {
 
         clickViewActionButton('Edit')
         deleteDashboard(TEST_DASHBOARD_TITLE)
-
-        // TODO - gaps
-        // advanced sharing settings
     })
 
     it.skip('moves an item on the dashboard without triggering analytics requests', () => {
@@ -262,5 +263,53 @@ describe('Edit Dashboard', () => {
             .find(chartSubtitleSel, EXTENDED_TIMEOUT)
             .contains(WRONG_SUBTITLE)
             .should('not.exist')
+    })
+
+    it.skip('adds a custom widget to a dashboard', () => {
+        const customApp = {
+            name: 'Users-Role-Monitor-Widget',
+            id: '5e43908a-3105-4baa-9a00-87a94ebdc034',
+        }
+        // First install a custom app
+        cy.request(
+            'POST',
+            `${getApiBaseUrl()}/api/appHub/${customApp.id}`
+        ).then((response) => {
+            expect(response.status).to.be.oneOf([204, 201])
+
+            // Start a new dashboard
+            cy.visit('/')
+            cy.get(newButtonSel).click()
+
+            // aAdd the dashboard title
+            cy.getByDataTest('dashboard-title-input').type('Custom App Test')
+
+            // Add dashboard items
+            addDashboardItem('Role Monitor Widget')
+
+            // Save
+            clickEditActionButton('Save changes')
+
+            confirmViewMode('Custom App Test')
+
+            // Assert the custom app is visible by checking for the item's title
+            // check that the custom app is loaded (see ticket DHIS2-14544)
+            cy.get('iframe')
+                .invoke('attr', 'title')
+                .contains('Role Monitor Widget')
+                .scrollIntoView()
+            cy.get('iframe')
+                .invoke('attr', 'title')
+                .contains('Role Monitor Widget')
+                .should('be.visible')
+
+            // Remove the custom app
+            cy.request(
+                'DELETE',
+                `${getApiBaseUrl()}/api/apps/${customApp.name}`
+            ).then((response) => {
+                expect(response.status).to.equal(204)
+            })
+        })
     })
 })

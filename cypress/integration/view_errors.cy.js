@@ -2,16 +2,25 @@ import { dashboards } from '../assets/backends/sierraLeone_236.js'
 import {
     getDashboardItem,
     clickItemDeleteButton,
-} from '../elements/dashboardItem.js'
-import { titleInputSel } from '../elements/editDashboard.js'
-import { getNavigationMenuItem } from '../elements/navigationMenu.js'
-import {
+    titleInputSel,
+    getNavigationMenuItem,
     dashboardTitleSel,
     dashboardUnstarredSel,
     dashboardStarredSel,
     titleBarSel,
-} from '../elements/viewDashboard.js'
-import { EXTENDED_TIMEOUT } from '../support/utils.js'
+    filterBadgeSel,
+    gridItemSel,
+    chartSel,
+    tableSel,
+    dimensionsModalSel,
+    filterDimensionsPanelSel,
+    itemMenuButtonSel,
+    newButtonSel,
+    clickEditActionButton,
+    addDashboardItem,
+    confirmViewMode,
+} from '../elements/index.js'
+import { EXTENDED_TIMEOUT, createDashboardTitle } from '../support/utils.js'
 
 const ITEM_1_UID = 'GaVhJpqABYX'
 const ITEM_2_UID = 'qXsjttMYuoZ'
@@ -79,18 +88,19 @@ const assertItemsMissingTypeDisplayWithWarning = () => {
         .should('be.visible')
 }
 
-it("Navigate to a dashboard that doesn't exist or I don't have access to", () => {
+it("navigates to a dashboard that doesn't exist or user doesn't have access to", () => {
     cy.visit('#/invalid')
 
     assertDashboardNotFound()
-    // Now open the Delivery dashboard
+
+    // Open the Delivery dashboard
     getNavigationMenuItem('Delivery').click()
 
-    // Check that the "Delivery" dashboard title is displayed
+    // Check that the Delivery dashboard title is displayed
     cy.get(dashboardTitleSel).should('be.visible').and('contain', 'Delivery')
 })
 
-it("Navigate to edit dashboard that doesn't exist", () => {
+it("navigates to edit dashboard that doesn't exist", () => {
     cy.visit('#/invalid/edit')
 
     assertDashboardNotFound()
@@ -98,11 +108,11 @@ it("Navigate to edit dashboard that doesn't exist", () => {
     // Now open the Delivery dashboard
     getNavigationMenuItem('Delivery').click()
 
-    // Check that the "Delivery" dashboard title is displayed
+    // Check that the Delivery dashboard title is displayed
     cy.get(dashboardTitleSel).should('be.visible').and('contain', 'Delivery')
 })
 
-it('Navigate to a dashboard that fails to load', () => {
+it('navigates to a dashboard that fails to load', () => {
     cy.intercept(`**/dashboards/${dashboards.Immunization.id}?*`, {
         statusCode: 500,
         body: 'Oopsie!',
@@ -117,7 +127,7 @@ it('Navigate to a dashboard that fails to load', () => {
     ).should('exist')
 })
 
-it('Enter edit mode of a dashboard I do not have access to edit', () => {
+it('enters edit mode of a dashboard I do not have access to edit', () => {
     cy.intercept(`**/dashboards/${dashboards.Delivery.id}?*`, (req) => {
         req.reply((res) => {
             const noAccessResponse = {
@@ -135,7 +145,7 @@ it('Enter edit mode of a dashboard I do not have access to edit', () => {
     cy.contains('No access').should('be.visible')
 })
 
-it('View dashboard containing item that is missing type', () => {
+it('displays dashboard containing item that is missing type', () => {
     interceptDashboardRequest()
     cy.visit('/')
     getNavigationMenuItem('Delivery').click()
@@ -147,7 +157,7 @@ it('View dashboard containing item that is missing type', () => {
     assertItemsMissingTypeDisplayWithWarning()
 })
 
-it('Starring a dashboard fails', () => {
+it('starring a dashboard fails', () => {
     cy.visit(dashboards.Delivery.route, EXTENDED_TIMEOUT)
 
     // Click to star dashboard fails
@@ -171,7 +181,7 @@ it('Starring a dashboard fails', () => {
     cy.get(dashboardStarredSel).should('not.exist')
 })
 
-it('Edit dashboard containing item that is missing type', () => {
+it('displays dashboard in edit mode containing item that is missing type', () => {
     interceptDashboardRequest()
     cy.visit('/')
     getNavigationMenuItem('Delivery').click()
@@ -199,8 +209,8 @@ it('Edit dashboard containing item that is missing type', () => {
     getDashboardItem(ITEM_3_UID).should('not.exist')
 })
 
-it('Print dashboard containing item that is missing type', () => {
-    // open the Delivery dashboard with items missing a type
+it('displays print mode for dashboard containing item that is missing type', () => {
+    // Open the Delivery dashboard with items missing a type
     interceptDashboardRequest()
     cy.visit('/')
     getNavigationMenuItem('Delivery').click()
@@ -210,175 +220,174 @@ it('Print dashboard containing item that is missing type', () => {
     cy.getByDataTest('print-menu-item').click()
     cy.getByDataTest('print-layout-menu-item').click()
 
-    // Print layout displays for "Delivery" dashboard
+    // Print layout displays for Delivery dashboard
     cy.location().should((loc) => {
         expect(loc.hash).to.equal(`${dashboards.Delivery.route}/printlayout`)
     })
 
-    //check for some elements
+    // Check for some elements
     cy.getByDataTest('print-layout-page').should('be.visible')
 
     // Check that the items are displayed with a warning
     assertItemsMissingTypeDisplayWithWarning()
 })
 
-// Scenario: I navigate to print dashboard that doesn't exist
-//     Given I type an invalid print dashboard id in the browser url
-//     Then a message displays informing that the dashboard is not found
-//     When I open the "Delivery" dashboard
-//     Then the "Delivery" dashboard displays in view mode
+const TEST_DASHBOARD_TITLE = createDashboardTitle('a-view-error')
+it.skip('filtering causes visualization to fail while in print mode', () => {
+    cy.visit('/')
 
-// Scenario: I navigate to print layout dashboard that doesn't exist
-//     Given I type an invalid print layout dashboard id in the browser url
-//     Then a message displays informing that the dashboard is not found
-//     When I open the "Delivery" dashboard
-//     Then the "Delivery" dashboard displays in view mode
+    // Create a dashboard with a dual-axis chart
+    cy.get(newButtonSel, EXTENDED_TIMEOUT).click()
+    cy.getByDataTest('dashboard-title-input').type(TEST_DASHBOARD_TITLE)
+    addDashboardItem(
+        'ANC: ANC reporting rate, coverage and visits last 4 quarters dual-axis'
+    ) // chart
+    clickEditActionButton('Save changes')
+    confirmViewMode(TEST_DASHBOARD_TITLE)
 
-// Scenario: Item visualization fails when filter applied [DHIS2-11303]
-//     Given I create a dashboard with a chart that will fail
-//     When I apply a "Diagnosis" filter of type "Burns"
-//     Then an error message is displayed on the item
-//     When I click to preview the print layout
-//     Then an error message not including a link is displayed on the item
-//     When I click to exit print preview
-//     And I remove the filter
-//     Then the "chart" is displayed correctly
+    // Apply a "Diagnosis" filter of type "Burns"
+    addFilter('Diagnosis', 'Burns')
 
-// Scenario: Item visualization fails when filter applied and viewed as table [DHIS2-11303]
-//     Given I open a dashboard with a chart that will fail
-//     When I apply a "Diagnosis" filter of type "Burns"
-//     Then an error message is displayed on the item
-//     When I view as table
-//     Then an error message is displayed on the item
-//     When I remove the filter
-//     Then the "table" is displayed correctly
+    // Assert an error message is displayed on the item
+    assertErrorOnItem()
 
-// Scenario: Item visualization fails when filter applied and viewed as table then viewed as chart [DHIS2-11303]
-//     Given I open a dashboard with a chart that will fail
-//     When I apply a "Diagnosis" filter of type "Burns"
-//     Then an error message is displayed on the item
-//     When I view as table
-//     Then an error message is displayed on the item
-//     When I view as chart
-//     Then an error message is displayed on the item
-//     When I remove the filter
-//     Then the "chart" is displayed correctly
+    // Click to preview the print layout
+    cy.getByDataTest('more-actions-button').click()
+    cy.getByDataTest('print-menu-item').click()
+    cy.getByDataTest('print-layout-menu-item').click()
 
-// Scenario: I delete the dashboard that was created for this test suite
-//     Given I open a dashboard with a chart that will fail
-//     Then I delete the created dashboard
+    // Assert an error message not including a link is displayed on the item
+    cy.contains(
+        'There was an error loading data for this item'
+    ).scrollIntoView()
+    cy.contains('There was an error loading data for this item').should(
+        'be.visible'
+    )
+    cy.contains('Open this item in Data Visualizer').should('not.exist')
+    cy.get(`${gridItemSel}.VISUALIZATION`)
+        .first()
+        .find('iframe')
+        .should('not.exist')
 
-// export const TEST_DASHBOARD_TITLE = createDashboardTitle('0ff')
+    // Exit print preview
+    cy.get('button').not('.small').contains('Exit print preview').click()
+    confirmViewMode(TEST_DASHBOARD_TITLE)
 
-// Scenario: Item visualization fails when filter applied [DHIS2-11303]
+    // Remove the filter
+    cy.get(filterBadgeSel).scrollIntoView()
+    cy.get(filterBadgeSel).contains('Remove').click()
 
-// const VIS_NAME =
-//     'ANC: ANC reporting rate, coverage and visits last 4 quarters dual-axis'
+    // Assert the filter is removed
+    cy.get(filterBadgeSel).should('not.exist')
 
-// Given('I create a dashboard with a chart that will fail', () => {
-//     createDashboard(TEST_DASHBOARD_TITLE, [VIS_NAME])
-// })
+    // Assert the chart is displayed
+    cy.get(`${gridItemSel}.VISUALIZATION`)
+        .first()
+        .getIframeBody()
+        .find(chartSel)
+        .should('be.visible')
+})
 
-// Given('I open a dashboard with a chart that will fail', () => {
-//     cy.get(dashboardChipSel, EXTENDED_TIMEOUT)
-//         .contains(TEST_DASHBOARD_TITLE)
-//         .click()
+it.skip('filtering causes visualization to fail when viewed as table', () => {
+    //     Given I open a dashboard with a chart that will fail
+    cy.visit('/')
+    getNavigationMenuItem(TEST_DASHBOARD_TITLE).click()
+    confirmViewMode(TEST_DASHBOARD_TITLE)
 
-//     cy.get(dashboardTitleSel)
-//         .should('be.visible')
-//         .and('contain', TEST_DASHBOARD_TITLE)
-// })
+    // Apply a "Diagnosis" filter of type "Burns"
+    addFilter('Diagnosis', 'Burns')
 
-// When(
-//     'I apply a {string} filter of type {string}',
-//     (dimensionType, filterName) => {
-//         cy.containsExact('Filter').click()
-//         cy.get(filterDimensionsPanelSel).contains(dimensionType).click()
-//         cy.get(dimensionsModalSel, EXTENDED_TIMEOUT).should('be.visible')
+    // Assert error message is displayed on the item
+    cy.get(`${gridItemSel}.VISUALIZATION`)
+        .first()
+        .contains('There was an error loading data for this item')
+        .should('be.visible')
 
-//         cy.contains(filterName).dblclick()
+    // View as table
+    cy.get(itemMenuButtonSel).click()
+    cy.contains('View as Pivot table').click()
 
-//         cy.get('button').contains('Confirm').click()
-//     }
-// )
+    // Assert error message is displayed on the item
+    assertErrorOnItem()
 
-// Then('an error message is displayed on the item', () => {
-// cy.get(`${gridItemSel}.VISUALIZATION`)
-//     .first()
-//     .contains('There was an error loading data for this item')
-//     .should('be.visible')
+    // Remove the filter
+    cy.wait(4000) // eslint-disable-line cypress/no-unnecessary-waiting
+    cy.get(filterBadgeSel).scrollIntoView()
+    cy.get(filterBadgeSel).contains('Remove').click()
+    cy.get(filterBadgeSel).should('not.exist')
+    cy.wait(4000) // eslint-disable-line cypress/no-unnecessary-waiting
 
-// cy.get(`${gridItemSel}.VISUALIZATION`)
-//     .first()
-//     .contains('Open this item in Data Visualizer')
-//     .should('be.visible')
+    // Assert table is displayed
+    cy.get(`${gridItemSel}.VISUALIZATION`)
+        .first()
+        .getIframeBody()
+        .find(tableSel)
+        .should('be.visible')
+})
 
-//    cy.get(`${gridItemSel}.VISUALIZATION`)
-//        .first()
-//        .getIframeBody()
-//        .find(chartSel)
-//        .should('not.exist')
-// })
+it.skip('filtering causes visualization to faile while view as table then as chart', () => {
+    cy.visit('/')
+    getNavigationMenuItem(TEST_DASHBOARD_TITLE).click()
+    confirmViewMode(TEST_DASHBOARD_TITLE)
 
-// Then('an error message not including a link is displayed on the item', () => {
+    // Apply a "Diagnosis" filter of type "Burns"
+    addFilter('Diagnosis', 'Burns')
 
-// cy.contains('There was an error loading data for this item')
-//     .scrollIntoView()
-//     .should('be.visible')
+    // Assert error message is displayed on the item
+    assertErrorOnItem()
+    // View as table
+    cy.get(itemMenuButtonSel).click()
+    cy.contains('View as Pivot table').click()
 
-// cy.contains('Open this item in Data Visualizer').should('not.exist')
+    // Assert error message is displayed on the item
+    assertErrorOnItem()
 
-// cy.get(`${gridItemSel}.VISUALIZATION`)
-//     .first()
-//     .find('iframe')
-//     .should('not.exist')
-// })
+    // View as chart
+    cy.get(itemMenuButtonSel).click()
+    cy.contains('View as Chart').click()
 
-// When('I view as chart', () => {
-//     cy.get(itemMenuButtonSel).click()
-//     cy.contains('View as Chart').click()
-// })
+    // Assert error message is displayed on the item
+    assertErrorOnItem()
 
-// When('I view as table', () => {
-//     cy.get(itemMenuButtonSel).click()
-//     cy.contains('View as Pivot table').click()
-// })
+    // Remove the filter
+    cy.wait(4000) // eslint-disable-line cypress/no-unnecessary-waiting
+    cy.get(filterBadgeSel).scrollIntoView()
+    cy.get(filterBadgeSel).contains('Remove').click()
+    cy.get(filterBadgeSel).should('not.exist')
+    cy.wait(4000) // eslint-disable-line cypress/no-unnecessary-waiting
 
-// When('I remove the filter', () => {
-//     cy.wait(4000) // eslint-disable-line cypress/no-unnecessary-waiting
-//     // eslint-disable-next-line cypress/unsafe-to-chain-command
-//     cy.get(filterBadgeSel).scrollIntoView().contains('Remove').click()
+    // Assert the chart is displayed
+    cy.get(`${gridItemSel}.VISUALIZATION`)
+        .first()
+        .getIframeBody()
+        .find(chartSel)
+        .should('be.visible')
+})
 
-//     cy.get(filterBadgeSel).should('not.exist')
-//     cy.wait(4000) // eslint-disable-line cypress/no-unnecessary-waiting
-// })
+const addFilter = (dimensionType, filterName) => {
+    cy.containsExact('Filter').click()
+    cy.get(filterDimensionsPanelSel).contains(dimensionType).click()
+    cy.get(dimensionsModalSel, EXTENDED_TIMEOUT).should('be.visible')
 
-// Then('the {string} is displayed correctly', (visType) => {
-//     if (visType === 'chart') {
-//         cy.get(`${gridItemSel}.VISUALIZATION`)
-//             .first()
-//             .getIframeBody()
-//             .find(chartSel)
-//             .should('be.visible')
-//     } else if (visType === 'table') {
-//         cy.get(`${gridItemSel}.VISUALIZATION`)
-//             .first()
-//             .getIframeBody()
-//             .find(tableSel)
-//             .should('be.visible')
-//     }
-// })
+    cy.contains(filterName).dblclick()
 
-// Then('I delete the created dashboard', () => {
-//     //now cleanup
-//     clickViewActionButton('Edit')
-//     clickEditActionButton('Delete')
-//     cy.contains(
-//         `Deleting dashboard "${TEST_DASHBOARD_TITLE}" will remove it for all users`
-//     ).should('be.visible')
+    cy.get('button').contains('Confirm').click()
+}
 
-//     cy.get(confirmActionDialogSel).find('button').contains('Delete').click()
-//     cy.get(dashboardChipSel).contains(TEST_DASHBOARD_TITLE).should('not.exist')
+const assertErrorOnItem = () => {
+    cy.get(`${gridItemSel}.VISUALIZATION`)
+        .first()
+        .contains('There was an error loading data for this item')
+        .should('be.visible')
 
-//     cy.get(dashboardTitleSel).should('exist').should('not.be.empty')
-// })
+    cy.get(`${gridItemSel}.VISUALIZATION`)
+        .first()
+        .contains('Open this item in Data Visualizer')
+        .should('be.visible')
+
+    cy.get(`${gridItemSel}.VISUALIZATION`)
+        .first()
+        .getIframeBody()
+        .find(chartSel)
+        .should('not.exist')
+}

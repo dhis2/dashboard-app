@@ -9,17 +9,9 @@ import {
 } from '../elements/index.js'
 import { EXTENDED_TIMEOUT } from '../support/utils.js'
 
-// const confirmViewMode = (title) => {
-//     cy.location().should((loc) => {
-//         expect(loc.hash).to.equal(dashboards[title].route)
-//     })
-//     cy.getByDataTest('headerbar-title').should('be.visible')
-//     cy.get(dashboardTitleSel).should('be.visible').and('contain', title)
-// }
-
 describe('view dashboard', () => {
     it('switches between dashboards', () => {
-        // Open the "Delivery" dashboard
+        // Open the Delivery dashboard
         cy.visit('/')
         getNavigationMenuItem('Delivery').click()
         confirmViewMode('Delivery')
@@ -27,10 +19,10 @@ describe('view dashboard', () => {
             expect(loc.hash).to.equal(dashboards.Delivery.route)
         })
 
-        // Open the "Immunization" dashboard
+        // Open the Immunization dashboard
         getNavigationMenuItem('Immunization').click()
 
-        // Assert the "Immunization" dashboard displays in view mode
+        // Assert the Immunization dashboard displays in view mode
         confirmViewMode('Immunization')
         cy.location().should((loc) => {
             expect(loc.hash).to.equal(dashboards.Immunization.route)
@@ -40,7 +32,7 @@ describe('view dashboard', () => {
     it('searches for a dashboard', () => {
         cy.visit('/')
         confirmViewMode()
-        // Open the "Antenatal Care" dashboard
+        // Open the Antenatal Care dashboard
         getNavigationMenuItem('Antenatal Care').click()
         confirmViewMode('Antenatal Care')
 
@@ -62,7 +54,7 @@ describe('view dashboard', () => {
 
     it('searches for a dashboard with nonmatching search text', () => {
         cy.visit('/')
-        // Open the "Antenatal Care" dashboard
+        // Open the Antenatal Care dashboard
         getNavigationMenuItem('Antenatal Care').click()
         confirmViewMode('Antenatal Care')
 
@@ -92,16 +84,16 @@ describe('view dashboard', () => {
             })
         })
 
-        // Open the "Delivery" dashboard with shapes removed
+        // Open the Delivery dashboard with shapes removed
         cy.visit('/')
         getNavigationMenuItem('Delivery').click()
 
-        // Assert the "Delivery" dashboard displays in view mode
+        // Assert the Delivery dashboard displays in view mode
         confirmViewMode('Delivery')
     })
 
     it("opens user's preferred dashboard", () => {
-        // Open the "Antenatal Care" dashboard
+        // Open the Antenatal Care dashboard
         cy.visit('/')
         getNavigationMenuItem('Antenatal Care').click()
         confirmViewMode('Antenatal Care')
@@ -115,7 +107,7 @@ describe('view dashboard', () => {
 
         cy.get(dashboardTitleSel).should('be.visible')
 
-        // Open the "Delivery" dashboard
+        // Open the Delivery dashboard
         getNavigationMenuItem('Delivery').click()
         confirmViewMode('Delivery')
 
@@ -126,7 +118,7 @@ describe('view dashboard', () => {
             expect(loc.hash).to.equal('#/')
         })
 
-        // Assert the "Delivery" dashboard displays (as it's the last viewed)
+        // Assert the Delivery dashboard displays (as it's the last viewed)
         cy.get(dashboardTitleSel)
             .should('be.visible')
             .and('contain', 'Delivery')
@@ -138,52 +130,54 @@ describe('view dashboard', () => {
 
         confirmViewMode(title)
 
-        // open print layout
+        // Open print layout
         cy.getByDataTest('more-actions-button').click()
         cy.getByDataTest('print-menu-item').click()
         cy.getByDataTest('print-layout-menu-item').click()
 
-        // check that print layout is shown
+        // Assert that print layout is shown
         cy.location().should((loc) => {
             expect(loc.hash).to.equal(`${dashboards[title].route}/printlayout`)
         })
         cy.getByDataTest('headerbar-title').should('not.be.visible')
         cy.getByDataTest('print-layout-page').should('be.visible')
 
-        // exit print preview
+        // Exit print preview
         cy.get('button').not('.small').contains('Exit print preview').click()
         confirmViewMode(title)
 
-        // open print one-item-per-page
+        // Open print one-item-per-page
         cy.getByDataTest('more-actions-button').click()
         cy.getByDataTest('print-menu-item').click()
         cy.getByDataTest('print-oipp-menu-item').click()
 
-        // check that print oipp is shown
+        // Assert that print oipp is shown
         cy.location().should((loc) => {
             expect(loc.hash).to.equal(`${dashboards[title].route}/printoipp`)
         })
         cy.getByDataTest('headerbar-title').should('not.be.visible')
         cy.getByDataTest('print-oipp-page').should('be.visible')
 
-        // exit print preview
+        // Exit print preview
         cy.get('button').not('.small').contains('Exit print preview').click()
 
-        // check that we are back to the dashboard view mode
+        // Assert dashboard view mode
         confirmViewMode(title)
     })
 
     it.skip('shows layer names in legend for map with tracked entities', () => {
-        // Given I open the Cases Malaria dashboard
+        // Open the Cases Malaria dashboard
         cy.visit(`/${dashboards['Cases Malaria'].route}`)
         confirmViewMode('Cases Malaria')
-        // When I hover over the map legend button
+
+        // Hover over the map legend button
         const mapItemUid = dashboards['Cases Malaria'].items.map.itemUid
         getDashboardItem(mapItemUid)
             .getIframeBody()
             .find('.dhis2-map-legend-button', EXTENDED_TIMEOUT)
             .trigger('mouseover')
-        // Then the legend title shows the tracked entity name
+
+        // Assert the legend title shows the tracked entity name
         getDashboardItem(mapItemUid)
             .getIframeBody()
             .find('.dhis2-map-legend-title')

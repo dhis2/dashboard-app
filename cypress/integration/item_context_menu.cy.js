@@ -14,12 +14,12 @@ describe('Item context menu', () => {
         cy.visit(`/${dashboards.Delivery.route}`)
         confirmViewMode('Delivery')
 
-        // ensure Delivery dashboard is displayed
+        // Ensure Delivery dashboard is displayed
         cy.location().should((loc) => {
             expect(loc.hash).to.equal(dashboards.Delivery.route)
         })
 
-        // assert the link url for the Open in Data Visualizer app
+        // Assert the link url for the Open in Data Visualizer app
         clickMenuButton(dashboards.Delivery.items.chart.itemUid)
 
         cy.contains('Open in Data Visualizer app')
@@ -76,8 +76,6 @@ describe('Item context menu', () => {
             .contains('Interpretations')
             .scrollIntoView()
             .should('be.visible')
-
-        // TODO - more checks in About and Interpretations sections
     })
 
     it('verifies text item does not have a context menu', () => {

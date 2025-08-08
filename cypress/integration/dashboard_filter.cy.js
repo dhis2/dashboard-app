@@ -55,18 +55,18 @@ describe('Dashboard Filter Tests', () => {
         addDashboardItem('Inpatient: BMI this year by districts') //CHART
         addDashboardItem('ANC: IPT 2 Coverage this year') //MAP
 
-        // save
+        // Save the dashboard
         clickEditActionButton('Save changes')
 
         assertDashboardVisible()
 
-        // Add an "Organisation unit" filter
+        // Add an Organisation unit filter
         addFilter('Organisation unit')
         assertOrgUnitFilterApplied()
         removeFilter()
         assertFilterRemoved()
 
-        // add a "Facility Type" filter
+        // add a Facility Type filter
         addFilter('Facility Type')
         assertFacilityTypeFilterApplied()
         removeFilter()
@@ -83,11 +83,11 @@ describe('Dashboard Filter Tests', () => {
         removeFilter()
         assertFilterRemoved()
 
-        // Add a "Period" filter
+        // Add a Period filter
         addFilter('Period')
         assertPeriodFilterApplied()
 
-        // click on the "Period" filter badge
+        // Click on the Period filter badge
         cy.get(filterBadgeSel)
             .find('button')
             .contains('Period')
@@ -102,10 +102,9 @@ describe('Dashboard Filter Tests', () => {
 
         assertDashboardVisible()
 
-        // Cleanup: delete the dashboard
+        // Delete the dashboard
         clickViewActionButton('Edit')
         confirmEditMode()
-
         clickEditActionButton('Delete')
         cy.get(confirmActionDialogSel).find('button').contains('Delete').click()
         cy.get(dashboardTitleSel)

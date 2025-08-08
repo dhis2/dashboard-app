@@ -39,6 +39,7 @@ describe('Responsive Dashboard', () => {
         cy.visit(`/${dashboards.Delivery.route}`)
         confirmViewMode('Delivery')
 
+        // Go to small screen
         switchToSmallScreen()
 
         // Assert small screen view is shown
@@ -50,6 +51,7 @@ describe('Responsive Dashboard', () => {
         cy.get('button').contains('Share').should('not.be.visible')
         cy.get('button').contains('Filter').should('not.be.visible')
 
+        // Go to wide screen
         switchToWideScreen()
 
         // Assert wide screen view is shown
@@ -71,13 +73,14 @@ describe('Responsive Dashboard', () => {
         // Verify edit mode
         confirmEditMode()
 
-        const TITLE = 'changed dashboard title'
         // Add to the dashboard title
+        const TITLE = 'changed dashboard title'
         cy.get(titleInputSel).type(TITLE)
 
         // Add dashboard items
         addDashboardItem('ANC: 1 and 3 coverage Yearly') // Chart
 
+        // Switch to small screen
         switchToSmallScreen()
 
         // Assert small screen edit view is shown
@@ -89,7 +92,7 @@ describe('Responsive Dashboard', () => {
         cy.get(titleInputSel).should('not.be.visible')
         cy.get('.react-grid-layout').should('not.be.visible')
 
-        // Restore the wide screen
+        // Switch to wide screen
         switchToWideScreen()
 
         // Assert wide screen edit view is shown
@@ -115,8 +118,8 @@ describe('Responsive Dashboard', () => {
         // Start a new dashboard
         cy.get(newButtonSel, EXTENDED_TIMEOUT).click()
 
-        const TITLE = 'My new dashboard'
         // Change dashboard title
+        const TITLE = 'My new dashboard'
         cy.get(titleInputSel).type(TITLE)
 
         // Add dashboard items
@@ -134,7 +137,7 @@ describe('Responsive Dashboard', () => {
         cy.get(titleInputSel).should('not.be.visible')
         cy.get('.react-grid-layout').should('not.be.visible')
 
-        // Restore the wide screen
+        // Switch to wide screen
         switchToWideScreen()
 
         // Assert wide screen edit view is shown
@@ -168,7 +171,7 @@ describe('Responsive Dashboard', () => {
             cy.wait(2000) // eslint-disable-line cypress/no-unnecessary-waiting
         })
 
-        // Assert the "Delivery" dashboard displays in default view mode
+        // Assert the Delivery dashboard displays in default view mode
         cy.location().should((loc) => {
             expect(loc.hash).to.equal('#/')
         })
@@ -211,13 +214,13 @@ describe('Responsive Dashboard', () => {
         cy.visit(`/${dashboards.Delivery.route}`)
         confirmViewMode('Delivery')
 
-        // Add a "Period" filter
+        // Add a Period filter
         addFilter('Period')
 
         // Switch to small screen
         switchToSmallScreen()
 
-        // Click on the "Period" filter badge
+        // Click on the Period filter badge
         cy.get(filterBadgeSel)
             .find('button')
             .contains('Period')
@@ -239,10 +242,10 @@ describe('Responsive Dashboard', () => {
         // Go to phone landscape
         switchToSmallScreen(false)
 
-        // Scroll down
+        // Scroll down to bottom
         cy.get(outerScrollContainerSel, EXTENDED_TIMEOUT).scrollTo('bottom')
 
-        // This item is on the bottom of the Delivery dashboard
+        // Assert item on the bottom of the Delivery dashboard is visible
         cy.contains(
             'Births attended by skilled health personnel by orgunit last year',
             EXTENDED_TIMEOUT
@@ -280,7 +283,7 @@ describe('Responsive Dashboard', () => {
         // Scroll down
         cy.get(outerScrollContainerSel, EXTENDED_TIMEOUT).scrollTo('bottom')
 
-        // This item is on the bottom of the Delivery dashboard
+        // Assert item on the bottom of the Delivery dashboard is visible
         cy.contains(
             'Births attended by skilled health personnel by orgunit last year',
             EXTENDED_TIMEOUT

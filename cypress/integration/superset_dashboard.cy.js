@@ -91,7 +91,7 @@ describe('Creating, viewing, editing and deleting an embedded superset dashboard
         // Click the configure source button
         cy.contains('Continue').should('be.visible').click()
 
-        // A modal form to create a new embedded dashboard is showing
+        // Assert modal form to create a new embedded dashboard is showing
         cy.contains('New dashboard: external').should('be.visible')
 
         // Check all initial values and change them
@@ -118,13 +118,14 @@ describe('Creating, viewing, editing and deleting an embedded superset dashboard
         cy.getByDataTest('inner-scroll-container')
             .contains('External source')
             .should('not.exist')
+
         // An iframe should be visible with the UUID in the src
         cy.get('iframe')
             .should('be.visible')
             .and('have.attr', 'src')
             .and('contain', UUID)
 
-        // some options are disabled
+        // Some options are disabled
         // Primary actions
         cy.contains('button', 'Slideshow').should('be.disabled')
         cy.contains('button', 'Filter').should('be.disabled')

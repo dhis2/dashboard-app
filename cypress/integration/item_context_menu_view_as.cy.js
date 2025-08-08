@@ -34,11 +34,11 @@ it.skip('displays chart as table', () => {
     assertChartItemDisplayedAsChart()
     assertTableItemDisplayedAsTable()
 
-    // click view as table
+    // Click view as table
     clickMenuButton(chartItemUid)
     cy.contains('View as Pivot table').click()
 
-    // chart item displays as a table
+    // Chart item displays as a table
     getDashboardItem(chartItemUid)
         .getIframeBody()
         .find(tableSel, EXTENDED_TIMEOUT)
@@ -53,11 +53,11 @@ it.skip('displays chart as map', () => {
     assertChartItemDisplayedAsChart()
     assertTableItemDisplayedAsTable()
 
-    // click view as map
+    // Click view as map
     clickMenuButton(chartItemUid)
     cy.contains('View as Map').click()
 
-    // chart item displays as a map
+    // Chart item displays as a map
     getDashboardItem(chartItemUid)
         .getIframeBody()
         .find(mapSel, EXTENDED_TIMEOUT)
@@ -72,20 +72,14 @@ it.skip('displays table as chart', () => {
     assertChartItemDisplayedAsChart()
     assertTableItemDisplayedAsTable()
 
-    // click view as chart
+    // Click view as chart
     clickMenuButton(tableItemUid)
     cy.contains('View as Chart').click()
 
-    // table item displays as a chart
+    // Table item displays as a chart
     getDashboardItem(tableItemUid)
         .getIframeBody()
         .find(chartSel, EXTENDED_TIMEOUT)
         .as('vis')
     cy.get('@vis').should('exist').and('be.visible')
 })
-
-// TODO: gaps
-// view map as chart
-// view map as table
-// view event report as event chart
-// view event chart as event report

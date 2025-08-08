@@ -34,7 +34,7 @@ it('adds translations', () => {
         TEST_DASHBOARD_TITLE + ' description'
     )
 
-    // Save the dashboard first
+    // Save the dashboard
     clickEditActionButton('Save changes')
     cy.get(dashboardTitleSel, EXTENDED_TIMEOUT)
         .should('be.visible')
@@ -43,8 +43,7 @@ it('adds translations', () => {
     // Edit the dashboard
     clickViewActionButton('Edit')
 
-    // Add translations for dashboard name and description
-
+    // Add translations for dashboard name and description in Norwegian
     clickEditActionButton('Translate')
     cy.getByDataTest('dhis2-uicore-select-input').click()
     cy.getByDataTest('dhis2-uicore-select-menu-menuwrapper')
