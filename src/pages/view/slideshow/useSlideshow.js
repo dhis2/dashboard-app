@@ -1,13 +1,13 @@
 import sortBy from 'lodash/sortBy.js'
 import { useState, useEffect, useMemo, useCallback } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
-import { acSetSlideshow } from '../../../actions/slideshow.js'
+import { acExitSlideshow } from '../../../actions/slideshow.js'
 import { itemTypeSupportsFullscreen } from '../../../modules/itemTypes.js'
 import { sGetSlideshow } from '../../../reducers/slideshow.js'
 
 const useSlideshow = (displayItems, slideshowElementRef) => {
     const dispatch = useDispatch()
-    const firstItemIndex = useSelector(sGetSlideshow)
+    const { firstItemIndex } = useSelector(sGetSlideshow)
     const [itemIndex, setItemIndex] = useState(null)
     const [isEnteringSlideshow, setIsEnteringSlideshow] = useState(false)
 
@@ -86,7 +86,7 @@ const useSlideshow = (displayItems, slideshowElementRef) => {
         const handleFullscreenChange = () => {
             if (!document.fullscreenElement) {
                 // Exited fullscreen
-                dispatch(acSetSlideshow(null))
+                dispatch(acExitSlideshow())
             }
         }
 

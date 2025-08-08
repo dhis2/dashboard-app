@@ -1,6 +1,10 @@
-import { SET_SLIDESHOW } from '../reducers/slideshow.js'
+import { SET_SLIDESHOW, EXIT_SLIDESHOW } from '../reducers/slideshow.js'
 
-export const acSetSlideshow = (isSlideshow) => ({
+export const acSetSlideshow = (slideshowSettings) => ({
     type: SET_SLIDESHOW,
-    value: isSlideshow,
+    value: slideshowSettings,
+})
+
+export const acExitSlideshow = () => ({
+    type: EXIT_SLIDESHOW,
 })

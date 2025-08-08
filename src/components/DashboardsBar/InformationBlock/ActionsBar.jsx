@@ -270,7 +270,12 @@ const ActionsBar = ({
                                 small
                                 disabled={!!slideshowTooltipContent}
                                 className={classes.slideshowButton}
-                                onClick={() => setSlideshow(0)}
+                                onClick={() =>
+                                    setSlideshow({
+                                        firstItemIndex: 0,
+                                        startPlaying: true,
+                                    })
+                                }
                                 dataTest="enter-slideshow-button"
                             >
                                 {i18n.t('Slideshow')}

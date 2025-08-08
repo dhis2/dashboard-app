@@ -162,7 +162,12 @@ class Item extends Component {
                     visualization={this.props.visualization}
                     onSelectActiveType={this.setActiveType}
                     onToggleFooter={this.onToggleFooter}
-                    enterFullscreen={() => setSlideshow(sortIndex)}
+                    enterFullscreen={() =>
+                        setSlideshow({
+                            firstItemIndex: sortIndex,
+                            startPlaying: false,
+                        })
+                    }
                     activeType={activeType}
                     activeFooter={showFooter}
                     loadItemFailed={this.state.loadItemFailed}
