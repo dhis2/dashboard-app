@@ -3,13 +3,14 @@
 # Cherise Beek <cherise.beek@gmail.com>, 2021
 # Charel van den Elsen <zobeadzorg@gmail.com>, 2025
 # Rica, 2025
+# Enzo Nicolas Rossi <enzo@dhis2.org>, 2025
 # 
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2025-03-18T14:27:12.993Z\n"
+"POT-Creation-Date: 2025-07-04T15:00:39.114Z\n"
 "PO-Revision-Date: 2019-06-25 12:37+0000\n"
-"Last-Translator: Rica, 2025\n"
+"Last-Translator: Enzo Nicolas Rossi <enzo@dhis2.org>, 2025\n"
 "Language-Team: Dutch (https://app.transifex.com/hisp-uio/teams/100509/nl/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -41,6 +42,12 @@ msgstr ""
 msgid ""
 "Could not get guest token from Superset Gateway for dashboard ID "
 "\"{{dashboardId}}\""
+msgstr ""
+
+msgid "Network error"
+msgstr "Netwerkfout"
+
+msgid "Could not load app data"
 msgstr ""
 
 msgid "New dashboard: external"
@@ -206,6 +213,12 @@ msgstr "Nee, annuleer"
 msgid "Yes, clear filters and sync"
 msgstr "Ja, filters wissen en synchroniseren"
 
+msgid "This dashboard is showing data from outside this system"
+msgstr ""
+
+msgid "External source"
+msgstr ""
+
 msgid "Confirm"
 msgstr "Bevestigen"
 
@@ -217,12 +230,6 @@ msgstr "Kan het dashboard niet ongedaan maken"
 
 msgid "Failed to star the dashboard"
 msgstr "Sterren geven aan het dashboard mislukt"
-
-msgid "This dashboard is showing data from outside this system"
-msgstr ""
-
-msgid "External source"
-msgstr ""
 
 msgid "Offline data last updated {{timeAgo}}"
 msgstr "Offline gegevens voor het laatst bijgewerkt {{timeAgo}}"
@@ -250,12 +257,6 @@ msgid "No dashboards found for \"{{- filterText}}\""
 msgstr ""
 
 msgid "Dashboards"
-msgstr ""
-
-msgid "Could not fetch bundled apps"
-msgstr ""
-
-msgid "Network error"
 msgstr ""
 
 msgid "There was a problem loading this dashboard item"
@@ -599,19 +600,6 @@ msgstr ""
 msgid "Number of columns"
 msgstr "Aantal kolommen"
 
-msgid "Gap size between columns (px)"
-msgstr "Tussenruimte tussen kolommen (px)"
-
-msgid ""
-"Default height only applies to items added to a dashboard, this setting will"
-" not change existing items"
-msgstr ""
-"De standaardhoogte is alleen van toepassing op items die aan een dashboard "
-"zijn toegevoegd, deze instelling zal bestaande items niet wijzigen"
-
-msgid "Default height for items added to dashboard (rows)"
-msgstr "Standaardhoogte voor items toegevoegd aan dashboard (rijen)"
-
 msgid "Save layout"
 msgstr "Lay-out opslaan"
 
@@ -739,6 +727,11 @@ msgid "{{count}} filters active"
 msgid_plural "{{count}} filters active"
 msgstr[0] ""
 msgstr[1] ""
+
+msgid ""
+"There was a problem loading the embedded dashboard content from an external "
+"service"
+msgstr ""
 
 msgid "Fetching external dashboard"
 msgstr ""
