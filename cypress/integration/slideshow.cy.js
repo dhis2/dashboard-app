@@ -3,7 +3,6 @@ import {
     clickMenuButton,
     getDashboardItem,
     confirmViewMode,
-    clickViewActionButton,
 } from '../elements/index.js'
 import { EXTENDED_TIMEOUT } from '../support/utils.js'
 
