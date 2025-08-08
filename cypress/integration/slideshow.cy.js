@@ -1,5 +1,10 @@
 import { dashboards } from '../assets/backends/sierraLeone_236.js'
-import { clickMenuButton, getDashboardItem } from '../elements/index.js'
+import {
+    clickMenuButton,
+    getDashboardItem,
+    confirmViewMode,
+    clickViewActionButton,
+} from '../elements/index.js'
 import { EXTENDED_TIMEOUT } from '../support/utils.js'
 
 const sortedDashboardItemIds = ['GaVhJpqABYX', 'qXsjttMYuoZ', 'Rwb3oXJ3bZ9']
@@ -73,6 +78,7 @@ const assertNormalViewIsShown = () => {
 describe('Slideshow functionality', () => {
     it('view a dashboard in slideshow mode', () => {
         cy.visit(`/${dashboards.Delivery.route}`)
+        confirmViewMode(dashboards.Delivery.title)
 
         // Click the slideshow button
         cy.get('button').contains('Slideshow').realClick()
@@ -102,6 +108,7 @@ describe('Slideshow functionality', () => {
     it('view fullscreen on the second item of the dashboard', () => {
         // Open the Delivery dashboard
         cy.visit(`/${dashboards.Delivery.route}`)
+        confirmViewMode(dashboards.Delivery.title)
 
         // Click the fullscreen button on the second item
         clickMenuButton(sortedDashboardItemIds[1])
@@ -120,6 +127,7 @@ describe('Slideshow functionality', () => {
     it('view fullscreen on the third item of the dashboard and navigate backwards', () => {
         // Open the Delivery dashboard
         cy.visit(`/${dashboards.Delivery.route}`)
+        confirmViewMode(dashboards.Delivery.title)
 
         // Click the fullscreen button on the third item
         clickMenuButton(sortedDashboardItemIds[2])
