@@ -1,6 +1,7 @@
 export const dashboards = {
     'Antenatal Care': {
         id: 'nghVC4wtyzi',
+        title: 'Antenatal Care',
         route: '#/nghVC4wtyzi',
         items: {
             text: {
@@ -14,6 +15,7 @@ export const dashboards = {
     },
     'Cases Malaria': {
         id: 'JW7RlN5xafN',
+        title: 'Cases Malaria',
         route: '#/JW7RlN5xafN',
         items: {
             map: {
@@ -24,6 +26,7 @@ export const dashboards = {
     },
     Delivery: {
         id: 'iMnYyBfSxmM',
+        title: 'Delivery',
         route: '#/iMnYyBfSxmM',
         items: {
             chart: {
@@ -43,6 +46,7 @@ export const dashboards = {
     },
     Immunization: {
         id: 'TAMlzYkstb7',
+        title: 'Immunization',
         route: '#/TAMlzYkstb7',
     },
 }
