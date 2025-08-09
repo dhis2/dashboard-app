@@ -1,15 +1,16 @@
 # 
 # Translators:
 # Viktor Varland <viktor@dhis2.org>, 2022
-# phil_dhis2, 2022
+# Philip Larsen Donnelly, 2022
 # channara rin, 2023
+# Em Le <em.hispvietnam@gmail.com>, 2025
 # 
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2023-05-10T12:25:45.620Z\n"
+"POT-Creation-Date: 2025-02-07T11:22:46.614Z\n"
 "PO-Revision-Date: 2022-10-15 22:30+0000\n"
-"Last-Translator: channara rin, 2023\n"
+"Last-Translator: Em Le <em.hispvietnam@gmail.com>, 2025\n"
 "Language-Team: Khmer (https://app.transifex.com/hisp-uio/teams/100509/km/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -18,7 +19,10 @@ msgstr ""
 "Plural-Forms: nplurals=1; plural=0;\n"
 
 msgid "Untitled dashboard"
-msgstr ""
+msgstr "មិនទាន់មានចំណងជើង"
+
+msgid "No dashboards found for \"{{- filterText}}\""
+msgstr "រកមិនឃើញផ្ទាំងប៉ាណ្ណូបរិធានសម្រាប់ \\\"{{- filterText}}\\"
 
 msgid "Cannot create a dashboard while offline"
 msgstr ""
@@ -27,7 +31,7 @@ msgid "Create new dashboard"
 msgstr ""
 
 msgid "Search for a dashboard"
-msgstr ""
+msgstr "ស្វែងរកផ្ទាំងប៉ាណ្ណូបរិធានណាមួយ"
 
 msgid "Show fewer dashboards"
 msgstr ""
@@ -36,10 +40,10 @@ msgid "Show more dashboards"
 msgstr ""
 
 msgid "Remove this item"
-msgstr ""
+msgstr "ដកផ្ទាំងទិន្នន័យនេះចេញ"
 
 msgid "This item has been shortened to fit on one page"
-msgstr ""
+msgstr "ផ្ទាំងទិន្នន័យនេះត្រូវបានបង្រួមដើម្បីអោយសាកសមក្នុងទំព័រតែមួយ"
 
 msgid "Remove"
 msgstr "យកចេញ"
@@ -48,7 +52,7 @@ msgid "Messages"
 msgstr "សារ"
 
 msgid "See all messages"
-msgstr ""
+msgstr "មើលគ្រប់សារ"
 
 msgid "Item type \"{{type}}\" is not supported"
 msgstr ""
@@ -57,7 +61,7 @@ msgid "The item type is missing"
 msgstr ""
 
 msgid "Filters applied"
-msgstr ""
+msgstr "លក្ខខណ្ឌច្រោះត្រូវបានអនុវត្តន៍"
 
 msgid "Spacer"
 msgstr ""
@@ -74,30 +78,32 @@ msgstr ""
 
 msgid "Filters are not applied to line list dashboard items"
 msgstr ""
+"លក្ខខណ្ឌច្រោះមិនត្រូវបានអនុវត្តន៍សម្រាប់ផ្ទាំងទិន្នន័យជាបញ្ជីទិន្នន័យករណីនោះទេ"
 
 msgid "Filters not applied"
-msgstr ""
+msgstr "លក្ខខណ្ឌច្រោះមិនត្រូវបានអនុវត្តន៍"
 
 msgid "There was a problem loading this dashboard item"
 msgstr ""
+"មានបញ្ហាកើតឡើងនៅពេលដែលផ្ទាំងទិន្នន័យនៃផ្ទាំងប៉ាណ្ណូបរិធាននេះកំពុងបង្ហាញ"
 
 msgid "Hide details and interpretations"
-msgstr ""
+msgstr "លាក់ព័ត៌មានល្អិត និងការបកស្រាយ"
 
 msgid "Show details and interpretations"
-msgstr ""
+msgstr "បង្ហាញព័ត៌មានល្អិត និងការបកស្រាយ"
 
 msgid "Open in {{appName}} app"
-msgstr ""
+msgstr "បើកក្នុងកម្មវិធី {{appName}}"
 
 msgid "View fullscreen"
-msgstr ""
+msgstr "បង្ហាញពេញអេក្រង់"
 
 msgid "This map can't be displayed as a chart"
-msgstr ""
+msgstr "ផែនទីនេះមិនអាចត្រូវបានបង្ហាញក្នុងទម្រង់ជាគំនូសតាង(ក្រាប)បានទេ"
 
 msgid "View as Chart"
-msgstr ""
+msgstr "ការបង្ហាញក្នុងទម្រង់ជាគំនូសតាង(ក្រាប)"
 
 msgid "This map can't be displayed as a table"
 msgstr ""
@@ -106,16 +112,18 @@ msgid "View as Table"
 msgstr ""
 
 msgid "View as Map"
-msgstr ""
+msgstr "ការបង្ហាញក្នុងទម្រង់ជាផែនទី"
 
 msgid "There was a problem loading interpretations for this item"
-msgstr ""
+msgstr "មានបញ្ហាកើតឡើងនៅពេលដែលកំពុងបង្ហាញការបកស្រាយផ្ទាំងទិន្នន័យនេះ"
 
 msgid "Maps with Earth Engine layers cannot be displayed when offline"
 msgstr ""
+"កម្មវិធីផែនទីដែលស្រទាប់ Earth Engine "
+"មិនអាចត្រូវបានបង្ហាញនៅពេលបណ្ដាញត្រូវបានផ្តាច់"
 
 msgid "Unable to load the plugin for this item"
-msgstr ""
+msgstr "មិនអាចបង្ហាញចេញនូវកម្មវិធីជំនួយសម្រាប់ផ្ទាំងទិន្នន័យនេះបានទេ"
 
 msgid "The plugin for rendering this item is not available"
 msgstr ""
@@ -124,7 +132,7 @@ msgid "Install the {{appName}} app from the App Hub"
 msgstr ""
 
 msgid "No data to display"
-msgstr ""
+msgstr "មិនមានទិន្នន័យសម្រាប់បង្ហាញទេ"
 
 msgid ""
 "Install Line Listing app version ${minLLVersion.join(\n"
@@ -136,28 +144,29 @@ msgid "Filters are not applied to line list dashboard items."
 msgstr ""
 
 msgid "Show without filters"
-msgstr ""
+msgstr "បង្ហាញដោយមិនមានលក្ខខណ្ឌច្រោះ"
 
 msgid "There was an error loading data for this item"
 msgstr ""
+"មានកំហុសបច្ចេកទេសក្នុងការទាយយកទិន្នន័យមកបង្ហាញសម្រាប់ផ្ទាំងទិន្នន័យនេះ"
 
 msgid "Open this item in {{appName}}"
-msgstr ""
+msgstr "Open this item in {{appName}}"
 
 msgid "Not available offline"
-msgstr ""
+msgstr "មិនអាចប្រើប្រាស់បាននៅពេលបណ្ដាញត្រូវបានផ្តាច់"
 
 msgid "Visualizations"
 msgstr ""
 
 msgid "Pivot tables"
-msgstr ""
+msgstr "តារាង Pivot"
 
 msgid "Charts"
-msgstr ""
+msgstr "គំនូសតាង(ក្រាប)"
 
 msgid "Maps"
-msgstr ""
+msgstr "ផែនទី"
 
 msgid "Event reports"
 msgstr ""
@@ -166,16 +175,16 @@ msgid "Event charts"
 msgstr ""
 
 msgid "Line lists"
-msgstr ""
+msgstr "បញ្ជីទិន្នន័យករណី"
 
 msgid "Apps"
-msgstr ""
+msgstr "កម្មវិធី"
 
 msgid "Reports"
 msgstr "របាយ​ការណ៍"
 
 msgid "Resources"
-msgstr ""
+msgstr "ធនធាន"
 
 msgid "Users"
 msgstr "គណនីប្រើប្រាស់"
@@ -226,10 +235,10 @@ msgid "Go to dashboards"
 msgstr ""
 
 msgid "Delete dashboard"
-msgstr ""
+msgstr "លុបផ្ទាំងប៉ាណ្ណូបរិធាន"
 
 msgid ""
-"Deleting dashboard \"{{ dashboardName }}\" will remove it for all users. "
+"Deleting dashboard \"{{- dashboardName }}\" will remove it for all users. "
 "This action cannot be undone. Are you sure you want to permanently delete "
 "this dashboard?"
 msgstr ""
@@ -285,7 +294,7 @@ msgid "Selected Filters"
 msgstr ""
 
 msgid "Confirm"
-msgstr ""
+msgstr "បញ្ជាក់"
 
 msgid "There are no items on this dashboard"
 msgstr ""
@@ -315,7 +324,7 @@ msgid "Text box"
 msgstr ""
 
 msgid "Dashboard layout"
-msgstr ""
+msgstr "ប្លង់នៃផ្ទាំងប៉ាណ្ណូបរិធាន"
 
 msgid "Freeflow"
 msgstr ""
@@ -355,7 +364,7 @@ msgid "Dashboard code"
 msgstr ""
 
 msgid "Code can't be longer than 50 characters"
-msgstr ""
+msgstr "លេខកូដមិនអាចច្រើនជាង៥០តួអក្សរ។"
 
 msgid "Dashboard description"
 msgstr ""
@@ -444,46 +453,48 @@ msgid ""
 msgstr ""
 
 msgid "No, cancel"
-msgstr ""
+msgstr "ទេ, បោះបង់ចោល"
 
 msgid "Yes, remove filters"
 msgstr ""
 
 msgid "The dashboard couldn't be made available offline. Try again."
 msgstr ""
+"ផ្ទាំងប៉ាណ្ណបរិធាននេះ មិនអាចបង្ហាញបានទេនៅពេលបណ្តាញត្រូវបានផ្តាច់។ "
+"សូមសាកល្បងម្ដងទៀត។"
 
 msgid "Failed to unstar the dashboard"
-msgstr ""
+msgstr "បរាជ័យក្នុងការដកកំណត់ផ្កាយចំពោះផ្ទាំងប៉ាណ្ណូបរិធាន"
 
 msgid "Failed to star the dashboard"
-msgstr ""
+msgstr "បរាជ័យក្នុងការដាក់កំណត់ផ្កាយចំពោះផ្ទាំងប៉ាណ្ណូបរិធាន"
 
 msgid "Remove from offline storage"
-msgstr ""
+msgstr "ដកចេញពីការរក្សាទុកពេលបណ្ដាញត្រូវបានផ្តាច់"
 
 msgid "Make available offline"
-msgstr ""
+msgstr "ធ្វើអោយប្រើប្រាស់បាននៅពេលបណ្ដាញត្រូវបានផ្តាច់"
 
 msgid "Sync offline data now"
-msgstr ""
+msgstr "ធ្វើសមកាលកម្មទិន្នន័យនៅពេលបណ្ដាញត្រូវបានផ្តាច់ភ្លាម"
 
 msgid "Unstar dashboard"
-msgstr ""
+msgstr "ការដកការកំណត់ផ្កាយចំពោះផ្ទាំងប៉ាណ្ណូបរិធាន"
 
 msgid "Star dashboard"
-msgstr ""
+msgstr "ការដាក់កំណត់ផ្កាយចំពោះផ្ទាំងប៉ាណ្ណូបរិធាន"
 
 msgid "Hide description"
-msgstr ""
+msgstr "លាក់ការពិពណ៌នា"
 
 msgid "Show description"
-msgstr ""
+msgstr "បង្ហាញការពិពណ៌នា"
 
 msgid "One item per page"
-msgstr ""
+msgstr "មួយផ្ទាំងទិន្នន័យក្នុងមួយទំព័រ"
 
 msgid "Close dashboard"
-msgstr ""
+msgstr "បិទផ្ទាំងប៉ាណ្ណូបរិធាន"
 
 msgid "More"
 msgstr ""
@@ -495,15 +506,19 @@ msgid "Share"
 msgstr "ចែករំលែក"
 
 msgid "Clear dashboard filters?"
-msgstr ""
+msgstr "តើអ្នកចង់លុបចេញការលក្ខខណ្ឌច្រោះនៅលើផ្ទាំងប៉ាណ្ណូបរិធាន"
 
 msgid ""
 "A dashboard's filters can’t be saved offline. Do you want to remove the "
 "filters and make this dashboard available offline?"
 msgstr ""
+"លក្ខខណ្ឌច្រោះនៅលើផ្ទាំងប៉ាណ្ណូបរិធាន "
+"មិនអាចរក្សាទុកសម្រាប់ពេលបណ្ដាញត្រូវបានផ្តាច់ទេ។ "
+"តើអ្នកចង់ដកចេញនៅលក្ខខណ្ឌច្រោះ "
+"ហើយធ្វើអោយផ្ទាំងប៉ាណ្ណបរិធាននេះអាចប្រើប្រាស់នៅពេលបណ្ដាញត្រូវបានផ្តាច់ដែរឬទេ?"
 
 msgid "Yes, clear filters and sync"
-msgstr ""
+msgstr "បាទ/ចាស, លុបចញនូវលក្ខខណ្ឌច្រោះ និងធ្វើសមកាលកម្ម"
 
 msgid "No description"
 msgstr ""
@@ -513,12 +528,15 @@ msgstr ""
 
 msgid "Offline data last updated {{time}}"
 msgstr ""
+"ទិន្នន័យនៅពេលបណ្ដាញត្រូវបានផ្តាច់ បានធ្វើបច្ចុប្បន្នចុងក្រោយនៅ {{time}}"
 
 msgid "Cannot unstar this dashboard while offline"
 msgstr ""
+"មិនអាចធ្វើការដកកំណត់ផ្កាយចំពោះផ្ទាំងប៉ាណ្ណូបរិធាននៅពេលបណ្ដាញត្រូវបានផ្តាច់"
 
 msgid "Cannot star this dashboard while offline"
 msgstr ""
+"មិនអាចធ្វើការដាក់កំណត់ផ្កាយចំពោះផ្ទាំងប៉ាណ្ណូបរិធាននៅពេលបណ្ដាញត្រូវបានផ្តាច់"
 
 msgid "Loading dashboard – {{name}}"
 msgstr ""
