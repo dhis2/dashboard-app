@@ -1,15 +1,16 @@
 # 
 # Translators:
-# phil_dhis2, 2021
+# Philip Larsen Donnelly, 2021
 # Viktor Varland <viktor@dhis2.org>, 2021
+# Em Le <em.hispvietnam@gmail.com>, 2025
 # 
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
 "POT-Creation-Date: 2022-01-10T14:24:29.926Z\n"
 "PO-Revision-Date: 2019-09-01 20:38+0000\n"
-"Last-Translator: Viktor Varland <viktor@dhis2.org>, 2021\n"
-"Language-Team: Khmer (https://www.transifex.com/hisp-uio/teams/100509/km/)\n"
+"Last-Translator: Em Le <em.hispvietnam@gmail.com>, 2025\n"
+"Language-Team: Khmer (https://app.transifex.com/hisp-uio/teams/100509/km/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -17,7 +18,7 @@ msgstr ""
 "Plural-Forms: nplurals=1; plural=0;\n"
 
 msgid "Untitled dashboard"
-msgstr ""
+msgstr "មិនទាន់មានចំណងជើង"
 
 msgid "Loading dashboard – {{name}}"
 msgstr ""
@@ -29,13 +30,16 @@ msgid "Delete"
 msgstr "​លុប​"
 
 msgid "Delete dashboard"
-msgstr ""
+msgstr "លុបផ្ទាំងប៉ាណ្ណូបរិធាន"
 
 msgid ""
 "Deleting dashboard \"{{ dashboardName }}\" will remove it for all users. "
 "This action cannot be undone. Are you sure you want to permanently delete "
 "this dashboard?"
 msgstr ""
+"ការលុបផ្ទាំងប៉ាណ្ណូបរិធាន ដែលមានលេខសម្គាល់ \"{{ dashboardName }}  "
+"នឹងលុបនៅគ្រប់អ្នកប្រើប្រាស់។ ការលុបនេះមិនអាចត្រឡប់ក្រោយវិញបានទេ។ "
+"តើអ្នកប្រាកដថាអ្នកចង់លុបផ្ទាំងប៉ាណ្ណូបរិធាននេះរហូតឬ?"
 
 msgid ""
 "Failed to save dashboard. You might be offline or not have access to edit "
@@ -64,7 +68,7 @@ msgid "Go to dashboards"
 msgstr ""
 
 msgid "Search for a dashboard"
-msgstr ""
+msgstr "ស្វែងរកផ្ទាំងប៉ាណ្ណូបរិធានណាមួយ"
 
 msgid "Show fewer dashboards"
 msgstr ""
@@ -131,13 +135,13 @@ msgid "Delete item"
 msgstr ""
 
 msgid "This item has been shortened to fit on one page"
-msgstr ""
+msgstr "ផ្ទាំងទិន្នន័យនេះត្រូវបានបង្រួមដើម្បីអោយសាកសមក្នុងទំព័រតែមួយ"
 
 msgid "Messages"
 msgstr "សារ"
 
 msgid "See all messages"
-msgstr ""
+msgstr "មើលគ្រប់សារ"
 
 msgid "Item type \"{{type}}\" is not supported"
 msgstr ""
@@ -146,7 +150,7 @@ msgid "The item type is missing"
 msgstr ""
 
 msgid "Filters applied"
-msgstr ""
+msgstr "លក្ខខណ្ឌច្រោះត្រូវបានអនុវត្តន៍"
 
 msgid "Spacer"
 msgstr ""
@@ -163,6 +167,7 @@ msgstr ""
 
 msgid "There was a problem loading this dashboard item"
 msgstr ""
+"មានបញ្ហាកើតឡើងនៅពេលដែលផ្ទាំងទិន្នន័យនៃផ្ទាំងប៉ាណ្ណូបរិធាននេះកំពុងបង្ហាញ"
 
 msgid "Hide interpretations and details"
 msgstr ""
@@ -171,16 +176,16 @@ msgid "Show interpretations and details"
 msgstr ""
 
 msgid "Open in {{appName}} app"
-msgstr ""
+msgstr "បើកក្នុងកម្មវិធី {{appName}}"
 
 msgid "View fullscreen"
-msgstr ""
+msgstr "បង្ហាញពេញអេក្រង់"
 
 msgid "View as Chart"
-msgstr ""
+msgstr "ការបង្ហាញក្នុងទម្រង់ជាគំនូសតាង(ក្រាប)"
 
 msgid "This map can't be displayed as a chart"
-msgstr ""
+msgstr "ផែនទីនេះមិនអាចត្រូវបានបង្ហាញក្នុងទម្រង់ជាគំនូសតាង(ក្រាប)បានទេ"
 
 msgid "View as Table"
 msgstr ""
@@ -189,25 +194,26 @@ msgid "This map can't be displayed as a table"
 msgstr ""
 
 msgid "View as Map"
-msgstr ""
+msgstr "ការបង្ហាញក្នុងទម្រង់ជាផែនទី"
 
 msgid "There was a problem loading interpretations for this item"
-msgstr ""
+msgstr "មានបញ្ហាកើតឡើងនៅពេលដែលកំពុងបង្ហាញការបកស្រាយផ្ទាំងទិន្នន័យនេះ"
 
 msgid "Unable to load the plugin for this item"
-msgstr ""
+msgstr "មិនអាចបង្ហាញចេញនូវកម្មវិធីជំនួយសម្រាប់ផ្ទាំងទិន្នន័យនេះបានទេ"
 
 msgid "No data to display"
-msgstr ""
+msgstr "មិនមានទិន្នន័យសម្រាប់បង្ហាញទេ"
 
 msgid "There was an error loading data for this item"
 msgstr ""
+"មានកំហុសបច្ចេកទេសក្នុងការទាយយកទិន្នន័យមកបង្ហាញសម្រាប់ផ្ទាំងទិន្នន័យនេះ"
 
 msgid "Open this item in {{appName}}"
-msgstr ""
+msgstr "Open this item in {{appName}}"
 
 msgid "Confirm"
-msgstr ""
+msgstr "បញ្ជាក់"
 
 msgid "Add filter"
 msgstr ""
@@ -262,10 +268,10 @@ msgid "Dashboard description"
 msgstr ""
 
 msgid "Hide description"
-msgstr ""
+msgstr "លាក់ការពិពណ៌នា"
 
 msgid "Show description"
-msgstr ""
+msgstr "បង្ហាញការពិពណ៌នា"
 
 msgid "Failed to hide description"
 msgstr ""
@@ -274,16 +280,16 @@ msgid "Failed to show description"
 msgstr ""
 
 msgid "Unstar dashboard"
-msgstr ""
+msgstr "ការដកការកំណត់ផ្កាយចំពោះផ្ទាំងប៉ាណ្ណូបរិធាន"
 
 msgid "Star dashboard"
-msgstr ""
+msgstr "ការដាក់កំណត់ផ្កាយចំពោះផ្ទាំងប៉ាណ្ណូបរិធាន"
 
 msgid "Failed to unstar the dashboard"
-msgstr ""
+msgstr "បរាជ័យក្នុងការដកកំណត់ផ្កាយចំពោះផ្ទាំងប៉ាណ្ណូបរិធាន"
 
 msgid "Failed to star the dashboard"
-msgstr ""
+msgstr "បរាជ័យក្នុងការដាក់កំណត់ផ្កាយចំពោះផ្ទាំងប៉ាណ្ណូបរិធាន"
 
 msgid "More"
 msgstr ""
@@ -295,10 +301,10 @@ msgid "Share"
 msgstr "ចែករំលែក"
 
 msgid "Dashboard layout"
-msgstr ""
+msgstr "ប្លង់នៃផ្ទាំងប៉ាណ្ណូបរិធាន"
 
 msgid "One item per page"
-msgstr ""
+msgstr "មួយផ្ទាំងទិន្នន័យក្នុងមួយទំព័រ"
 
 msgid "No description"
 msgstr ""
@@ -307,13 +313,13 @@ msgid "Visualizations"
 msgstr ""
 
 msgid "Pivot tables"
-msgstr ""
+msgstr "តារាង Pivot"
 
 msgid "Charts"
-msgstr ""
+msgstr "គំនូសតាង(ក្រាប)"
 
 msgid "Maps"
-msgstr ""
+msgstr "ផែនទី"
 
 msgid "Event reports"
 msgstr ""
@@ -322,13 +328,13 @@ msgid "Event charts"
 msgstr ""
 
 msgid "Apps"
-msgstr ""
+msgstr "កម្មវិធី"
 
 msgid "Reports"
 msgstr "របាយ​ការណ៍"
 
 msgid "Resources"
-msgstr ""
+msgstr "ធនធាន"
 
 msgid "Users"
 msgstr "គណនីប្រើប្រាស់"
