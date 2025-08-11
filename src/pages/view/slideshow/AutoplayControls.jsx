@@ -60,7 +60,7 @@ const AutoplayControls = ({ nextItem }) => {
             {timingOptionsMenuOpen && (
                 <Layer disablePortal onBackdropClick={toggleTimingOptionsMenu}>
                     <Popper
-                        className={styles.popover}
+                        className={styles.autoplaySettingsPopper}
                         reference={timingPopperRef}
                         placement="top-end"
                     >
@@ -71,6 +71,8 @@ const AutoplayControls = ({ nextItem }) => {
                                         className={cx(styles.menuItem, {
                                             [styles.unselectedMenuItem]:
                                                 msPerSlide !== value.ms,
+                                            [styles.selectedMenuItem]:
+                                                msPerSlide === value.ms,
                                         })}
                                         key={`item-${key}`}
                                         label={value.label}
