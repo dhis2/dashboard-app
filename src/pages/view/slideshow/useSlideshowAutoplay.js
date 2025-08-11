@@ -8,7 +8,6 @@ import {
 } from '../../../api/userDataStore.js'
 import { sGetSlideshow } from '../../../reducers/slideshow.js'
 
-const FIVE_SECONDS = '5'
 const TEN_SECONDS = '10'
 const TWENTY_SECONDS = '20'
 const THIRTY_SECONDS = '30'
@@ -16,10 +15,6 @@ const ONE_MINUTE = '60'
 const TWO_MINUTES = '120'
 
 const getTimingOptions = () => ({
-    [FIVE_SECONDS]: {
-        label: i18n.t('5 seconds per slide'),
-        ms: 5000,
-    },
     [TEN_SECONDS]: {
         label: i18n.t('10 seconds per slide'),
         ms: 10000,
@@ -45,7 +40,7 @@ const getTimingOptions = () => ({
 const KEY_SLIDESHOW_MS_PER_SLIDE = 'slideshowMsPerSlide'
 
 const timingOptions = getTimingOptions()
-const DEFAULT_MS_PER_SLIDE = timingOptions[FIVE_SECONDS].ms
+const DEFAULT_MS_PER_SLIDE = timingOptions[TEN_SECONDS].ms
 
 const useSlideshowAutoplay = ({ nextItem }) => {
     const dataEngine = useDataEngine()
@@ -134,8 +129,7 @@ const useSlideshowAutoplay = ({ nextItem }) => {
     useEffect(() => {
         const outdatedTimeout = setTimeout(
             () => setIsSlideshowOutdated(true),
-            // 24 * 60 * 60 * 1000 // 24 hours
-            60 * 1000 // TODO 1 minute for testing
+            24 * 60 * 60 * 1000 // 24 hours
         )
 
         return () => clearTimeout(outdatedTimeout)
