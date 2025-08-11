@@ -1,6 +1,6 @@
 import { useDataEngine } from '@dhis2/app-runtime'
 import i18n from '@dhis2/d2-i18n'
-import { useState, useEffect, useRef } from 'react'
+import { useState, useEffect, useCallback, useRef } from 'react'
 import { useSelector } from 'react-redux'
 import {
     apiGetUserDataStoreValue,
@@ -65,35 +65,38 @@ const useSlideshowAutoplay = ({ nextItem }) => {
         slideMsRemainingRef.current = ms
     }
 
-    useEffect(() => {
-        const fetchMsPerSlide = async () => {
-            let ms = DEFAULT_MS_PER_SLIDE
-            try {
-                const storedMsPerSlide = await apiGetUserDataStoreValue(
-                    KEY_SLIDESHOW_MS_PER_SLIDE,
-                    DEFAULT_MS_PER_SLIDE,
-                    dataEngine
+    const fetchMsPerSlide = useCallback(async () => {
+        let ms = DEFAULT_MS_PER_SLIDE
+        try {
+            const storedMsPerSlide = await apiGetUserDataStoreValue(
+                KEY_SLIDESHOW_MS_PER_SLIDE,
+                DEFAULT_MS_PER_SLIDE,
+                dataEngine
+            )
+            const intParsedMsPerSlide = parseInt(storedMsPerSlide)
+            if (
+                !isNaN(intParsedMsPerSlide) &&
+                Object.values(timingOptions).some(
+                    (option) => option.ms === intParsedMsPerSlide
                 )
-
-                const intParsedMsPerSlide = parseInt(storedMsPerSlide)
-
-                if (
-                    !isNaN(intParsedMsPerSlide) &&
-                    Object.values(timingOptions).some(
-                        (option) => option.ms === intParsedMsPerSlide
-                    )
-                ) {
-                    ms = intParsedMsPerSlide
-                }
-            } catch (e) {
-                console.warn('Error fetching slideshow state', e)
+            ) {
+                ms = intParsedMsPerSlide
             }
+        } catch (e) {
+            console.warn('Error fetching slideshow state', e)
+        }
 
+        return ms
+    }, [dataEngine])
+
+    useEffect(() => {
+        const fetchit = async () => {
+            const ms = await fetchMsPerSlide()
             setMsPerSlide(ms)
             setSlideMsRemaining(ms)
         }
-        fetchMsPerSlide()
-    }, [dataEngine])
+        fetchit()
+    }, [fetchMsPerSlide])
 
     useEffect(() => {
         // Do not start the timer until msPerSlide is set
