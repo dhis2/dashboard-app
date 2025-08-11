@@ -26,7 +26,7 @@ const SlideshowControlbar = ({
         document.dir === 'ltr' ? IconChevronLeft24 : IconChevronRight24
 
     return (
-        <div className={styles.container}>
+        <div className={styles.container} data-test="slideshow-controlbar">
             <div className={styles.start}>
                 <button
                     className={styles.button}

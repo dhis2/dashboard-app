@@ -15,7 +15,10 @@ import React, { useState, useRef } from 'react'
 import PauseIcon from './PauseIcon.jsx'
 import PlayIcon from './PlayIcon.jsx'
 import styles from './styles/SlideshowControlbar.module.css'
-import { useSlideshowAutoplay, timingOptions } from './useSlideshowAutoplay.js'
+import {
+    useSlideshowAutoplay,
+    getTimingOptions,
+} from './useSlideshowAutoplay.js'
 
 const AutoplayControls = ({ nextItem }) => {
     const [timingOptionsMenuOpen, setTimingOptionsMenuOpen] = useState(false)
@@ -70,7 +73,7 @@ const AutoplayControls = ({ nextItem }) => {
                         placement="top-end"
                     >
                         <Menu dense>
-                            {Object.entries(timingOptions).map(
+                            {Object.entries(getTimingOptions()).map(
                                 ([key, value]) => (
                                     <MenuItem
                                         className={cx(styles.menuItem, {

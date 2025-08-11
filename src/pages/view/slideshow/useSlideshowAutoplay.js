@@ -38,7 +38,6 @@ const getTimingOptions = () => ({
 })
 
 const KEY_SLIDESHOW_MS_PER_SLIDE = 'slideshowMsPerSlide'
-
 const timingOptions = getTimingOptions()
 const DEFAULT_MS_PER_SLIDE = timingOptions[TEN_SECONDS].ms
 
@@ -68,17 +67,26 @@ const useSlideshowAutoplay = ({ nextItem }) => {
 
     useEffect(() => {
         const fetchMsPerSlide = async () => {
-            let ms
+            let ms = DEFAULT_MS_PER_SLIDE
             try {
                 const storedMsPerSlide = await apiGetUserDataStoreValue(
                     KEY_SLIDESHOW_MS_PER_SLIDE,
                     DEFAULT_MS_PER_SLIDE,
                     dataEngine
                 )
-                ms = parseInt(storedMsPerSlide) || DEFAULT_MS_PER_SLIDE
+
+                const intParsedMsPerSlide = parseInt(storedMsPerSlide)
+
+                if (
+                    !isNaN(intParsedMsPerSlide) &&
+                    Object.values(timingOptions).some(
+                        (option) => option.ms === intParsedMsPerSlide
+                    )
+                ) {
+                    ms = intParsedMsPerSlide
+                }
             } catch (e) {
                 console.warn('Error fetching slideshow settings', e)
-                ms = DEFAULT_MS_PER_SLIDE
             }
 
             setMsPerSlide(ms)
@@ -159,4 +167,4 @@ const useSlideshowAutoplay = ({ nextItem }) => {
     }
 }
 
-export { useSlideshowAutoplay, timingOptions }
+export { useSlideshowAutoplay, getTimingOptions }
