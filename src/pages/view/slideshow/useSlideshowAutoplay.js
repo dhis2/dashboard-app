@@ -86,7 +86,7 @@ const useSlideshowAutoplay = ({ nextItem }) => {
                     ms = intParsedMsPerSlide
                 }
             } catch (e) {
-                console.warn('Error fetching slideshow settings', e)
+                console.warn('Error fetching slideshow state', e)
             }
 
             setMsPerSlide(ms)
