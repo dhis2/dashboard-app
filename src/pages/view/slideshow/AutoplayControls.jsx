@@ -50,11 +50,16 @@ const AutoplayControls = ({ nextItem }) => {
             <button
                 ref={timingPopperRef}
                 className={styles.button}
+                data-test="slideshow-autoplay-settings-button"
                 onClick={toggleTimingOptionsMenu}
             >
                 <IconMore24 />
             </button>
-            <button className={styles.button} onClick={onPlayPauseToggled}>
+            <button
+                className={styles.button}
+                onClick={onPlayPauseToggled}
+                data-test="slideshow-autoplay-play-pause-button"
+            >
                 {isPlaying ? <PauseIcon /> : <PlayIcon />}
             </button>
             {timingOptionsMenuOpen && (
