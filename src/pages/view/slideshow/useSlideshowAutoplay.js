@@ -8,6 +8,7 @@ import {
 } from '../../../api/userDataStore.js'
 import { sGetSlideshow } from '../../../reducers/slideshow.js'
 
+const FIVE_SECONDS = '5'
 const TEN_SECONDS = '10'
 const TWENTY_SECONDS = '20'
 const THIRTY_SECONDS = '30'
@@ -15,6 +16,10 @@ const ONE_MINUTE = '60'
 const TWO_MINUTES = '120'
 
 const getTimingOptions = () => ({
+    [FIVE_SECONDS]: {
+        label: i18n.t('5 seconds per slide'),
+        ms: 5000,
+    },
     [TEN_SECONDS]: {
         label: i18n.t('10 seconds per slide'),
         ms: 10000,
@@ -39,7 +44,7 @@ const getTimingOptions = () => ({
 
 const KEY_SLIDESHOW_MS_PER_SLIDE = 'slideshowMsPerSlide'
 const timingOptions = getTimingOptions()
-const DEFAULT_MS_PER_SLIDE = timingOptions[TEN_SECONDS].ms
+const DEFAULT_MS_PER_SLIDE = timingOptions[FIVE_SECONDS].ms
 
 const useSlideshowAutoplay = ({ nextItem, itemIndex }) => {
     const dataEngine = useDataEngine()
@@ -47,8 +52,9 @@ const useSlideshowAutoplay = ({ nextItem, itemIndex }) => {
     const [isPlaying, setIsPlaying] = useState(startPlaying)
     const [msPerSlide, setMsPerSlide] = useState(null)
     const [isSlideshowOutdated, setIsSlideshowOutdated] = useState(false)
+    const [timerRenderId, setTimerRenderId] = useState(null)
 
-    // Reference to the timeout that controls the slideshow
+    // Reference to the timer that controls the slideshow
     const timeoutRef = useRef(null)
 
     // Reference to the moment in time when the last slide change occurred
@@ -57,15 +63,9 @@ const useSlideshowAutoplay = ({ nextItem, itemIndex }) => {
     // Reference to the time remaining for the current slide
     const slideMsRemainingRef = useRef(null)
 
-    // Previous values
-    const prevItemIndex = useRef(null)
-    const prevMsPerSlideRef = useRef(null)
+    const setSlideMsRemaining = (ms) => (slideMsRemainingRef.current = ms)
 
-    const setSlideMsRemaining = (ms) => {
-        slideMsRemainingRef.current = ms
-    }
-
-    const fetchMsPerSlide = useCallback(async () => {
+    const fetchUserMsPerSlideSetting = useCallback(async () => {
         let ms = DEFAULT_MS_PER_SLIDE
         try {
             const storedMsPerSlide = await apiGetUserDataStoreValue(
@@ -90,52 +90,55 @@ const useSlideshowAutoplay = ({ nextItem, itemIndex }) => {
     }, [dataEngine])
 
     useEffect(() => {
-        const fetchit = async () => {
-            const ms = await fetchMsPerSlide()
+        const fetchSetting = async () => {
+            const ms = await fetchUserMsPerSlideSetting()
             setMsPerSlide(ms)
             setSlideMsRemaining(ms)
         }
-        fetchit()
-    }, [fetchMsPerSlide])
+        fetchSetting()
+    }, [fetchUserMsPerSlideSetting])
 
     useEffect(() => {
-        // Do not start the timer until msPerSlide is set
         if (msPerSlide === null) {
             return
         }
-        const msPerSlideChanged = msPerSlide !== prevMsPerSlideRef.current
-        const itemChanged = itemIndex !== prevItemIndex.current
+        // User changed slide timing or manually changed the slide,
+        // so reset the time remaining and trigger the timer to restart
+        if (timeoutRef.current) {
+            clearTimeout(timeoutRef.current)
+            timeoutRef.current = null
+        }
+        setSlideMsRemaining(msPerSlide)
+        // This is to trigger the timer to advance
+        setTimerRenderId((prev) => (prev === null ? 0 : prev + 1))
+    }, [msPerSlide, itemIndex])
 
+    useEffect(() => {
+        if (timerRenderId === null) {
+            return
+        }
         if (isPlaying) {
-            if (msPerSlideChanged || itemChanged) {
-                setSlideMsRemaining(msPerSlide)
-            }
-
+            // Start the timer
             timeoutRef.current = setTimeout(() => {
                 nextItem()
                 slideChangedTimestampRef.current = Date.now()
-                setSlideMsRemaining(msPerSlide)
             }, slideMsRemainingRef.current)
 
             slideChangedTimestampRef.current = Date.now()
-        } else {
-            timeoutRef.current && clearTimeout(timeoutRef.current)
+        } else if (timeoutRef.current) {
+            // Slideshow is paused and timer hasn't been cleared yet
+            clearTimeout(timeoutRef.current)
+            timeoutRef.current = null
 
-            if (msPerSlideChanged || itemChanged) {
-                setSlideMsRemaining(msPerSlide)
-            } else {
-                const elapsed = Date.now() - slideChangedTimestampRef.current
-                setSlideMsRemaining(
-                    Math.max(slideMsRemainingRef.current - elapsed, 0)
-                )
-            }
+            // Calculate the remaining time from the timestamp of the last slide change
+            const elapsed = Date.now() - slideChangedTimestampRef.current
+            setSlideMsRemaining(
+                Math.max(slideMsRemainingRef.current - elapsed, 0)
+            )
         }
 
-        prevItemIndex.current = itemIndex
-        prevMsPerSlideRef.current = msPerSlide
-
         return () => timeoutRef.current && clearTimeout(timeoutRef.current)
-    }, [isPlaying, msPerSlide, nextItem, itemIndex])
+    }, [isPlaying, nextItem, timerRenderId])
 
     useEffect(() => {
         const outdatedTimeout = setTimeout(
