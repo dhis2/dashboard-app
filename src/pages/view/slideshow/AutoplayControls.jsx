@@ -20,7 +20,7 @@ import {
     getTimingOptions,
 } from './useSlideshowAutoplay.js'
 
-const AutoplayControls = ({ nextItem }) => {
+const AutoplayControls = ({ nextItem, itemIndex }) => {
     const [timingOptionsMenuOpen, setTimingOptionsMenuOpen] = useState(false)
     const {
         isPlaying,
@@ -28,7 +28,7 @@ const AutoplayControls = ({ nextItem }) => {
         msPerSlide,
         onTimingChanged,
         onPlayPauseToggled,
-    } = useSlideshowAutoplay({ nextItem })
+    } = useSlideshowAutoplay({ nextItem, itemIndex })
 
     const timingPopperRef = useRef()
 
@@ -104,6 +104,7 @@ const AutoplayControls = ({ nextItem }) => {
 }
 
 AutoplayControls.propTypes = {
+    itemIndex: PropTypes.number.isRequired,
     nextItem: PropTypes.func.isRequired,
 }
 

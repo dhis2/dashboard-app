@@ -12,7 +12,7 @@ import { SlideshowFiltersInfo } from './SlideshowFiltersInfo.jsx'
 import styles from './styles/SlideshowControlbar.module.css'
 
 const SlideshowControlbar = ({
-    slideshowItemIndex,
+    itemIndex,
     exitSlideshow,
     nextItem,
     prevItem,
@@ -58,7 +58,7 @@ const SlideshowControlbar = ({
                         className={styles.pageCounter}
                         data-test="slideshow-page-counter"
                         dir="ltr"
-                    >{`${slideshowItemIndex + 1} / ${numItems}`}</span>
+                    >{`${itemIndex + 1} / ${numItems}`}</span>
                     <button
                         className={styles.button}
                         disabled={!navigationEnabled}
@@ -78,7 +78,12 @@ const SlideshowControlbar = ({
             </div>
             <div className={styles.end}>
                 <SlideshowFiltersInfo />
-                {navigationEnabled && <AutoplayControls nextItem={nextItem} />}
+                {navigationEnabled && (
+                    <AutoplayControls
+                        nextItem={nextItem}
+                        itemIndex={itemIndex}
+                    />
+                )}
             </div>
         </div>
     )
@@ -86,10 +91,10 @@ const SlideshowControlbar = ({
 
 SlideshowControlbar.propTypes = {
     exitSlideshow: PropTypes.func.isRequired,
+    itemIndex: PropTypes.number.isRequired,
     nextItem: PropTypes.func.isRequired,
     numItems: PropTypes.number.isRequired,
     prevItem: PropTypes.func.isRequired,
-    slideshowItemIndex: PropTypes.number.isRequired,
 }
 
 export default SlideshowControlbar

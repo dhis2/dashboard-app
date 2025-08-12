@@ -41,7 +41,7 @@ const KEY_SLIDESHOW_MS_PER_SLIDE = 'slideshowMsPerSlide'
 const timingOptions = getTimingOptions()
 const DEFAULT_MS_PER_SLIDE = timingOptions[TEN_SECONDS].ms
 
-const useSlideshowAutoplay = ({ nextItem }) => {
+const useSlideshowAutoplay = ({ nextItem, itemIndex }) => {
     const dataEngine = useDataEngine()
     const { startPlaying } = useSelector(sGetSlideshow)
     const [isPlaying, setIsPlaying] = useState(startPlaying)
@@ -58,7 +58,7 @@ const useSlideshowAutoplay = ({ nextItem }) => {
     const slideMsRemainingRef = useRef(null)
 
     // Previous values
-    const prevNextItemRef = useRef(null)
+    const prevItemIndex = useRef(null)
     const prevMsPerSlideRef = useRef(null)
 
     const setSlideMsRemaining = (ms) => {
@@ -104,10 +104,10 @@ const useSlideshowAutoplay = ({ nextItem }) => {
             return
         }
         const msPerSlideChanged = msPerSlide !== prevMsPerSlideRef.current
-        const nextItemChanged = nextItem !== prevNextItemRef.current
+        const itemChanged = itemIndex !== prevItemIndex.current
 
         if (isPlaying) {
-            if (msPerSlideChanged || nextItemChanged) {
+            if (msPerSlideChanged || itemChanged) {
                 setSlideMsRemaining(msPerSlide)
             }
 
@@ -121,7 +121,7 @@ const useSlideshowAutoplay = ({ nextItem }) => {
         } else {
             timeoutRef.current && clearTimeout(timeoutRef.current)
 
-            if (msPerSlideChanged || nextItemChanged) {
+            if (msPerSlideChanged || itemChanged) {
                 setSlideMsRemaining(msPerSlide)
             } else {
                 const elapsed = Date.now() - slideChangedTimestampRef.current
@@ -131,16 +131,16 @@ const useSlideshowAutoplay = ({ nextItem }) => {
             }
         }
 
-        prevNextItemRef.current = nextItem
+        prevItemIndex.current = itemIndex
         prevMsPerSlideRef.current = msPerSlide
 
         return () => timeoutRef.current && clearTimeout(timeoutRef.current)
-    }, [isPlaying, msPerSlide, nextItem])
+    }, [isPlaying, msPerSlide, nextItem, itemIndex])
 
     useEffect(() => {
         const outdatedTimeout = setTimeout(
             () => setIsSlideshowOutdated(true),
-            24 * 60 * 60 * 1000 // 24 hours
+            24 * 60 * 60 * 1000 // 24 hours in ms
         )
 
         return () => clearTimeout(outdatedTimeout)
