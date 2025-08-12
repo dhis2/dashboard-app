@@ -49,11 +49,11 @@ const useSlideshow = (displayItems, slideshowElementRef) => {
     }, [firstItemIndex, slideshowElementRef])
 
     // Exit button clicked
-    const exitSlideshow = () => {
+    const exitSlideshow = useCallback(() => {
         if (document.fullscreenElement) {
             document.exitFullscreen()
         }
-    }
+    }, [])
 
     const nextItem = useCallback(() => {
         if (itemIndex === sortedItems.length - 1) {
