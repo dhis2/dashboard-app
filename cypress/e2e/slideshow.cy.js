@@ -117,18 +117,23 @@ describe('Slideshow functionality', () => {
         // Click the slideshow button
         cy.get('button').contains('Slideshow').realClick()
 
+        // Assert fullscreen mode is shown
         assertSlideshowControlbar()
+
+        // Assert slideshow starts in play mode (Pause icon is shown)
+        cy.log('Confirm we are in autoplay mode')
+        cy.getByDataTest('slideshow-pause-icon').should('be.visible')
+        cy.getByDataTest('slideshow-play-icon').should('not.exist')
+        // Click to pause autoplay
+        cy.log('Pause autoplay')
+        cy.getByDataTest('slideshow-autoplay-play-pause-button').click()
+
+        cy.log('Confirm we are in pause mode')
+        cy.getByDataTest('slideshow-pause-icon').should('not.exist')
+        cy.getByDataTest('slideshow-play-icon').should('be.visible')
 
         // Assert item 1 is shown in fullscreen
         assertItem1IsVisible()
-
-        cy.getByDataTest('slidshow-pause-icon').should('be.visible')
-        cy.getByDataTest('slideshow-play-icon').should('not.exist')
-        // Click to pause autoplay
-        cy.getByDataTest('slideshow-autoplay-play-pause-button').realClick()
-
-        cy.getByDataTest('slidshow-pause-icon').should('not.exist')
-        cy.getByDataTest('slideshow-play-icon').should('be.visible')
 
         // Click the next slide button
         cy.getByDataTest('slideshow-next-button').realClick()
@@ -158,11 +163,18 @@ describe('Slideshow functionality', () => {
         clickMenuButton(sortedDashboardItemIds[1])
         cy.contains('View fullscreen').realClick()
 
+        // Assert fullscreen mode is shown
+        assertSlideshowControlbar()
+
         // Assert item 2 is shown in fullscreen
         assertItem2IsVisible()
 
+        // cy.log('Confirm we are in pause mode')
+        cy.getByDataTest('slideshow-pause-icon').should('not.exist')
+        cy.getByDataTest('slideshow-play-icon').should('be.visible')
+
         // Click the exit slideshow button
-        cy.getByDataTest('slideshow-exit-button', EXTENDED_TIMEOUT).realClick()
+        cy.getByDataTest('slideshow-exit-button').realClick()
 
         // Assert the normal view is shown
         assertNormalViewIsShown()
@@ -176,6 +188,9 @@ describe('Slideshow functionality', () => {
         // Click the fullscreen button on the third item
         clickMenuButton(sortedDashboardItemIds[2])
         cy.contains('View fullscreen').realClick()
+
+        // Assert fullscreen mode is shown
+        assertSlideshowControlbar()
 
         // Assert item 3 is shown in fullscreen
         assertItem3IsVisible()
@@ -207,6 +222,7 @@ describe('Slideshow functionality', () => {
         // Click the slideshow button
         cy.get('button').contains('Slideshow').realClick()
 
+        // Assert fullscreen mode is shown
         assertSlideshowControlbar()
 
         // Assert the settings menu
