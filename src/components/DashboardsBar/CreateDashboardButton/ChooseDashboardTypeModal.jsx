@@ -26,59 +26,50 @@ export const ChooseDashboardTypeModal = ({
 
     return (
         <Modal onClose={onCancel}>
-            {/* <form
+            <form
                 onSubmit={
                     selectedType === TYPE_INTERNAL
                         ? onSelectInternal
                         : onSelectSuperset
                 }
-            > */}
-            <ModalTitle>
-                {i18n.t('New dashboard: choose type', {
-                    nsSeparator: '###',
-                })}
-            </ModalTitle>
-            <ModalContent>
-                <fieldset className={styles.dashboardTypeRadioGroup}>
-                    <DashboardTypeRadio
-                        initialFocus
-                        value={TYPE_INTERNAL}
-                        checked={selectedType === TYPE_INTERNAL}
-                        onChange={handleDashboardTypeChange}
-                        title={i18n.t('Internal')}
-                        subtitle={i18n.t(
-                            'Show data and visualizations from this DHIS2 instance.'
-                        )}
-                    />
-                    <DashboardTypeRadio
-                        value={TYPE_SUPERSET}
-                        checked={selectedType === TYPE_SUPERSET}
-                        onChange={handleDashboardTypeChange}
-                        title={i18n.t('External')}
-                        subtitle={i18n.t('Embed a Superset dashboard')}
-                    />
-                </fieldset>
-            </ModalContent>
-            <ModalActions>
-                <div className={styles.buttonStrip}>
-                    <Button
-                        primary
-                        onClick={() => {
-                            if (selectedType === TYPE_INTERNAL) {
-                                onSelectInternal()
-                            } else {
-                                onSelectSuperset()
-                            }
-                        }}
-                    >
-                        {i18n.t('Continue')}
-                    </Button>
-                    <Button secondary onClick={onCancel}>
-                        {i18n.t('Cancel')}
-                    </Button>
-                </div>
-            </ModalActions>
-            {/* </form> */}
+            >
+                <ModalTitle>
+                    {i18n.t('New dashboard: choose type', {
+                        nsSeparator: '###',
+                    })}
+                </ModalTitle>
+                <ModalContent>
+                    <fieldset className={styles.dashboardTypeRadioGroup}>
+                        <DashboardTypeRadio
+                            initialFocus
+                            value={TYPE_INTERNAL}
+                            checked={selectedType === TYPE_INTERNAL}
+                            onChange={handleDashboardTypeChange}
+                            title={i18n.t('Internal')}
+                            subtitle={i18n.t(
+                                'Show data and visualizations from this DHIS2 instance.'
+                            )}
+                        />
+                        <DashboardTypeRadio
+                            value={TYPE_SUPERSET}
+                            checked={selectedType === TYPE_SUPERSET}
+                            onChange={handleDashboardTypeChange}
+                            title={i18n.t('External')}
+                            subtitle={i18n.t('Embed a Superset dashboard')}
+                        />
+                    </fieldset>
+                </ModalContent>
+                <ModalActions>
+                    <div className={styles.buttonStrip}>
+                        <Button primary type="submit">
+                            {i18n.t('Continue')}
+                        </Button>
+                        <Button secondary onClick={onCancel}>
+                            {i18n.t('Cancel')}
+                        </Button>
+                    </div>
+                </ModalActions>
+            </form>
         </Modal>
     )
 }
