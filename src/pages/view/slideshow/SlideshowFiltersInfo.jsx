@@ -3,7 +3,7 @@ import { Layer, Popper, IconFilter16 } from '@dhis2/ui'
 import PropTypes from 'prop-types'
 import React, { useMemo, useState, useRef } from 'react'
 import { useSelector } from 'react-redux'
-import { msGetNamedItemFilters } from '../../reducers/itemFilters.js'
+import { msGetNamedItemFilters } from '../../../reducers/itemFilters.js'
 import styles from './styles/SlideshowFiltersInfo.module.css'
 
 const popperModifiers = [

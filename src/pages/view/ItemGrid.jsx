@@ -32,9 +32,9 @@ import {
     sGetSelectedId,
     sGetSelectedDashboardItems,
 } from '../../reducers/selected.js'
-import SlideshowControlbar from './SlideshowControlbar.jsx'
+import SlideshowControlbar from './slideshow/SlideshowControlbar.jsx'
+import useSlideshow from './slideshow/useSlideshow.js'
 import classes from './styles/ItemGrid.module.css'
-import useSlideshow from './useSlideshow.js'
 
 const ResponsiveItemGrid = ({ dashboardIsCached }) => {
     const dashboardId = useSelector(sGetSelectedId)
@@ -53,7 +53,7 @@ const ResponsiveItemGrid = ({ dashboardIsCached }) => {
     const slideshowElementRef = useRef(null)
 
     const {
-        slideshowItemIndex,
+        itemIndex,
         sortedItems,
         isEnteringSlideshow,
         exitSlideshow,
@@ -61,7 +61,7 @@ const ResponsiveItemGrid = ({ dashboardIsCached }) => {
         prevItem,
     } = useSlideshow(displayItems, slideshowElementRef)
 
-    const isSlideshowView = slideshowItemIndex !== null
+    const isSlideshowView = itemIndex !== null
 
     useEffect(() => {
         setLayoutSm(
@@ -110,23 +110,19 @@ const ResponsiveItemGrid = ({ dashboardIsCached }) => {
         }
 
         const itemIsFullscreen = isSlideshowView
-            ? sortedItems[slideshowItemIndex].id === item.id
+            ? sortedItems[itemIndex].id === item.id
             : null
 
         // Force load next and previous items for slideshow view
-        const nextslideshowItemIndex =
-            slideshowItemIndex === sortedItems.length - 1
-                ? 0
-                : slideshowItemIndex + 1
-        const prevslideshowItemIndex =
-            slideshowItemIndex === 0
-                ? sortedItems.length - 1
-                : slideshowItemIndex - 1
+        const nextitemIndex =
+            itemIndex === sortedItems.length - 1 ? 0 : itemIndex + 1
+        const previtemIndex =
+            itemIndex === 0 ? sortedItems.length - 1 : itemIndex - 1
 
         const itemIsNextPrevFullscreen =
             isSlideshowView &&
-            (sortedItems[nextslideshowItemIndex].id === item.id ||
-                sortedItems[prevslideshowItemIndex].id === item.id)
+            (sortedItems[nextitemIndex].id === item.id ||
+                sortedItems[previtemIndex].id === item.id)
 
         return (
             <ProgressiveLoadingContainer
@@ -215,7 +211,7 @@ const ResponsiveItemGrid = ({ dashboardIsCached }) => {
             </ResponsiveReactGridLayout>
             {isSlideshowView && !isEnteringSlideshow && (
                 <SlideshowControlbar
-                    slideshowItemIndex={slideshowItemIndex}
+                    itemIndex={itemIndex}
                     exitSlideshow={exitSlideshow}
                     nextItem={nextItem}
                     prevItem={prevItem}
