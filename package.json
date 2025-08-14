@@ -44,7 +44,7 @@
         "@badeball/cypress-cucumber-preprocessor": "^22.0.0",
         "@bahmutov/cypress-esbuild-preprocessor": "^2.2.1",
         "@cypress/webpack-preprocessor": "^6.0.2",
-        "@dhis2/cli-app-scripts": "^12.6.4",
+        "@dhis2/cli-app-scripts": "^12.7.2",
         "@dhis2/cli-style": "^10.7.9",
         "@dhis2/cypress-commands": "^10.1.0",
         "@dhis2/cypress-plugins": "^10.1.0",
