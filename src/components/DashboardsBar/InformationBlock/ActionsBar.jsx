@@ -273,7 +273,7 @@ const ActionsBar = ({
                                 onClick={() =>
                                     setSlideshow({
                                         firstItemIndex: 0,
-                                        startPlaying: true,
+                                        startPlaying: false,
                                     })
                                 }
                                 dataTest="enter-slideshow-button"
