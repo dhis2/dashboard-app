@@ -1,3 +1,10 @@
+## [101.3.3](https://github.com/dhis2/dashboard-app/compare/v101.3.2...v101.3.3) (2025-08-14)
+
+
+### Bug Fixes
+
+* update cli-app-scripts to open links in same tab [DHIS2-19973] ([#3308](https://github.com/dhis2/dashboard-app/issues/3308)) ([818c86e](https://github.com/dhis2/dashboard-app/commit/818c86e512a507a8e67986ced1f426e0fa03dcb9))
+
 ## [101.3.2](https://github.com/dhis2/dashboard-app/compare/v101.3.1...v101.3.2) (2025-07-30)
 
 
