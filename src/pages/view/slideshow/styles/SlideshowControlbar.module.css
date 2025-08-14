@@ -96,7 +96,7 @@
     block-size: 32px;
 }
 
-.menuItem {
+.menuItem > a {
     padding-inline-end: 80px !important;
 }
 
