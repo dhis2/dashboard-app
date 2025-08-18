@@ -96,10 +96,6 @@
     block-size: 32px;
 }
 
-.menuItem > a {
-    padding-inline-end: 80px !important;
-}
-
 .selectedMenuItem {
     background-color: rgb(241, 249, 249) !important;
 }
