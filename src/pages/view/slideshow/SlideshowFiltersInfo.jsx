@@ -81,7 +81,7 @@ export const SlideshowFiltersInfo = () => {
             {isOpen && multipleFilters && (
                 <Layer disablePortal onClick={() => setIsOpen(false)}>
                     <Popper
-                        className={styles.popover}
+                        className={styles.popper}
                         reference={ref}
                         placement="top-end"
                         modifiers={popperModifiers}
