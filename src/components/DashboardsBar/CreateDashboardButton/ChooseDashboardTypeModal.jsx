@@ -27,11 +27,14 @@ export const ChooseDashboardTypeModal = ({
     return (
         <Modal onClose={onCancel}>
             <form
-                onSubmit={
-                    selectedType === TYPE_INTERNAL
-                        ? onSelectInternal
-                        : onSelectSuperset
-                }
+                onSubmit={(event) => {
+                    event.preventDefault()
+                    if (selectedType === TYPE_INTERNAL) {
+                        onSelectInternal()
+                    } else {
+                        onSelectSuperset()
+                    }
+                }}
             >
                 <ModalTitle>
                     {i18n.t('New dashboard: choose type', {
