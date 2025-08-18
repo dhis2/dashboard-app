@@ -238,13 +238,17 @@ Slideshow control bar:
 
 ![Slideshow controls](resources/images/slideshow-controls.png)
 
-When you enter the slideshow, it will start autoplaying, meaning that the slides will automatically advance according to the timing setting. Once the slideshow has reached the last slide, it will restart automatically. If 24 hours has passed since the slideshow began, a message stating as such will appear in the control bar, since data does not refresh during the slideshow and may be considered out of date for certain visualizations.
+The slideshow can be autoplayed, or navigated manually.
+
+When you enter the slideshow, it is paused. Click the play/pause button in the control bar to start the autoplay, which means the slides will automatically advance according to the timing setting. Once the slideshow has reached the last slide, it will restart automatically. If 24 hours has passed since the slideshow began, a message stating as such will appear in the control bar, since data does not refresh during the slideshow and may be considered out of date for certain visualizations.
 
 The autoplay controls include the play/pause button and the timing settings button. The user's most recent selected timing setting is remembered for the next time the slideshow is started.
 
 ![Slideshow timing settings](resources/images/slideshow-timing-settings.png)
 
-You can also navigate the slides manually. Press the play/pause button to put the slideshow into pause, and then use the manual navigation buttons or forward/back arrow keys on the keyboard to navigate through the slides. Exit the slideshow with the **esc** key or by pressing the exit button.
+You can also navigate the slides manually both when the slideshow is playing and paused. Use the manual navigation buttons or forward/back arrow keys on the keyboard to navigate through the slides. If the slideshow is playing, the timer resets when manually navigating, and the slideshow will automatically advance unless you click pause.
+
+Exit the slideshow with the **esc** key or by pressing the exit button.
 
 Any filters that are applied will be displayed in the slideshow control bar. Note that messages and spacer items are not displayed in the slideshow.
 
