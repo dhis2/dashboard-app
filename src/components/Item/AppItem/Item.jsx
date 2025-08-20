@@ -165,14 +165,7 @@ const AppItem = ({
                     item={item}
                     appName={appDetails.name}
                     appUrl={appUrl}
-                    enterFullscreen={() =>
-                        dispatch(
-                            acSetSlideshow({
-                                firstItemIndex: sortIndex,
-                                startPlaying: false,
-                            })
-                        )
-                    }
+                    enterFullscreen={() => dispatch(acSetSlideshow(sortIndex))}
                     loadItemFailed={loadItemFailed}
                 />
             ) : null

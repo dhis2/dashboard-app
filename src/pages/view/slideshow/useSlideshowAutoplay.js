@@ -1,12 +1,10 @@
 import { useDataEngine } from '@dhis2/app-runtime'
 import i18n from '@dhis2/d2-i18n'
 import { useState, useEffect, useCallback, useRef } from 'react'
-import { useSelector } from 'react-redux'
 import {
     apiGetUserDataStoreValue,
     apiPostUserDataStoreValue,
 } from '../../../api/userDataStore.js'
-import { sGetSlideshow } from '../../../reducers/slideshow.js'
 
 // const FIVE_SECONDS = '5'
 const TEN_SECONDS = '10'
@@ -48,8 +46,7 @@ const DEFAULT_MS_PER_SLIDE = timingOptions[TEN_SECONDS].ms
 
 const useSlideshowAutoplay = ({ nextItem, itemIndex }) => {
     const dataEngine = useDataEngine()
-    const { startPlaying } = useSelector(sGetSlideshow)
-    const [isPlaying, setIsPlaying] = useState(startPlaying)
+    const [isPlaying, setIsPlaying] = useState(false)
     const [msPerSlide, setMsPerSlide] = useState(null)
     const [isSlideshowOutdated, setIsSlideshowOutdated] = useState(false)
     const [timerRenderId, setTimerRenderId] = useState(null)
