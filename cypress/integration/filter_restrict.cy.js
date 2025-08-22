@@ -163,7 +163,6 @@ describe('Filter Restrictions', () => {
         clickEditActionButton('Exit without saving')
     })
 
-    // Tests start failing here
     it('does not persist Filter Restrictions changes when exiting without saving', () => {
         // Open an existing dashboard with non-restricted Filter settings in edit mode
         cy.visit(`/${dashboardId}/edit`)
