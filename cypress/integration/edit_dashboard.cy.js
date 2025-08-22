@@ -1,0 +1,315 @@
+import {
+    newButtonSel,
+    dashboardTitleSel,
+    chartSubtitleSel,
+    addDashboardItem,
+    clickEditActionButton,
+    clickViewActionButton,
+    confirmEditMode,
+    confirmViewMode,
+    dashboardStarredSel,
+    dashboardUnstarredSel,
+    confirmActionDialogSel,
+    getNavigationMenuItem,
+    closeNavigationMenu,
+    navMenuItemStarIconSel,
+    assertSharedToUser,
+    gridItemSel,
+    findUser,
+    selectSharingLevel,
+} from '../elements/index.js'
+import {
+    EXTENDED_TIMEOUT,
+    createDashboardTitle,
+    getApiBaseUrl,
+} from '../support/utils.js'
+
+const deleteDashboard = (dashboardTitle) => {
+    clickEditActionButton('Delete')
+
+    cy.contains(
+        `Deleting dashboard "${dashboardTitle}" will remove it for all users`
+    ).should('be.visible')
+    cy.get(confirmActionDialogSel).find('button').contains('Delete').click()
+    cy.url().should('not.include', 'edit')
+
+    // Confirm different dashboard is shown in view mode
+    getNavigationMenuItem(dashboardTitle).should('not.exist')
+    cy.get(dashboardTitleSel)
+        .should('be.visible')
+        .and('not.contain', dashboardTitle)
+}
+
+describe('Edit Dashboard', () => {
+    it('creates a dashboard', () => {
+        cy.visit('/')
+        const TEST_DASHBOARD_TITLE = createDashboardTitle('e2e-create')
+
+        // Start a new dashboard
+        cy.get(newButtonSel, EXTENDED_TIMEOUT).click()
+
+        // Add dashboard title
+        cy.getByDataTest('dashboard-title-input').type(TEST_DASHBOARD_TITLE)
+
+        // Add dashboard items
+        addDashboardItem('Inpatient: BMI this year by districts') // Chart
+        addDashboardItem('ANC: IPT 2 Coverage this year') // Map
+
+        // Save dashboard
+        clickEditActionButton('Save changes')
+
+        // Dashboard displays in view mode
+        confirmViewMode(TEST_DASHBOARD_TITLE)
+
+        // Open edit mode
+        clickViewActionButton('Edit')
+        confirmEditMode()
+
+        // Add another dashboard item
+        addDashboardItem('ANC: 3rd visit coverage last year by district') // Map
+
+        // Exit without saving
+        clickEditActionButton('Exit without saving')
+        confirmViewMode(TEST_DASHBOARD_TITLE)
+
+        // Delete dashboard
+        clickViewActionButton('Edit')
+        clickEditActionButton('Delete')
+
+        cy.contains(
+            `Deleting dashboard "${TEST_DASHBOARD_TITLE}" will remove it for all users`
+        ).should('be.visible')
+
+        // First cancel the delete action
+        cy.get(confirmActionDialogSel).find('button').contains('Cancel').click()
+        confirmEditMode()
+
+        // Finally, delete it for real
+        deleteDashboard(TEST_DASHBOARD_TITLE)
+    })
+
+    it('returns to view mode without confirmation when exit without saving', () => {
+        cy.visit('/')
+        // Start a new dashboard
+        cy.get(newButtonSel, EXTENDED_TIMEOUT).click()
+
+        // Add dashboard title
+        cy.getByDataTest('dashboard-title-input').type(
+            'e2e-exit-without-saving'
+        )
+
+        // Add dashboard items
+        addDashboardItem('Inpatient: BMI this year by districts') // Chart
+
+        // Click Exit without saving
+        clickEditActionButton('Exit without saving')
+
+        confirmViewMode()
+    })
+
+    it('stars and unstars a dashboard', () => {
+        cy.visit('/')
+        const TEST_DASHBOARD_TITLE = createDashboardTitle('e2e-star')
+
+        // Start a new dashboard
+        cy.get(newButtonSel, EXTENDED_TIMEOUT).click()
+
+        // Add dashboard title
+        cy.getByDataTest('dashboard-title-input').type(TEST_DASHBOARD_TITLE)
+
+        // Add dashboard items
+        addDashboardItem('Inpatient: BMI this year by districts') // Chart
+
+        // Save dashboard
+        clickEditActionButton('Save changes')
+
+        confirmViewMode(TEST_DASHBOARD_TITLE)
+
+        // Assert dashboard is not starred
+        cy.get(dashboardStarredSel).should('not.exist')
+        cy.get(dashboardUnstarredSel).should('be.visible')
+
+        cy.intercept('POST', '**/dashboards/*/favorite').as('starDashboard')
+
+        // Star the dashboard
+        cy.get(dashboardUnstarredSel).click()
+        cy.wait('@starDashboard')
+            .its('response.statusCode')
+            .should('be.oneOf', [200, 201])
+
+        // Assert dashboard is starred
+        cy.get(dashboardStarredSel).should('be.visible')
+        cy.get(dashboardUnstarredSel).should('not.exist')
+        getNavigationMenuItem(TEST_DASHBOARD_TITLE)
+            .find(navMenuItemStarIconSel)
+            .should('be.visible')
+
+        closeNavigationMenu()
+
+        clickViewActionButton('Edit')
+        confirmEditMode()
+        // Add another dashboard item
+        addDashboardItem('ANC: IPT 2 Coverage this year') // Map
+
+        // Save dashboard
+        clickEditActionButton('Save changes')
+        confirmViewMode(TEST_DASHBOARD_TITLE)
+
+        cy.get(dashboardStarredSel).should('be.visible')
+        cy.get(dashboardUnstarredSel).should('not.exist')
+
+        cy.intercept('DELETE', '**/dashboards/*/favorite').as('unstarDashboard')
+
+        // Unstar the dashboard
+        cy.get(dashboardStarredSel).click()
+
+        // Assert dashboard is unstarred
+        cy.wait('@unstarDashboard')
+            .its('response.statusCode')
+            .should('be.oneOf', [200, 204])
+        cy.get(dashboardUnstarredSel).should('be.visible')
+        getNavigationMenuItem(TEST_DASHBOARD_TITLE)
+            .find(navMenuItemStarIconSel)
+            .should('not.exist')
+
+        closeNavigationMenu()
+
+        // Delete the dashboard
+        clickViewActionButton('Edit')
+        deleteDashboard(TEST_DASHBOARD_TITLE)
+    })
+
+    it('changes sharing settings', () => {
+        const USER_NAME = 'Kevin Boateng'
+
+        cy.visit('/')
+        const TEST_DASHBOARD_TITLE = createDashboardTitle('e2e-sharing')
+
+        // Start a new dashboard
+        cy.get(newButtonSel, EXTENDED_TIMEOUT).click()
+
+        // Add dashboard title
+        cy.getByDataTest('dashboard-title-input').type(TEST_DASHBOARD_TITLE)
+
+        // Add dashboard item and save
+        addDashboardItem('Inpatient: BMI this year by districts')
+        clickEditActionButton('Save changes')
+
+        confirmViewMode(TEST_DASHBOARD_TITLE)
+
+        // Change sharing settings
+        clickViewActionButton('Share')
+        assertSharedToUser(USER_NAME, false)
+        findUser(USER_NAME)
+        selectSharingLevel('View only')
+        assertSharedToUser(USER_NAME, true)
+
+        // Close the sharing dialog
+        cy.get('button').contains('Close').click()
+
+        // Reload the page and check sharing settings
+        cy.visit('/')
+        getNavigationMenuItem(TEST_DASHBOARD_TITLE).click()
+        confirmViewMode(TEST_DASHBOARD_TITLE)
+
+        clickViewActionButton('Share')
+        assertSharedToUser(USER_NAME, true)
+        cy.get('button').contains('Close').click()
+
+        clickViewActionButton('Edit')
+        deleteDashboard(TEST_DASHBOARD_TITLE)
+    })
+
+    it.skip('moves an item on the dashboard without triggering analytics requests', () => {
+        cy.visit('/')
+        const TEST_DASHBOARD_TITLE = createDashboardTitle('e2e-move-item')
+
+        // Start a new dashboard
+        cy.get(newButtonSel, EXTENDED_TIMEOUT).click()
+
+        // Add dashboard title
+        cy.getByDataTest('dashboard-title-input').type(TEST_DASHBOARD_TITLE)
+
+        // Add dashboard items
+        addDashboardItem('Inpatient: BMI this year by districts') // Chart
+
+        // Save dashboard
+        clickEditActionButton('Save changes')
+        confirmViewMode(TEST_DASHBOARD_TITLE)
+
+        // Open edit mode
+        clickViewActionButton('Edit')
+        confirmEditMode()
+
+        // No analytics requests are made when item is moved
+        const WRONG_SUBTITLE = 'WRONG_SUBTITLE'
+        cy.intercept(/analytics\.json(\S)*skipMeta=false/, (req) => {
+            req.reply((res) => {
+                // modify the chart subtitle so we can check whether the api request
+                // was made. (It shouldn't be - that's the test)
+                res.body.metaData.items.THIS_YEAR.name = WRONG_SUBTITLE
+                res.send({ body: res.body })
+            })
+        })
+        cy.get(gridItemSel).first().trigger('mousedown')
+        cy.document().trigger('mousemove', { clientX: 400 })
+        cy.get(gridItemSel).first().trigger('mouseup')
+
+        confirmEditMode()
+
+        cy.get(gridItemSel)
+            .first()
+            .getIframeBody()
+            .find(chartSubtitleSel, EXTENDED_TIMEOUT)
+            .contains(WRONG_SUBTITLE)
+            .should('not.exist')
+    })
+
+    it.skip('adds a custom widget to a dashboard', () => {
+        const customApp = {
+            name: 'Users-Role-Monitor-Widget',
+            id: '5e43908a-3105-4baa-9a00-87a94ebdc034',
+        }
+        // First install a custom app
+        cy.request(
+            'POST',
+            `${getApiBaseUrl()}/api/appHub/${customApp.id}`
+        ).then((response) => {
+            expect(response.status).to.be.oneOf([204, 201])
+
+            // Start a new dashboard
+            cy.visit('/')
+            cy.get(newButtonSel).click()
+
+            // aAdd the dashboard title
+            cy.getByDataTest('dashboard-title-input').type('Custom App Test')
+
+            // Add dashboard items
+            addDashboardItem('Role Monitor Widget')
+
+            // Save
+            clickEditActionButton('Save changes')
+
+            confirmViewMode('Custom App Test')
+
+            // Assert the custom app is visible by checking for the item's title
+            // check that the custom app is loaded (see ticket DHIS2-14544)
+            cy.get('iframe')
+                .invoke('attr', 'title')
+                .contains('Role Monitor Widget')
+                .scrollIntoView()
+            cy.get('iframe')
+                .invoke('attr', 'title')
+                .contains('Role Monitor Widget')
+                .should('be.visible')
+
+            // Remove the custom app
+            cy.request(
+                'DELETE',
+                `${getApiBaseUrl()}/api/apps/${customApp.name}`
+            ).then((response) => {
+                expect(response.status).to.equal(204)
+            })
+        })
+    })
+})
