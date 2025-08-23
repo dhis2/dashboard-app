@@ -17,10 +17,10 @@ msgstr ""
 "Plural-Forms: nplurals=1; plural=0;\n"
 
 msgid "Untitled dashboard"
-msgstr "未命名的仪表盘"
+msgstr "无标题仪表板"
 
 msgid "Could not get info from Superset gateway endpoint"
-msgstr "无法从 Superset 网关端点获取信息"
+msgstr "无法从超级网关端点获取信息"
 
 msgid "Dashboard with ID \"{{dashboardId}}\" not found or not accessible"
 msgstr "ID 为 \"{{dashboardId}}\" 的仪表板未找到或无法访问"
@@ -46,7 +46,7 @@ msgid "Network error"
 msgstr "网络错误"
 
 msgid "Could not load app data"
-msgstr ""
+msgstr "无法加载应用程序数据"
 
 msgid "New dashboard: external"
 msgstr "新仪表盘：外部"
