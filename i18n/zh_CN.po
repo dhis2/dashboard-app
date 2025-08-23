@@ -20,19 +20,19 @@ msgid "Untitled dashboard"
 msgstr "未命名的仪表盘"
 
 msgid "Cannot create a dashboard while offline"
-msgstr ""
+msgstr "脱机时无法创建仪表板"
 
 msgid "Create new dashboard"
-msgstr ""
+msgstr "创建新的仪表板"
 
 msgid "Search for a dashboard"
 msgstr "搜索仪表盘"
 
 msgid "Show fewer dashboards"
-msgstr ""
+msgstr "减少显示仪表盘"
 
 msgid "Show more dashboards"
-msgstr ""
+msgstr "显示更多仪表盘"
 
 msgid "Remove this item"
 msgstr "删除该条目"
@@ -99,7 +99,7 @@ msgid "View as Chart"
 msgstr "查看图表"
 
 msgid "This map can't be displayed as a table"
-msgstr ""
+msgstr "该地图不能以表格形式显示"
 
 msgid "View as Table"
 msgstr "查看表格"
@@ -117,10 +117,10 @@ msgid "Unable to load the plugin for this item"
 msgstr "不能该条目的插件"
 
 msgid "The plugin for rendering this item is not available"
-msgstr ""
+msgstr "渲染此项目的插件不可用"
 
 msgid "Install the {{appName}} app from the App Hub"
-msgstr ""
+msgstr "从 App Hub 安装{{appName}} 应用程序"
 
 msgid "No data to display"
 msgstr "没有数据可显示"
@@ -130,9 +130,12 @@ msgid ""
 "                                '.'\n"
 "                            )} or higher in order to display this item."
 msgstr ""
+"安装行列表应用程序版本 ${minLLVersion.join(\n"
+"                                '.'\n"
+"                            )} 或更高版本才能显示此项目。"
 
 msgid "Filters are not applied to line list dashboard items."
-msgstr ""
+msgstr "筛选器不适用于行列表仪表板项目。"
 
 msgid "Show without filters"
 msgstr "显示无过滤器"
@@ -436,7 +439,7 @@ msgid_plural "{{count}} selected"
 msgstr[0] "{{count}} 个已经选择"
 
 msgid "Cannot remove filters while offline"
-msgstr ""
+msgstr "脱机时无法删除过滤器"
 
 msgid "Removing filters while offline"
 msgstr "离线时删除过滤器"
