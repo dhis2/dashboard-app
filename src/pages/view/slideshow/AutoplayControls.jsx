@@ -12,6 +12,7 @@ import {
 import cx from 'classnames'
 import PropTypes from 'prop-types'
 import React, { useState, useRef } from 'react'
+import CountdownBar from './CountdownBar.jsx'
 import PauseIcon from './PauseIcon.jsx'
 import PlayIcon from './PlayIcon.jsx'
 import styles from './styles/SlideshowControlbar.module.css'
@@ -26,6 +27,7 @@ const AutoplayControls = ({ nextItem, itemIndex }) => {
         isPlaying,
         isSlideshowOutdated,
         msPerSlide,
+        slideMsRemaining,
         onTimingChanged,
         onPlayPauseToggled,
     } = useSlideshowAutoplay({ nextItem, itemIndex })
@@ -58,11 +60,19 @@ const AutoplayControls = ({ nextItem, itemIndex }) => {
             >
                 <IconMore24 />
             </button>
+
             <button
                 className={styles.button}
                 onClick={onPlayPauseToggled}
                 data-test="slideshow-autoplay-play-pause-button"
             >
+                {isPlaying && slideMsRemaining !== null && (
+                    <CountdownBar
+                        key={`${itemIndex}-${msPerSlide}`} // Reset animation when these change
+                        msPerSlide={msPerSlide}
+                        slideMsRemaining={slideMsRemaining}
+                    />
+                )}
                 {isPlaying ? <PauseIcon /> : <PlayIcon />}
             </button>
             {timingOptionsMenuOpen && (

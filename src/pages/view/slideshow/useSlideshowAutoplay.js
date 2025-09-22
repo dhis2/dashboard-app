@@ -65,9 +65,9 @@ const useSlideshowAutoplay = ({ nextItem, itemIndex }) => {
                 DEFAULT_MS_PER_SLIDE,
                 dataEngine
             )
-            const intParsedMsPerSlide = parseInt(storedMsPerSlide)
+            const intParsedMsPerSlide = Number.parseInt(storedMsPerSlide)
             if (
-                !isNaN(intParsedMsPerSlide) &&
+                !Number.isNaN(intParsedMsPerSlide) &&
                 Object.values(timingOptions).some(
                     (option) => option.ms === intParsedMsPerSlide
                 )
@@ -162,6 +162,7 @@ const useSlideshowAutoplay = ({ nextItem, itemIndex }) => {
         msPerSlide,
         onTimingChanged: updateMsPerSlide,
         onPlayPauseToggled: togglePlayPause,
+        slideMsRemaining: slideMsRemainingRef.current,
     }
 }
 

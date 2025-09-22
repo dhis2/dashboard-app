@@ -59,12 +59,7 @@ export const SlideshowFiltersInfo = () => {
 
     return (
         <>
-            {!multipleFilters ? (
-                <span className={styles.singleFilterText}>
-                    <IconFilter16 />
-                    {filterMessage}
-                </span>
-            ) : (
+            {multipleFilters ? (
                 <button
                     ref={ref}
                     className={styles.filterButton}
@@ -77,6 +72,11 @@ export const SlideshowFiltersInfo = () => {
                         defaultValue_plural: '{{count}} filters active',
                     })}
                 </button>
+            ) : (
+                <span className={styles.singleFilterText}>
+                    <IconFilter16 />
+                    {filterMessage}
+                </span>
             )}
             {isOpen && multipleFilters && (
                 <Layer disablePortal onClick={() => setIsOpen(false)}>
