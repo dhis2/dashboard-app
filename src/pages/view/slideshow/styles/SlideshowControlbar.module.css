@@ -28,9 +28,10 @@
 
 .end {
     justify-content: end;
+    gap: 4px;
 }
 
-.container button {
+.button {
     color: var(--colors-grey300);
     background-color: #171819;
     border-radius: 3px;
@@ -38,19 +39,17 @@
     padding: 4px;
     cursor: pointer;
     flex-grow: 0;
-}
-
-.container button:hover {
-    background-color: #202124;
-}
-
-.container button:disabled {
-    cursor: not-allowed;
-}
-
-.container button.squareButton {
     inline-size: 32px;
     block-size: 32px;
+    position: relative;
+}
+
+.button:hover {
+    background-color: #343539;
+}
+
+.button:disabled {
+    cursor: not-allowed;
 }
 
 .controls {
@@ -70,4 +69,38 @@
     /* avoid moving buttons for most counts below 999 items */
     text-align: center;
     user-select: none;
+}
+
+.autoplayControls {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 4px;
+}
+
+.autoplaySettingsPopper {
+    border: 1px solid rgb(243, 245, 247);
+    box-shadow: rgba(12, 14, 16, 0.15) 0px 4px 12px,
+        rgba(12, 14, 16, 0.05) 0px 0px 0px 1px;
+}
+
+.outdatedMessage {
+    background-color: #171819;
+    font-size: 14px;
+    color: white;
+    display: flex;
+    align-items: center;
+    padding: 0 var(--spacers-dp4);
+    border-radius: 3px;
+    gap: var(--spacers-dp4);
+    justify-content: center;
+    block-size: 32px;
+}
+
+.selectedMenuItem {
+    background-color: rgb(241, 249, 249) !important;
+}
+
+.unselectedMenuItem svg {
+    display: none;
 }

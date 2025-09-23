@@ -5,8 +5,8 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1)\n"
-"POT-Creation-Date: 2025-07-04T15:00:39.114Z\n"
-"PO-Revision-Date: 2025-07-04T15:00:39.114Z\n"
+"POT-Creation-Date: 2025-09-17T08:18:00.830Z\n"
+"PO-Revision-Date: 2025-09-17T08:18:00.831Z\n"
 
 msgid "Untitled dashboard"
 msgstr "Untitled dashboard"
@@ -712,23 +712,6 @@ msgstr ""
 msgid "Yes, remove filters"
 msgstr "Yes, remove filters"
 
-msgid "Exit slideshow"
-msgstr "Exit slideshow"
-
-msgid "Previous item"
-msgstr "Previous item"
-
-msgid "Next item"
-msgstr "Next item"
-
-msgid "{{name}}: {{filter}}"
-msgstr "{{name}}: {{filter}}"
-
-msgid "{{count}} filters active"
-msgid_plural "{{count}} filters active"
-msgstr[0] "{{count}} filter active"
-msgstr[1] "{{count}} filters active"
-
 msgid ""
 "There was a problem loading the embedded dashboard content from an external "
 "service"
@@ -768,3 +751,38 @@ msgstr "This dashboard cannot be loaded while offline."
 
 msgid "Go to start page"
 msgstr "Go to start page"
+
+msgid "Slideshow started over 24 hours ago"
+msgstr "Slideshow started over 24 hours ago"
+
+msgid "Exit slideshow"
+msgstr "Exit slideshow"
+
+msgid "Previous item"
+msgstr "Previous item"
+
+msgid "Next item"
+msgstr "Next item"
+
+msgid "{{name}}: {{filter}}"
+msgstr "{{name}}: {{filter}}"
+
+msgid "{{count}} filters active"
+msgid_plural "{{count}} filters active"
+msgstr[0] "{{count}} filter active"
+msgstr[1] "{{count}} filters active"
+
+msgid "10 seconds per slide"
+msgstr "10 seconds per slide"
+
+msgid "20 seconds per slide"
+msgstr "20 seconds per slide"
+
+msgid "30 seconds per slide"
+msgstr "30 seconds per slide"
+
+msgid "1 minute per slide"
+msgstr "1 minute per slide"
+
+msgid "2 minutes per slide"
+msgstr "2 minutes per slide"
