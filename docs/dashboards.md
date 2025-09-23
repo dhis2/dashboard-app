@@ -240,7 +240,7 @@ Slideshow control bar:
 
 The slideshow can be autoplayed, or navigated manually.
 
-When you enter the slideshow, it is paused. Click the play/pause button in the control bar to start the autoplay, which means the slides will automatically advance according to the timing setting. Once the slideshow has reached the last slide, it will restart automatically. If 24 hours has passed since the slideshow began, a message stating as such will appear in the control bar, since data does not refresh during the slideshow and may be considered out of date for certain visualizations.
+When you enter the slideshow, it is paused. Click the play/pause button in the control bar to start the autoplay, and the slides will automatically advance according to the timing setting. A countdown bar is visible on the play/pause button while the slideshow is playing. Once the slideshow has reached the last slide, it will restart automatically. If 24 hours has passed since the slideshow began, a message stating as such will appear in the control bar, since data does not refresh during the slideshow and may be considered out of date for certain visualizations.
 
 The autoplay controls include the play/pause button and the timing settings button. The user's most recent selected timing setting is remembered for the next time the slideshow is started.
 
@@ -252,7 +252,7 @@ Exit the slideshow with the **esc** key or by pressing the exit button.
 
 Any filters that are applied will be displayed in the slideshow control bar. Note that messages and spacer items are not displayed in the slideshow.
 
-![Slideshow navigation bar](resources/images/dashboard-slideshow-navbar.png)
+![Slideshow navigation bar](resources/images/slideshow-filters.png)
 
 ### Make dashboards available offline
 
