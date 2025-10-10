@@ -203,7 +203,7 @@ To toggle the description, open the **...** menu and choose **Show description**
 
 ### Star dashboards { #dashboard-star-dashboard }
 
-Your starred dashboards are listed first in the list of dashboards for quick access. To star a dashboard, click on the star button to the right of the title. You can also toggle the star from the **...** menu. When the star is “filled”, that means the dashboard is starred. Starring a dashboard only applies to you, not other users.
+Your starred dashboards are listed first in the list of dashboards for quick access. To star a dashboard, click on the star button to the right of the title. You can also toggle the star from the **...** menu. When the star is “filled”, that means the dashboard is starred. Starring a dashboard only applies to you, not other users. and blad baeaj jfkawle.
 
 ### Filter a dashboard
 
