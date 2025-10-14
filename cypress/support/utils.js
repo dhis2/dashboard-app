@@ -56,3 +56,14 @@ export const goOnline = () => {
 export const createDashboardTitle = (prefix) => {
     return prefix + new Date().toUTCString().slice(-12, -4)
 }
+
+export const parseVersionFromEnvToInt = () => {
+    // could be '2.41', '41', 2.41 or 41
+    const numberOrString = Cypress.env('dhis2InstanceVersion')
+    // could be '2.41' or '41'
+    const str = String(numberOrString)
+    // '41'
+    const minor = str.split('.').pop()
+    // 41
+    return parseInt(minor)
+}

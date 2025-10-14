@@ -1,0 +1,72 @@
+.progress {
+    position: absolute;
+    inset-block-end: 0;
+    inset-inline-start: 0;
+    block-size: 3px;
+    background-color: var(--colors-grey500);
+    opacity: 1;
+    animation-name: countdown;
+    animation-timing-function: linear;
+    transform-origin: left;
+}
+
+:dir(rtl) .progress {
+    transform-origin: right;
+}
+
+@keyframes countdown {
+    from {
+        transform: scaleX(1);
+    }
+    to {
+        transform: scaleX(0);
+    }
+}
+
+.clipper {
+    position: absolute;
+    inset-inline-start: 0;
+    inset-block-end: 0;
+    block-size: 3px;
+    inline-size: 32px;
+    background: transparent;
+    overflow: hidden;
+}
+
+.clipper::before,
+.clipper::after {
+    content: '';
+    position: absolute;
+    inset-block-start: 0;
+    inline-size: 6px;
+    block-size: 6px;
+    background: transparent;
+    border-block-start: none;
+    border-block-end: 3px solid black;
+}
+
+.clipper::before {
+    border-inline-start: 3px solid black;
+    inset-inline-start: -3px;
+    border-radius: 0 0 0 6px;
+}
+
+:dir(rtl) .clipper::before {
+    border-inline-start: none;
+    border-inline-end: 3px solid black;
+    inset-inline-start: auto;
+    inset-inline-end: -3px;
+}
+
+.clipper::after {
+    border-inline-end: 3px solid black;
+    inset-inline-end: -3px;
+    border-radius: 0 0 6px 0;
+}
+
+:dir(rtl) .clipper::after {
+    border-inline-end: none;
+    border-inline-start: 3px solid black;
+    inset-inline-end: auto;
+    inset-inline-start: -3px;
+}

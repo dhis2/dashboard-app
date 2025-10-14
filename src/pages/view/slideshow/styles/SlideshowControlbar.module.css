@@ -1,0 +1,106 @@
+.container {
+    position: fixed;
+    inset-block-end: 0;
+    inline-size: 100vw;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: black;
+    padding-inline-start: 4px;
+    padding-inline-end: 4px;
+    z-index: 10;
+}
+.start,
+.middle,
+.end {
+    display: flex;
+    align-items: center;
+    inline-size: calc(100% / 3);
+}
+
+.start {
+    justify-content: start;
+}
+
+.middle {
+    justify-content: center;
+}
+
+.end {
+    justify-content: end;
+    gap: 4px;
+}
+
+.button {
+    color: var(--colors-grey300);
+    background-color: #171819;
+    border-radius: 3px;
+    border: none;
+    padding: 4px;
+    cursor: pointer;
+    flex-grow: 0;
+    inline-size: 32px;
+    block-size: 32px;
+    position: relative;
+}
+
+.button:hover {
+    background-color: #343539;
+}
+
+.button:disabled {
+    cursor: not-allowed;
+}
+
+.controls {
+    padding: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.pageCounter {
+    font-weight: 400;
+    font-style: normal;
+    color: var(--colors-grey300);
+    font-size: 14px;
+    margin: 0 8px;
+    min-inline-size: 60px;
+    /* avoid moving buttons for most counts below 999 items */
+    text-align: center;
+    user-select: none;
+}
+
+.autoplayControls {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 4px;
+}
+
+.autoplaySettingsPopper {
+    border: 1px solid rgb(243, 245, 247);
+    box-shadow: rgba(12, 14, 16, 0.15) 0px 4px 12px,
+        rgba(12, 14, 16, 0.05) 0px 0px 0px 1px;
+}
+
+.outdatedMessage {
+    background-color: #171819;
+    font-size: 14px;
+    color: white;
+    display: flex;
+    align-items: center;
+    padding: 0 var(--spacers-dp4);
+    border-radius: 3px;
+    gap: var(--spacers-dp4);
+    justify-content: center;
+    block-size: 32px;
+}
+
+.selectedMenuItem {
+    background-color: rgb(241, 249, 249) !important;
+}
+
+.unselectedMenuItem svg {
+    display: none;
+}

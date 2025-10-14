@@ -15,4 +15,7 @@
     .hideOnSmallScreen {
         display: none;
     }
+    .actions {
+        padding-inline-end: var(--spacers-dp4);
+    }
 }

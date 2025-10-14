@@ -34,3 +34,15 @@ export const clickViewActionButton = (action) =>
         .find('button')
         .contains(action, EXTENDED_TIMEOUT)
         .click()
+
+export const confirmViewMode = (dashboardTitle) => {
+    cy.url().should('not.include', 'edit')
+
+    if (dashboardTitle) {
+        cy.get(dashboardTitleSel, EXTENDED_TIMEOUT)
+            .should('be.visible')
+            .and('contain', dashboardTitle)
+    } else {
+        cy.get(dashboardTitleSel, EXTENDED_TIMEOUT).should('be.visible')
+    }
+}

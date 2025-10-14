@@ -5,7 +5,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2025-03-05T13:32:39.554Z\n"
+"POT-Creation-Date: 2025-07-04T15:00:39.114Z\n"
 "PO-Revision-Date: 2019-06-25 12:37+0000\n"
 "Last-Translator: Jiří Podhorecký <jirka.p@volny.cz>, 2025\n"
 "Language-Team: Czech (https://app.transifex.com/hisp-uio/teams/100509/cs/)\n"
@@ -18,8 +18,132 @@ msgstr ""
 msgid "Untitled dashboard"
 msgstr "Ovládací panel bez názvu"
 
-msgid "Dashboards"
-msgstr "Ovládací panely"
+msgid "Could not get info from Superset gateway endpoint"
+msgstr "Nelze získat informace z koncového bodu brány Superset"
+
+msgid "Dashboard with ID \"{{dashboardId}}\" not found or not accessible"
+msgstr "Ovládací panel s ID \"{{dashboardId}}\" nebyl nalezen nebo není přístupný"
+
+msgid "Dashboard with ID \"{{dashboardId}}\" is not embedded"
+msgstr "Ovládací panel s ID \"{{dashboardId}}\" není vložen"
+
+msgid "Embedded provider must be \"SUPERSET\" for dashboard ID \"{{dashboardId}}\""
+msgstr ""
+
+msgid "Superset Embed UUID not found for dashboard ID \"{{dashboardId}}\""
+msgstr ""
+
+msgid "Dashboard with ID \"{{dashboardId}}\" not found on the Superset service"
+msgstr ""
+
+msgid ""
+"Could not get guest token from Superset Gateway for dashboard ID "
+"\"{{dashboardId}}\""
+msgstr ""
+
+msgid "Network error"
+msgstr "Chyba sítě"
+
+msgid "Could not load app data"
+msgstr ""
+
+msgid "New dashboard: external"
+msgstr "Nový ovládací panel: externí"
+
+msgid "Could not create dashboard"
+msgstr "Nelze vytvořit ovládací panel"
+
+msgid "An unknown error occurred"
+msgstr "Nastala neznámá chyba"
+
+msgid "Save dashboard"
+msgstr "Uložit ovládací panel"
+
+msgid "Back"
+msgstr "Zpět"
+
+msgid "Title"
+msgstr "Titul"
+
+msgid "Code"
+msgstr "Kód"
+
+msgid ""
+"A unique code to reference this dashboard in other apps and services. Max 50"
+" characters."
+msgstr ""
+"Jedinečný kód pro odkazování na tento ovládací panel v jiných aplikacích a "
+"službách. Maximálně 50 znaků."
+
+msgid "Code can't be longer than 50 characters"
+msgstr "Kód nesmí být delší než 50 znaků"
+
+msgid "Description"
+msgstr "Popis"
+
+msgid "Superset Embed ID"
+msgstr "Superset Embed ID"
+
+msgid "Invalid UUID"
+msgstr "Neplatné UUID"
+
+msgid "Options"
+msgstr "Možnosti"
+
+msgid "Show chart controls on dashboard items"
+msgstr "Zobrazení ovládacích prvků grafu na položkách ovládacího panelu"
+
+msgid "Expand filters"
+msgstr "Rozbalit filtry"
+
+msgid "Delete dashboard"
+msgstr "Smazat ovládací panel"
+
+msgid ""
+"Deleting dashboard \"{{ dashboardName }}\" will remove it for all users. "
+"This action cannot be undone. Are you sure you want to permanently delete "
+"this dashboard?"
+msgstr ""
+"Smazáním ovládacího panelu \"{{ dashboardName }}\"  bude odstraněn pro "
+"všechny uživatele. Tuto akci nelze vrátit zpět. Opravdu chcete tento "
+"ovládací panel trvale smazat?"
+
+msgid ""
+"Note: the source dashboard embedded by this external dashboard will not be "
+"deleted."
+msgstr ""
+"Poznámka: zdrojový ovládací panel vložený tímto externím ovládacím panelem "
+"nebude odstraněn."
+
+msgid "Delete"
+msgstr "Smazat"
+
+msgid "Cancel"
+msgstr "Zrušit"
+
+msgid "Edit external dashboard"
+msgstr "Upravit externí ovládací panel"
+
+msgid "New dashboard: choose type"
+msgstr "Nový ovládací panel: vyberte typ"
+
+msgid "Internal"
+msgstr "Interní"
+
+msgid "Show data and visualizations from this DHIS2 instance."
+msgstr "Zobrazit data a vizualizace z této instance DHIS2."
+
+msgid "External"
+msgstr "Externí"
+
+msgid "Embed a Superset dashboard"
+msgstr ""
+
+msgid "Continue"
+msgstr "Pokračovat"
+
+msgid "Not available for embedded dashboards"
+msgstr "Není k dispozici pro vestavěné ovládací panely"
 
 msgid "The dashboard couldn't be made available offline. Try again."
 msgstr "Ovládací panel nelze zpřístupnit offline. Zkuste to znovu."
@@ -58,7 +182,7 @@ msgid "Close dashboard"
 msgstr "Zavřete ovládací panel"
 
 msgid "No dashboard items to show in slideshow"
-msgstr ""
+msgstr "Žádné položky ovládacího panelu k zobrazení v prezentaci"
 
 msgid "Not available offline"
 msgstr "Není k dispozici offline"
@@ -70,7 +194,7 @@ msgid "Share"
 msgstr "Sdílet"
 
 msgid "Slideshow"
-msgstr ""
+msgstr "Prezentace"
 
 msgid "Clear dashboard filters?"
 msgstr "Vymazat filtry na ovládacím panelu?"
@@ -88,8 +212,11 @@ msgstr "Ne, zrušit"
 msgid "Yes, clear filters and sync"
 msgstr "Ano, vymazat filtry a synchronizovat"
 
-msgid "Cancel"
-msgstr "Zrušit"
+msgid "This dashboard is showing data from outside this system"
+msgstr "Tento ovládací panel zobrazuje data mimo tento systém"
+
+msgid "External source"
+msgstr "Externí zdroj"
 
 msgid "Confirm"
 msgstr "Potvrdit"
@@ -107,7 +234,7 @@ msgid "Offline data last updated {{timeAgo}}"
 msgstr "Offline data naposledy aktualizována {{timeAgo}}"
 
 msgid "Synced {{timeAgo}}"
-msgstr ""
+msgstr "Synchronizováno {{timeAgo}}"
 
 msgid "Cannot unstar this dashboard while offline"
 msgstr "U ovládacího panelu nelze odebrat hvězdičku, když jste offline"
@@ -116,31 +243,28 @@ msgid "Cannot star this dashboard while offline"
 msgstr "Tento offline panel nelze označit hvězdičkou, když jste offline"
 
 msgid "No dashboards available."
-msgstr ""
+msgstr "Nejsou k dispozici žádné ovládací panely."
 
 msgid "Create a new dashboard using the + button."
-msgstr ""
+msgstr "Vytvořte nový ovládací panel pomocí tlačítka +."
 
 msgid "Search for a dashboard"
 msgstr "Vyhledat ovládací panel"
 
 msgid "No dashboards found for \"{{- filterText}}\""
-msgstr ""
+msgstr "Nenalezeny žádné ovládací panely pro \"{{- filterText}}\""
 
-msgid "Could not fetch bundled apps"
-msgstr ""
-
-msgid "Network error"
-msgstr "Chyba sítě"
+msgid "Dashboards"
+msgstr "Ovládací panely"
 
 msgid "There was a problem loading this dashboard item"
 msgstr "Při načítání této položky ovládacího panelu došlo k problému"
 
 msgid "Open menu"
-msgstr ""
+msgstr "Otevřít nabídku"
 
 msgid "Open in {{appName}}"
-msgstr ""
+msgstr "Otevřít v {{appName}}"
 
 msgid "View fullscreen"
 msgstr "Zobrazit na celou obrazovku"
@@ -152,7 +276,7 @@ msgid "This item has been shortened to fit on one page"
 msgstr "Tato položka byla zkrácena tak, aby se vešla na jednu stránku"
 
 msgid "The plugin needed to display this item is not available"
-msgstr ""
+msgstr "Zásuvný modul potřebný k zobrazení této položky není k dispozici"
 
 msgid "Install the {{pluginName}} plugin from the App Hub"
 msgstr ""
@@ -206,10 +330,10 @@ msgid "Filters not applied"
 msgstr "Filtry nejsou použity"
 
 msgid "Only Period and Organisation unit filters can be applied to this item"
-msgstr ""
+msgstr "Na tuto položku lze použít pouze filtry období a organizační jednotky"
 
 msgid "Some filters not applied"
-msgstr ""
+msgstr "Některé filtry nebyly použity"
 
 msgid "Hide details and interpretations"
 msgstr "Skrýt podrobnosti a interpretace"
@@ -224,19 +348,19 @@ msgid "This map can't be displayed as a chart"
 msgstr "Tuto mapu nelze zobrazit jako graf"
 
 msgid "This map can't be displayed as a pivot table"
-msgstr ""
+msgstr "Tuto mapu nelze zobrazit jako kontingenční tabulku"
 
 msgid "This visualization can't be displayed as a pivot table"
-msgstr ""
+msgstr "Tuto vizualizaci nelze zobrazit jako kontingenční tabulku."
 
 msgid "This visualization can't be displayed as a map"
-msgstr ""
+msgstr "Tuto vizualizaci nelze zobrazit jako mapu"
 
 msgid "View as Chart"
 msgstr "Zobrazit jako graf"
 
 msgid "View as Pivot table"
-msgstr ""
+msgstr "Zobrazení jako kontingenční tabulka"
 
 msgid "View as Map"
 msgstr "Zobrazit jako mapu"
@@ -307,6 +431,15 @@ msgstr "Aplikace"
 msgid "Users"
 msgstr "Uživatelé"
 
+msgid "Could not update dashboard {{name}}"
+msgstr ""
+
+msgid "Could not delete dashboard {{name}}"
+msgstr ""
+
+msgid "Could not load dashboard details"
+msgstr ""
+
 msgid ""
 "Failed to save dashboard. You might be offline or not have access to edit "
 "this dashboard."
@@ -349,17 +482,11 @@ msgstr "Přeložit"
 msgid "Cannot delete this dashboard while offline"
 msgstr "Ovládací panel nelze smazat, když jste offline"
 
-msgid "Delete"
-msgstr "Smazat"
-
 msgid "Exit without saving"
 msgstr "Odejít bez uložení"
 
 msgid "Go to dashboards"
 msgstr "Přejít na ovládací panely"
-
-msgid "Delete dashboard"
-msgstr "Smazat ovládací panel"
 
 msgid ""
 "Deleting dashboard \"{{- dashboardName }}\" will remove it for all users. "
@@ -432,7 +559,7 @@ msgid "Show more"
 msgstr "Zobrazit více"
 
 msgid "Open visualization in new tab"
-msgstr ""
+msgstr "Otevřít vizualizaci na nové kartě"
 
 msgid "Insert"
 msgstr "Vložit"
@@ -468,19 +595,6 @@ msgstr ""
 msgid "Number of columns"
 msgstr "Počet sloupců"
 
-msgid "Gap size between columns (px)"
-msgstr "Velikost mezery mezi sloupci (px)"
-
-msgid ""
-"Default height only applies to items added to a dashboard, this setting will"
-" not change existing items"
-msgstr ""
-"Výchozí výška platí pouze pro položky přidané na ovládací panel, toto "
-"nastavení nezmění stávající položky"
-
-msgid "Default height for items added to dashboard (rows)"
-msgstr "Výchozí výška pro položky přidané na ovládací panel (řádky)"
-
 msgid "Save layout"
 msgstr "Uložit rozvržení"
 
@@ -489,9 +603,6 @@ msgstr "Název ovládacího panelu"
 
 msgid "Dashboard code"
 msgstr "Kód ovládacího panelu"
-
-msgid "Code can't be longer than 50 characters"
-msgstr "Kód nesmí být delší než 50 znaků"
 
 msgid "Dashboard description"
 msgstr "Popis ovládacího panelu"
@@ -582,10 +693,10 @@ msgstr[2] "Vybráno {{count}}"
 msgstr[3] "Vybráno {{count}}"
 
 msgid "Cannot edit filters while offline"
-msgstr ""
+msgstr "Nelze upravovat filtry v režimu offline"
 
 msgid "Cannot edit filters on a small screen"
-msgstr ""
+msgstr "Nelze upravovat filtry na malé obrazovce"
 
 msgid "Removing filters while offline"
 msgstr "Odebírání filtrů při offline"
@@ -601,23 +712,40 @@ msgid "Yes, remove filters"
 msgstr "Ano, odstranit filtry"
 
 msgid "Exit slideshow"
-msgstr ""
+msgstr "Ukončit prezentaci"
 
 msgid "Previous item"
-msgstr ""
+msgstr "Předchozí položka"
 
 msgid "Next item"
-msgstr ""
+msgstr "Další položka"
 
 msgid "{{name}}: {{filter}}"
-msgstr ""
+msgstr "{{name}}: {{filter}}"
 
 msgid "{{count}} filters active"
 msgid_plural "{{count}} filters active"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
-msgstr[3] ""
+msgstr[0] "{{count}} aktivní filtr"
+msgstr[1] "{{count}} aktivní filtry"
+msgstr[2] "{{count}} aktivní filtry"
+msgstr[3] "{{count}} aktivní filtry"
+
+msgid ""
+"There was a problem loading the embedded dashboard content from an external "
+"service"
+msgstr ""
+
+msgid "Fetching external dashboard"
+msgstr "Získání externího ovládacího panelu"
+
+msgid "Error"
+msgstr "Chyba"
+
+msgid "Could not load Superset dashboard"
+msgstr ""
+
+msgid "Retry"
+msgstr "Opakovat"
 
 msgid "Loading dashboard – {{name}}"
 msgstr "Načítání ovládacího panelu – {{name}}"

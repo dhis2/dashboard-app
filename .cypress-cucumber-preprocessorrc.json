@@ -1,6 +1,0 @@
-{
-    "nonGlobalStepDefinitions": true,
-    "e2e": {
-        "stepDefinitions": ["cypress/e2e_cucumber/**/*.{js,ts}"]
-    }
-}

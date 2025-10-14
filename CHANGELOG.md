@@ -1,3 +1,94 @@
+# [101.4.0](https://github.com/dhis2/dashboard-app/compare/v101.3.3...v101.4.0) (2025-09-23)
+
+
+### Features
+
+* slideshow autoplay (DHIS2-18907) ([#3285](https://github.com/dhis2/dashboard-app/issues/3285)) ([37393ee](https://github.com/dhis2/dashboard-app/commit/37393ee984d803958fec9d82b697de2b9d18503c))
+
+## [101.3.3](https://github.com/dhis2/dashboard-app/compare/v101.3.2...v101.3.3) (2025-08-14)
+
+
+### Bug Fixes
+
+* update cli-app-scripts to open links in same tab [DHIS2-19973] ([#3308](https://github.com/dhis2/dashboard-app/issues/3308)) ([818c86e](https://github.com/dhis2/dashboard-app/commit/818c86e512a507a8e67986ced1f426e0fa03dcb9))
+
+## [101.3.2](https://github.com/dhis2/dashboard-app/compare/v101.3.1...v101.3.2) (2025-07-30)
+
+
+### Bug Fixes
+
+* **translations:** sync translations from transifex (master) ([#3270](https://github.com/dhis2/dashboard-app/issues/3270)) ([e7e935e](https://github.com/dhis2/dashboard-app/commit/e7e935ed04e721bbe66ec5568e0455df90d7194a))
+
+## [101.3.1](https://github.com/dhis2/dashboard-app/compare/v101.3.0...v101.3.1) (2025-06-11)
+
+
+### Bug Fixes
+
+* avoid crash with TranslationDialog (DHIS2-19539) ([#3279](https://github.com/dhis2/dashboard-app/issues/3279)) ([c863da1](https://github.com/dhis2/dashboard-app/commit/c863da17a9e1c7ffb6b4c43685971211f7a87b2c))
+
+# [101.3.0](https://github.com/dhis2/dashboard-app/compare/v101.2.3...v101.3.0) (2025-05-05)
+
+
+### Features
+
+* allow widgets to be filtered by period [DHIS2-19186] ([#3255](https://github.com/dhis2/dashboard-app/issues/3255)) ([1e0ddc9](https://github.com/dhis2/dashboard-app/commit/1e0ddc904b799036730de50c919a8309a514af12))
+
+## [101.2.3](https://github.com/dhis2/dashboard-app/compare/v101.2.2...v101.2.3) (2025-04-28)
+
+
+### Bug Fixes
+
+* use correct icon for Line List items in item selector (DHIS2-18470) ([#3260](https://github.com/dhis2/dashboard-app/issues/3260)) ([94491fb](https://github.com/dhis2/dashboard-app/commit/94491fb2bba4264402413b8bd683339cce1e584d))
+
+## [101.2.2](https://github.com/dhis2/dashboard-app/compare/v101.2.1...v101.2.2) (2025-04-25)
+
+
+### Bug Fixes
+
+* show dashboard selector in small screens (DHIS2-19273) ([#3256](https://github.com/dhis2/dashboard-app/issues/3256)) ([1623d2a](https://github.com/dhis2/dashboard-app/commit/1623d2aa1b590158c1a9a0c70007e585759b9d1d))
+
+## [101.2.1](https://github.com/dhis2/dashboard-app/compare/v101.2.0...v101.2.1) (2025-04-08)
+
+
+### Bug Fixes
+
+* hide the global header in print mode [DHIS2-19241] ([#3245](https://github.com/dhis2/dashboard-app/issues/3245)) ([e745560](https://github.com/dhis2/dashboard-app/commit/e745560f8f31a19aefd3ade71c8a8b2409b1cbc4))
+
+# [101.2.0](https://github.com/dhis2/dashboard-app/compare/v101.1.7...v101.2.0) (2025-04-03)
+
+
+### Features
+
+* display error when Superset gateway configuration is invalid [DHIS2-19275] ([#3247](https://github.com/dhis2/dashboard-app/issues/3247)) ([32a007c](https://github.com/dhis2/dashboard-app/commit/32a007c7e45f6d6d9d2368e70d2b3c711bbc2d9c))
+
+## [101.1.7](https://github.com/dhis2/dashboard-app/compare/v101.1.6...v101.1.7) (2025-04-03)
+
+
+### Bug Fixes
+
+* **translations:** sync translations from transifex (master) ([fdf56d2](https://github.com/dhis2/dashboard-app/commit/fdf56d26ac25081b5aaeeab32efe88205dbe9b95))
+
+## [101.1.6](https://github.com/dhis2/dashboard-app/compare/v101.1.5...v101.1.6) (2025-04-01)
+
+
+### Bug Fixes
+
+* ensure hyperlinks in text and list items work when using the global shell [DHIS2-19274] ([#3252](https://github.com/dhis2/dashboard-app/issues/3252)) ([1fca676](https://github.com/dhis2/dashboard-app/commit/1fca676086d96a7f94deec217607176e9ef4e98b))
+
+## [101.1.5](https://github.com/dhis2/dashboard-app/compare/v101.1.4...v101.1.5) (2025-03-31)
+
+
+### Bug Fixes
+
+* ensure widgets work with global shell (DHIS2-19276) ([#3253](https://github.com/dhis2/dashboard-app/issues/3253)) ([6790b73](https://github.com/dhis2/dashboard-app/commit/6790b734483e98fa6707441b1a23b34450bf13fe))
+
+## [101.1.4](https://github.com/dhis2/dashboard-app/compare/v101.1.3...v101.1.4) (2025-03-26)
+
+
+### Bug Fixes
+
+* Ensure external dashboard fields do not have undefined initial values ([#3246](https://github.com/dhis2/dashboard-app/issues/3246)) ([d63eaa6](https://github.com/dhis2/dashboard-app/commit/d63eaa6c89ee603af13cd15a9d9e6054fb249bfa))
+
 ## [101.1.3](https://github.com/dhis2/dashboard-app/compare/v101.1.2...v101.1.3) (2025-03-18)
 
 

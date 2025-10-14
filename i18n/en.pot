@@ -5,8 +5,8 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1)\n"
-"POT-Creation-Date: 2025-03-18T14:27:12.993Z\n"
-"PO-Revision-Date: 2025-03-18T14:27:12.995Z\n"
+"POT-Creation-Date: 2025-09-17T08:18:00.830Z\n"
+"PO-Revision-Date: 2025-09-17T08:18:00.831Z\n"
 
 msgid "Untitled dashboard"
 msgstr "Untitled dashboard"
@@ -35,6 +35,12 @@ msgid ""
 msgstr ""
 "Could not get guest token from Superset Gateway for dashboard ID "
 "\"{{dashboardId}}\""
+
+msgid "Network error"
+msgstr "Network error"
+
+msgid "Could not load app data"
+msgstr "Could not load app data"
 
 msgid "New dashboard: external"
 msgstr "New dashboard: external"
@@ -201,6 +207,12 @@ msgstr "No, cancel"
 msgid "Yes, clear filters and sync"
 msgstr "Yes, clear filters and sync"
 
+msgid "This dashboard is showing data from outside this system"
+msgstr "This dashboard is showing data from outside this system"
+
+msgid "External source"
+msgstr "External source"
+
 msgid "Confirm"
 msgstr "Confirm"
 
@@ -212,12 +224,6 @@ msgstr "Failed to unstar the dashboard"
 
 msgid "Failed to star the dashboard"
 msgstr "Failed to star the dashboard"
-
-msgid "This dashboard is showing data from outside this system"
-msgstr "This dashboard is showing data from outside this system"
-
-msgid "External source"
-msgstr "External source"
 
 msgid "Offline data last updated {{timeAgo}}"
 msgstr "Offline data last updated {{timeAgo}}"
@@ -245,12 +251,6 @@ msgstr "No dashboards found for \"{{- filterText}}\""
 
 msgid "Dashboards"
 msgstr "Dashboards"
-
-msgid "Could not fetch bundled apps"
-msgstr "Could not fetch bundled apps"
-
-msgid "Network error"
-msgstr "Network error"
 
 msgid "There was a problem loading this dashboard item"
 msgstr "There was a problem loading this dashboard item"
@@ -603,19 +603,6 @@ msgstr ""
 msgid "Number of columns"
 msgstr "Number of columns"
 
-msgid "Gap size between columns (px)"
-msgstr "Gap size between columns (px)"
-
-msgid ""
-"Default height only applies to items added to a dashboard, this setting "
-"will not change existing items"
-msgstr ""
-"Default height only applies to items added to a dashboard, this setting "
-"will not change existing items"
-
-msgid "Default height for items added to dashboard (rows)"
-msgstr "Default height for items added to dashboard (rows)"
-
 msgid "Save layout"
 msgstr "Save layout"
 
@@ -725,22 +712,12 @@ msgstr ""
 msgid "Yes, remove filters"
 msgstr "Yes, remove filters"
 
-msgid "Exit slideshow"
-msgstr "Exit slideshow"
-
-msgid "Previous item"
-msgstr "Previous item"
-
-msgid "Next item"
-msgstr "Next item"
-
-msgid "{{name}}: {{filter}}"
-msgstr "{{name}}: {{filter}}"
-
-msgid "{{count}} filters active"
-msgid_plural "{{count}} filters active"
-msgstr[0] "{{count}} filter active"
-msgstr[1] "{{count}} filters active"
+msgid ""
+"There was a problem loading the embedded dashboard content from an external "
+"service"
+msgstr ""
+"There was a problem loading the embedded dashboard content from an external "
+"service"
 
 msgid "Fetching external dashboard"
 msgstr "Fetching external dashboard"
@@ -774,3 +751,38 @@ msgstr "This dashboard cannot be loaded while offline."
 
 msgid "Go to start page"
 msgstr "Go to start page"
+
+msgid "Slideshow started over 24 hours ago"
+msgstr "Slideshow started over 24 hours ago"
+
+msgid "Exit slideshow"
+msgstr "Exit slideshow"
+
+msgid "Previous item"
+msgstr "Previous item"
+
+msgid "Next item"
+msgstr "Next item"
+
+msgid "{{name}}: {{filter}}"
+msgstr "{{name}}: {{filter}}"
+
+msgid "{{count}} filters active"
+msgid_plural "{{count}} filters active"
+msgstr[0] "{{count}} filter active"
+msgstr[1] "{{count}} filters active"
+
+msgid "10 seconds per slide"
+msgstr "10 seconds per slide"
+
+msgid "20 seconds per slide"
+msgstr "20 seconds per slide"
+
+msgid "30 seconds per slide"
+msgstr "30 seconds per slide"
+
+msgid "1 minute per slide"
+msgstr "1 minute per slide"
+
+msgid "2 minutes per slide"
+msgstr "2 minutes per slide"

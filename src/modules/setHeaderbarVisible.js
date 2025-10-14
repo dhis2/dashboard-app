@@ -1,8 +1,23 @@
 export const setHeaderbarVisible = (show) => {
-    const header = document.getElementsByTagName('header')[0]
+    // Header in the current iframe
+    const iframeHeader = document.getElementsByTagName('header')[0]
+
+    // Header provided by the global shell
+    const globalShellHeader = window.top.document.querySelector(
+        '.global-shell-header'
+    )
+
+    const setGlobalHeaderStyle = (value) => {
+        globalShellHeader.style.display = value
+    }
+
     if (show) {
-        header.classList.remove('hidden')
+        globalShellHeader
+            ? setGlobalHeaderStyle('block')
+            : iframeHeader?.classList.remove('hidden')
     } else {
-        header.classList.add('hidden')
+        globalShellHeader
+            ? setGlobalHeaderStyle('none')
+            : iframeHeader?.classList.add('hidden')
     }
 }
