@@ -1,3 +1,10 @@
+# [101.4.0](https://github.com/dhis2/dashboard-app/compare/v101.3.3...v101.4.0) (2025-09-23)
+
+
+### Features
+
+* slideshow autoplay (DHIS2-18907) ([#3285](https://github.com/dhis2/dashboard-app/issues/3285)) ([37393ee](https://github.com/dhis2/dashboard-app/commit/37393ee984d803958fec9d82b697de2b9d18503c))
+
 ## [101.3.3](https://github.com/dhis2/dashboard-app/compare/v101.3.2...v101.3.3) (2025-08-14)
 
 

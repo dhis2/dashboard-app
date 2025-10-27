@@ -4,6 +4,17 @@
     align-items: center;
     gap: var(--spacers-dp4);
     font-size: 14px;
+    user-select: none;
+    color: var(--colors-white);
+    background-color: transparent;
+    border-radius: 3px;
+    border: none;
+    padding: 4px;
+    cursor: pointer;
+}
+
+.filterButton:hover {
+    background-color: var(--colors-grey800);
 }
 
 .singleFilterText {
@@ -13,9 +24,10 @@
     font-size: 14px;
     inline-size: auto;
     color: var(--colors-grey300);
+    user-select: none;
 }
 
-.popover {
+.popper {
     border: 1px solid #202124;
     background-color: #171819;
     border-radius: 6px;
@@ -26,6 +38,8 @@
     min-inline-size: 200px;
     max-inline-size: 420px;
     margin-block-end: var(--spacers-dp4);
+    max-block-size: 50vh;
+    overflow-y: auto;
 }
 
 .filterSection:not(:last-of-type) {

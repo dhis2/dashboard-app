@@ -1,9 +1,9 @@
 import sortBy from 'lodash/sortBy.js'
 import { useState, useEffect, useMemo, useCallback } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
-import { acSetSlideshow } from '../../actions/slideshow.js'
-import { itemTypeSupportsFullscreen } from '../../modules/itemTypes.js'
-import { sGetSlideshow } from '../../reducers/slideshow.js'
+import { acSetSlideshow } from '../../../actions/slideshow.js'
+import { itemTypeSupportsFullscreen } from '../../../modules/itemTypes.js'
+import { sGetSlideshow } from '../../../reducers/slideshow.js'
 
 const useSlideshow = (displayItems, slideshowElementRef) => {
     const dispatch = useDispatch()
@@ -49,27 +49,27 @@ const useSlideshow = (displayItems, slideshowElementRef) => {
     }, [firstItemIndex, slideshowElementRef])
 
     // Exit button clicked
-    const exitSlideshow = () => {
+    const exitSlideshow = useCallback(() => {
         if (document.fullscreenElement) {
             document.exitFullscreen()
         }
-    }
+    }, [])
 
-    const nextItem = useCallback(() => {
-        if (itemIndex === sortedItems.length - 1) {
-            setItemIndex(0)
-        } else {
-            setItemIndex(itemIndex + 1)
-        }
-    }, [itemIndex, sortedItems])
+    const nextItem = useCallback(
+        () =>
+            setItemIndex((currIndex) =>
+                currIndex === sortedItems.length - 1 ? 0 : currIndex + 1
+            ),
+        [sortedItems]
+    )
 
-    const prevItem = useCallback(() => {
-        if (itemIndex === 0) {
-            setItemIndex(sortedItems.length - 1)
-        } else {
-            setItemIndex(itemIndex - 1)
-        }
-    }, [itemIndex, sortedItems])
+    const prevItem = useCallback(
+        () =>
+            setItemIndex((currIndex) =>
+                currIndex === 0 ? sortedItems.length - 1 : currIndex - 1
+            ),
+        [sortedItems]
+    )
 
     // Handle keyboard navigation for the slideshow
     useEffect(() => {
@@ -104,7 +104,7 @@ const useSlideshow = (displayItems, slideshowElementRef) => {
     }, [dispatch, nextItem, prevItem])
 
     return {
-        slideshowItemIndex: itemIndex,
+        itemIndex,
         slideshowElementRef,
         exitSlideshow,
         nextItem,

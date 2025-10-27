@@ -3,7 +3,7 @@ import { Layer, Popper, IconFilter16 } from '@dhis2/ui'
 import PropTypes from 'prop-types'
 import React, { useMemo, useState, useRef } from 'react'
 import { useSelector } from 'react-redux'
-import { msGetNamedItemFilters } from '../../reducers/itemFilters.js'
+import { msGetNamedItemFilters } from '../../../reducers/itemFilters.js'
 import styles from './styles/SlideshowFiltersInfo.module.css'
 
 const popperModifiers = [
@@ -59,12 +59,7 @@ export const SlideshowFiltersInfo = () => {
 
     return (
         <>
-            {!multipleFilters ? (
-                <span className={styles.singleFilterText}>
-                    <IconFilter16 />
-                    {filterMessage}
-                </span>
-            ) : (
+            {multipleFilters ? (
                 <button
                     ref={ref}
                     className={styles.filterButton}
@@ -77,11 +72,16 @@ export const SlideshowFiltersInfo = () => {
                         defaultValue_plural: '{{count}} filters active',
                     })}
                 </button>
+            ) : (
+                <span className={styles.singleFilterText}>
+                    <IconFilter16 />
+                    {filterMessage}
+                </span>
             )}
             {isOpen && multipleFilters && (
                 <Layer disablePortal onClick={() => setIsOpen(false)}>
                     <Popper
-                        className={styles.popover}
+                        className={styles.popper}
                         reference={ref}
                         placement="top-end"
                         modifiers={popperModifiers}
