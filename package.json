@@ -5,7 +5,7 @@
     "private": true,
     "license": "BSD-3-Clause",
     "dependencies": {
-        "@dhis2/analytics": "git+https://github.com/d2-ci/analytics.git#0bbcc4a5c3b17f3c37ec69404b0ff6a33b243e34",
+        "@dhis2/analytics": "git+https://github.com/d2-ci/analytics.git#1204d03291ae12fb824f99e38d98dd3da7000145",
         "@dhis2/app-runtime": "^3.14.4",
         "@dhis2/d2-i18n": "^1.1.3",
         "@dhis2/ui": "^10.7.4",
