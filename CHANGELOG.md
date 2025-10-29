@@ -1,3 +1,10 @@
+## [101.4.1](https://github.com/dhis2/dashboard-app/compare/v101.4.0...v101.4.1) (2025-10-29)
+
+
+### Bug Fixes
+
+* use interpretations provider from analytics ([#3312](https://github.com/dhis2/dashboard-app/issues/3312)) ([f43ae33](https://github.com/dhis2/dashboard-app/commit/f43ae339073adfbcd7923c05691a19e0ce63c2fe))
+
 # [101.4.0](https://github.com/dhis2/dashboard-app/compare/v101.3.3...v101.4.0) (2025-09-23)
 
 
