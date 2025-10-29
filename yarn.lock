@@ -1919,10 +1919,10 @@
     classnames "^2.3.1"
     prop-types "^15.7.2"
 
-"@dhis2/analytics@^28.0.4":
-  version "28.0.4"
-  resolved "https://registry.yarnpkg.com/@dhis2/analytics/-/analytics-28.0.4.tgz#ae77033b5db5faf839af3139fab16066f3ee1877"
-  integrity sha512-gqYAE+ZbyIB33k3hsjG5EVOxPD6Dv599p/FBIJ4JQa7dDg/Y4PXAbVfSlBZ/95PgFmHroPHmadf7U0aIdDUWww==
+"@dhis2/analytics@29.0.1":
+  version "29.0.1"
+  resolved "https://registry.yarnpkg.com/@dhis2/analytics/-/analytics-29.0.1.tgz#3670f95cc079438738b75fb4c874a27157b3bca3"
+  integrity sha512-JR48BXIe9PGeeXHZ54Jk2uc/pEa6v1k+xGFd0idCLUplB8W7VQ+arUNsq4UQHYOKwb4i6GTeNAn54VCN+MToqw==
   dependencies:
     "@dhis2/multi-calendar-dates" "^1.2.2"
     "@dnd-kit/core" "^6.0.7"

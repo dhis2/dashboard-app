@@ -54,13 +54,19 @@ it('adds translations', () => {
     const norwegianTitle = 'nor title'
     const norwegianDesc = 'nor desc'
 
-    cy.getByDataTest('dhis2-uicore-modal').find('textarea').eq(1).clear()
-    cy.getByDataTest('dhis2-uicore-modal')
+    cy.getByDataTest('dhis2-analytics-translation-modal')
+        .find('textarea')
+        .eq(1)
+        .clear()
+    cy.getByDataTest('dhis2-analytics-translation-modal')
         .find('textarea')
         .eq(1)
         .type(norwegianTitle)
-    cy.getByDataTest('dhis2-uicore-modal').find('textarea').last().clear()
-    cy.getByDataTest('dhis2-uicore-modal')
+    cy.getByDataTest('dhis2-analytics-translation-modal')
+        .find('textarea')
+        .last()
+        .clear()
+    cy.getByDataTest('dhis2-analytics-translation-modal')
         .find('textarea')
         .last()
         .type(norwegianDesc)

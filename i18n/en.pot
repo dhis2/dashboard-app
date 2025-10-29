@@ -5,8 +5,8 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1)\n"
-"POT-Creation-Date: 2025-09-17T08:18:00.830Z\n"
-"PO-Revision-Date: 2025-09-17T08:18:00.831Z\n"
+"POT-Creation-Date: 2025-10-28T16:09:41.600Z\n"
+"PO-Revision-Date: 2025-10-28T16:09:41.601Z\n"
 
 msgid "Untitled dashboard"
 msgstr "Untitled dashboard"
@@ -312,9 +312,6 @@ msgstr "Text box"
 msgid "Add text here"
 msgstr "Add text here"
 
-msgid "Back to all interpretations"
-msgstr "Back to all interpretations"
-
 msgid "Filters are not applied to line list dashboard items"
 msgstr "Filters are not applied to line list dashboard items"
 
@@ -357,8 +354,8 @@ msgstr "View as Pivot table"
 msgid "View as Map"
 msgstr "View as Map"
 
-msgid "There was a problem loading interpretations for this item"
-msgstr "There was a problem loading interpretations for this item"
+msgid "There was a problem loading details for this item"
+msgstr "There was a problem loading details for this item"
 
 msgid "No data to display"
 msgstr "No data to display"
