@@ -3,7 +3,6 @@ import i18n from '@dhis2/d2-i18n'
 import { useCallback, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { useHistory } from 'react-router-dom'
-import { tFetchDashboards } from '../actions/dashboards.js'
 import {
     acClearSelected,
     tSetSelectedDashboardById,
@@ -82,7 +81,6 @@ export const useSupersetDashboardMutation = ({ closeModal }) => {
         setMutationLoading(true)
         await deleteDashboard()
         dispatch(acClearSelected())
-        await dispatch(tFetchDashboards())
         setMutationLoading(false)
         setShowDeleteConfirmDialog(false)
         closeModal()
