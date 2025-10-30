@@ -1,3 +1,10 @@
+## [101.4.2](https://github.com/dhis2/dashboard-app/compare/v101.4.1...v101.4.2) (2025-10-30)
+
+
+### Bug Fixes
+
+* upgrade analytics to get interpretations fixes ([#3315](https://github.com/dhis2/dashboard-app/issues/3315)) ([fc734b5](https://github.com/dhis2/dashboard-app/commit/fc734b5c25b0c001c24f927daefc3a64c0db7414))
+
 ## [101.4.1](https://github.com/dhis2/dashboard-app/compare/v101.4.0...v101.4.1) (2025-10-29)
 
 
