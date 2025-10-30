@@ -1053,12 +1053,12 @@
     source-map-support "^0.5.16"
 
 "@babel/runtime-corejs2@^7.4.2":
-  version "7.22.2"
-  resolved "https://registry.yarnpkg.com/@babel/runtime-corejs2/-/runtime-corejs2-7.22.2.tgz#777fe45156c1df0df9d4540b75cea1dd35df41b7"
-  integrity sha512-by1wmQCt9odApzgQeUBOk2i1OWRu3as13UZczB9u+SAVpbo6jEBZ/UNjRpyR9oMuI2aCqUR9JiHQS2eiNEykCQ==
+  version "7.26.10"
+  resolved "https://registry.yarnpkg.com/@babel/runtime-corejs2/-/runtime-corejs2-7.26.10.tgz#46c1289c6f181391235fb00af13e6c246cb5c8ae"
+  integrity sha512-JfoPiD7f/vvd/PaOfu5cr9CyzwDMPg4T0nX3MQr6IgTq49DhjvUcmjmjA7j6+xih1Evq+QKZnge1SoIlYozv/Q==
   dependencies:
     core-js "^2.6.12"
-    regenerator-runtime "^0.13.11"
+    regenerator-runtime "^0.14.0"
 
 "@babel/runtime@^7.1.2", "@babel/runtime@^7.10.0", "@babel/runtime@^7.11.2", "@babel/runtime@^7.12.0", "@babel/runtime@^7.12.1", "@babel/runtime@^7.12.13", "@babel/runtime@^7.12.5", "@babel/runtime@^7.15.4", "@babel/runtime@^7.16.0", "@babel/runtime@^7.9.2":
   version "7.26.7"
