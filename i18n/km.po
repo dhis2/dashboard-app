@@ -3,13 +3,14 @@
 # Philip Larsen Donnelly, 2021
 # Viktor Varland <viktor@dhis2.org>, 2021
 # Em Le <em.hispvietnam@gmail.com>, 2025
+# Kiry Heng, 2025
 # 
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
 "POT-Creation-Date: 2022-01-10T14:24:29.926Z\n"
 "PO-Revision-Date: 2019-09-01 20:38+0000\n"
-"Last-Translator: Em Le <em.hispvietnam@gmail.com>, 2025\n"
+"Last-Translator: Kiry Heng, 2025\n"
 "Language-Team: Khmer (https://app.transifex.com/hisp-uio/teams/100509/km/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -74,10 +75,10 @@ msgid "Search for a dashboard"
 msgstr "ស្វែងរកផ្ទាំងប៉ាណ្ណូបរិធានណាមួយ"
 
 msgid "Show fewer dashboards"
-msgstr ""
+msgstr "បង្ហាញផ្ទាំងប៉ាណ្ណូបរិធានមួយចំនួន"
 
 msgid "Show more dashboards"
-msgstr ""
+msgstr "បង្ហាញផ្ទាំងប៉ាណ្ណូបរិធានផ្សេងទៀត"
 
 msgid "No dashboards found. Use the + button to create a new dashboard."
 msgstr ""
@@ -197,10 +198,10 @@ msgid "This map can't be displayed as a chart"
 msgstr "ផែនទីនេះមិនអាចត្រូវបានបង្ហាញក្នុងទម្រង់ជាគំនូសតាង(ក្រាប)បានទេ"
 
 msgid "View as Table"
-msgstr ""
+msgstr "បង្ហាញតារាង"
 
 msgid "This map can't be displayed as a table"
-msgstr ""
+msgstr "ផែនទីនេះមិនអាចបង្ហាញជាតារាងបានទេ"
 
 msgid "View as Map"
 msgstr "ការបង្ហាញក្នុងទម្រង់ជាផែនទី"
