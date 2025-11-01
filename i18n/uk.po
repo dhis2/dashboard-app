@@ -9,7 +9,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2025-07-04T15:00:39.114Z\n"
+"POT-Creation-Date: 2025-10-28T16:09:41.600Z\n"
 "PO-Revision-Date: 2019-06-25 12:37+0000\n"
 "Last-Translator: Éva Tamási, 2025\n"
 "Language-Team: Ukrainian (https://app.transifex.com/hisp-uio/teams/100509/uk/)\n"
@@ -327,9 +327,6 @@ msgstr "Текстове поле"
 msgid "Add text here"
 msgstr "Додати текст сюди"
 
-msgid "Back to all interpretations"
-msgstr "Повернутися до всіх інтерпретацій"
-
 msgid "Filters are not applied to line list dashboard items"
 msgstr ""
 "Фільтри не застосовуються до елементів інформаційної панелі списку рядків"
@@ -373,8 +370,8 @@ msgstr ""
 msgid "View as Map"
 msgstr "Переглянути як мапу"
 
-msgid "There was a problem loading interpretations for this item"
-msgstr "Під час завантаження інтерпретацій для цього об'єкта сталася помилка"
+msgid "There was a problem loading details for this item"
+msgstr ""
 
 msgid "No data to display"
 msgstr "Немає даних для відображення"
@@ -724,25 +721,6 @@ msgstr ""
 msgid "Yes, remove filters"
 msgstr "Так, видалити фільтри"
 
-msgid "Exit slideshow"
-msgstr ""
-
-msgid "Previous item"
-msgstr ""
-
-msgid "Next item"
-msgstr ""
-
-msgid "{{name}}: {{filter}}"
-msgstr ""
-
-msgid "{{count}} filters active"
-msgid_plural "{{count}} filters active"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
-msgstr[3] ""
-
 msgid ""
 "There was a problem loading the embedded dashboard content from an external "
 "service"
@@ -781,3 +759,40 @@ msgstr "Цю інформаційну панель неможливо заван
 
 msgid "Go to start page"
 msgstr "Перейти на стартову сторінку"
+
+msgid "Slideshow started over 24 hours ago"
+msgstr ""
+
+msgid "Exit slideshow"
+msgstr ""
+
+msgid "Previous item"
+msgstr ""
+
+msgid "Next item"
+msgstr ""
+
+msgid "{{name}}: {{filter}}"
+msgstr ""
+
+msgid "{{count}} filters active"
+msgid_plural "{{count}} filters active"
+msgstr[0] ""
+msgstr[1] ""
+msgstr[2] ""
+msgstr[3] ""
+
+msgid "10 seconds per slide"
+msgstr ""
+
+msgid "20 seconds per slide"
+msgstr ""
+
+msgid "30 seconds per slide"
+msgstr ""
+
+msgid "1 minute per slide"
+msgstr ""
+
+msgid "2 minutes per slide"
+msgstr ""

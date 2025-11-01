@@ -13,7 +13,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2025-07-04T15:00:39.114Z\n"
+"POT-Creation-Date: 2025-10-28T16:09:41.600Z\n"
 "PO-Revision-Date: 2019-06-25 12:37+0000\n"
 "Last-Translator: Philip Larsen Donnelly, 2025\n"
 "Language-Team: Portuguese (https://app.transifex.com/hisp-uio/teams/100509/pt/)\n"
@@ -326,9 +326,6 @@ msgstr "Caixa de texto"
 msgid "Add text here"
 msgstr "Adicione texto aqui"
 
-msgid "Back to all interpretations"
-msgstr "Voltar para todas as interpretações"
-
 msgid "Filters are not applied to line list dashboard items"
 msgstr ""
 "Os filtros não são aplicados aos itens do painel de controlo da lista de "
@@ -375,8 +372,8 @@ msgstr "Ver como tabela dinâmica"
 msgid "View as Map"
 msgstr "Ver como mapa"
 
-msgid "There was a problem loading interpretations for this item"
-msgstr "Ocorreu um problema ao carregar as interpretações para este item"
+msgid "There was a problem loading details for this item"
+msgstr ""
 
 msgid "No data to display"
 msgstr "Nenhum dado para exibir"
@@ -720,24 +717,6 @@ msgstr ""
 msgid "Yes, remove filters"
 msgstr "Sim, remover filtros"
 
-msgid "Exit slideshow"
-msgstr ""
-
-msgid "Previous item"
-msgstr ""
-
-msgid "Next item"
-msgstr ""
-
-msgid "{{name}}: {{filter}}"
-msgstr ""
-
-msgid "{{count}} filters active"
-msgid_plural "{{count}} filters active"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
-
 msgid ""
 "There was a problem loading the embedded dashboard content from an external "
 "service"
@@ -778,3 +757,39 @@ msgstr ""
 
 msgid "Go to start page"
 msgstr "Ir para a página inicial"
+
+msgid "Slideshow started over 24 hours ago"
+msgstr ""
+
+msgid "Exit slideshow"
+msgstr ""
+
+msgid "Previous item"
+msgstr ""
+
+msgid "Next item"
+msgstr ""
+
+msgid "{{name}}: {{filter}}"
+msgstr ""
+
+msgid "{{count}} filters active"
+msgid_plural "{{count}} filters active"
+msgstr[0] ""
+msgstr[1] ""
+msgstr[2] ""
+
+msgid "10 seconds per slide"
+msgstr ""
+
+msgid "20 seconds per slide"
+msgstr ""
+
+msgid "30 seconds per slide"
+msgstr ""
+
+msgid "1 minute per slide"
+msgstr ""
+
+msgid "2 minutes per slide"
+msgstr ""

@@ -8,7 +8,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2025-07-04T15:00:39.114Z\n"
+"POT-Creation-Date: 2025-10-28T16:09:41.600Z\n"
 "PO-Revision-Date: 2019-06-25 12:37+0000\n"
 "Last-Translator: easylin <lin_xd@126.com>, 2025\n"
 "Language-Team: Chinese (https://app.transifex.com/hisp-uio/teams/100509/zh/)\n"
@@ -312,9 +312,6 @@ msgstr "文本框"
 msgid "Add text here"
 msgstr "在这里添加文本"
 
-msgid "Back to all interpretations"
-msgstr "回到所有注释"
-
 msgid "Filters are not applied to line list dashboard items"
 msgstr "过滤器不适用于行列表仪表板项目"
 
@@ -357,8 +354,8 @@ msgstr "以数据透视表形式查看"
 msgid "View as Map"
 msgstr "查看地图"
 
-msgid "There was a problem loading interpretations for this item"
-msgstr "加载该项目的解释时出现问题"
+msgid "There was a problem loading details for this item"
+msgstr ""
 
 msgid "No data to display"
 msgstr "没有数据可显示"
@@ -685,22 +682,6 @@ msgstr "离线时删除此过滤器将删除所有其他过滤器。您要删除
 msgid "Yes, remove filters"
 msgstr "是的，删除过滤器"
 
-msgid "Exit slideshow"
-msgstr "退出幻灯片"
-
-msgid "Previous item"
-msgstr "上一个项目"
-
-msgid "Next item"
-msgstr "下一个项目"
-
-msgid "{{name}}: {{filter}}"
-msgstr "{{name}}:{{filter}}"
-
-msgid "{{count}} filters active"
-msgid_plural "{{count}} filters active"
-msgstr[0] "{{count}} 滤波器激活"
-
 msgid ""
 "There was a problem loading the embedded dashboard content from an external "
 "service"
@@ -738,3 +719,37 @@ msgstr "离线时无法加载此仪表板。"
 
 msgid "Go to start page"
 msgstr "转到起始页"
+
+msgid "Slideshow started over 24 hours ago"
+msgstr "幻灯片已于 24 小时前开始播放"
+
+msgid "Exit slideshow"
+msgstr "退出幻灯片"
+
+msgid "Previous item"
+msgstr "上一个项目"
+
+msgid "Next item"
+msgstr "下一个项目"
+
+msgid "{{name}}: {{filter}}"
+msgstr "{{name}}:{{filter}}"
+
+msgid "{{count}} filters active"
+msgid_plural "{{count}} filters active"
+msgstr[0] "{{count}} 滤波器激活"
+
+msgid "10 seconds per slide"
+msgstr "每张幻灯片 10 秒"
+
+msgid "20 seconds per slide"
+msgstr "每张幻灯片 20 秒"
+
+msgid "30 seconds per slide"
+msgstr "每张幻灯片 30 秒"
+
+msgid "1 minute per slide"
+msgstr "每张幻灯片 1 分钟"
+
+msgid "2 minutes per slide"
+msgstr "每张幻灯片 2 分钟"

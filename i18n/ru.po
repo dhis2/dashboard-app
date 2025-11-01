@@ -8,7 +8,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2025-09-17T08:18:00.830Z\n"
+"POT-Creation-Date: 2025-10-28T16:09:41.600Z\n"
 "PO-Revision-Date: 2019-06-25 12:37+0000\n"
 "Last-Translator: Nadiia <semchuk@aph.org.ua>, 2025\n"
 "Language-Team: Russian (https://app.transifex.com/hisp-uio/teams/100509/ru/)\n"
@@ -321,9 +321,6 @@ msgstr "Текстовое окно"
 msgid "Add text here"
 msgstr "Добавить текст здесь"
 
-msgid "Back to all interpretations"
-msgstr "Назад к интерпритациям"
-
 msgid "Filters are not applied to line list dashboard items"
 msgstr "Фильтры не применимы к построчным спискам на инфопанели"
 
@@ -368,8 +365,8 @@ msgstr "Просмотр в виде сводной таблицы"
 msgid "View as Map"
 msgstr "Просмотр в виде карты"
 
-msgid "There was a problem loading interpretations for this item"
-msgstr "Возникла проблема с загрузкой интерпретаций для данного элемента"
+msgid "There was a problem loading details for this item"
+msgstr ""
 
 msgid "No data to display"
 msgstr "Нет данных для отображения"

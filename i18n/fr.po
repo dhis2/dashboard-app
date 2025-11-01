@@ -3,7 +3,7 @@
 # Matthieu Pinard <matthieu@dhis2.org>, 2019
 # a270031086f2a0d3514bc0cb507b48f6, 2019
 # Gabriela Rodriguez <grodriguezcoronado@gmail.com>, 2021
-# Edem Kossi <ekossi@hispwca.org>, 2024
+# Edem Kossi <ekossi@hispwca.org>, 2022
 # Yayra Gomado <ygomado@hispwca.org>, 2025
 # Viktor Varland <viktor@dhis2.org>, 2025
 # Karoline Tufte Lien <karoline@dhis2.org>, 2025
@@ -15,7 +15,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2025-09-17T08:18:00.830Z\n"
+"POT-Creation-Date: 2025-10-28T16:09:41.600Z\n"
 "PO-Revision-Date: 2019-06-25 12:37+0000\n"
 "Last-Translator: Cyrille Kabrane, 2025\n"
 "Language-Team: French (https://app.transifex.com/hisp-uio/teams/100509/fr/)\n"
@@ -350,9 +350,6 @@ msgstr "Zone de texte"
 msgid "Add text here"
 msgstr "Ajouter du texte ici"
 
-msgid "Back to all interpretations"
-msgstr "Retour à toutes les interprétations"
-
 msgid "Filters are not applied to line list dashboard items"
 msgstr ""
 "Les filtres ne sont pas appliqués aux items du tableau de bord de la liste "
@@ -402,9 +399,8 @@ msgstr "Afficher comme tableau croisé dynamique"
 msgid "View as Map"
 msgstr "Afficher comme carte"
 
-msgid "There was a problem loading interpretations for this item"
+msgid "There was a problem loading details for this item"
 msgstr ""
-"Un problème est survenu lors du chargement des interprétations pour cet item"
 
 msgid "No data to display"
 msgstr "Aucune donnée à afficher"
@@ -811,7 +807,7 @@ msgid "Go to start page"
 msgstr "Aller à la page d'accueil"
 
 msgid "Slideshow started over 24 hours ago"
-msgstr ""
+msgstr "Diaporama démarré il y a plus de 24 heures"
 
 msgid "Exit slideshow"
 msgstr "Quitter le diaporama"
@@ -832,16 +828,16 @@ msgstr[1] "{{count}} filtres actifs"
 msgstr[2] "{{count}} filtres actifs"
 
 msgid "10 seconds per slide"
-msgstr ""
+msgstr "10 secondes par diapositive"
 
 msgid "20 seconds per slide"
-msgstr ""
+msgstr "20 secondes par diapositive"
 
 msgid "30 seconds per slide"
-msgstr ""
+msgstr "30 secondes par diapositive"
 
 msgid "1 minute per slide"
-msgstr ""
+msgstr "1 minute par diapositive"
 
 msgid "2 minutes per slide"
-msgstr ""
+msgstr "2 minutes par diapositive"
