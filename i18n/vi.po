@@ -1,6 +1,6 @@
 # 
 # Translators:
-# Mai Nguyen <thanhmai.jica@gmail.com>, 2024
+# Mai Nguyen <thanhmai.jica@gmail.com>, 2021
 # Viktor Varland <viktor@dhis2.org>, 2025
 # Thuy Nguyen <thuynguyen@hispvietnam.org>, 2025
 # Philip Larsen Donnelly, 2025
@@ -9,7 +9,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2025-09-17T08:18:00.830Z\n"
+"POT-Creation-Date: 2025-10-28T16:09:41.600Z\n"
 "PO-Revision-Date: 2019-06-25 12:37+0000\n"
 "Last-Translator: Em Le <em.hispvietnam@gmail.com>, 2025\n"
 "Language-Team: Vietnamese (https://app.transifex.com/hisp-uio/teams/100509/vi/)\n"
@@ -334,9 +334,6 @@ msgstr "Hộp văn bản"
 msgid "Add text here"
 msgstr "Thêm văn bản tại đây"
 
-msgid "Back to all interpretations"
-msgstr "Quay lại tất cả các diễn giải"
-
 msgid "Filters are not applied to line list dashboard items"
 msgstr "Bộ lọc không được áp dụng cho các mục thông tin dạng danh sách"
 
@@ -379,8 +376,8 @@ msgstr "Xem dạng Bảng xoay"
 msgid "View as Map"
 msgstr "Xem dưới dạng bản đồ"
 
-msgid "There was a problem loading interpretations for this item"
-msgstr "Có vấn đề khi tải diễn giải cho mục này"
+msgid "There was a problem loading details for this item"
+msgstr ""
 
 msgid "No data to display"
 msgstr "Không có dữ liệu hiển thị"
@@ -768,7 +765,7 @@ msgid "Go to start page"
 msgstr "Chuyển đến trang bắt đầu"
 
 msgid "Slideshow started over 24 hours ago"
-msgstr ""
+msgstr "Trình chiếu bắt đầu cách đây hơn 24 giờ"
 
 msgid "Exit slideshow"
 msgstr "Thoát chình chiếu"
@@ -787,16 +784,16 @@ msgid_plural "{{count}} filters active"
 msgstr[0] "{{count}} bộ lọc đang lọc"
 
 msgid "10 seconds per slide"
-msgstr ""
+msgstr "10 giây cho mỗi slide"
 
 msgid "20 seconds per slide"
-msgstr ""
+msgstr "20 giây cho mỗi slide"
 
 msgid "30 seconds per slide"
-msgstr ""
+msgstr "30 giây cho mỗi slide"
 
 msgid "1 minute per slide"
-msgstr ""
+msgstr "1 phút cho mỗi slide"
 
 msgid "2 minutes per slide"
-msgstr ""
+msgstr "2 phút cho mỗi slide"

@@ -8,7 +8,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2025-09-17T08:18:00.830Z\n"
+"POT-Creation-Date: 2025-10-28T16:09:41.600Z\n"
 "PO-Revision-Date: 2019-06-25 12:37+0000\n"
 "Last-Translator: Em Le <em.hispvietnam@gmail.com>, 2025\n"
 "Language-Team: Khmer (https://app.transifex.com/hisp-uio/teams/100509/km/)\n"
@@ -340,9 +340,6 @@ msgstr "ប្រអប់ព័ត៌មាន"
 msgid "Add text here"
 msgstr "បញ្ចូលព័ត៌មានត្រង់នេះ"
 
-msgid "Back to all interpretations"
-msgstr "ត្រឡប់ទៅកាន់ការបកស្រាយទាំងអស់"
-
 msgid "Filters are not applied to line list dashboard items"
 msgstr ""
 "លក្ខខណ្ឌច្រោះមិនត្រូវបានអនុវត្តន៍សម្រាប់ផ្ទាំងទិន្នន័យជាបញ្ជីទិន្នន័យករណីនោះទេ"
@@ -388,8 +385,8 @@ msgstr "ការបង្ហាញក្នុងទម្រង់ជាតា
 msgid "View as Map"
 msgstr "ការបង្ហាញក្នុងទម្រង់ជាផែនទី"
 
-msgid "There was a problem loading interpretations for this item"
-msgstr "មានបញ្ហាកើតឡើងនៅពេលដែលកំពុងបង្ហាញការបកស្រាយផ្ទាំងទិន្នន័យនេះ"
+msgid "There was a problem loading details for this item"
+msgstr ""
 
 msgid "No data to display"
 msgstr "មិនមានទិន្នន័យសម្រាប់បង្ហាញទេ"

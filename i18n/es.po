@@ -1,10 +1,10 @@
 # 
 # Translators:
 # William Aviles <waviles@clintonhealthaccess.org>, 2020
+# Gabriela Rodriguez <grodriguezcoronado@gmail.com>, 2021
 # Alison Andrade <aandrade@ippfwhr.org>, 2021
 # Prabhjot Singh, 2021
 # Marta Vila <marta@dhis2.org>, 2023
-# Gabriela Rodriguez <grodriguezcoronado@gmail.com>, 2024
 # Sergio Valenzuela <sergio.valenzuela@ehas.org>, 2025
 # Janeth Cruz, 2025
 # Enzo Nicolas Rossi <enzo@dhis2.org>, 2025
@@ -14,7 +14,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2025-07-04T15:00:39.114Z\n"
+"POT-Creation-Date: 2025-10-28T16:09:41.600Z\n"
 "PO-Revision-Date: 2019-06-25 12:37+0000\n"
 "Last-Translator: Philip Larsen Donnelly, 2025\n"
 "Language-Team: Spanish (https://app.transifex.com/hisp-uio/teams/100509/es/)\n"
@@ -327,9 +327,6 @@ msgstr "Caja de texto"
 msgid "Add text here"
 msgstr "Añada texto aquí"
 
-msgid "Back to all interpretations"
-msgstr "Regresar a todas las interpretaciones"
-
 msgid "Filters are not applied to line list dashboard items"
 msgstr "Los filtros no se aplican a los elementos del tablero de listados"
 
@@ -374,8 +371,8 @@ msgstr "Ver como tabla dinámica"
 msgid "View as Map"
 msgstr "Ver como mapa"
 
-msgid "There was a problem loading interpretations for this item"
-msgstr "Hubo un problema al cargar las interpretaciones de este elemento."
+msgid "There was a problem loading details for this item"
+msgstr ""
 
 msgid "No data to display"
 msgstr "Sin datos para mostrar"
@@ -721,24 +718,6 @@ msgstr ""
 msgid "Yes, remove filters"
 msgstr "Sí, eliminar filtros"
 
-msgid "Exit slideshow"
-msgstr ""
-
-msgid "Previous item"
-msgstr ""
-
-msgid "Next item"
-msgstr ""
-
-msgid "{{name}}: {{filter}}"
-msgstr ""
-
-msgid "{{count}} filters active"
-msgid_plural "{{count}} filters active"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
-
 msgid ""
 "There was a problem loading the embedded dashboard content from an external "
 "service"
@@ -777,3 +756,39 @@ msgstr "Este tablero no puede cargarse mientras esté sin conexión a internet."
 
 msgid "Go to start page"
 msgstr "Ir a la página de inicio"
+
+msgid "Slideshow started over 24 hours ago"
+msgstr ""
+
+msgid "Exit slideshow"
+msgstr ""
+
+msgid "Previous item"
+msgstr ""
+
+msgid "Next item"
+msgstr ""
+
+msgid "{{name}}: {{filter}}"
+msgstr ""
+
+msgid "{{count}} filters active"
+msgid_plural "{{count}} filters active"
+msgstr[0] ""
+msgstr[1] ""
+msgstr[2] ""
+
+msgid "10 seconds per slide"
+msgstr ""
+
+msgid "20 seconds per slide"
+msgstr ""
+
+msgid "30 seconds per slide"
+msgstr ""
+
+msgid "1 minute per slide"
+msgstr ""
+
+msgid "2 minutes per slide"
+msgstr ""
