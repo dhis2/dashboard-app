@@ -10,13 +10,14 @@
 # Enzo Nicolas Rossi <enzo@dhis2.org>, 2025
 # Viktor Varland <viktor@dhis2.org>, 2025
 # Philip Larsen Donnelly, 2025
+# Bruno Raimbault, 2025
 # 
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
 "POT-Creation-Date: 2025-10-28T16:09:41.600Z\n"
 "PO-Revision-Date: 2019-06-25 12:37+0000\n"
-"Last-Translator: Philip Larsen Donnelly, 2025\n"
+"Last-Translator: Bruno Raimbault, 2025\n"
 "Language-Team: Spanish (https://app.transifex.com/hisp-uio/teams/100509/es/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -29,44 +30,50 @@ msgstr "Tablero sin nombre"
 
 msgid "Could not get info from Superset gateway endpoint"
 msgstr ""
+"No se ha podido obtener información del endpoint de la pasarela Superset"
 
 msgid "Dashboard with ID \"{{dashboardId}}\" not found or not accessible"
-msgstr ""
+msgstr "Tablero con ID \"{{dashboardId}}\" no encontrado o no accesible"
 
 msgid "Dashboard with ID \"{{dashboardId}}\" is not embedded"
-msgstr ""
+msgstr "Tablero con ID \"{{dashboardId}}\" no está incrustado"
 
 msgid "Embedded provider must be \"SUPERSET\" for dashboard ID \"{{dashboardId}}\""
 msgstr ""
+"El proveedor incrustado debe ser \"SUPERSET\" para el ID de tablero "
+"\"{{dashboardId}}\""
 
 msgid "Superset Embed UUID not found for dashboard ID \"{{dashboardId}}\""
 msgstr ""
+"Superset Embed UUID no encontrado para el ID de tablero \"{{dashboardId}}\""
 
 msgid "Dashboard with ID \"{{dashboardId}}\" not found on the Superset service"
-msgstr ""
+msgstr "Tablero con ID \"{{dashboardId}}\" no encontrado en el servicio Superset"
 
 msgid ""
 "Could not get guest token from Superset Gateway for dashboard ID "
 "\"{{dashboardId}}\""
 msgstr ""
+"No se ha podido obtener el token de invitado de la pasarela Superset para el"
+" ID de tablero \"{{dashboardId}}\""
 
 msgid "Network error"
 msgstr "Error de red"
 
 msgid "Could not load app data"
-msgstr ""
+msgstr "No se han podido cargar los datos de la aplicación"
 
 msgid "New dashboard: external"
-msgstr ""
+msgstr "Nuevo tablero: externo"
 
 msgid "Could not create dashboard"
-msgstr ""
+msgstr "No se ha podido crear el tablero"
 
 msgid "An unknown error occurred"
-msgstr ""
+msgstr "Se ha producido un error desconocido"
 
 msgid "Save dashboard"
-msgstr ""
+msgstr "Guardar tablero"
 
 msgid "Back"
 msgstr "Atrás"
@@ -81,6 +88,8 @@ msgid ""
 "A unique code to reference this dashboard in other apps and services. Max 50"
 " characters."
 msgstr ""
+"Un código único para hacer referencia a este tablero en otras aplicaciones y"
+" servicios. Máximo 50 caracteres."
 
 msgid "Code can't be longer than 50 characters"
 msgstr "El código no puede tener más de 50 caracteres"
@@ -89,19 +98,19 @@ msgid "Description"
 msgstr "Descripción"
 
 msgid "Superset Embed ID"
-msgstr ""
+msgstr "Superset Embed ID"
 
 msgid "Invalid UUID"
-msgstr ""
+msgstr "UUID no válido"
 
 msgid "Options"
 msgstr "Opciones"
 
 msgid "Show chart controls on dashboard items"
-msgstr ""
+msgstr "Mostrar controles de gráficos en los elementos del tablero"
 
 msgid "Expand filters"
-msgstr ""
+msgstr "Ampliar filtros"
 
 msgid "Delete dashboard"
 msgstr "Borrar tablero"
@@ -119,6 +128,8 @@ msgid ""
 "Note: the source dashboard embedded by this external dashboard will not be "
 "deleted."
 msgstr ""
+"Nota: el tablero de origen incrustado en este tablero externo no se "
+"eliminará."
 
 msgid "Delete"
 msgstr "Borrar"
@@ -127,28 +138,28 @@ msgid "Cancel"
 msgstr "Cancelar"
 
 msgid "Edit external dashboard"
-msgstr ""
+msgstr "Editar tablero externo"
 
 msgid "New dashboard: choose type"
-msgstr ""
+msgstr "Nuevo tablero: elija el tipo"
 
 msgid "Internal"
 msgstr "Interno"
 
 msgid "Show data and visualizations from this DHIS2 instance."
-msgstr ""
+msgstr "Mostrar datos y visualizaciones de esta instancia de DHIS2."
 
 msgid "External"
 msgstr "Exterior"
 
 msgid "Embed a Superset dashboard"
-msgstr ""
+msgstr "Incrustar un tablero Superset"
 
 msgid "Continue"
 msgstr "Seguir"
 
 msgid "Not available for embedded dashboards"
-msgstr ""
+msgstr "No disponible para tableros incrustados"
 
 msgid "The dashboard couldn't be made available offline. Try again."
 msgstr "El tablero no esta disponible sin conexión. Intentar otra vez"
@@ -187,7 +198,7 @@ msgid "Close dashboard"
 msgstr "Cerrar tablero"
 
 msgid "No dashboard items to show in slideshow"
-msgstr ""
+msgstr "No hay elementos del tablero para mostrar en las diapositivas"
 
 msgid "Not available offline"
 msgstr "No disponible sin conexión a internet"
@@ -199,7 +210,7 @@ msgid "Share"
 msgstr "Compartir"
 
 msgid "Slideshow"
-msgstr ""
+msgstr "Diapositivas"
 
 msgid "Clear dashboard filters?"
 msgstr "¿Limpiar los filtros del tablero?"
@@ -219,10 +230,10 @@ msgid "Yes, clear filters and sync"
 msgstr "Sí, limpiar filtros y sincronizar"
 
 msgid "This dashboard is showing data from outside this system"
-msgstr ""
+msgstr "Este tablero muestra datos externos a este sistema"
 
 msgid "External source"
-msgstr ""
+msgstr "Fuente externa"
 
 msgid "Confirm"
 msgstr "Confirmar"
@@ -240,7 +251,7 @@ msgid "Offline data last updated {{timeAgo}}"
 msgstr "Última actualización de datos sin conexión {{timeAgo}}"
 
 msgid "Synced {{timeAgo}}"
-msgstr ""
+msgstr "Sincronizado {{timeAgo}}"
 
 msgid "Cannot unstar this dashboard while offline"
 msgstr "No se puede desmarcar este tablero sin conexión a internet"
@@ -249,16 +260,16 @@ msgid "Cannot star this dashboard while offline"
 msgstr "No se puede marcar este tablero sin conexión a internet"
 
 msgid "No dashboards available."
-msgstr ""
+msgstr "No hay tableros disponibles."
 
 msgid "Create a new dashboard using the + button."
-msgstr ""
+msgstr "Cree un nuevo tablero con el botón +."
 
 msgid "Search for a dashboard"
 msgstr "Buscar un tablero"
 
 msgid "No dashboards found for \"{{- filterText}}\""
-msgstr ""
+msgstr "No se han encontrado tablero para \"{{- filterText}}\""
 
 msgid "Dashboards"
 msgstr "Cuadros de mandos"
@@ -267,10 +278,10 @@ msgid "There was a problem loading this dashboard item"
 msgstr "Ha habido un problema al cargar este elemento del tablero"
 
 msgid "Open menu"
-msgstr ""
+msgstr "Abrir menú"
 
 msgid "Open in {{appName}}"
-msgstr ""
+msgstr "Abrir en {{appName}}"
 
 msgid "View fullscreen"
 msgstr "Ver en pantalla completa"
@@ -283,10 +294,10 @@ msgstr ""
 "Este elemento ha sido redimensionado para que quepa en una sola página"
 
 msgid "The plugin needed to display this item is not available"
-msgstr ""
+msgstr "El plugin necesario para mostrar este elemento no está disponible"
 
 msgid "Install the {{pluginName}} plugin from the App Hub"
-msgstr ""
+msgstr "Instale el plugin {{pluginName}} desde el App Hub"
 
 msgid "There was an error loading data for this item"
 msgstr "Hubo un error al cargar los datos de este elemento."
@@ -372,7 +383,7 @@ msgid "View as Map"
 msgstr "Ver como mapa"
 
 msgid "There was a problem loading details for this item"
-msgstr ""
+msgstr "Hubo un problema al cargar los detalles de este elemento"
 
 msgid "No data to display"
 msgstr "Sin datos para mostrar"
@@ -382,6 +393,9 @@ msgid ""
 "                            '.'\n"
 "                        )} or higher in order to display this item."
 msgstr ""
+"Instalar la aplicación Visualizador de Datos ${minDVVersion.join(\n"
+"                            '.'\n"
+"                        )} o superior para poder visualizar este elemento."
 
 msgid "Show without filters"
 msgstr "Mostrar sin filtros"
@@ -391,6 +405,9 @@ msgid ""
 "                            '.'\n"
 "                        )} or higher in order to display this item."
 msgstr ""
+"Instalar la aplicación Line Listing ${minLLVersion.join(\n"
+"                            '.'\n"
+"                        )} o superior para mostrar este elemento."
 
 msgid "Maps with Earth Engine layers cannot be displayed when offline"
 msgstr ""
@@ -401,6 +418,9 @@ msgid ""
 "                            '.'\n"
 "                        )} or higher in order to display this item."
 msgstr ""
+"Instalar aplicación Mapas ${minMapsVersion.join(\n"
+"                            '.'\n"
+"                        )} o superior para mostrar este elemento."
 
 msgid "Unable to load the plugin for this item"
 msgstr "Incapaz de cargar el complemento para este elemento"
@@ -439,13 +459,13 @@ msgid "Users"
 msgstr "Usuarios"
 
 msgid "Could not update dashboard {{name}}"
-msgstr ""
+msgstr "No se ha podido actualizar el tablero {{name}}"
 
 msgid "Could not delete dashboard {{name}}"
-msgstr ""
+msgstr "No se ha podido eliminar el tablero {{name}}"
 
 msgid "Could not load dashboard details"
-msgstr ""
+msgstr "No se pueden cargar los detalles del tablero"
 
 msgid ""
 "Failed to save dashboard. You might be offline or not have access to edit "
@@ -500,6 +520,9 @@ msgid ""
 "This action cannot be undone. Are you sure you want to permanently delete "
 "this dashboard?"
 msgstr ""
+"La eliminación del tablero \"{{- dashboardName }}\" tendra effecto para "
+"todos los usuarios. Esta acción no se puede deshacer. ¿Está seguro de que "
+"desea eliminar permanentemente este tablero?"
 
 msgid "Discard changes"
 msgstr "Descartar los cambios"
@@ -566,7 +589,7 @@ msgid "Show more"
 msgstr "Mostrar más"
 
 msgid "Open visualization in new tab"
-msgstr ""
+msgstr "Abrir visualización en nueva pestaña"
 
 msgid "Insert"
 msgstr "Insertar"
@@ -700,10 +723,10 @@ msgstr[1] "{{count}} seleccionados"
 msgstr[2] "{{count}} seleccionados"
 
 msgid "Cannot edit filters while offline"
-msgstr ""
+msgstr "No se pueden editar los filtros sin conexión"
 
 msgid "Cannot edit filters on a small screen"
-msgstr ""
+msgstr "No se pueden editar los filtros en una pantalla pequeña"
 
 msgid "Removing filters while offline"
 msgstr "Eliminar filtros sin conexión a internet"
@@ -722,15 +745,17 @@ msgid ""
 "There was a problem loading the embedded dashboard content from an external "
 "service"
 msgstr ""
+"Se ha producido un problema al cargar el contenido incrustado del tablero "
+"desde un servicio externo."
 
 msgid "Fetching external dashboard"
-msgstr ""
+msgstr "Obtención de tablero externo"
 
 msgid "Error"
 msgstr "Error"
 
 msgid "Could not load Superset dashboard"
-msgstr ""
+msgstr "No se ha podido cargar el tablero Superset"
 
 msgid "Retry"
 msgstr "Reintentar"
@@ -758,37 +783,37 @@ msgid "Go to start page"
 msgstr "Ir a la página de inicio"
 
 msgid "Slideshow started over 24 hours ago"
-msgstr ""
+msgstr "Presentación de diapositivas iniciada hace más de 24 horas"
 
 msgid "Exit slideshow"
-msgstr ""
+msgstr "Salir de la presentación"
 
 msgid "Previous item"
-msgstr ""
+msgstr "Elemento anterior"
 
 msgid "Next item"
-msgstr ""
+msgstr "Elemento siguiente"
 
 msgid "{{name}}: {{filter}}"
-msgstr ""
+msgstr "{{name}}: {{filter}}"
 
 msgid "{{count}} filters active"
 msgid_plural "{{count}} filters active"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
+msgstr[0] "{{count}} filtro activo"
+msgstr[1] "{{count}} filtros activos"
+msgstr[2] "{{count}} filtros activos"
 
 msgid "10 seconds per slide"
-msgstr ""
+msgstr "10 segundos por diapositiva"
 
 msgid "20 seconds per slide"
-msgstr ""
+msgstr "20 segundos por diapositiva"
 
 msgid "30 seconds per slide"
-msgstr ""
+msgstr "30 segundos por diapositiva"
 
 msgid "1 minute per slide"
-msgstr ""
+msgstr "1 minuto por diapositiva"
 
 msgid "2 minutes per slide"
-msgstr ""
+msgstr "2 minutos por diapositiva"
