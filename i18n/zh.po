@@ -355,7 +355,7 @@ msgid "View as Map"
 msgstr "查看地图"
 
 msgid "There was a problem loading details for this item"
-msgstr ""
+msgstr "加载此条目的详细信息时出现问题"
 
 msgid "No data to display"
 msgstr "没有数据可显示"
