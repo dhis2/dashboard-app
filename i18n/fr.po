@@ -10,13 +10,14 @@
 # Yayra Gomado <ygomado@hispwca.org>, 2021
 # Yao Selom SAKA (HISP WCA) <ysaka@hispwca.org>, 2025
 # Cyrille Kabrane, 2025
+# Esther Tokouli, 2025
 # 
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
 "POT-Creation-Date: 2022-01-10T14:24:29.926Z\n"
 "PO-Revision-Date: 2019-09-01 20:38+0000\n"
-"Last-Translator: Cyrille Kabrane, 2025\n"
+"Last-Translator: Esther Tokouli, 2025\n"
 "Language-Team: French (https://app.transifex.com/hisp-uio/teams/100509/fr/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -308,7 +309,7 @@ msgid "Failed to show description"
 msgstr "Échec de l'affichage de la description"
 
 msgid "Unstar dashboard"
-msgstr "Tableau de bord sans étoiles"
+msgstr "Retirer le tableau de bord des favoris"
 
 msgid "Star dashboard"
 msgstr "Ajouter le tableau de bord aux favoris"
