@@ -1,13 +1,14 @@
 # 
 # Translators:
 # Siddharth Agarwal, 2025
+# Rohit Wadhwani, 2025
 # 
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
 "POT-Creation-Date: 2022-01-10T14:24:29.926Z\n"
 "PO-Revision-Date: 2019-09-01 20:38+0000\n"
-"Last-Translator: Siddharth Agarwal, 2025\n"
+"Last-Translator: Rohit Wadhwani, 2025\n"
 "Language-Team: Hindi (India) (https://app.transifex.com/hisp-uio/teams/100509/hi_IN/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -241,7 +242,7 @@ msgid "Show fewer"
 msgstr ""
 
 msgid "Show more"
-msgstr ""
+msgstr "और दिखाएँ"
 
 msgid "Insert"
 msgstr ""
@@ -286,7 +287,7 @@ msgid "Failed to star the dashboard"
 msgstr ""
 
 msgid "More"
-msgstr ""
+msgstr "और अधिक"
 
 msgid "Edit"
 msgstr "संपादन करें"
