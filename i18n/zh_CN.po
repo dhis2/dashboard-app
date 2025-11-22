@@ -20,19 +20,19 @@ msgid "Untitled dashboard"
 msgstr "未命名的仪表盘"
 
 msgid "Cannot create a dashboard while offline"
-msgstr ""
+msgstr "脱机时无法创建仪表板"
 
 msgid "Create new dashboard"
-msgstr ""
+msgstr "创建新的仪表板"
 
 msgid "Search for a dashboard"
 msgstr "搜索仪表盘"
 
 msgid "Show fewer dashboards"
-msgstr ""
+msgstr "显示更少的仪表盘"
 
 msgid "Show more dashboards"
-msgstr ""
+msgstr "显示更多仪表盘"
 
 msgid "Remove this item"
 msgstr "删除该条目"
@@ -93,7 +93,7 @@ msgid "View as Chart"
 msgstr "查看图表"
 
 msgid "This map can't be displayed as a table"
-msgstr ""
+msgstr "该地图不能以表格形式显示"
 
 msgid "View as Table"
 msgstr "查看表格"
@@ -398,7 +398,7 @@ msgid_plural "{{count}} selected"
 msgstr[0] "{{count}} 个已经选择"
 
 msgid "Cannot remove filters while offline"
-msgstr ""
+msgstr "脱机时无法删除过滤器"
 
 msgid "Removing filters while offline"
 msgstr "离线时删除过滤器"
