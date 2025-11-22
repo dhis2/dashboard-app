@@ -6,7 +6,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2025-09-17T08:18:00.830Z\n"
+"POT-Creation-Date: 2025-10-28T16:09:41.600Z\n"
 "PO-Revision-Date: 2019-06-25 12:37+0000\n"
 "Last-Translator: Rohit Wadhwani, 2025\n"
 "Language-Team: Hindi (India) (https://app.transifex.com/hisp-uio/teams/100509/hi_IN/)\n"
@@ -199,7 +199,7 @@ msgid ""
 msgstr ""
 
 msgid "No, cancel"
-msgstr ""
+msgstr "नहीं, कैंसल"
 
 msgid "Yes, clear filters and sync"
 msgstr ""
@@ -310,9 +310,6 @@ msgstr ""
 msgid "Add text here"
 msgstr ""
 
-msgid "Back to all interpretations"
-msgstr ""
-
 msgid "Filters are not applied to line list dashboard items"
 msgstr ""
 
@@ -355,7 +352,7 @@ msgstr ""
 msgid "View as Map"
 msgstr ""
 
-msgid "There was a problem loading interpretations for this item"
+msgid "There was a problem loading details for this item"
 msgstr ""
 
 msgid "No data to display"
@@ -532,7 +529,7 @@ msgid "Show fewer"
 msgstr ""
 
 msgid "Show more"
-msgstr ""
+msgstr "और दिखाएँ"
 
 msgid "Open visualization in new tab"
 msgstr ""
