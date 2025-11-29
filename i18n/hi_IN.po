@@ -87,7 +87,7 @@ msgid "Invalid UUID"
 msgstr ""
 
 msgid "Options"
-msgstr ""
+msgstr "ऑप्शन्स"
 
 msgid "Show chart controls on dashboard items"
 msgstr ""

@@ -5,13 +5,14 @@
 # Philip Larsen Donnelly, 2025
 # Nadiia <semchuk@aph.org.ua>, 2025
 # Éva Tamási, 2025
+# Yury Rogachev <yury@dhis2.org>, 2025
 # 
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
 "POT-Creation-Date: 2025-10-28T16:09:41.600Z\n"
 "PO-Revision-Date: 2019-06-25 12:37+0000\n"
-"Last-Translator: Éva Tamási, 2025\n"
+"Last-Translator: Yury Rogachev <yury@dhis2.org>, 2025\n"
 "Language-Team: Ukrainian (https://app.transifex.com/hisp-uio/teams/100509/uk/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -184,7 +185,7 @@ msgid "Close dashboard"
 msgstr "Закрити інформаційну панель"
 
 msgid "No dashboard items to show in slideshow"
-msgstr ""
+msgstr "Немає елементів інформаційної панелі для показу в слайд-шоу"
 
 msgid "Not available offline"
 msgstr "Недоступно в автономному режимі"
@@ -196,7 +197,7 @@ msgid "Share"
 msgstr "Поділитися"
 
 msgid "Slideshow"
-msgstr ""
+msgstr "Слайд-шоу"
 
 msgid "Clear dashboard filters?"
 msgstr "Очистити фільтри інформаційної панелі?"
@@ -313,7 +314,7 @@ msgid "Filters applied"
 msgstr "Застосовані фільтри"
 
 msgid "Spacer"
-msgstr "Роздільник"
+msgstr "Розпірка"
 
 msgid ""
 "Use a spacer to create empty vertical space between other dashboard items."
@@ -365,7 +366,7 @@ msgid "View as Chart"
 msgstr "Переглянути як діаграму"
 
 msgid "View as Pivot table"
-msgstr ""
+msgstr "Переглянути як зведену таблицю"
 
 msgid "View as Map"
 msgstr "Переглянути як мапу"
@@ -392,14 +393,16 @@ msgid ""
 msgstr ""
 
 msgid "Maps with Earth Engine layers cannot be displayed when offline"
-msgstr ""
-"Мапи з шарами Earth Engine не можуть відображатися в автономному режимі"
+msgstr "Карти з шарами Earth Engine не відображаються в автономному режимі"
 
 msgid ""
 "Install Maps app ${minMapsVersion.join(\n"
 "                            '.'\n"
 "                        )} or higher in order to display this item."
 msgstr ""
+"Встановити програму Карти ${minMapsVersion.join(\n"
+"                            '.'\n"
+"                        )} або вище, щоб відобразити цей елемент."
 
 msgid "Unable to load the plugin for this item"
 msgstr "Неможливо завантажити плагін для цього елемента"
@@ -420,7 +423,7 @@ msgid "Charts"
 msgstr "Діаграми"
 
 msgid "Maps"
-msgstr "Мапи"
+msgstr "Карти"
 
 msgid "Event reports"
 msgstr "Звіти про події"
@@ -432,7 +435,7 @@ msgid "Line lists"
 msgstr "Списки рядків"
 
 msgid "Apps"
-msgstr "Додатки"
+msgstr "Програми"
 
 msgid "Users"
 msgstr "Користувачі"
@@ -761,10 +764,10 @@ msgid "Go to start page"
 msgstr "Перейти на стартову сторінку"
 
 msgid "Slideshow started over 24 hours ago"
-msgstr ""
+msgstr "Слайд-шоу розпочато понад 24 години тому"
 
 msgid "Exit slideshow"
-msgstr ""
+msgstr "Вихідне слайд-шоу"
 
 msgid "Previous item"
 msgstr ""

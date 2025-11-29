@@ -2,9 +2,9 @@
 # Translators:
 # Matthieu Pinard <matthieu@dhis2.org>, 2019
 # a270031086f2a0d3514bc0cb507b48f6, 2019
+# Yayra Gomado <ygomado@hispwca.org>, 2021
 # Gabriela Rodriguez <grodriguezcoronado@gmail.com>, 2021
 # Edem Kossi <ekossi@hispwca.org>, 2022
-# Yayra Gomado <ygomado@hispwca.org>, 2025
 # Viktor Varland <viktor@dhis2.org>, 2025
 # Karoline Tufte Lien <karoline@dhis2.org>, 2025
 # Philip Larsen Donnelly, 2025
@@ -75,7 +75,7 @@ msgid "Could not create dashboard"
 msgstr "Impossible de créer un tableau de bord"
 
 msgid "An unknown error occurred"
-msgstr "Une erreur inconnue est survenue"
+msgstr "Une erreur inconnue s'est produite."
 
 msgid "Save dashboard"
 msgstr "Sauvegarder le tableau de bord"
