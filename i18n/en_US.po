@@ -1,23 +1,19 @@
 # 
 # Translators:
-# Somkhit Bouavong <bouavongk@gmail.com>, 2022
-# Saysamone Sibounma, 2025
-# Viktor Varland <viktor@dhis2.org>, 2025
-# Philip Larsen Donnelly, 2025
-# Namwan Chanthavisouk, 2025
+# Rohit Wadhwani, 2025
 # 
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
 "POT-Creation-Date: 2025-10-28T16:09:41.600Z\n"
 "PO-Revision-Date: 2019-06-25 12:37+0000\n"
-"Last-Translator: Namwan Chanthavisouk, 2025\n"
-"Language-Team: Lao (https://app.transifex.com/hisp-uio/teams/100509/lo/)\n"
+"Last-Translator: Rohit Wadhwani, 2025\n"
+"Language-Team: English (United States) (https://app.transifex.com/hisp-uio/teams/100509/en_US/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: lo\n"
-"Plural-Forms: nplurals=1; plural=0;\n"
+"Language: en_US\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 msgid "Untitled dashboard"
 msgstr ""
@@ -46,7 +42,7 @@ msgid ""
 msgstr ""
 
 msgid "Network error"
-msgstr "ຂໍ້ຜິດພາດທາງເຄື່ອຂ່າຍ"
+msgstr ""
 
 msgid "Could not load app data"
 msgstr ""
@@ -64,13 +60,13 @@ msgid "Save dashboard"
 msgstr ""
 
 msgid "Back"
-msgstr "​ກັບ​ຄືນ"
+msgstr ""
 
 msgid "Title"
-msgstr "ຫົວຂໍ້"
+msgstr ""
 
 msgid "Code"
-msgstr "ລະຫັດ"
+msgstr ""
 
 msgid ""
 "A unique code to reference this dashboard in other apps and services. Max 50"
@@ -81,7 +77,7 @@ msgid "Code can't be longer than 50 characters"
 msgstr ""
 
 msgid "Description"
-msgstr "ລາຍລະອຽດ"
+msgstr ""
 
 msgid "Superset Embed ID"
 msgstr ""
@@ -90,7 +86,7 @@ msgid "Invalid UUID"
 msgstr ""
 
 msgid "Options"
-msgstr "ຕົວເລືອກ"
+msgstr ""
 
 msgid "Show chart controls on dashboard items"
 msgstr ""
@@ -113,10 +109,10 @@ msgid ""
 msgstr ""
 
 msgid "Delete"
-msgstr "ລຶບ"
+msgstr "डिलीट"
 
 msgid "Cancel"
-msgstr "ຍົກເລີກ"
+msgstr "कैंसल"
 
 msgid "Edit external dashboard"
 msgstr ""
@@ -137,7 +133,7 @@ msgid "Embed a Superset dashboard"
 msgstr ""
 
 msgid "Continue"
-msgstr "ຕໍ່ໄປ"
+msgstr ""
 
 msgid "Not available for embedded dashboards"
 msgstr ""
@@ -167,7 +163,7 @@ msgid "Show description"
 msgstr ""
 
 msgid "Print"
-msgstr "ພີມອອກ"
+msgstr ""
 
 msgid "Dashboard layout"
 msgstr ""
@@ -182,13 +178,13 @@ msgid "No dashboard items to show in slideshow"
 msgstr ""
 
 msgid "Not available offline"
-msgstr "ບໍ່ສາມາດໃຊ້ໄດ້ອອບລາຍ"
+msgstr ""
 
 msgid "Edit"
-msgstr "ແກ້ໄຂ"
+msgstr ""
 
 msgid "Share"
-msgstr "ເຜີຍແຜ່"
+msgstr ""
 
 msgid "Slideshow"
 msgstr ""
@@ -202,7 +198,7 @@ msgid ""
 msgstr ""
 
 msgid "No, cancel"
-msgstr "ບໍ່, ຍົກເລີກ"
+msgstr "नहीं, कैंसल"
 
 msgid "Yes, clear filters and sync"
 msgstr ""
@@ -214,10 +210,10 @@ msgid "External source"
 msgstr ""
 
 msgid "Confirm"
-msgstr "ຢືນຢັນ"
+msgstr ""
 
 msgid "Filter"
-msgstr "ຕົວກອງ"
+msgstr ""
 
 msgid "Failed to unstar the dashboard"
 msgstr ""
@@ -244,13 +240,13 @@ msgid "Create a new dashboard using the + button."
 msgstr ""
 
 msgid "Search for a dashboard"
-msgstr "ຄົນຫາກະດານຂ່າວ"
+msgstr ""
 
 msgid "No dashboards found for \"{{- filterText}}\""
 msgstr ""
 
 msgid "Dashboards"
-msgstr "ກະດານຂໍ້ມູນ"
+msgstr ""
 
 msgid "There was a problem loading this dashboard item"
 msgstr ""
@@ -283,10 +279,10 @@ msgid "Open this item in {{appName}}"
 msgstr ""
 
 msgid "Remove"
-msgstr "ລົບອອກ"
+msgstr ""
 
 msgid "Messages"
-msgstr "ຂໍ້ຄວາມ"
+msgstr ""
 
 msgid "See all messages"
 msgstr ""
@@ -301,7 +297,7 @@ msgid "Filters applied"
 msgstr ""
 
 msgid "Spacer"
-msgstr "ເວັນວັກ"
+msgstr ""
 
 msgid ""
 "Use a spacer to create empty vertical space between other dashboard items."
@@ -311,7 +307,7 @@ msgid "Text box"
 msgstr ""
 
 msgid "Add text here"
-msgstr "ເພີ້ມໜັງສືບ່ອນນີ້"
+msgstr ""
 
 msgid "Filters are not applied to line list dashboard items"
 msgstr ""
@@ -389,37 +385,37 @@ msgid "Unable to load the plugin for this item"
 msgstr ""
 
 msgid "Resources"
-msgstr "ແຫຼ່ງ"
+msgstr ""
 
 msgid "Reports"
-msgstr "ລາຍງານ"
+msgstr ""
 
 msgid "Visualizations"
 msgstr ""
 
 msgid "Pivot tables"
-msgstr "ຕາຕະລາງຂໍ້ມູນ"
+msgstr ""
 
 msgid "Charts"
-msgstr "ແຜນວາດຂໍ້ມູນ"
+msgstr ""
 
 msgid "Maps"
-msgstr "ແຜນທີ່"
+msgstr ""
 
 msgid "Event reports"
-msgstr "ບົດລາຍງານເຫດການຕ່າງໆ"
+msgstr ""
 
 msgid "Event charts"
-msgstr "ບົດລາຍງານເຫດການແບບແຜ່ນວາດ"
+msgstr ""
 
 msgid "Line lists"
 msgstr ""
 
 msgid "Apps"
-msgstr "ແອັບ"
+msgstr ""
 
 msgid "Users"
-msgstr "ບັນຊີຜູ້ໃຊ້"
+msgstr ""
 
 msgid "Could not update dashboard {{name}}"
 msgstr ""
@@ -449,7 +445,7 @@ msgid "Cannot save this dashboard while offline"
 msgstr ""
 
 msgid "Save changes"
-msgstr "ບັນທຶກ"
+msgstr ""
 
 msgid "Exit print preview"
 msgstr ""
@@ -461,13 +457,13 @@ msgid "Filter settings"
 msgstr ""
 
 msgid "Translate"
-msgstr "ແປພາສາ"
+msgstr ""
 
 msgid "Cannot delete this dashboard while offline"
 msgstr ""
 
 msgid "Exit without saving"
-msgstr "ອອກໂດຍບໍ່ບັນທຶກ"
+msgstr ""
 
 msgid "Go to dashboards"
 msgstr ""
@@ -479,7 +475,7 @@ msgid ""
 msgstr ""
 
 msgid "Discard changes"
-msgstr "ລຶບການປ່ຽນແປງ"
+msgstr ""
 
 msgid ""
 "This dashboard has unsaved changes. Are you sure you want to leave and "
@@ -487,13 +483,13 @@ msgid ""
 msgstr ""
 
 msgid "No, stay here"
-msgstr "ບໍ່, ຢູ່ໜ້ານີ້"
+msgstr ""
 
 msgid "Yes, discard changes"
-msgstr "ຕົກລົງ, ຍົກເລີກການປ່ຽນແປງ"
+msgstr ""
 
 msgid "No access"
-msgstr "ບໍ່ມີການເຂົ້າເຖີງ"
+msgstr ""
 
 msgid "Not supported"
 msgstr ""
@@ -526,22 +522,22 @@ msgid "Selected Filters"
 msgstr ""
 
 msgid "There are no items on this dashboard"
-msgstr "ບໍ່ທັນມີລາຍການໃນກະດານຂ່າວນີ້"
+msgstr ""
 
 msgid "Show fewer"
-msgstr "ສະແດງໜ່ອຍລົງ"
+msgstr ""
 
 msgid "Show more"
-msgstr "ສະແດງຫຼາຍ"
+msgstr "और दिखाएँ"
 
 msgid "Open visualization in new tab"
 msgstr ""
 
 msgid "Insert"
-msgstr "ເພີ່ມເຂົ້າ"
+msgstr ""
 
 msgid "Search for items to add to this dashboard"
-msgstr "ຄົ້ນຫາລາຍການແລະບັນທຶກລົງກະດານຂ່າວ"
+msgstr ""
 
 msgid "Search for visualizations, reports and more"
 msgstr ""
@@ -582,14 +578,15 @@ msgid "Dashboard description"
 msgstr ""
 
 msgid "Layout"
-msgstr "ຈັດຮູບແບບ"
+msgstr ""
 
 msgid "{{count}} columns"
 msgid_plural "{{count}} columns"
 msgstr[0] ""
+msgstr[1] ""
 
 msgid "Change layout"
-msgstr "ປ່ຽນຮູບແບບ"
+msgstr ""
 
 msgid "Add new items to"
 msgstr ""
@@ -624,7 +621,7 @@ msgid ""
 msgstr ""
 
 msgid "Getting started"
-msgstr "ເລີ່ມຕົ້ນ"
+msgstr ""
 
 msgid "Search for and open saved dashboards from the top bar."
 msgstr ""
@@ -647,11 +644,12 @@ msgid "Requested dashboard not found"
 msgstr ""
 
 msgid "No description"
-msgstr "ບໍ່ມີຄຳອະທິບາຍ"
+msgstr ""
 
 msgid "{{count}} selected"
 msgid_plural "{{count}} selected"
 msgstr[0] ""
+msgstr[1] ""
 
 msgid "Cannot edit filters while offline"
 msgstr ""
@@ -679,13 +677,13 @@ msgid "Fetching external dashboard"
 msgstr ""
 
 msgid "Error"
-msgstr "ເກີດການຜິດພາດ"
+msgstr ""
 
 msgid "Could not load Superset dashboard"
 msgstr ""
 
 msgid "Retry"
-msgstr "ລອງໃໝ່"
+msgstr ""
 
 msgid "Loading dashboard – {{name}}"
 msgstr ""
@@ -700,7 +698,7 @@ msgid "This dashboard could not be loaded. Please try again later."
 msgstr ""
 
 msgid "Offline"
-msgstr "ບໍ່ມີການເຊື່ອມຕໍ່"
+msgstr ""
 
 msgid "This dashboard cannot be loaded while offline."
 msgstr ""
@@ -726,6 +724,7 @@ msgstr ""
 msgid "{{count}} filters active"
 msgid_plural "{{count}} filters active"
 msgstr[0] ""
+msgstr[1] ""
 
 msgid "10 seconds per slide"
 msgstr ""
