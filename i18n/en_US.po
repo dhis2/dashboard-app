@@ -1,16 +1,16 @@
 # 
 # Translators:
-# Rohit Wadhwani, 2025
+# Rohit Wadhwani, 2026
 # 
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
 "POT-Creation-Date: 2023-05-15T07:26:26.921Z\n"
 "PO-Revision-Date: 2022-04-20 09:58+0000\n"
-"Last-Translator: Rohit Wadhwani, 2025\n"
+"Last-Translator: Rohit Wadhwani, 2026\n"
 "Language-Team: English (United States) (https://app.transifex.com/hisp-uio/teams/100509/en_US/)\n"
 "MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Language: en_US\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
@@ -236,7 +236,7 @@ msgid "Cancel"
 msgstr "कैंसल"
 
 msgid "Discard changes"
-msgstr ""
+msgstr "Discard changes"
 
 msgid ""
 "This dashboard has unsaved changes. Are you sure you want to leave and "
@@ -253,7 +253,7 @@ msgid "No access"
 msgstr ""
 
 msgid "Not supported"
-msgstr ""
+msgstr "Not supported"
 
 msgid ""
 "Editing dashboards on small screens is not supported. Resize your screen to "
@@ -492,7 +492,7 @@ msgid "Edit"
 msgstr ""
 
 msgid "Share"
-msgstr ""
+msgstr "Share"
 
 msgid "Clear dashboard filters?"
 msgstr ""
