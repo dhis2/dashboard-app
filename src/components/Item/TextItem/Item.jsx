@@ -122,8 +122,14 @@ const mapStateToProps = (state, ownProps) => {
 
     const item = items.find((item) => item.id === ownProps.item.id)
 
+    // To avoid server version toggling, try both displayText (>=v43) and text (<=v42)
+    // Keep raw text in edit mode so we do not overwrite the raw value
     return {
-        text: item ? item.text : '',
+        text: item
+            ? isEditMode(ownProps.dashboardMode)
+                ? item.text
+                : item.displayText ?? item.text
+            : '',
     }
 }
 
