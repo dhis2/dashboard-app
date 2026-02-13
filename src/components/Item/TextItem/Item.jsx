@@ -124,12 +124,12 @@ const mapStateToProps = (state, ownProps) => {
 
     // To avoid server version toggling, try both displayText (>=v43) and text (<=v42)
     // Keep raw text in edit mode so we do not overwrite the raw value
+    const textForItem = isEditMode(ownProps.dashboardMode)
+        ? item?.text
+        : item?.displayText ?? item?.text
+
     return {
-        text: item
-            ? isEditMode(ownProps.dashboardMode)
-                ? item.text
-                : item.displayText ?? item.text
-            : '',
+        text: item ? textForItem : '',
     }
 }
 
