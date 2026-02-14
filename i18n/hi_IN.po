@@ -79,7 +79,7 @@ msgid "Requested dashboard not found"
 msgstr ""
 
 msgid "No access"
-msgstr ""
+msgstr "कोई एक्सेस नहीं"
 
 msgid ""
 "Editing dashboards on small screens is not supported. Resize your screen to "
@@ -92,7 +92,7 @@ msgid ""
 msgstr ""
 
 msgid "Not supported"
-msgstr ""
+msgstr "सपोर्टेड नहीं है"
 
 msgid "Print"
 msgstr ""
@@ -135,7 +135,7 @@ msgid "This item has been shortened to fit on one page"
 msgstr ""
 
 msgid "Messages"
-msgstr ""
+msgstr "मैसेजेस"
 
 msgid "See all messages"
 msgstr ""
