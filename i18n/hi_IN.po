@@ -44,7 +44,7 @@ msgid "Remove"
 msgstr "हटाएं"
 
 msgid "Messages"
-msgstr ""
+msgstr "मैसेजेस"
 
 msgid "See all messages"
 msgstr ""
@@ -237,7 +237,7 @@ msgid "Cancel"
 msgstr "रद्द करें"
 
 msgid "Discard changes"
-msgstr ""
+msgstr "बदलावों को छोड़ना है"
 
 msgid ""
 "This dashboard has unsaved changes. Are you sure you want to leave and "
@@ -251,10 +251,10 @@ msgid "Yes, discard changes"
 msgstr ""
 
 msgid "No access"
-msgstr ""
+msgstr "कोई एक्सेस नहीं"
 
 msgid "Not supported"
-msgstr ""
+msgstr "सपोर्टेड नहीं है"
 
 msgid ""
 "Editing dashboards on small screens is not supported. Resize your screen to "
@@ -528,7 +528,7 @@ msgid "Loading dashboard"
 msgstr ""
 
 msgid "Offline"
-msgstr ""
+msgstr "ऑफ़लाइन"
 
 msgid "This dashboard cannot be loaded while offline."
 msgstr ""
