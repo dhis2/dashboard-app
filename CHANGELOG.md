@@ -1,3 +1,10 @@
+# [101.5.0](https://github.com/dhis2/dashboard-app/compare/v101.4.2...v101.5.0) (2026-02-22)
+
+
+### Features
+
+* show translated text in text boxes ([#3316](https://github.com/dhis2/dashboard-app/issues/3316)) ([ab1b967](https://github.com/dhis2/dashboard-app/commit/ab1b96750a82390de8317c78724b01aef97d8b11))
+
 ## [101.4.2](https://github.com/dhis2/dashboard-app/compare/v101.4.1...v101.4.2) (2025-10-30)
 
 
