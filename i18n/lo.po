@@ -1,4 +1,3 @@
-# 
 # Translators:
 # Philip Larsen Donnelly, 2021
 # Viktor Varland <viktor@dhis2.org>, 2021
@@ -20,7 +19,7 @@ msgstr ""
 "Plural-Forms: nplurals=1; plural=0;\n"
 
 msgid "Untitled dashboard"
-msgstr ""
+msgstr "ກະດານຂ່າວທີ່ບໍ່ມີຊື່"
 
 msgid "Loading dashboard – {{name}}"
 msgstr "ກຳລັງໂຫຼດໜ້າຈໍສະແດງຜົນລວມ – {{name}}"
@@ -39,11 +38,16 @@ msgid ""
 "This action cannot be undone. Are you sure you want to permanently delete "
 "this dashboard?"
 msgstr ""
+"ການລຶບກະດານຂ່າວ \"{{ dashboardName }}\" ຈະເປັນການລຶບອອກຈາກຜູ້ໃຊ້ທັງໝົດ. "
+"ການດຳເນີນການນີ້ ບໍ່ສາມາດຍົກເລີກໄດ້. ທ່ານແນ່ໃຈຫຼືບໍ່ວ່າ "
+"ຕ້ອງການລຶບກະດານຂ່າວນີ້ ແບບຖາວອນ?"
 
 msgid ""
 "Failed to save dashboard. You might be offline or not have access to edit "
 "this dashboard."
 msgstr ""
+"ບໍ່ສາມາດບັນທຶກກະດານຂ່າວໄດ້. ທ່ານອາດຈະຢູ່ໃນໂໝດອອຟລາຍ ຫຼື "
+"ບໍ່ມີສິດໃນການແກ້ໄຂກະດານຂ່າວນີ້."
 
 msgid "Save changes"
 msgstr "ບັນທຶກ"
@@ -88,6 +92,8 @@ msgid ""
 "Editing dashboards on small screens is not supported. Resize your screen to "
 "return to edit mode."
 msgstr ""
+"ບໍ່ຮອງຮັບການແກ້ໄຂກະດານຂ່າວໃນໜ້າຈໍຂະໜາດນ້ອຍ. "
+"ກະລຸນາປັບຂະໜາດໜ້າຈໍຂອງທ່ານເພື່ອໃຫ້ກັບເຂົ້າສູ່ໂໝດການແກ້ໄຂ."
 
 msgid ""
 "Creating dashboards on small screens is not supported. Resize your screen to"
@@ -125,7 +131,7 @@ msgstr ""
 
 msgid "{{count}} selected"
 msgid_plural "{{count}} selected"
-msgstr[0] ""
+msgstr[0] "{{count}}ເລືອກແລ້ວ"
 
 msgid "Remove"
 msgstr "ລົບອອກ"
@@ -143,7 +149,7 @@ msgid "See all messages"
 msgstr "ເບິ່ງຂໍ້ຄວາມທັງໝົດ"
 
 msgid "Item type \"{{type}}\" is not supported"
-msgstr ""
+msgstr "ປະເພດລາຍການ \"{{type}}\" ແມ່ນບໍ່ຮອງຮັບ"
 
 msgid "The item type is missing"
 msgstr "ປະເພດລາຍການຫາຍໄປ"
@@ -156,7 +162,7 @@ msgstr "ເວັນວັກ"
 
 msgid ""
 "Use a spacer to create empty vertical space between other dashboard items."
-msgstr ""
+msgstr "ໃຊ້ຕົວຂັ້ນເພື່ອສ້າງໄລຍະຫ່າງແນວຕັ້ງ ລະຫວ່າງລາຍການອື່ນໆໃນກະດານຂ່າວ"
 
 msgid "Text item"
 msgstr "ລາຍການທີ່ເປັນໜັງສື"
@@ -230,6 +236,8 @@ msgid ""
 "                                         as filters. Alternatively, only selected dimensions can\n"
 "                                         be made available on a dashboard."
 msgstr ""
+"ກະດານຂ່າວສາມາດກອງຕາມຂອບເຂດຂໍ້ມູນ\n"
+" ເພື່ອປ່ຽນແປງຂໍ້ມູນທີ່ສະແດງຜົນ. ຕາມຄ່າເລີ່ມຕົ້ນ, ທຸກມິຕິຂໍ້ມູນແມ່ນສາມາດໃຊ້ເປັນຕົວຕອງໄດ້. ຫຼື ອີກທາງເລືອກໜຶ່ງ, ທ່ານສາມາດເລືອກເອົາສະເພາະບາງມິຕິຂໍ້ມູນ ເພື່ອໃຫ້ນຳໃຊ້ເປັນຕົວຕອງໃນກະດານຂ່າວໄດ້."
 
 msgid "Available Filters"
 msgstr "ຕົວກອງທີ່ມີໃຫ້"
