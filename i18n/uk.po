@@ -1,4 +1,3 @@
-# 
 # Translators:
 # Wanda <wanda@frontlineaids.org>, 2022
 # Philip Larsen Donnelly, 2022
@@ -6,16 +5,17 @@
 # Éva Tamási, 2023
 # Nadiia <semchuk@aph.org.ua>, 2023
 # Yury Rogachev <yury@dhis2.org>, 2025
+# Mykhailo Siusko <m.siusko@redcross.org.ua>, 2026
 # 
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
 "POT-Creation-Date: 2025-02-07T11:22:46.614Z\n"
 "PO-Revision-Date: 2022-10-15 22:30+0000\n"
-"Last-Translator: Yury Rogachev <yury@dhis2.org>, 2025\n"
+"Last-Translator: Mykhailo Siusko <m.siusko@redcross.org.ua>, 2026\n"
 "Language-Team: Ukrainian (https://app.transifex.com/hisp-uio/teams/100509/uk/)\n"
 "MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Language: uk\n"
 "Plural-Forms: nplurals=4; plural=(n % 1 == 0 && n % 10 == 1 && n % 100 != 11 ? 0 : n % 1 == 0 && n % 10 >= 2 && n % 10 <= 4 && (n % 100 < 12 || n % 100 > 14) ? 1 : n % 1 == 0 && (n % 10 ==0 || (n % 10 >=5 && n % 10 <=9) || (n % 100 >=11 && n % 100 <=14 )) ? 2: 3);\n"
@@ -183,7 +183,7 @@ msgid "Line lists"
 msgstr "Списки рядків"
 
 msgid "Apps"
-msgstr "Програми"
+msgstr "Додатки"
 
 msgid "Reports"
 msgstr "Звіти"
