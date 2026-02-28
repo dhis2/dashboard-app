@@ -1,29 +1,28 @@
-# 
 # Translators:
 # Philip Larsen Donnelly, 2021
 # Viktor Varland <viktor@dhis2.org>, 2021
 # Somkhit Bouavong <bouavongk@gmail.com>, 2022
 # Namwan Chanthavisouk, 2024
-# Saysamone Sibounma, 2024
+# Saysamone Sibounma, 2026
 # 
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
 "POT-Creation-Date: 2022-01-10T14:24:29.926Z\n"
 "PO-Revision-Date: 2019-09-01 20:38+0000\n"
-"Last-Translator: Saysamone Sibounma, 2024\n"
+"Last-Translator: Saysamone Sibounma, 2026\n"
 "Language-Team: Lao (https://app.transifex.com/hisp-uio/teams/100509/lo/)\n"
 "MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Language: lo\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 
 msgid "Untitled dashboard"
-msgstr ""
+msgstr "ກະດານຂ່າວທີ່ບໍ່ມີຊື່"
 
 msgid "Loading dashboard – {{name}}"
-msgstr ""
+msgstr "ກຳລັງໂຫຼດໜ້າຈໍສະແດງຜົນລວມ – {{name}}"
 
 msgid "Cancel"
 msgstr "Cancel"
@@ -32,30 +31,35 @@ msgid "Delete"
 msgstr "ລົບ"
 
 msgid "Delete dashboard"
-msgstr ""
+msgstr "ລຶບໜ້າຈໍສະແດງຜົນລວມ"
 
 msgid ""
 "Deleting dashboard \"{{ dashboardName }}\" will remove it for all users. "
 "This action cannot be undone. Are you sure you want to permanently delete "
 "this dashboard?"
 msgstr ""
+"ການລຶບກະດານຂ່າວ \"{{ dashboardName }}\" ຈະເປັນການລຶບອອກຈາກຜູ້ໃຊ້ທັງໝົດ. "
+"ການດຳເນີນການນີ້ ບໍ່ສາມາດຍົກເລີກໄດ້. ທ່ານແນ່ໃຈຫຼືບໍ່ວ່າ "
+"ຕ້ອງການລຶບກະດານຂ່າວນີ້ ແບບຖາວອນ?"
 
 msgid ""
 "Failed to save dashboard. You might be offline or not have access to edit "
 "this dashboard."
 msgstr ""
+"ບໍ່ສາມາດບັນທຶກກະດານຂ່າວໄດ້. ທ່ານອາດຈະຢູ່ໃນໂໝດອອຟລາຍ ຫຼື "
+"ບໍ່ມີສິດໃນການແກ້ໄຂກະດານຂ່າວນີ້."
 
 msgid "Save changes"
 msgstr "ບັນທຶກ"
 
 msgid "Exit print preview"
-msgstr ""
+msgstr "ອອກຈາກການເບິ່ງຕົວຢ່າງການພິມ"
 
 msgid "Print preview"
-msgstr ""
+msgstr "ເບິ່ງຕົວຢ່າງການພິມ"
 
 msgid "Filter settings"
-msgstr ""
+msgstr "ການຕັ້ງຄ່າຕົວກອງ"
 
 msgid "Translate"
 msgstr "ແປ"
@@ -64,7 +68,7 @@ msgid "Exit without saving"
 msgstr "ອອກໂດຍບໍ່ບັນທຶກ"
 
 msgid "Go to dashboards"
-msgstr ""
+msgstr "ໄປທີ່ໜ້າຈໍສະແດງຜົນລວມ"
 
 msgid "Search for a dashboard"
 msgstr "ຄົນຫາກະດານຂ່າວ"
@@ -76,10 +80,10 @@ msgid "Show more dashboards"
 msgstr ""
 
 msgid "No dashboards found. Use the + button to create a new dashboard."
-msgstr ""
+msgstr "ບໍ່ພົບໜ້າຈໍສະແດງຜົນລວມ. ໃຊ້ປຸ່ມ + ເພື່ອສ້າງໜ້າຈໍສະແດງຜົນລວມໃໝ່."
 
 msgid "Requested dashboard not found"
-msgstr ""
+msgstr "ບໍ່ພົບໜ້າຈໍສະແດງຜົນລວມທີ່ຮ້ອງຂໍ"
 
 msgid "No access"
 msgstr "ບໍ່ມີການເຂົ້າເຖີງ"
@@ -88,6 +92,8 @@ msgid ""
 "Editing dashboards on small screens is not supported. Resize your screen to "
 "return to edit mode."
 msgstr ""
+"ບໍ່ຮອງຮັບການແກ້ໄຂກະດານຂ່າວໃນໜ້າຈໍຂະໜາດນ້ອຍ. "
+"ກະລຸນາປັບຂະໜາດໜ້າຈໍຂອງທ່ານເພື່ອໃຫ້ກັບເຂົ້າສູ່ໂໝດການແກ້ໄຂ."
 
 msgid ""
 "Creating dashboards on small screens is not supported. Resize your screen to"
@@ -95,28 +101,28 @@ msgid ""
 msgstr ""
 
 msgid "Not supported"
-msgstr ""
+msgstr "ບໍ່ຮອງຮັບ"
 
 msgid "Print"
 msgstr "ພີມອອກ"
 
 msgid "dashboard layout"
-msgstr ""
+msgstr "ຮູບແບບໜ້າຈໍສະແດງຜົນລວມ"
 
 msgid "one item per page"
-msgstr ""
+msgstr "ໜຶ່ງລາຍການຕໍ່ໜ້າ"
 
 msgid "Print Preview"
-msgstr ""
+msgstr "ເບິ່ງຕົວຢ່າງການພິມ"
 
 msgid "For best print results"
-msgstr ""
+msgstr "ເພື່ອຜົນການພິມທີ່ດີທີ່ສຸດ"
 
 msgid "Use Chrome or Edge web browser"
-msgstr ""
+msgstr "ໃຫ້ໃຊ້ບຣາວເຊີ Chrome ຫຼື Edge"
 
 msgid "Wait for all dashboard items to load before printing"
-msgstr ""
+msgstr "ລໍຖ້າໃຫ້ລາຍການທັງໝົດໃນໜ້າຈໍສະແດງຜົນລວມໂຫຼດໃຫ້ສຳເລັດກ່ອນພິມ"
 
 msgid ""
 "Use A4 landscape paper size and default margin settings in the browser print"
@@ -125,7 +131,7 @@ msgstr ""
 
 msgid "{{count}} selected"
 msgid_plural "{{count}} selected"
-msgstr[0] ""
+msgstr[0] "{{count}}ເລືອກແລ້ວ"
 
 msgid "Remove"
 msgstr "ລົບອອກ"
@@ -134,29 +140,29 @@ msgid "Delete item"
 msgstr ""
 
 msgid "This item has been shortened to fit on one page"
-msgstr ""
+msgstr "ລາຍການນີ້ຖືກເຮັດໃຫ້ສັ້ນລົງເພື່ອໃຫ້ພໍດີກັບໜຶ່ງໜ້າ"
 
 msgid "Messages"
 msgstr "ຂໍ້ຄວາມ"
 
 msgid "See all messages"
-msgstr ""
+msgstr "ເບິ່ງຂໍ້ຄວາມທັງໝົດ"
 
 msgid "Item type \"{{type}}\" is not supported"
-msgstr ""
+msgstr "ປະເພດລາຍການ \"{{type}}\" ແມ່ນບໍ່ຮອງຮັບ"
 
 msgid "The item type is missing"
-msgstr ""
+msgstr "ປະເພດລາຍການຫາຍໄປ"
 
 msgid "Filters applied"
-msgstr ""
+msgstr "ນຳໃຊ້ຕົວກອງແລ້ວ"
 
 msgid "Spacer"
 msgstr "ເວັນວັກ"
 
 msgid ""
 "Use a spacer to create empty vertical space between other dashboard items."
-msgstr ""
+msgstr "ໃຊ້ຕົວຂັ້ນເພື່ອສ້າງໄລຍະຫ່າງແນວຕັ້ງ ລະຫວ່າງລາຍການອື່ນໆໃນກະດານຂ່າວ"
 
 msgid "Text item"
 msgstr "ລາຍການທີ່ເປັນໜັງສື"
@@ -165,7 +171,7 @@ msgid "Add text here"
 msgstr "ເພີ້ມໜັງສືບ່ອນນີ້"
 
 msgid "There was a problem loading this dashboard item"
-msgstr ""
+msgstr "ມີບັນຫາໃນການໂຫຼດລາຍການໜ້າຈໍສະແດງຜົນລວມນີ້"
 
 msgid "Hide interpretations and details"
 msgstr "ເຊື່ອງການຊີ້ແຈງ ແລະ ລາຍລະອຽດ"
@@ -174,16 +180,16 @@ msgid "Show interpretations and details"
 msgstr "ສະແດງການຊີ້ແຈງ ແລະ ລາຍລະອຽດ"
 
 msgid "Open in {{appName}} app"
-msgstr ""
+msgstr "ເປີດໃນແອັບ {{appName}}"
 
 msgid "View fullscreen"
-msgstr ""
+msgstr "ເບິ່ງແບບເຕັມຈໍ"
 
 msgid "View as Chart"
-msgstr ""
+msgstr "ເບິ່ງເປັນແຜນພູມ"
 
 msgid "This map can't be displayed as a chart"
-msgstr ""
+msgstr "ແຜນທີ່ນີ້ບໍ່ສາມາດສະແດງເປັນແຜນພູມໄດ້"
 
 msgid "View as Table"
 msgstr "ເບິ່ງເປັນຕາຕະລາງ"
@@ -192,22 +198,22 @@ msgid "This map can't be displayed as a table"
 msgstr ""
 
 msgid "View as Map"
-msgstr ""
+msgstr "ເບິ່ງເປັນແຜນທີ່"
 
 msgid "There was a problem loading interpretations for this item"
 msgstr ""
 
 msgid "Unable to load the plugin for this item"
-msgstr ""
+msgstr "ບໍ່ສາມາດໂຫຼດປລັກອິນສຳລັບລາຍການນີ້ໄດ້"
 
 msgid "No data to display"
-msgstr ""
+msgstr "ບໍ່ມີຂໍ້ມູນທີ່ຈະສະແດງ"
 
 msgid "There was an error loading data for this item"
-msgstr ""
+msgstr "ເກີດຂໍ້ຜິດພາດໃນການໂຫຼດຂໍ້ມູນສຳລັບລາຍການນີ້"
 
 msgid "Open this item in {{appName}}"
-msgstr ""
+msgstr "ເປີດລາຍການນີ້ໃນ {{appName}}"
 
 msgid "Confirm"
 msgstr "Confirm"
@@ -216,13 +222,13 @@ msgid "Add filter"
 msgstr "ເພີ່ມຕົວກອງ"
 
 msgid "Allow filtering by all dimensions"
-msgstr ""
+msgstr "ອະນຸຍາດໃຫ້ກອງໄດ້ທຸກມິຕິ"
 
 msgid "Only allow filtering by selected dimensions"
-msgstr ""
+msgstr "ອະນຸຍາດໃຫ້ກອງໄດ້ສະເພາະມິຕິທີ່ເລືອກ"
 
 msgid "Dashboard filter settings"
-msgstr ""
+msgstr "ການຕັ້ງຄ່າຕົວກອງໜ້າຈໍສະແດງຜົນລວມ"
 
 msgid ""
 "Dashboards can be filtered by dimensions to change\n"
@@ -230,12 +236,14 @@ msgid ""
 "                                         as filters. Alternatively, only selected dimensions can\n"
 "                                         be made available on a dashboard."
 msgstr ""
+"ກະດານຂ່າວສາມາດກອງຕາມຂອບເຂດຂໍ້ມູນ\n"
+" ເພື່ອປ່ຽນແປງຂໍ້ມູນທີ່ສະແດງຜົນ. ຕາມຄ່າເລີ່ມຕົ້ນ, ທຸກມິຕິຂໍ້ມູນແມ່ນສາມາດໃຊ້ເປັນຕົວຕອງໄດ້. ຫຼື ອີກທາງເລືອກໜຶ່ງ, ທ່ານສາມາດເລືອກເອົາສະເພາະບາງມິຕິຂໍ້ມູນ ເພື່ອໃຫ້ນຳໃຊ້ເປັນຕົວຕອງໃນກະດານຂ່າວໄດ້."
 
 msgid "Available Filters"
-msgstr ""
+msgstr "ຕົວກອງທີ່ມີໃຫ້"
 
 msgid "Selected Filters"
-msgstr ""
+msgstr "ຕົວກອງທີ່ເລືອກ"
 
 msgid "There are no items on this dashboard"
 msgstr "ບໍ່່ທັນມີລາຍການໃນກະດານຂ່າວນີ້"
@@ -253,22 +261,22 @@ msgid "Search for items to add to this dashboard"
 msgstr "ຄົ້ນຫາລາຍການແລະບັນທຶກລົງກະດານຂ່າວ"
 
 msgid "Additional items"
-msgstr ""
+msgstr "ລາຍການເພີ່ມເຕີມ"
 
 msgid "Text box"
-msgstr ""
+msgstr "ກ່ອງຂໍ້ຄວາມ"
 
 msgid "Dashboard title"
-msgstr ""
+msgstr "ຫົວຂໍ້ໜ້າຈໍສະແດງຜົນລວມ"
 
 msgid "Dashboard description"
-msgstr ""
+msgstr "ຄຳອະທິບາຍໜ້າຈໍສະແດງຜົນລວມ"
 
 msgid "Hide description"
-msgstr ""
+msgstr "ເຊື່ອງຄຳອະທິບາຍ"
 
 msgid "Show description"
-msgstr ""
+msgstr "ສະແດງຄຳອະທິບາຍ"
 
 msgid "Failed to hide description"
 msgstr ""
@@ -277,16 +285,16 @@ msgid "Failed to show description"
 msgstr ""
 
 msgid "Unstar dashboard"
-msgstr ""
+msgstr "ຍົກເລີກການຕິດດາວ"
 
 msgid "Star dashboard"
-msgstr ""
+msgstr "ຕິດດາວໜ້າຈໍສະແດງຜົນລວມ"
 
 msgid "Failed to unstar the dashboard"
-msgstr ""
+msgstr "ບໍ່ສາມາດຍົກເລີກການຕິດດາວໄດ້"
 
 msgid "Failed to star the dashboard"
-msgstr ""
+msgstr "ບໍ່ສາມາດຕິດດາວໜ້າຈໍສະແດງຜົນລວມໄດ້"
 
 msgid "More"
 msgstr "ເພີ່ມເຕີມ"
@@ -298,16 +306,16 @@ msgid "Share"
 msgstr "ແຈກ"
 
 msgid "Dashboard layout"
-msgstr ""
+msgstr "ຮູບແບບໜ້າຈໍສະແດງຜົນລວມ"
 
 msgid "One item per page"
-msgstr ""
+msgstr "ໜຶ່ງລາຍການຕໍ່ໜ້າ"
 
 msgid "No description"
 msgstr "ບໍ່ມີລາຍລະອຽດ"
 
 msgid "Visualizations"
-msgstr ""
+msgstr "ພາບຂໍ້ມູນ"
 
 msgid "Pivot tables"
 msgstr "ຕາຕະລາງຂໍ້ມູນ"

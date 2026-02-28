@@ -3,13 +3,14 @@
 # Philip Larsen Donnelly, 2021
 # Viktor Varland <viktor@dhis2.org>, 2021
 # Em Le <em.hispvietnam@gmail.com>, 2025
+# Kiry Heng, 2025
 # 
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
 "POT-Creation-Date: 2022-01-10T14:24:29.926Z\n"
 "PO-Revision-Date: 2019-09-01 20:38+0000\n"
-"Last-Translator: Em Le <em.hispvietnam@gmail.com>, 2025\n"
+"Last-Translator: Kiry Heng, 2025\n"
 "Language-Team: Khmer (https://app.transifex.com/hisp-uio/teams/100509/km/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -21,7 +22,7 @@ msgid "Untitled dashboard"
 msgstr "មិនទាន់មានចំណងជើង"
 
 msgid "Loading dashboard – {{name}}"
-msgstr ""
+msgstr "កំពុងបង្ហាញផ្ទាំងប៉ាណ្ណូបរិធាន - {{name}}"
 
 msgid "Cancel"
 msgstr "បោះបង់"
@@ -45,50 +46,57 @@ msgid ""
 "Failed to save dashboard. You might be offline or not have access to edit "
 "this dashboard."
 msgstr ""
+"បរាជ័យក្នុងការរក្សាទុកផ្ទាំងប៉ាណ្ណបរិធាន។ "
+"អ្នកប្រហែលជាមិនបានភ្ជាប់ទៅកាន់បណ្ដាញ "
+"ឬមិនមានសិទ្ធិក្នុងការកែប្រែផ្ទាំងប៉ាណ្ណបិរធាននេះទេ។"
 
 msgid "Save changes"
-msgstr ""
+msgstr "រក្សាទុកការផ្លាស់ប្តូរ"
 
 msgid "Exit print preview"
-msgstr ""
+msgstr "ចាកចេញពីការបង្ហាញមើលមុនបោះពុម្ព"
 
 msgid "Print preview"
-msgstr ""
+msgstr "ការមើលមុនបោះពុម្ព"
 
 msgid "Filter settings"
-msgstr ""
+msgstr "ការកំណត់លក្ខខណ្ឌច្រោះ"
 
 msgid "Translate"
 msgstr "បកប្រែ​"
 
 msgid "Exit without saving"
-msgstr ""
+msgstr "ចាកចេញដោយមិនរក្សាទុក"
 
 msgid "Go to dashboards"
-msgstr ""
+msgstr "ចូលទៅកាន់ផ្ទាំងប៉ាណ្ណូបរិធាន"
 
 msgid "Search for a dashboard"
 msgstr "ស្វែងរកផ្ទាំងប៉ាណ្ណូបរិធានណាមួយ"
 
 msgid "Show fewer dashboards"
-msgstr ""
+msgstr "បង្ហាញផ្ទាំងប៉ាណ្ណូបរិធានមួយចំនួន"
 
 msgid "Show more dashboards"
-msgstr ""
+msgstr "បង្ហាញផ្ទាំងប៉ាណ្ណូបរិធានផ្សេងទៀត"
 
 msgid "No dashboards found. Use the + button to create a new dashboard."
 msgstr ""
+"រកមិនឃើញផ្ទាំងប៉ាណ្ណូបរិធាន។ ប្រ់ប្រាស់ប៊ូតុង «+» "
+"ដើម្បីបង្កើតផ្ទាំងប៉ាណ្ណបរិធានថ្មីមួយ។"
 
 msgid "Requested dashboard not found"
-msgstr ""
+msgstr "ផ្ទាំងប៉ាណ្ណូបរិធានដែលស្នើរសុំគឺរកមិនឃើញទេ"
 
 msgid "No access"
-msgstr ""
+msgstr "គ្មានសិទ្ធិចូលប្រើប្រាស់ទេ"
 
 msgid ""
 "Editing dashboards on small screens is not supported. Resize your screen to "
 "return to edit mode."
 msgstr ""
+"ការកែប្រែផ្ទាំងប៉ាណ្ណូបរិធាននៅលើអេក្រង់ទំហំតូចគឺមិនអាចធ្វើឡើងបានទេ។ "
+"សូមធ្វើការកែសម្រួលទំហំអេក្រង់របស់អ្នកដើម្បីត្រឡប់ទៅកាន់ទម្រង់កែប្រែ។"
 
 msgid ""
 "Creating dashboards on small screens is not supported. Resize your screen to"
@@ -96,28 +104,28 @@ msgid ""
 msgstr ""
 
 msgid "Not supported"
-msgstr ""
+msgstr "មិនគាំទ្រ​ / មិនអាចធ្វើឡើងបានទេ"
 
 msgid "Print"
 msgstr "បោះពុម្ព"
 
 msgid "dashboard layout"
-msgstr ""
+msgstr "ប្លង់នៃផ្ទាំងប៉ាណ្ណូបរិធាន"
 
 msgid "one item per page"
-msgstr ""
+msgstr "មួយផ្ទាំងទិន្នន័យក្នុងមួយទំព័រ"
 
 msgid "Print Preview"
-msgstr ""
+msgstr "ការមើលមុនបោះពុម្ព"
 
 msgid "For best print results"
-msgstr ""
+msgstr "សម្រាប់លទ្ធផលបោះពុម្ពល្អបំផុត"
 
 msgid "Use Chrome or Edge web browser"
-msgstr ""
+msgstr "ការប្រើប្រាស់កម្មវិធី Chrome ឬ Edge"
 
 msgid "Wait for all dashboard items to load before printing"
-msgstr ""
+msgstr "សូមរង់ចាំការបង្ហាញនូវគ្រប់ផ្ទាំងទិន្នន័យមុនពេលធ្វើការបោះពុម្ព"
 
 msgid ""
 "Use A4 landscape paper size and default margin settings in the browser print"
@@ -126,7 +134,7 @@ msgstr ""
 
 msgid "{{count}} selected"
 msgid_plural "{{count}} selected"
-msgstr[0] ""
+msgstr[0] "{{count}} បានជ្រើសរើស"
 
 msgid "Remove"
 msgstr "យកចេញ"
@@ -153,17 +161,19 @@ msgid "Filters applied"
 msgstr "លក្ខខណ្ឌច្រោះត្រូវបានអនុវត្តន៍"
 
 msgid "Spacer"
-msgstr ""
+msgstr "ចន្លោះ"
 
 msgid ""
 "Use a spacer to create empty vertical space between other dashboard items."
 msgstr ""
+"ប្រើប្រាស់ចន្លោះមួយ "
+"ដើម្បីបង្ហើតចន្លោះបញ្ឈរទទេរវាងផ្ទាំងទិន្នន័យនានានៃផ្ទាំងប៉ាណ្ណូបរិធាន"
 
 msgid "Text item"
 msgstr ""
 
 msgid "Add text here"
-msgstr ""
+msgstr "បញ្ចូលព័ត៌មានត្រង់នេះ"
 
 msgid "There was a problem loading this dashboard item"
 msgstr ""
@@ -188,10 +198,10 @@ msgid "This map can't be displayed as a chart"
 msgstr "ផែនទីនេះមិនអាចត្រូវបានបង្ហាញក្នុងទម្រង់ជាគំនូសតាង(ក្រាប)បានទេ"
 
 msgid "View as Table"
-msgstr ""
+msgstr "បង្ហាញតារាង"
 
 msgid "This map can't be displayed as a table"
-msgstr ""
+msgstr "ផែនទីនេះមិនអាចបង្ហាញជាតារាងបានទេ"
 
 msgid "View as Map"
 msgstr "ការបង្ហាញក្នុងទម្រង់ជាផែនទី"
@@ -219,13 +229,13 @@ msgid "Add filter"
 msgstr ""
 
 msgid "Allow filtering by all dimensions"
-msgstr ""
+msgstr "អនុញ្ញាតិអោយធ្វើការច្រោះចំពោះគ្រប់វិមាត្រនៃទិន្នន័យ"
 
 msgid "Only allow filtering by selected dimensions"
-msgstr ""
+msgstr "អនុញ្ញាតិអោយធ្វើការច្រោះចំពោះតែវិមាត្រនៃទិន្នន័យខ្លះដែលបានជ្រើសរើស"
 
 msgid "Dashboard filter settings"
-msgstr ""
+msgstr "ការកំណត់លក្ខខណ្ឌច្រោះនៃផ្ទាំងប៉ាណ្ណូបរិធាន"
 
 msgid ""
 "Dashboards can be filtered by dimensions to change\n"
@@ -233,39 +243,43 @@ msgid ""
 "                                         as filters. Alternatively, only selected dimensions can\n"
 "                                         be made available on a dashboard."
 msgstr ""
+"ផ្ទាំងប៉ាណ្ណបរិធាននេះ "
+"អាចត្រូវបានច្រោះតាមរយៈវិមាត្រដើម្បីផ្តាស់ប្តូរការបង្ហាញទិន្នន័យ។ ជាទូទៅ, "
+"គ្រប់វិមាត្រគឺអាចប្រើប្រាស់បានសម្រាប់ធ្វើជាលក្ខខណ្ឌច្រោះ។ ម៉្យាងវិញទៀត, "
+"មានតែវិមាត្រខ្លះប៉ុណ្ណោះដែលត្រូវបានជ្រើសរើសដើម្បីអោយអាចប្រើប្រាស់លើផ្ទាំងប៉ាណ្ណូបរិធានមួយ។"
 
 msgid "Available Filters"
-msgstr ""
+msgstr "លក្ខខណ្ឌច្រោះដែលអាចប្រើប្រាស់បាន"
 
 msgid "Selected Filters"
-msgstr ""
+msgstr "លក្ខខណ្ឌច្រោះដែលបានជ្រើសរើស"
 
 msgid "There are no items on this dashboard"
-msgstr ""
+msgstr "មិនមានផ្ទាំងទិន្នន័យនៅលើផ្ទាំងប៉ាណ្ណូបរិធាននេះទេ"
 
 msgid "Show fewer"
-msgstr ""
+msgstr "បង្ហាញតិចតួច"
 
 msgid "Show more"
-msgstr ""
+msgstr "បង្ហាញច្រើនទៀត"
 
 msgid "Insert"
-msgstr ""
+msgstr "បន្ថែម"
 
 msgid "Search for items to add to this dashboard"
-msgstr ""
+msgstr "ស្វែងរកផ្ទាំងទិន្នន័យដើម្បីបន្ថែមចូលក្នុងផ្ទាំងប៉ាណ្ណូបរិធាននេះ"
 
 msgid "Additional items"
-msgstr ""
+msgstr "ការបន្ថែមផ្ទាំងទិន្នន័យ"
 
 msgid "Text box"
-msgstr ""
+msgstr "ប្រអប់ព័ត៌មាន"
 
 msgid "Dashboard title"
-msgstr ""
+msgstr "ចំណងជើងផ្ទាំងប៉ាណ្ណូបរិធាន"
 
 msgid "Dashboard description"
-msgstr ""
+msgstr "ពិពណ៌នាអំពីផ្ទាំងប៉ាណ្ណូបរិធាន"
 
 msgid "Hide description"
 msgstr "លាក់ការពិពណ៌នា"
@@ -307,10 +321,10 @@ msgid "One item per page"
 msgstr "មួយផ្ទាំងទិន្នន័យក្នុងមួយទំព័រ"
 
 msgid "No description"
-msgstr ""
+msgstr "មិនមានការពិពណ៌នា"
 
 msgid "Visualizations"
-msgstr ""
+msgstr "ការបង្ហាញជារូបភាព"
 
 msgid "Pivot tables"
 msgstr "តារាង Pivot"
@@ -322,10 +336,10 @@ msgid "Maps"
 msgstr "ផែនទី"
 
 msgid "Event reports"
-msgstr ""
+msgstr "របាយការណ៍បញ្ជីករណី"
 
 msgid "Event charts"
-msgstr ""
+msgstr "គំនូសតាង(ក្រាប)បញ្ជីករណី)"
 
 msgid "Apps"
 msgstr "កម្មវិធី"
