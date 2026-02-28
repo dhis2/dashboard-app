@@ -3,13 +3,14 @@
 # channara rin, 2023
 # Viktor Varland <viktor@dhis2.org>, 2025
 # Philip Larsen Donnelly, 2025
+# Em Le <em.hispvietnam@gmail.com>, 2025
 # 
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2025-03-18T14:27:12.993Z\n"
+"POT-Creation-Date: 2025-10-28T16:09:41.600Z\n"
 "PO-Revision-Date: 2019-06-25 12:37+0000\n"
-"Last-Translator: Philip Larsen Donnelly, 2025\n"
+"Last-Translator: Em Le <em.hispvietnam@gmail.com>, 2025\n"
 "Language-Team: Khmer (https://app.transifex.com/hisp-uio/teams/100509/km/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -18,16 +19,19 @@ msgstr ""
 "Plural-Forms: nplurals=1; plural=0;\n"
 
 msgid "Untitled dashboard"
-msgstr ""
+msgstr "មិនទាន់មានចំណងជើង"
 
 msgid "Could not get info from Superset gateway endpoint"
-msgstr ""
+msgstr "មិនអាចទាញយ"
 
 msgid "Dashboard with ID \"{{dashboardId}}\" not found or not accessible"
 msgstr ""
+"ផ្ទាំងប៉ាណ្ណូបរិធាន ដែលមានលេខសម្គាល់ \"{{dashboardId}}\" មិនអាចរកឃើញ "
+"ឬមិនអាចប្រើប្រាស់បាន"
 
 msgid "Dashboard with ID \"{{dashboardId}}\" is not embedded"
 msgstr ""
+"ផ្ទាំងប៉ាណ្ណូបរិធាន ដែលមានលេខសម្គាល់ \"{{dashboardId}}​\" មិនត្រូវបានបង្កប់"
 
 msgid "Embedded provider must be \"SUPERSET\" for dashboard ID \"{{dashboardId}}\""
 msgstr ""
@@ -37,23 +41,33 @@ msgstr ""
 
 msgid "Dashboard with ID \"{{dashboardId}}\" not found on the Superset service"
 msgstr ""
+"ផ្ទាំងប៉ាណ្ណូបរិធាន ដែលមានលេខសម្គាល់ \"{{dashboardId}}\" គឺរកមិនឃើញនៅលើសេវា "
+"Superset"
 
 msgid ""
 "Could not get guest token from Superset Gateway for dashboard ID "
 "\"{{dashboardId}}\""
 msgstr ""
+"មិនអាចទទួលបាន និមិត្តសញ្ញាជាភ្ញៀវ ពី ច្រកទំនាក់ទំនង Superset សម្រាប់ "
+"លេខសម្គាល់ផ្ទាំងប៉ាណ្ណូបរិធាន \"{{dashboardId}}\""
+
+msgid "Network error"
+msgstr "បណ្ដាញមានបញ្ហា"
+
+msgid "Could not load app data"
+msgstr "មិនអាចបង្ហាញទិន្នន័យរបស់កម្មវិធី"
 
 msgid "New dashboard: external"
-msgstr ""
+msgstr "ផ្ទាំងប៉ាណ្ណូបរិធានថ្មីភ្ជាប់មកពីផ្នែកខាងក្រៅ"
 
 msgid "Could not create dashboard"
-msgstr ""
+msgstr "មិនអាចបង្កើតផ្ទាំងប៉ាណ្ណបរិធានថ្មីបានទេ"
 
 msgid "An unknown error occurred"
-msgstr ""
+msgstr "មានបញ្ហាមួយកើតឡើងដោយមិនដឹងមូលហេតុ"
 
 msgid "Save dashboard"
-msgstr ""
+msgstr "រក្សាទុកផ្ទាំងប៉ាណ្ណបរិធាន"
 
 msgid "Back"
 msgstr "ថយក្រោយ"
@@ -62,15 +76,17 @@ msgid "Title"
 msgstr "ចំណងជើង"
 
 msgid "Code"
-msgstr ""
+msgstr "លេខកូដ"
 
 msgid ""
 "A unique code to reference this dashboard in other apps and services. Max 50"
 " characters."
 msgstr ""
+"លេខកូដសម្គាល់សម្រាប់យោងទៅផ្ទាំងប៉ាណ្ណូបរិធានក្នុងកម្មវិធីផ្សេងៗ។ "
+"ច្រើនបំផុត៥០តួរអក្សរ។"
 
 msgid "Code can't be longer than 50 characters"
-msgstr ""
+msgstr "លេខកូដមិនអាចច្រើនជាង៥០តួអក្សរ។"
 
 msgid "Description"
 msgstr "ការ​ពិពណ៌នា"
@@ -79,25 +95,29 @@ msgid "Superset Embed ID"
 msgstr ""
 
 msgid "Invalid UUID"
-msgstr ""
+msgstr "លេខកូដ UUID មិនត្រឹមត្រូវ"
 
 msgid "Options"
-msgstr ""
+msgstr "ជម្រើស"
 
 msgid "Show chart controls on dashboard items"
 msgstr ""
+"បង្ហាញឧបករណ៍គ្រប់គ្រងគំនូសតាង(ក្រាប)នៅលើផ្ទាំងរូបភាពនៃផ្ទាំងប៉ាណ្ណូបរិធាន)"
 
 msgid "Expand filters"
-msgstr ""
+msgstr "ពង្រីកលក្ខខណ្ឌសម្រាប់ច្រោះ"
 
 msgid "Delete dashboard"
-msgstr ""
+msgstr "លុបផ្ទាំងប៉ាណ្ណូបរិធាន"
 
 msgid ""
 "Deleting dashboard \"{{ dashboardName }}\" will remove it for all users. "
 "This action cannot be undone. Are you sure you want to permanently delete "
 "this dashboard?"
 msgstr ""
+"ការលុបផ្ទាំងប៉ាណ្ណូបរិធាន ដែលមានលេខសម្គាល់ \"{{ dashboardName }}  "
+"នឹងលុបនៅគ្រប់អ្នកប្រើប្រាស់។ ការលុបនេះមិនអាចត្រឡប់ក្រោយវិញបានទេ។ "
+"តើអ្នកប្រាកដថាអ្នកចង់លុបផ្ទាំងប៉ាណ្ណូបរិធាននេះរហូតឬ?"
 
 msgid ""
 "Note: the source dashboard embedded by this external dashboard will not be "
@@ -111,70 +131,73 @@ msgid "Cancel"
 msgstr "បោះបង់"
 
 msgid "Edit external dashboard"
-msgstr ""
+msgstr "កែប្រែផ្ទាំងប៉ាណ្ណបរិធានដែលភ្ជាប់មកពីផ្នែកខាងក្រៅ"
 
 msgid "New dashboard: choose type"
-msgstr ""
+msgstr "ផ្ទាំងប៉ាណ្ណូបរិធានថ្មី៖ ជ្រើសរើសប្រភេទ"
 
 msgid "Internal"
-msgstr ""
+msgstr "ផ្ទៃក្នុង"
 
 msgid "Show data and visualizations from this DHIS2 instance."
-msgstr ""
+msgstr "បង្ហាញទិន្នន័យ និងបង្ហាញទិន្នន័យជារូបភាពពីថ្នាល DHIS2 នេះ"
 
 msgid "External"
-msgstr ""
+msgstr "ផ្នែកខាងក្រៅ"
 
 msgid "Embed a Superset dashboard"
 msgstr ""
 
 msgid "Continue"
-msgstr ""
+msgstr "បន្ត"
 
 msgid "Not available for embedded dashboards"
 msgstr ""
 
 msgid "The dashboard couldn't be made available offline. Try again."
 msgstr ""
+"ផ្ទាំងប៉ាណ្ណបរិធាននេះ មិនអាចបង្ហាញបានទេនៅពេលបណ្តាញត្រូវបានផ្តាច់។ "
+"សូមសាកល្បងម្ដងទៀត។"
 
 msgid "Remove from offline storage"
-msgstr ""
+msgstr "ដកចេញពីការរក្សាទុកពេលបណ្ដាញត្រូវបានផ្តាច់"
 
 msgid "Make available offline"
-msgstr ""
+msgstr "ធ្វើអោយប្រើប្រាស់បាននៅពេលបណ្ដាញត្រូវបានផ្តាច់"
 
 msgid "Sync offline data now"
-msgstr ""
+msgstr "ធ្វើសមកាលកម្មទិន្នន័យនៅពេលបណ្ដាញត្រូវបានផ្តាច់ភ្លាម"
 
 msgid "Unstar dashboard"
-msgstr ""
+msgstr "ការដកការកំណត់ផ្កាយចំពោះផ្ទាំងប៉ាណ្ណូបរិធាន"
 
 msgid "Star dashboard"
-msgstr ""
+msgstr "ការដាក់កំណត់ផ្កាយចំពោះផ្ទាំងប៉ាណ្ណូបរិធាន"
 
 msgid "Hide description"
-msgstr ""
+msgstr "លាក់ការពិពណ៌នា"
 
 msgid "Show description"
-msgstr ""
+msgstr "បង្ហាញការពិពណ៌នា"
 
 msgid "Print"
 msgstr "បោះពុម្ព"
 
 msgid "Dashboard layout"
-msgstr ""
+msgstr "ប្លង់នៃផ្ទាំងប៉ាណ្ណូបរិធាន"
 
 msgid "One item per page"
-msgstr ""
+msgstr "មួយផ្ទាំងទិន្នន័យក្នុងមួយទំព័រ"
 
 msgid "Close dashboard"
-msgstr ""
+msgstr "បិទផ្ទាំងប៉ាណ្ណូបរិធាន"
 
 msgid "No dashboard items to show in slideshow"
 msgstr ""
+"មិនមានផ្ទាំងទិន្នន័យនៃផ្ទាំងប៉ាណ្ណូបរិធានដើម្បីបង្ហាញក្នុងការបង្ហាញជាស្លាយ"
 
 msgid "Not available offline"
-msgstr ""
+msgstr "មិនអាចប្រើប្រាស់បាននៅពេលបណ្ដាញត្រូវបានផ្តាច់"
 
 msgid "Edit"
 msgstr "កែសម្រួល​"
@@ -183,102 +206,106 @@ msgid "Share"
 msgstr "ចែករំលែក"
 
 msgid "Slideshow"
-msgstr ""
+msgstr "ការបង្ហាញជាស្លាយ"
 
 msgid "Clear dashboard filters?"
-msgstr ""
+msgstr "តើអ្នកចង់លុបចេញការលក្ខខណ្ឌច្រោះនៅលើផ្ទាំងប៉ាណ្ណូបរិធាន"
 
 msgid ""
 "A dashboard's filters can’t be saved offline. Do you want to remove the "
 "filters and make this dashboard available offline?"
 msgstr ""
+"លក្ខខណ្ឌច្រោះនៅលើផ្ទាំងប៉ាណ្ណូបរិធាន "
+"មិនអាចរក្សាទុកសម្រាប់ពេលបណ្ដាញត្រូវបានផ្តាច់ទេ។ "
+"តើអ្នកចង់ដកចេញនៅលក្ខខណ្ឌច្រោះ "
+"ហើយធ្វើអោយផ្ទាំងប៉ាណ្ណបរិធាននេះអាចប្រើប្រាស់នៅពេលបណ្ដាញត្រូវបានផ្តាច់ដែរឬទេ?"
 
 msgid "No, cancel"
-msgstr ""
+msgstr "ទេ, បោះបង់ចោល"
 
 msgid "Yes, clear filters and sync"
-msgstr ""
-
-msgid "Confirm"
-msgstr ""
-
-msgid "Filter"
-msgstr ""
-
-msgid "Failed to unstar the dashboard"
-msgstr ""
-
-msgid "Failed to star the dashboard"
-msgstr ""
+msgstr "បាទ/ចាស, លុបចញនូវលក្ខខណ្ឌច្រោះ និងធ្វើសមកាលកម្ម"
 
 msgid "This dashboard is showing data from outside this system"
-msgstr ""
+msgstr "ផ្ទាំងប៉ាណ្ណូបរិធាននេះ កំពុងបង្ហាញទិន្នន័យពីខាងក្រៅប្រព័ន្ធនេះ"
 
 msgid "External source"
-msgstr ""
+msgstr "ប្រភពមកពីផ្នែកខាងក្រៅ"
+
+msgid "Confirm"
+msgstr "បញ្ជាក់"
+
+msgid "Filter"
+msgstr "ការច្រោះ"
+
+msgid "Failed to unstar the dashboard"
+msgstr "បរាជ័យក្នុងការដកកំណត់ផ្កាយចំពោះផ្ទាំងប៉ាណ្ណូបរិធាន"
+
+msgid "Failed to star the dashboard"
+msgstr "បរាជ័យក្នុងការដាក់កំណត់ផ្កាយចំពោះផ្ទាំងប៉ាណ្ណូបរិធាន"
 
 msgid "Offline data last updated {{timeAgo}}"
 msgstr ""
+"ទិន្នន័យនៅពេលបណ្ដាញត្រូវបានផ្តាច់ បានធ្វើបច្ចុប្បន្នចុងក្រោយនៅ {{timeAgo}}"
 
 msgid "Synced {{timeAgo}}"
-msgstr ""
+msgstr "បានធ្វើសមកាលកម្មទិន្នន័យនៅ {{timeAgo}}"
 
 msgid "Cannot unstar this dashboard while offline"
 msgstr ""
+"មិនអាចធ្វើការដកកំណត់ផ្កាយចំពោះផ្ទាំងប៉ាណ្ណូបរិធាននៅពេលបណ្ដាញត្រូវបានផ្តាច់"
 
 msgid "Cannot star this dashboard while offline"
 msgstr ""
+"មិនអាចធ្វើការដាក់កំណត់ផ្កាយចំពោះផ្ទាំងប៉ាណ្ណូបរិធាននៅពេលបណ្ដាញត្រូវបានផ្តាច់"
 
 msgid "No dashboards available."
-msgstr ""
+msgstr "មិនមានផ្ទាំងប៉ាណ្ណូបរិធានដើម្បីប្រើប្រាស់"
 
 msgid "Create a new dashboard using the + button."
-msgstr ""
+msgstr "ការបង្កើតផ្ទាំងប៉ាណ្ណបរិធានថ្មីមួយដោយប្រើប្រាស់ប៊ូតុង «+»។"
 
 msgid "Search for a dashboard"
-msgstr ""
+msgstr "ស្វែងរកផ្ទាំងប៉ាណ្ណូបរិធានណាមួយ"
 
 msgid "No dashboards found for \"{{- filterText}}\""
-msgstr ""
+msgstr "រកមិនឃើញផ្ទាំងប៉ាណ្ណូបរិធានសម្រាប់ \"{{- filterText}}\""
 
 msgid "Dashboards"
-msgstr ""
-
-msgid "Could not fetch bundled apps"
-msgstr ""
-
-msgid "Network error"
-msgstr ""
+msgstr "ផ្ទាំងប៉ាណ្ណូបរិធាន"
 
 msgid "There was a problem loading this dashboard item"
 msgstr ""
+"មានបញ្ហាកើតឡើងនៅពេលដែលផ្ទាំងទិន្នន័យនៃផ្ទាំងប៉ាណ្ណូបរិធាននេះកំពុងបង្ហាញ"
 
 msgid "Open menu"
-msgstr ""
+msgstr "បើកបញ្ជីម៉ឺនុយ"
 
 msgid "Open in {{appName}}"
-msgstr ""
+msgstr "បើកក្នុងកម្មវិធី {{appName}}"
 
 msgid "View fullscreen"
-msgstr ""
+msgstr "បង្ហាញពេញអេក្រង់"
 
 msgid "Remove this item"
-msgstr ""
+msgstr "ដកផ្ទាំងទិន្នន័យនេះចេញ"
 
 msgid "This item has been shortened to fit on one page"
-msgstr ""
+msgstr "ផ្ទាំងទិន្នន័យនេះត្រូវបានបង្រួមដើម្បីអោយសាកសមក្នុងទំព័រតែមួយ"
 
 msgid "The plugin needed to display this item is not available"
 msgstr ""
+"កម្មវិធីជំនួយដែលត្រូវការដើម្បីបង្ហាញសម្រាប់ផ្ទាំងទិន្នន័យនេះគឺមិនដំណើរការទេ"
 
 msgid "Install the {{pluginName}} plugin from the App Hub"
-msgstr ""
+msgstr "តំឡើងកម្មវិធីជំនួយ {{pluginName}} ពីមជ្ឈមណ្ឌលកម្មវិធី"
 
 msgid "There was an error loading data for this item"
 msgstr ""
+"មានកំហុសបច្ចេកទេសក្នុងការទាយយកទិន្នន័យមកបង្ហាញសម្រាប់ផ្ទាំងទិន្នន័យនេះ"
 
 msgid "Open this item in {{appName}}"
-msgstr ""
+msgstr "បើកផ្ទាំងទិន្នន័យនេះក្នុងកម្មវិធី {{appName}}"
 
 msgid "Remove"
 msgstr "យកចេញ"
@@ -287,7 +314,7 @@ msgid "Messages"
 msgstr "សារ"
 
 msgid "See all messages"
-msgstr ""
+msgstr "មើលគ្រប់សារ"
 
 msgid "Item type \"{{type}}\" is not supported"
 msgstr ""
@@ -296,188 +323,212 @@ msgid "The item type is missing"
 msgstr ""
 
 msgid "Filters applied"
-msgstr ""
+msgstr "លក្ខខណ្ឌច្រោះត្រូវបានអនុវត្តន៍"
 
 msgid "Spacer"
-msgstr ""
+msgstr "ចន្លោះ"
 
 msgid ""
 "Use a spacer to create empty vertical space between other dashboard items."
 msgstr ""
+"ប្រើប្រាស់ចន្លោះមួយ "
+"ដើម្បីបង្ហើតចន្លោះបញ្ឈរទទេរវាងផ្ទាំងទិន្នន័យនានានៃផ្ទាំងប៉ាណ្ណូបរិធាន"
 
 msgid "Text box"
-msgstr ""
+msgstr "ប្រអប់ព័ត៌មាន"
 
 msgid "Add text here"
-msgstr ""
-
-msgid "Back to all interpretations"
-msgstr ""
+msgstr "បញ្ចូលព័ត៌មានត្រង់នេះ"
 
 msgid "Filters are not applied to line list dashboard items"
 msgstr ""
+"លក្ខខណ្ឌច្រោះមិនត្រូវបានអនុវត្តន៍សម្រាប់ផ្ទាំងទិន្នន័យជាបញ្ជីទិន្នន័យករណីនោះទេ"
 
 msgid "Filters not applied"
-msgstr ""
+msgstr "លក្ខខណ្ឌច្រោះមិនត្រូវបានអនុវត្តន៍"
 
 msgid "Only Period and Organisation unit filters can be applied to this item"
 msgstr ""
+"មានតែរយៈពេល "
+"និងមូលដ្ឋានសុខាភិបាលតែប៉ណ្ណោះដែលអាចប្រើប្រាស់ជាលក្ខខណ្ឌច្រោះសម្រាប់ផ្ទាំងទិន្នន័យនេះបាន"
 
 msgid "Some filters not applied"
-msgstr ""
+msgstr "មានលក្ខខណ្ឌច្រោះខ្លះមិនអាចអនុវត្តន៍បានទេ"
 
 msgid "Hide details and interpretations"
-msgstr ""
+msgstr "លាក់ព័ត៌មានល្អិត និងការបកស្រាយ"
 
 msgid "Show details and interpretations"
-msgstr ""
+msgstr "បង្ហាញព័ត៌មានល្អិត និងការបកស្រាយ"
 
 msgid "Open in {{appName}} app"
-msgstr ""
+msgstr "បើកក្នុងកម្មវិធី {{appName}}"
 
 msgid "This map can't be displayed as a chart"
-msgstr ""
+msgstr "ផែនទីនេះមិនអាចត្រូវបានបង្ហាញក្នុងទម្រង់ជាគំនូសតាង(ក្រាប)បានទេ)"
 
 msgid "This map can't be displayed as a pivot table"
-msgstr ""
+msgstr "ផែនទីនេះមិនអាចត្រូវបានបង្ហាញក្នុងទម្រង់ជាតារាង Pivot បានទេ"
 
 msgid "This visualization can't be displayed as a pivot table"
-msgstr ""
+msgstr "ការបង្ហាញទិន្នន័យជារូបភាពគឺមិនអាចបង្ហាញក្នុងទម្រង់ជាតារាង Pivot បានទេ"
 
 msgid "This visualization can't be displayed as a map"
-msgstr ""
+msgstr "ការបង្ហាញទិន្នន័យជារូបភាពគឺមិនអាចបង្ហាញក្នុងទម្រង់ជាផែនទីបានទេ"
 
 msgid "View as Chart"
-msgstr ""
+msgstr "ការបង្ហាញក្នុងទម្រង់ជាគំនូសតាង(ក្រាប)"
 
 msgid "View as Pivot table"
-msgstr ""
+msgstr "ការបង្ហាញក្នុងទម្រង់ជាតារាង Pivot"
 
 msgid "View as Map"
-msgstr ""
+msgstr "ការបង្ហាញក្នុងទម្រង់ជាផែនទី"
 
-msgid "There was a problem loading interpretations for this item"
+msgid "There was a problem loading details for this item"
 msgstr ""
 
 msgid "No data to display"
-msgstr ""
+msgstr "មិនមានទិន្នន័យសម្រាប់បង្ហាញទេ"
 
 msgid ""
 "Install Data Visualizer app ${minDVVersion.join(\n"
 "                            '.'\n"
 "                        )} or higher in order to display this item."
 msgstr ""
+"សូមតំឡើងកម្មវិធីរូបភាពទិន្នន័យ(Data Visualizer) ${minDVVersion.join(\n"
+"'.'\n"
+")} ដែលមានជំនាន់ខ្ពស់ជាងនេះដើម្បីបង្ហាញផ្ទាំងទិន្នន័យនេះបាន។"
 
 msgid "Show without filters"
-msgstr ""
+msgstr "បង្ហាញដោយមិនមានលក្ខខណ្ឌច្រោះ"
 
 msgid ""
 "Install Line Listing app ${minLLVersion.join(\n"
 "                            '.'\n"
 "                        )} or higher in order to display this item."
 msgstr ""
+"សូមតំឡើងកម្មវិធីបញ្ជីទិន្នន័យករណី(Line Listing) ${minLLVersion.join(\n"
+"'.'\n"
+")}  ដែលមានជំនាន់ខ្ពស់ជាងនេះដើម្បីបង្ហាញផ្ទាំងទិន្នន័យនេះបាន។"
 
 msgid "Maps with Earth Engine layers cannot be displayed when offline"
 msgstr ""
+"កម្មវិធីផែនទីដែលស្រទាប់ Earth Engine "
+"មិនអាចត្រូវបានបង្ហាញនៅពេលបណ្ដាញត្រូវបានផ្តាច់"
 
 msgid ""
 "Install Maps app ${minMapsVersion.join(\n"
 "                            '.'\n"
 "                        )} or higher in order to display this item."
 msgstr ""
+"សូមតំឡើងកម្មវិធីផែនទី ${minMapsVersion.join(\n"
+"'.'\n"
+")} ដែលមានជំនាន់ខ្ពស់ជាងនេះដើម្បីបង្ហាញផ្ទាំងទិន្នន័យនេះបាន។"
 
 msgid "Unable to load the plugin for this item"
-msgstr ""
+msgstr "មិនអាចបង្ហាញចេញនូវកម្មវិធីជំនួយសម្រាប់ផ្ទាំងទិន្នន័យនេះបានទេ"
 
 msgid "Resources"
-msgstr ""
+msgstr "ធនធាន"
 
 msgid "Reports"
 msgstr "របាយ​ការណ៍"
 
 msgid "Visualizations"
-msgstr ""
+msgstr "ការបង្ហាញជារូបភាព"
 
 msgid "Pivot tables"
-msgstr ""
+msgstr "តារាង Pivot"
 
 msgid "Charts"
-msgstr ""
+msgstr "គំនូសតាង(ក្រាប)"
 
 msgid "Maps"
-msgstr ""
+msgstr "ផែនទី"
 
 msgid "Event reports"
-msgstr ""
+msgstr "របាយការណ៍បញ្ជីករណី"
 
 msgid "Event charts"
-msgstr ""
+msgstr "គំនូសតាង(ក្រាប)បញ្ជីករណី)"
 
 msgid "Line lists"
-msgstr ""
+msgstr "បញ្ជីទិន្នន័យករណី"
 
 msgid "Apps"
-msgstr ""
+msgstr "កម្មវិធី"
 
 msgid "Users"
 msgstr "គណនីប្រើប្រាស់"
 
 msgid "Could not update dashboard {{name}}"
-msgstr ""
+msgstr "មិនអាចធ្វើបច្ចុប្បន្នភាពផ្ទាំងប៉ាណ្ណូបរិធាន {{name}}បានទេ"
 
 msgid "Could not delete dashboard {{name}}"
-msgstr ""
+msgstr "មិនអាចលុបផ្ទាំងប៉ាណ្ណូបរិធាន {{name}}បានទេ"
 
 msgid "Could not load dashboard details"
-msgstr ""
+msgstr "មិនអាចបញ្ចេញព័ត៌មានលម្អិតនៃផ្ទាំងប៉ាណ្ណូបរិធានបានទេ"
 
 msgid ""
 "Failed to save dashboard. You might be offline or not have access to edit "
 "this dashboard."
 msgstr ""
+"បរាជ័យក្នុងការរក្សាទុកផ្ទាំងប៉ាណ្ណបរិធាន។ "
+"អ្នកប្រហែលជាមិនបានភ្ជាប់ទៅកាន់បណ្ដាញ "
+"ឬមិនមានសិទ្ធិក្នុងការកែប្រែផ្ទាំងប៉ាណ្ណបិរធាននេះទេ។"
 
 msgid ""
 "Failed to save dashboard. This code is already being used on another "
 "dashboard."
 msgstr ""
+"បរាជ័យក្នុងការរក្សាទុកផ្ទាំងប៉ាណ្ណបរិធាន។ "
+"កូដនេះត្រូវបានប្រើប្រាស់ជាមួយផ្ទាំងប៉ាណ្ណបិរធានផ្សេងទៀត។"
 
 msgid ""
 "Failed to delete dashboard. You might be offline or not have access to edit "
 "this dashboard."
 msgstr ""
+"បរាជ័យក្នុងការលុបផ្ទាំងប៉ាណ្ណបរិធាន។ អ្នកប្រហែលជាមិនបានភ្ជាប់ទៅកាន់បណ្ដាញ "
+"ឬមិនមានសិទ្ធិក្នុងការកែប្រែផ្ទាំងប៉ាណ្ណបិរធាននេះទេ។"
 
 msgid "Cannot save this dashboard while offline"
 msgstr ""
+"មិនអាចរក្សាទុកផ្ទាំងប៉ាណ្ណូបរិធាននេះបានទេ នៅពេលដែលមិនបានភ្ជាប់ទៅកាន់បណ្ដាញ"
 
 msgid "Save changes"
-msgstr ""
+msgstr "រក្សាទុកការផ្លាស់ប្តូរ"
 
 msgid "Exit print preview"
-msgstr ""
+msgstr "ចាកចេញពីការបង្ហាញមើលមុនបោះពុម្ព"
 
 msgid "Print preview"
-msgstr ""
+msgstr "ការមើលមុនបោះពុម្ព"
 
 msgid "Filter settings"
-msgstr ""
+msgstr "ការកំណត់លក្ខខណ្ឌច្រោះ"
 
 msgid "Translate"
 msgstr "បកប្រែ​"
 
 msgid "Cannot delete this dashboard while offline"
-msgstr ""
+msgstr "មិនអាចលុបផ្ទាំងប៉ាណ្ណូបរិធានបានទេ នៅពេលដែលមិនបានភ្ជាប់ទៅកាន់បណ្ដាញ"
 
 msgid "Exit without saving"
-msgstr ""
+msgstr "ចាកចេញដោយមិនរក្សាទុក"
 
 msgid "Go to dashboards"
-msgstr ""
+msgstr "ចូលទៅកាន់ផ្ទាំងប៉ាណ្ណូបរិធាន"
 
 msgid ""
 "Deleting dashboard \"{{- dashboardName }}\" will remove it for all users. "
 "This action cannot be undone. Are you sure you want to permanently delete "
 "this dashboard?"
 msgstr ""
+"ការលុបផ្ទាំងប៉ាណ្ណូបរិធាន {{- dashboardName }}នឹងលុបនៅគ្រប់អ្នកប្រើប្រាស់។ "
+"ការលុបនេះមិនអាចត្រឡប់ក្រោយវិញបានទេ។ "
+"តើអ្នកប្រាកដថាអ្នកចង់លុបផ្ទាំងប៉ាណ្ណូបរិធាននេះរហូតឬ?"
 
 msgid "Discard changes"
 msgstr "លុបការកែប្រែ"
@@ -486,32 +537,36 @@ msgid ""
 "This dashboard has unsaved changes. Are you sure you want to leave and "
 "discard these unsaved changes?"
 msgstr ""
+"ផ្ទាំងប៉ាណ្ណូបរិធាននេះមិនបានរក្សាទុកការផ្លាស់ប្តូរទេ។ "
+"តើអ្នកប្រាកដថាចង់ចាកចេញហើយបោះបង់ការផ្លាស់ប្តូរដែលមិនទាន់បានរក្សាទុកនេះមែនទេ?"
 
 msgid "No, stay here"
-msgstr ""
+msgstr "ទេ, មិនចង់ទាន់ចាកចេញទេ"
 
 msgid "Yes, discard changes"
-msgstr ""
+msgstr "បាទ/ចាស, បោះបង់ការផ្លាស់ប្តូរ"
 
 msgid "No access"
-msgstr ""
+msgstr "គ្មានសិទ្ធិចូលប្រើប្រាស់ទេ"
 
 msgid "Not supported"
-msgstr ""
+msgstr "មិនគាំទ្រ​ / មិនអាចធ្វើឡើងបានទេ"
 
 msgid ""
 "Editing dashboards on small screens is not supported. Resize your screen to "
 "return to edit mode."
 msgstr ""
+"ការកែប្រែផ្ទាំងប៉ាណ្ណូបរិធាននៅលើអេក្រង់ទំហំតូចគឺមិនអាចធ្វើឡើងបានទេ។ "
+"សូមធ្វើការកែសម្រួលទំហំអេក្រង់របស់អ្នកដើម្បីត្រឡប់ទៅកាន់ទម្រង់កែប្រែ។"
 
 msgid "Allow filtering by all dimensions"
-msgstr ""
+msgstr "អនុញ្ញាតិអោយធ្វើការច្រោះចំពោះគ្រប់វិមាត្រនៃទិន្នន័យ"
 
 msgid "Only allow filtering by selected dimensions"
-msgstr ""
+msgstr "អនុញ្ញាតិអោយធ្វើការច្រោះចំពោះតែវិមាត្រនៃទិន្នន័យខ្លះដែលបានជ្រើសរើស"
 
 msgid "Dashboard filter settings"
-msgstr ""
+msgstr "ការកំណត់លក្ខខណ្ឌច្រោះនៃផ្ទាំងប៉ាណ្ណូបរិធាន"
 
 msgid ""
 "Dashboards can be filtered by dimensions to change\n"
@@ -519,187 +574,181 @@ msgid ""
 "                                         as filters. Alternatively, only selected dimensions can\n"
 "                                         be made available on a dashboard."
 msgstr ""
+"ផ្ទាំងប៉ាណ្ណបរិធាននេះ "
+"អាចត្រូវបានច្រោះតាមរយៈវិមាត្រដើម្បីផ្តាស់ប្តូរការបង្ហាញទិន្នន័យ។ ជាទូទៅ, "
+"គ្រប់វិមាត្រគឺអាចប្រើប្រាស់បានសម្រាប់ធ្វើជាលក្ខខណ្ឌច្រោះ។ ម៉្យាងវិញទៀត, "
+"មានតែវិមាត្រខ្លះប៉ុណ្ណោះដែលត្រូវបានជ្រើសរើសដើម្បីអោយអាចប្រើប្រាស់លើផ្ទាំងប៉ាណ្ណូបរិធានមួយ។"
 
 msgid "Available Filters"
-msgstr ""
+msgstr "លក្ខខណ្ឌច្រោះដែលអាចប្រើប្រាស់បាន"
 
 msgid "Selected Filters"
-msgstr ""
+msgstr "លក្ខខណ្ឌច្រោះដែលបានជ្រើសរើស"
 
 msgid "There are no items on this dashboard"
-msgstr ""
+msgstr "មិនមានផ្ទាំងទិន្នន័យនៅលើផ្ទាំងប៉ាណ្ណូបរិធាននេះទេ"
 
 msgid "Show fewer"
-msgstr ""
+msgstr "បង្ហាញតិចតួច"
 
 msgid "Show more"
-msgstr ""
+msgstr "បង្ហាញច្រើនទៀត"
 
 msgid "Open visualization in new tab"
-msgstr ""
+msgstr "ធ្វើការបើកផ្ទាំងរូបភាពទិន្នន័យទៅផ្ទាំងថ្មី"
 
 msgid "Insert"
-msgstr ""
+msgstr "បន្ថែម"
 
 msgid "Search for items to add to this dashboard"
-msgstr ""
+msgstr "ស្វែងរកផ្ទាំងទិន្នន័យដើម្បីបន្ថែមចូលក្នុងផ្ទាំងប៉ាណ្ណូបរិធាននេះ"
 
 msgid "Search for visualizations, reports and more"
-msgstr ""
+msgstr "ស្វែងរកទិន្នន័យជារូបភាព, របាយការណ៍ និងផ្សេងៗទៀត"
 
 msgid "Cannot search for dashboard items while offline"
-msgstr ""
+msgstr "មិនអាចធ្វើការស្វែងរកផ្ទាំងទិន្នន័យ នៅពេលដែលមិនបានភ្ជាប់ទៅកាន់បណ្ដាញ"
 
 msgid "Additional items"
-msgstr ""
+msgstr "ការបន្ថែមផ្ទាំងទិន្នន័យ"
 
 msgid "Freeflow"
-msgstr ""
+msgstr "លំហូរដោយសេរី"
 
 msgid "Dashboard items can be placed anywhere, at any size."
-msgstr ""
+msgstr "ផ្ទាំងទិន្នន័យអាចត្រូវបានដាក់នៅទីតាំងណាក៏បាន, ទំហំប៉ុណ្ណាក៏បាន"
 
 msgid "Fixed columns"
-msgstr ""
+msgstr "ជាជួរឈរ"
 
 msgid ""
 "Dashboard items are automatically placed within fixed, horizontal columns. "
 "The number of columns can be adjusted."
 msgstr ""
+"ផ្ទាំងទិន្នន័យត្រូវបានដាក់ដោយស្វ័យប្រវត្តិ នៅក្នុងទម្រង់ជាជួរឈរផ្ដេក។ "
+"ចំនួនជួរឈរអាចត្រូវបានកែសម្រួល។"
 
 msgid "Number of columns"
-msgstr ""
-
-msgid "Gap size between columns (px)"
-msgstr ""
-
-msgid ""
-"Default height only applies to items added to a dashboard, this setting will"
-" not change existing items"
-msgstr ""
-
-msgid "Default height for items added to dashboard (rows)"
-msgstr ""
+msgstr "ចំនួនជួរឈរ"
 
 msgid "Save layout"
-msgstr ""
+msgstr "រក្សារទុកប្លង់"
 
 msgid "Dashboard title"
-msgstr ""
+msgstr "ចំណងជើងផ្ទាំងប៉ាណ្ណូបរិធាន"
 
 msgid "Dashboard code"
-msgstr ""
+msgstr "លេកូដផ្ទាំងប៉ាណ្ណូបរិធាន"
 
 msgid "Dashboard description"
-msgstr ""
+msgstr "ពិពណ៌នាអំពីផ្ទាំងប៉ាណ្ណូបរិធាន"
 
 msgid "Layout"
-msgstr ""
+msgstr "ប្លង់"
 
 msgid "{{count}} columns"
 msgid_plural "{{count}} columns"
-msgstr[0] ""
+msgstr[0] "{{count}}ជួរឈរ"
 
 msgid "Change layout"
-msgstr ""
+msgstr "ការផ្លាស់ប្ដូរប្លង់"
 
 msgid "Add new items to"
-msgstr ""
+msgstr "បន្ថែមផ្ទាំងទិន្នន័យមួយទៅលើ"
 
 msgid "End of dashboard"
-msgstr ""
+msgstr "ចំណុចចុងក្រោយនៃផ្ទាំងប៉ាណ្ណូបរិធាន"
 
 msgid "Start of dashboard"
-msgstr ""
+msgstr "ចំណុចចាប់ផ្ដើមនៃផ្ទាំងប៉ាណ្ណូបរិធាន"
 
 msgid "dashboard layout"
-msgstr ""
+msgstr "ប្លង់នៃផ្ទាំងប៉ាណ្ណូបរិធាន"
 
 msgid "one item per page"
-msgstr ""
+msgstr "មួយផ្ទាំងទិន្នន័យក្នុងមួយទំព័រ"
 
 msgid "Print Preview"
-msgstr ""
+msgstr "ការមើលមុនបោះពុម្ព"
 
 msgid "For best print results"
-msgstr ""
+msgstr "សម្រាប់លទ្ធផលបោះពុម្ពល្អបំផុត"
 
 msgid "Use Chrome or Edge web browser"
-msgstr ""
+msgstr "ការប្រើប្រាស់កម្មវិធី Chrome ឬ Edge"
 
 msgid "Wait for all dashboard items to load before printing"
-msgstr ""
+msgstr "សូមរង់ចាំការបង្ហាញនូវគ្រប់ផ្ទាំងទិន្នន័យមុនពេលធ្វើការបោះពុម្ព"
 
 msgid ""
 "Use A4 landscape paper size, default margin settings and turn on background "
 "graphics in the browser print dialog"
 msgstr ""
+"សូមប្រើប្រាស់ទម្រង់ផ្ដេកនៃទម្រង់ក្រដាសប្រភេទ A4, ការកំណត់គម្លាតរឹមគែមក្រដាស "
+"និងការបើកក្រាហ្វិកផ្ទៃខាងក្រោយ នីក្នុងផ្ទាំងបោះពុម្ពរបស់កម្មវិធី Browser"
 
 msgid "Getting started"
-msgstr ""
+msgstr "ចាប់ផ្ដើម"
 
 msgid "Search for and open saved dashboards from the top bar."
-msgstr ""
+msgstr "ស្វែងរក និងបើកសម្រាប់ផ្ទាំងប៉ាណ្ណូបរិធានពីរបារខាងលើ។"
 
 msgid ""
 "Click a dashboard chip to open it. Get back to this screen from the \"More\""
 " menu."
 msgstr ""
+"ចុចលើប៊ូតុង Chip នៃផ្ទាំងប៉ាណ្ណូបរិធាន ដើម្បីបើក។ "
+"ត្រឡប់ទៅកាន់អេក្រង់នេះពីម៉ឺនុយ «More»។"
 
 msgid "Create a new dashboard with the + button."
-msgstr ""
+msgstr "ការបង្កើតផ្ទាំងប៉ាណ្ណបរិធានថ្មីមួយជាមួយប៊ូតុង «+»។"
 
 msgid "Your most viewed dashboards"
-msgstr ""
+msgstr "ផ្ទាំងប៉ាណ្ណូបរិធានដែលអ្នកបានបើកមើលច្រើនជាងគេ"
 
 msgid "No dashboards found. Use the + button to create a new dashboard."
 msgstr ""
+"រកមិនឃើញផ្ទាំងប៉ាណ្ណូបរិធាន។ ប្រ់ប្រាស់ប៊ូតុង «+» "
+"ដើម្បីបង្កើតផ្ទាំងប៉ាណ្ណបរិធានថ្មីមួយ។"
 
 msgid "Requested dashboard not found"
-msgstr ""
+msgstr "ផ្ទាំងប៉ាណ្ណូបរិធានដែលស្នើរសុំគឺរកមិនឃើញទេ"
 
 msgid "No description"
-msgstr ""
+msgstr "មិនមានការពិពណ៌នា"
 
 msgid "{{count}} selected"
 msgid_plural "{{count}} selected"
-msgstr[0] ""
+msgstr[0] "{{count}} បានជ្រើសរើស"
 
 msgid "Cannot edit filters while offline"
-msgstr ""
+msgstr "មិនអាចកែប្រែលក្ខខណ្ឌច្រោះ នៅពេលដែលមិនបានភ្ជាប់ទៅកាន់បណ្ដាញ"
 
 msgid "Cannot edit filters on a small screen"
-msgstr ""
+msgstr "មិនអាចកែប្រែលក្ខខណ្ឌច្រោះ នៅពេលដែលទំហំអេក្រង់តូចពេក"
 
 msgid "Removing filters while offline"
-msgstr ""
+msgstr "ការលុបលក្ខខណ្ឌច្រោះ នៅពេលដែលមិនបានភ្ជាប់ទៅកាន់បណ្ដាញ"
 
 msgid ""
 "Removing this filter while offline will remove all other filters. Do you "
 "want to remove all filters on this dashboard?"
 msgstr ""
+"ការលុបលក្ខខណ្ឌច្រោះនេះនៅពេលដែលមិនបានភ្ជាប់ទៅកាន់បណ្ដាញ "
+"នឹងលុបចេញនូវគ្រប់លក្ខខណ្ឌច្រោះទាំងអស់។ "
+"តើអ្នកចង់លុបគ្រប់លក្ខខណ្ឌច្រោះទាំងអស់ចេញពីផ្ទាំងប៉ាណ្ណូបរិធាននេះមែនទេ?"
 
 msgid "Yes, remove filters"
-msgstr ""
+msgstr "បាទ/ចាស, លុបចេញ"
 
-msgid "Exit slideshow"
+msgid ""
+"There was a problem loading the embedded dashboard content from an external "
+"service"
 msgstr ""
-
-msgid "Previous item"
-msgstr ""
-
-msgid "Next item"
-msgstr ""
-
-msgid "{{name}}: {{filter}}"
-msgstr ""
-
-msgid "{{count}} filters active"
-msgid_plural "{{count}} filters active"
-msgstr[0] ""
+"មានបញ្ហាកើតឡើងនៅពេលកំពុងបង្ហាញទិន្នន័យរបស់ផ្ទាំងប៉ាណ្ណូបរិធានដែលបានបង្កប់មកពីកម្មវិធីខាងក្រៅ"
 
 msgid "Fetching external dashboard"
-msgstr ""
+msgstr "ការទាញយកផ្ទាំងប៉ាណ្ណូបរិធានពីប្រភពខាងក្រៅ"
 
 msgid "Error"
 msgstr "កំហុសបច្ចេកទេស"
@@ -708,25 +757,60 @@ msgid "Could not load Superset dashboard"
 msgstr ""
 
 msgid "Retry"
-msgstr ""
+msgstr "សូមសាកល្បងឡើងវិញ"
 
 msgid "Loading dashboard – {{name}}"
-msgstr ""
+msgstr "កំពុងបង្ហាញផ្ទាំងប៉ាណ្ណូបរិធាន - {{name}}"
 
 msgid "Loading dashboard"
-msgstr ""
+msgstr "កំពុងបង្ហាញផ្ទាំងប៉ាណ្ណូបរិធាន"
 
 msgid "Load dashboard failed"
-msgstr ""
+msgstr "ការបង្ហាញផ្ទាំងប៉ាណ្ណូបរិធានបរាជ័យ"
 
 msgid "This dashboard could not be loaded. Please try again later."
-msgstr ""
+msgstr "ផ្ទាំងប៉ាណ្ណូបរិធាននេះមិនអាចបង្ហាញបានទេ។ សូមសាកល្បងម្តងទៀតនៅពេលក្រោយ។"
 
 msgid "Offline"
 msgstr "ក្រៅ​បណ្ដាញអិនធឺរណែត"
 
 msgid "This dashboard cannot be loaded while offline."
 msgstr ""
+"ផ្ទាំងប៉ាណ្ណូបរិធាននេះមិនអាចបង្ហាញបានទេ នៅពេលដែលមិនបានភ្ជាប់ទៅកាន់បណ្ដាញ។"
 
 msgid "Go to start page"
+msgstr "ត្រឡប់ទៅកាន់ទំព័រចាប់ផ្តើម"
+
+msgid "Slideshow started over 24 hours ago"
+msgstr ""
+
+msgid "Exit slideshow"
+msgstr "ចាកចេញពីការបង្ហាញជាស្លាយ"
+
+msgid "Previous item"
+msgstr "ផ្ទាំងទិន្នន័យមុន"
+
+msgid "Next item"
+msgstr "ផ្ទាំងទិន្នន័យន្ទាប់"
+
+msgid "{{name}}: {{filter}}"
+msgstr ""
+
+msgid "{{count}} filters active"
+msgid_plural "{{count}} filters active"
+msgstr[0] ""
+
+msgid "10 seconds per slide"
+msgstr ""
+
+msgid "20 seconds per slide"
+msgstr ""
+
+msgid "30 seconds per slide"
+msgstr ""
+
+msgid "1 minute per slide"
+msgstr ""
+
+msgid "2 minutes per slide"
 msgstr ""

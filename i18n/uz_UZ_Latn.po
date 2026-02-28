@@ -7,7 +7,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2025-05-14T10:27:41.184Z\n"
+"POT-Creation-Date: 2025-10-28T16:09:41.600Z\n"
 "PO-Revision-Date: 2019-06-25 12:37+0000\n"
 "Last-Translator: Khurshid Ibatov <x.ibatov@dtsj.uz>, 2025\n"
 "Language-Team: Uzbek (Latin) (https://app.transifex.com/hisp-uio/teams/100509/uz@Latn/)\n"
@@ -317,9 +317,6 @@ msgstr "Matn joyi"
 msgid "Add text here"
 msgstr "Matnni shu yerga qoʼshing"
 
-msgid "Back to all interpretations"
-msgstr "Jami talqinlarga qaytish"
-
 msgid "Filters are not applied to line list dashboard items"
 msgstr ""
 
@@ -362,7 +359,7 @@ msgstr ""
 msgid "View as Map"
 msgstr "Xarita sifatida koʼrish"
 
-msgid "There was a problem loading interpretations for this item"
+msgid "There was a problem loading details for this item"
 msgstr ""
 
 msgid "No data to display"
@@ -576,17 +573,6 @@ msgstr ""
 msgid "Number of columns"
 msgstr ""
 
-msgid "Gap size between columns (px)"
-msgstr ""
-
-msgid ""
-"Default height only applies to items added to a dashboard, this setting will"
-" not change existing items"
-msgstr ""
-
-msgid "Default height for items added to dashboard (rows)"
-msgstr ""
-
 msgid "Save layout"
 msgstr ""
 
@@ -692,22 +678,6 @@ msgstr ""
 msgid "Yes, remove filters"
 msgstr ""
 
-msgid "Exit slideshow"
-msgstr ""
-
-msgid "Previous item"
-msgstr ""
-
-msgid "Next item"
-msgstr ""
-
-msgid "{{name}}: {{filter}}"
-msgstr ""
-
-msgid "{{count}} filters active"
-msgid_plural "{{count}} filters active"
-msgstr[0] ""
-
 msgid ""
 "There was a problem loading the embedded dashboard content from an external "
 "service"
@@ -744,4 +714,38 @@ msgid "This dashboard cannot be loaded while offline."
 msgstr ""
 
 msgid "Go to start page"
+msgstr ""
+
+msgid "Slideshow started over 24 hours ago"
+msgstr ""
+
+msgid "Exit slideshow"
+msgstr ""
+
+msgid "Previous item"
+msgstr ""
+
+msgid "Next item"
+msgstr ""
+
+msgid "{{name}}: {{filter}}"
+msgstr ""
+
+msgid "{{count}} filters active"
+msgid_plural "{{count}} filters active"
+msgstr[0] ""
+
+msgid "10 seconds per slide"
+msgstr ""
+
+msgid "20 seconds per slide"
+msgstr ""
+
+msgid "30 seconds per slide"
+msgstr ""
+
+msgid "1 minute per slide"
+msgstr ""
+
+msgid "2 minutes per slide"
 msgstr ""
