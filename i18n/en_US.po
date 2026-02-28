@@ -1,6 +1,5 @@
 # 
 # Translators:
-# Siddharth Agarwal, 2025
 # Rohit Wadhwani, 2026
 # 
 msgid ""
@@ -9,11 +8,11 @@ msgstr ""
 "POT-Creation-Date: 2021-10-28T06:43:54.981Z\n"
 "PO-Revision-Date: 2021-09-03 23:41+0000\n"
 "Last-Translator: Rohit Wadhwani, 2026\n"
-"Language-Team: Hindi (India) (https://app.transifex.com/hisp-uio/teams/100509/hi_IN/)\n"
+"Language-Team: English (United States) (https://app.transifex.com/hisp-uio/teams/100509/en_US/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: hi_IN\n"
+"Language: en_US\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 msgid "Untitled dashboard"
@@ -41,10 +40,10 @@ msgid "This item has been shortened to fit on one page"
 msgstr ""
 
 msgid "Remove"
-msgstr "हटाएं"
+msgstr ""
 
 msgid "Messages"
-msgstr "मैसेजेस"
+msgstr ""
 
 msgid "See all messages"
 msgstr ""
@@ -184,7 +183,7 @@ msgid "Cannot delete this dashboard while offline"
 msgstr ""
 
 msgid "Delete"
-msgstr "हटाएं"
+msgstr "डिलीट"
 
 msgid "Exit without saving"
 msgstr ""
@@ -202,10 +201,10 @@ msgid ""
 msgstr ""
 
 msgid "Cancel"
-msgstr "रद्द करें"
+msgstr "कैंसल"
 
 msgid "Discard changes"
-msgstr "बदलावों को छोड़ना है"
+msgstr "Discard changes"
 
 msgid ""
 "This dashboard has unsaved changes. Are you sure you want to leave and "
@@ -219,10 +218,10 @@ msgid "Yes, discard changes"
 msgstr ""
 
 msgid "No access"
-msgstr "कोई एक्सेस नहीं"
+msgstr ""
 
 msgid "Not supported"
-msgstr "सपोर्टेड नहीं है"
+msgstr "Not supported"
 
 msgid ""
 "Editing dashboards on small screens is not supported. Resize your screen to "
@@ -449,13 +448,13 @@ msgid "Close dashboard"
 msgstr ""
 
 msgid "More"
-msgstr "और अधिक"
+msgstr "और"
 
 msgid "Edit"
-msgstr "संपादन करें"
+msgstr ""
 
 msgid "Share"
-msgstr "साझा करें"
+msgstr "Share"
 
 msgid "Clear dashboard filters?"
 msgstr ""
@@ -469,7 +468,7 @@ msgid "Yes, clear filters and sync"
 msgstr ""
 
 msgid "No description"
-msgstr "कोई विवरण नहीं"
+msgstr ""
 
 msgid "Add filter"
 msgstr ""
@@ -490,7 +489,7 @@ msgid "Loading dashboard"
 msgstr ""
 
 msgid "Offline"
-msgstr "ऑफ़लाइन"
+msgstr ""
 
 msgid "This dashboard cannot be loaded while offline."
 msgstr ""
