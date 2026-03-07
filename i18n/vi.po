@@ -1,20 +1,19 @@
-# 
 # Translators:
 # Mai Nguyen <thanhmai.jica@gmail.com>, 2021
 # Viktor Varland <viktor@dhis2.org>, 2025
 # Thuy Nguyen <thuynguyen@hispvietnam.org>, 2025
 # Philip Larsen Donnelly, 2025
-# Em Le <em.hispvietnam@gmail.com>, 2025
+# Em Le <em.hispvietnam@gmail.com>, 2026
 # 
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
 "POT-Creation-Date: 2025-10-28T16:09:41.600Z\n"
 "PO-Revision-Date: 2019-06-25 12:37+0000\n"
-"Last-Translator: Em Le <em.hispvietnam@gmail.com>, 2025\n"
+"Last-Translator: Em Le <em.hispvietnam@gmail.com>, 2026\n"
 "Language-Team: Vietnamese (https://app.transifex.com/hisp-uio/teams/100509/vi/)\n"
 "MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Language: vi\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
@@ -377,7 +376,7 @@ msgid "View as Map"
 msgstr "Xem dưới dạng bản đồ"
 
 msgid "There was a problem loading details for this item"
-msgstr ""
+msgstr "Đã xảy ra lỗi khi tải thông tin chi tiết cho mục này."
 
 msgid "No data to display"
 msgstr "Không có dữ liệu hiển thị"
