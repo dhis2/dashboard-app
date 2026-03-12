@@ -5,7 +5,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2025-07-04T15:00:39.114Z\n"
+"POT-Creation-Date: 2025-10-28T16:09:41.600Z\n"
 "PO-Revision-Date: 2019-06-25 12:37+0000\n"
 "Last-Translator: Jiří Podhorecký <jirka.p@volny.cz>, 2025\n"
 "Language-Team: Czech (https://app.transifex.com/hisp-uio/teams/100509/cs/)\n"
@@ -29,6 +29,8 @@ msgstr "Ovládací panel s ID \"{{dashboardId}}\" není vložen"
 
 msgid "Embedded provider must be \"SUPERSET\" for dashboard ID \"{{dashboardId}}\""
 msgstr ""
+"Vložený poskytovatel musí být \"SUPERSET\" pro ID ovládacího panelu "
+"\"{{dashboardId}}\""
 
 msgid "Superset Embed UUID not found for dashboard ID \"{{dashboardId}}\""
 msgstr ""
@@ -45,7 +47,7 @@ msgid "Network error"
 msgstr "Chyba sítě"
 
 msgid "Could not load app data"
-msgstr ""
+msgstr "Nelze načíst data aplikace"
 
 msgid "New dashboard: external"
 msgstr "Nový ovládací panel: externí"
@@ -137,7 +139,7 @@ msgid "External"
 msgstr "Externí"
 
 msgid "Embed a Superset dashboard"
-msgstr ""
+msgstr "Vložení ovládacího panelu Superset"
 
 msgid "Continue"
 msgstr "Pokračovat"
@@ -279,7 +281,7 @@ msgid "The plugin needed to display this item is not available"
 msgstr "Zásuvný modul potřebný k zobrazení této položky není k dispozici"
 
 msgid "Install the {{pluginName}} plugin from the App Hub"
-msgstr ""
+msgstr "Instalace zásuvného modulu {{pluginName}} z App Hub"
 
 msgid "There was an error loading data for this item"
 msgstr "Při načítání dat této položky došlo k chybě"
@@ -319,9 +321,6 @@ msgstr "Textové pole"
 
 msgid "Add text here"
 msgstr "Sem přidat text"
-
-msgid "Back to all interpretations"
-msgstr "Zpět ke všem interpretacím"
 
 msgid "Filters are not applied to line list dashboard items"
 msgstr "Filtry se nepoužívají na položky ovládacího panelu řádkového seznamu"
@@ -365,8 +364,8 @@ msgstr "Zobrazení jako kontingenční tabulka"
 msgid "View as Map"
 msgstr "Zobrazit jako mapu"
 
-msgid "There was a problem loading interpretations for this item"
-msgstr "Při načítání interpretací této položky došlo k problému"
+msgid "There was a problem loading details for this item"
+msgstr "Při načítání podrobností o této položce došlo k problému"
 
 msgid "No data to display"
 msgstr "Žádná data k zobrazení"
@@ -432,13 +431,13 @@ msgid "Users"
 msgstr "Uživatelé"
 
 msgid "Could not update dashboard {{name}}"
-msgstr ""
+msgstr "Nelze aktualizovat ovládací panel {{name}}"
 
 msgid "Could not delete dashboard {{name}}"
-msgstr ""
+msgstr "Nelze odstranit ovládací panel {{name}}"
 
 msgid "Could not load dashboard details"
-msgstr ""
+msgstr "Nelze načíst detaily ovládacího panelu"
 
 msgid ""
 "Failed to save dashboard. You might be offline or not have access to edit "
@@ -711,29 +710,12 @@ msgstr ""
 msgid "Yes, remove filters"
 msgstr "Ano, odstranit filtry"
 
-msgid "Exit slideshow"
-msgstr "Ukončit prezentaci"
-
-msgid "Previous item"
-msgstr "Předchozí položka"
-
-msgid "Next item"
-msgstr "Další položka"
-
-msgid "{{name}}: {{filter}}"
-msgstr "{{name}}: {{filter}}"
-
-msgid "{{count}} filters active"
-msgid_plural "{{count}} filters active"
-msgstr[0] "{{count}} aktivní filtr"
-msgstr[1] "{{count}} aktivní filtry"
-msgstr[2] "{{count}} aktivní filtry"
-msgstr[3] "{{count}} aktivní filtry"
-
 msgid ""
 "There was a problem loading the embedded dashboard content from an external "
 "service"
 msgstr ""
+"Došlo k problému při načítání vloženého obsahu ovládacího panelu z externí "
+"služby."
 
 msgid "Fetching external dashboard"
 msgstr "Získání externího ovládacího panelu"
@@ -742,7 +724,7 @@ msgid "Error"
 msgstr "Chyba"
 
 msgid "Could not load Superset dashboard"
-msgstr ""
+msgstr "Nelze načíst ovládací panel Superset"
 
 msgid "Retry"
 msgstr "Opakovat"
@@ -767,3 +749,40 @@ msgstr "Tento ovládací panel nelze načíst v režimu offline."
 
 msgid "Go to start page"
 msgstr "Přejít na úvodní stránku"
+
+msgid "Slideshow started over 24 hours ago"
+msgstr "Prezentace byla spuštěna před více než 24 hodinami"
+
+msgid "Exit slideshow"
+msgstr "Ukončit prezentaci"
+
+msgid "Previous item"
+msgstr "Předchozí položka"
+
+msgid "Next item"
+msgstr "Další položka"
+
+msgid "{{name}}: {{filter}}"
+msgstr "{{name}}: {{filter}}"
+
+msgid "{{count}} filters active"
+msgid_plural "{{count}} filters active"
+msgstr[0] "{{count}} aktivní filtr"
+msgstr[1] "{{count}} aktivní filtry"
+msgstr[2] "{{count}} aktivní filtry"
+msgstr[3] "{{count}} aktivní filtry"
+
+msgid "10 seconds per slide"
+msgstr "10 sekund na snímek"
+
+msgid "20 seconds per slide"
+msgstr "20 sekund na snímek"
+
+msgid "30 seconds per slide"
+msgstr "30 sekund na snímek"
+
+msgid "1 minute per slide"
+msgstr "1 minuta na snímek"
+
+msgid "2 minutes per slide"
+msgstr "2 minuty na snímek"

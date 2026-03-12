@@ -1,18 +1,18 @@
 # 
 # Translators:
-# Malinda Wijeratne, 2025
+# Rohit Wadhwani, 2026
 # 
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
 "POT-Creation-Date: 2025-10-28T16:09:41.600Z\n"
 "PO-Revision-Date: 2019-06-25 12:37+0000\n"
-"Last-Translator: Malinda Wijeratne, 2025\n"
-"Language-Team: Sinhala (https://app.transifex.com/hisp-uio/teams/100509/si/)\n"
+"Last-Translator: Rohit Wadhwani, 2026\n"
+"Language-Team: English (United States) (https://app.transifex.com/hisp-uio/teams/100509/en_US/)\n"
 "MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: si\n"
+"Language: en_US\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 msgid "Untitled dashboard"
@@ -66,7 +66,7 @@ msgid "Title"
 msgstr ""
 
 msgid "Code"
-msgstr "කේත කරන්න"
+msgstr ""
 
 msgid ""
 "A unique code to reference this dashboard in other apps and services. Max 50"
@@ -77,7 +77,7 @@ msgid "Code can't be longer than 50 characters"
 msgstr ""
 
 msgid "Description"
-msgstr "විස්තරය"
+msgstr ""
 
 msgid "Superset Embed ID"
 msgstr ""
@@ -109,10 +109,10 @@ msgid ""
 msgstr ""
 
 msgid "Delete"
-msgstr "ඉවත් කරන්න"
+msgstr "डिलीट"
 
 msgid "Cancel"
-msgstr ""
+msgstr "कैंसल"
 
 msgid "Edit external dashboard"
 msgstr ""
@@ -160,10 +160,10 @@ msgid "Hide description"
 msgstr ""
 
 msgid "Show description"
-msgstr "විස්තරය පෙන්වන්න"
+msgstr ""
 
 msgid "Print"
-msgstr "මුද්‍රණය කරන්න"
+msgstr ""
 
 msgid "Dashboard layout"
 msgstr ""
@@ -178,13 +178,13 @@ msgid "No dashboard items to show in slideshow"
 msgstr ""
 
 msgid "Not available offline"
-msgstr "මාර්ග අපගතව නොතිබේ"
+msgstr ""
 
 msgid "Edit"
-msgstr "වෙනස් කරන්න"
+msgstr ""
 
 msgid "Share"
-msgstr ""
+msgstr "Share"
 
 msgid "Slideshow"
 msgstr ""
@@ -198,7 +198,7 @@ msgid ""
 msgstr ""
 
 msgid "No, cancel"
-msgstr ""
+msgstr "नहीं, कैंसल"
 
 msgid "Yes, clear filters and sync"
 msgstr ""
@@ -210,7 +210,7 @@ msgid "External source"
 msgstr ""
 
 msgid "Confirm"
-msgstr "තහවුරු කරන්න"
+msgstr ""
 
 msgid "Filter"
 msgstr ""
@@ -261,7 +261,7 @@ msgid "View fullscreen"
 msgstr ""
 
 msgid "Remove this item"
-msgstr "මෙම අයිතමය ඉවත්කරන්න"
+msgstr ""
 
 msgid "This item has been shortened to fit on one page"
 msgstr ""
@@ -273,25 +273,25 @@ msgid "Install the {{pluginName}} plugin from the App Hub"
 msgstr ""
 
 msgid "There was an error loading data for this item"
-msgstr "ඇති වූ ගැටලුවක් හේතුවෙන් මෙම අයිතමය සඳහා  දත්ත පූරණ කළ නොහැක"
+msgstr ""
 
 msgid "Open this item in {{appName}}"
-msgstr "මෙම අයිතමය {{appName}} තුළ විවෘත කරන්න"
+msgstr ""
 
 msgid "Remove"
-msgstr "ඉවත් කරන්න"
+msgstr ""
 
 msgid "Messages"
-msgstr "පණිවිඩ"
+msgstr ""
 
 msgid "See all messages"
-msgstr "සියලු පණිවිඩ බලන්න"
+msgstr ""
 
 msgid "Item type \"{{type}}\" is not supported"
-msgstr "අයිතම වර්ගය \"{{type}}\" සඳහා සහාය නොදක්වයි"
+msgstr ""
 
 msgid "The item type is missing"
-msgstr "අයිතම වර්ගය සොයාගත නොහැක"
+msgstr ""
 
 msgid "Filters applied"
 msgstr ""
@@ -307,7 +307,7 @@ msgid "Text box"
 msgstr ""
 
 msgid "Add text here"
-msgstr "මෙතැන පද යොදන්න"
+msgstr ""
 
 msgid "Filters are not applied to line list dashboard items"
 msgstr ""
@@ -322,16 +322,16 @@ msgid "Some filters not applied"
 msgstr ""
 
 msgid "Hide details and interpretations"
-msgstr "විස්තර සහ අර්ථ නිරූපණයන් සඟවන්න"
+msgstr ""
 
 msgid "Show details and interpretations"
-msgstr "විස්තර සහ අර්ථ නිරූපණයන් පෙන්වන්න"
+msgstr ""
 
 msgid "Open in {{appName}} app"
 msgstr ""
 
 msgid "This map can't be displayed as a chart"
-msgstr "මෙම සිතියම ප්‍රස්තාරයක් ලෙස දැක්විය නොහැක"
+msgstr ""
 
 msgid "This map can't be displayed as a pivot table"
 msgstr ""
@@ -343,19 +343,19 @@ msgid "This visualization can't be displayed as a map"
 msgstr ""
 
 msgid "View as Chart"
-msgstr "ප්‍රස්තාරයක් ලෙස නරඹන්න"
+msgstr ""
 
 msgid "View as Pivot table"
 msgstr ""
 
 msgid "View as Map"
-msgstr "සිතියමක් ලෙස නරඹන්න"
+msgstr ""
 
 msgid "There was a problem loading details for this item"
 msgstr ""
 
 msgid "No data to display"
-msgstr "පෙන්වීමට දත්ත නොමැත"
+msgstr ""
 
 msgid ""
 "Install Data Visualizer app ${minDVVersion.join(\n"
@@ -388,7 +388,7 @@ msgid "Resources"
 msgstr ""
 
 msgid "Reports"
-msgstr "වාර්තා"
+msgstr ""
 
 msgid "Visualizations"
 msgstr ""
@@ -397,13 +397,13 @@ msgid "Pivot tables"
 msgstr ""
 
 msgid "Charts"
-msgstr "ප්‍රස්ථාර"
+msgstr ""
 
 msgid "Maps"
-msgstr "සිතිය"
+msgstr ""
 
 msgid "Event reports"
-msgstr "සිද්ධි වාර්ථා"
+msgstr ""
 
 msgid "Event charts"
 msgstr ""
@@ -415,7 +415,7 @@ msgid "Apps"
 msgstr ""
 
 msgid "Users"
-msgstr "පරිශීලකයන්"
+msgstr ""
 
 msgid "Could not update dashboard {{name}}"
 msgstr ""
@@ -445,7 +445,7 @@ msgid "Cannot save this dashboard while offline"
 msgstr ""
 
 msgid "Save changes"
-msgstr "වෙනස් කිරීම් සුරකින්න"
+msgstr ""
 
 msgid "Exit print preview"
 msgstr ""
@@ -457,7 +457,7 @@ msgid "Filter settings"
 msgstr ""
 
 msgid "Translate"
-msgstr "පරිවර්තනය කරන්න"
+msgstr ""
 
 msgid "Cannot delete this dashboard while offline"
 msgstr ""
@@ -475,7 +475,7 @@ msgid ""
 msgstr ""
 
 msgid "Discard changes"
-msgstr "වෙනස් කිරීම් ඉවතලන්න"
+msgstr "Discard changes"
 
 msgid ""
 "This dashboard has unsaved changes. Are you sure you want to leave and "
@@ -483,16 +483,16 @@ msgid ""
 msgstr ""
 
 msgid "No, stay here"
-msgstr "නැත. මෙතන රැඳෙන්"
+msgstr ""
 
 msgid "Yes, discard changes"
-msgstr "ඔව්. වෙනස්කිරීම් ඉවතලන්න"
+msgstr ""
 
 msgid "No access"
-msgstr "පිවිසිය නොහැක"
+msgstr ""
 
 msgid "Not supported"
-msgstr ""
+msgstr "Not supported"
 
 msgid ""
 "Editing dashboards on small screens is not supported. Resize your screen to "
@@ -525,16 +525,16 @@ msgid "There are no items on this dashboard"
 msgstr ""
 
 msgid "Show fewer"
-msgstr "අඩුවෙන් පෙන්වන්න"
+msgstr ""
 
 msgid "Show more"
-msgstr "වැඩියෙන් පෙන්වන්න"
+msgstr "और दिखाएँ"
 
 msgid "Open visualization in new tab"
 msgstr ""
 
 msgid "Insert"
-msgstr "ඇතුල් කරන්න"
+msgstr ""
 
 msgid "Search for items to add to this dashboard"
 msgstr ""
@@ -563,7 +563,7 @@ msgid ""
 msgstr ""
 
 msgid "Number of columns"
-msgstr "තීරු ගණන"
+msgstr ""
 
 msgid "Save layout"
 msgstr ""
@@ -601,7 +601,7 @@ msgid "dashboard layout"
 msgstr ""
 
 msgid "one item per page"
-msgstr "පිටුවට අයිතමය බැගින්"
+msgstr ""
 
 msgid "Print Preview"
 msgstr ""
@@ -644,7 +644,7 @@ msgid "Requested dashboard not found"
 msgstr ""
 
 msgid "No description"
-msgstr "විස්තරයක් නැත"
+msgstr ""
 
 msgid "{{count}} selected"
 msgid_plural "{{count}} selected"
@@ -677,13 +677,13 @@ msgid "Fetching external dashboard"
 msgstr ""
 
 msgid "Error"
-msgstr "දෝෂය"
+msgstr "Error"
 
 msgid "Could not load Superset dashboard"
 msgstr ""
 
 msgid "Retry"
-msgstr "නැවත උත්සාහ කරන්න"
+msgstr ""
 
 msgid "Loading dashboard – {{name}}"
 msgstr ""
@@ -704,7 +704,7 @@ msgid "This dashboard cannot be loaded while offline."
 msgstr ""
 
 msgid "Go to start page"
-msgstr "මුල් පිටුවට යන්න"
+msgstr ""
 
 msgid "Slideshow started over 24 hours ago"
 msgstr ""
