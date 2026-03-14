@@ -1,3 +1,10 @@
+## [101.5.2](https://github.com/dhis2/dashboard-app/compare/v101.5.1...v101.5.2) (2026-03-14)
+
+
+### Bug Fixes
+
+* use data output period types ([#3317](https://github.com/dhis2/dashboard-app/issues/3317)) ([1fbf24c](https://github.com/dhis2/dashboard-app/commit/1fbf24c2673e3f67259e25003d0e4a6844c2c499))
+
 ## [101.5.1](https://github.com/dhis2/dashboard-app/compare/v101.5.0...v101.5.1) (2026-03-12)
 
 
