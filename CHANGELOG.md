@@ -1,3 +1,10 @@
+# [101.6.0](https://github.com/dhis2/dashboard-app/compare/v101.5.2...v101.6.0) (2026-03-17)
+
+
+### Features
+
+* support loading custom translations from the data store ([#3318](https://github.com/dhis2/dashboard-app/issues/3318)) ([da4521e](https://github.com/dhis2/dashboard-app/commit/da4521e48d5f71f1bf9a7bb9c23f7412df8908bf))
+
 ## [101.5.2](https://github.com/dhis2/dashboard-app/compare/v101.5.1...v101.5.2) (2026-03-14)
 
 
