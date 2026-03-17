@@ -1919,10 +1919,9 @@
     classnames "^2.3.1"
     prop-types "^15.7.2"
 
-"@dhis2/analytics@^29.3.2":
-  version "29.3.2"
-  resolved "https://registry.yarnpkg.com/@dhis2/analytics/-/analytics-29.3.2.tgz#9cd598d5542a7c2885e58506059566d884476818"
-  integrity sha512-EKZ2uHxpaDsore+fYsswclTLhOgn2iJUDZ05hSGNg8LxW53dqECN2JWgFsG54FVeZ9+lYFJkrFxpsc7mcjdkfg==
+"@dhis2/analytics@git+https://github.com/d2-ci/analytics.git#bbdbee140ea3543d43c1b52debceb5ef4f5d2e50":
+  version "29.4.0"
+  resolved "git+https://github.com/d2-ci/analytics.git#bbdbee140ea3543d43c1b52debceb5ef4f5d2e50"
   dependencies:
     "@dhis2/multi-calendar-dates" "^1.2.2"
     "@dnd-kit/core" "^6.0.7"
