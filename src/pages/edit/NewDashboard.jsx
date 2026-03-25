@@ -32,7 +32,8 @@ const NewDashboard = (props) => {
 
         dispatch(acSetEditNewDashboard())
         dispatch(acClearSelected())
-    }, [])
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [dispatch])
 
     if (redirectUrl) {
         return <Redirect to={redirectUrl} />

@@ -6,7 +6,7 @@ import StartScreen from './StartScreen.jsx'
 const LandingPage = ({ username, onMount }) => {
     useEffect(() => {
         onMount()
-    }, [])
+    }, [onMount])
 
     return (
         <>
