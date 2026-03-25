@@ -4,6 +4,7 @@ import DashboardsBar from '../../components/DashboardsBar/index.js'
 import StartScreen from './StartScreen.jsx'
 
 const LandingPage = ({ username, onMount }) => {
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     useEffect(() => {
         onMount()
     }, [])

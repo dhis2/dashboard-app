@@ -24,7 +24,7 @@ const StartScreen = ({ username }) => {
             }
         }
         populateMostViewedDashboards(dataEngine)
-    }, [username, online])
+    }, [username, online, dataEngine])
 
     const getContent = () => (
         <div data-test="start-screen">
