@@ -1,23 +1,23 @@
-# 
 # Translators:
 # Viktor Varland <viktor@dhis2.org>, 2025
 # Philip Larsen Donnelly, 2025
+# Walid Mashal, 2026
 # 
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2025-03-18T14:27:12.993Z\n"
+"POT-Creation-Date: 2025-10-28T16:09:41.600Z\n"
 "PO-Revision-Date: 2019-06-25 12:37+0000\n"
-"Last-Translator: Philip Larsen Donnelly, 2025\n"
+"Last-Translator: Walid Mashal, 2026\n"
 "Language-Team: Pashto (https://app.transifex.com/hisp-uio/teams/100509/ps/)\n"
 "MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Language: ps\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 msgid "Untitled dashboard"
-msgstr ""
+msgstr "ډیشبورډ ته یې ور اضافه کړئ"
 
 msgid "Could not get info from Superset gateway endpoint"
 msgstr ""
@@ -40,6 +40,12 @@ msgstr ""
 msgid ""
 "Could not get guest token from Superset Gateway for dashboard ID "
 "\"{{dashboardId}}\""
+msgstr ""
+
+msgid "Network error"
+msgstr ""
+
+msgid "Could not load app data"
 msgstr ""
 
 msgid "New dashboard: external"
@@ -198,6 +204,12 @@ msgstr ""
 msgid "Yes, clear filters and sync"
 msgstr ""
 
+msgid "This dashboard is showing data from outside this system"
+msgstr ""
+
+msgid "External source"
+msgstr ""
+
 msgid "Confirm"
 msgstr ""
 
@@ -208,12 +220,6 @@ msgid "Failed to unstar the dashboard"
 msgstr ""
 
 msgid "Failed to star the dashboard"
-msgstr ""
-
-msgid "This dashboard is showing data from outside this system"
-msgstr ""
-
-msgid "External source"
 msgstr ""
 
 msgid "Offline data last updated {{timeAgo}}"
@@ -242,12 +248,6 @@ msgstr ""
 
 msgid "Dashboards"
 msgstr "ډېشبورډونه"
-
-msgid "Could not fetch bundled apps"
-msgstr ""
-
-msgid "Network error"
-msgstr ""
 
 msgid "There was a problem loading this dashboard item"
 msgstr ""
@@ -310,9 +310,6 @@ msgstr ""
 msgid "Add text here"
 msgstr ""
 
-msgid "Back to all interpretations"
-msgstr ""
-
 msgid "Filters are not applied to line list dashboard items"
 msgstr ""
 
@@ -355,7 +352,7 @@ msgstr ""
 msgid "View as Map"
 msgstr ""
 
-msgid "There was a problem loading interpretations for this item"
+msgid "There was a problem loading details for this item"
 msgstr ""
 
 msgid "No data to display"
@@ -569,17 +566,6 @@ msgstr ""
 msgid "Number of columns"
 msgstr ""
 
-msgid "Gap size between columns (px)"
-msgstr ""
-
-msgid ""
-"Default height only applies to items added to a dashboard, this setting will"
-" not change existing items"
-msgstr ""
-
-msgid "Default height for items added to dashboard (rows)"
-msgstr ""
-
 msgid "Save layout"
 msgstr ""
 
@@ -683,22 +669,10 @@ msgstr ""
 msgid "Yes, remove filters"
 msgstr ""
 
-msgid "Exit slideshow"
+msgid ""
+"There was a problem loading the embedded dashboard content from an external "
+"service"
 msgstr ""
-
-msgid "Previous item"
-msgstr ""
-
-msgid "Next item"
-msgstr ""
-
-msgid "{{name}}: {{filter}}"
-msgstr ""
-
-msgid "{{count}} filters active"
-msgid_plural "{{count}} filters active"
-msgstr[0] ""
-msgstr[1] ""
 
 msgid "Fetching external dashboard"
 msgstr ""
@@ -731,4 +705,39 @@ msgid "This dashboard cannot be loaded while offline."
 msgstr ""
 
 msgid "Go to start page"
+msgstr ""
+
+msgid "Slideshow started over 24 hours ago"
+msgstr ""
+
+msgid "Exit slideshow"
+msgstr ""
+
+msgid "Previous item"
+msgstr ""
+
+msgid "Next item"
+msgstr ""
+
+msgid "{{name}}: {{filter}}"
+msgstr ""
+
+msgid "{{count}} filters active"
+msgid_plural "{{count}} filters active"
+msgstr[0] ""
+msgstr[1] ""
+
+msgid "10 seconds per slide"
+msgstr ""
+
+msgid "20 seconds per slide"
+msgstr ""
+
+msgid "30 seconds per slide"
+msgstr ""
+
+msgid "1 minute per slide"
+msgstr ""
+
+msgid "2 minutes per slide"
 msgstr ""
