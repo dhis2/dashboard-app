@@ -1,20 +1,21 @@
-# 
 # Translators:
 # Wanda <wanda@frontlineaids.org>, 2022
 # Philip Larsen Donnelly, 2022
 # Viktor Varland <viktor@dhis2.org>, 2022
 # Éva Tamási, 2023
 # Nadiia <semchuk@aph.org.ua>, 2023
+# Yury Rogachev <yury@dhis2.org>, 2025
+# Mykhailo Siusko <m.siusko@redcross.org.ua>, 2026
 # 
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
 "POT-Creation-Date: 2025-02-07T11:22:46.614Z\n"
 "PO-Revision-Date: 2022-10-15 22:30+0000\n"
-"Last-Translator: Nadiia <semchuk@aph.org.ua>, 2023\n"
+"Last-Translator: Mykhailo Siusko <m.siusko@redcross.org.ua>, 2026\n"
 "Language-Team: Ukrainian (https://app.transifex.com/hisp-uio/teams/100509/uk/)\n"
 "MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Language: uk\n"
 "Plural-Forms: nplurals=4; plural=(n % 1 == 0 && n % 10 == 1 && n % 100 != 11 ? 0 : n % 1 == 0 && n % 10 >= 2 && n % 10 <= 4 && (n % 100 < 12 || n % 100 > 14) ? 1 : n % 1 == 0 && (n % 10 ==0 || (n % 10 >=5 && n % 10 <=9) || (n % 100 >=11 && n % 100 <=14 )) ? 2: 3);\n"
@@ -65,7 +66,7 @@ msgid "Filters applied"
 msgstr "Застосовані фільтри"
 
 msgid "Spacer"
-msgstr "Роздільник"
+msgstr "Розпірка"
 
 msgid ""
 "Use a spacer to create empty vertical space between other dashboard items."
@@ -121,8 +122,7 @@ msgid "There was a problem loading interpretations for this item"
 msgstr "Під час завантаження інтерпретацій для цього об'єкта сталася помилка"
 
 msgid "Maps with Earth Engine layers cannot be displayed when offline"
-msgstr ""
-"Мапи з шарами Earth Engine не можуть відображатися в автономному режимі"
+msgstr "Карти з шарами Earth Engine не відображаються в автономному режимі"
 
 msgid "Unable to load the plugin for this item"
 msgstr "Неможливо завантажити плагін для цього елемента"
@@ -171,7 +171,7 @@ msgid "Charts"
 msgstr "Діаграми"
 
 msgid "Maps"
-msgstr "Мапи"
+msgstr "Карти"
 
 msgid "Event reports"
 msgstr "Звіти про події"
