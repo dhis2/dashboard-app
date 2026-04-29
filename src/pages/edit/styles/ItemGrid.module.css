@@ -1,3 +1,16 @@
 .grid {
     margin-block-start: var(--spacers-dp16);
 }
+
+.gridUnitsPopup {
+    position: fixed;
+    z-index: 9999;
+    padding: 4px 8px;
+    background-color: rgba(33, 41, 52, 0.92);
+    color: #fff;
+    border-radius: 3px;
+    font-size: 12px;
+    line-height: 1.2;
+    pointer-events: none;
+    white-space: nowrap;
+}
