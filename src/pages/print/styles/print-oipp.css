@@ -8,9 +8,6 @@
         visibility: hidden;
     }
 
-    .react-grid-item.oipp:not(.PAGEBREAK) {
-        margin-block-start: 0px !important;
-    }
 }
 
 .react-grid-layout.print {
@@ -30,7 +27,6 @@
     position: static !important;
     margin-block-end: 20px;
     margin-inline-start: 30px;
-    margin-block-start: 30px;
 }
 
 .react-grid-item.oipp.PAGEBREAK {
