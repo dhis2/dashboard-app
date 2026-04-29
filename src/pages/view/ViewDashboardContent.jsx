@@ -17,6 +17,7 @@ import classes from './styles/ViewDashboard.module.css'
 import { SupersetDashboard } from './SupersetDashboard.jsx'
 
 export const ViewDashboardContent = ({
+    initialized,
     loading,
     loaded,
     loadFailed,
@@ -25,7 +26,10 @@ export const ViewDashboardContent = ({
     const isEmbeddedDashboard = useSelector(sGetSelectedIsEmbedded)
     const { width } = useWindowDimensions()
 
-    if (loading) {
+    // Show a loading mask while loading, or before the load effect has had a
+    // chance to fire (initialized is false). This prevents the offline Notice
+    // from flashing briefly when returning from print preview. (DHIS2-19271)
+    if (loading || !initialized) {
         return <LoadingMask />
     }
 
@@ -80,6 +84,7 @@ export const ViewDashboardContent = ({
 
 ViewDashboardContent.propTypes = {
     isCached: PropTypes.bool,
+    initialized: PropTypes.bool,
     loadFailed: PropTypes.bool,
     loaded: PropTypes.bool,
     loading: PropTypes.bool,

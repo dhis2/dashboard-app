@@ -38,6 +38,7 @@ const ViewDashboard = ({
     username,
 }) => {
     const alertTimeoutRef = useRef(null)
+    const [initialized, setInitialized] = useState(false)
     const [loading, setLoading] = useState(false)
     const [loaded, setLoaded] = useState(false)
     const [loadFailed, setLoadFailed] = useState(false)
@@ -84,6 +85,7 @@ const ViewDashboard = ({
             setHeaderbarVisible(true)
             clearEditDashboard()
             clearPrintDashboard()
+            setInitialized(true)
             if (online || isCached) {
                 loadDashboard()
             } else {
@@ -139,6 +141,7 @@ const ViewDashboard = ({
             <DashboardContainer>
                 <ViewDashboardContent
                     isCached={isCached}
+                    initialized={initialized}
                     loading={loading}
                     loaded={loaded}
                     loadFailed={loadFailed}
