@@ -1,7 +1,7 @@
 import i18n from '@dhis2/d2-i18n'
 import cx from 'classnames'
 import PropTypes from 'prop-types'
-import React, { useState } from 'react'
+import React, { useRef, useState } from 'react'
 import { Responsive as ResponsiveReactGridLayout } from 'react-grid-layout'
 import { connect } from 'react-redux'
 import { acUpdateDashboardItemShapes } from '../../actions/editDashboard.js'
@@ -28,7 +28,10 @@ import {
     sGetHideGrid,
     sGetLayout,
 } from '../../reducers/editDashboard.js'
+import GridUnitsPopup from './GridUnitsPopup.jsx'
 import classes from './styles/ItemGrid.module.css'
+
+const DATA_TEST_PREFIX = 'dashboarditem-'
 
 const EditItemGrid = ({
     dashboardItems,
@@ -38,6 +41,8 @@ const EditItemGrid = ({
 }) => {
     const containerWidth = useContainerWidth()
     const [gridWidth, setGridWidth] = useState({ width: 0 })
+    const popupRef = useRef(null)
+    const isResizingRef = useRef(false)
     const firstOfTypes = getFirstOfTypes(dashboardItems)
 
     const onLayoutChange = (newLayout) => {
@@ -46,6 +51,62 @@ const EditItemGrid = ({
 
     const onWidthChanged = (containerWidth) =>
         setTimeout(() => setGridWidth({ width: containerWidth }), 200)
+
+    const handleMouseMove = (e) => {
+        if (isResizingRef.current) {
+            return
+        }
+        const itemEl = e.target.closest(`[data-test^="${DATA_TEST_PREFIX}"]`)
+        if (!itemEl) {
+            popupRef.current?.hide()
+            return
+        }
+        const itemId = itemEl
+            .getAttribute('data-test')
+            .slice(DATA_TEST_PREFIX.length)
+        const item = dashboardItems.find((i) => i.id === itemId)
+        if (item) {
+            popupRef.current?.show({
+                clientX: e.clientX,
+                clientY: e.clientY,
+                w: item.w,
+                h: item.h,
+            })
+        }
+    }
+
+    const handleMouseLeave = () => {
+        if (!isResizingRef.current) {
+            popupRef.current?.hide()
+        }
+    }
+
+    // react-grid-layout calls these with (layout, oldItem, newItem, placeholder, e, node)
+    // eslint-disable-next-line max-params
+    const onResizeStart = (_layout, _oldItem, newItem, _placeholder, e) => {
+        isResizingRef.current = true
+        popupRef.current?.show({
+            clientX: e.clientX,
+            clientY: e.clientY,
+            w: newItem.w,
+            h: newItem.h,
+        })
+    }
+
+    // eslint-disable-next-line max-params
+    const onResize = (_layout, _oldItem, newItem, _placeholder, e) => {
+        popupRef.current?.show({
+            clientX: e.clientX,
+            clientY: e.clientY,
+            w: newItem.w,
+            h: newItem.h,
+        })
+    }
+
+    const onResizeStop = () => {
+        isResizingRef.current = false
+        popupRef.current?.hide()
+    }
 
     const getItemComponent = (item) => {
         if (firstOfTypes.includes(item.id)) {
@@ -86,26 +147,32 @@ const EditItemGrid = ({
     }
 
     return (
-        <ResponsiveReactGridLayout
-            className={classes.grid}
-            rowHeight={GRID_ROW_HEIGHT_PX}
-            width={containerWidth}
-            cols={{ lg: GRID_COLUMNS }}
-            breakpoints={{
-                lg: getBreakpoint(containerWidth),
-            }}
-            layouts={{ lg: dashboardItems }}
-            compactType={GRID_COMPACT_TYPE}
-            margin={MARGIN_PX}
-            containerPadding={{ lg: GRID_PADDING_PX }}
-            onLayoutChange={onLayoutChange}
-            onWidthChange={onWidthChanged}
-            isDraggable={!hasLayout}
-            isResizable={!hasLayout}
-            draggableCancel="button,input,textarea"
-        >
-            {getItemComponents(dashboardItems)}
-        </ResponsiveReactGridLayout>
+        <div onMouseMove={handleMouseMove} onMouseLeave={handleMouseLeave}>
+            <ResponsiveReactGridLayout
+                className={classes.grid}
+                rowHeight={GRID_ROW_HEIGHT_PX}
+                width={containerWidth}
+                cols={{ lg: GRID_COLUMNS }}
+                breakpoints={{
+                    lg: getBreakpoint(containerWidth),
+                }}
+                layouts={{ lg: dashboardItems }}
+                compactType={GRID_COMPACT_TYPE}
+                margin={MARGIN_PX}
+                containerPadding={{ lg: GRID_PADDING_PX }}
+                onLayoutChange={onLayoutChange}
+                onWidthChange={onWidthChanged}
+                onResizeStart={onResizeStart}
+                onResize={onResize}
+                onResizeStop={onResizeStop}
+                isDraggable={!hasLayout}
+                isResizable={!hasLayout}
+                draggableCancel="button,input,textarea"
+            >
+                {getItemComponents(dashboardItems)}
+            </ResponsiveReactGridLayout>
+            <GridUnitsPopup ref={popupRef} />
+        </div>
     )
 }
 
