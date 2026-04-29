@@ -73,7 +73,7 @@ const TextItem = (props) => {
                     dashboardMode={dashboardMode}
                 />
                 <Divider margin={`0 0 ${spacers.dp4} 0`} />
-                <div className={cx(styles.content, styles.edit)}>
+                <div className={cx(styles.content, styles.edit)} style={viewStyle}>
                     <RichTextEditor
                         onChange={onChangeText}
                         inputPlaceholder={i18n.t('Add text here')}
