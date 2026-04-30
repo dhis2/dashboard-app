@@ -20,7 +20,7 @@ const GridUnitsPopup = forwardRef((_props, ref) => {
             el.style.right = `${
                 window.innerWidth - clientX + POPUP_CURSOR_OFFSET_PX
             }px`
-            el.textContent = i18n.t('W: {{w}} · H: {{h}}', { w, h })
+            el.textContent = i18n.t('Cols: {{w}} · Rows: {{h}}', { w, h })
             el.style.display = 'block'
         },
         hide: () => {
