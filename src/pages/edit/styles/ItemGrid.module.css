@@ -1,5 +1,28 @@
-.grid {
+.gridWrapper {
+    position: relative;
     margin-block-start: var(--spacers-dp16);
+}
+
+.gridLinesOverlay {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    z-index: 1;
+    background-image:
+        repeating-linear-gradient(
+            to right,
+            rgba(0, 0, 0, 0.08) 0,
+            rgba(0, 0, 0, 0.08) 1px,
+            transparent 1px,
+            transparent var(--col-slot)
+        ),
+        repeating-linear-gradient(
+            to bottom,
+            rgba(0, 0, 0, 0.08) 0,
+            rgba(0, 0, 0, 0.08) 1px,
+            transparent 1px,
+            transparent var(--row-slot)
+        );
 }
 
 .gridUnitsPopup {
