@@ -41,9 +41,15 @@ const EditItemGrid = ({
 }) => {
     const containerWidth = useContainerWidth()
     const [gridWidth, setGridWidth] = useState({ width: 0 })
+    const [isResizing, setIsResizing] = useState(false)
     const popupRef = useRef(null)
     const isResizingRef = useRef(false)
     const firstOfTypes = getFirstOfTypes(dashboardItems)
+
+    const colSlotPx =
+        (containerWidth - (GRID_COLUMNS - 1) * MARGIN_PX[0]) / GRID_COLUMNS +
+        MARGIN_PX[0]
+    const rowSlotPx = GRID_ROW_HEIGHT_PX + MARGIN_PX[1]
 
     const onLayoutChange = (newLayout) => {
         acUpdateDashboardItemShapes(newLayout)
@@ -85,6 +91,7 @@ const EditItemGrid = ({
     // eslint-disable-next-line max-params
     const onResizeStart = (_layout, _oldItem, newItem, _placeholder, e) => {
         isResizingRef.current = true
+        setIsResizing(true)
         popupRef.current?.show({
             clientX: e.clientX,
             clientY: e.clientY,
@@ -105,6 +112,7 @@ const EditItemGrid = ({
 
     const onResizeStop = () => {
         isResizingRef.current = false
+        setIsResizing(false)
         popupRef.current?.hide()
     }
 
@@ -148,31 +156,41 @@ const EditItemGrid = ({
 
     return (
         <>
-            <ResponsiveReactGridLayout
-                className={classes.grid}
-                rowHeight={GRID_ROW_HEIGHT_PX}
-                width={containerWidth}
-                cols={{ lg: GRID_COLUMNS }}
-                breakpoints={{
-                    lg: getBreakpoint(containerWidth),
-                }}
-                layouts={{ lg: dashboardItems }}
-                compactType={GRID_COMPACT_TYPE}
-                margin={MARGIN_PX}
-                containerPadding={{ lg: GRID_PADDING_PX }}
-                onLayoutChange={onLayoutChange}
-                onWidthChange={onWidthChanged}
-                onResizeStart={onResizeStart}
-                onResize={onResize}
-                onResizeStop={onResizeStop}
-                isDraggable={!hasLayout}
-                isResizable={!hasLayout}
-                draggableCancel="button,input,textarea"
-                onMouseMove={handleMouseMove}
-                onMouseLeave={handleMouseLeave}
-            >
-                {getItemComponents(dashboardItems)}
-            </ResponsiveReactGridLayout>
+            <div className={classes.gridWrapper}>
+                <ResponsiveReactGridLayout
+                    rowHeight={GRID_ROW_HEIGHT_PX}
+                    width={containerWidth}
+                    cols={{ lg: GRID_COLUMNS }}
+                    breakpoints={{
+                        lg: getBreakpoint(containerWidth),
+                    }}
+                    layouts={{ lg: dashboardItems }}
+                    compactType={GRID_COMPACT_TYPE}
+                    margin={MARGIN_PX}
+                    containerPadding={{ lg: GRID_PADDING_PX }}
+                    onLayoutChange={onLayoutChange}
+                    onWidthChange={onWidthChanged}
+                    onResizeStart={onResizeStart}
+                    onResize={onResize}
+                    onResizeStop={onResizeStop}
+                    isDraggable={!hasLayout}
+                    isResizable={!hasLayout}
+                    draggableCancel="button,input,textarea"
+                    onMouseMove={handleMouseMove}
+                    onMouseLeave={handleMouseLeave}
+                >
+                    {getItemComponents(dashboardItems)}
+                </ResponsiveReactGridLayout>
+                {isResizing && (
+                    <div
+                        className={classes.gridLinesOverlay}
+                        style={{
+                            '--col-slot': `${colSlotPx}px`,
+                            '--row-slot': `${rowSlotPx}px`,
+                        }}
+                    />
+                )}
+            </div>
             <GridUnitsPopup ref={popupRef} />
         </>
     )
