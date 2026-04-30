@@ -147,7 +147,7 @@ const EditItemGrid = ({
     }
 
     return (
-        <div onMouseMove={handleMouseMove} onMouseLeave={handleMouseLeave}>
+        <>
             <ResponsiveReactGridLayout
                 className={classes.grid}
                 rowHeight={GRID_ROW_HEIGHT_PX}
@@ -168,11 +168,13 @@ const EditItemGrid = ({
                 isDraggable={!hasLayout}
                 isResizable={!hasLayout}
                 draggableCancel="button,input,textarea"
+                onMouseMove={handleMouseMove}
+                onMouseLeave={handleMouseLeave}
             >
                 {getItemComponents(dashboardItems)}
             </ResponsiveReactGridLayout>
             <GridUnitsPopup ref={popupRef} />
-        </div>
+        </>
     )
 }
 
