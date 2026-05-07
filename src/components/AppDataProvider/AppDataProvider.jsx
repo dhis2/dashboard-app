@@ -123,7 +123,9 @@ const useInstalledAppVersion = (appKey) => {
     const { apps, bundledApps } = useContext(AppDataCtx)
     return (
         apps.find((app) => app.key === appKey)?.version ??
-        bundledApps.find((app) => app.name === appKey)?.version ??
+        bundledApps.find(
+            (app) => app.name === appKey || app.name === `${appKey}-app`
+        )?.version ??
         '0.0.0'
     )
 }

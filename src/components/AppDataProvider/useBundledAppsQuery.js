@@ -19,7 +19,13 @@ export function useBundledAppsQuery() {
             throw new Error('Fetch response not OK')
         } else {
             const data = await response.json()
-            return data
+            if (Array.isArray(data)) {
+                return data
+            }
+            if (Array.isArray(data?.apps)) {
+                return data.apps
+            }
+            return []
         }
     }, [baseUrl])
 
