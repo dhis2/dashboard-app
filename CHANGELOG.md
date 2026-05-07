@@ -1,3 +1,10 @@
+## [101.6.1](https://github.com/dhis2/dashboard-app/compare/v101.6.0...v101.6.1) (2026-05-07)
+
+
+### Bug Fixes
+
+* handle new bundled app endpoint format (DHIS2-21469) ([#3330](https://github.com/dhis2/dashboard-app/issues/3330)) ([786a232](https://github.com/dhis2/dashboard-app/commit/786a232933a8e7c8a8bbe1854da7331c09919300))
+
 # [101.6.0](https://github.com/dhis2/dashboard-app/compare/v101.5.2...v101.6.0) (2026-03-17)
 
 
