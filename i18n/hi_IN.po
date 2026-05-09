@@ -1,4 +1,3 @@
-# 
 # Translators:
 # Siddharth Agarwal, 2025
 # Rohit Wadhwani, 2026
@@ -105,7 +104,7 @@ msgid "This map can't be displayed as a table"
 msgstr ""
 
 msgid "View as Table"
-msgstr ""
+msgstr "टेबल व्यू"
 
 msgid "View as Map"
 msgstr ""
