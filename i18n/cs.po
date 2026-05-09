@@ -139,7 +139,7 @@ msgstr ""
 "                            )} nebo vyšší pro zobrazení této položky."
 
 msgid "Filters are not applied to line list dashboard items."
-msgstr ""
+msgstr "Filtry se nepoužívají na položky řádkového seznamu ovládacího panelu."
 
 msgid "Show without filters"
 msgstr "Zobrazit bez filtrů"
