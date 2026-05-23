@@ -759,4 +759,4 @@ msgstr "仪表盘"
 
 msgctxt "Application description"
 msgid "__MANIFEST_APP_DESCRIPTION"
-msgstr ""
+msgstr "DHIS2 驾驶舱小程序"
