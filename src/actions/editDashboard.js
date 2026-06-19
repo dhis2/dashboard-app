@@ -5,6 +5,7 @@ import {
     addToItemsStart,
     getAutoItemShapes,
     getDashboardItem,
+    rescaleItemsToColumns,
     updateItems,
 } from '../modules/gridUtil.js'
 import { convertUiItemsToBackend } from '../modules/uiBackendItemConverter.js'
@@ -24,6 +25,7 @@ import {
     sGetEditDashboardRoot,
     RECEIVED_HIDE_GRID,
     RECEIVED_LAYOUT_COLUMNS,
+    RECEIVED_GRID_COLUMNS,
     RECEIVED_ITEM_CONFIG_INSERT_POSITION,
     sGetEditDashboardItems,
     sGetLayoutColumns,
@@ -105,6 +107,11 @@ export const acSetLayoutColumns = (value) => ({
     value,
 })
 
+export const acSetEditGridColumns = (value) => ({
+    type: RECEIVED_GRID_COLUMNS,
+    value,
+})
+
 export const acSetItemConfigInsertPosition = (value) => ({
     type: RECEIVED_ITEM_CONFIG_INSERT_POSITION,
     value,
@@ -169,6 +176,20 @@ export const tSetDashboardItems =
             }
         }
     }
+
+// Editor-only: change the grid column resolution and snap existing items to it.
+// Storage stays in the canonical 60-unit space.
+export const tSetEditGridColumns = (columns) => (dispatch, getState) => {
+    dispatch(acSetEditGridColumns(columns))
+
+    const items = sGetEditDashboardItems(getState())
+
+    if (items.length) {
+        updateItems(rescaleItemsToColumns(items, columns), dispatch, {
+            reload: true,
+        })
+    }
+}
 
 export const tSaveDashboard = () => async (dispatch, getState, dataEngine) => {
     const dashboard = sGetEditDashboardRoot(getState())

@@ -21,6 +21,7 @@ import {
     useCurrentUser,
     useSystemSettings,
 } from './AppDataProvider/AppDataProvider.jsx'
+import '@fontsource-variable/roboto-flex'
 import './styles/App.css'
 import 'react-grid-layout/css/styles.css'
 import 'react-resizable/css/styles.css'

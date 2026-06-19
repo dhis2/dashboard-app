@@ -10,8 +10,7 @@ import React, {
     useRef,
     useState,
 } from 'react'
-import { useSelector, useDispatch } from 'react-redux'
-import { acSetSlideshow } from '../../../actions/slideshow.js'
+import { useSelector } from 'react-redux'
 import {
     EDIT,
     isEditMode,
@@ -38,7 +37,6 @@ const AppItem = ({
     windowDimensions,
     item,
     apps,
-    sortIndex,
     isFullscreen,
 }) => {
     const contentRef = useRef(null)
@@ -47,7 +45,6 @@ const AppItem = ({
     const dashboardId = useSelector(sGetSelectedId)
     const isSlideshowView = useSelector((state) => state.slideshow !== null)
     let itemFilters = useSelector(sGetItemFiltersRoot)
-    const dispatch = useDispatch()
 
     if (isEditMode(dashboardMode)) {
         itemFilters = DEFAULT_STATE_ITEM_FILTERS
@@ -161,7 +158,6 @@ const AppItem = ({
                 <ItemContextMenu
                     appName={appDetails.name}
                     appUrl={appUrl}
-                    enterFullscreen={() => dispatch(acSetSlideshow(sortIndex))}
                     loadItemFailed={loadItemFailed}
                 />
             ) : null
@@ -210,7 +206,6 @@ AppItem.propTypes = {
     dashboardMode: PropTypes.string,
     isFullscreen: PropTypes.bool,
     item: PropTypes.object,
-    sortIndex: PropTypes.number,
     windowDimensions: PropTypes.object,
 }
 

@@ -1,11 +1,14 @@
 import update from 'immutability-helper'
+import { GRID_COLUMNS } from '../../modules/gridUtil.js'
 import reducer, {
     DEFAULT_STATE_EDIT_DASHBOARD,
     sGetIsEditing,
+    sGetEditGridColumns,
     RECEIVED_DASHBOARD_ITEM_SHAPES,
     RECEIVED_NOT_EDITING,
     START_NEW_DASHBOARD,
     RECEIVED_EDIT_DASHBOARD,
+    RECEIVED_GRID_COLUMNS,
     RECEIVED_TITLE,
     RECEIVED_DESCRIPTION,
     ADD_DASHBOARD_ITEM,
@@ -196,6 +199,31 @@ describe('editDashboard', () => {
             expect(actualItem).toEqual(updatedDashboardItem)
         })
 
+        it('should set the editor-only grid columns', () => {
+            const actualState = reducer(initialState, {
+                type: RECEIVED_GRID_COLUMNS,
+                value: 12,
+            })
+
+            expect(actualState.gridColumns).toEqual(12)
+        })
+
+        it('should reset grid columns to the default when loading a dashboard', () => {
+            const stateWithCustomColumns = {
+                ...initialState,
+                gridColumns: 4,
+            }
+
+            const actualState = reducer(stateWithCustomColumns, {
+                type: RECEIVED_EDIT_DASHBOARD,
+                value: newState,
+            })
+
+            expect(actualState.gridColumns).toEqual(
+                DEFAULT_STATE_EDIT_DASHBOARD.gridColumns
+            )
+        })
+
         it('should remove a dashboard item', () => {
             const removeIdx = 1
             const itemToRemove = initialState.dashboardItems[removeIdx]
@@ -251,6 +279,20 @@ describe('editDashboard', () => {
             })
 
             expect(isEditing).toBe(false)
+        })
+    })
+
+    describe('sGetEditGridColumns selector', () => {
+        it('should return the configured grid columns', () => {
+            expect(
+                sGetEditGridColumns({ editDashboard: { gridColumns: 12 } })
+            ).toEqual(12)
+        })
+
+        it('should fall back to the canonical GRID_COLUMNS when unset', () => {
+            expect(sGetEditGridColumns({ editDashboard: {} })).toEqual(
+                GRID_COLUMNS
+            )
         })
     })
 })

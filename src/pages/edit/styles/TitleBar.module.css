@@ -88,6 +88,13 @@
     margin-inline-end: var(--spacers-dp8);
 }
 
+.gridColumnsOption {
+    display: flex;
+    align-items: flex-end;
+    gap: var(--spacers-dp8);
+    margin-block-start: var(--spacers-dp8);
+}
+
 .positionOptions {
     display: flex;
     padding-block-start: 4px;

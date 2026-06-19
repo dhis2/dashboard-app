@@ -4,7 +4,11 @@ import classes from './styles/ItemHeader.module.css'
 
 const ViewItemActions = ({ actionButtons }) => {
     return actionButtons ? (
-        <div className={classes.itemActionsWrap}>{actionButtons}</div>
+        <div
+            className={`${classes.itemActionsWrap} ${classes.viewItemActionsWrap}`}
+        >
+            {actionButtons}
+        </div>
     ) : null
 }
 

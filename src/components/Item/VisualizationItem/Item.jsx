@@ -10,7 +10,6 @@ import PropTypes from 'prop-types'
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { acSetItemActiveType } from '../../../actions/itemActiveTypes.js'
-import { acSetSlideshow } from '../../../actions/slideshow.js'
 import { acAddVisualization } from '../../../actions/visualizations.js'
 import { apiPostDataStatistics } from '../../../api/dataStatistics.js'
 import { apiFetchVisualization } from '../../../api/fetchVisualization.js'
@@ -145,8 +144,6 @@ class Item extends Component {
             itemFilters,
             isFullscreen,
             isSlideshowView,
-            setSlideshow,
-            sortIndex,
             windowDimensions,
         } = this.props
         const { showFooter, showNoFiltersOverlay } = this.state
@@ -162,7 +159,6 @@ class Item extends Component {
                     visualization={this.props.visualization}
                     onSelectActiveType={this.setActiveType}
                     onToggleFooter={this.onToggleFooter}
-                    enterFullscreen={() => setSlideshow(sortIndex)}
                     activeType={activeType}
                     activeFooter={showFooter}
                     loadItemFailed={this.state.loadItemFailed}
@@ -289,10 +285,8 @@ Item.propTypes = {
     isRecording: PropTypes.bool,
     isSlideshowView: PropTypes.bool,
     setActiveType: PropTypes.func,
-    setSlideshow: PropTypes.func,
     setVisualization: PropTypes.func,
     settings: PropTypes.object,
-    sortIndex: PropTypes.number,
     visualization: PropTypes.object,
     windowDimensions: PropTypes.object,
     onToggleItemExpanded: PropTypes.func,
@@ -322,7 +316,6 @@ const mapStateToProps = (state, ownProps) => {
 const mapDispatchToProps = {
     setActiveType: acSetItemActiveType,
     setVisualization: acAddVisualization,
-    setSlideshow: acSetSlideshow,
 }
 
 const ItemWithSettings = (props) => {

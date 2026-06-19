@@ -1,39 +1,87 @@
 .gridWrapper {
     position: relative;
     margin-block-start: var(--spacers-dp16);
-}
-
-.gridLinesOverlay {
-    position: absolute;
-    inset: 0;
-    pointer-events: none;
-    z-index: 1;
-    background-image:
-        repeating-linear-gradient(
+    /* extend the grid hint 8px above and below the grid itself */
+    padding-block-start: var(--spacers-dp8);
+    padding-block-end: var(--spacers-dp8);
+    background-image: repeating-linear-gradient(
             to right,
-            rgba(0, 0, 0, 0.08) 0,
-            rgba(0, 0, 0, 0.08) 1px,
-            transparent 1px,
-            transparent var(--col-slot)
+            rgba(20, 130, 255, 0.05) 0,
+            rgba(20, 130, 255, 0.05) var(--dashboard-grid-column-width, 16px),
+            transparent var(--dashboard-grid-column-width, 16px),
+            transparent var(--dashboard-grid-column-step, 20px)
         ),
-        repeating-linear-gradient(
+        linear-gradient(
             to bottom,
-            rgba(0, 0, 0, 0.08) 0,
-            rgba(0, 0, 0, 0.08) 1px,
-            transparent 1px,
-            transparent var(--row-slot)
+            transparent var(--dashboard-grid-row-height, 16px),
+            rgba(20, 130, 255, 0.08) var(--dashboard-grid-row-height, 16px),
+            rgba(20, 130, 255, 0.08)
+                calc(var(--dashboard-grid-row-height, 16px) + 1px),
+            transparent calc(var(--dashboard-grid-row-height, 16px) + 1px)
         );
+    background-size: auto,
+        var(--dashboard-grid-column-step, 20px)
+            var(--dashboard-grid-row-step, 20px);
+    /* shift the pattern down to keep row lines aligned with items inside the padding */
+    background-position: 0 var(--spacers-dp8);
 }
 
 .gridUnitsPopup {
     position: fixed;
     z-index: 9999;
+    align-items: center;
+    gap: 8px;
     padding: 4px 8px;
-    background-color: rgba(33, 41, 52, 0.92);
-    color: #fff;
+    background-color: #fff;
+    color: var(--colors-blue800);
     border-radius: 3px;
     font-size: 12px;
     line-height: 1.2;
     pointer-events: none;
     white-space: nowrap;
+}
+
+.gridUnitsPopupUnit {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+}
+
+.multiSelectToolbar {
+    position: sticky;
+    inset-block-start: 0;
+    z-index: 10;
+    display: flex;
+    align-items: center;
+    gap: var(--spacers-dp12);
+    padding: var(--spacers-dp4) var(--spacers-dp12);
+    margin-block-start: var(--spacers-dp16);
+    background-color: var(--colors-blue050);
+    border: 1px solid var(--colors-blue200);
+    border-radius: 3px;
+}
+
+.multiSelectCount {
+    font-weight: 500;
+    font-size: 14px;
+    color: var(--colors-grey900);
+}
+
+.multiSelectHint {
+    font-size: 13px;
+    color: var(--colors-grey700);
+}
+
+.multiSelectActions {
+    margin-inline-start: auto;
+}
+
+.resizeGroupLine {
+    position: absolute;
+    inset-inline: 0;
+    height: 0;
+    border-block-start: 2px dashed var(--colors-blue600);
+    pointer-events: none;
+    z-index: 1000;
+    display: none;
 }

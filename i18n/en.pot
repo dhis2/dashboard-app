@@ -5,8 +5,8 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1)\n"
-"POT-Creation-Date: 2026-05-07T22:45:54.825Z\n"
-"PO-Revision-Date: 2026-05-07T22:45:54.825Z\n"
+"POT-Creation-Date: 2026-06-17T12:12:33.885Z\n"
+"PO-Revision-Date: 2026-06-17T12:12:33.885Z\n"
 
 msgid "Untitled dashboard"
 msgstr "Untitled dashboard"
@@ -255,14 +255,8 @@ msgstr "Dashboards"
 msgid "There was a problem loading this dashboard item"
 msgstr "There was a problem loading this dashboard item"
 
-msgid "Open menu"
-msgstr "Open menu"
-
 msgid "Open in {{appName}}"
 msgstr "Open in {{appName}}"
-
-msgid "View fullscreen"
-msgstr "View fullscreen"
 
 msgid "Remove this item"
 msgstr "Remove this item"
@@ -332,6 +326,9 @@ msgstr "Show details and interpretations"
 
 msgid "Open in {{appName}} app"
 msgstr "Open in {{appName}} app"
+
+msgid "Open menu"
+msgstr "Open menu"
 
 msgid "This map can't be displayed as a chart"
 msgstr "This map can't be displayed as a chart"
@@ -603,6 +600,36 @@ msgstr "Number of columns"
 msgid "Save layout"
 msgstr "Save layout"
 
+msgid "{{count}} items selected"
+msgid_plural "{{count}} items selected"
+msgstr[0] "{{count}} item selected"
+msgstr[1] "{{count}} items selected"
+
+msgid "Drag the bottom edge of any selected item to resize them together"
+msgstr "Drag the bottom edge of any selected item to resize them together"
+
+msgid "Set same height"
+msgstr "Set same height"
+
+msgid "Clear selection"
+msgstr "Clear selection"
+
+msgid "Grid columns"
+msgstr "Grid columns"
+
+msgid "{{count}} (pixel perfect)"
+msgid_plural "{{count}} (pixel perfect)"
+msgstr[0] "{{count}} (pixel perfect)"
+msgstr[1] "{{count}} (pixel perfect)"
+
+msgid "{{count}} columns"
+msgid_plural "{{count}} columns"
+msgstr[0] "{{count}} columns"
+msgstr[1] "{{count}} columns"
+
+msgid "Custom"
+msgstr "Custom"
+
 msgid "Dashboard title"
 msgstr "Dashboard title"
 
@@ -614,11 +641,6 @@ msgstr "Dashboard description"
 
 msgid "Layout"
 msgstr "Layout"
-
-msgid "{{count}} columns"
-msgid_plural "{{count}} columns"
-msgstr[0] "{{count}} column"
-msgstr[1] "{{count}} columns"
 
 msgid "Change layout"
 msgstr "Change layout"

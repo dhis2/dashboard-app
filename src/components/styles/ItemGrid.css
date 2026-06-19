@@ -3,6 +3,7 @@
     direction: ltr;
 }
 .react-grid-item {
+    box-sizing: border-box;
     overflow: hidden !important;
     border: 1px solid var(--colors-grey300);
     background-color: var(--colors-white);
@@ -44,11 +45,26 @@
     border-color: var(--colors-grey500);
 }
 
+.react-grid-item.edit.react-draggable-dragging {
+    /* border-color: var(--colors-blue600); */
+    opacity: 0.8;
+}
+
+.react-grid-item.selected {
+    border-color: var(--colors-blue600);
+    outline: 2px solid var(--colors-blue600);
+    outline-offset: -2px;
+}
+
 .react-grid-item.react-grid-placeholder {
-    background: #000;
-    opacity: 0.1;
+    /* visibility: hidden; */
+    background: rgba(20, 130, 255, 0.08);
+
+    /* opacity: 0; */
+    border: 1px dashed var(--colors-blue700);
+    opacity: 1;
     transition-duration: 150ms;
-    z-index: 2;
+    z-index: 2000;
     -webkit-user-select: none;
     -moz-user-select: none;
     -ms-user-select: none;

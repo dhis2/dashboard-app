@@ -1,7 +1,14 @@
 import { OfflineTooltip } from '@dhis2/analytics'
 import { useDhis2ConnectionStatus } from '@dhis2/app-runtime'
 import i18n from '@dhis2/d2-i18n'
-import { InputField, TextAreaField, Radio, Button } from '@dhis2/ui'
+import {
+    InputField,
+    TextAreaField,
+    Radio,
+    Button,
+    SingleSelectField,
+    SingleSelectOption,
+} from '@dhis2/ui'
 import PropTypes from 'prop-types'
 import React, { useState } from 'react'
 import { connect } from 'react-redux'
@@ -10,14 +17,22 @@ import {
     acSetDashboardDescription,
     acSetLayoutColumns,
     tSetDashboardItems,
+    tSetEditGridColumns,
     acSetItemConfigInsertPosition,
     acSetDashboardCode,
 } from '../../actions/editDashboard.js'
+import {
+    GRID_COLUMNS,
+    GRID_COLUMN_PRESETS,
+    MIN_GRID_COLUMNS,
+    MAX_GRID_COLUMNS,
+} from '../../modules/gridUtil.js'
 import { orObject } from '../../modules/util.js'
 import {
     sGetEditDashboardRoot,
     sGetItemConfigInsertPosition,
     sGetLayoutColumns,
+    sGetEditGridColumns,
 } from '../../reducers/editDashboard.js'
 import { LayoutFixedIcon } from './assets/LayoutFixed.jsx'
 import { LayoutFreeflowIcon } from './assets/LayoutFreeflow.jsx'
@@ -25,9 +40,88 @@ import ItemSelector from './ItemSelector/ItemSelector.jsx'
 import { LayoutModal } from './LayoutModal.jsx'
 import classes from './styles/TitleBar.module.css'
 
+const CUSTOM_COLUMNS = 'custom'
+
+const GridColumnsSelector = ({ value, onChange }) => {
+    const isPreset = GRID_COLUMN_PRESETS.includes(value)
+    const [isCustom, setIsCustom] = useState(!isPreset)
+
+    const handleSelectChange = ({ selected }) => {
+        if (selected === CUSTOM_COLUMNS) {
+            setIsCustom(true)
+            return
+        }
+        setIsCustom(false)
+        onChange(parseInt(selected, 10))
+    }
+
+    const handleCustomChange = ({ value: inputValue }) => {
+        if (inputValue === '') {
+            return
+        }
+        const parsed = parseInt(inputValue, 10)
+        if (isNaN(parsed)) {
+            return
+        }
+        onChange(
+            Math.min(Math.max(parsed, MIN_GRID_COLUMNS), MAX_GRID_COLUMNS)
+        )
+    }
+
+    return (
+        <div className={classes.gridColumnsOption}>
+            <SingleSelectField
+                label={i18n.t('Grid columns')}
+                dense
+                inputWidth="160px"
+                selected={isCustom ? CUSTOM_COLUMNS : String(value)}
+                onChange={handleSelectChange}
+            >
+                {GRID_COLUMN_PRESETS.map((preset) => (
+                    <SingleSelectOption
+                        key={preset}
+                        value={String(preset)}
+                        label={
+                            preset === GRID_COLUMNS
+                                ? i18n.t('{{count}} (pixel perfect)', {
+                                      count: preset,
+                                  })
+                                : i18n.t('{{count}} columns', {
+                                      count: preset,
+                                  })
+                        }
+                    />
+                ))}
+                <SingleSelectOption
+                    value={CUSTOM_COLUMNS}
+                    label={i18n.t('Custom')}
+                />
+            </SingleSelectField>
+            {isCustom && (
+                <InputField
+                    dense
+                    type="number"
+                    min={String(MIN_GRID_COLUMNS)}
+                    max={String(MAX_GRID_COLUMNS)}
+                    inputWidth="100px"
+                    label={i18n.t('Number of columns')}
+                    value={String(value)}
+                    onChange={handleCustomChange}
+                />
+            )}
+        </div>
+    )
+}
+
+GridColumnsSelector.propTypes = {
+    value: PropTypes.number,
+    onChange: PropTypes.func,
+}
+
 const EditTitleBar = ({
     insertPosition = 'END',
     columns,
+    gridColumns,
     description = '',
     name = '',
     code = '',
@@ -36,6 +130,7 @@ const EditTitleBar = ({
     onChangeTitle,
     onChangeDescription,
     onSaveLayout,
+    onSetGridColumns,
 }) => {
     const { isDisconnected: offline } = useDhis2ConnectionStatus()
 
@@ -121,6 +216,12 @@ const EditTitleBar = ({
                             </Button>
                         </OfflineTooltip>
                     </div>
+                    {columns.length === 0 && (
+                        <GridColumnsSelector
+                            value={gridColumns}
+                            onChange={onSetGridColumns}
+                        />
+                    )}
                 </div>
                 <div className={classes.positionWrapper}>
                     <p className={classes.label}>
@@ -170,9 +271,11 @@ EditTitleBar.propTypes = {
     onChangeInsertPosition: PropTypes.func.isRequired,
     onChangeTitle: PropTypes.func.isRequired,
     onSaveLayout: PropTypes.func.isRequired,
+    onSetGridColumns: PropTypes.func.isRequired,
     code: PropTypes.string,
     columns: PropTypes.array,
     description: PropTypes.string,
+    gridColumns: PropTypes.number,
     insertPosition: PropTypes.string,
     name: PropTypes.string,
 }
@@ -184,6 +287,7 @@ const mapStateToProps = (state) => {
         name: selectedDashboard.name,
         code: selectedDashboard.code,
         columns: sGetLayoutColumns(state),
+        gridColumns: sGetEditGridColumns(state),
         description: selectedDashboard.description,
         insertPosition: sGetItemConfigInsertPosition(state),
     }
@@ -202,6 +306,7 @@ const mapDispatchToProps = {
         )
         dispatch(tSetDashboardItems())
     },
+    onSetGridColumns: tSetEditGridColumns,
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(EditTitleBar)

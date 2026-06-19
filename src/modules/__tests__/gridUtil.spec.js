@@ -4,7 +4,16 @@ import {
     getSmallLayout,
     getProportionalHeight,
     SM_SCREEN_GRID_COLUMNS,
+    GRID_COLUMNS,
     getAutoItemShapes,
+    toDisplayShape,
+    toStorageShape,
+    rescaleItemsToColumns,
+    getSelectedHeight,
+    getMaxSelectedHeight,
+    applyHeightToItems,
+    addToItemsEnd,
+    addToItemsStart,
 } from '../gridUtil.js'
 
 describe('withShape', () => {
@@ -127,6 +136,156 @@ describe('getSmallLayout', () => {
     })
 })
 
+describe('toDisplayShape / toStorageShape', () => {
+    it('returns the same item when columns is the canonical GRID_COLUMNS', () => {
+        const item = { x: 20, y: 5, w: 20, h: 29, i: 'a' }
+        expect(toDisplayShape(item, GRID_COLUMNS)).toBe(item)
+        expect(toStorageShape(item, GRID_COLUMNS)).toBe(item)
+    })
+
+    it('scales x/w down to 12 columns and leaves y/h untouched', () => {
+        const item = { x: 20, y: 5, w: 20, h: 29, i: 'a' }
+        expect(toDisplayShape(item, 12)).toMatchObject({
+            x: 4,
+            y: 5,
+            w: 4,
+            h: 29,
+            i: 'a',
+        })
+    })
+
+    it('scales x/w down to 4 columns', () => {
+        const item = { x: 30, y: 0, w: 30, h: 10 }
+        expect(toDisplayShape(item, 4)).toMatchObject({ x: 2, w: 2 })
+    })
+
+    it('round-trips cleanly for divisor column counts', () => {
+        const item = { x: 20, y: 5, w: 20, h: 29, i: 'a' }
+        ;[60, 12, 4].forEach((columns) => {
+            const display = toDisplayShape(item, columns)
+            expect(toStorageShape(display, columns)).toMatchObject({
+                x: 20,
+                w: 20,
+            })
+        })
+    })
+
+    it('clamps width to a minimum of 1 column', () => {
+        const item = { x: 0, y: 0, w: 1, h: 4 }
+        expect(toDisplayShape(item, 4).w).toBe(1)
+    })
+
+    it('does not let an item overflow the display column count', () => {
+        const item = { x: 58, y: 0, w: 2, h: 4 }
+        const display = toDisplayShape(item, 12)
+        expect(display.x + display.w).toBeLessThanOrEqual(12)
+        expect(display.w).toBeGreaterThanOrEqual(1)
+    })
+
+    it('does not let an item overflow the 60-unit storage space', () => {
+        const item = { x: 11, y: 0, w: 1, h: 4 }
+        const storage = toStorageShape(item, 12)
+        expect(storage.x + storage.w).toBeLessThanOrEqual(GRID_COLUMNS)
+    })
+})
+
+describe('rescaleItemsToColumns', () => {
+    it('snaps items to the new column count while preserving identity', () => {
+        const items = [
+            { x: 20, y: 0, w: 20, h: 29, i: 'a', id: 'a' },
+            { x: 0, y: 29, w: 30, h: 10, i: 'b', id: 'b' },
+        ]
+        const result = rescaleItemsToColumns(items, 12)
+        expect(result[0]).toMatchObject({ x: 20, w: 20, i: 'a', id: 'a' })
+        expect(result[1]).toMatchObject({ i: 'b', id: 'b' })
+    })
+
+    it('returns items unchanged for the canonical GRID_COLUMNS', () => {
+        const items = [{ x: 7, y: 3, w: 13, h: 9, i: 'a' }]
+        expect(rescaleItemsToColumns(items, GRID_COLUMNS)).toMatchObject(items)
+    })
+})
+
+describe('getSelectedHeight', () => {
+    const items = [
+        { i: 'a', x: 0, y: 0, w: 10, h: 20 },
+        { i: 'b', x: 10, y: 0, w: 10, h: 20 },
+        { i: 'c', x: 20, y: 0, w: 10, h: 30 },
+    ]
+
+    it('returns the shared height when all selected items match', () => {
+        expect(getSelectedHeight(items, ['a', 'b'])).toBe(20)
+    })
+
+    it('returns null when selected items have different heights', () => {
+        expect(getSelectedHeight(items, ['a', 'c'])).toBeNull()
+    })
+
+    it('returns null when no items are selected', () => {
+        expect(getSelectedHeight(items, [])).toBeNull()
+        expect(getSelectedHeight(items, ['missing'])).toBeNull()
+    })
+
+    it('matches items keyed by id when i is absent', () => {
+        const idItems = [
+            { id: 'a', h: 15 },
+            { id: 'b', h: 15 },
+        ]
+        expect(getSelectedHeight(idItems, ['a', 'b'])).toBe(15)
+    })
+})
+
+describe('getMaxSelectedHeight', () => {
+    const items = [
+        { i: 'a', h: 20 },
+        { i: 'b', h: 35 },
+        { i: 'c', h: 30 },
+    ]
+
+    it('returns the tallest height among selected items', () => {
+        expect(getMaxSelectedHeight(items, ['a', 'c'])).toBe(30)
+        expect(getMaxSelectedHeight(items, ['a', 'b', 'c'])).toBe(35)
+    })
+
+    it('returns null when no items match', () => {
+        expect(getMaxSelectedHeight(items, [])).toBeNull()
+        expect(getMaxSelectedHeight(items, ['missing'])).toBeNull()
+    })
+})
+
+describe('applyHeightToItems', () => {
+    const items = [
+        { i: 'a', x: 0, y: 0, w: 10, h: 20 },
+        { i: 'b', x: 10, y: 0, w: 10, h: 25 },
+        { i: 'c', x: 20, y: 0, w: 10, h: 30 },
+    ]
+
+    it('applies the height to selected items only', () => {
+        const result = applyHeightToItems(items, ['a', 'c'], 40)
+        expect(result).toMatchObject([
+            { i: 'a', h: 40 },
+            { i: 'b', h: 25 },
+            { i: 'c', h: 40 },
+        ])
+    })
+
+    it('does not mutate the original items', () => {
+        applyHeightToItems(items, ['a'], 99)
+        expect(items[0].h).toBe(20)
+    })
+
+    it('matches items keyed by id when i is absent', () => {
+        const idItems = [
+            { id: 'a', h: 10 },
+            { id: 'b', h: 10 },
+        ]
+        expect(applyHeightToItems(idItems, ['b'], 50)).toMatchObject([
+            { id: 'a', h: 10 },
+            { id: 'b', h: 50 },
+        ])
+    })
+})
+
 describe('getAutoItemShapes', () => {
     const items = [
         { x: 16, y: 20, w: 18, h: 20, id: 'e' },
@@ -243,5 +402,104 @@ describe('getAutoItemShapes', () => {
         ]
 
         expect(getAutoItemShapes(items, col6, 60)).toEqual(expectedItems)
+    })
+})
+
+describe('addToItemsEnd (freeflow)', () => {
+    const newItem = { id: 'new', w: 20, h: 29 }
+
+    it('places the first item at the top-left', () => {
+        expect(addToItemsEnd([], [], newItem)).toEqual([
+            { ...newItem, x: 0, y: 0 },
+        ])
+    })
+
+    it('flows left-to-right along the bottom row', () => {
+        const items = [{ id: 'a', x: 0, y: 0, w: 20, h: 29 }]
+        const result = addToItemsEnd(items, [], newItem)
+        expect(result[result.length - 1]).toMatchObject({
+            id: 'new',
+            x: 20,
+            y: 0,
+        })
+    })
+
+    it('keeps flowing right until the row is full', () => {
+        const items = [
+            { id: 'a', x: 0, y: 0, w: 20, h: 29 },
+            { id: 'b', x: 20, y: 0, w: 20, h: 29 },
+        ]
+        const result = addToItemsEnd(items, [], newItem)
+        expect(result[result.length - 1]).toMatchObject({
+            id: 'new',
+            x: 40,
+            y: 0,
+        })
+    })
+
+    it('wraps to a new bottom row when the row is full', () => {
+        const items = [
+            { id: 'a', x: 0, y: 0, w: 20, h: 29 },
+            { id: 'b', x: 20, y: 0, w: 20, h: 29 },
+            { id: 'c', x: 40, y: 0, w: 20, h: 29 },
+        ]
+        const result = addToItemsEnd(items, [], newItem)
+        expect(result[result.length - 1]).toMatchObject({
+            id: 'new',
+            x: 0,
+            y: 29,
+        })
+    })
+
+    it('delegates to getAutoItemShapes in fixed-columns mode', () => {
+        const items = [{ id: 'a', x: 0, y: 0, w: 20, h: 29 }]
+        const columns = [{ index: 0 }, { index: 1 }]
+        const expected = getAutoItemShapes(
+            [...items, { ...newItem, y: 29 }],
+            columns
+        )
+        expect(addToItemsEnd(items, columns, newItem)).toEqual(expected)
+    })
+})
+
+describe('addToItemsStart (freeflow)', () => {
+    const newItem = { id: 'new', w: 20, h: 29 }
+
+    it('places the first item at the top-left', () => {
+        expect(addToItemsStart([], [], newItem)).toEqual([
+            { ...newItem, x: 0, y: 0 },
+        ])
+    })
+
+    it('flows left-to-right along the top row', () => {
+        const items = [{ id: 'a', x: 0, y: 0, w: 20, h: 29 }]
+        const result = addToItemsStart(items, [], newItem)
+        expect(result[0]).toMatchObject({ id: 'new', x: 20, y: 0 })
+        expect(result).toHaveLength(2)
+    })
+
+    it('pushes existing items down when the top row is full', () => {
+        const items = [
+            { id: 'a', x: 0, y: 0, w: 20, h: 29 },
+            { id: 'b', x: 20, y: 0, w: 20, h: 29 },
+            { id: 'c', x: 40, y: 0, w: 20, h: 29 },
+        ]
+        const result = addToItemsStart(items, [], newItem)
+        expect(result[0]).toMatchObject({ id: 'new', x: 0, y: 0 })
+        expect(result.slice(1)).toMatchObject([
+            { id: 'a', x: 0, y: 29 },
+            { id: 'b', x: 20, y: 29 },
+            { id: 'c', x: 40, y: 29 },
+        ])
+    })
+
+    it('delegates to getAutoItemShapes in fixed-columns mode', () => {
+        const items = [{ id: 'a', x: 0, y: 0, w: 20, h: 29 }]
+        const columns = [{ index: 0 }, { index: 1 }]
+        const expected = getAutoItemShapes(
+            [...items, { ...newItem, x: 0, y: 0, w: 0, h: 0 }],
+            columns
+        )
+        expect(addToItemsStart(items, columns, newItem)).toEqual(expected)
     })
 })

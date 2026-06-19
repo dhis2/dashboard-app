@@ -1,4 +1,6 @@
 :root {
+    --dashboard-font-family: 'Roboto Flex Variable', Roboto, sans-serif;
+
     /* item variables */
     --item-header-margin-top: 8px;
     --item-header-margin-bottom: 8px;
@@ -14,7 +16,7 @@
 body {
     margin: 0;
     padding: 0;
-    font-family: sans-serif;
+    font-family: var(--dashboard-font-family);
     background-color: var(--colors-grey200);
 }
 

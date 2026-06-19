@@ -26,6 +26,12 @@ export const GRID_PADDING_PX = [0, 0]
 const GRID_COL_WIDTH_PX = 16
 export const GRID_COLUMNS = 60
 
+// Editor-only grid column resolution presets. The first value (GRID_COLUMNS)
+// is the canonical "pixel perfect" resolution used for storage, view and print.
+export const GRID_COLUMN_PRESETS = [GRID_COLUMNS, 12, 4]
+export const MIN_GRID_COLUMNS = 1
+export const MAX_GRID_COLUMNS = GRID_COLUMNS
+
 // Dimensions for getShape
 export const NEW_ITEM_SHAPE = { x: 0, y: 0, w: 20, h: 29 }
 const NUMBER_OF_ITEM_COLS = 2
@@ -49,6 +55,84 @@ export const hasShape = (item) =>
     isNonNegativeInteger(item.y) &&
     isNonNegativeInteger(item.w) &&
     isNonNegativeInteger(item.h)
+
+// Editor-only column resolution conversion.
+// Items are always stored in the canonical GRID_COLUMNS (60) coordinate space.
+// When the editor renders at a different column count, x/w are scaled to/from
+// that space. y/h are row units and are independent of the column count.
+
+const clamp = (value, min, max) => Math.min(Math.max(value, min), max)
+
+// Convert a stored (60-unit) item shape to the given display column space
+export const toDisplayShape = (item, columns) => {
+    if (columns === GRID_COLUMNS) {
+        return item
+    }
+    const w = clamp(Math.round((item.w * columns) / GRID_COLUMNS), 1, columns)
+    const x = clamp(
+        Math.round((item.x * columns) / GRID_COLUMNS),
+        0,
+        columns - w
+    )
+    return { ...item, x, w }
+}
+
+// Convert a display (N-column) item shape back to the stored 60-unit space
+export const toStorageShape = (item, columns) => {
+    if (columns === GRID_COLUMNS) {
+        return item
+    }
+    const w = clamp(
+        Math.round((item.w * GRID_COLUMNS) / columns),
+        1,
+        GRID_COLUMNS
+    )
+    const x = clamp(
+        Math.round((item.x * GRID_COLUMNS) / columns),
+        0,
+        GRID_COLUMNS - w
+    )
+    return { ...item, x, w }
+}
+
+// Snap stored item shapes to the given column count (round-trip through display
+// space). Used when switching the editor column resolution.
+export const rescaleItemsToColumns = (items, columns) =>
+    items.map((item) => ({
+        ...item,
+        ...toStorageShape(toDisplayShape(item, columns), columns),
+    }))
+
+// Multi-select height helpers.
+// Items can be either react-grid-layout items (keyed by `i`) or stored
+// dashboard items (keyed by `id`), so match on whichever is present.
+const getItemKey = (item) => item.i ?? item.id
+
+// Returns the shared height of the selected items, or null when the selection
+// is empty or the heights differ.
+export const getSelectedHeight = (items, ids) => {
+    const selected = items.filter((item) => ids.includes(getItemKey(item)))
+    if (!selected.length) {
+        return null
+    }
+    const { h } = selected[0]
+    return selected.every((item) => item.h === h) ? h : null
+}
+
+// Returns the tallest height among the selected items, or null when none match.
+export const getMaxSelectedHeight = (items, ids) => {
+    const selected = items.filter((item) => ids.includes(getItemKey(item)))
+    if (!selected.length) {
+        return null
+    }
+    return selected.reduce((max, item) => Math.max(max, item.h), 0)
+}
+
+// Returns a new items array with the given height applied to the selected ids.
+export const applyHeightToItems = (items, ids, h) =>
+    items.map((item) =>
+        ids.includes(getItemKey(item)) ? { ...item, h } : item
+    )
 
 // returns a rectangular grid block dimensioned with x, y, w, h in grid units.
 // based on a grid with 3 items across
@@ -254,17 +338,28 @@ export const getAutoItemShapes = (dashboardItems, columns, maxColUnits) => {
     return itemsWithNewShape
 }
 
+// LTR placement helpers (storage space = GRID_COLUMNS units)
+
+// Next position when appending to the bottom row; wraps to a new row when full.
+const getEndFlowPosition = (items, w) => {
+    if (!items.length) {
+        return { x: 0, y: 0 }
+    }
+    const rowY = items.reduce((max, it) => Math.max(max, it.y), 0)
+    const rowRight = items
+        .filter((it) => it.y === rowY)
+        .reduce((max, it) => Math.max(max, it.x + it.w), 0)
+
+    if (rowRight + w <= GRID_COLUMNS) {
+        return { x: rowRight, y: rowY }
+    }
+
+    const bottom = items.reduce((max, it) => Math.max(max, it.y + it.h), 0)
+    return { x: 0, y: bottom }
+}
+
 export const addToItemsStart = (dashboardItems, columns, newDashboardItem) => {
-    if (!columns.length) {
-        // when no layout
-        return [
-            {
-                ...NEW_ITEM_SHAPE,
-                ...newDashboardItem,
-            },
-            ...dashboardItems,
-        ]
-    } else {
+    if (columns.length) {
         return getAutoItemShapes(
             [
                 ...dashboardItems,
@@ -279,22 +374,54 @@ export const addToItemsStart = (dashboardItems, columns, newDashboardItem) => {
             columns
         )
     }
+
+    const { w, h } = newDashboardItem
+
+    if (!dashboardItems.length) {
+        return [{ ...NEW_ITEM_SHAPE, ...newDashboardItem, x: 0, y: 0 }]
+    }
+
+    const topY = dashboardItems.reduce(
+        (min, it) => Math.min(min, it.y),
+        Infinity
+    )
+    const topRowRight = dashboardItems
+        .filter((it) => it.y === topY)
+        .reduce((max, it) => Math.max(max, it.x + it.w), 0)
+
+    // Room in the top row: add to its right (LTR).
+    if (topRowRight + w <= GRID_COLUMNS) {
+        return [
+            { ...NEW_ITEM_SHAPE, ...newDashboardItem, x: topRowRight, y: topY },
+            ...dashboardItems,
+        ]
+    }
+
+    // Top row full: push everything down and start a fresh top row.
+    return [
+        { ...NEW_ITEM_SHAPE, ...newDashboardItem, x: 0, y: 0 },
+        ...dashboardItems.map((it) => ({ ...it, y: it.y + h })),
+    ]
 }
 
 export const addToItemsEnd = (dashboardItems, columns, newDashboardItem) => {
-    const items = [
-        ...dashboardItems,
-        {
-            ...NEW_ITEM_SHAPE,
-            ...newDashboardItem,
-            y: dashboardItems.reduce(
-                (mx, item) => Math.max(mx, item.y + item.h),
-                0
-            ),
-        },
-    ]
+    if (columns.length) {
+        const items = [
+            ...dashboardItems,
+            {
+                ...NEW_ITEM_SHAPE,
+                ...newDashboardItem,
+                y: dashboardItems.reduce(
+                    (mx, item) => Math.max(mx, item.y + item.h),
+                    0
+                ),
+            },
+        ]
+        return getAutoItemShapes(items, columns)
+    }
 
-    return columns.length ? getAutoItemShapes(items, columns) : items
+    const pos = getEndFlowPosition(dashboardItems, newDashboardItem.w)
+    return [...dashboardItems, { ...NEW_ITEM_SHAPE, ...newDashboardItem, ...pos }]
 }
 
 export const updateItems = (items, dispatch, options = {}) => {
