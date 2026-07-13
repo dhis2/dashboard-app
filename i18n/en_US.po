@@ -1,23 +1,22 @@
+# 
 # Translators:
-# Philip Larsen Donnelly, 2021
-# Viktor Varland <viktor@dhis2.org>, 2021
-# Walid Mashal, 2026
+# Rohit Wadhwani, 2026
 # 
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
 "POT-Creation-Date: 2021-10-28T06:43:54.981Z\n"
 "PO-Revision-Date: 2021-09-03 23:41+0000\n"
-"Last-Translator: Walid Mashal, 2026\n"
-"Language-Team: Pashto (https://app.transifex.com/hisp-uio/teams/100509/ps/)\n"
+"Last-Translator: Rohit Wadhwani, 2026\n"
+"Language-Team: English (United States) (https://app.transifex.com/hisp-uio/teams/100509/en_US/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: ps\n"
+"Language: en_US\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 msgid "Untitled dashboard"
-msgstr "ډیشبورډ ته یې ور اضافه کړئ"
+msgstr ""
 
 msgid "Cannot create a dashboard while offline"
 msgstr ""
@@ -41,10 +40,10 @@ msgid "This item has been shortened to fit on one page"
 msgstr ""
 
 msgid "Remove"
-msgstr "لرې کول"
+msgstr ""
 
 msgid "Messages"
-msgstr "پېغامونه"
+msgstr ""
 
 msgid "See all messages"
 msgstr ""
@@ -126,13 +125,13 @@ msgid "Visualizations"
 msgstr ""
 
 msgid "Pivot tables"
-msgstr "محوري جدولونه"
+msgstr ""
 
 msgid "Charts"
-msgstr "چارټونه"
+msgstr ""
 
 msgid "Maps"
-msgstr "نخشې"
+msgstr ""
 
 msgid "Event reports"
 msgstr ""
@@ -141,16 +140,16 @@ msgid "Event charts"
 msgstr ""
 
 msgid "Apps"
-msgstr "اپلیکېشن [ د اپلیکېشن تنظیموونکی ]"
+msgstr ""
 
 msgid "Reports"
-msgstr "راپورونه"
+msgstr ""
 
 msgid "Resources"
 msgstr ""
 
 msgid "Users"
-msgstr "کاروونکي [ کاروونکي ]"
+msgstr ""
 
 msgid ""
 "Failed to save dashboard. You might be offline or not have access to edit "
@@ -178,13 +177,13 @@ msgid "Filter settings"
 msgstr ""
 
 msgid "Translate"
-msgstr "ژباړه"
+msgstr ""
 
 msgid "Cannot delete this dashboard while offline"
 msgstr ""
 
 msgid "Delete"
-msgstr "خذف یې کړئ"
+msgstr "डिलीट"
 
 msgid "Exit without saving"
 msgstr ""
@@ -202,10 +201,10 @@ msgid ""
 msgstr ""
 
 msgid "Cancel"
-msgstr "رد یې کړئ [ ژباړه ـ ردول ]"
+msgstr "कैंसल"
 
 msgid "Discard changes"
-msgstr ""
+msgstr "Discard changes"
 
 msgid ""
 "This dashboard has unsaved changes. Are you sure you want to leave and "
@@ -222,7 +221,7 @@ msgid "No access"
 msgstr ""
 
 msgid "Not supported"
-msgstr ""
+msgstr "Not supported"
 
 msgid ""
 "Editing dashboards on small screens is not supported. Resize your screen to "
@@ -261,7 +260,7 @@ msgid "Show fewer"
 msgstr ""
 
 msgid "Show more"
-msgstr "ډېر ښکاره کړئ"
+msgstr "और दिखाएँ"
 
 msgid "Insert"
 msgstr ""
@@ -322,7 +321,7 @@ msgid "Dashboard description"
 msgstr ""
 
 msgid "Layout"
-msgstr "طرحه"
+msgstr ""
 
 msgid "{{count}} columns"
 msgid_plural "{{count}} columns"
@@ -342,7 +341,7 @@ msgid "Start of dashboard"
 msgstr ""
 
 msgid "Print"
-msgstr "چاپول"
+msgstr ""
 
 msgid "dashboard layout"
 msgstr ""
@@ -407,7 +406,7 @@ msgid ""
 msgstr ""
 
 msgid "No, cancel"
-msgstr ""
+msgstr "नहीं, कैंसल"
 
 msgid "Yes, remove filters"
 msgstr ""
@@ -449,13 +448,13 @@ msgid "Close dashboard"
 msgstr ""
 
 msgid "More"
-msgstr "نور"
+msgstr "और"
 
 msgid "Edit"
-msgstr "درست یې کړئ"
+msgstr ""
 
 msgid "Share"
-msgstr "شریک یې کړئ"
+msgstr "Share"
 
 msgid "Clear dashboard filters?"
 msgstr ""
@@ -469,7 +468,7 @@ msgid "Yes, clear filters and sync"
 msgstr ""
 
 msgid "No description"
-msgstr "هېڅ ډول تشریح نه لري"
+msgstr ""
 
 msgid "Add filter"
 msgstr ""
@@ -490,7 +489,7 @@ msgid "Loading dashboard"
 msgstr ""
 
 msgid "Offline"
-msgstr "په لیکه کې نشته"
+msgstr ""
 
 msgid "This dashboard cannot be loaded while offline."
 msgstr ""
