@@ -63,7 +63,11 @@ const AppItem = ({
         (state, newState) => ({
             ...state,
             ...newState,
-            appUrl: `${appDetails?.launchUrl}${newState.appUrl}`,
+            // plugins without an app entrypoint have no launchUrl, so there is
+            // nothing to open in a standalone app (DHIS2-21739)
+            appUrl: appDetails?.launchUrl
+                ? `${appDetails.launchUrl}${newState.appUrl ?? ''}`
+                : undefined,
         }),
         {
             itemTitle: appDetails?.name,
