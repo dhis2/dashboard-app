@@ -30,6 +30,7 @@ import ItemHeader from '../ItemHeader/ItemHeader.jsx'
 import MissingPluginMessage from '../ItemMessage/MissingPluginMessage.jsx'
 import { getIframeSrc } from './getIframeSrc.js'
 import { ItemContextMenu } from './ItemContextMenu.jsx'
+import { createItemDetailsReducer } from './itemDetailsReducer.js'
 import styles from './styles/AppItem.module.css'
 
 const AppItem = ({
@@ -60,15 +61,7 @@ const AppItem = ({
         item?.appKey && apps.find((app) => app.key === item.appKey)
 
     const [{ itemTitle, appUrl, onRemove }, setItemDetails] = useReducer(
-        (state, newState) => ({
-            ...state,
-            ...newState,
-            // plugins without an app entrypoint have no launchUrl, so there is
-            // nothing to open in a standalone app (DHIS2-21739)
-            appUrl: appDetails?.launchUrl
-                ? `${appDetails.launchUrl}${newState.appUrl ?? ''}`
-                : undefined,
-        }),
+        createItemDetailsReducer(appDetails),
         {
             itemTitle: appDetails?.name,
             appUrl: appDetails?.launchUrl,
@@ -166,7 +159,6 @@ const AppItem = ({
             isViewMode(dashboardMode) &&
             !isSlideshowView ? (
                 <ItemContextMenu
-                    item={item}
                     appName={appDetails.name}
                     appUrl={appUrl}
                     enterFullscreen={() => dispatch(acSetSlideshow(sortIndex))}
