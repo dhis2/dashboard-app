@@ -1,3 +1,10 @@
+## [101.6.2](https://github.com/dhis2/dashboard-app/compare/v101.6.1...v101.6.2) (2026-07-23)
+
+
+### Bug Fixes
+
+* hide "Open in app" for plugins without an app entrypoint (DHIS2-21739) ([#3335](https://github.com/dhis2/dashboard-app/issues/3335)) ([dbf4c3b](https://github.com/dhis2/dashboard-app/commit/dbf4c3b620e419957b71b6da4c23bab72c865df3))
+
 ## [101.6.1](https://github.com/dhis2/dashboard-app/compare/v101.6.0...v101.6.1) (2026-05-07)
 
 
