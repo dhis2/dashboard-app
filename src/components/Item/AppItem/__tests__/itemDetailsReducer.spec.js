@@ -1,9 +1,5 @@
 import { createItemDetailsReducer } from '../itemDetailsReducer.js'
 
-// DHIS2-21739: a plugin-only app has a pluginLaunchUrl but no launchUrl, so
-// there is no standalone app to open. The reducer used to build the href as
-// `${launchUrl}${appUrl}`, yielding the literal string "undefinedundefined".
-
 test('returns undefined appUrl when the app has no launchUrl (entrypoint)', () => {
     const reducer = createItemDetailsReducer({ name: 'My Plugin' })
 
