@@ -1,0 +1,51 @@
+name: 'TEMP - SW bypass flake experiment'
+
+# Throwaway investigation workflow - not for merging. Tests whether bypassing
+# the service worker fixes the description.cy.js/slideshow.cy.js cross-spec
+# CI flake (see PR #3337). Manually triggered only.
+
+on:
+    workflow_dispatch:
+
+env:
+    CI: true
+    BROWSER: none
+
+jobs:
+    experiment:
+        runs-on: ubuntu-latest
+        strategy:
+            fail-fast: false
+            matrix:
+                bypass: ['true', 'false']
+                run: [1, 2, 3, 4, 5, 6, 7, 8]
+        steps:
+            - uses: actions/checkout@v4
+            - uses: actions/setup-node@v4
+              with:
+                  node-version: 20.x
+
+            - name: Install
+              run: yarn install --frozen-lockfile
+
+            - name: Generate translations
+              run: yarn d2-app-scripts i18n generate
+
+            - name: Apply SW bypass patch
+              if: matrix.bypass == 'true'
+              run: node scripts/tmp-apply-sw-bypass.js
+
+            - name: Run e2e tests
+              uses: cypress-io/github-action@v5
+              with:
+                  start: yarn d2-app-scripts start
+                  wait-on: 'http://localhost:3000'
+                  wait-on-timeout: 300
+                  browser: chrome
+                  spec: cypress/integration/description.cy.js,cypress/integration/slideshow.cy.js
+              env:
+                  CYPRESS_dhis2BaseUrl: https://test.e2e.dhis2.org/anly-e2e-40
+                  CYPRESS_dhis2InstanceVersion: 40
+                  CYPRESS_dhis2Username: ${{ secrets.CYPRESS_DHIS2_USERNAME }}
+                  CYPRESS_dhis2Password: ${{ secrets.CYPRESS_DHIS2_PASSWORD }}
+                  CYPRESS_networkMode: live
