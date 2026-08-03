@@ -2,10 +2,11 @@ name: 'TEMP - SW bypass flake experiment'
 
 # Throwaway investigation workflow - not for merging. Tests whether bypassing
 # the service worker fixes the description.cy.js/slideshow.cy.js cross-spec
-# CI flake (see PR #3337). Manually triggered only.
+# CI flake (see PR #3337). Triggers on push to its own branch only.
 
 on:
-    workflow_dispatch:
+    push:
+        branches: ['experiment/sw-bypass-ci-check']
 
 env:
     CI: true
