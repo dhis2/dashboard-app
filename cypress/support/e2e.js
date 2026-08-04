@@ -46,9 +46,6 @@ beforeEach(() => {
         req.on('response', (res) => {
             requestLog.push(`${res.statusCode} ${req.method} ${req.url}`)
         })
-        req.on('error', (err) => {
-            requestLog.push(`ERROR ${req.method} ${req.url}: ${err.message}`)
-        })
     })
 })
 
