@@ -24,6 +24,54 @@ Cypress.on('uncaught:exception', (err) => {
     }
 })
 
+// TEMP INVESTIGATION - capture network/console activity and dump it via
+// cy.task on test failure so it's visible in CI logs. Not for merging.
+let requestLog = []
+let consoleLog = []
+
+Cypress.on('window:before:load', (win) => {
+    const wrap =
+        (level) =>
+        (...args) => {
+            consoleLog.push(`[${level}] ${args.map(String).join(' ')}`)
+        }
+    win.console.error = wrap('error')
+    win.console.warn = wrap('warn')
+})
+
+beforeEach(() => {
+    requestLog = []
+    consoleLog = []
+    cy.intercept('**', (req) => {
+        req.on('response', (res) => {
+            requestLog.push(`${res.statusCode} ${req.method} ${req.url}`)
+        })
+        req.on('error', (err) => {
+            requestLog.push(`ERROR ${req.method} ${req.url}: ${err.message}`)
+        })
+    })
+})
+
+afterEach(function () {
+    if (this.currentTest?.state === 'failed') {
+        cy.window({ log: false }).then((win) => {
+            cy.task(
+                'logDebugInfo',
+                {
+                    test: this.currentTest.fullTitle(),
+                    localStorageBaseUrl: win.localStorage.getItem(
+                        LOCAL_STORAGE_KEY
+                    ),
+                    cookies: win.document.cookie,
+                    consoleLog,
+                    requestLog,
+                },
+                { log: false }
+            )
+        })
+    }
+})
+
 before(() => {
     const username = Cypress.env('dhis2Username')
     const password = Cypress.env('dhis2Password')

@@ -1,14 +1,11 @@
-name: 'TEMP - concurrent-login contention experiment'
+name: 'TEMP - flake diagnostic instrumentation run'
 
-# Throwaway investigation workflow - not for merging. Tests whether the
-# description.cy.js/slideshow.cy.js cross-spec CI flake (see PR #3337) is
-# caused by concurrent-session contention on the shared anly-e2e-40 instance:
-# description.cy.js finishes fast (~9-20s), so its handoff to slideshow.cy.js
-# lands right when sibling matrix jobs are also freshly logging in. Compares
-# running the pairing with no concurrent logins from this workflow
-# (max-parallel: 1) vs with maximum concurrency (max-parallel: 8), same spec
-# pairing, same instance, same everything else. Triggers on push to its own
-# branch only.
+# Throwaway investigation workflow - not for merging. Runs the
+# description.cy.js/slideshow.cy.js pairing (see PR #3337) with temporary
+# network/console instrumentation added to cypress/support/e2e.js, which
+# dumps a failed test's request log, console errors/warnings, and
+# cookie/localStorage state via cy.task so it's visible in the CI job log.
+# Triggers on push to its own branch only.
 
 on:
     push:
@@ -19,44 +16,9 @@ env:
     BROWSER: none
 
 jobs:
-    isolated:
+    diagnose:
         runs-on: ubuntu-latest
         strategy:
-            max-parallel: 1
-            fail-fast: false
-            matrix:
-                run: [1, 2, 3, 4, 5, 6, 7, 8]
-        steps:
-            - uses: actions/checkout@v4
-            - uses: actions/setup-node@v4
-              with:
-                  node-version: 20.x
-
-            - name: Install
-              run: yarn install --frozen-lockfile
-
-            - name: Generate translations
-              run: yarn d2-app-scripts i18n generate
-
-            - name: Run e2e tests
-              uses: cypress-io/github-action@v5
-              with:
-                  start: yarn d2-app-scripts start
-                  wait-on: 'http://localhost:3000'
-                  wait-on-timeout: 300
-                  browser: chrome
-                  spec: cypress/integration/description.cy.js,cypress/integration/slideshow.cy.js
-              env:
-                  CYPRESS_dhis2BaseUrl: https://test.e2e.dhis2.org/anly-e2e-40
-                  CYPRESS_dhis2InstanceVersion: 40
-                  CYPRESS_dhis2Username: ${{ secrets.CYPRESS_DHIS2_USERNAME }}
-                  CYPRESS_dhis2Password: ${{ secrets.CYPRESS_DHIS2_PASSWORD }}
-                  CYPRESS_networkMode: live
-
-    concurrent:
-        runs-on: ubuntu-latest
-        strategy:
-            max-parallel: 8
             fail-fast: false
             matrix:
                 run: [1, 2, 3, 4, 5, 6, 7, 8]

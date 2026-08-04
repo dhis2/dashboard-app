@@ -14,6 +14,17 @@ async function setupNodeEvents(on, config) {
         )
     }
 
+    // TEMP INVESTIGATION - dump network/console activity for failed tests
+    // so it shows up in CI logs. Not for merging.
+    on('task', {
+        logDebugInfo(data) {
+            console.log('=== DEBUG INFO (failed test) ===')
+            console.log(JSON.stringify(data, null, 2))
+            console.log('=== END DEBUG INFO ===')
+            return null
+        },
+    })
+
     return config
 }
 
