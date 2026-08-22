@@ -1,15 +1,16 @@
 # Translators:
 # channara rin, 2023
 # Viktor Varland <viktor@dhis2.org>, 2025
+# Philip Larsen Donnelly, 2025
 # Em Le <em.hispvietnam@gmail.com>, 2025
-# Philip Larsen Donnelly, 2026
+# Kiry Heng, 2026
 # 
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
 "POT-Creation-Date: 2026-05-07T22:45:54.825Z\n"
 "PO-Revision-Date: 2019-06-25 12:37+0000\n"
-"Last-Translator: Philip Larsen Donnelly, 2026\n"
+"Last-Translator: Kiry Heng, 2026\n"
 "Language-Team: Khmer (https://app.transifex.com/hisp-uio/teams/100509/km/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
@@ -18,7 +19,7 @@ msgstr ""
 "Plural-Forms: nplurals=1; plural=0;\n"
 
 msgid "Untitled dashboard"
-msgstr "មិនទាន់មានចំណងជើង"
+msgstr "ផ្ទាំងប៉ាណ្ណូបរិធានមិនទាន់មានចំណងជើង"
 
 msgid "Could not get info from Superset gateway endpoint"
 msgstr "មិនអាចទាញយ"
@@ -319,7 +320,7 @@ msgid "Item type \"{{type}}\" is not supported"
 msgstr ""
 
 msgid "The item type is missing"
-msgstr ""
+msgstr "មិនមានប្រភេទនែធាតុ"
 
 msgid "Filters applied"
 msgstr "លក្ខខណ្ឌច្រោះត្រូវបានអនុវត្តន៍"
@@ -753,7 +754,7 @@ msgid "Error"
 msgstr "កំហុសបច្ចេកទេស"
 
 msgid "Could not load Superset dashboard"
-msgstr ""
+msgstr "មិនអាចបង្ហាញផ្ទាំងប៉ាណ្ណូបរិធានធំបានទេ"
 
 msgid "Retry"
 msgstr "សូមសាកល្បងឡើងវិញ"
@@ -781,7 +782,7 @@ msgid "Go to start page"
 msgstr "ត្រឡប់ទៅកាន់ទំព័រចាប់ផ្តើម"
 
 msgid "Slideshow started over 24 hours ago"
-msgstr ""
+msgstr "ការបញ្ចាំងស្លាយបានចាប់ផ្ដើមជាង២៤ម៉ោងកន្លងមកហើយ"
 
 msgid "Exit slideshow"
 msgstr "ចាកចេញពីការបង្ហាញជាស្លាយ"
@@ -800,24 +801,24 @@ msgid_plural "{{count}} filters active"
 msgstr[0] ""
 
 msgid "10 seconds per slide"
-msgstr ""
+msgstr "១០វិនាទីក្នុងមួយស្លាយ"
 
 msgid "20 seconds per slide"
-msgstr ""
+msgstr "២០វិនាទីក្នុងមួយស្លាយ"
 
 msgid "30 seconds per slide"
-msgstr ""
+msgstr "៣០វិនាទីក្នុងមួយស្លាយ"
 
 msgid "1 minute per slide"
-msgstr ""
+msgstr "១នាទីក្នុងមួយស្លាយ"
 
 msgid "2 minutes per slide"
-msgstr ""
+msgstr "២នាទីក្នុងមួយស្លាយ"
 
 msgctxt "Application title"
 msgid "__MANIFEST_APP_TITLE"
-msgstr "ផ្ទាំងចម្រោះ​សង្ខេបព័ត៌មាន"
+msgstr "ផ្ទាំងប៉ាណ្ណូបរិធាន"
 
 msgctxt "Application description"
 msgid "__MANIFEST_APP_DESCRIPTION"
-msgstr ""
+msgstr "កម្មវិធីផ្ទាំងប៉ាណ្ណូបរិធាន"
