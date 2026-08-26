@@ -1,3 +1,39 @@
-.grid {
+.gridWrapper {
+    position: relative;
     margin-block-start: var(--spacers-dp16);
+}
+
+.gridLinesOverlay {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    z-index: 1;
+    background-image:
+        repeating-linear-gradient(
+            to right,
+            rgba(0, 0, 0, 0.08) 0,
+            rgba(0, 0, 0, 0.08) 1px,
+            transparent 1px,
+            transparent var(--col-slot)
+        ),
+        repeating-linear-gradient(
+            to bottom,
+            rgba(0, 0, 0, 0.08) 0,
+            rgba(0, 0, 0, 0.08) 1px,
+            transparent 1px,
+            transparent var(--row-slot)
+        );
+}
+
+.gridUnitsPopup {
+    position: fixed;
+    z-index: 9999;
+    padding: 4px 8px;
+    background-color: rgba(33, 41, 52, 0.92);
+    color: #fff;
+    border-radius: 3px;
+    font-size: 12px;
+    line-height: 1.2;
+    pointer-events: none;
+    white-space: nowrap;
 }
