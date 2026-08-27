@@ -56,6 +56,7 @@ export const UpdateSupersetDashboardModal = ({ closeModal }) => {
                 showChartControls:
                     !dashboard.embedded.options.hideChartControls,
                 expandFilters: dashboard.embedded.options.filters.expanded,
+                restrictOrgUnitHierarchy: !!dashboard.embedded.security?.restrictOrgUnitHierarchy,
             })
             formRef.current?.getElementsByTagName('input')?.item(0)?.focus()
         }

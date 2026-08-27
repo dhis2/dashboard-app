@@ -9,7 +9,9 @@ import {
     FIELD_NAME_SUPERSET_EMBED_ID,
     FIELD_NAME_EXPAND_FILTERS,
     FIELD_NAME_SHOW_CHART_CONTROLS,
+    FIELD_NAME_RESTRICT_ORG_UNIT_HIERARCHY,
 } from '../../../modules/useSupersetDashboardFieldsState.js'
+import { useSupersetGatewayCapability } from '../../AppDataProvider/AppDataProvider.jsx'
 import styles from './styles/SupersetDashboardFields.module.css'
 
 export const SupersetDashboardFields = ({
@@ -20,6 +22,8 @@ export const SupersetDashboardFields = ({
     shouldShowSupersetEmbedIdError,
     isCodeValid,
 }) => {
+    const capability = useSupersetGatewayCapability()
+    const showSecuritySection = capability?.security === true
     return (
         <>
             <InputField
@@ -96,6 +100,19 @@ export const SupersetDashboardFields = ({
                     name={FIELD_NAME_EXPAND_FILTERS}
                 />
             </fieldset>
+            {showSecuritySection && (
+                <fieldset className={styles.options}>
+                    <legend>{i18n.t('Security')}</legend>
+                    <CheckboxField 
+                        dense
+                        label={i18n.t('Restrict data by org unit hierarchy')}
+                        onChange={onChange}
+                        checked={values.restrictOrgUnitHierarchy}
+                        disabled={submitting}
+                        name={FIELD_NAME_RESTRICT_ORG_UNIT_HIERARCHY}
+                    />
+                </fieldset>
+            )}
         </>
     )
 }
@@ -108,6 +125,7 @@ SupersetDashboardFields.propTypes = {
         code: PropTypes.string,
         description: PropTypes.string,
         expandFilters: PropTypes.bool,
+        restrictOrgUnitHierarchy: PropTypes.bool,
         showChartControls: PropTypes.bool,
         supersetEmbedId: PropTypes.string,
         title: PropTypes.string,

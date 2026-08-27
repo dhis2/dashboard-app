@@ -61,9 +61,12 @@ export function useSystemSettingsQuery() {
 
         if (systemSettings.embeddedDashboardsEnabled) {
             try {
-                systemSettings.supersetBaseUrl = await fetchSupersetBaseUrl()
+                const {supersetBaseUrl, capability} = await fetchSupersetBaseUrl()
+                systemSettings.supersetBaseUrl = supersetBaseUrl
+                systemSettings.supersetGatewayCapability = capability
             } catch {
                 systemSettings.supersetBaseUrl = null
+                systemSettings.supersetGatewayCapability = undefined
             }
         }
         return systemSettings
