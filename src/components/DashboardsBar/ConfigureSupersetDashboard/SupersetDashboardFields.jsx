@@ -103,9 +103,11 @@ export const SupersetDashboardFields = ({
             {showSecuritySection && (
                 <fieldset className={styles.options}>
                     <legend>{i18n.t('Security')}</legend>
-                    <CheckboxField 
+                    <CheckboxField
                         dense
-                        label={i18n.t('Restrict data by org unit hierarchy')}
+                        label={i18n.t(
+                            'Restrict data by organisation unit hierarchy'
+                        )}
                         onChange={onChange}
                         checked={values.restrictOrgUnitHierarchy}
                         disabled={submitting}
