@@ -37,7 +37,8 @@ describe('parseSupersetDashboardFieldValues', () => {
 
     it('falls back to a default name when the title is empty', () => {
         expect(
-            parseSupersetDashboardFieldValues({ ...fieldValues, title: '' }).name
+            parseSupersetDashboardFieldValues({ ...fieldValues, title: '' })
+                .name
         ).toBe('Untitled dashboard')
     })
 
