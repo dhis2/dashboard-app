@@ -9,6 +9,11 @@ jobs:
         runs-on: ubuntu-latest
         steps:
             - name: Check for incomplete task list items
-              uses: Shopify/task-list-checker@main
-              with:
-                  github-token: ${{ secrets.GITHUB_TOKEN }}
+              env:
+                  PR_BODY: ${{ github.event.pull_request.body }}
+              run: |
+                  if printf '%s' "$PR_BODY" | grep -nE '^[[:space:]]*[-*+] \[ \]'; then
+                      echo "::error::The pull request description contains unchecked task list items (see above). Complete them, or remove the items that do not apply."
+                      exit 1
+                  fi
+                  echo "No unchecked task list items found."
