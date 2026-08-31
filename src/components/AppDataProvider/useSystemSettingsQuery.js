@@ -67,7 +67,7 @@ export function useSystemSettingsQuery() {
                 systemSettings.supersetGatewayCapability = capability
             } catch {
                 systemSettings.supersetBaseUrl = null
-                systemSettings.supersetGatewayCapability = undefined
+                systemSettings.supersetGatewayCapability = null
             }
         }
         return systemSettings
