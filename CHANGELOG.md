@@ -1,3 +1,17 @@
+# [101.7.0](https://github.com/dhis2/dashboard-app/compare/v101.6.3...v101.7.0) (2026-08-31)
+
+
+### Features
+
+* add org unit security for external dashboards ([#3342](https://github.com/dhis2/dashboard-app/issues/3342)) ([0707c1e](https://github.com/dhis2/dashboard-app/commit/0707c1e27510067c8529c99e7a34bb790275e2ff))
+
+## [101.6.3](https://github.com/dhis2/dashboard-app/compare/v101.6.2...v101.6.3) (2026-08-23)
+
+
+### Bug Fixes
+
+* **translations:** sync translations from transifex (master) ([56e57a6](https://github.com/dhis2/dashboard-app/commit/56e57a6708145ba850d23ea2a9ae89e50bf38f45))
+
 ## [101.6.2](https://github.com/dhis2/dashboard-app/compare/v101.6.1...v101.6.2) (2026-07-23)
 
 

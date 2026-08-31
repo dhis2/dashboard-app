@@ -162,6 +162,10 @@ export function useSupersetBaseUrl() {
     const { supersetBaseUrl } = useSystemSettings()
     return supersetBaseUrl ?? null
 }
+export function useSupersetGatewayCapability() {
+    const { supersetGatewayCapability } = useSystemSettings()
+    return supersetGatewayCapability
+}
 export function useCurrentUser() {
     const { currentUser } = useContext(AppDataCtx)
     return currentUser
