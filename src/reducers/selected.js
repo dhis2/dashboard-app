@@ -2,6 +2,7 @@ import { createSelector } from 'reselect'
 
 export const SET_SELECTED = 'SET_SELECTED'
 export const CLEAR_SELECTED = 'CLEAR_SELECTED'
+export const SET_SELECTED_STARRED = 'SET_SELECTED_STARRED'
 
 export const DEFAULT_SELECTED_STATE = {}
 const SELECTED_PROPERTIES = {
@@ -14,6 +15,7 @@ const SELECTED_PROPERTIES = {
     dashboardItems: [],
     layout: [],
     itemConfig: {},
+    starred: false,
     embedded: undefined,
 }
 
@@ -29,6 +31,12 @@ export default (state = DEFAULT_SELECTED_STATE, action) => {
         case CLEAR_SELECTED: {
             return DEFAULT_SELECTED_STATE
         }
+        case SET_SELECTED_STARRED: {
+            return {
+                ...state,
+                starred: action.value,
+            }
+        }
         default:
             return state
     }
@@ -39,6 +47,8 @@ export default (state = DEFAULT_SELECTED_STATE, action) => {
 export const sGetSelected = (state) => state.selected
 
 export const sGetSelectedId = (state) => sGetSelected(state).id
+
+export const sGetSelectedStarred = (state) => !!sGetSelected(state).starred
 
 export const sGetSelectedIsEmbedded = (state) => !!sGetSelected(state).embedded
 
