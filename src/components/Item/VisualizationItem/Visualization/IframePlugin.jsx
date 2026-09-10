@@ -42,7 +42,7 @@ const IframePlugin = ({
 }) => {
     const dispatch = useDispatch()
     const iframePluginStatus = useSelector(sGetIframePluginStatus)
-    const { baseUrl } = useConfig()
+    const { baseUrl, apiVersion } = useConfig()
     const userSettings = useUserSettings()
     const [error, setError] = useState(null)
     const apps = useInstalledApps()
@@ -101,20 +101,25 @@ const IframePlugin = ({
 
         // 2. check if there is an installed app for the pluginType
         // and use its plugin launch URL
-        const pluginLaunchUrl = getPluginLaunchUrl(pluginType, apps, baseUrl)
+        const pluginLaunchUrl = getPluginLaunchUrl({
+            type: pluginType,
+            apps,
+            baseUrl,
+            apiVersion,
+        })
 
         if (pluginLaunchUrl) {
             return pluginLaunchUrl
         }
 
         setError('missing-plugin')
-    }, [apps, baseUrl, pluginType])
+    }, [apps, apiVersion, baseUrl, pluginType])
 
     const hasAccess = useMemo(
         () =>
             Boolean(getPluginOverrides()?.[pluginType]) ||
-            hasPluginAccess(pluginType, authorities),
-        [authorities, pluginType]
+            hasPluginAccess(pluginType, authorities, apiVersion),
+        [apiVersion, authorities, pluginType]
     )
 
     const iframeSrc = hasAccess ? getIframeSrc() : null
@@ -126,7 +131,9 @@ const IframePlugin = ({
     if (!hasAccess) {
         return (
             <div style={style}>
-                <MissingAuthorityMessage appName={getAppName(itemType)} />
+                <MissingAuthorityMessage
+                    appName={getAppName(itemType, apiVersion)}
+                />
             </div>
         )
     }
@@ -135,7 +142,7 @@ const IframePlugin = ({
         return error === 'missing-plugin' ? (
             <div style={style}>
                 <MissingPluginMessage
-                    pluginName={getAppName(itemType)}
+                    pluginName={getAppName(itemType, apiVersion)}
                     dashboardMode={dashboardMode}
                 />
             </div>

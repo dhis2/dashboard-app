@@ -138,7 +138,7 @@ const ItemContextMenu = (props) => {
                                 icon={<IconLaunch16 />}
                                 disabledWhenOffline={false}
                                 label={i18n.t('Open in {{appName}} app', {
-                                    appName: getAppName(item.type),
+                                    appName: getAppName(item.type, apiVersion),
                                 })}
                                 href={itemHref}
                                 target="_blank"
