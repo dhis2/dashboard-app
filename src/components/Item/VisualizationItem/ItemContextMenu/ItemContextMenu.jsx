@@ -87,8 +87,8 @@ const ItemContextMenu = (props) => {
         type !== VIS_TYPE_PIE
 
     const interpretationMenuLabel = props.activeFooter
-        ? i18n.t(`Hide details and interpretations`)
-        : i18n.t(`Show details and interpretations`)
+        ? i18n.t('Hide details and interpretations')
+        : i18n.t('Show details and interpretations')
 
     const buttonRef = createRef()
 
