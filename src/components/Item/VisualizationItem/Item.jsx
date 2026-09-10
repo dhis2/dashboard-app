@@ -48,6 +48,7 @@ import ItemFooter from './ItemFooter.jsx'
 import styles from './styles/Item.module.css'
 import { pluginIsAvailable } from './Visualization/plugin.js'
 import Visualization from './Visualization/Visualization.jsx'
+import { MIN_API_VERSION_FOR_EVER } from '../../../modules/isAppVersionCompatible.js'
 
 const DEFAULT_VISUALIZATION = {}
 
@@ -181,7 +182,8 @@ class Item extends Component {
             if (isViewMode(dashboardMode) && Object.keys(itemFilters).length) {
                 switch (activeType) {
                     case EVENT_VISUALIZATION: {
-                        return !showNoFiltersOverlay ? (
+                        return apiVersion < MIN_API_VERSION_FOR_EVER &&
+                            !showNoFiltersOverlay ? (
                             <Tooltip
                                 content={i18n.t(
                                     'Filters are not applied to line list dashboard items'

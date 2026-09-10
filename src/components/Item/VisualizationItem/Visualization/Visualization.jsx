@@ -6,9 +6,12 @@ import React, { useMemo } from 'react'
 import { useSelector } from 'react-redux'
 import {
     isDVVersionCompatible,
+    isEVERVersionCompatible,
     isLLVersionCompatible,
     isMapsVersionCompatible,
+    MIN_API_VERSION_FOR_EVER,
     minDVVersion,
+    minEVERVersion,
     minLLVersion,
     minMapsVersion,
 } from '../../../../modules/isAppVersionCompatible.js'
@@ -18,11 +21,13 @@ import {
     MAP,
     CHART,
     REPORT_TABLE,
+    getAppName,
 } from '../../../../modules/itemTypes.js'
 import { sGetSelectedId } from '../../../../reducers/selected.js'
 import {
     useInstalledApps,
     useInstalledDVVersion,
+    useInstalledEVERVersion,
     useInstalledLLVersion,
     useInstalledMapsVersion,
 } from '../../../AppDataProvider/AppDataProvider.jsx'
@@ -54,6 +59,7 @@ const Visualization = ({
     const { isDisconnected: offline } = useDhis2ConnectionStatus()
     const apps = useInstalledApps()
     const dataVisualizerAppVersion = useInstalledDVVersion()
+    const everAppVersion = useInstalledEVERVersion()
     const lineListingAppVersion = useInstalledLLVersion()
     const mapsAppVersion = useInstalledMapsVersion()
 
@@ -113,14 +119,36 @@ const Visualization = ({
                 <PluginWarningMessage
                     style={style}
                     message={i18n.t(
-                        `Install Data Visualizer app ${minDVVersion.join(
-                            '.'
-                        )} or higher in order to display this item.`
+                        `Install {{appName}} app {{appVersion}} or higher in order to display this item.`,
+                        {
+                            appName: getAppName(activeType, apiVersion),
+                            appVersion: minDVVersion.join('.'),
+                        }
                     )}
                 />
             )
         }
         case EVENT_VISUALIZATION: {
+            if (apiVersion >= MIN_API_VERSION_FOR_EVER) {
+                return isEVERVersionCompatible(everAppVersion) ? (
+                    <IframePlugin
+                        visualization={visualizationConfig}
+                        {...iFramePluginProps}
+                    />
+                ) : (
+                    <PluginWarningMessage
+                        style={style}
+                        message={i18n.t(
+                            `Install {{appName}} app {{appVersion}} or higher in order to display this item.`,
+                            {
+                                appName: getAppName(activeType, apiVersion),
+                                appVersion: minEVERVersion.join('.'),
+                            }
+                        )}
+                    />
+                )
+            }
+
             return isLLVersionCompatible(lineListingAppVersion) ? (
                 <>
                     {showNoFiltersOverlay ? (
@@ -151,9 +179,11 @@ const Visualization = ({
                 <PluginWarningMessage
                     style={style}
                     message={i18n.t(
-                        `Install Line Listing app ${minLLVersion.join(
-                            '.'
-                        )} or higher in order to display this item.`
+                        `Install {{appName}} app {{appVersion}} or higher in order to display this item.`,
+                        {
+                            appName: getAppName(activeType, apiVersion),
+                            appVersion: minLLVersion.join('.'),
+                        }
                     )}
                 />
             )
@@ -187,9 +217,11 @@ const Visualization = ({
                 <PluginWarningMessage
                     style={style}
                     message={i18n.t(
-                        `Install Maps app ${minMapsVersion.join(
-                            '.'
-                        )} or higher in order to display this item.`
+                        `Install {{appName}} app {{appVersion}} or higher in order to display this item.`,
+                        {
+                            appName: getAppName(activeType, apiVersion),
+                            appVersion: minMapsVersion.join('.'),
+                        }
                     )}
                 />
             )
