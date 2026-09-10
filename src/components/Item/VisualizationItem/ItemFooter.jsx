@@ -10,11 +10,16 @@ import FatalErrorBoundary from '../FatalErrorBoundary.jsx'
 import classes from './styles/ItemFooter.module.css'
 
 const ItemFooter = ({ item }) => {
-    const { baseUrl } = useConfig()
+    const { baseUrl, apiVersion } = useConfig()
     const currentUser = useCurrentUser()
     const id = getVisualizationId(item)
     const type = itemTypeMap[item.type]?.propName
-    const dashboardRedirectUrl = getItemUrl(item.type, { id }, baseUrl)
+    const dashboardRedirectUrl = getItemUrl({
+        type: item.type,
+        item: { id },
+        baseUrl,
+        apiVersion,
+    })
 
     return (
         <div className={classes.itemFooter} data-test="dashboarditem-footer">

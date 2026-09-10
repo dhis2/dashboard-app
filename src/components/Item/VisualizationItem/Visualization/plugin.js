@@ -1,5 +1,5 @@
 import {
-    itemTypeMap,
+    getAppKey,
     REPORT_TABLE,
     CHART,
     VISUALIZATION,
@@ -23,10 +23,10 @@ const itemTypeToScriptPath = {
 const hasIntegratedPlugin = (type) =>
     [CHART, REPORT_TABLE, VISUALIZATION, MAP].includes(type)
 
-export const getPluginLaunchUrl = (type, apps, baseUrl) => {
+export const getPluginLaunchUrl = ({ type, apps, baseUrl, apiVersion }) => {
     // 1. lookup in api/apps for the "manually installed" app, this can be a new version for a core (bundled) app
     // 2. fallback to default hardcoded path for the core (bundled) apps
-    const appKey = itemTypeMap[type].appKey
+    const appKey = getAppKey(type, apiVersion)
 
     const appDetails = appKey && apps.find((app) => app.key === appKey)
 
@@ -87,13 +87,17 @@ const fetchPlugin = async (type, baseUrl) => {
     return await scriptsPromise
 }
 
-export const pluginIsAvailable = (type, apps) =>
+export const pluginIsAvailable = ({ type, apps, baseUrl, apiVersion }) =>
     hasIntegratedPlugin(type) ||
-    Boolean(getPluginLaunchUrl(type, apps)) ||
+    Boolean(getPluginLaunchUrl({ type, apps, baseUrl, apiVersion })) ||
     Boolean(itemTypeToGlobalVariable[type])
 
 const loadPlugin = async ({ type, config, credentials }) => {
-    if (!pluginIsAvailable(type)) {
+    if (
+        !pluginIsAvailable({
+            type,
+        })
+    ) {
         return
     }
 

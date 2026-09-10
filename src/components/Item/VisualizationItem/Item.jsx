@@ -3,6 +3,7 @@ import {
     DIMENSION_ID_PERIOD,
     DIMENSION_ID_ORGUNIT,
 } from '@dhis2/analytics'
+import { useConfig } from '@dhis2/app-runtime'
 import i18n from '@dhis2/d2-i18n'
 import { Tag, Tooltip } from '@dhis2/ui'
 import cx from 'classnames'
@@ -140,6 +141,8 @@ class Item extends Component {
 
     render() {
         const {
+            baseUrl,
+            apiVersion,
             item,
             dashboardMode,
             itemFilters,
@@ -154,7 +157,12 @@ class Item extends Component {
         const activeType = this.getActiveType()
 
         const actionButtons =
-            pluginIsAvailable(activeType || item.type, this.props.apps) &&
+            pluginIsAvailable({
+                type: activeType || item.type,
+                apps: this.props.apps,
+                baseUrl,
+                apiVersion,
+            }) &&
             isViewMode(dashboardMode) &&
             !isSlideshowView ? (
                 <ItemContextMenu
@@ -280,7 +288,9 @@ Item.propTypes = {
     item: PropTypes.object.isRequired,
     itemFilters: PropTypes.object.isRequired,
     activeType: PropTypes.string,
+    apiVersion: PropTypes.number,
     apps: PropTypes.array,
+    baseUrl: PropTypes.string,
     dashboardMode: PropTypes.string,
     engine: PropTypes.object,
     gridWidth: PropTypes.number,
@@ -325,9 +335,20 @@ const mapDispatchToProps = {
     setSlideshow: acSetSlideshow,
 }
 
-const ItemWithSettings = (props) => {
+const ItemWithSettingsAndConfig = (props) => {
     const systemSettings = useSystemSettings()
-    return <Item settings={systemSettings} {...props} />
+    const { baseUrl, apiVersion } = useConfig()
+    return (
+        <Item
+            settings={systemSettings}
+            baseUrl={baseUrl}
+            apiVersion={apiVersion}
+            {...props}
+        />
+    )
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(ItemWithSettings)
+export default connect(
+    mapStateToProps,
+    mapDispatchToProps
+)(ItemWithSettingsAndConfig)

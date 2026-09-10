@@ -21,7 +21,7 @@ const CategorizedMenuGroup = ({
     tAddListItemContent,
     onChangeItemsLimit,
 }) => {
-    const { baseUrl } = useConfig()
+    const { baseUrl, apiVersion } = useConfig()
     const [seeMore, setSeeMore] = useState(false)
 
     const addItem = (item) => () => {
@@ -55,7 +55,7 @@ const CategorizedMenuGroup = ({
         <>
             <HeaderMenuItem title={title} />
             {items.map((item) => {
-                const itemUrl = getItemUrl(type, item, baseUrl)
+                const itemUrl = getItemUrl({ type, item, baseUrl, apiVersion })
                 return (
                     <ContentMenuItem
                         key={item.id || item.key}

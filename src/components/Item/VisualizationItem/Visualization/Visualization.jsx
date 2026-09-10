@@ -1,4 +1,4 @@
-import { useDhis2ConnectionStatus } from '@dhis2/app-runtime'
+import { useConfig, useDhis2ConnectionStatus } from '@dhis2/app-runtime'
 import i18n from '@dhis2/d2-i18n'
 import { Button, Cover, IconInfo24, colors } from '@dhis2/ui'
 import PropTypes from 'prop-types'
@@ -49,6 +49,7 @@ const Visualization = ({
     showNoFiltersOverlay,
     onClickNoFiltersOverlay,
 }) => {
+    const { baseUrl, apiVersion } = useConfig()
     const dashboardId = useSelector(sGetSelectedId)
     const { isDisconnected: offline } = useDhis2ConnectionStatus()
     const apps = useInstalledApps()
@@ -194,7 +195,12 @@ const Visualization = ({
             )
         }
         default: {
-            return !pluginIsAvailable(activeType || item.type, apps) ? (
+            return !pluginIsAvailable({
+                type: activeType || item.type,
+                apps,
+                baseUrl,
+                apiVersion,
+            }) ? (
                 <PluginWarningMessage
                     style={style}
                     message={i18n.t('Unable to load the plugin for this item')}
