@@ -20,6 +20,7 @@ import {
     isPrintMode,
     isViewMode,
 } from '../../../modules/dashboardModes.js'
+import { MIN_API_VERSION_FOR_EVER } from '../../../modules/isAppVersionCompatible.js'
 import {
     getVisualizationId,
     getVisualizationName,
@@ -46,9 +47,11 @@ import ItemHeader from '../ItemHeader/ItemHeader.jsx'
 import ItemContextMenu from './ItemContextMenu/ItemContextMenu.jsx'
 import ItemFooter from './ItemFooter.jsx'
 import styles from './styles/Item.module.css'
-import { pluginIsAvailable } from './Visualization/plugin.js'
+import {
+    hasStandalonePlugin,
+    pluginIsAvailable,
+} from './Visualization/plugin.js'
 import Visualization from './Visualization/Visualization.jsx'
-import { MIN_API_VERSION_FOR_EVER } from '../../../modules/isAppVersionCompatible.js'
 
 const DEFAULT_VISUALIZATION = {}
 
@@ -67,24 +70,31 @@ class Item extends Component {
         this.headerRef = React.createRef()
     }
 
+    fetchVisualization = async () => {
+        const { item, apiVersion, engine, visualization, isRecording } =
+            this.props
+
+        if (hasStandalonePlugin(item.type, apiVersion)) {
+            return
+        }
+
+        // Avoid refetching the visualization already in the Redux store
+        // when the same dashboard item is added again.
+        // This also solves a flashing of all the "duplicated" dashboard items.
+        if (!visualization.id) {
+            const vis = await apiFetchVisualization(item, engine)
+            this.props.setVisualization(vis[item.type])
+        }
+
+        // force fetch when recording to allow caching of the visualizations request
+        if (isRecording) {
+            apiFetchVisualization(item, engine)
+        }
+    }
+
     async componentDidMount() {
         try {
-            // Avoid refetching the visualization already in the Redux store
-            // when the same dashboard item is added again.
-            // This also solves a flashing of all the "duplicated" dashboard items.
-            if (!this.props.visualization.id) {
-                const vis = await apiFetchVisualization(
-                    this.props.item,
-                    this.props.engine
-                )
-
-                this.props.setVisualization(vis[this.props.item.type])
-            }
-
-            // force fetch when recording to allow caching of the visualizations request
-            if (this.props.isRecording) {
-                apiFetchVisualization(this.props.item, this.props.engine)
-            }
+            await this.fetchVisualization()
 
             if (
                 this.props.settings
@@ -107,7 +117,8 @@ class Item extends Component {
     componentDidUpdate(prevProps) {
         if (
             this.props.isRecording &&
-            this.props.isRecording !== prevProps.isRecording
+            this.props.isRecording !== prevProps.isRecording &&
+            !hasStandalonePlugin(this.props.item.type, this.props.apiVersion)
         ) {
             apiFetchVisualization(this.props.item, this.props.engine)
         }

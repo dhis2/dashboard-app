@@ -15,6 +15,7 @@ import {
     minLLVersion,
     minMapsVersion,
 } from '../../../../modules/isAppVersionCompatible.js'
+import { getVisualizationId } from '../../../../modules/item.js'
 import {
     VISUALIZATION,
     EVENT_VISUALIZATION,
@@ -35,7 +36,7 @@ import getFilteredVisualization from './getFilteredVisualization.js'
 import getVisualizationConfig from './getVisualizationConfig.js'
 import IframePlugin from './IframePlugin.jsx'
 import LegacyPlugin from './LegacyPlugin.jsx'
-import { pluginIsAvailable } from './plugin.js'
+import { hasStandalonePlugin, pluginIsAvailable } from './plugin.js'
 import { PluginWarningMessage } from './PluginWarningMessage.jsx'
 import classes from './styles/Visualization.module.css'
 
@@ -74,6 +75,8 @@ const Visualization = ({
         )
     }, [visualization, activeType, originalType, itemFilters])
 
+    const visualizationId = getVisualizationId(item)
+
     const iFramePluginProps = useMemo(
         () => ({
             originalType,
@@ -84,6 +87,8 @@ const Visualization = ({
             itemId: item.id,
             itemType: item.type,
             isFirstOfType: Boolean(item.firstOfType),
+            visualizationId,
+            filters: itemFilters,
         }),
         [
             originalType,
@@ -94,10 +99,12 @@ const Visualization = ({
             item.id,
             item.type,
             item.firstOfType,
+            visualizationId,
+            itemFilters,
         ]
     )
 
-    if (!visualization) {
+    if (!hasStandalonePlugin(activeType, apiVersion) && !visualization) {
         return (
             <PluginWarningMessage
                 style={style}
@@ -131,10 +138,7 @@ const Visualization = ({
         case EVENT_VISUALIZATION: {
             if (apiVersion >= MIN_API_VERSION_FOR_EVER) {
                 return isEVERVersionCompatible(everAppVersion) ? (
-                    <IframePlugin
-                        visualization={visualizationConfig}
-                        {...iFramePluginProps}
-                    />
+                    <IframePlugin {...iFramePluginProps} />
                 ) : (
                     <PluginWarningMessage
                         style={style}

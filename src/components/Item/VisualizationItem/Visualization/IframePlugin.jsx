@@ -25,7 +25,7 @@ import {
 } from '../../../AppDataProvider/AppDataProvider.jsx'
 import MissingPluginMessage from '../../ItemMessage/MissingPluginMessage.jsx'
 import VisualizationErrorMessage from '../../ItemMessage/VisualizationErrorMessage.jsx'
-import { getPluginLaunchUrl } from './plugin.js'
+import { getPluginLaunchUrl, hasStandalonePlugin } from './plugin.js'
 import classes from './styles/IframePlugin.module.css'
 
 const IframePlugin = ({
@@ -37,6 +37,8 @@ const IframePlugin = ({
     itemId,
     itemType,
     isFirstOfType,
+    visualizationId,
+    filters,
 }) => {
     const dispatch = useDispatch()
     const iframePluginStatus = useSelector(sGetIframePluginStatus)
@@ -67,26 +69,39 @@ const IframePlugin = ({
         [dispatch, isFirstOfType, pluginType]
     )
 
-    const pluginProps = useMemo(
-        () => ({
-            isVisualizationLoaded: true,
-            forDashboard: true,
+    const pluginProps = useMemo(() => {
+        const commonProps = {
             displayProperty: userSettings.keyAnalysisDisplayProperty,
-            visualization,
             onError,
             onInstallationStatusChange,
             cacheId: `${dashboardId}-${itemId}`, // see DHIS2-19799
             isParentCached: isCached,
-        }),
-        [
-            userSettings,
-            visualization,
-            dashboardId,
-            itemId,
-            isCached,
-            onInstallationStatusChange,
-        ]
-    )
+        }
+
+        return hasStandalonePlugin(activeType, apiVersion)
+            ? {
+                  ...commonProps,
+                  visualizationId,
+                  filters,
+              }
+            : {
+                  ...commonProps,
+                  isVisualizationLoaded: true,
+                  forDashboard: true,
+                  visualization,
+              }
+    }, [
+        userSettings,
+        activeType,
+        apiVersion,
+        visualization,
+        visualizationId,
+        filters,
+        dashboardId,
+        itemId,
+        isCached,
+        onInstallationStatusChange,
+    ])
 
     const getIframeSrc = useCallback(() => {
         // 1. check if there is an override for the plugin
@@ -116,7 +131,7 @@ const IframePlugin = ({
 
     useEffect(() => {
         setError(null)
-    }, [visualization.type])
+    }, [visualization?.type, filters])
 
     if (error) {
         return error === 'missing-plugin' ? (
@@ -130,7 +145,7 @@ const IframePlugin = ({
             <div style={style}>
                 <VisualizationErrorMessage
                     itemType={itemType}
-                    visualizationId={visualization.id}
+                    visualizationId={visualizationId}
                     dashboardMode={dashboardMode}
                 />
             </div>
@@ -175,11 +190,13 @@ IframePlugin.propTypes = {
     activeType: PropTypes.string,
     dashboardId: PropTypes.string,
     dashboardMode: PropTypes.string,
+    filters: PropTypes.object,
     isFirstOfType: PropTypes.bool,
     itemId: PropTypes.string,
     itemType: PropTypes.string,
     style: PropTypes.object,
     visualization: PropTypes.object,
+    visualizationId: PropTypes.string,
 }
 
 // Memoize the whole component to avoid re-rendering when the parent component re-renders.
