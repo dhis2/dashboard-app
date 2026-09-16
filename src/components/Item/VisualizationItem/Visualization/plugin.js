@@ -1,4 +1,5 @@
 import { hasAppAccess } from '../../../../modules/appAccess.js'
+import { MIN_API_VERSION_FOR_EVER } from '../../../../modules/isAppVersionCompatible.js'
 import {
     getAppKey,
     REPORT_TABLE,
@@ -7,6 +8,7 @@ import {
     MAP,
     EVENT_REPORT,
     EVENT_CHART,
+    EVENT_VISUALIZATION,
 } from '../../../../modules/itemTypes.js'
 import getVisualizationContainerDomId from '../getVisualizationContainerDomId.js'
 import { loadExternalScript } from './loadExternalScript.js'
@@ -32,6 +34,17 @@ const hasIntegratedPlugin = (type) =>
 // before 2.42, so their access is only checked after the script fails to load.
 export const hasPluginAccess = (type, authorities, apiVersion) =>
     hasAppAccess(getAppKey(type, apiVersion), authorities)
+
+// Standalone plugins fetch their own visualization and handle filters
+// themselves, so the dashboard passes only visualizationId + filters.
+// Add a row here as DV and Maps migrate to the same model.
+const STANDALONE_PLUGIN_MIN_API_VERSION = {
+    [EVENT_VISUALIZATION]: MIN_API_VERSION_FOR_EVER,
+}
+
+export const hasStandalonePlugin = (type, apiVersion) =>
+    type in STANDALONE_PLUGIN_MIN_API_VERSION &&
+    apiVersion >= STANDALONE_PLUGIN_MIN_API_VERSION[type]
 
 export const getPluginLaunchUrl = ({ type, apps, baseUrl, apiVersion }) => {
     // 1. lookup in api/apps for the "manually installed" app, this can be a new version for a core (bundled) app
