@@ -4,7 +4,7 @@ import classes from './styles/ItemGrid.module.css'
 
 const POPUP_CURSOR_OFFSET_PX = 0
 
-const WidthIcon = () => (
+export const WidthIcon = () => (
     <svg
         width="13"
         height="13"
@@ -20,7 +20,7 @@ const WidthIcon = () => (
     </svg>
 )
 
-const HeightIcon = () => (
+export const HeightIcon = () => (
     <svg
         width="13"
         height="13"

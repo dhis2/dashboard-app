@@ -1,6 +1,11 @@
 import cx from 'classnames'
 import PropTypes from 'prop-types'
-import React, { useEffect, useRef, useState } from 'react'
+import React, {
+    useEffect,
+    useLayoutEffect,
+    useRef,
+    useState,
+} from 'react'
 import { Responsive as ResponsiveReactGridLayout } from 'react-grid-layout'
 import { connect } from 'react-redux'
 import {
@@ -43,6 +48,7 @@ import {
 import FirstRunLayoutChoice from './FirstRunLayoutChoice.jsx'
 import GridUnitsPopup from './GridUnitsPopup.jsx'
 import MultiSelectToolbar from './MultiSelectToolbar.jsx'
+import SizeToolbar from './SizeToolbar.jsx'
 import classes from './styles/ItemGrid.module.css'
 
 const DATA_TEST_PREFIX = 'dashboarditem-'
@@ -93,6 +99,8 @@ const EditItemGrid = ({
     const containerWidth = useContainerWidth()
     const [gridWidth, setGridWidth] = useState({ width: 0 })
     const [selectedIds, setSelectedIds] = useState([])
+    const [liveResize, setLiveResize] = useState(null)
+    const [anchorRect, setAnchorRect] = useState(null)
     const popupRef = useRef(null)
     const gridWrapperRef = useRef(null)
     const resizeLineRef = useRef(null)
@@ -124,6 +132,49 @@ const EditItemGrid = ({
     )
 
     const gridMetrics = getGridMetrics(containerWidth, effectiveColumns)
+
+    const singleSelectedItem =
+        multiSelectEnabled && selectedIds.length === 1
+            ? displayItems.find((item) => item.id === selectedIds[0])
+            : null
+
+    // Anchor the editable size indicator to the selected item's bottom-right
+    // corner (where the resize handle / units popup sits). Recompute on shape
+    // change, scroll and resize so it stays pinned to the item.
+    useLayoutEffect(() => {
+        // While a resize is live, the resize handler owns anchorRect (it pins to
+        // the growing item corner). Don't fight it here.
+        if (liveResize) {
+            return
+        }
+        if (!singleSelectedItem) {
+            setAnchorRect(null)
+            return
+        }
+        const update = () => {
+            const el = document.querySelector(
+                `.${getGridItemDomElementClassName(singleSelectedItem.id)}`
+            )
+            if (el) {
+                setAnchorRect(el.getBoundingClientRect())
+            }
+        }
+        update()
+        window.addEventListener('scroll', update, true)
+        window.addEventListener('resize', update)
+        return () => {
+            window.removeEventListener('scroll', update, true)
+            window.removeEventListener('resize', update)
+        }
+    }, [
+        singleSelectedItem?.id,
+        singleSelectedItem?.w,
+        singleSelectedItem?.h,
+        singleSelectedItem?.x,
+        singleSelectedItem?.y,
+        containerWidth,
+        liveResize,
+    ])
 
     // Drop selected ids that no longer exist (e.g. an item was deleted).
     useEffect(() => {
@@ -231,6 +282,22 @@ const EditItemGrid = ({
         )
     }
 
+    const handleSetSelectedHeight = (h) => {
+        const updated = applyHeightToItems(baseDisplayItems, selectedIds, h)
+        acUpdateDashboardItemShapes(
+            updated.map((item) => toStorageShape(item, effectiveColumns))
+        )
+    }
+
+    const handleSetItemSize = (itemId, { w, h }) => {
+        const updated = baseDisplayItems.map((item) =>
+            item.id === itemId ? { ...item, w, h } : item
+        )
+        acUpdateDashboardItemShapes(
+            updated.map((item) => toStorageShape(item, effectiveColumns))
+        )
+    }
+
     const handleSwapPositions = () => {
         if (selectedIds.length !== 2) {
             return
@@ -274,6 +341,12 @@ const EditItemGrid = ({
         const itemId = itemEl
             .getAttribute('data-test')
             .slice(DATA_TEST_PREFIX.length)
+        // The single-selected item has its own persistent editable indicator,
+        // so don't also show the hover popup over it.
+        if (itemId === singleSelectedItem?.id) {
+            popupRef.current?.hide()
+            return
+        }
         const item = displayItems.find((i) => i.id === itemId)
         if (item) {
             popupRef.current?.show({
@@ -312,32 +385,50 @@ const EditItemGrid = ({
 
     // react-grid-layout calls these with (layout, oldItem, newItem, placeholder, e, node)
     // eslint-disable-next-line max-params
+    // Keep the item-glued indicator as the one and only readout for a single
+    // resize: update its values and re-pin it to the live (growing) item corner
+    // instead of flashing the separate cursor popup. (The equal-height group
+    // resize keeps the cursor popup + group line.)
+    const trackResize = (newItem) => {
+        setLiveResize({ id: newItem.i, w: newItem.w, h: newItem.h })
+        const el = document.querySelector(
+            `.${getGridItemDomElementClassName(newItem.i)}`
+        )
+        if (el) {
+            setAnchorRect(el.getBoundingClientRect())
+        }
+    }
+
     const onResizeStart = (_layout, _oldItem, newItem, _placeholder, e) => {
         isResizingRef.current = true
         isMultiResizingRef.current =
             isEqualHeightGroup && selectedIds.includes(newItem.i)
         if (isMultiResizingRef.current) {
             showGroupResizeLine(e.clientY)
+            popupRef.current?.show({
+                clientX: e.clientX,
+                clientY: e.clientY,
+                w: newItem.w,
+                h: newItem.h,
+            })
+            return
         }
-        popupRef.current?.show({
-            clientX: e.clientX,
-            clientY: e.clientY,
-            w: newItem.w,
-            h: newItem.h,
-        })
+        trackResize(newItem)
     }
 
     // eslint-disable-next-line max-params
     const onResize = (_layout, _oldItem, newItem, _placeholder, e) => {
         if (isMultiResizingRef.current) {
             showGroupResizeLine(e.clientY)
+            popupRef.current?.show({
+                clientX: e.clientX,
+                clientY: e.clientY,
+                w: newItem.w,
+                h: newItem.h,
+            })
+            return
         }
-        popupRef.current?.show({
-            clientX: e.clientX,
-            clientY: e.clientY,
-            w: newItem.w,
-            h: newItem.h,
-        })
+        trackResize(newItem)
     }
 
     // eslint-disable-next-line max-params
@@ -352,6 +443,7 @@ const EditItemGrid = ({
         }
         isResizingRef.current = false
         isMultiResizingRef.current = false
+        setLiveResize(null)
         hideGroupResizeLine()
         popupRef.current?.hide()
     }
@@ -391,13 +483,41 @@ const EditItemGrid = ({
         return null
     }
 
+    // The size indicator follows the item being resized (even if it wasn't the
+    // selected one), otherwise the single-selected item.
+    const indicatorItem = liveResize
+        ? displayItems.find((item) => item.id === liveResize.id)
+        : singleSelectedItem
+
     return (
         <>
+            {indicatorItem && anchorRect && (
+                <SizeToolbar
+                    w={liveResize ? liveResize.w : indicatorItem.w}
+                    h={liveResize ? liveResize.h : indicatorItem.h}
+                    maxW={effectiveColumns}
+                    style={{
+                        bottom: `${
+                            window.innerHeight - anchorRect.bottom + 12
+                        }px`,
+                        right: `${window.innerWidth - anchorRect.right + 12}px`,
+                    }}
+                    onChange={(size) =>
+                        handleSetItemSize(indicatorItem.id, size)
+                    }
+                />
+            )}
             {multiSelectEnabled && selectedIds.length >= 2 && (
                 <MultiSelectToolbar
                     count={selectedIds.length}
                     isEqualHeight={isEqualHeightGroup}
                     canSwap={selectedIds.length === 2}
+                    height={selectedHeight}
+                    maxHeight={getMaxSelectedHeight(
+                        baseDisplayItems,
+                        selectedIds
+                    )}
+                    onSetHeight={handleSetSelectedHeight}
                     onSetSameHeight={handleSetSameHeight}
                     onSwapPositions={handleSwapPositions}
                     onDelete={handleDeleteSelected}

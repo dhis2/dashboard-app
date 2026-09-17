@@ -2,12 +2,17 @@ import i18n from '@dhis2/d2-i18n'
 import { Button, ButtonStrip, IconCross16, colors } from '@dhis2/ui'
 import PropTypes from 'prop-types'
 import React from 'react'
+import { HeightIcon } from './GridUnitsPopup.jsx'
+import { NumberField } from './SizeToolbar.jsx'
 import classes from './styles/ItemGrid.module.css'
 
 const MultiSelectToolbar = ({
     count,
     isEqualHeight,
     canSwap,
+    height,
+    maxHeight,
+    onSetHeight,
     onSetSameHeight,
     onSwapPositions,
     onDelete,
@@ -24,6 +29,14 @@ const MultiSelectToolbar = ({
                 defaultValue_plural: '{{count}} selected',
             })}
         </span>
+        <NumberField
+            icon={<HeightIcon />}
+            value={height}
+            min={1}
+            placeholder="–"
+            nullBaseline={maxHeight}
+            onCommit={onSetHeight}
+        />
         <div className={classes.multiSelectActions}>
             <ButtonStrip>
                 {canSwap && (
@@ -69,9 +82,12 @@ const MultiSelectToolbar = ({
 MultiSelectToolbar.propTypes = {
     count: PropTypes.number.isRequired,
     canSwap: PropTypes.bool,
+    height: PropTypes.number,
     isEqualHeight: PropTypes.bool,
+    maxHeight: PropTypes.number,
     onClear: PropTypes.func,
     onDelete: PropTypes.func,
+    onSetHeight: PropTypes.func,
     onSetSameHeight: PropTypes.func,
     onSwapPositions: PropTypes.func,
 }

@@ -47,6 +47,37 @@
     gap: 4px;
 }
 
+.sizeToolbar {
+    position: fixed;
+    z-index: 9999;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 4px 6px;
+    background-color: #fff;
+    color: var(--colors-blue800);
+    border: 1px solid var(--colors-grey400);
+    border-radius: 3px;
+    font-size: 12px;
+    line-height: 1.2;
+    white-space: nowrap;
+}
+
+.sizeToolbarUnit {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+}
+
+.sizeToolbarInput {
+    width: 42px;
+    padding: 1px 2px 1px 4px;
+    font-size: 12px;
+    color: var(--colors-blue800);
+    border: 1px solid var(--colors-grey400);
+    border-radius: 2px;
+}
+
 .multiSelectToolbar {
     position: fixed;
     inset-block-end: var(--spacers-dp24);
