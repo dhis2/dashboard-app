@@ -1,3 +1,10 @@
+## [101.7.1](https://github.com/dhis2/dashboard-app/compare/v101.7.0...v101.7.1) (2026-09-17)
+
+
+### Bug Fixes
+
+* show correct basemap for maps on dashboards (DHIS2-22110) ([#3343](https://github.com/dhis2/dashboard-app/issues/3343)) ([2734cd1](https://github.com/dhis2/dashboard-app/commit/2734cd182c4dc1090798997714a983bfe527eb25))
+
 # [101.7.0](https://github.com/dhis2/dashboard-app/compare/v101.6.3...v101.7.0) (2026-08-31)
 
 
