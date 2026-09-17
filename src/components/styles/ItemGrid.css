@@ -94,3 +94,95 @@
 .react-resizable-handle {
     background: none;
 }
+
+/* Axis-locked edge resize handles: a 3px rounded "line" grip hugging the right
+   (width) and bottom (height) edges.
+   react-grid-layout's own stylesheet (react-grid-layout/css/styles.css) draws a
+   5x5 corner-bracket ::after on every handle and rotates the edge handles, all
+   at high specificity, so match/beat it here: reset the rotation and repurpose
+   the same ::after as our line. (The corner 'se' handle keeps RGL's default.) */
+.react-grid-item > .react-resizable-handle.react-resizable-handle-e,
+.react-grid-item > .react-resizable-handle.react-resizable-handle-s {
+    transform: none !important;
+}
+
+.react-grid-item > .react-resizable-handle.react-resizable-handle-e::after,
+.react-grid-item > .react-resizable-handle.react-resizable-handle-s::after {
+    content: '';
+    position: absolute;
+    border: none;
+    background-color: var(--colors-grey500);
+    border-radius: 1.5px;
+}
+
+.react-grid-item > .react-resizable-handle.react-resizable-handle-e::after {
+    top: 50%;
+    right: 2px;
+    bottom: auto;
+    left: auto;
+    width: 3px;
+    height: 20px;
+    margin-top: -12px;
+}
+
+.react-grid-item > .react-resizable-handle.react-resizable-handle-s::after {
+    left: 50%;
+    bottom: 2px;
+    right: auto;
+    top: auto;
+    width: 20px;
+    height: 3px;
+    margin-left: -12px;
+}
+
+/* Corner handle: an L-shaped grip (a short vertical + short horizontal grey
+   line meeting at the corner) to match the edge grips, replacing RGL's default
+   dark corner bracket. */
+.react-grid-item > .react-resizable-handle.react-resizable-handle-se::before,
+.react-grid-item > .react-resizable-handle.react-resizable-handle-se::after {
+    content: '';
+    position: absolute;
+    right: 3px;
+    bottom: 3px;
+    border: none;
+    background-color: var(--colors-grey500);
+    border-radius: 1.5px;
+}
+
+/* vertical arm */
+.react-grid-item > .react-resizable-handle.react-resizable-handle-se::after {
+    width: 3px;
+    height: 8px;
+}
+
+/* horizontal arm */
+.react-grid-item > .react-resizable-handle.react-resizable-handle-se::before {
+    width: 8px;
+    height: 3px;
+}
+
+/* Hovered handle turns blue. */
+.react-grid-item > .react-resizable-handle.react-resizable-handle-e:hover::after,
+.react-grid-item > .react-resizable-handle.react-resizable-handle-s:hover::after,
+.react-grid-item > .react-resizable-handle.react-resizable-handle-se:hover::after,
+.react-grid-item > .react-resizable-handle.react-resizable-handle-se:hover::before {
+    background-color: var(--colors-blue600);
+}
+
+/* Active resize: only the handle whose axis is actually being dragged turns
+   blue. RGL marks the resizing item with .resizing but not which handle, so the
+   grid wrapper carries the active axis (e / s / se) in data-resize-axis. */
+[data-resize-axis='e']
+    .react-grid-item.resizing
+    > .react-resizable-handle.react-resizable-handle-e::after,
+[data-resize-axis='s']
+    .react-grid-item.resizing
+    > .react-resizable-handle.react-resizable-handle-s::after,
+[data-resize-axis='se']
+    .react-grid-item.resizing
+    > .react-resizable-handle.react-resizable-handle-se::after,
+[data-resize-axis='se']
+    .react-grid-item.resizing
+    > .react-resizable-handle.react-resizable-handle-se::before {
+    background-color: var(--colors-blue600);
+}

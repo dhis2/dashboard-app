@@ -101,6 +101,7 @@ const EditItemGrid = ({
     const [selectedIds, setSelectedIds] = useState([])
     const [liveResize, setLiveResize] = useState(null)
     const [anchorRect, setAnchorRect] = useState(null)
+    const [resizingAxis, setResizingAxis] = useState(null)
     const popupRef = useRef(null)
     const gridWrapperRef = useRef(null)
     const resizeLineRef = useRef(null)
@@ -401,6 +402,14 @@ const EditItemGrid = ({
 
     const onResizeStart = (_layout, _oldItem, newItem, _placeholder, e) => {
         isResizingRef.current = true
+        // Which handle was grabbed (e / s / se), read off the event target so
+        // only that one gets the active highlight.
+        const cls = String(e?.target?.className || '')
+        setResizingAxis(
+            ['se', 'e', 's'].find((axis) =>
+                cls.includes(`react-resizable-handle-${axis}`)
+            ) || null
+        )
         isMultiResizingRef.current =
             isEqualHeightGroup && selectedIds.includes(newItem.i)
         if (isMultiResizingRef.current) {
@@ -444,6 +453,7 @@ const EditItemGrid = ({
         isResizingRef.current = false
         isMultiResizingRef.current = false
         setLiveResize(null)
+        setResizingAxis(null)
         hideGroupResizeLine()
         popupRef.current?.hide()
     }
@@ -528,6 +538,7 @@ const EditItemGrid = ({
                 ref={gridWrapperRef}
                 className={classes.gridWrapper}
                 style={getGridGuideStyle(gridMetrics)}
+                data-resize-axis={resizingAxis || undefined}
                 onClickCapture={handleClickCapture}
                 onClick={handleClick}
             >
@@ -547,6 +558,10 @@ const EditItemGrid = ({
                     compactType={GRID_COMPACT_TYPE}
                     margin={MARGIN_PX}
                     containerPadding={{ lg: GRID_PADDING_PX }}
+                    // Corner (both axes) plus axis-locked edge handles: right
+                    // resizes width only, bottom resizes height only. (The
+                    // equal-height group overrides this with ['s'] per item.)
+                    resizeHandles={['e', 's', 'se']}
                     onLayoutChange={onLayoutChange}
                     onWidthChange={onWidthChanged}
                     onResizeStart={onResizeStart}

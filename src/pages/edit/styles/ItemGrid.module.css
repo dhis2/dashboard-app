@@ -149,6 +149,9 @@
 .gridWrapper :global(.react-grid-item):hover :global(.react-resizable-handle),
 .gridWrapper
     :global(.react-grid-item.selected)
+    :global(.react-resizable-handle),
+.gridWrapper
+    :global(.react-grid-item.resizing)
     :global(.react-resizable-handle) {
     opacity: 1;
 }
