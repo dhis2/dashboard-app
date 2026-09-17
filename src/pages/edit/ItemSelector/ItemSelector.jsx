@@ -1,8 +1,12 @@
 import { useDataQuery } from '@dhis2/app-runtime'
-import { Layer, Popper, FlyoutMenu } from '@dhis2/ui'
+import i18n from '@dhis2/d2-i18n'
+import { Layer, Popper, FlyoutMenu, SegmentedControl } from '@dhis2/ui'
 import React, { useState, useEffect, createRef } from 'react'
+import { useDispatch, useSelector } from 'react-redux'
+import { acSetItemConfigInsertPosition } from '../../../actions/editDashboard.js'
 import { itemTypeMap, getDefaultItemCount } from '../../../modules/itemTypes.js'
 import useDebounce from '../../../modules/useDebounce.js'
+import { sGetItemConfigInsertPosition } from '../../../reducers/editDashboard.js'
 import CategorizedMenuGroup from './CategorizedMenuGroup.jsx'
 import ItemSearchField from './ItemSearchField.jsx'
 import { singleItems, categorizedItems } from './selectableItems.js'
@@ -26,6 +30,9 @@ const ItemSelector = () => {
     const [items, setItems] = useState(null)
     const [maxOptions, setMaxOptions] = useState(new Set())
     const debouncedFilterText = useDebounce(filter, 350)
+
+    const dispatch = useDispatch()
+    const insertPosition = useSelector(sGetItemConfigInsertPosition) || 'END'
 
     const { data, refetch } = useDataQuery(dashboardSearchQuery, {
         lazy: true,
@@ -110,6 +117,35 @@ const ItemSelector = () => {
                 <Layer onBackdropClick={closeMenu}>
                     <Popper reference={inputRef} placement="bottom-start">
                         <div className={classes.popover}>
+                            <div
+                                className={classes.header}
+                                onMouseDown={(event) => event.preventDefault()}
+                            >
+                                <SegmentedControl
+                                    ariaLabel={i18n.t(
+                                        'Where to add new items'
+                                    )}
+                                    dataTest="add-position-control"
+                                    options={[
+                                        {
+                                            label: i18n.t('Add to start'),
+                                            value: 'START',
+                                        },
+                                        {
+                                            label: i18n.t('Add to end'),
+                                            value: 'END',
+                                        },
+                                    ]}
+                                    selected={insertPosition}
+                                    onChange={({ value }) =>
+                                        dispatch(
+                                            acSetItemConfigInsertPosition(
+                                                value
+                                            )
+                                        )
+                                    }
+                                />
+                            </div>
                             <FlyoutMenu
                                 className={classes.menu}
                                 dataTest="item-menu"

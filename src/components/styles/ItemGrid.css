@@ -24,6 +24,23 @@
     flex-direction: column;
 }
 
+.react-grid-item.edit::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+}
+
+.react-grid-item.edit .edit-item-actions {
+    position: relative;
+    z-index: 2;
+}
+
+.react-grid-item.edit > .react-resizable-handle {
+    position: absolute;
+    z-index: 2;
+}
+
 .react-grid-item.edit:hover {
     cursor: move;
     border-color: #bfcad5;

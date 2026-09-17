@@ -101,12 +101,32 @@ class Item extends Component {
         this.setState({ configLoaded: true })
     }
 
-    componentDidUpdate(prevProps) {
+    async componentDidUpdate(prevProps) {
         if (
             this.props.isRecording &&
             this.props.isRecording !== prevProps.isRecording
         ) {
             apiFetchVisualization(this.props.item, this.props.engine)
+        }
+
+        // "Change visualization" swaps the item's content in place, so the item
+        // keeps its id/key and never remounts. Refetch when the content (id or
+        // type) changes so the new visualization actually loads and renders.
+        const contentChanged =
+            getVisualizationId(this.props.item) !==
+                getVisualizationId(prevProps.item) ||
+            this.props.item.type !== prevProps.item.type
+
+        if (contentChanged && !this.props.visualization.id) {
+            try {
+                const vis = await apiFetchVisualization(
+                    this.props.item,
+                    this.props.engine
+                )
+                this.props.setVisualization(vis[this.props.item.type])
+            } catch (e) {
+                console.log(e)
+            }
         }
 
         if (this.props.item.h !== prevProps.item.h) {

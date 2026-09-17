@@ -1,25 +1,42 @@
 .editBar {
     display: flex;
-    flex-direction: column;
-    justify-content: center;
-    padding-block-start: var(--spacers-dp8);
-    padding-block-end: var(--spacers-dp8);
-    padding-inline-start: 0;
-    padding-inline-end: 0;
-    background-color: var(--colors-yellow050);
+    align-items: center;
+    gap: var(--spacers-dp32);
+    padding: var(--spacers-dp4) var(--spacers-dp8);
+    background-color: var(--colors-white);
     border-block-end: 1px solid var(--colors-grey400);
     position: relative;
     z-index: 10;
     flex: none;
 }
 
-.controls {
+.right {
     display: flex;
-    justify-content: space-between;
-    padding-block-start: 0;
-    padding-block-end: 0;
-    padding-inline-start: var(--spacers-dp8);
-    padding-inline-end: var(--spacers-dp8);
+    align-items: center;
+    gap: var(--spacers-dp8);
+    flex: 0 0 auto;
+    justify-content: flex-end;
+}
+
+.divider {
+    inline-size: 1px;
+    block-size: 16px;
+    background-color: var(--colors-grey400);
+    flex: none;
+}
+
+.center {
+    display: flex;
+    justify-content: center;
+    /* The only flexible element: absorbs free space and shrinks first */
+    flex: 1 1 0;
+    min-inline-size: 0;
+}
+
+.center > * {
+    inline-size: 100%;
+    min-inline-size: 0;
+    max-inline-size: 1200px;
 }
 
 .offline {

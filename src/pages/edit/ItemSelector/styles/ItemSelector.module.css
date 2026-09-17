@@ -1,6 +1,20 @@
+.popover {
+    inline-size: 700px;
+}
+
 .menu {
     block-size: 50vh;
-    inline-size: 700px;
+    inline-size: 100%;
+}
+
+.header {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    padding-block: var(--spacers-dp8);
+    padding-inline: var(--spacers-dp12);
+    border-block-end: 1px solid var(--colors-grey300);
+    background-color: var(--colors-white);
 }
 
 @media only screen and (max-width: 480px) {

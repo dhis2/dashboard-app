@@ -29,11 +29,19 @@ export const GRID_COLUMNS = 60
 // Editor-only grid column resolution presets. The first value (GRID_COLUMNS)
 // is the canonical "pixel perfect" resolution used for storage, view and print.
 export const GRID_COLUMN_PRESETS = [GRID_COLUMNS, 12, 4]
+// Default editor display resolution. A coarse, legible grid (clarity-first);
+// 60 ("pixel perfect") stays available as a preset. Storage is always 60-space,
+// so this default is non-destructive.
+export const DEFAULT_GRID_COLUMNS = 12
 export const MIN_GRID_COLUMNS = 1
 export const MAX_GRID_COLUMNS = GRID_COLUMNS
 
 // Dimensions for getShape
 export const NEW_ITEM_SHAPE = { x: 0, y: 0, w: 20, h: 29 }
+// Default width (in canonical 60-unit storage space) for a newly added item in
+// freeflow layout. 30 = half width at any display resolution. Per-dashboard,
+// user-overridable via itemConfig.newItemWidth.
+export const DEFAULT_NEW_ITEM_WIDTH = 30
 const NUMBER_OF_ITEM_COLS = 2
 
 const MAX_ITEM_GRID_WIDTH = GRID_COLUMNS - 1
@@ -133,6 +141,29 @@ export const applyHeightToItems = (items, ids, h) =>
     items.map((item) =>
         ids.includes(getItemKey(item)) ? { ...item, h } : item
     )
+
+// Returns a new items array with the x/y positions of exactly two ids swapped.
+export const swapItemPositions = (items, ids) => {
+    if (ids.length !== 2) {
+        return items
+    }
+    const [idA, idB] = ids
+    const a = items.find((item) => getItemKey(item) === idA)
+    const b = items.find((item) => getItemKey(item) === idB)
+    if (!a || !b) {
+        return items
+    }
+    return items.map((item) => {
+        const key = getItemKey(item)
+        if (key === idA) {
+            return { ...item, x: b.x, y: b.y }
+        }
+        if (key === idB) {
+            return { ...item, x: a.x, y: a.y }
+        }
+        return item
+    })
+}
 
 // returns a rectangular grid block dimensioned with x, y, w, h in grid units.
 // based on a grid with 3 items across
@@ -358,6 +389,26 @@ const getEndFlowPosition = (items, w) => {
     return { x: 0, y: bottom }
 }
 
+// Flow items left-to-right, top-to-bottom in storage space, wrapping to a new
+// row when the current one overflows. The result is already vertically compact,
+// so react-grid-layout's compaction leaves it untouched.
+const flowItemsLTR = (items) => {
+    let x = 0
+    let y = 0
+    let rowH = 0
+    return items.map((item) => {
+        if (x + item.w > GRID_COLUMNS) {
+            x = 0
+            y += rowH
+            rowH = 0
+        }
+        const placed = { ...item, x, y }
+        x += item.w
+        rowH = Math.max(rowH, item.h)
+        return placed
+    })
+}
+
 export const addToItemsStart = (dashboardItems, columns, newDashboardItem) => {
     if (columns.length) {
         return getAutoItemShapes(
@@ -375,33 +426,18 @@ export const addToItemsStart = (dashboardItems, columns, newDashboardItem) => {
         )
     }
 
-    const { w, h } = newDashboardItem
-
     if (!dashboardItems.length) {
         return [{ ...NEW_ITEM_SHAPE, ...newDashboardItem, x: 0, y: 0 }]
     }
 
-    const topY = dashboardItems.reduce(
-        (min, it) => Math.min(min, it.y),
-        Infinity
-    )
-    const topRowRight = dashboardItems
-        .filter((it) => it.y === topY)
-        .reduce((max, it) => Math.max(max, it.x + it.w), 0)
-
-    // Room in the top row: add to its right (LTR).
-    if (topRowRight + w <= GRID_COLUMNS) {
-        return [
-            { ...NEW_ITEM_SHAPE, ...newDashboardItem, x: topRowRight, y: topY },
-            ...dashboardItems,
-        ]
-    }
-
-    // Top row full: push everything down and start a fresh top row.
-    return [
-        { ...NEW_ITEM_SHAPE, ...newDashboardItem, x: 0, y: 0 },
-        ...dashboardItems.map((it) => ({ ...it, y: it.y + h })),
-    ]
+    // Freeflow: the new item leads and existing items flow after it in reading
+    // order. We re-flow rather than insert at (0,0) and shift everything down:
+    // with a narrow new item, vertical compaction would otherwise pull the other
+    // items up beside it and leave each successive add stacked at column 0.
+    return flowItemsLTR([
+        { ...NEW_ITEM_SHAPE, ...newDashboardItem },
+        ...sortItems(dashboardItems),
+    ])
 }
 
 export const addToItemsEnd = (dashboardItems, columns, newDashboardItem) => {
@@ -421,7 +457,10 @@ export const addToItemsEnd = (dashboardItems, columns, newDashboardItem) => {
     }
 
     const pos = getEndFlowPosition(dashboardItems, newDashboardItem.w)
-    return [...dashboardItems, { ...NEW_ITEM_SHAPE, ...newDashboardItem, ...pos }]
+    return [
+        ...dashboardItems,
+        { ...NEW_ITEM_SHAPE, ...newDashboardItem, ...pos },
+    ]
 }
 
 export const updateItems = (items, dispatch, options = {}) => {

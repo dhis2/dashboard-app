@@ -1,7 +1,7 @@
 .gridWrapper {
     position: relative;
-    margin-block-start: var(--spacers-dp16);
-    /* extend the grid hint 8px above and below the grid itself */
+    /* Fill remaining viewport so the column guide continues above and below items */
+    flex: 1 0 auto;
     padding-block-start: var(--spacers-dp8);
     padding-block-end: var(--spacers-dp8);
     background-image: repeating-linear-gradient(
@@ -22,8 +22,8 @@
     background-size: auto,
         var(--dashboard-grid-column-step, 20px)
             var(--dashboard-grid-row-step, 20px);
-    /* shift the pattern down to keep row lines aligned with items inside the padding */
-    background-position: 0 var(--spacers-dp8);
+    /* Column stripes start at the top; row lines stay aligned with items */
+    background-position: 0 0, 0 var(--spacers-dp8);
 }
 
 .gridUnitsPopup {
@@ -48,32 +48,47 @@
 }
 
 .multiSelectToolbar {
-    position: sticky;
-    inset-block-start: 0;
-    z-index: 10;
+    position: fixed;
+    inset-block-end: var(--spacers-dp24);
+    inset-inline-end: var(--spacers-dp24);
+    z-index: 1100;
     display: flex;
     align-items: center;
-    gap: var(--spacers-dp12);
-    padding: var(--spacers-dp4) var(--spacers-dp12);
-    margin-block-start: var(--spacers-dp16);
-    background-color: var(--colors-blue050);
-    border: 1px solid var(--colors-blue200);
-    border-radius: 3px;
+    gap: var(--spacers-dp16);
+    padding: var(--spacers-dp8) var(--spacers-dp8) var(--spacers-dp8)
+        var(--spacers-dp16);
+    background-color: #fff;
+    border: 1px solid var(--colors-grey300);
+    border-radius: 8px;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
 }
 
 .multiSelectCount {
     font-weight: 500;
     font-size: 14px;
     color: var(--colors-grey900);
-}
-
-.multiSelectHint {
-    font-size: 13px;
-    color: var(--colors-grey700);
+    white-space: nowrap;
 }
 
 .multiSelectActions {
-    margin-inline-start: auto;
+    display: flex;
+    align-items: center;
+}
+
+.multiSelectClose {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 4px;
+    margin: 0;
+    border: none;
+    background: transparent;
+    border-radius: 3px;
+    cursor: pointer;
+}
+
+.multiSelectClose:hover {
+    background-color: var(--colors-grey200);
 }
 
 .resizeGroupLine {
@@ -84,4 +99,47 @@
     pointer-events: none;
     z-index: 1000;
     display: none;
+}
+
+/* Reveal-on-hover: an unengaged item reads as content, not an editor control.
+   Item chrome (resize handles + the ⋯ actions) only appears on hover or when
+   the item is selected. */
+.gridWrapper :global(.react-grid-item) :global(.react-resizable-handle) {
+    opacity: 0;
+    transition: opacity 0.12s ease;
+}
+
+.gridWrapper :global(.react-grid-item) :global(.edit-item-actions) {
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.12s ease;
+}
+
+.gridWrapper :global(.react-grid-item):hover :global(.react-resizable-handle),
+.gridWrapper
+    :global(.react-grid-item.selected)
+    :global(.react-resizable-handle) {
+    opacity: 1;
+}
+
+.gridWrapper :global(.react-grid-item):hover :global(.edit-item-actions),
+.gridWrapper :global(.react-grid-item.selected) :global(.edit-item-actions),
+.gridWrapper :global(.react-grid-item) :global(.edit-item-actions.menu-open) {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+/* A selected item gets a persistent outline so the selection reads clearly. */
+.gridWrapper :global(.react-grid-item.selected) {
+    outline: 2px solid var(--colors-blue500);
+    outline-offset: -1px;
+    border-radius: 3px;
+}
+
+/* Drop preview while dragging from the Build sidebar. */
+.gridWrapper :global(.react-grid-placeholder) {
+    background: var(--colors-blue200) !important;
+    border: 2px dashed var(--colors-blue600);
+    border-radius: 3px;
+    opacity: 0.6;
 }

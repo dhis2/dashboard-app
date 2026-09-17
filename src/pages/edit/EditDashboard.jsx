@@ -18,9 +18,9 @@ import { isSmallScreen } from '../../modules/smallScreen.js'
 import { sGetIsPrintPreviewView } from '../../reducers/editDashboard.js'
 import LayoutPrintPreview from '../print/PrintLayoutDashboard.jsx'
 import ActionsBar from './ActionsBar.jsx'
+import AddItemsBar from './AddItemsBar.jsx'
 import ItemGrid from './ItemGrid.jsx'
 import classes from './styles/EditDashboard.module.css'
-import TitleBar from './TitleBar.jsx'
 
 const EditDashboard = (props) => {
     const dataEngine = useDataEngine()
@@ -76,7 +76,6 @@ const EditDashboard = (props) => {
         }
         return (
             <DashboardContainer>
-                <TitleBar />
                 <ItemGrid />
             </DashboardContainer>
         )
@@ -89,6 +88,8 @@ const EditDashboard = (props) => {
                 data-test="outer-scroll-container"
             >
                 <ActionsBar />
+                {hasUpdateAccess &&
+                    !props.isPrintPreviewView && <AddItemsBar />}
                 {hasUpdateAccess ? (
                     renderGrid()
                 ) : (

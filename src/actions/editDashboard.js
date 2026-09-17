@@ -8,7 +8,10 @@ import {
     rescaleItemsToColumns,
     updateItems,
 } from '../modules/gridUtil.js'
+import { itemTypeMap } from '../modules/itemTypes.js'
+import { setPendingScrollItem } from '../modules/scrollToNewItem.js'
 import { convertUiItemsToBackend } from '../modules/uiBackendItemConverter.js'
+import { generateUid } from '../modules/uid.js'
 import {
     RECEIVED_EDIT_DASHBOARD,
     START_NEW_DASHBOARD,
@@ -27,9 +30,11 @@ import {
     RECEIVED_LAYOUT_COLUMNS,
     RECEIVED_GRID_COLUMNS,
     RECEIVED_ITEM_CONFIG_INSERT_POSITION,
+    RECEIVED_ITEM_CONFIG_NEW_ITEM_WIDTH,
     sGetEditDashboardItems,
     sGetLayoutColumns,
     sGetItemConfigInsertPosition,
+    sGetItemConfigNewItemWidth,
     RECEIVED_CODE,
 } from '../reducers/editDashboard.js'
 import { tFetchDashboards } from './dashboards.js'
@@ -117,6 +122,11 @@ export const acSetItemConfigInsertPosition = (value) => ({
     value,
 })
 
+export const acSetItemConfigNewItemWidth = (value) => ({
+    type: RECEIVED_ITEM_CONFIG_NEW_ITEM_WIDTH,
+    value,
+})
+
 // thunks
 
 // no layout + end: add to new row at the end, default size
@@ -127,6 +137,7 @@ export const acSetItemConfigInsertPosition = (value) => ({
 export const tSetDashboardItems =
     (itemToAdd, itemIdToRemove) => (dispatch, getState) => {
         const insertPosition = sGetItemConfigInsertPosition(getState())
+        const newItemWidth = sGetItemConfigNewItemWidth(getState())
         const columns = sGetLayoutColumns(getState())
 
         let items = [...sGetEditDashboardItems(getState())]
@@ -153,7 +164,17 @@ export const tSetDashboardItems =
                 dashboardItemsWithShapes = getAutoItemShapes(items, columns)
                 updateItems(dashboardItemsWithShapes, dispatch)
             } else {
-                const newDashboardItem = getDashboardItem(itemToAdd)
+                // Apply the per-dashboard default width (honored in freeflow;
+                // ignored in fixed layout, where getAutoItemShapes sizes items
+                // to the column count).
+                const newDashboardItem = {
+                    ...getDashboardItem(itemToAdd),
+                    w: newItemWidth,
+                }
+
+                // Click-to-add places the item at the top/bottom of the canvas,
+                // possibly off-screen. Flag it so the grid scrolls it into view.
+                setPendingScrollItem(newDashboardItem.id)
 
                 switch (insertPosition) {
                     case 'START':
@@ -175,6 +196,64 @@ export const tSetDashboardItems =
                 updateItems(dashboardItemsWithShapes, dispatch)
             }
         }
+    }
+
+// Duplicate an existing item into the "next" position.
+// Fixed layout: drop the copy right after the original and let the auto-layout
+// flow it into the following cell. Freeflow: place it at the next available
+// position without disturbing the manually-placed existing items.
+export const tDuplicateDashboardItem =
+    (itemId) => (dispatch, getState) => {
+        const columns = sGetLayoutColumns(getState())
+        const items = [...sGetEditDashboardItems(getState())]
+        const index = items.findIndex((item) => item.id === itemId)
+
+        if (index === -1) {
+            return
+        }
+
+        const newId = generateUid()
+        const duplicate = { ...items[index], id: newId, i: newId }
+
+        setPendingScrollItem(newId)
+
+        if (columns.length) {
+            const reordered = [
+                ...items.slice(0, index + 1),
+                duplicate,
+                ...items.slice(index + 1),
+            ]
+            updateItems(getAutoItemShapes(reordered, columns), dispatch)
+        } else {
+            updateItems(addToItemsEnd(items, columns, duplicate), dispatch)
+        }
+    }
+
+// Swap an item's underlying content in place, keeping its position and size.
+// `type` is the new item type and `content` is the { id, name } of the chosen
+// visualization. The previous content prop is dropped so a cross-type swap (e.g.
+// visualization → map) doesn't leave a stale reference, since UPDATE_DASHBOARD_ITEM
+// replaces the whole item object.
+export const tChangeDashboardItemContent =
+    (itemId, type, content) => (dispatch, getState) => {
+        const items = sGetEditDashboardItems(getState())
+        const existing = items.find((item) => item.id === itemId)
+
+        if (!existing) {
+            return
+        }
+
+        const oldPropName = itemTypeMap[existing.type]?.propName
+        const newPropName = itemTypeMap[type]?.propName
+
+        const newItem = { ...existing }
+        if (oldPropName && oldPropName !== newPropName) {
+            delete newItem[oldPropName]
+        }
+        newItem.type = type
+        newItem[newPropName] = content
+
+        dispatch(acUpdateDashboardItem(newItem))
     }
 
 // Editor-only: change the grid column resolution and snap existing items to it.

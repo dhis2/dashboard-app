@@ -36,12 +36,22 @@ const viewStyle = {
 }
 
 const TextItem = (props) => {
-    const { item, dashboardMode, text, isFullscreen, acUpdateDashboardItem } =
-        props
+    const {
+        item,
+        storedItem,
+        dashboardMode,
+        text,
+        isFullscreen,
+        acUpdateDashboardItem,
+    } = props
 
     const onChangeText = (text) => {
+        // Build the update from the canonical store item, not props.item: in the
+        // editor props.item carries a display-space shape (x/w scaled to the
+        // editor's column resolution). Persisting that would clobber the stored
+        // 60-unit shape and the box would shrink on every keystroke.
         const updatedItem = {
-            ...item,
+            ...(storedItem ?? item),
             text,
         }
 
@@ -131,6 +141,8 @@ const mapStateToProps = (state, ownProps) => {
 
     return {
         text: item ? displayText : '',
+        // The canonical store item (60-unit shape) so edits preserve size.
+        storedItem: item ?? null,
     }
 }
 
@@ -139,6 +151,7 @@ TextItem.propTypes = {
     dashboardMode: PropTypes.string,
     isFullscreen: PropTypes.bool,
     item: PropTypes.object,
+    storedItem: PropTypes.object,
     text: PropTypes.string,
 }
 

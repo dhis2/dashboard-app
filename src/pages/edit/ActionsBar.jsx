@@ -5,7 +5,13 @@ import {
     useAlert,
 } from '@dhis2/app-runtime'
 import i18n from '@dhis2/d2-i18n'
-import { Button, ButtonStrip } from '@dhis2/ui'
+import {
+    Button,
+    IconView16,
+    IconFilter16,
+    IconTranslate16,
+    IconDelete16,
+} from '@dhis2/ui'
 import PropTypes from 'prop-types'
 import React, { useState } from 'react'
 import { connect } from 'react-redux'
@@ -29,6 +35,8 @@ import {
 } from '../../reducers/editDashboard.js'
 import { deleteDashboardMutation } from './deleteDashboardMutation.js'
 import FilterSettingsDialog from './FilterSettingsDialog.jsx'
+import InlineButton from './InlineButton.jsx'
+import InlineTitleEditor from './InlineTitleEditor.jsx'
 import classes from './styles/ActionsBar.module.css'
 
 const saveFailedMessage = i18n.t(
@@ -174,72 +182,7 @@ const EditBar = ({ dashboard, ...props }) => {
         )
     }
 
-    const renderActionButtons = () => (
-        <ButtonStrip>
-            {!props.isPrintPreviewView && (
-                <OfflineTooltip
-                    content={i18n.t('Cannot save this dashboard while offline')}
-                >
-                    <Button
-                        disabled={!online}
-                        primary
-                        small
-                        onClick={onSave}
-                        dataTest="save-dashboard-button"
-                    >
-                        {i18n.t('Save changes')}
-                    </Button>
-                </OfflineTooltip>
-            )}
-            <OfflineTooltip>
-                <Button small disabled={!online} onClick={onPrintPreview}>
-                    {props.isPrintPreviewView
-                        ? i18n.t('Exit print preview')
-                        : i18n.t('Print preview')}
-                </Button>
-            </OfflineTooltip>
-            {!props.isPrintPreviewView && (
-                <OfflineTooltip>
-                    <Button
-                        small
-                        disabled={!online}
-                        onClick={toggleFilterSettingsDialog}
-                    >
-                        {i18n.t('Filter settings')}
-                    </Button>
-                </OfflineTooltip>
-            )}
-            {dashboard.id && !props.isPrintPreviewView && (
-                <OfflineTooltip>
-                    <Button
-                        small
-                        disabled={!online}
-                        onClick={toggleTranslationDialog}
-                    >
-                        {i18n.t('Translate')}
-                    </Button>
-                </OfflineTooltip>
-            )}
-            {dashboard.id &&
-                !props.isPrintPreviewView &&
-                dashboard.access?.delete && (
-                    <OfflineTooltip
-                        content={i18n.t(
-                            'Cannot delete this dashboard while offline'
-                        )}
-                    >
-                        <Button
-                            small
-                            disabled={!online}
-                            onClick={onConfirmDelete}
-                            dataTest="delete-dashboard-button"
-                        >
-                            {i18n.t('Delete')}
-                        </Button>
-                    </OfflineTooltip>
-                )}
-        </ButtonStrip>
-    )
+    const canUpdate = dashboard.access?.update
 
     if (redirectUrl) {
         return <Redirect to={redirectUrl} />
@@ -248,14 +191,104 @@ const EditBar = ({ dashboard, ...props }) => {
     return (
         <>
             <div className={classes.editBar} data-test="edit-control-bar">
-                <div className={classes.controls}>
-                    {dashboard.access?.update ? renderActionButtons() : null}
+                <div className={classes.center}>
+                    {canUpdate && !props.isPrintPreviewView && (
+                        <InlineTitleEditor />
+                    )}
+                </div>
+
+                <div className={classes.right}>
+                    <OfflineTooltip>
+                        <InlineButton
+                            icon={<IconView16 />}
+                            disabled={!online}
+                            onClick={onPrintPreview}
+                        >
+                            {props.isPrintPreviewView
+                                ? i18n.t('Exit preview')
+                                : i18n.t('Preview')}
+                        </InlineButton>
+                    </OfflineTooltip>
+                    {canUpdate && !props.isPrintPreviewView && (
+                        <OfflineTooltip>
+                            <InlineButton
+                                icon={<IconFilter16 />}
+                                disabled={!online}
+                                onClick={toggleFilterSettingsDialog}
+                            >
+                                {i18n.t('Filters')}
+                            </InlineButton>
+                        </OfflineTooltip>
+                    )}
+                    {canUpdate && !props.isPrintPreviewView && (
+                        <OfflineTooltip
+                            disabled={!dashboard.id}
+                            content={
+                                dashboard.id
+                                    ? undefined
+                                    : i18n.t(
+                                          'Save the dashboard before adding translations'
+                                      )
+                            }
+                        >
+                            <InlineButton
+                                icon={<IconTranslate16 />}
+                                disabled={!online || !dashboard.id}
+                                onClick={toggleTranslationDialog}
+                            >
+                                {i18n.t('Translate')}
+                            </InlineButton>
+                        </OfflineTooltip>
+                    )}
+                    {!props.isPrintPreviewView &&
+                        (dashboard.access?.delete || !dashboard.id) && (
+                            <OfflineTooltip
+                                disabledWhenOffline={Boolean(dashboard.id)}
+                                content={i18n.t(
+                                    'Cannot delete this dashboard while offline'
+                                )}
+                            >
+                                <InlineButton
+                                    destructive
+                                    icon={<IconDelete16 />}
+                                    disabled={Boolean(dashboard.id) && !online}
+                                    onClick={
+                                        dashboard.id
+                                            ? onConfirmDelete
+                                            : onDiscardConfirmed
+                                    }
+                                    dataTest="delete-dashboard-button"
+                                >
+                                    {i18n.t('Delete')}
+                                </InlineButton>
+                            </OfflineTooltip>
+                        )}
                     {!props.isPrintPreviewView && (
-                        <Button small secondary onClick={onDiscardConfirmed}>
-                            {dashboard.access?.update
-                                ? i18n.t('Exit without saving')
-                                : i18n.t('Go to dashboards')}
-                        </Button>
+                        <>
+                            <span className={classes.divider} />
+                            <InlineButton onClick={onDiscardConfirmed}>
+                                {canUpdate
+                                    ? i18n.t('Cancel')
+                                    : i18n.t('Go to dashboards')}
+                            </InlineButton>
+                            {canUpdate && (
+                                <OfflineTooltip
+                                    content={i18n.t(
+                                        'Cannot save this dashboard while offline'
+                                    )}
+                                >
+                                    <Button
+                                        disabled={!online}
+                                        primary
+                                        small
+                                        onClick={onSave}
+                                        dataTest="save-dashboard-button"
+                                    >
+                                        {i18n.t('Save changes')}
+                                    </Button>
+                                </OfflineTooltip>
+                            )}
+                        </>
                     )}
                 </div>
             </div>

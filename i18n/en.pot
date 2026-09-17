@@ -5,8 +5,8 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1)\n"
-"POT-Creation-Date: 2026-06-17T12:12:33.885Z\n"
-"PO-Revision-Date: 2026-06-17T12:12:33.885Z\n"
+"POT-Creation-Date: 2026-09-17T06:47:10.850Z\n"
+"PO-Revision-Date: 2026-09-17T06:47:10.851Z\n"
 
 msgid "Untitled dashboard"
 msgstr "Untitled dashboard"
@@ -255,11 +255,23 @@ msgstr "Dashboards"
 msgid "There was a problem loading this dashboard item"
 msgstr "There was a problem loading this dashboard item"
 
+msgid "Open menu"
+msgstr "Open menu"
+
 msgid "Open in {{appName}}"
 msgstr "Open in {{appName}}"
 
+msgid "View fullscreen"
+msgstr "View fullscreen"
+
 msgid "Remove this item"
 msgstr "Remove this item"
+
+msgid "Change visualization"
+msgstr "Change visualization"
+
+msgid "Duplicate item"
+msgstr "Duplicate item"
 
 msgid "This item has been shortened to fit on one page"
 msgstr "This item has been shortened to fit on one page"
@@ -326,9 +338,6 @@ msgstr "Show details and interpretations"
 
 msgid "Open in {{appName}} app"
 msgstr "Open in {{appName}} app"
-
-msgid "Open menu"
-msgstr "Open menu"
 
 msgid "This map can't be displayed as a chart"
 msgstr "This map can't be displayed as a chart"
@@ -456,20 +465,17 @@ msgstr ""
 "Failed to delete dashboard. You might be offline or not have access to edit "
 "this dashboard."
 
-msgid "Cannot save this dashboard while offline"
-msgstr "Cannot save this dashboard while offline"
+msgid "Exit preview"
+msgstr "Exit preview"
 
-msgid "Save changes"
-msgstr "Save changes"
+msgid "Preview"
+msgstr "Preview"
 
-msgid "Exit print preview"
-msgstr "Exit print preview"
+msgid "Filters"
+msgstr "Filters"
 
-msgid "Print preview"
-msgstr "Print preview"
-
-msgid "Filter settings"
-msgstr "Filter settings"
+msgid "Save the dashboard before adding translations"
+msgstr "Save the dashboard before adding translations"
 
 msgid "Translate"
 msgstr "Translate"
@@ -477,11 +483,14 @@ msgstr "Translate"
 msgid "Cannot delete this dashboard while offline"
 msgstr "Cannot delete this dashboard while offline"
 
-msgid "Exit without saving"
-msgstr "Exit without saving"
-
 msgid "Go to dashboards"
 msgstr "Go to dashboards"
+
+msgid "Cannot save this dashboard while offline"
+msgstr "Cannot save this dashboard while offline"
+
+msgid "Save changes"
+msgstr "Save changes"
 
 msgid ""
 "Deleting dashboard \"{{- dashboardName }}\" will remove it for all users. "
@@ -507,6 +516,18 @@ msgstr "No, stay here"
 
 msgid "Yes, discard changes"
 msgstr "Yes, discard changes"
+
+msgid "Layout"
+msgstr "Layout"
+
+msgid "Search {{type}}"
+msgstr "Search {{type}}"
+
+msgid "(current)"
+msgstr "(current)"
+
+msgid "No results"
+msgstr "No results"
 
 msgid "No access"
 msgstr "No access"
@@ -551,8 +572,23 @@ msgstr "Available Filters"
 msgid "Selected Filters"
 msgstr "Selected Filters"
 
-msgid "There are no items on this dashboard"
-msgstr "There are no items on this dashboard"
+msgid "Start by choosing a layout"
+msgstr "Start by choosing a layout"
+
+msgid "You can change this anytime from the Layout panel."
+msgstr "You can change this anytime from the Layout panel."
+
+msgid "Freeflow"
+msgstr "Freeflow"
+
+msgid "Place items anywhere, at any size."
+msgstr "Place items anywhere, at any size."
+
+msgid "Fixed columns"
+msgstr "Fixed columns"
+
+msgid "Items flow into evenly-sized columns."
+msgstr "Items flow into evenly-sized columns."
 
 msgid "Show fewer"
 msgstr "Show fewer"
@@ -566,53 +602,23 @@ msgstr "Open visualization in new tab"
 msgid "Insert"
 msgstr "Insert"
 
-msgid "Search for items to add to this dashboard"
-msgstr "Search for items to add to this dashboard"
-
 msgid "Search for visualizations, reports and more"
 msgstr "Search for visualizations, reports and more"
 
 msgid "Cannot search for dashboard items while offline"
 msgstr "Cannot search for dashboard items while offline"
 
+msgid "Where to add new items"
+msgstr "Where to add new items"
+
+msgid "Add to start"
+msgstr "Add to start"
+
+msgid "Add to end"
+msgstr "Add to end"
+
 msgid "Additional items"
 msgstr "Additional items"
-
-msgid "Freeflow"
-msgstr "Freeflow"
-
-msgid "Dashboard items can be placed anywhere, at any size."
-msgstr "Dashboard items can be placed anywhere, at any size."
-
-msgid "Fixed columns"
-msgstr "Fixed columns"
-
-msgid ""
-"Dashboard items are automatically placed within fixed, horizontal columns. "
-"The number of columns can be adjusted."
-msgstr ""
-"Dashboard items are automatically placed within fixed, horizontal columns. "
-"The number of columns can be adjusted."
-
-msgid "Number of columns"
-msgstr "Number of columns"
-
-msgid "Save layout"
-msgstr "Save layout"
-
-msgid "{{count}} items selected"
-msgid_plural "{{count}} items selected"
-msgstr[0] "{{count}} item selected"
-msgstr[1] "{{count}} items selected"
-
-msgid "Drag the bottom edge of any selected item to resize them together"
-msgstr "Drag the bottom edge of any selected item to resize them together"
-
-msgid "Set same height"
-msgstr "Set same height"
-
-msgid "Clear selection"
-msgstr "Clear selection"
 
 msgid "Grid columns"
 msgstr "Grid columns"
@@ -630,6 +636,36 @@ msgstr[1] "{{count}} columns"
 msgid "Custom"
 msgstr "Custom"
 
+msgid "Number of columns"
+msgstr "Number of columns"
+
+msgid "Dashboard items can be placed anywhere, at any size."
+msgstr "Dashboard items can be placed anywhere, at any size."
+
+msgid ""
+"Dashboard items are automatically placed within fixed, horizontal columns. "
+"The number of columns can be adjusted."
+msgstr ""
+"Dashboard items are automatically placed within fixed, horizontal columns. "
+"The number of columns can be adjusted."
+
+msgid "Save layout"
+msgstr "Save layout"
+
+msgid "{{count}} selected"
+msgid_plural "{{count}} selected"
+msgstr[0] "{{count}} selected"
+msgstr[1] "{{count}} selected"
+
+msgid "Swap positions"
+msgstr "Swap positions"
+
+msgid "Set same height"
+msgstr "Set same height"
+
+msgid "Clear selection"
+msgstr "Clear selection"
+
 msgid "Dashboard title"
 msgstr "Dashboard title"
 
@@ -638,9 +674,6 @@ msgstr "Dashboard code"
 
 msgid "Dashboard description"
 msgstr "Dashboard description"
-
-msgid "Layout"
-msgstr "Layout"
 
 msgid "Change layout"
 msgstr "Change layout"
@@ -653,6 +686,9 @@ msgstr "End of dashboard"
 
 msgid "Start of dashboard"
 msgstr "Start of dashboard"
+
+msgid "Exit print preview"
+msgstr "Exit print preview"
 
 msgid "dashboard layout"
 msgstr "dashboard layout"
@@ -678,6 +714,9 @@ msgid ""
 msgstr ""
 "Use A4 landscape paper size, default margin settings and turn on background "
 "graphics in the browser print dialog"
+
+msgid "There are no items on this dashboard"
+msgstr "There are no items on this dashboard"
 
 msgid "Getting started"
 msgstr "Getting started"
@@ -706,11 +745,6 @@ msgstr "Requested dashboard not found"
 
 msgid "No description"
 msgstr "No description"
-
-msgid "{{count}} selected"
-msgid_plural "{{count}} selected"
-msgstr[0] "{{count}} selected"
-msgstr[1] "{{count}} selected"
 
 msgid "Cannot edit filters while offline"
 msgstr "Cannot edit filters while offline"

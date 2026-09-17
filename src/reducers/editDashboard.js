@@ -1,6 +1,10 @@
 import update from 'immutability-helper'
 import isEmpty from 'lodash/isEmpty.js'
-import { getDashboardItem, GRID_COLUMNS } from '../modules/gridUtil.js'
+import {
+    getDashboardItem,
+    DEFAULT_GRID_COLUMNS,
+    DEFAULT_NEW_ITEM_WIDTH,
+} from '../modules/gridUtil.js'
 import { orArray, orObject } from '../modules/util.js'
 
 export const RECEIVED_EDIT_DASHBOARD = 'RECEIVED_EDIT_DASHBOARD'
@@ -21,6 +25,8 @@ export const RECEIVED_LAYOUT_COLUMNS = 'RECEIVED_LAYOUT_COLUMNS'
 export const RECEIVED_GRID_COLUMNS = 'RECEIVED_GRID_COLUMNS'
 export const RECEIVED_ITEM_CONFIG_INSERT_POSITION =
     'RECEIVED_ITEM_CONFIG_INSERT_POSITION'
+export const RECEIVED_ITEM_CONFIG_NEW_ITEM_WIDTH =
+    'RECEIVED_ITEM_CONFIG_NEW_ITEM_WIDTH'
 
 export const EMPTY_STATE_EDIT_DASHBOARD = {}
 export const DEFAULT_STATE_EDIT_DASHBOARD = {
@@ -37,12 +43,14 @@ export const DEFAULT_STATE_EDIT_DASHBOARD = {
     href: '',
     hideGrid: false,
     // editor-only grid column resolution (not persisted)
-    gridColumns: GRID_COLUMNS,
+    gridColumns: DEFAULT_GRID_COLUMNS,
     layout: {
         columns: [],
     },
     itemConfig: {
         insertPosition: 'END',
+        // width (60-unit storage space) of newly added freeflow items
+        newItemWidth: DEFAULT_NEW_ITEM_WIDTH,
     },
 }
 
@@ -231,6 +239,16 @@ export default (state = DEFAULT_STATE_EDIT_DASHBOARD, action) => {
                 },
             }
         }
+        case RECEIVED_ITEM_CONFIG_NEW_ITEM_WIDTH: {
+            return {
+                ...state,
+                itemConfig: {
+                    ...state.itemConfig,
+                    newItemWidth: action.value,
+                },
+                isDirty: true,
+            }
+        }
         default:
             return state
     }
@@ -262,7 +280,7 @@ export const sGetEditIsDirty = (state) => sGetEditDashboardRoot(state).isDirty
 export const sGetHideGrid = (state) => sGetEditDashboardRoot(state).hideGrid
 
 export const sGetEditGridColumns = (state) =>
-    sGetEditDashboardRoot(state).gridColumns || GRID_COLUMNS
+    sGetEditDashboardRoot(state).gridColumns || DEFAULT_GRID_COLUMNS
 
 const getLayout = (editDashboard) => editDashboard.layout
 
@@ -283,3 +301,8 @@ const getInsertPosition = (itemConfig) => itemConfig.insertPosition
 
 export const sGetItemConfigInsertPosition = (state) =>
     getInsertPosition(sGetItemConfig(state))
+
+// Width (60-unit storage space) for newly added freeflow items. Falls back to
+// the default for dashboards saved before this setting existed.
+export const sGetItemConfigNewItemWidth = (state) =>
+    sGetItemConfig(state).newItemWidth || DEFAULT_NEW_ITEM_WIDTH

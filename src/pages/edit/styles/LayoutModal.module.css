@@ -51,6 +51,12 @@
     margin-block-start: var(--spacers-dp8);
 }
 
+.gridColumnsOption {
+    display: flex;
+    align-items: flex-end;
+    gap: var(--spacers-dp8);
+}
+
 .gap {
     margin-inline-start: var(--spacers-dp16);
 }

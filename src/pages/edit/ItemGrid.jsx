@@ -1,13 +1,14 @@
-import i18n from '@dhis2/d2-i18n'
 import cx from 'classnames'
 import PropTypes from 'prop-types'
 import React, { useEffect, useRef, useState } from 'react'
 import { Responsive as ResponsiveReactGridLayout } from 'react-grid-layout'
 import { connect } from 'react-redux'
-import { acUpdateDashboardItemShapes } from '../../actions/editDashboard.js'
+import {
+    acUpdateDashboardItemShapes,
+    acRemoveDashboardItem,
+} from '../../actions/editDashboard.js'
 import { useContainerWidth } from '../../components/DashboardContainer.jsx'
 import { Item } from '../../components/Item/Item.jsx'
-import NoContentMessage from '../../components/NoContentMessage.jsx'
 import ProgressiveLoadingContainer from '../../components/ProgressiveLoadingContainer.jsx'
 import { EDIT } from '../../modules/dashboardModes.js'
 import { getFirstOfTypes } from '../../modules/getFirstOfType.js'
@@ -25,7 +26,12 @@ import {
     getSelectedHeight,
     getMaxSelectedHeight,
     applyHeightToItems,
+    swapItemPositions,
 } from '../../modules/gridUtil.js'
+import {
+    getPendingScrollItem,
+    clearPendingScrollItem,
+} from '../../modules/scrollToNewItem.js'
 import { getBreakpoint } from '../../modules/smallScreen.js'
 import { orArray } from '../../modules/util.js'
 import {
@@ -34,34 +40,52 @@ import {
     sGetLayout,
     sGetEditGridColumns,
 } from '../../reducers/editDashboard.js'
+import FirstRunLayoutChoice from './FirstRunLayoutChoice.jsx'
 import GridUnitsPopup from './GridUnitsPopup.jsx'
 import MultiSelectToolbar from './MultiSelectToolbar.jsx'
 import classes from './styles/ItemGrid.module.css'
 
 const DATA_TEST_PREFIX = 'dashboarditem-'
 
-const getGridGuideStyle = (containerWidth, columns) => {
-    const columnWidth =
+// Pixel geometry of the editor grid, derived the same way react-grid-layout
+// derives item positions. Used for both the grid-guide CSS vars and the
+// "add here" insertion zones, so the two stay pixel-aligned.
+const getGridMetrics = (containerWidth, columns) => {
+    const colWidth =
         (containerWidth -
             GRID_PADDING_PX[0] * 2 -
             MARGIN_PX[0] * (columns - 1)) /
         columns
 
-    if (columnWidth <= 0) {
+    if (colWidth <= 0) {
         return null
     }
 
     return {
-        '--dashboard-grid-column-width': `${columnWidth}px`,
-        '--dashboard-grid-column-step': `${columnWidth + MARGIN_PX[0]}px`,
-        '--dashboard-grid-row-height': `${GRID_ROW_HEIGHT_PX}px`,
-        '--dashboard-grid-row-step': `${GRID_ROW_HEIGHT_PX + MARGIN_PX[1]}px`,
+        colWidth,
+        colStep: colWidth + MARGIN_PX[0],
+        rowHeight: GRID_ROW_HEIGHT_PX,
+        rowStep: GRID_ROW_HEIGHT_PX + MARGIN_PX[1],
+    }
+}
+
+const getGridGuideStyle = (metrics) => {
+    if (!metrics) {
+        return null
+    }
+
+    return {
+        '--dashboard-grid-column-width': `${metrics.colWidth}px`,
+        '--dashboard-grid-column-step': `${metrics.colStep}px`,
+        '--dashboard-grid-row-height': `${metrics.rowHeight}px`,
+        '--dashboard-grid-row-step': `${metrics.rowStep}px`,
     }
 }
 
 const EditItemGrid = ({
     dashboardItems,
     acUpdateDashboardItemShapes,
+    acRemoveDashboardItem,
     hasLayout,
     hideGrid,
     gridColumns,
@@ -99,6 +123,8 @@ const EditItemGrid = ({
             : item
     )
 
+    const gridMetrics = getGridMetrics(containerWidth, effectiveColumns)
+
     // Drop selected ids that no longer exist (e.g. an item was deleted).
     useEffect(() => {
         setSelectedIds((prev) => {
@@ -107,6 +133,24 @@ const EditItemGrid = ({
             )
             return next.length === prev.length ? prev : next
         })
+    }, [dashboardItems])
+
+    // Click-to-add appends an item at the top/bottom of the canvas, which may be
+    // off-screen. Once react-grid-layout has positioned the new item, scroll it
+    // into view (the next frame ensures its transform is applied first).
+    useEffect(() => {
+        const pendingId = getPendingScrollItem()
+        if (!pendingId) {
+            return
+        }
+        const frame = requestAnimationFrame(() => {
+            const el = document.querySelector(
+                `.${getGridItemDomElementClassName(pendingId)}`
+            )
+            el?.scrollIntoView({ behavior: 'smooth', block: 'nearest' })
+            clearPendingScrollItem()
+        })
+        return () => cancelAnimationFrame(frame)
     }, [dashboardItems])
 
     // Reset the selection when the layout mode or column resolution changes.
@@ -161,9 +205,19 @@ const EditItemGrid = ({
         if (e.shiftKey || e.metaKey || e.ctrlKey) {
             return
         }
-        if (!e.target.closest(`[data-test^="${DATA_TEST_PREFIX}"]`)) {
+        const itemEl = e.target.closest(`[data-test^="${DATA_TEST_PREFIX}"]`)
+        if (!itemEl) {
             clearSelection()
+            return
         }
+        // Don't hijack clicks on interactive controls (item menu, launch links).
+        if (e.target.closest('button, input, textarea, a')) {
+            return
+        }
+        const itemId = itemEl
+            .getAttribute('data-test')
+            .slice(DATA_TEST_PREFIX.length)
+        setSelectedIds([itemId])
     }
 
     const handleSetSameHeight = () => {
@@ -175,6 +229,21 @@ const EditItemGrid = ({
         acUpdateDashboardItemShapes(
             updated.map((item) => toStorageShape(item, effectiveColumns))
         )
+    }
+
+    const handleSwapPositions = () => {
+        if (selectedIds.length !== 2) {
+            return
+        }
+        const swapped = swapItemPositions(baseDisplayItems, selectedIds)
+        acUpdateDashboardItemShapes(
+            swapped.map((item) => toStorageShape(item, effectiveColumns))
+        )
+    }
+
+    const handleDeleteSelected = () => {
+        selectedIds.forEach((id) => acRemoveDashboardItem(id))
+        clearSelection()
     }
 
     const onLayoutChange = (newLayout) => {
@@ -315,11 +384,7 @@ const EditItemGrid = ({
         items.map((item) => getItemComponent(item))
 
     if (!dashboardItems.length) {
-        return (
-            <NoContentMessage
-                text={i18n.t('There are no items on this dashboard')}
-            />
-        )
+        return <FirstRunLayoutChoice />
     }
 
     if (hideGrid) {
@@ -332,14 +397,17 @@ const EditItemGrid = ({
                 <MultiSelectToolbar
                     count={selectedIds.length}
                     isEqualHeight={isEqualHeightGroup}
+                    canSwap={selectedIds.length === 2}
                     onSetSameHeight={handleSetSameHeight}
+                    onSwapPositions={handleSwapPositions}
+                    onDelete={handleDeleteSelected}
                     onClear={clearSelection}
                 />
             )}
             <div
                 ref={gridWrapperRef}
                 className={classes.gridWrapper}
-                style={getGridGuideStyle(containerWidth, effectiveColumns)}
+                style={getGridGuideStyle(gridMetrics)}
                 onClickCapture={handleClickCapture}
                 onClick={handleClick}
             >
@@ -379,6 +447,7 @@ const EditItemGrid = ({
 }
 
 EditItemGrid.propTypes = {
+    acRemoveDashboardItem: PropTypes.func,
     acUpdateDashboardItemShapes: PropTypes.func,
     dashboardItems: PropTypes.array,
     gridColumns: PropTypes.number,
@@ -399,6 +468,7 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = {
     acUpdateDashboardItemShapes,
+    acRemoveDashboardItem,
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(EditItemGrid)

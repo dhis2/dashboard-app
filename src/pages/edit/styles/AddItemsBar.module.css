@@ -1,0 +1,44 @@
+.bar {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--spacers-dp16);
+    padding-block-start: var(--spacers-dp8);
+    padding-block-end: var(--spacers-dp8);
+    padding-inline-start: var(--spacers-dp16);
+    padding-inline-end: var(--spacers-dp16);
+    background-color: var(--colors-grey050);
+    border-block-end: 1px solid var(--colors-grey400);
+    position: relative;
+    z-index: 9;
+    flex: none;
+    overflow-x: auto;
+}
+
+.searchGroup {
+    display: flex;
+    align-items: center;
+    gap: var(--spacers-dp8);
+    flex: 0 1 560px;
+    min-inline-size: 380px;
+}
+
+.searchField {
+    flex: 1 1 auto;
+    min-inline-size: 0;
+}
+
+.group {
+    display: flex;
+    align-items: center;
+    gap: var(--spacers-dp8);
+    flex: none;
+}
+
+.divider {
+    inline-size: 1px;
+    align-self: stretch;
+    background-color: var(--colors-grey300);
+    flex: none;
+}
+

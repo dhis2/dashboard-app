@@ -1,4 +1,6 @@
 .container {
+    display: flex;
+    flex-direction: column;
     background-color: var(--colors-grey200);
     padding-inline-start: var(--spacers-dp8);
     padding-inline-end: var(--spacers-dp8);
@@ -19,6 +21,7 @@
     padding: 0;
     inline-size: 100%;
     min-block-size: 100%;
+    flex: 1 0 auto;
 }
 @media only screen and (max-height: 480px) {
     .container {

@@ -14,9 +14,9 @@ import { isSmallScreen } from '../../modules/smallScreen.js'
 import { sGetIsPrintPreviewView } from '../../reducers/editDashboard.js'
 import LayoutPrintPreview from '../print/PrintLayoutDashboard.jsx'
 import ActionsBar from './ActionsBar.jsx'
+import AddItemsBar from './AddItemsBar.jsx'
 import ItemGrid from './ItemGrid.jsx'
 import classes from './styles/NewDashboard.module.css'
-import TitleBar from './TitleBar.jsx'
 
 const NewDashboard = (props) => {
     const dispatch = useDispatch()
@@ -47,10 +47,12 @@ const NewDashboard = (props) => {
                 {props.isPrintPreviewView ? (
                     <LayoutPrintPreview fromEdit={true} />
                 ) : (
-                    <DashboardContainer>
-                        <TitleBar />
-                        <ItemGrid />
-                    </DashboardContainer>
+                    <>
+                        <AddItemsBar />
+                        <DashboardContainer>
+                            <ItemGrid />
+                        </DashboardContainer>
+                    </>
                 )}
             </div>
             <div className={classes.notice}>
