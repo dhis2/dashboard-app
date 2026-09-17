@@ -5,7 +5,12 @@ import PropTypes from 'prop-types'
 import React, { useState } from 'react'
 import { connect } from 'react-redux'
 import { tSetDashboardItems } from '../../../actions/editDashboard.js'
-import { getItemUrl, APP, VISUALIZATION } from '../../../modules/itemTypes.js'
+import {
+    getItemUrl,
+    APP,
+    VISUALIZATION,
+    EVENT_VISUALIZATION,
+} from '../../../modules/itemTypes.js'
 import { tAddListItemContent } from './actions.js'
 import ContentMenuItem from './ContentMenuItem.jsx'
 import HeaderMenuItem from './HeaderMenuItem.jsx'
@@ -60,7 +65,11 @@ const CategorizedMenuGroup = ({
                     <ContentMenuItem
                         key={item.id || item.key}
                         type={type}
-                        visType={type === VISUALIZATION ? item.type : type}
+                        visType={
+                            [VISUALIZATION, EVENT_VISUALIZATION].includes(type)
+                                ? item.type
+                                : type
+                        }
                         name={item.displayName || item.name}
                         onInsert={addItem(item)}
                         url={itemUrl}
