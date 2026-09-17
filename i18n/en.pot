@@ -5,8 +5,8 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1)\n"
-"POT-Creation-Date: 2026-09-17T06:47:10.850Z\n"
-"PO-Revision-Date: 2026-09-17T06:47:10.851Z\n"
+"POT-Creation-Date: 2026-09-17T10:03:20.344Z\n"
+"PO-Revision-Date: 2026-09-17T10:03:20.344Z\n"
 
 msgid "Untitled dashboard"
 msgstr "Untitled dashboard"
@@ -465,6 +465,9 @@ msgstr ""
 "Failed to delete dashboard. You might be offline or not have access to edit "
 "this dashboard."
 
+msgid "Details"
+msgstr "Details"
+
 msgid "Exit preview"
 msgstr "Exit preview"
 
@@ -528,6 +531,12 @@ msgstr "(current)"
 
 msgid "No results"
 msgstr "No results"
+
+msgid "Dashboard details"
+msgstr "Dashboard details"
+
+msgid "Done"
+msgstr "Done"
 
 msgid "No access"
 msgstr "No access"

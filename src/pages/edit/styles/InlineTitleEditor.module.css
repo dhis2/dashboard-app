@@ -1,0 +1,9 @@
+.wrapper input {
+    border-color: var(--colors-grey300);
+    transition: border-color 0.1s ease;
+}
+
+.wrapper:hover input,
+.wrapper input:focus {
+    border-color: var(--colors-grey600);
+}

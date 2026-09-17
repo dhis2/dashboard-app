@@ -13,7 +13,7 @@
 .right {
     display: flex;
     align-items: center;
-    gap: var(--spacers-dp8);
+    gap: 0;
     flex: 0 0 auto;
     justify-content: flex-end;
 }
@@ -23,11 +23,16 @@
     block-size: 16px;
     background-color: var(--colors-grey400);
     flex: none;
+    margin-inline: var(--spacers-dp8);
+}
+
+.saveButton {
+    margin-inline-start: var(--spacers-dp8);
 }
 
 .center {
     display: flex;
-    justify-content: center;
+    justify-content: flex-start;
     /* The only flexible element: absorbs free space and shrinks first */
     flex: 1 1 0;
     min-inline-size: 0;

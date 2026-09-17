@@ -6,18 +6,21 @@ import { connect } from 'react-redux'
 import { acSetDashboardTitle } from '../../actions/editDashboard.js'
 import { orObject } from '../../modules/util.js'
 import { sGetEditDashboardRoot } from '../../reducers/editDashboard.js'
+import classes from './styles/InlineTitleEditor.module.css'
 
 // Dashboard title in the top bar, using the standard DHIS2 UI input.
 const InlineTitleEditor = ({ name = '', onChangeTitle }) => (
-    <Input
-        name="Dashboard title input"
-        type="text"
-        dense
-        value={name}
-        placeholder={i18n.t('Untitled dashboard')}
-        onChange={({ value }) => onChangeTitle(value)}
-        dataTest="dashboard-title-input"
-    />
+    <div className={classes.wrapper}>
+        <Input
+            name="Dashboard title input"
+            type="text"
+            dense
+            value={name}
+            placeholder={i18n.t('Untitled dashboard')}
+            onChange={({ value }) => onChangeTitle(value)}
+            dataTest="dashboard-title-input"
+        />
+    </div>
 )
 
 InlineTitleEditor.propTypes = {

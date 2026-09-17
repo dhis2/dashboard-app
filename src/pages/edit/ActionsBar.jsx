@@ -8,6 +8,7 @@ import i18n from '@dhis2/d2-i18n'
 import {
     Button,
     IconView16,
+    IconInfo16,
     IconFilter16,
     IconTranslate16,
     IconDelete16,
@@ -27,6 +28,7 @@ import {
 import { acClearPrintDashboard } from '../../actions/printDashboard.js'
 import { acClearSelected } from '../../actions/selected.js'
 import ConfirmActionDialog from '../../components/ConfirmActionDialog.jsx'
+import DetailsModal from './DetailsModal.jsx'
 import {
     sGetEditDashboardRoot,
     sGetIsPrintPreviewView,
@@ -59,6 +61,7 @@ const EditBar = ({ dashboard, ...props }) => {
     const [translationDlgIsOpen, setTranslationDlgIsOpen] = useState(false)
     const [filterSettingsDlgIsOpen, setFilterSettingsDlgIsOpen] =
         useState(false)
+    const [detailsModalIsOpen, setDetailsModalIsOpen] = useState(false)
     const [confirmDeleteDlgIsOpen, setConfirmDeleteDlgIsOpen] = useState(false)
     const [confirmDiscardDlgIsOpen, setConfirmDiscardDlgIsOpen] =
         useState(false)
@@ -198,6 +201,14 @@ const EditBar = ({ dashboard, ...props }) => {
                 </div>
 
                 <div className={classes.right}>
+                    {canUpdate && !props.isPrintPreviewView && (
+                        <InlineButton
+                            icon={<IconInfo16 />}
+                            onClick={() => setDetailsModalIsOpen(true)}
+                        >
+                            {i18n.t('Details')}
+                        </InlineButton>
+                    )}
                     <OfflineTooltip>
                         <InlineButton
                             icon={<IconView16 />}
@@ -272,26 +283,31 @@ const EditBar = ({ dashboard, ...props }) => {
                                     : i18n.t('Go to dashboards')}
                             </InlineButton>
                             {canUpdate && (
-                                <OfflineTooltip
-                                    content={i18n.t(
-                                        'Cannot save this dashboard while offline'
-                                    )}
-                                >
-                                    <Button
-                                        disabled={!online}
-                                        primary
-                                        small
-                                        onClick={onSave}
-                                        dataTest="save-dashboard-button"
+                                <span className={classes.saveButton}>
+                                    <OfflineTooltip
+                                        content={i18n.t(
+                                            'Cannot save this dashboard while offline'
+                                        )}
                                     >
-                                        {i18n.t('Save changes')}
-                                    </Button>
-                                </OfflineTooltip>
+                                        <Button
+                                            disabled={!online}
+                                            primary
+                                            small
+                                            onClick={onSave}
+                                            dataTest="save-dashboard-button"
+                                        >
+                                            {i18n.t('Save changes')}
+                                        </Button>
+                                    </OfflineTooltip>
+                                </span>
                             )}
                         </>
                     )}
                 </div>
             </div>
+            {detailsModalIsOpen && (
+                <DetailsModal onClose={() => setDetailsModalIsOpen(false)} />
+            )}
             {dashboard.access?.update && filterSettingsDialog()}
             {dashboard.id && dashboard.access?.update && translationDialog()}
             {dashboard.id && dashboard.access?.delete && (
