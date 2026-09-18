@@ -1,17 +1,12 @@
 import { useConfig, useDhis2ConnectionStatus } from '@dhis2/app-runtime'
 import i18n from '@dhis2/d2-i18n'
-import { Button, Cover, IconInfo24, colors } from '@dhis2/ui'
 import PropTypes from 'prop-types'
 import React, { useMemo } from 'react'
 import { useSelector } from 'react-redux'
 import {
     isDVVersionCompatible,
-    isEVERVersionCompatible,
-    isLLVersionCompatible,
     isMapsVersionCompatible,
     minDVVersion,
-    minEVERVersion,
-    minLLVersion,
     minMapsVersion,
 } from '../../../../modules/isAppVersionCompatible.js'
 import { getVisualizationId } from '../../../../modules/item.js'
@@ -27,20 +22,16 @@ import { sGetSelectedId } from '../../../../reducers/selected.js'
 import {
     useInstalledApps,
     useInstalledDVVersion,
-    useInstalledEVERVersion,
-    useInstalledLLVersion,
     useInstalledMapsVersion,
 } from '../../../AppDataProvider/AppDataProvider.jsx'
+import EventVisualizationPlugin from './EventVisualizationPlugin.jsx'
 import getFilteredVisualization from './getFilteredVisualization.js'
 import getVisualizationConfig from './getVisualizationConfig.js'
 import IframePlugin from './IframePlugin.jsx'
 import LegacyPlugin from './LegacyPlugin.jsx'
+import MapPlugin from './MapPlugin.jsx'
 import { hasStandalonePlugin, pluginIsAvailable } from './plugin.js'
 import { PluginWarningMessage } from './PluginWarningMessage.jsx'
-import classes from './styles/Visualization.module.css'
-
-const mapHasEELayer = (visualization) =>
-    visualization.mapViews?.find((mv) => mv.layer.includes('earthEngine'))
 
 const Visualization = ({
     visualization,
@@ -59,8 +50,6 @@ const Visualization = ({
     const { isDisconnected: offline } = useDhis2ConnectionStatus()
     const apps = useInstalledApps()
     const dataVisualizerAppVersion = useInstalledDVVersion()
-    const everAppVersion = useInstalledEVERVersion()
-    const lineListingAppVersion = useInstalledLLVersion()
     const mapsAppVersion = useInstalledMapsVersion()
 
     const visualizationConfig = useMemo(() => {
@@ -135,87 +124,24 @@ const Visualization = ({
             )
         }
         case EVENT_VISUALIZATION: {
-            if (apiVersion >= 43) {
-                return isEVERVersionCompatible(everAppVersion) ? (
-                    <IframePlugin {...iFramePluginProps} />
-                ) : (
-                    <PluginWarningMessage
-                        style={style}
-                        message={i18n.t(
-                            `Install {{appName}} app {{appVersion}} or higher in order to display this item.`,
-                            {
-                                appName: getAppName(activeType, apiVersion),
-                                appVersion: minEVERVersion.join('.'),
-                            }
-                        )}
-                    />
-                )
-            }
-
-            return isLLVersionCompatible(lineListingAppVersion) ? (
-                <>
-                    {showNoFiltersOverlay ? (
-                        <div style={style}>
-                            <Cover>
-                                <div className={classes.messageContent}>
-                                    <IconInfo24 color={colors.grey500} />
-                                    {i18n.t(
-                                        'Filters are not applied to line list dashboard items'
-                                    )}
-                                    <Button
-                                        secondary
-                                        small
-                                        onClick={onClickNoFiltersOverlay}
-                                    >
-                                        {i18n.t('Show without filters')}
-                                    </Button>
-                                </div>
-                            </Cover>
-                        </div>
-                    ) : null}
-                    <IframePlugin
-                        visualization={visualizationConfig}
-                        {...iFramePluginProps}
-                    />
-                </>
-            ) : (
-                <PluginWarningMessage
+            return (
+                <EventVisualizationPlugin
+                    visualization={visualizationConfig}
+                    iFramePluginProps={iFramePluginProps}
                     style={style}
-                    message={i18n.t(
-                        `Install {{appName}} app {{appVersion}} or higher in order to display this item.`,
-                        {
-                            appName: getAppName(activeType, apiVersion),
-                            appVersion: minLLVersion.join('.'),
-                        }
-                    )}
+                    showNoFiltersOverlay={showNoFiltersOverlay}
+                    onClickNoFiltersOverlay={onClickNoFiltersOverlay}
                 />
             )
         }
         case MAP: {
-            const getMapComponent = () => {
-                return offline && mapHasEELayer(visualizationConfig) ? (
-                    <div style={style}>
-                        <Cover>
-                            <div className={classes.messageContent}>
-                                <IconInfo24 color={colors.grey500} />
-                                <span>
-                                    {i18n.t(
-                                        'Maps with Earth Engine layers cannot be displayed when offline'
-                                    )}
-                                </span>
-                            </div>
-                        </Cover>
-                    </div>
-                ) : (
-                    <IframePlugin
-                        visualization={visualizationConfig}
-                        {...iFramePluginProps}
-                    />
-                )
-            }
-
             return isMapsVersionCompatible(mapsAppVersion) ? (
-                getMapComponent()
+                <MapPlugin
+                    offline={offline}
+                    visualization={visualizationConfig}
+                    iFramePluginProps={iFramePluginProps}
+                    style={style}
+                />
             ) : (
                 <PluginWarningMessage
                     style={style}
