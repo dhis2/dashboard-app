@@ -169,7 +169,9 @@ export const LayoutModal = ({
                         <LayoutFreeflowIcon />
                     </div>
                     <div>
-                        <h2 className={classes.title}>{i18n.t('Freeflow')}</h2>
+                        <h2 className={classes.title}>
+                            {i18n.t('Flexible layout')}
+                        </h2>
                         <p className={classes.description}>
                             {i18n.t(
                                 'Dashboard items can be placed anywhere, at any size.'
@@ -213,7 +215,7 @@ export const LayoutModal = ({
                     </div>
                     <div>
                         <h2 className={classes.title}>
-                            {i18n.t('Fixed columns')}
+                            {i18n.t('Fixed layout')}
                         </h2>
                         <p className={classes.description}>
                             {i18n.t(

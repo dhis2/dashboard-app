@@ -8,68 +8,36 @@
 
 .inner {
     text-align: center;
-    max-inline-size: 520px;
+    max-inline-size: 640px;
+}
+
+.glyph {
+    fill: var(--colors-grey500);
+    margin-block-end: var(--spacers-dp16);
 }
 
 .title {
-    font-size: 20px;
-    font-weight: 600;
+    font-size: 18px;
+    font-weight: 500;
     color: var(--colors-grey900);
-    margin-block: 0 var(--spacers-dp4);
+    margin-block: 0 var(--spacers-dp8);
 }
 
 .subtitle {
     font-size: 14px;
-    color: var(--colors-grey600);
+    line-height: 1.4;
+    color: var(--colors-grey700);
     margin-block: 0 var(--spacers-dp24);
 }
 
-.cards {
+.control {
     display: flex;
-    gap: var(--spacers-dp16);
     justify-content: center;
 }
 
-.card {
-    flex: 1 1 0;
-    max-inline-size: 220px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: var(--spacers-dp8);
-    padding: var(--spacers-dp24);
-    border: 1px solid var(--colors-grey400);
-    border-radius: 8px;
-    background: var(--colors-white);
-    cursor: pointer;
-    transition: border-color 0.1s ease, box-shadow 0.1s ease;
-}
-
-.card:hover {
-    border-color: var(--colors-blue600);
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
-}
-
-.card svg {
-    inline-size: 32px;
-    block-size: 32px;
-    fill: var(--colors-grey700);
-}
-
-.cardTitle {
-    font-size: 15px;
-    font-weight: 600;
-    color: var(--colors-grey900);
-}
-
-.cardDesc {
+.description {
     font-size: 13px;
-    color: var(--colors-grey600);
-    line-height: 1.3;
-}
-
-.hint {
-    font-size: 13px;
-    color: var(--colors-grey500);
-    margin-block-start: var(--spacers-dp24);
+    color: var(--colors-grey700);
+    margin-block: var(--spacers-dp12) 0;
+    min-block-size: 1.3em;
 }

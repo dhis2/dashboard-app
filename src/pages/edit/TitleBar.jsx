@@ -204,7 +204,7 @@ const EditTitleBar = ({
                                       defaultValue: '{{count}} column',
                                       defaultValue_plural: '{{count}} columns',
                                   })
-                                : i18n.t('Freeflow')}
+                                : i18n.t('Flexible layout')}
                         </span>
                         <OfflineTooltip>
                             <Button

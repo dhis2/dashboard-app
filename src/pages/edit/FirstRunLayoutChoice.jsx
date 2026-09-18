@@ -1,5 +1,5 @@
 import i18n from '@dhis2/d2-i18n'
-import cx from 'classnames'
+import { SegmentedControl } from '@dhis2/ui'
 import PropTypes from 'prop-types'
 import React from 'react'
 import { connect } from 'react-redux'
@@ -8,59 +8,62 @@ import {
     tSetDashboardItems,
 } from '../../actions/editDashboard.js'
 import { sGetLayoutColumns } from '../../reducers/editDashboard.js'
-import { LayoutFixedIcon } from './assets/LayoutFixed.jsx'
-import { LayoutFreeflowIcon } from './assets/LayoutFreeflow.jsx'
 import classes from './styles/FirstRunLayoutChoice.module.css'
 
 const DEFAULT_FIXED_COLUMNS = 3
 
+const DashboardGlyph = () => (
+    <svg
+        className={classes.glyph}
+        viewBox="0 0 48 48"
+        width="48"
+        height="48"
+        aria-hidden="true"
+    >
+        <rect x="4" y="4" width="16" height="16" rx="3" />
+        <rect x="28" y="4" width="16" height="16" rx="3" />
+        <rect x="4" y="28" width="16" height="16" rx="3" />
+        <rect x="28" y="28" width="16" height="16" rx="3" />
+    </svg>
+)
+
 const FirstRunLayoutChoice = ({ isFixed, onChooseLayout }) => {
+    const description = isFixed
+        ? i18n.t('Items are set to a fixed width')
+        : i18n.t('Flexible items can be placed anywhere.')
+
     return (
-        <div
-            className={classes.wrap}
-            data-test="first-run-layout-choice"
-        >
+        <div className={classes.wrap} data-test="first-run-layout-choice">
             <div className={classes.inner}>
-                <h2 className={classes.title}>
-                    {i18n.t('Start by choosing a layout')}
-                </h2>
+                <DashboardGlyph />
+                <h2 className={classes.title}>{i18n.t('New dashboard')}</h2>
                 <p className={classes.subtitle}>
                     {i18n.t(
-                        'You can change this anytime from the Layout panel.'
+                        'Start adding visualizations, reports, and more from the toolbar above'
                     )}
                 </p>
-                <div className={classes.cards}>
-                    <button
-                        type="button"
-                        className={cx(classes.card, {
-                            [classes.active]: !isFixed,
-                        })}
-                        onClick={() => onChooseLayout(0)}
-                    >
-                        <LayoutFreeflowIcon />
-                        <span className={classes.cardTitle}>
-                            {i18n.t('Freeflow')}
-                        </span>
-                        <span className={classes.cardDesc}>
-                            {i18n.t('Place items anywhere, at any size.')}
-                        </span>
-                    </button>
-                    <button
-                        type="button"
-                        className={cx(classes.card, {
-                            [classes.active]: isFixed,
-                        })}
-                        onClick={() => onChooseLayout(DEFAULT_FIXED_COLUMNS)}
-                    >
-                        <LayoutFixedIcon />
-                        <span className={classes.cardTitle}>
-                            {i18n.t('Fixed columns')}
-                        </span>
-                        <span className={classes.cardDesc}>
-                            {i18n.t('Items flow into evenly-sized columns.')}
-                        </span>
-                    </button>
+                <div className={classes.control}>
+                    <SegmentedControl
+                        ariaLabel={i18n.t('Layout mode')}
+                        options={[
+                            {
+                                label: i18n.t('Flexible layout'),
+                                value: 'FREEFLOW',
+                            },
+                            {
+                                label: i18n.t('Fixed layout'),
+                                value: 'FIXED',
+                            },
+                        ]}
+                        selected={isFixed ? 'FIXED' : 'FREEFLOW'}
+                        onChange={({ value }) =>
+                            onChooseLayout(
+                                value === 'FIXED' ? DEFAULT_FIXED_COLUMNS : 0
+                            )
+                        }
+                    />
                 </div>
+                <p className={classes.description}>{description}</p>
             </div>
         </div>
     )
@@ -78,10 +81,15 @@ const mapStateToProps = (state) => ({
 const mapDispatchToProps = {
     onChooseLayout: (count) => (dispatch) => {
         dispatch(
-            acSetLayoutColumns([...Array(count).keys()].map((i) => ({ index: i })))
+            acSetLayoutColumns(
+                [...Array(count).keys()].map((i) => ({ index: i }))
+            )
         )
         dispatch(tSetDashboardItems())
     },
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(FirstRunLayoutChoice)
+export default connect(
+    mapStateToProps,
+    mapDispatchToProps
+)(FirstRunLayoutChoice)
