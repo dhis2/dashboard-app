@@ -2,10 +2,7 @@ import { render } from '@testing-library/react'
 import React from 'react'
 import { Provider } from 'react-redux'
 import configureMockStore from 'redux-mock-store'
-import { MIN_API_VERSION_FOR_EVER } from '../../../../../modules/isAppVersionCompatible.js'
 import Visualization from '../Visualization.jsx'
-
-const BELOW_EVER = MIN_API_VERSION_FOR_EVER - 1
 
 // Mutable so each test can pick the backend version and which plugin apps are
 // available, without re-mocking the modules
@@ -96,9 +93,9 @@ beforeEach(() => {
     mockLLCompatible = false
 })
 
-describe(`below api version ${MIN_API_VERSION_FOR_EVER} (Line Listing)`, () => {
+describe('below api version 43 (Line Listing)', () => {
     beforeEach(() => {
-        mockApiVersion = BELOW_EVER
+        mockApiVersion = 42
     })
 
     it('renders the plugin when the Line Listing app is compatible', () => {
@@ -140,9 +137,9 @@ describe(`below api version ${MIN_API_VERSION_FOR_EVER} (Line Listing)`, () => {
     })
 })
 
-describe(`from api version ${MIN_API_VERSION_FOR_EVER} (Event Visualizer)`, () => {
+describe('from api version 43 (Event Visualizer)', () => {
     beforeEach(() => {
-        mockApiVersion = MIN_API_VERSION_FOR_EVER
+        mockApiVersion = 43
     })
 
     it('renders the plugin when the Event Visualizer app is compatible', () => {

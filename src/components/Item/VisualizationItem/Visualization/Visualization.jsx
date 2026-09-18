@@ -9,7 +9,6 @@ import {
     isEVERVersionCompatible,
     isLLVersionCompatible,
     isMapsVersionCompatible,
-    MIN_API_VERSION_FOR_EVER,
     minDVVersion,
     minEVERVersion,
     minLLVersion,
@@ -136,7 +135,7 @@ const Visualization = ({
             )
         }
         case EVENT_VISUALIZATION: {
-            if (apiVersion >= MIN_API_VERSION_FOR_EVER) {
+            if (apiVersion >= 43) {
                 return isEVERVersionCompatible(everAppVersion) ? (
                     <IframePlugin {...iFramePluginProps} />
                 ) : (

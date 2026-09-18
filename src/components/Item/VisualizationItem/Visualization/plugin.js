@@ -1,5 +1,4 @@
 import { hasAppAccess } from '../../../../modules/appAccess.js'
-import { MIN_API_VERSION_FOR_EVER } from '../../../../modules/isAppVersionCompatible.js'
 import {
     getAppKey,
     REPORT_TABLE,
@@ -39,7 +38,7 @@ export const hasPluginAccess = (type, authorities, apiVersion) =>
 // themselves, so the dashboard passes only visualizationId + filters.
 // Add a row here as DV and Maps migrate to the same model.
 const STANDALONE_PLUGIN_MIN_API_VERSION = {
-    [EVENT_VISUALIZATION]: MIN_API_VERSION_FOR_EVER,
+    [EVENT_VISUALIZATION]: 43,
 }
 
 export const hasStandalonePlugin = (type, apiVersion) =>

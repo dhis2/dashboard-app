@@ -20,7 +20,6 @@ import {
     isPrintMode,
     isViewMode,
 } from '../../../modules/dashboardModes.js'
-import { MIN_API_VERSION_FOR_EVER } from '../../../modules/isAppVersionCompatible.js'
 import {
     getVisualizationId,
     getVisualizationName,
@@ -193,8 +192,7 @@ class Item extends Component {
             if (isViewMode(dashboardMode) && Object.keys(itemFilters).length) {
                 switch (activeType) {
                     case EVENT_VISUALIZATION: {
-                        return apiVersion < MIN_API_VERSION_FOR_EVER &&
-                            !showNoFiltersOverlay ? (
+                        return apiVersion < 43 && !showNoFiltersOverlay ? (
                             <Tooltip
                                 content={i18n.t(
                                     'Filters are not applied to line list dashboard items'

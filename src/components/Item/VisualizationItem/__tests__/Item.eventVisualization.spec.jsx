@@ -3,12 +3,9 @@ import React from 'react'
 import { Provider } from 'react-redux'
 import configureMockStore from 'redux-mock-store'
 import { apiFetchVisualization } from '../../../../api/fetchVisualization.js'
-import { MIN_API_VERSION_FOR_EVER } from '../../../../modules/isAppVersionCompatible.js'
 import * as mockData from '../../../__mocks__/AppData.js'
 import WindowDimensionsProvider from '../../../WindowDimensionsProvider.jsx'
 import { Item } from '../../Item.jsx'
-
-const BELOW_EVER = MIN_API_VERSION_FOR_EVER - 1
 
 // Mutable so each test can pick the backend version without re-mocking
 let mockApiVersion
@@ -88,18 +85,18 @@ beforeEach(() => {
 })
 
 describe('fetching the visualization', () => {
-    it(`does not fetch for EVENT_VISUALIZATION from api version ${MIN_API_VERSION_FOR_EVER}`, async () => {
+    it('does not fetch for EVENT_VISUALIZATION from api version 43', async () => {
         // The standalone plugin fetches the visualization itself
-        mockApiVersion = MIN_API_VERSION_FOR_EVER
+        mockApiVersion = 43
 
         await renderItem(eventVisualizationItem)
 
         expect(apiFetchVisualization).not.toHaveBeenCalled()
     })
 
-    it(`still fetches for EVENT_VISUALIZATION below api version ${MIN_API_VERSION_FOR_EVER}`, async () => {
+    it('still fetches for EVENT_VISUALIZATION below api version 43', async () => {
         // The Line Listing plugin is handed the visualization by the dashboard
-        mockApiVersion = BELOW_EVER
+        mockApiVersion = 42
 
         await renderItem(eventVisualizationItem)
 
@@ -107,7 +104,7 @@ describe('fetching the visualization', () => {
     })
 
     it('still fetches for other item types on a new backend', async () => {
-        mockApiVersion = MIN_API_VERSION_FOR_EVER
+        mockApiVersion = 43
 
         await renderItem({
             type: 'VISUALIZATION',
