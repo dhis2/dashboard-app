@@ -150,12 +150,17 @@ export const itemTypeMap = {
                 : i18n.t('Line lists'),
         domainType: DOMAIN_TYPE_TRACKER,
         isVisualizationType: true,
-        appUrl: ({ id, apiVersion }) =>
-            apiVersion >= 43
-                ? `api/apps/individual-data-visualizer/index.html#/${id}`
-                : apiVersion >= 42
-                ? `dhis-web-line-listing/#/${id}`
-                : `api/apps/line-listing/index.html#/${id}`,
+        appUrl: ({ id, apiVersion }) => {
+            if (apiVersion >= 43) {
+                return `api/apps/individual-data-visualizer/index.html#/${id}`
+            }
+
+            if (apiVersion >= 42) {
+                return `dhis-web-line-listing/#/${id}`
+            }
+
+            return `api/apps/line-listing/index.html#/${id}`
+        },
         appName: ({ apiVersion }) =>
             apiVersion >= 43 ? 'Individual Data Visualizer' : 'Line Listing',
         appKey: ({ apiVersion }) =>
