@@ -30,7 +30,6 @@ import {
     sGetItemConfigInsertPosition,
     RECEIVED_CODE,
 } from '../reducers/editDashboard.js'
-import { tFetchDashboards } from './dashboards.js'
 
 // actions
 
@@ -182,9 +181,6 @@ export const tSaveDashboard = () => async (dispatch, getState, dataEngine) => {
     const dashboardId = dashboardToSave.id
         ? await updateDashboard(dataEngine, dashboardToSave)
         : await postDashboard(dataEngine, dashboardToSave)
-
-    // update the dashboard list
-    await dispatch(tFetchDashboards())
 
     return Promise.resolve(dashboardId)
 }
