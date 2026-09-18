@@ -2,19 +2,32 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-}
-
-.launchLinkButton {
-    all: unset;
-    display: flex;
-    margin-inline-start: 8px;
-    z-index: 10000;
-    color: var(--colors-grey600);
+    inline-size: 100%;
+    min-inline-size: 0;
 }
 
 .label {
     display: flex;
     align-items: center;
+    min-inline-size: 0;
+    overflow: hidden;
+}
+
+.launchLinkButton {
+    all: unset;
+    display: flex;
+    flex-shrink: 0;
+    margin-inline-start: auto;
+    padding-inline: 4px;
+    z-index: 10000;
+    color: var(--colors-grey600);
+    cursor: pointer;
+    opacity: 0;
+}
+
+.menuItem:hover .launchLinkButton,
+.launchLinkButton:focus-visible {
+    opacity: 1;
 }
 
 .launchLinkButton:hover {

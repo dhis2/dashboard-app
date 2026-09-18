@@ -2,7 +2,7 @@ import { useDataQuery } from '@dhis2/app-runtime'
 import i18n from '@dhis2/d2-i18n'
 import { IconChevronDown16, Input, Layer, Menu, Popper } from '@dhis2/ui'
 import PropTypes from 'prop-types'
-import React, { useState, useEffect, createRef } from 'react'
+import React, { useState, useEffect, useRef } from 'react'
 import { itemTypeMap, getDefaultItemCount, VISUALIZATION } from '../../../modules/itemTypes.js'
 import useDebounce from '../../../modules/useDebounce.js'
 import InlineButton from '../InlineButton.jsx'
@@ -33,6 +33,8 @@ const ItemSelector = ({
     const [items, setItems] = useState(null)
     const [hasItems, setHasItems] = useState(!hideIfEmpty)
     const [maxOptions, setMaxOptions] = useState(new Set())
+    const triggerRef = useRef(null)
+    const searchHeaderRef = useRef(null)
     const debouncedFilterText = useDebounce(filter, 350)
 
     const { data, refetch } = useDataQuery(dashboardSearchQuery, {
@@ -62,6 +64,24 @@ const ItemSelector = ({
             maxItems: Array.from(maxOptions),
         })
     }, [debouncedFilterText, maxOptions, refetch])
+
+    useEffect(() => {
+        if (!isOpen) {
+            return
+        }
+
+        const focusSearch = () => {
+            searchHeaderRef.current?.querySelector('input')?.focus()
+        }
+
+        const frame = window.requestAnimationFrame(focusSearch)
+        const timeout = window.setTimeout(focusSearch, 0)
+
+        return () => {
+            window.cancelAnimationFrame(frame)
+            window.clearTimeout(timeout)
+        }
+    }, [isOpen])
 
     const closeMenu = () => {
         setIsOpen(false)
@@ -119,15 +139,13 @@ const ItemSelector = ({
                 )
             })
 
-    const inputRef = createRef()
-
     if (hideIfEmpty && !hasItems) {
         return null
     }
 
     return (
         <>
-            <span className={classes.trigger} ref={inputRef}>
+            <span className={classes.trigger} ref={triggerRef}>
                 <InlineButton
                     icon={icon}
                     iconRight={<IconChevronDown16 />}
@@ -138,7 +156,7 @@ const ItemSelector = ({
             </span>
             {isOpen && (
                 <Layer onBackdropClick={closeMenu}>
-                    <Popper reference={inputRef} placement="bottom-start">
+                    <Popper reference={triggerRef} placement="bottom-start">
                         <div
                             className={
                                 compact
@@ -148,13 +166,12 @@ const ItemSelector = ({
                         >
                             <div
                                 className={classes.header}
-                                onMouseDown={(event) => event.preventDefault()}
+                                ref={searchHeaderRef}
                             >
                                 <Input
                                     name="Item search"
                                     type="text"
                                     dense
-                                    autoFocus
                                     value={filter}
                                     onChange={({ value }) => setFilter(value)}
                                     placeholder={i18n.t('Search')}

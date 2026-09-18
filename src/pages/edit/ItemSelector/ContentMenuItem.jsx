@@ -47,8 +47,8 @@ const ContentMenuItem = ({ type, name, onInsert, url, visType }) => {
                 <div className={classes.menuItem}>
                     <div className={classes.label}>
                         <span>{name}</span>
-                        {url ? <LaunchLink url={url} /> : null}
                     </div>
+                    {url ? <LaunchLink url={url} /> : null}
                 </div>
             }
             dataTest={`menu-item-${name}`}
