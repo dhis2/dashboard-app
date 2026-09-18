@@ -108,7 +108,7 @@ export const getMapFields = () => {
 
     return [
         `${getIdNameFields({ rename: true }).join(',')}`,
-        'user,longitude,latitude,zoom,basemap',
+        'user,longitude,latitude,zoom,basemap,basemaps',
         `mapViews[${favoriteFields.concat(teFields)}]`,
     ]
 }
