@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types'
 import React, { forwardRef, useImperativeHandle, useRef, useState } from 'react'
 import { createPortal } from 'react-dom'
 import classes from './styles/ItemGrid.module.css'
@@ -36,7 +37,7 @@ export const HeightIcon = () => (
     </svg>
 )
 
-const GridUnitsPopup = forwardRef((_props, ref) => {
+const GridUnitsPopup = forwardRef(({ hideWidth = false }, ref) => {
     const elRef = useRef(null)
     const [{ w, h }, setGridUnits] = useState({ w: 0, h: 0 })
 
@@ -70,10 +71,12 @@ const GridUnitsPopup = forwardRef((_props, ref) => {
             style={{ display: 'none' }}
             data-test="dashboard-grid-units-popup"
         >
-            <span className={classes.gridUnitsPopupUnit}>
-                <WidthIcon />
-                {w}
-            </span>
+            {!hideWidth && (
+                <span className={classes.gridUnitsPopupUnit}>
+                    <WidthIcon />
+                    {w}
+                </span>
+            )}
             <span className={classes.gridUnitsPopupUnit}>
                 <HeightIcon />
                 {h}
@@ -84,5 +87,9 @@ const GridUnitsPopup = forwardRef((_props, ref) => {
 })
 
 GridUnitsPopup.displayName = 'GridUnitsPopup'
+
+GridUnitsPopup.propTypes = {
+    hideWidth: PropTypes.bool,
+}
 
 export default GridUnitsPopup

@@ -142,6 +142,38 @@ export const applyHeightToItems = (items, ids, h) =>
         ids.includes(getItemKey(item)) ? { ...item, h } : item
     )
 
+// Apply height to every item that shares a row with any of the given ids,
+// and shift items below those rows.
+export const applyHeightToRowsOf = (items, ids, h) => {
+    const selected = items.filter((item) => ids.includes(getItemKey(item)))
+    if (!selected.length) {
+        return items
+    }
+
+    const rowYs = [...new Set(selected.map((item) => item.y))]
+    const rowOldH = {}
+    rowYs.forEach((y) => {
+        const rowItem = items.find((item) => item.y === y)
+        rowOldH[y] = rowItem?.h ?? h
+    })
+
+    return items.map((item) => {
+        let y = item.y
+        rowYs.forEach((rowY) => {
+            if (item.y > rowY) {
+                y += h - rowOldH[rowY]
+            }
+        })
+        if (rowYs.includes(item.y)) {
+            return { ...item, h, y }
+        }
+        if (y !== item.y) {
+            return { ...item, y }
+        }
+        return item
+    })
+}
+
 // returns a rectangular grid block dimensioned with x, y, w, h in grid units.
 // based on a grid with 3 items across
 const getShape = (i) => {
@@ -320,27 +352,44 @@ export const getAutoItemShapes = (dashboardItems, columns, maxColUnits) => {
         return null
     }
 
+    const colCount = columns.length
     const items = sortItems(dashboardItems)
     const itemsWithNewShape = []
-    const itemHeight = NEW_ITEM_SHAPE.h
+    const defaultH = NEW_ITEM_SHAPE.h
 
-    for (let i = 0, colIdx = 0, rowIdx = 0, item; i < items.length; i++) {
-        item = items[i]
+    let colIdx = 0
+    let y = 0
+    let rowStart = 0
+    let rowH = 0
 
+    const closeRow = (endIdx) => {
+        for (let j = rowStart; j < endIdx; j++) {
+            itemsWithNewShape[j].h = rowH
+        }
+        y += rowH
+        rowStart = endIdx
+        colIdx = 0
+        rowH = 0
+    }
+
+    for (let i = 0; i < items.length; i++) {
+        const item = items[i]
+        const h = item.h > 0 ? item.h : defaultH
         itemsWithNewShape.push({
             ...item,
             w: numberOfColUnits,
-            h: itemHeight,
+            h,
             x: numberOfColUnits * colIdx,
-            y: itemHeight * rowIdx,
+            y,
         })
-
-        colIdx = colIdx + 1
-
-        if (colIdx === columns.length) {
-            colIdx = 0
-            rowIdx = rowIdx + 1
+        rowH = Math.max(rowH, h)
+        colIdx += 1
+        if (colIdx === colCount) {
+            closeRow(itemsWithNewShape.length)
         }
+    }
+    if (colIdx > 0) {
+        closeRow(itemsWithNewShape.length)
     }
 
     return itemsWithNewShape

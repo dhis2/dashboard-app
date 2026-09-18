@@ -31,6 +31,7 @@ import {
     getSelectedHeight,
     getMaxSelectedHeight,
     applyHeightToItems,
+    applyHeightToRowsOf,
 } from '../../modules/gridUtil.js'
 import {
     getPendingScrollItem,
@@ -56,7 +57,7 @@ const DATA_TEST_PREFIX = 'dashboarditem-'
 // Pixel geometry of the editor grid, derived the same way react-grid-layout
 // derives item positions. Used for both the grid-guide CSS vars and the
 // "add here" insertion zones, so the two stay pixel-aligned.
-const getGridMetrics = (containerWidth, columns) => {
+const getGridMetrics = (containerWidth, columns, groupSize = 1) => {
     const colWidth =
         (containerWidth -
             GRID_PADDING_PX[0] * 2 -
@@ -67,9 +68,11 @@ const getGridMetrics = (containerWidth, columns) => {
         return null
     }
 
+    const units = Math.max(1, groupSize)
+
     return {
-        colWidth,
-        colStep: colWidth + MARGIN_PX[0],
+        colWidth: units * colWidth + (units - 1) * MARGIN_PX[0],
+        colStep: units * (colWidth + MARGIN_PX[0]),
         rowHeight: GRID_ROW_HEIGHT_PX,
         rowStep: GRID_ROW_HEIGHT_PX + MARGIN_PX[1],
     }
@@ -109,6 +112,7 @@ const EditItemGrid = ({
     const isResizingRef = useRef(false)
     const isMultiResizingRef = useRef(false)
     const pendingMultiResizeRef = useRef(null)
+    const resizeGroupIdsRef = useRef(null)
     const firstOfTypes = getFirstOfTypes(dashboardItems)
 
     // The Fixed-columns auto-layout owns item placement, so it stays at the
@@ -119,29 +123,36 @@ const EditItemGrid = ({
         toDisplayShape(item, effectiveColumns)
     )
 
-    // Multi-select is only available in Freeflow mode, where resizing is enabled.
-    const multiSelectEnabled = !hasLayout
+    // Height can be resized in both modes. Width (and the size toolbar) stay
+    // Flexible-only. In Fixed mode, every item in a row shares height.
+    const canEditWidth = !hasLayout
     const selectedHeight = getSelectedHeight(baseDisplayItems, selectedIds)
     const isEqualHeightGroup =
-        multiSelectEnabled && selectedIds.length >= 2 && selectedHeight !== null
+        canEditWidth && selectedIds.length >= 2 && selectedHeight !== null
 
-    // Lock the equal-height selection to a vertical-only resize gesture so the
-    // synced resize only affects height.
-    const displayItems = baseDisplayItems.map((item) =>
-        isEqualHeightGroup && selectedIds.includes(item.id)
-            ? { ...item, resizeHandles: ['s'] }
-            : item
-    )
+    const displayItems = baseDisplayItems.map((item) => {
+        if (hasLayout) {
+            return { ...item, resizeHandles: ['s'] }
+        }
+        if (isEqualHeightGroup && selectedIds.includes(item.id)) {
+            return { ...item, resizeHandles: ['s'] }
+        }
+        return item
+    })
+
+    const guideGroupSize =
+        hasLayout && layoutColumns.length
+            ? Math.floor(effectiveColumns / layoutColumns.length)
+            : 1
 
     const gridMetrics = getGridMetrics(
         containerWidth,
-        !dashboardItems.length && hasLayout && layoutColumns.length
-            ? layoutColumns.length
-            : effectiveColumns
+        effectiveColumns,
+        guideGroupSize
     )
 
     const singleSelectedItem =
-        multiSelectEnabled && selectedIds.length === 1
+        canEditWidth && selectedIds.length === 1
             ? displayItems.find((item) => item.id === selectedIds[0])
             : null
 
@@ -237,9 +248,6 @@ const EditItemGrid = ({
     const clearSelection = () => setSelectedIds([])
 
     const handleClickCapture = (e) => {
-        if (!multiSelectEnabled) {
-            return
-        }
         const isModifierClick = e.shiftKey || e.metaKey || e.ctrlKey
         if (!isModifierClick) {
             return
@@ -290,7 +298,9 @@ const EditItemGrid = ({
     }
 
     const handleSetSelectedHeight = (h) => {
-        const updated = applyHeightToItems(baseDisplayItems, selectedIds, h)
+        const updated = hasLayout
+            ? applyHeightToRowsOf(baseDisplayItems, selectedIds, h)
+            : applyHeightToItems(baseDisplayItems, selectedIds, h)
         acUpdateDashboardItemShapes(
             updated.map((item) => toStorageShape(item, effectiveColumns))
         )
@@ -314,9 +324,27 @@ const EditItemGrid = ({
         const pending = pendingMultiResizeRef.current
         pendingMultiResizeRef.current = null
 
-        const layout = pending
-            ? applyHeightToItems(newLayout, pending.ids, pending.h)
-            : newLayout
+        let layout = newLayout
+        if (pending) {
+            const inGroup = (item) =>
+                pending.ids.includes(item.i) || pending.ids.includes(item.id)
+            const group = newLayout.filter(inGroup)
+            const rowY = group.reduce(
+                (min, item) => Math.min(min, item.y),
+                Infinity
+            )
+            const peer = group.find((item) => item.i !== pending.sourceId)
+            const oldH = peer?.h ?? pending.h
+            const delta = pending.h - oldH
+            layout = applyHeightToItems(newLayout, pending.ids, pending.h)
+            if (delta) {
+                layout = layout.map((item) =>
+                    inGroup(item) || item.y <= rowY
+                        ? item
+                        : { ...item, y: item.y + delta }
+                )
+            }
+        }
 
         acUpdateDashboardItemShapes(
             layout.map((item) => toStorageShape(item, effectiveColumns))
@@ -407,8 +435,17 @@ const EditItemGrid = ({
             ) || null
         )
         isMultiResizingRef.current =
-            isEqualHeightGroup && selectedIds.includes(newItem.i)
+            (isEqualHeightGroup && selectedIds.includes(newItem.i)) ||
+            hasLayout
         if (isMultiResizingRef.current) {
+            resizeGroupIdsRef.current = hasLayout
+                ? baseDisplayItems
+                      .filter((item) => item.y === newItem.y)
+                      .map((item) => item.id)
+                : [...selectedIds]
+            if (!resizeGroupIdsRef.current.length) {
+                resizeGroupIdsRef.current = [newItem.i]
+            }
             showGroupResizeLine(e.clientY)
             popupRef.current?.show({
                 clientX: e.clientX,
@@ -442,8 +479,9 @@ const EditItemGrid = ({
         // on release; the synced height is applied in onLayoutChange.
         if (isMultiResizingRef.current && newItem) {
             pendingMultiResizeRef.current = {
-                ids: [...selectedIds],
+                ids: resizeGroupIdsRef.current || [...selectedIds],
                 h: newItem.h,
+                sourceId: newItem.i,
             }
         }
         isResizingRef.current = false
@@ -520,9 +558,11 @@ const EditItemGrid = ({
                     }
                 />
             )}
-            {multiSelectEnabled && selectedIds.length >= 2 && (
+            {selectedIds.length >= 2 && (
                 <MultiSelectToolbar
                     count={selectedIds.length}
+                    canEditHeight
+                    canSetSameHeight={!hasLayout}
                     isEqualHeight={isEqualHeightGroup}
                     height={selectedHeight}
                     maxHeight={getMaxSelectedHeight(
@@ -568,7 +608,7 @@ const EditItemGrid = ({
                     onResize={onResize}
                     onResizeStop={onResizeStop}
                     isDraggable={!hasLayout}
-                    isResizable={!hasLayout}
+                    isResizable={true}
                     draggableCancel="button,input,textarea"
                     onMouseMove={handleMouseMove}
                     onMouseLeave={handleMouseLeave}
@@ -576,7 +616,7 @@ const EditItemGrid = ({
                     {getItemComponents(displayItems)}
                 </ResponsiveReactGridLayout>
             </div>
-            <GridUnitsPopup ref={popupRef} />
+            <GridUnitsPopup ref={popupRef} hideWidth={hasLayout} />
         </>
     )
 }

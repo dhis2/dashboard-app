@@ -8,6 +8,8 @@ import classes from './styles/ItemGrid.module.css'
 
 const MultiSelectToolbar = ({
     count,
+    canEditHeight,
+    canSetSameHeight,
     isEqualHeight,
     height,
     maxHeight,
@@ -19,17 +21,19 @@ const MultiSelectToolbar = ({
         className={classes.multiSelectToolbar}
         data-test="multi-select-toolbar"
     >
-        <NumberField
-            icon={<HeightIcon />}
-            value={height}
-            min={1}
-            placeholder="–"
-            nullBaseline={maxHeight}
-            onCommit={onSetHeight}
-        />
+        {canEditHeight && (
+            <NumberField
+                icon={<HeightIcon />}
+                value={height}
+                min={1}
+                placeholder="–"
+                nullBaseline={maxHeight}
+                onCommit={onSetHeight}
+            />
+        )}
         <div className={classes.multiSelectActions}>
             <ButtonStrip>
-                {!isEqualHeight && (
+                {canSetSameHeight && !isEqualHeight && (
                     <Button
                         small
                         secondary
@@ -55,6 +59,8 @@ const MultiSelectToolbar = ({
 
 MultiSelectToolbar.propTypes = {
     count: PropTypes.number.isRequired,
+    canEditHeight: PropTypes.bool,
+    canSetSameHeight: PropTypes.bool,
     height: PropTypes.number,
     isEqualHeight: PropTypes.bool,
     maxHeight: PropTypes.number,
