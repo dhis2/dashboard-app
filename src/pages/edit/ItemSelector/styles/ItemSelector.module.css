@@ -1,3 +1,8 @@
+.trigger {
+    display: inline-flex;
+    align-items: center;
+}
+
 .popover {
     inline-size: 700px;
     border: 1px solid var(--colors-grey400);
@@ -7,15 +12,24 @@
     overflow: hidden;
 }
 
+.popoverCompact {
+    inline-size: 360px;
+}
+
 .menu {
-    block-size: 50vh;
     overflow: auto;
 }
 
+.menuTall {
+    block-size: 50vh;
+}
+
+.menuCompact {
+    block-size: auto;
+    max-block-size: 40vh;
+}
+
 .header {
-    display: flex;
-    align-items: center;
-    justify-content: flex-end;
     padding-block: var(--spacers-dp8);
     padding-inline: var(--spacers-dp12);
     border-block-end: 1px solid var(--colors-grey300);

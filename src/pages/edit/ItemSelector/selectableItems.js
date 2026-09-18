@@ -8,7 +8,6 @@ import {
     REPORTS,
     RESOURCES,
     APP,
-    MESSAGES,
     TEXT,
     SPACER,
 } from '../../../modules/itemTypes.js'
@@ -22,11 +21,6 @@ export const singleItems = [
                 type: TEXT,
                 name: i18n.t('Text box'),
                 content: '',
-            },
-            {
-                type: MESSAGES,
-                name: i18n.t('Messages'),
-                content: 'true',
             },
             {
                 type: SPACER,
@@ -48,6 +42,10 @@ export const categorizedItems = [
     RESOURCES,
     APP,
 ]
+
+export const defaultSearchItemTypes = categorizedItems.filter(
+    (type) => type !== REPORTS && type !== RESOURCES && type !== APP
+)
 
 // listItemTypes are included in a single dashboard item
 export const listItemTypes = [REPORTS, RESOURCES]

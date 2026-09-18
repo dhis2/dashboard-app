@@ -1,16 +1,13 @@
 import { useDataQuery } from '@dhis2/app-runtime'
 import i18n from '@dhis2/d2-i18n'
-import { Layer, Popper, Menu, SegmentedControl } from '@dhis2/ui'
+import { IconChevronDown16, Input, Layer, Menu, Popper } from '@dhis2/ui'
+import PropTypes from 'prop-types'
 import React, { useState, useEffect, createRef } from 'react'
-import { useDispatch, useSelector } from 'react-redux'
-import { acSetItemConfigInsertPosition } from '../../../actions/editDashboard.js'
-import { itemTypeMap, getDefaultItemCount } from '../../../modules/itemTypes.js'
+import { itemTypeMap, getDefaultItemCount, VISUALIZATION } from '../../../modules/itemTypes.js'
 import useDebounce from '../../../modules/useDebounce.js'
-import { sGetItemConfigInsertPosition } from '../../../reducers/editDashboard.js'
+import InlineButton from '../InlineButton.jsx'
 import CategorizedMenuGroup from './CategorizedMenuGroup.jsx'
-import ItemSearchField from './ItemSearchField.jsx'
-import { singleItems, categorizedItems } from './selectableItems.js'
-import SinglesMenuGroup from './SinglesMenuGroup.jsx'
+import { defaultSearchItemTypes } from './selectableItems.js'
 import classes from './styles/ItemSelector.module.css'
 
 const dashboardSearchQuery = {
@@ -24,21 +21,40 @@ const dashboardSearchQuery = {
     },
 }
 
-const ItemSelector = () => {
+const ItemSelector = ({
+    types = defaultSearchItemTypes,
+    compact = false,
+    hideIfEmpty = false,
+    label,
+    icon,
+}) => {
     const [isOpen, setIsOpen] = useState(false)
     const [filter, setFilter] = useState('')
     const [items, setItems] = useState(null)
+    const [hasItems, setHasItems] = useState(!hideIfEmpty)
     const [maxOptions, setMaxOptions] = useState(new Set())
     const debouncedFilterText = useDebounce(filter, 350)
-
-    const dispatch = useDispatch()
-    const insertPosition = useSelector(sGetItemConfigInsertPosition) || 'END'
 
     const { data, refetch } = useDataQuery(dashboardSearchQuery, {
         lazy: true,
     })
 
-    useEffect(() => data?.items && setItems(data.items), [data])
+    useEffect(() => {
+        if (!data?.items) {
+            return
+        }
+
+        setItems(data.items)
+
+        if (hideIfEmpty && !debouncedFilterText) {
+            setHasItems(
+                types.some(
+                    (type) =>
+                        data.items[itemTypeMap[type].endPointName]?.length
+                )
+            )
+        }
+    }, [data, debouncedFilterText, hideIfEmpty, types])
 
     useEffect(() => {
         refetch({
@@ -53,10 +69,26 @@ const ItemSelector = () => {
         setMaxOptions(new Set())
     }
 
-    const openMenu = () => setIsOpen(true)
+    const toggleMenu = () => {
+        if (isOpen) {
+            closeMenu()
+        } else {
+            setIsOpen(true)
+        }
+    }
 
-    const getCategorizedMenuGroups = () => {
-        return categorizedItems
+    const updateMaxOptions = (type) => {
+        if (type) {
+            const options = new Set(maxOptions)
+            options.has(type) ? options.delete(type) : options.add(type)
+            setMaxOptions(options)
+        } else {
+            setMaxOptions(new Set())
+        }
+    }
+
+    const getCategorizedMenuGroups = () =>
+        types
             .filter((type) => {
                 const itemType = itemTypeMap[type]
                 return items?.[itemType.endPointName]
@@ -74,83 +106,69 @@ const ItemSelector = () => {
                     <CategorizedMenuGroup
                         key={type}
                         type={type}
-                        title={itemType.pluralTitle}
+                        title={
+                            type === VISUALIZATION
+                                ? i18n.t('Aggregate')
+                                : itemType.pluralTitle
+                        }
                         items={displayItems}
                         onChangeItemsLimit={updateMaxOptions}
                         hasMore={hasMore}
+                        hideDivider={compact}
                     />
                 )
             })
-    }
-    const getSinglesMenuGroups = () =>
-        singleItems.map((category) => (
-            <SinglesMenuGroup key={category.id} category={category} />
-        ))
-
-    const getMenuGroups = () =>
-        getCategorizedMenuGroups().concat(getSinglesMenuGroups())
-
-    const updateMaxOptions = (type) => {
-        if (type) {
-            const options = new Set(maxOptions)
-            options.has(type) ? options.delete(type) : options.add(type)
-            setMaxOptions(options)
-        } else {
-            setMaxOptions(new Set())
-        }
-    }
-
-    const updateFilter = ({ value }) => setFilter(value)
 
     const inputRef = createRef()
 
+    if (hideIfEmpty && !hasItems) {
+        return null
+    }
+
     return (
         <>
-            <span ref={inputRef}>
-                <ItemSearchField
-                    value={filter}
-                    onChange={updateFilter}
-                    onFocus={openMenu}
-                />
+            <span className={classes.trigger} ref={inputRef}>
+                <InlineButton
+                    icon={icon}
+                    iconRight={<IconChevronDown16 />}
+                    onClick={toggleMenu}
+                >
+                    {label}
+                </InlineButton>
             </span>
             {isOpen && (
                 <Layer onBackdropClick={closeMenu}>
                     <Popper reference={inputRef} placement="bottom-start">
-                        <div className={classes.popover}>
+                        <div
+                            className={
+                                compact
+                                    ? `${classes.popover} ${classes.popoverCompact}`
+                                    : classes.popover
+                            }
+                        >
                             <div
                                 className={classes.header}
                                 onMouseDown={(event) => event.preventDefault()}
                             >
-                                <SegmentedControl
-                                    ariaLabel={i18n.t(
-                                        'Where to add new items'
-                                    )}
-                                    dataTest="add-position-control"
-                                    options={[
-                                        {
-                                            label: i18n.t('Add to start'),
-                                            value: 'START',
-                                        },
-                                        {
-                                            label: i18n.t('Add to end'),
-                                            value: 'END',
-                                        },
-                                    ]}
-                                    selected={insertPosition}
-                                    onChange={({ value }) =>
-                                        dispatch(
-                                            acSetItemConfigInsertPosition(
-                                                value
-                                            )
-                                        )
-                                    }
+                                <Input
+                                    name="Item search"
+                                    type="text"
+                                    dense
+                                    autoFocus
+                                    value={filter}
+                                    onChange={({ value }) => setFilter(value)}
+                                    placeholder={i18n.t('Search')}
                                 />
                             </div>
                             <div
-                                className={classes.menu}
+                                className={
+                                    compact
+                                        ? `${classes.menu} ${classes.menuCompact}`
+                                        : `${classes.menu} ${classes.menuTall}`
+                                }
                                 data-test="item-menu"
                             >
-                                <Menu dense>{getMenuGroups()}</Menu>
+                                <Menu dense>{getCategorizedMenuGroups()}</Menu>
                             </div>
                         </div>
                     </Popper>
@@ -158,6 +176,14 @@ const ItemSelector = () => {
             )}
         </>
     )
+}
+
+ItemSelector.propTypes = {
+    label: PropTypes.string.isRequired,
+    compact: PropTypes.bool,
+    hideIfEmpty: PropTypes.bool,
+    icon: PropTypes.node,
+    types: PropTypes.arrayOf(PropTypes.string),
 }
 
 export default ItemSelector

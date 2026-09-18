@@ -19,13 +19,7 @@
     display: flex;
     align-items: center;
     gap: var(--spacers-dp8);
-    flex: 0 1 560px;
-    min-inline-size: 380px;
-}
-
-.searchField {
-    flex: 1 1 auto;
-    min-inline-size: 0;
+    flex: none;
 }
 
 .group {

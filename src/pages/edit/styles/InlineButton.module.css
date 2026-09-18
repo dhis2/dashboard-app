@@ -13,6 +13,8 @@
     font-family: inherit;
     cursor: pointer;
     white-space: nowrap;
+    box-sizing: border-box;
+    block-size: 26px;
     transition: background-color 0.1s ease, color 0.1s ease;
 }
 
@@ -38,4 +40,20 @@
 .icon {
     display: inline-flex;
     align-items: center;
+    flex: none;
+}
+
+.icon svg {
+    display: block;
+}
+
+.iconRight {
+    color: var(--colors-grey700);
+    margin-inline-start: -2px;
+    margin-inline-end: -4px;
+}
+
+.iconRight svg {
+    width: 12px;
+    height: 12px;
 }

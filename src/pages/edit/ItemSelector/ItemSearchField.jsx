@@ -25,8 +25,8 @@ const ItemSearchField = (props) => {
                 dense
                 disabled={!online}
                 prefixIcon={<IconAdd16 />}
-                placeholder={i18n.t(
-                    'Search for visualizations, reports and more'
+                    placeholder={i18n.t(
+                    'Search for visualizations and more'
                 )}
             />
         </form>

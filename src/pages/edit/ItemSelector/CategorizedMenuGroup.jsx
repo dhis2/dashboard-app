@@ -20,6 +20,7 @@ const CategorizedMenuGroup = ({
     onAddItem,
     tAddListItemContent,
     onChangeItemsLimit,
+    hideDivider,
 }) => {
     const { baseUrl } = useConfig()
     const [seeMore, setSeeMore] = useState(false)
@@ -80,7 +81,7 @@ const CategorizedMenuGroup = ({
                     }
                 />
             ) : null}
-            <Divider margin="8px 0px" />
+            {hideDivider ? null : <Divider margin="8px 0px" />}
         </>
     )
 }
@@ -92,6 +93,7 @@ CategorizedMenuGroup.propTypes = {
     onAddItem: PropTypes.func.isRequired,
     onChangeItemsLimit: PropTypes.func.isRequired,
     hasMore: PropTypes.bool,
+    hideDivider: PropTypes.bool,
     tAddListItemContent: PropTypes.func,
 }
 
