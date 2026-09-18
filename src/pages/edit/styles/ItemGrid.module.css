@@ -25,6 +25,13 @@
     background-position: 0 0, 0 0;
 }
 
+.empty {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-block-size: 100%;
+}
+
 .gridUnitsPopup {
     position: fixed;
     z-index: 9999;

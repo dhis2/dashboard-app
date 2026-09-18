@@ -43,6 +43,7 @@ import {
     sGetHideGrid,
     sGetLayout,
     sGetEditGridColumns,
+    sGetLayoutColumns,
 } from '../../reducers/editDashboard.js'
 import FirstRunLayoutChoice from './FirstRunLayoutChoice.jsx'
 import GridUnitsPopup from './GridUnitsPopup.jsx'
@@ -94,6 +95,7 @@ const EditItemGrid = ({
     hasLayout,
     hideGrid,
     gridColumns,
+    layoutColumns,
 }) => {
     const containerWidth = useContainerWidth()
     const [gridWidth, setGridWidth] = useState({ width: 0 })
@@ -131,7 +133,12 @@ const EditItemGrid = ({
             : item
     )
 
-    const gridMetrics = getGridMetrics(containerWidth, effectiveColumns)
+    const gridMetrics = getGridMetrics(
+        containerWidth,
+        !dashboardItems.length && hasLayout && layoutColumns.length
+            ? layoutColumns.length
+            : effectiveColumns
+    )
 
     const singleSelectedItem =
         multiSelectEnabled && selectedIds.length === 1
@@ -475,7 +482,14 @@ const EditItemGrid = ({
         items.map((item) => getItemComponent(item))
 
     if (!dashboardItems.length) {
-        return <FirstRunLayoutChoice />
+        return (
+            <div
+                className={cx(classes.gridWrapper, classes.empty)}
+                style={getGridGuideStyle(gridMetrics)}
+            >
+                <FirstRunLayoutChoice />
+            </div>
+        )
     }
 
     if (hideGrid) {
@@ -574,6 +588,7 @@ EditItemGrid.propTypes = {
     gridColumns: PropTypes.number,
     hasLayout: PropTypes.bool,
     hideGrid: PropTypes.bool,
+    layoutColumns: PropTypes.array,
 }
 
 // Container
@@ -584,6 +599,7 @@ const mapStateToProps = (state) => {
         hasLayout: hasLayout(sGetLayout(state)),
         hideGrid: sGetHideGrid(state),
         gridColumns: sGetEditGridColumns(state),
+        layoutColumns: sGetLayoutColumns(state),
     }
 }
 
