@@ -169,6 +169,7 @@ The "Title", "Code" and "Description" fields in this form are identical to the f
 -   A "Superset Embed ID" needs to be provided so the app can retrieve the correct dashboard from the external Superset service
 -   The "Show chart controls on dashboard items" checkbox controls whether or not each embedded dashboard item has a dropdown menu
 -   The "Expand filters" checkbox controls whether or not the filter section of the embedded dashboard is initially expanded or collapsed
+-   The "Restrict data by organisation unit hierarchy" checkbox controls whether or not organisation unit user access will be applied to the external data source. Only visible in this dialog when it is supported by the Superset Gateway.
 
 ![Superset dashboard with both checkboxes enabled](resources/images/superset-dashboard-with-annotations.png)
 
