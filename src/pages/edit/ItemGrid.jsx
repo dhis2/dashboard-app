@@ -31,7 +31,6 @@ import {
     getSelectedHeight,
     getMaxSelectedHeight,
     applyHeightToItems,
-    swapItemPositions,
 } from '../../modules/gridUtil.js'
 import {
     getPendingScrollItem,
@@ -299,16 +298,6 @@ const EditItemGrid = ({
         )
     }
 
-    const handleSwapPositions = () => {
-        if (selectedIds.length !== 2) {
-            return
-        }
-        const swapped = swapItemPositions(baseDisplayItems, selectedIds)
-        acUpdateDashboardItemShapes(
-            swapped.map((item) => toStorageShape(item, effectiveColumns))
-        )
-    }
-
     const handleDeleteSelected = () => {
         selectedIds.forEach((id) => acRemoveDashboardItem(id))
         clearSelection()
@@ -521,7 +510,6 @@ const EditItemGrid = ({
                 <MultiSelectToolbar
                     count={selectedIds.length}
                     isEqualHeight={isEqualHeightGroup}
-                    canSwap={selectedIds.length === 2}
                     height={selectedHeight}
                     maxHeight={getMaxSelectedHeight(
                         baseDisplayItems,
@@ -529,9 +517,7 @@ const EditItemGrid = ({
                     )}
                     onSetHeight={handleSetSelectedHeight}
                     onSetSameHeight={handleSetSameHeight}
-                    onSwapPositions={handleSwapPositions}
                     onDelete={handleDeleteSelected}
-                    onClear={clearSelection}
                 />
             )}
             <div

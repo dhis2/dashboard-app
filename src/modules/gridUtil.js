@@ -142,29 +142,6 @@ export const applyHeightToItems = (items, ids, h) =>
         ids.includes(getItemKey(item)) ? { ...item, h } : item
     )
 
-// Returns a new items array with the x/y positions of exactly two ids swapped.
-export const swapItemPositions = (items, ids) => {
-    if (ids.length !== 2) {
-        return items
-    }
-    const [idA, idB] = ids
-    const a = items.find((item) => getItemKey(item) === idA)
-    const b = items.find((item) => getItemKey(item) === idB)
-    if (!a || !b) {
-        return items
-    }
-    return items.map((item) => {
-        const key = getItemKey(item)
-        if (key === idA) {
-            return { ...item, x: b.x, y: b.y }
-        }
-        if (key === idB) {
-            return { ...item, x: a.x, y: a.y }
-        }
-        return item
-    })
-}
-
 // returns a rectangular grid block dimensioned with x, y, w, h in grid units.
 // based on a grid with 3 items across
 const getShape = (i) => {
