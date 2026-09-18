@@ -1,19 +1,18 @@
-# 
 # Translators:
 # Philip Larsen Donnelly, 2025
 # Viktor Varland <viktor@dhis2.org>, 2025
-# Hamza <7amza.it@gmail.com>, 2025
 # Nadiia <semchuk@aph.org.ua>, 2025
+# Hamza <7amza.it@gmail.com>, 2026
 # 
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2025-10-28T16:09:41.600Z\n"
+"POT-Creation-Date: 2026-05-07T22:45:54.825Z\n"
 "PO-Revision-Date: 2019-06-25 12:37+0000\n"
-"Last-Translator: Nadiia <semchuk@aph.org.ua>, 2025\n"
+"Last-Translator: Hamza <7amza.it@gmail.com>, 2026\n"
 "Language-Team: Arabic (https://app.transifex.com/hisp-uio/teams/100509/ar/)\n"
 "MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Language: ar\n"
 "Plural-Forms: nplurals=6; plural=n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 && n%100<=10 ? 3 : n%100>=11 && n%100<=99 ? 4 : 5;\n"
@@ -780,4 +779,12 @@ msgid "1 minute per slide"
 msgstr ""
 
 msgid "2 minutes per slide"
+msgstr ""
+
+msgctxt "Application title"
+msgid "__MANIFEST_APP_TITLE"
+msgstr "لوحة المعلومات"
+
+msgctxt "Application description"
+msgid "__MANIFEST_APP_DESCRIPTION"
 msgstr ""

@@ -34,8 +34,8 @@ export const useFetchSupersetBaseUrl = () => {
             if (!response.ok) {
                 throw new Error(`Response from ${url} was not OK`)
             } else {
-                const { supersetBaseUrl } = await response.json()
-                return supersetBaseUrl
+                const { supersetBaseUrl, capability } = await response.json()
+                return { supersetBaseUrl, capability }
             }
         } catch (error) {
             console.error(error)
