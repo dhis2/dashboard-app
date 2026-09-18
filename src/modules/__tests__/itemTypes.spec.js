@@ -1,4 +1,3 @@
-import { MIN_API_VERSION_FOR_EVER } from '../isAppVersionCompatible.js'
 import {
     getAppKey,
     getAppName,
@@ -13,11 +12,10 @@ import {
 } from '../itemTypes.js'
 
 const BASE_URL = 'https://play.dhis2.org'
-const BELOW_EVER = MIN_API_VERSION_FOR_EVER - 1
 
 describe('version-aware accessors for EVENT_VISUALIZATION', () => {
-    it('resolves to the Event Visualizer app from the minimum api version', () => {
-        const apiVersion = MIN_API_VERSION_FOR_EVER
+    it('resolves to the Event Visualizer app from api version 43', () => {
+        const apiVersion = 43
 
         expect(getAppKey(EVENT_VISUALIZATION, apiVersion)).toBe(
             'individual-data-visualizer'
@@ -30,12 +28,10 @@ describe('version-aware accessors for EVENT_VISUALIZATION', () => {
         )
     })
 
-    it('resolves to the Line Listing app below the minimum api version', () => {
-        expect(getAppKey(EVENT_VISUALIZATION, BELOW_EVER)).toBe('line-listing')
-        expect(getAppName(EVENT_VISUALIZATION, BELOW_EVER)).toBe('Line Listing')
-        expect(getPluralTitle(EVENT_VISUALIZATION, BELOW_EVER)).toBe(
-            'Line lists'
-        )
+    it('resolves to the Line Listing app below api version 43', () => {
+        expect(getAppKey(EVENT_VISUALIZATION, 42)).toBe('line-listing')
+        expect(getAppName(EVENT_VISUALIZATION, 42)).toBe('Line Listing')
+        expect(getPluralTitle(EVENT_VISUALIZATION, 42)).toBe('Line lists')
     })
 
     it('resolves to the Line Listing app when apiVersion is missing', () => {
@@ -49,26 +45,24 @@ describe('version-aware accessors for EVENT_VISUALIZATION', () => {
 
 describe('accessors for types without version-dependent values', () => {
     it('returns the same values regardless of apiVersion', () => {
-        expect(getAppKey(VISUALIZATION, BELOW_EVER)).toBe('data-visualizer')
-        expect(getAppKey(VISUALIZATION, MIN_API_VERSION_FOR_EVER)).toBe(
-            'data-visualizer'
-        )
-        expect(getAppName(MAP, MIN_API_VERSION_FOR_EVER)).toBe('Maps')
-        expect(getPluralTitle(MAP, MIN_API_VERSION_FOR_EVER)).toBe('Maps')
+        expect(getAppKey(VISUALIZATION, 42)).toBe('data-visualizer')
+        expect(getAppKey(VISUALIZATION, 43)).toBe('data-visualizer')
+        expect(getAppName(MAP, 43)).toBe('Maps')
+        expect(getPluralTitle(MAP, 43)).toBe('Maps')
     })
 
     it('returns undefined for a type without an appKey', () => {
-        expect(getAppKey(REPORTS, MIN_API_VERSION_FOR_EVER)).toBeUndefined()
+        expect(getAppKey(REPORTS, 43)).toBeUndefined()
     })
 
     it('returns an empty string for a type without an appName', () => {
-        expect(getAppName(REPORTS, MIN_API_VERSION_FOR_EVER)).toBe('')
+        expect(getAppName(REPORTS, 43)).toBe('')
     })
 
     it('does not throw for an unknown type', () => {
-        expect(getAppKey('PONY', MIN_API_VERSION_FOR_EVER)).toBeUndefined()
-        expect(getAppName('PONY', MIN_API_VERSION_FOR_EVER)).toBe('')
-        expect(getPluralTitle('PONY', MIN_API_VERSION_FOR_EVER)).toBeUndefined()
+        expect(getAppKey('PONY', 43)).toBeUndefined()
+        expect(getAppName('PONY', 43)).toBe('')
+        expect(getPluralTitle('PONY', 43)).toBeUndefined()
     })
 })
 
@@ -83,7 +77,7 @@ describe('getItemUrl', () => {
                 type: EVENT_VISUALIZATION,
                 item,
                 baseUrl: BASE_URL,
-                apiVersion: MIN_API_VERSION_FOR_EVER,
+                apiVersion: 43,
             })
         ).toBe(
             `${BASE_URL}/api/apps/individual-data-visualizer/index.html#/rainbowVis`
@@ -114,7 +108,7 @@ describe('getItemUrl', () => {
                 type: VISUALIZATION,
                 item,
                 baseUrl: BASE_URL,
-                apiVersion: MIN_API_VERSION_FOR_EVER,
+                apiVersion: 43,
             })
         ).toBe(`${BASE_URL}/dhis-web-data-visualizer/#/rainbowVis`)
 
@@ -123,7 +117,7 @@ describe('getItemUrl', () => {
                 type: RESOURCES,
                 item,
                 baseUrl: BASE_URL,
-                apiVersion: MIN_API_VERSION_FOR_EVER,
+                apiVersion: 43,
             })
         ).toBe(`${BASE_URL}/api/documents/rainbowVis/data`)
     })
@@ -134,7 +128,7 @@ describe('getItemUrl', () => {
                 type: APP,
                 item: { id: 'app', launchUrl: 'https://ponies-r-us.com' },
                 baseUrl: BASE_URL,
-                apiVersion: MIN_API_VERSION_FOR_EVER,
+                apiVersion: 43,
             })
         ).toBe('https://ponies-r-us.com')
     })

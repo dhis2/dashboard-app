@@ -14,7 +14,6 @@ import {
     IconVisualizationColumn24,
     IconWorld24,
 } from '@dhis2/ui'
-import { MIN_API_VERSION_FOR_EVER } from './isAppVersionCompatible.js'
 
 // Item types
 export const VISUALIZATION = 'VISUALIZATION'
@@ -146,25 +145,21 @@ export const itemTypeMap = {
         dataStatisticsName: 'EVENT_VISUALIZATION_VIEW',
         propName: 'eventVisualization',
         pluralTitle: ({ apiVersion }) =>
-            apiVersion >= MIN_API_VERSION_FOR_EVER
+            apiVersion >= 43
                 ? i18n.t('Event visualizations')
                 : i18n.t('Line lists'),
         domainType: DOMAIN_TYPE_TRACKER,
         isVisualizationType: true,
         appUrl: ({ id, apiVersion }) =>
-            apiVersion >= MIN_API_VERSION_FOR_EVER
+            apiVersion >= 43
                 ? `api/apps/individual-data-visualizer/index.html#/${id}`
                 : apiVersion >= 42
                 ? `dhis-web-line-listing/#/${id}`
                 : `api/apps/line-listing/index.html#/${id}`,
         appName: ({ apiVersion }) =>
-            apiVersion >= MIN_API_VERSION_FOR_EVER
-                ? 'Individual Data Visualizer'
-                : 'Line Listing',
+            apiVersion >= 43 ? 'Individual Data Visualizer' : 'Line Listing',
         appKey: ({ apiVersion }) =>
-            apiVersion >= MIN_API_VERSION_FOR_EVER
-                ? 'individual-data-visualizer'
-                : 'line-listing',
+            apiVersion >= 43 ? 'individual-data-visualizer' : 'line-listing',
         supportsFullscreen: true,
     },
     [APP]: {

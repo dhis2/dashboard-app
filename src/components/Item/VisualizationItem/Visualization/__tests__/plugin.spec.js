@@ -1,4 +1,3 @@
-import { MIN_API_VERSION_FOR_EVER } from '../../../../../modules/isAppVersionCompatible.js'
 import {
     VISUALIZATION,
     REPORT_TABLE,
@@ -11,23 +10,15 @@ import {
 import { getPluginLaunchUrl, hasStandalonePlugin } from '../plugin.js'
 
 const BASE_URL = 'https://play.dhis2.org'
-const BELOW = MIN_API_VERSION_FOR_EVER - 1
 
 describe('hasStandalonePlugin', () => {
-    it('is true for EVENT_VISUALIZATION from the minimum api version', () => {
-        expect(
-            hasStandalonePlugin(EVENT_VISUALIZATION, MIN_API_VERSION_FOR_EVER)
-        ).toBe(true)
-        expect(
-            hasStandalonePlugin(
-                EVENT_VISUALIZATION,
-                MIN_API_VERSION_FOR_EVER + 1
-            )
-        ).toBe(true)
+    it('is true for EVENT_VISUALIZATION from api version 43', () => {
+        expect(hasStandalonePlugin(EVENT_VISUALIZATION, 43)).toBe(true)
+        expect(hasStandalonePlugin(EVENT_VISUALIZATION, 44)).toBe(true)
     })
 
-    it('is false for EVENT_VISUALIZATION below the minimum api version', () => {
-        expect(hasStandalonePlugin(EVENT_VISUALIZATION, BELOW)).toBe(false)
+    it('is false for EVENT_VISUALIZATION below api version 43', () => {
+        expect(hasStandalonePlugin(EVENT_VISUALIZATION, 42)).toBe(false)
     })
 
     it('is false when apiVersion is missing', () => {
@@ -45,27 +36,20 @@ describe('hasStandalonePlugin', () => {
             EVENT_REPORT,
             EVENT_CHART,
         ].forEach((type) => {
-            expect(hasStandalonePlugin(type, MIN_API_VERSION_FOR_EVER)).toBe(
-                false
-            )
+            expect(hasStandalonePlugin(type, 43)).toBe(false)
         })
     })
 
     it('is false for an unknown type', () => {
-        expect(hasStandalonePlugin('PONY', MIN_API_VERSION_FOR_EVER)).toBe(
-            false
-        )
+        expect(hasStandalonePlugin('PONY', 43)).toBe(false)
     })
 
     it('is false when passed an item instead of an item type', () => {
         // The map is keyed by type string; an object stringifies to a key that
         // never matches, so this must not be mistaken for a standalone plugin
-        expect(
-            hasStandalonePlugin(
-                { type: EVENT_VISUALIZATION },
-                MIN_API_VERSION_FOR_EVER
-            )
-        ).toBe(false)
+        expect(hasStandalonePlugin({ type: EVENT_VISUALIZATION }, 43)).toBe(
+            false
+        )
     })
 })
 
@@ -89,7 +73,7 @@ describe('getPluginLaunchUrl', () => {
                 type: EVENT_VISUALIZATION,
                 apps: [everApp, lineListingApp],
                 baseUrl: BASE_URL,
-                apiVersion: MIN_API_VERSION_FOR_EVER,
+                apiVersion: 43,
             })
         ).toBe(everApp.pluginLaunchUrl)
     })
@@ -100,7 +84,7 @@ describe('getPluginLaunchUrl', () => {
                 type: EVENT_VISUALIZATION,
                 apps: [everApp, lineListingApp],
                 baseUrl: BASE_URL,
-                apiVersion: BELOW,
+                apiVersion: 42,
             })
         ).toBe(lineListingApp.pluginLaunchUrl)
     })
@@ -116,7 +100,7 @@ describe('getPluginLaunchUrl', () => {
                 type: VISUALIZATION,
                 apps: [installed],
                 baseUrl: BASE_URL,
-                apiVersion: MIN_API_VERSION_FOR_EVER,
+                apiVersion: 43,
             })
         ).toBe(installed.pluginLaunchUrl)
     })
@@ -127,7 +111,7 @@ describe('getPluginLaunchUrl', () => {
                 type: VISUALIZATION,
                 apps: [],
                 baseUrl: BASE_URL,
-                apiVersion: MIN_API_VERSION_FOR_EVER,
+                apiVersion: 43,
             })
         ).toBe(`${BASE_URL}/dhis-web-data-visualizer/plugin.html`)
 
@@ -136,7 +120,7 @@ describe('getPluginLaunchUrl', () => {
                 type: MAP,
                 apps: [],
                 baseUrl: BASE_URL,
-                apiVersion: MIN_API_VERSION_FOR_EVER,
+                apiVersion: 43,
             })
         ).toBe(`${BASE_URL}/dhis-web-maps/plugin.html`)
     })
@@ -149,7 +133,7 @@ describe('getPluginLaunchUrl', () => {
                 type: EVENT_VISUALIZATION,
                 apps: [dataVisualizerApp],
                 baseUrl: BASE_URL,
-                apiVersion: MIN_API_VERSION_FOR_EVER,
+                apiVersion: 43,
             })
         ).toBeUndefined()
     })
@@ -160,7 +144,7 @@ describe('getPluginLaunchUrl', () => {
                 type: EVENT_REPORT,
                 apps: [],
                 baseUrl: BASE_URL,
-                apiVersion: MIN_API_VERSION_FOR_EVER,
+                apiVersion: 43,
             })
         ).toBeUndefined()
     })
