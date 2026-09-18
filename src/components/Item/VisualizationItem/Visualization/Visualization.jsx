@@ -1,41 +1,37 @@
-import { useDhis2ConnectionStatus } from '@dhis2/app-runtime'
+import { useConfig, useDhis2ConnectionStatus } from '@dhis2/app-runtime'
 import i18n from '@dhis2/d2-i18n'
-import { Button, Cover, IconInfo24, colors } from '@dhis2/ui'
 import PropTypes from 'prop-types'
 import React, { useMemo } from 'react'
 import { useSelector } from 'react-redux'
 import {
     isDVVersionCompatible,
-    isLLVersionCompatible,
     isMapsVersionCompatible,
     minDVVersion,
-    minLLVersion,
     minMapsVersion,
 } from '../../../../modules/isAppVersionCompatible.js'
+import { getVisualizationId } from '../../../../modules/item.js'
 import {
     VISUALIZATION,
     EVENT_VISUALIZATION,
     MAP,
     CHART,
     REPORT_TABLE,
+    getAppName,
 } from '../../../../modules/itemTypes.js'
 import { sGetSelectedId } from '../../../../reducers/selected.js'
 import {
     useInstalledApps,
     useInstalledDVVersion,
-    useInstalledLLVersion,
     useInstalledMapsVersion,
 } from '../../../AppDataProvider/AppDataProvider.jsx'
+import EventVisualizationPlugin from './EventVisualizationPlugin.jsx'
 import getFilteredVisualization from './getFilteredVisualization.js'
 import getVisualizationConfig from './getVisualizationConfig.js'
 import IframePlugin from './IframePlugin.jsx'
 import LegacyPlugin from './LegacyPlugin.jsx'
-import { pluginIsAvailable } from './plugin.js'
+import MapPlugin from './MapPlugin.jsx'
+import { hasStandalonePlugin, pluginIsAvailable } from './plugin.js'
 import { PluginWarningMessage } from './PluginWarningMessage.jsx'
-import classes from './styles/Visualization.module.css'
-
-const mapHasEELayer = (visualization) =>
-    visualization.mapViews?.find((mv) => mv.layer.includes('earthEngine'))
 
 const Visualization = ({
     visualization,
@@ -49,11 +45,11 @@ const Visualization = ({
     showNoFiltersOverlay,
     onClickNoFiltersOverlay,
 }) => {
+    const { baseUrl, apiVersion } = useConfig()
     const dashboardId = useSelector(sGetSelectedId)
     const { isDisconnected: offline } = useDhis2ConnectionStatus()
     const apps = useInstalledApps()
     const dataVisualizerAppVersion = useInstalledDVVersion()
-    const lineListingAppVersion = useInstalledLLVersion()
     const mapsAppVersion = useInstalledMapsVersion()
 
     const visualizationConfig = useMemo(() => {
@@ -67,6 +63,8 @@ const Visualization = ({
         )
     }, [visualization, activeType, originalType, itemFilters])
 
+    const visualizationId = getVisualizationId(item)
+
     const iFramePluginProps = useMemo(
         () => ({
             originalType,
@@ -77,6 +75,8 @@ const Visualization = ({
             itemId: item.id,
             itemType: item.type,
             isFirstOfType: Boolean(item.firstOfType),
+            visualizationId,
+            filters: itemFilters,
         }),
         [
             originalType,
@@ -87,10 +87,12 @@ const Visualization = ({
             item.id,
             item.type,
             item.firstOfType,
+            visualizationId,
+            itemFilters,
         ]
     )
 
-    if (!visualization) {
+    if (!hasStandalonePlugin(activeType, apiVersion) && !visualization) {
         return (
             <PluginWarningMessage
                 style={style}
@@ -112,89 +114,54 @@ const Visualization = ({
                 <PluginWarningMessage
                     style={style}
                     message={i18n.t(
-                        `Install Data Visualizer app ${minDVVersion.join(
-                            '.'
-                        )} or higher in order to display this item.`
+                        `Install {{appName}} app {{appVersion}} or higher in order to display this item.`,
+                        {
+                            appName: getAppName(activeType, apiVersion),
+                            appVersion: minDVVersion.join('.'),
+                        }
                     )}
                 />
             )
         }
         case EVENT_VISUALIZATION: {
-            return isLLVersionCompatible(lineListingAppVersion) ? (
-                <>
-                    {showNoFiltersOverlay ? (
-                        <div style={style}>
-                            <Cover>
-                                <div className={classes.messageContent}>
-                                    <IconInfo24 color={colors.grey500} />
-                                    {i18n.t(
-                                        'Filters are not applied to line list dashboard items'
-                                    )}
-                                    <Button
-                                        secondary
-                                        small
-                                        onClick={onClickNoFiltersOverlay}
-                                    >
-                                        {i18n.t('Show without filters')}
-                                    </Button>
-                                </div>
-                            </Cover>
-                        </div>
-                    ) : null}
-                    <IframePlugin
-                        visualization={visualizationConfig}
-                        {...iFramePluginProps}
-                    />
-                </>
-            ) : (
-                <PluginWarningMessage
+            return (
+                <EventVisualizationPlugin
+                    visualization={visualizationConfig}
+                    iFramePluginProps={iFramePluginProps}
                     style={style}
-                    message={i18n.t(
-                        `Install Line Listing app ${minLLVersion.join(
-                            '.'
-                        )} or higher in order to display this item.`
-                    )}
+                    showNoFiltersOverlay={showNoFiltersOverlay}
+                    onClickNoFiltersOverlay={onClickNoFiltersOverlay}
                 />
             )
         }
         case MAP: {
-            const getMapComponent = () => {
-                return offline && mapHasEELayer(visualizationConfig) ? (
-                    <div style={style}>
-                        <Cover>
-                            <div className={classes.messageContent}>
-                                <IconInfo24 color={colors.grey500} />
-                                <span>
-                                    {i18n.t(
-                                        'Maps with Earth Engine layers cannot be displayed when offline'
-                                    )}
-                                </span>
-                            </div>
-                        </Cover>
-                    </div>
-                ) : (
-                    <IframePlugin
-                        visualization={visualizationConfig}
-                        {...iFramePluginProps}
-                    />
-                )
-            }
-
             return isMapsVersionCompatible(mapsAppVersion) ? (
-                getMapComponent()
+                <MapPlugin
+                    offline={offline}
+                    visualization={visualizationConfig}
+                    iFramePluginProps={iFramePluginProps}
+                    style={style}
+                />
             ) : (
                 <PluginWarningMessage
                     style={style}
                     message={i18n.t(
-                        `Install Maps app ${minMapsVersion.join(
-                            '.'
-                        )} or higher in order to display this item.`
+                        `Install {{appName}} app {{appVersion}} or higher in order to display this item.`,
+                        {
+                            appName: getAppName(activeType, apiVersion),
+                            appVersion: minMapsVersion.join('.'),
+                        }
                     )}
                 />
             )
         }
         default: {
-            return !pluginIsAvailable(activeType || item.type, apps) ? (
+            return !pluginIsAvailable({
+                type: activeType || item.type,
+                apps,
+                baseUrl,
+                apiVersion,
+            }) ? (
                 <PluginWarningMessage
                     style={style}
                     message={i18n.t('Unable to load the plugin for this item')}

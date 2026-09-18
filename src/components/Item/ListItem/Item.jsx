@@ -10,12 +10,14 @@ import {
     acRemoveDashboardItem,
 } from '../../../actions/editDashboard.js'
 import { isEditMode } from '../../../modules/dashboardModes.js'
-import { itemTypeMap, getItemUrl } from '../../../modules/itemTypes.js'
+import {
+    itemTypeMap,
+    getItemUrl,
+    getPluralTitle,
+} from '../../../modules/itemTypes.js'
 import { orArray } from '../../../modules/util.js'
 import ItemHeader from '../ItemHeader/ItemHeader.jsx'
 import classes from './Item.module.css'
-
-const getItemTitle = (item) => itemTypeMap[item.type].pluralTitle
 
 const getContentItems = (item) =>
     orArray(item[itemTypeMap[item.type].propName]).filter(
@@ -31,7 +33,7 @@ const ListItem = ({
     isFullscreen,
     isSlideshowView,
 }) => {
-    const { baseUrl } = useConfig()
+    const { baseUrl, apiVersion } = useConfig()
     const contentItems = getContentItems(item)
 
     const updateDashboardItem = (content) => {
@@ -64,7 +66,12 @@ const ListItem = ({
                 <a
                     className={classes.link}
                     style={{ color: colors.grey900 }}
-                    href={getItemUrl(item.type, contentItem, baseUrl)}
+                    href={getItemUrl({
+                        type: item.type,
+                        item: contentItem,
+                        baseUrl,
+                        apiVersion,
+                    })}
                     tabIndex={isSlideshowView ? '-1' : '0'}
                     target="_top"
                     rel="noreferrer"
@@ -79,7 +86,7 @@ const ListItem = ({
     return (
         <>
             <ItemHeader
-                title={getItemTitle(item)}
+                title={getPluralTitle(item.type, apiVersion)}
                 itemId={item.id}
                 dashboardMode={dashboardMode}
                 isShortened={item.shortened}
