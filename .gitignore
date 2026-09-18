@@ -32,3 +32,6 @@ cypress/screenshots
 cypress/videos
 cypress/downloads
 .aider*
+
+# Claude Code worktrees
+.claude/worktrees/
