@@ -11,19 +11,18 @@
             transparent var(--dashboard-grid-column-width, 16px),
             transparent var(--dashboard-grid-column-step, 20px)
         ),
-        linear-gradient(
+        repeating-linear-gradient(
             to bottom,
+            rgba(20, 130, 255, 0.05) 0,
+            rgba(20, 130, 255, 0.05) var(--dashboard-grid-row-height, 16px),
             transparent var(--dashboard-grid-row-height, 16px),
-            rgba(20, 130, 255, 0.08) var(--dashboard-grid-row-height, 16px),
-            rgba(20, 130, 255, 0.08)
-                calc(var(--dashboard-grid-row-height, 16px) + 1px),
-            transparent calc(var(--dashboard-grid-row-height, 16px) + 1px)
+            transparent var(--dashboard-grid-row-step, 20px)
         );
-    background-size: auto,
-        var(--dashboard-grid-column-step, 20px)
-            var(--dashboard-grid-row-step, 20px);
-    /* Column stripes start at the top; row lines stay aligned with items */
-    background-position: 0 0, 0 var(--spacers-dp8);
+    /* Columns fill the whole canvas (including the toolbar gap). Rows are
+       origin-aligned to the content box so they sit flush with items. */
+    background-origin: padding-box, content-box;
+    background-clip: padding-box, content-box;
+    background-position: 0 0, 0 0;
 }
 
 .gridUnitsPopup {
