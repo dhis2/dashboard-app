@@ -1,10 +1,15 @@
 .popover {
     inline-size: 700px;
+    border: 1px solid var(--colors-grey400);
+    border-radius: 5px;
+    box-shadow: var(--elevations-e400);
+    background-color: var(--colors-white);
+    overflow: hidden;
 }
 
 .menu {
     block-size: 50vh;
-    inline-size: 100%;
+    overflow: auto;
 }
 
 .header {

@@ -1,6 +1,6 @@
 import { useDataQuery } from '@dhis2/app-runtime'
 import i18n from '@dhis2/d2-i18n'
-import { Layer, Popper, FlyoutMenu, SegmentedControl } from '@dhis2/ui'
+import { Layer, Popper, Menu, SegmentedControl } from '@dhis2/ui'
 import React, { useState, useEffect, createRef } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { acSetItemConfigInsertPosition } from '../../../actions/editDashboard.js'
@@ -146,13 +146,12 @@ const ItemSelector = () => {
                                     }
                                 />
                             </div>
-                            <FlyoutMenu
+                            <div
                                 className={classes.menu}
-                                dataTest="item-menu"
-                                maxWidth="700px"
+                                data-test="item-menu"
                             >
-                                {getMenuGroups()}
-                            </FlyoutMenu>
+                                <Menu dense>{getMenuGroups()}</Menu>
+                            </div>
                         </div>
                     </Popper>
                 </Layer>

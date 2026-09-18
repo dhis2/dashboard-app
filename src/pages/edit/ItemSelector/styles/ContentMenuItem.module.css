@@ -17,28 +17,6 @@
     align-items: center;
 }
 
-.buttonInsert:hover {
-    cursor: pointer;
-}
-
-.buttonInsert {
-    border: none;
-    text-decoration: underline;
-    background-color: transparent;
-}
-
-li:hover .buttonInsert {
-    visibility: visible;
-}
-
-li .buttonInsert {
-    visibility: hidden;
-}
-
-.buttonInsert:focus {
-    outline: none;
-}
-
 .launchLinkButton:hover {
     color: var(--colors-grey900);
 }

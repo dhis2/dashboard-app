@@ -26,10 +26,6 @@ LaunchLink.propTypes = {
     url: PropTypes.string,
 }
 
-const InsertButton = () => (
-    <button className={classes.buttonInsert}>{i18n.t('Insert')}</button>
-)
-
 const ContentMenuItem = ({ type, name, onInsert, url, visType }) => {
     const ItemIcon = getItemIcon(type)
 
@@ -44,6 +40,7 @@ const ContentMenuItem = ({ type, name, onInsert, url, visType }) => {
     return (
         <MenuItem
             ariaLabel={name}
+            dense
             onClick={onInsert}
             icon={renderedItemIcon}
             label={
@@ -52,7 +49,6 @@ const ContentMenuItem = ({ type, name, onInsert, url, visType }) => {
                         <span>{name}</span>
                         {url ? <LaunchLink url={url} /> : null}
                     </div>
-                    <InsertButton />
                 </div>
             }
             dataTest={`menu-item-${name}`}
