@@ -23,10 +23,13 @@ export default (state = DEFAULT_STATE_DASHBOARDS, action) => {
             return action.value
         }
         case ADD_DASHBOARDS: {
-            return {
-                ...state,
-                ...action.value,
-            }
+            const merged = { ...state }
+
+            Object.entries(action.value).forEach(([id, dashboard]) => {
+                merged[id] = { ...merged[id], ...dashboard }
+            })
+
+            return merged
         }
         case SET_DASHBOARD_STARRED: {
             return {

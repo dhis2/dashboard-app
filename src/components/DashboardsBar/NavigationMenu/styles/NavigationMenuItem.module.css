@@ -14,3 +14,30 @@
     background-color: var(--colors-teal600) !important;
     color: var(--colors-white) !important;
 }
+.removeButton {
+    display: flex;
+    flex-shrink: 0;
+    align-self: center;
+    align-items: center;
+    margin-inline-start: auto;
+    padding: 2px;
+    border: none;
+    border-radius: 3px;
+    background: none;
+    color: var(--colors-grey600);
+    opacity: 0.55;
+    cursor: pointer;
+}
+.removeButton:hover {
+    background-color: var(--colors-grey300);
+}
+.container:hover .removeButton,
+.container:focus-within .removeButton {
+    opacity: 1;
+}
+.selectedItem .removeButton {
+    color: var(--colors-white);
+}
+.selectedItem .removeButton:hover {
+    background-color: var(--colors-teal700);
+}

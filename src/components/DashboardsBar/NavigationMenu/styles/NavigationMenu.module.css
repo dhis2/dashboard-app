@@ -6,6 +6,9 @@
     box-shadow: var(--elevations-e300);
     background-color: var(--colors-white);
 }
+.tabWrap {
+    padding-inline: 8px;
+}
 .filterWrap {
     padding-block: 8px 4px;
     padding-inline: 8px;
@@ -14,10 +17,10 @@
     /* On larger screens the max is restricted to 1000px and if
      * there is less space available, the max height is restricted
      * to the window height. Main header is 48px, dashboards-bar
-     * is 45px and the filter-wrap is 44px, so total height above
-     * is 137px so 100vh - 152px ensures that 15px of whitespace
-     * is visible below the menu. */
-    max-block-size: min(1000px, calc(100vh - 152px));
+     * is 45px, the tab bar is 48px and the filter-wrap is 44px, so
+     * total height above is 185px so 100vh - 200px ensures that
+     * 15px of whitespace is visible below the menu. */
+    max-block-size: min(1000px, calc(100vh - 200px));
     overflow-y: auto;
     scroll-behavior: smooth;
 }
@@ -40,6 +43,23 @@
     font-size: 14px;
     color: var(--colors-grey700);
 }
+.otherMatches {
+    display: block;
+    inline-size: 100%;
+    padding-block: 8px;
+    padding-inline: 24px;
+    border: none;
+    border-block-start: 1px solid var(--colors-grey200);
+    background: none;
+    color: var(--colors-blue600);
+    font-size: 13px;
+    line-height: 16px;
+    text-align: start;
+    cursor: pointer;
+}
+.otherMatches:hover {
+    background-color: var(--colors-grey050);
+}
 
 @media only screen and (max-width: 480px) {
     .container {
@@ -47,9 +67,9 @@
         max-inline-size: 460px;
     }
     .scrollbox {
-        /* 176px instead of 152px is needed because the online-status
+        /* 224px instead of 200px is needed because the online-status
          * indicator is is showing below the main header and this has
          * a height of 24px. */
-        max-block-size: calc(100vh - 176px);
+        max-block-size: calc(100vh - 224px);
     }
 }

@@ -5,6 +5,7 @@ export const dashboardsQuery = {
             'id',
             'displayName',
             'favorite~rename(starred)',
+            'createdBy[id]',
             'embedded[*]',
         ],
         paging: false,

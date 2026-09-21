@@ -204,3 +204,37 @@ it('Does not post data statistics if not connected', async () => {
     expect(historyPushMock).toHaveBeenCalledTimes(1)
     expect(historyPushMock).toHaveBeenCalledWith(`/${defaultProps.id}`)
 })
+
+test('renders no remove button when onRemove is not given', () => {
+    useCacheableSection.mockImplementation(() => mockNonOfflineDashboard)
+    const mockStore = createStore(defaultStoreFn)
+    const { queryByTestId } = render(
+        <Provider store={mockStore}>
+            <Router history={createMemoryHistory()}>
+                <NavigationMenuItem {...defaultProps} />
+            </Router>
+        </Provider>
+    )
+
+    expect(queryByTestId('remove-recent-dashboard')).toBeNull()
+})
+
+test('calls onRemove with the dashboard id and does not navigate', () => {
+    useCacheableSection.mockImplementation(() => mockNonOfflineDashboard)
+    const push = jest.fn()
+    useHistory.mockReturnValue({ push })
+    const onRemove = jest.fn()
+    const mockStore = createStore(defaultStoreFn)
+    const { getByTestId } = render(
+        <Provider store={mockStore}>
+            <Router history={createMemoryHistory()}>
+                <NavigationMenuItem {...defaultProps} onRemove={onRemove} />
+            </Router>
+        </Provider>
+    )
+
+    fireEvent.click(getByTestId('remove-recent-dashboard'))
+
+    expect(onRemove).toHaveBeenCalledWith('rainbowdash')
+    expect(push).not.toHaveBeenCalled()
+})

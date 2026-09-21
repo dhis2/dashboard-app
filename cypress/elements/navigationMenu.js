@@ -22,3 +22,17 @@ export const getNavigationMenuFilter = (isOpen) => {
     }
     return cy.get('input:visible[placeholder="Search for a dashboard"]')
 }
+
+export const getNavigationMenuTab = (label, isOpen) => {
+    if (!isOpen) {
+        getNavigationMenuDropdown().click()
+    }
+    return cy.get('[role="tab"]').contains(label)
+}
+
+export const getRemoveRecentButton = (dashboardDisplayName, isOpen) =>
+    getNavigationMenu(isOpen)
+        .find('li')
+        .contains(dashboardDisplayName)
+        .closest('li')
+        .find('[data-test="remove-recent-dashboard"]')

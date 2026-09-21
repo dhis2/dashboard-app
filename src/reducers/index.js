@@ -10,6 +10,7 @@ import itemFilters from './itemFilters.js'
 import messages from './messages.js'
 import passiveViewRegistered from './passiveViewRegistered.js'
 import printDashboard from './printDashboard.js'
+import recentDashboards from './recentDashboards.js'
 import selected from './selected.js'
 import showDescription from './showDescription.js'
 import slideshow from './slideshow.js'
@@ -31,4 +32,5 @@ export default combineReducers({
     slideshow,
     itemActiveTypes,
     iframePluginStatus,
+    recentDashboards,
 })

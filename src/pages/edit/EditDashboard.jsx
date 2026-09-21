@@ -4,10 +4,12 @@ import { Layer, CenteredContent, CircularLoader } from '@dhis2/ui'
 import cx from 'classnames'
 import PropTypes from 'prop-types'
 import React, { useState, useEffect } from 'react'
-import { connect } from 'react-redux'
+import { connect, useDispatch } from 'react-redux'
 import { Redirect } from 'react-router-dom'
 import { acSetEditDashboard } from '../../actions/editDashboard.js'
+import { tRecordDashboardOpened } from '../../actions/recentDashboards.js'
 import { apiFetchDashboard } from '../../api/fetchDashboard.js'
+import { useCurrentUser } from '../../components/AppDataProvider/AppDataProvider.jsx'
 import DashboardContainer from '../../components/DashboardContainer.jsx'
 import NoContentMessage from '../../components/NoContentMessage.jsx'
 import Notice from '../../components/Notice.jsx'
@@ -28,6 +30,8 @@ const EditDashboard = (props) => {
     const [redirectUrl, setRedirectUrl] = useState(null)
     const [hasUpdateAccess, setHasUpdateAccess] = useState(null)
     const [isLoading, setIsLoading] = useState(true)
+    const dispatch = useDispatch()
+    const currentUser = useCurrentUser()
 
     useEffect(() => {
         const loadDashboard = async () => {
@@ -38,6 +42,11 @@ const EditDashboard = (props) => {
                     { mode: EDIT }
                 )
                 props.setEditDashboard(dashboard)
+                if (currentUser.username && props.id) {
+                    dispatch(
+                        tRecordDashboardOpened(currentUser.username, props.id)
+                    )
+                }
                 setHasUpdateAccess(dashboard.access?.update || false)
                 setIsLoading(false)
             } catch (error) {

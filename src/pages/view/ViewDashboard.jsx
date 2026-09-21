@@ -30,6 +30,7 @@ const ViewDashboard = ({
     clearEditDashboard,
     clearPrintDashboard,
     fetchDashboard,
+    isRouteRequested,
     passiveViewRegistered,
     registerPassiveView,
     requestedDashboardName,
@@ -60,18 +61,19 @@ const ViewDashboard = ({
         }, 500)
 
         try {
-            await fetchDashboard(requestedId, username)
+            await fetchDashboard(requestedId, username, isRouteRequested)
             setLoaded(true)
         } catch (e) {
             console.error(`Error loading dashboard with id ${requestedId}:`, e)
             setLoadFailed(true)
-            setSelectedAsOffline(requestedId, username)
+            setSelectedAsOffline(requestedId, username, isRouteRequested)
         } finally {
             setLoading(false)
             clearTimeout(alertTimeoutRef.current)
         }
     }, [
         fetchDashboard,
+        isRouteRequested,
         requestedDashboardName,
         requestedId,
         setSelectedAsOffline,
@@ -87,13 +89,14 @@ const ViewDashboard = ({
             if (online || isCached) {
                 loadDashboard()
             } else {
-                setSelectedAsOffline(requestedId, username)
+                setSelectedAsOffline(requestedId, username, isRouteRequested)
             }
         }
     }, [
         clearEditDashboard,
         clearPrintDashboard,
         isCached,
+        isRouteRequested,
         loadDashboard,
         loaded,
         loadFailed,
@@ -152,6 +155,7 @@ ViewDashboard.propTypes = {
     clearEditDashboard: PropTypes.func,
     clearPrintDashboard: PropTypes.func,
     fetchDashboard: PropTypes.func,
+    isRouteRequested: PropTypes.bool,
     passiveViewRegistered: PropTypes.bool,
     registerPassiveView: PropTypes.func,
     requestedDashboardName: PropTypes.string,

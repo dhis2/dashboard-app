@@ -77,6 +77,31 @@ describe('dashboards reducer', () => {
         expect(actualState).toEqual(expectedState)
     })
 
+    it('ADD_DASHBOARDS: preserves fields on an existing dashboard that the new value omits', () => {
+        const state = {
+            abc: {
+                id: 'abc',
+                displayName: 'Antenatal Care',
+                starred: false,
+                createdBy: { id: 'user1' },
+            },
+        }
+
+        const actualState = reducer(state, {
+            type: ADD_DASHBOARDS,
+            value: {
+                abc: {
+                    id: 'abc',
+                    displayName: 'Antenatal Care',
+                    starred: true,
+                },
+            },
+        })
+
+        expect(actualState.abc.createdBy).toEqual({ id: 'user1' })
+        expect(actualState.abc.starred).toBe(true)
+    })
+
     it('SET_DASHBOARD_STARRED: should set "starred" on a dashboard', () => {
         const starredValue = true
 

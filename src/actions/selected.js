@@ -11,6 +11,7 @@ import {
 import { acAppendDashboards } from './dashboards.js'
 import { acClearItemActiveTypes } from './itemActiveTypes.js'
 import { acClearItemFilters } from './itemFilters.js'
+import { tRecordDashboardOpened } from './recentDashboards.js'
 import { acClearVisualizations } from './visualizations.js'
 
 // actions
@@ -26,7 +27,8 @@ export const acClearSelected = () => ({
 
 // thunks
 export const tSetSelectedDashboardById =
-    (id, username) => async (dispatch, getState, dataEngine) => {
+    (id, username, recordRecent = false) =>
+    async (dispatch, getState, dataEngine) => {
         const dashboard = await apiFetchDashboard(dataEngine, id, {
             mode: VIEW,
         })
@@ -54,10 +56,15 @@ export const tSetSelectedDashboardById =
             dispatch(tGetMessages(dataEngine))
 
         dispatch(acSetSelected(dashboard))
+
+        if (username && recordRecent) {
+            dispatch(tRecordDashboardOpened(username, id))
+        }
     }
 
 export const tSetSelectedDashboardByIdOffline =
-    (id, username) => (dispatch, getState) => {
+    (id, username, recordRecent = false) =>
+    (dispatch, getState) => {
         if (username) {
             storePreferredDashboardId(username, id)
         }
@@ -69,4 +76,8 @@ export const tSetSelectedDashboardByIdOffline =
         }
 
         dispatch(acSetSelected({ id }))
+
+        if (username && recordRecent) {
+            dispatch(tRecordDashboardOpened(username, id))
+        }
     }

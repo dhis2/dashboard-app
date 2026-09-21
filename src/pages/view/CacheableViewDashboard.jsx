@@ -24,6 +24,7 @@ const CacheableViewDashboard = ({
     dashboardsIsEmpty,
     dashboardsLoaded,
     id,
+    isRouteRequested,
     selectedId,
 }) => {
     const currentUser = useCurrentUser()
@@ -62,6 +63,7 @@ const CacheableViewDashboard = ({
             <ViewDashboard
                 key={cacheSectionId}
                 requestedId={id}
+                isRouteRequested={isRouteRequested}
                 username={currentUser.username}
             />
         </CacheableSection>
@@ -73,6 +75,7 @@ CacheableViewDashboard.propTypes = {
     dashboardsIsEmpty: PropTypes.bool,
     dashboardsLoaded: PropTypes.bool,
     id: PropTypes.string,
+    isRouteRequested: PropTypes.bool,
     selectedId: PropTypes.string,
 }
 
@@ -94,6 +97,7 @@ const mapStateToProps = (state, ownProps) => {
         dashboardsIsEmpty: isEmpty(dashboards),
         dashboardsLoaded: !sDashboardsIsFetching(state),
         id: dashboardToSelect?.id || null,
+        isRouteRequested: Boolean(routeId),
         selectedId: sGetSelectedId(state) || null,
     }
 }

@@ -13,6 +13,7 @@ import { acClearPrintDashboard } from '../actions/printDashboard.js'
 import { acSetSelected } from '../actions/selected.js'
 import { tSetShowDescription } from '../actions/showDescription.js'
 import { acClearVisualizations } from '../actions/visualizations.js'
+import { useRecentDashboardsSync } from '../modules/useRecentDashboardsSync.js'
 import { NewDashboard, EditDashboard } from '../pages/edit/index.js'
 import { PrintDashboard, PrintLayoutDashboard } from '../pages/print/index.js'
 import { LandingPage, ROUTE_START_PATH } from '../pages/start/index.js'
@@ -29,6 +30,8 @@ import './styles/ItemGrid.css'
 const App = ({ fetchDashboards, setShowDescription, resetState }) => {
     const systemSettings = useSystemSettings()
     const currentUser = useCurrentUser()
+
+    useRecentDashboardsSync(currentUser.username)
 
     useEffect(() => {
         fetchDashboards()
