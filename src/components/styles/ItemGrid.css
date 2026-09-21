@@ -24,7 +24,10 @@
     flex-direction: column;
 }
 
-.react-grid-item.edit::after {
+/* Transparent overlay makes the whole item a click/drag-to-select surface and
+   keeps clicks from reaching item content (e.g. visualization plugins). Text
+   boxes are excluded so you can click into the editor; drag them by the header. */
+.react-grid-item.edit:not(.TEXT)::after {
     content: '';
     position: absolute;
     inset: 0;
