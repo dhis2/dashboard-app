@@ -5,10 +5,8 @@ import {
     Popper,
     FlyoutMenu,
     MenuItem,
+    Divider,
     IconMore16,
-    IconCopy16,
-    IconDelete16,
-    IconSync16,
     colors,
 } from '@dhis2/ui'
 import cx from 'classnames'
@@ -17,7 +15,9 @@ import React, { useRef, useState } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import {
     acRemoveDashboardItem,
+    acSetNewItemSize,
     tSetDashboardItems,
+    tSetAllItemsSize,
     tDuplicateDashboardItem,
 } from '../../../actions/editDashboard.js'
 import { isVisualizationType } from '../../../modules/itemTypes.js'
@@ -40,6 +40,19 @@ const EditItemActions = ({ itemId, onDelete = noop }) => {
 
     const item = dashboardItems.find((it) => it.id === itemId)
     const canChangeVisualization = item && isVisualizationType(item)
+
+    const onUseSizeForNewItems = () => {
+        setMenuOpen(false)
+        if (!item) {
+            return
+        }
+        // Freeflow captures width + height; fixed captures height only
+        // (width is column-driven). Values are canonical 60-unit shape coords.
+        const mode = columns.length ? 'fixed' : 'freeflow'
+        const size =
+            mode === 'fixed' ? { h: item.h } : { w: item.w, h: item.h }
+        dispatch(acSetNewItemSize({ mode, size }))
+    }
 
     const onDeleteItem = (itemId) => {
         onDelete()
@@ -73,9 +86,6 @@ const EditItemActions = ({ itemId, onDelete = noop }) => {
                             {canChangeVisualization && (
                                 <MenuItem
                                     dense
-                                    icon={
-                                        <IconSync16 color={colors.grey700} />
-                                    }
                                     label={i18n.t('Change visualization')}
                                     onClick={() => {
                                         setMenuOpen(false)
@@ -86,7 +96,6 @@ const EditItemActions = ({ itemId, onDelete = noop }) => {
                             )}
                             <MenuItem
                                 dense
-                                icon={<IconCopy16 color={colors.grey700} />}
                                 label={i18n.t('Duplicate item')}
                                 onClick={() => {
                                     setMenuOpen(false)
@@ -94,10 +103,41 @@ const EditItemActions = ({ itemId, onDelete = noop }) => {
                                 }}
                                 dataTest="duplicate-item-button"
                             />
+                            <Divider />
+                            <MenuItem
+                                dense
+                                label={
+                                    columns.length
+                                        ? i18n.t('Use this height for new items')
+                                        : i18n.t('Use this size for new items')
+                                }
+                                onClick={onUseSizeForNewItems}
+                                dataTest="set-new-item-size-button"
+                            />
+                            <MenuItem
+                                dense
+                                label={
+                                    columns.length
+                                        ? i18n.t('Use this height for all items')
+                                        : i18n.t('Use this size for all items')
+                                }
+                                onClick={() => {
+                                    setMenuOpen(false)
+                                    if (item) {
+                                        dispatch(
+                                            tSetAllItemsSize({
+                                                w: item.w,
+                                                h: item.h,
+                                            })
+                                        )
+                                    }
+                                }}
+                                dataTest="set-all-items-size-button"
+                            />
+                            <Divider />
                             <MenuItem
                                 dense
                                 destructive
-                                icon={<IconDelete16 color={colors.red600} />}
                                 label={i18n.t('Delete')}
                                 onClick={() => {
                                     setMenuOpen(false)

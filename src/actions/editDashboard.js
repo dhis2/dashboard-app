@@ -7,6 +7,7 @@ import {
     getDashboardItem,
     rescaleItemsToColumns,
     updateItems,
+    GRID_COLUMNS,
 } from '../modules/gridUtil.js'
 import { itemTypeMap } from '../modules/itemTypes.js'
 import { setPendingScrollItem } from '../modules/scrollToNewItem.js'
@@ -31,10 +32,12 @@ import {
     RECEIVED_GRID_COLUMNS,
     RECEIVED_ITEM_CONFIG_INSERT_POSITION,
     RECEIVED_ITEM_CONFIG_NEW_ITEM_WIDTH,
+    SET_NEW_ITEM_SIZE,
     sGetEditDashboardItems,
     sGetLayoutColumns,
     sGetItemConfigInsertPosition,
     sGetItemConfigNewItemWidth,
+    sGetNewItemSize,
     RECEIVED_CODE,
 } from '../reducers/editDashboard.js'
 import { tFetchDashboards } from './dashboards.js'
@@ -127,6 +130,13 @@ export const acSetItemConfigNewItemWidth = (value) => ({
     value,
 })
 
+// Session-only default size for new items, per layout mode.
+// mode: 'freeflow' | 'fixed'; size: { w, h } for freeflow, { h } for fixed.
+export const acSetNewItemSize = ({ mode, size }) => ({
+    type: SET_NEW_ITEM_SIZE,
+    value: { mode, size },
+})
+
 // thunks
 
 // no layout + end: add to new row at the end, default size
@@ -164,12 +174,24 @@ export const tSetDashboardItems =
                 dashboardItemsWithShapes = getAutoItemShapes(items, columns)
                 updateItems(dashboardItemsWithShapes, dispatch)
             } else {
-                // Apply the per-dashboard default width (honored in freeflow;
-                // ignored in fixed layout, where getAutoItemShapes sizes items
-                // to the column count).
+                // Per-session default size captured from an existing item
+                // (via its ⋯ menu), keyed by layout mode.
+                const mode = columns.length ? 'fixed' : 'freeflow'
+                const sessionSize = sGetNewItemSize(getState())[mode]
+
+                // Width: the session default (freeflow only) wins, else the
+                // per-dashboard default. Fixed width is column-driven, so the
+                // value here is a placeholder that getAutoItemShapes overrides.
+                // Height: the session default (if set) overrides the shape
+                // default — it carries through the freeflow spread and seeds
+                // fixed rows before row-equalization.
                 const newDashboardItem = {
                     ...getDashboardItem(itemToAdd),
-                    w: newItemWidth,
+                    w:
+                        mode === 'freeflow' && sessionSize?.w
+                            ? sessionSize.w
+                            : newItemWidth,
+                    ...(sessionSize?.h ? { h: sessionSize.h } : {}),
                 }
 
                 // Click-to-add places the item at the top/bottom of the canvas,
@@ -195,6 +217,37 @@ export const tSetDashboardItems =
 
                 updateItems(dashboardItemsWithShapes, dispatch)
             }
+        }
+    }
+
+// Apply one size to every item.
+// Fixed: width is column-driven, so apply the height and re-flow rows (because
+// getAutoItemShapes equalizes each row to its tallest item, uniform heights
+// make every row that height).
+// Freeflow: apply width + height, keeping each item's position (clamp x so
+// resized items don't overflow the grid width).
+export const tSetAllItemsSize =
+    ({ w, h }) =>
+    (dispatch, getState) => {
+        const columns = sGetLayoutColumns(getState())
+        const items = sGetEditDashboardItems(getState())
+
+        if (columns.length) {
+            const withShapes = getAutoItemShapes(
+                items.map((item) => ({ ...item, h })),
+                columns
+            )
+            if (withShapes) {
+                updateItems(withShapes, dispatch)
+            }
+        } else {
+            const resized = items.map((item) => ({
+                ...item,
+                w,
+                h,
+                x: Math.min(item.x, GRID_COLUMNS - w),
+            }))
+            updateItems(resized, dispatch)
         }
     }
 

@@ -27,6 +27,7 @@ export const RECEIVED_ITEM_CONFIG_INSERT_POSITION =
     'RECEIVED_ITEM_CONFIG_INSERT_POSITION'
 export const RECEIVED_ITEM_CONFIG_NEW_ITEM_WIDTH =
     'RECEIVED_ITEM_CONFIG_NEW_ITEM_WIDTH'
+export const SET_NEW_ITEM_SIZE = 'SET_NEW_ITEM_SIZE'
 
 export const EMPTY_STATE_EDIT_DASHBOARD = {}
 export const DEFAULT_STATE_EDIT_DASHBOARD = {
@@ -52,6 +53,14 @@ export const DEFAULT_STATE_EDIT_DASHBOARD = {
         // width (60-unit storage space) of newly added freeflow items
         newItemWidth: DEFAULT_NEW_ITEM_WIDTH,
     },
+    // editor-only, per-session default size for newly added items, captured
+    // from an existing item via its ⋯ menu. Not persisted (excluded from the
+    // save request, like gridColumns). Keyed by layout mode: freeflow uses
+    // { w, h }; fixed uses { h } (width is column-driven).
+    newItemSize: {
+        freeflow: null,
+        fixed: null,
+    },
 }
 
 export default (state = DEFAULT_STATE_EDIT_DASHBOARD, action) => {
@@ -65,6 +74,7 @@ export default (state = DEFAULT_STATE_EDIT_DASHBOARD, action) => {
                 DEFAULT_STATE_EDIT_DASHBOARD.printPreviewView
             newState.isDirty = DEFAULT_STATE_EDIT_DASHBOARD.isDirty
             newState.gridColumns = DEFAULT_STATE_EDIT_DASHBOARD.gridColumns
+            newState.newItemSize = DEFAULT_STATE_EDIT_DASHBOARD.newItemSize
             return newState
         }
         case RECEIVED_NOT_EDITING:
@@ -249,6 +259,16 @@ export default (state = DEFAULT_STATE_EDIT_DASHBOARD, action) => {
                 isDirty: true,
             }
         }
+        case SET_NEW_ITEM_SIZE: {
+            // Session-only; deliberately does not set isDirty (not persisted).
+            return {
+                ...state,
+                newItemSize: {
+                    ...state.newItemSize,
+                    [action.value.mode]: action.value.size,
+                },
+            }
+        }
         default:
             return state
     }
@@ -306,3 +326,8 @@ export const sGetItemConfigInsertPosition = (state) =>
 // the default for dashboards saved before this setting existed.
 export const sGetItemConfigNewItemWidth = (state) =>
     sGetItemConfig(state).newItemWidth || DEFAULT_NEW_ITEM_WIDTH
+
+// Editor-only, per-session default size for newly added items, keyed by layout
+// mode ('freeflow' | 'fixed'). Not persisted. Returns {} before edit init.
+export const sGetNewItemSize = (state) =>
+    sGetEditDashboardRoot(state)?.newItemSize || {}
