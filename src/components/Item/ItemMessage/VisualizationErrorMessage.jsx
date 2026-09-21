@@ -34,7 +34,7 @@ const VisualizationErrorMessage = ({
                         href={visHref}
                     >
                         {i18n.t('Open this item in {{appName}}', {
-                            appName: getAppName(itemType),
+                            appName: getAppName(itemType, apiVersion),
                         })}
                     </a>
                 </span>
