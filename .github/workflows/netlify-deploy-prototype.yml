@@ -1,0 +1,96 @@
+name: 'dhis2: prototype preview'
+
+# Deploys pushes to `prototype/**` branches as a Netlify preview at
+# https://{slug}.dashboard.netlify.dhis2.org. Skipped when the
+# branch has an open PR (handled by the PR preview workflow instead).
+#
+# Org secrets:  DHIS2_BOT_NETLIFY_TOKEN, DHIS2_BOT_GITHUB_TOKEN
+# Repo secret:  NETLIFY_SITE_ID
+
+on:
+    push:
+        branches:
+            - 'prototype/**'
+
+jobs:
+    has-pr:
+        runs-on: ubuntu-latest
+        outputs:
+            result: ${{ steps.check.outputs.result }}
+        steps:
+            - id: check
+              env:
+                  GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+                  REPO: ${{ github.repository }}
+                  BRANCH: ${{ github.ref_name }}
+              run: |
+                  count=$(gh pr list --repo "$REPO" --head "$BRANCH" --state open --json number --jq 'length')
+                  if [ "$count" -gt 0 ]; then
+                      echo "Branch '$BRANCH' has $count open PR(s); deploy-prototype will be skipped (PR preview workflow handles deploys)."
+                      echo "result=true" >>"$GITHUB_OUTPUT"
+                  fi
+
+    deploy-prototype:
+        needs: has-pr
+        if: needs.has-pr.outputs.result != 'true'
+        runs-on: ubuntu-latest
+        concurrency:
+            group: prototype-preview-${{ github.ref_name }}
+            cancel-in-progress: true
+        steps:
+            - name: Compute alias slug
+              id: slug
+              env:
+                  BRANCH: ${{ github.ref_name }}
+              run: |
+                  # `--` is Netlify's reserved branch/site separator and
+                  # gets collapsed to `-` server-side; do it here too so
+                  # our logged slug matches the URL Netlify actually serves.
+                  slug=$(printf '%s' "$BRANCH" \
+                      | tr '[:upper:]' '[:lower:]' \
+                      | sed -e 's|[^a-z0-9]|-|g' -e 's|--*|-|g' \
+                              -e 's|^-*||' \
+                      | cut -c1-37 \
+                      | sed -e 's|-*$||')
+                  case "$slug" in
+                      [a-z0-9]*) ;;
+                      *)
+                          echo "::error::Branch '$BRANCH' produces an invalid Netlify alias."
+                          exit 1
+                          ;;
+                  esac
+                  echo "slug=$slug" >>"$GITHUB_OUTPUT"
+                  {
+                      echo "## Prototype preview"
+                      echo ""
+                      echo "Branch: \`$BRANCH\`"
+                      echo "URL: https://$slug.dashboard.netlify.dhis2.org"
+                  } >>"$GITHUB_STEP_SUMMARY"
+
+            - uses: actions/checkout@v4
+            - uses: actions/setup-node@v4
+              with:
+                  node-version: 20.x
+
+            - name: Install dependencies
+              run: yarn install --frozen-lockfile
+
+            - name: Build
+              run: yarn d2-app-scripts build --standalone
+
+            - name: Deploy
+              uses: nwtgck/actions-netlify@v3
+              timeout-minutes: 2
+              with:
+                  github-token: ${{ secrets.DHIS2_BOT_GITHUB_TOKEN }}
+                  github-deployment-environment: 'netlify-prototype-preview'
+                  github-deployment-description: 'Prototype Preview on Netlify'
+                  deploy-message: 'Prototype deploy: ${{ github.ref_name }}'
+                  enable-pull-request-comment: false
+                  enable-commit-comment: false
+                  enable-commit-status: false
+                  alias: ${{ steps.slug.outputs.slug }}
+                  publish-dir: 'build/app'
+              env:
+                  NETLIFY_AUTH_TOKEN: ${{ secrets.DHIS2_BOT_NETLIFY_TOKEN }}
+                  NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
