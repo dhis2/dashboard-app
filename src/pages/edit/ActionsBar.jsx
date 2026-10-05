@@ -10,7 +10,6 @@ import PropTypes from 'prop-types'
 import React, { useState } from 'react'
 import { connect } from 'react-redux'
 import { Redirect } from 'react-router-dom'
-import { tFetchDashboards } from '../../actions/dashboards.js'
 import {
     tSaveDashboard,
     acClearEditDashboard,
@@ -82,8 +81,6 @@ const EditBar = ({ dashboard, ...props }) => {
             })
             .then(() => {
                 props.clearSelected()
-
-                return props.fetchDashboards()
             })
             .then(() => setRedirectUrl('/'))
             .catch(deleteFailureAlert.show)
@@ -321,7 +318,6 @@ const mapDispatchToProps = {
     clearSelected: () => (dispatch) => dispatch(acClearSelected()),
     saveDashboard: () => (dispatch) =>
         dispatch(tSaveDashboard()).then((id) => id),
-    fetchDashboards: () => (dispatch) => dispatch(tFetchDashboards()),
     onDiscardChanges: () => (dispatch) => dispatch(acClearEditDashboard()),
     setFilterSettings: (value) => (dispatch) =>
         dispatch(acSetFilterSettings(value)),

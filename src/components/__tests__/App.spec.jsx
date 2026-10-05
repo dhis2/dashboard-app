@@ -3,7 +3,6 @@ import React from 'react'
 import { Provider } from 'react-redux'
 import configureMockStore from 'redux-mock-store'
 import thunk from 'redux-thunk'
-import { apiFetchDashboards } from '../../api/fetchAllDashboards.js'
 import App from '../App.jsx'
 import { useSystemSettings } from '../AppDataProvider/AppDataProvider.jsx'
 
@@ -22,20 +21,9 @@ jest.mock('@dhis2/app-runtime', () => ({
         isDisconnected: false,
     })),
     useDataEngine: jest.fn(() => ({ query: Function.prototype })),
+    useDataQuery: jest.fn(() => ({ query: Function.prototype })),
     useCacheableSection: jest.fn,
 }))
-
-jest.mock('../../api/fetchAllDashboards.js', () => {
-    return {
-        apiFetchDashboards: jest.fn(() => [
-            {
-                id: 'rainbowdash',
-                displayName: 'Rainbow Dash',
-                starred: true,
-            },
-        ]),
-    }
-})
 
 jest.mock('../../api/dataStatistics.js', () => {
     return {
@@ -129,7 +117,6 @@ test('renders the app with a dashboard', () => {
     )
 
     expect(container).toMatchSnapshot()
-    expect(apiFetchDashboards).toHaveBeenCalledTimes(1)
     jest.clearAllMocks()
 })
 
@@ -146,6 +133,5 @@ test('renders the app with the start page', async () => {
     )
     await act(() => promise)
     expect(container).toMatchSnapshot()
-    expect(apiFetchDashboards).toHaveBeenCalledTimes(1)
     jest.clearAllMocks()
 })
