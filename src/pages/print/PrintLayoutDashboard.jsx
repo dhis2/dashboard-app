@@ -45,34 +45,38 @@ const PrintLayoutDashboard = ({
     const [redirectUrl, setRedirectUrl] = useState(null)
     const [isLoading, setIsLoading] = useState(true)
 
-    const customizePrintLayoutDashboard = (dboard) => {
-        // If any items are taller than one page, reduce it to one
-        // page (react-grid-layout units)
-        dboard.dashboardItems.forEach((item) => {
-            if (item.h > MAX_ITEM_GRID_HEIGHT) {
-                item.shortened = true
-                updateDashboardItem({ ...item, h: MAX_ITEM_GRID_HEIGHT })
-            }
-        })
-
-        addPageBreaks(dboard.dashboardItems, addDashboardItem)
-
-        addDashboardItem({
-            type: PRINT_TITLE_PAGE,
-            isOneItemPerPage: false,
-        })
-
-        setIsLoading(false)
-    }
-
     useEffect(() => {
+        const customizePrintLayoutDashboard = (dboard) => {
+            // If any items are taller than one page, reduce it to one
+            // page (react-grid-layout units)
+            dboard.dashboardItems.forEach((item) => {
+                if (item.h > MAX_ITEM_GRID_HEIGHT) {
+                    item.shortened = true
+                    updateDashboardItem({ ...item, h: MAX_ITEM_GRID_HEIGHT })
+                }
+            })
+
+            addPageBreaks(dboard.dashboardItems, addDashboardItem)
+
+            addDashboardItem({
+                type: PRINT_TITLE_PAGE,
+                isOneItemPerPage: false,
+            })
+
+            setIsLoading(false)
+        }
+
         const loadDashboard = async () => {
             try {
-                const dashboard = await apiFetchDashboard(dataEngine, id, {
-                    mode: VIEW,
-                })
-                setPrintDashboard(dashboard)
-                customizePrintLayoutDashboard(dashboard)
+                const fetchedDashboard = await apiFetchDashboard(
+                    dataEngine,
+                    id,
+                    {
+                        mode: VIEW,
+                    }
+                )
+                setPrintDashboard(fetchedDashboard)
+                customizePrintLayoutDashboard(fetchedDashboard)
             } catch (error) {
                 console.error('Error loading dashboard:', error)
                 setRedirectUrl(id ? `/${id}` : '/')
@@ -88,7 +92,14 @@ const PrintLayoutDashboard = ({
             setPrintDashboard(dashboard)
             customizePrintLayoutDashboard(dashboard)
         }
-    }, [dashboard])
+    }, [
+        dashboard,
+        dataEngine,
+        id,
+        setPrintDashboard,
+        addDashboardItem,
+        updateDashboardItem,
+    ])
 
     if (redirectUrl) {
         return <Redirect to={redirectUrl} />
