@@ -116,7 +116,9 @@ describe('Slideshow functionality', () => {
         assertNormalViewIsShown()
 
         // Click the slideshow button
-        cy.get('button').contains('Slideshow').realClick()
+        cy.getByDataTest('enter-slideshow-button')
+            .should('not.be.disabled')
+            .realClick()
 
         // Assert fullscreen mode is shown
         assertSlideshowControlbar()
@@ -211,7 +213,9 @@ describe('Slideshow functionality', () => {
         assertNormalViewIsShown()
 
         // Click the slideshow button
-        cy.get('button').contains('Slideshow').realClick()
+        cy.getByDataTest('enter-slideshow-button')
+            .should('not.be.disabled')
+            .realClick()
 
         // Assert fullscreen mode is shown
         assertSlideshowControlbar()
@@ -240,7 +244,7 @@ describe('Slideshow functionality', () => {
         // eslint-disable-next-line cypress/no-unnecessary-waiting
         cy.wait(11000) // Wait for the autoplay to switch to the next item
 
-        // // Assert item 2 is shown after autoplay starts
+        // Assert item 2 is shown after autoplay starts
         assertOnlyItem2IsVisible()
 
         // eslint-disable-next-line cypress/no-unnecessary-waiting

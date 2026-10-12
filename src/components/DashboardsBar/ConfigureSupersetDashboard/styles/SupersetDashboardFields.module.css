@@ -6,6 +6,8 @@
 }
 .options {
     all: unset;
+    display: block;
+    margin-block-end: var(--spacers-dp12);
 }
 .options legend {
     font-size: 14px;

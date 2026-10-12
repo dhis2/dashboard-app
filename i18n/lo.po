@@ -8,7 +8,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2025-10-28T16:09:41.600Z\n"
+"POT-Creation-Date: 2026-05-07T22:45:54.825Z\n"
 "PO-Revision-Date: 2019-06-25 12:37+0000\n"
 "Last-Translator: Saysamone Sibounma, 2026\n"
 "Language-Team: Lao (https://app.transifex.com/hisp-uio/teams/100509/lo/)\n"
@@ -784,3 +784,11 @@ msgstr "1 ນາທີຕໍ່ສະໄລ້"
 
 msgid "2 minutes per slide"
 msgstr "2 ນາທີຕໍ່ສະໄລ້"
+
+msgctxt "Application title"
+msgid "__MANIFEST_APP_TITLE"
+msgstr "ກະດານຂ່າວ"
+
+msgctxt "Application description"
+msgid "__MANIFEST_APP_DESCRIPTION"
+msgstr ""

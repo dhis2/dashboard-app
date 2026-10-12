@@ -21,6 +21,7 @@ const defaultInitialValues = {
     supersetEmbedId: '',
     showChartControls: true,
     expandFilters: false,
+    restrictOrgUnitHierarchy: false,
 }
 
 describe('useSupersetDashboardFieldsState', () => {
@@ -62,6 +63,7 @@ describe('useSupersetDashboardFieldsState', () => {
                 supersetEmbedId: '',
                 showChartControls: false,
                 expandFilters: true,
+                restrictOrgUnitHierarchy: false,
             }
             const { result } = renderHook(() =>
                 useSupersetDashboardFieldsState(initialValues)
@@ -81,6 +83,7 @@ describe('useSupersetDashboardFieldsState', () => {
                 supersetEmbedId: undefined,
                 showChartControls: undefined,
                 expandFilters: undefined,
+                restrictOrgUnitHierarchy: undefined,
             }
             const { result } = renderHook(() =>
                 useSupersetDashboardFieldsState(initialValues)
@@ -279,6 +282,7 @@ describe('useSupersetDashboardFieldsState', () => {
                 supersetEmbedId: NILL_UUID,
                 showChartControls: false,
                 expandFilters: true,
+                restrictOrgUnitHierarchy: false,
             }
 
             act(() => {

@@ -13,5 +13,8 @@ export const parseSupersetDashboardFieldValues = (values) => ({
                 expanded: values.expandFilters,
             },
         },
+        security: {
+            restrictOrgUnitHierarchy: !!values.restrictOrgUnitHierarchy,
+        },
     },
 })
