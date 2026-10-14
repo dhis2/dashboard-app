@@ -1,13 +1,12 @@
 import { combineReducers } from 'redux'
 import activeModalDimension from './activeModalDimension.js'
-import dashboards from './dashboards.js'
-import dashboardsFilter from './dashboardsFilter.js'
 import dimensions from './dimensions.js'
 import editDashboard from './editDashboard.js'
 import iframePluginStatus from './iframePluginStatus.js'
 import itemActiveTypes from './itemActiveTypes.js'
 import itemFilters from './itemFilters.js'
 import messages from './messages.js'
+import offlineDashboards from './offlineDashboards.js'
 import passiveViewRegistered from './passiveViewRegistered.js'
 import printDashboard from './printDashboard.js'
 import selected from './selected.js'
@@ -16,13 +15,12 @@ import slideshow from './slideshow.js'
 import visualizations from './visualizations.js'
 
 export default combineReducers({
-    dashboards,
     selected,
-    dashboardsFilter,
     visualizations,
     messages,
     editDashboard,
     printDashboard,
+    offlineDashboards,
     itemFilters,
     dimensions,
     activeModalDimension,
