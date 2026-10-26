@@ -87,7 +87,7 @@ class Item extends Component {
 
         // force fetch when recording to allow caching of the visualizations request
         if (isRecording) {
-            apiFetchVisualization(item, engine)
+            apiFetchVisualization(item, engine).catch(console.error)
         }
     }
 
@@ -119,7 +119,9 @@ class Item extends Component {
             this.props.isRecording !== prevProps.isRecording &&
             !hasStandalonePlugin(this.props.item.type, this.props.apiVersion)
         ) {
-            apiFetchVisualization(this.props.item, this.props.engine)
+            apiFetchVisualization(this.props.item, this.props.engine).catch(
+                console.error
+            )
         }
 
         if (this.props.item.h !== prevProps.item.h) {
