@@ -14,7 +14,7 @@ import {
 const BASE_URL = 'https://play.dhis2.org'
 
 describe('version-aware accessors for EVENT_VISUALIZATION', () => {
-    it('resolves to the Event Visualizer app from api version 43', () => {
+    it('resolves to the Individual Data Visualizer app from api version 43', () => {
         const apiVersion = 43
 
         expect(getAppKey(EVENT_VISUALIZATION, apiVersion)).toBe(

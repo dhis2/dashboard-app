@@ -59,7 +59,7 @@ describe('hasStandalonePlugin', () => {
 })
 
 describe('getPluginLaunchUrl', () => {
-    const everApp = {
+    const idvApp = {
         key: 'individual-data-visualizer',
         pluginLaunchUrl: `${BASE_URL}/api/apps/individual-data-visualizer/plugin.html`,
     }
@@ -72,22 +72,22 @@ describe('getPluginLaunchUrl', () => {
         pluginLaunchUrl: `${BASE_URL}/dhis-web-data-visualizer/plugin.html`,
     }
 
-    it('resolves EVENT_VISUALIZATION to the Event Visualizer app from api version 43', () => {
+    it('resolves EVENT_VISUALIZATION to the Individual Data Visualizer app from api version 43', () => {
         expect(
             getPluginLaunchUrl({
                 type: EVENT_VISUALIZATION,
-                apps: [everApp, lineListingApp],
+                apps: [idvApp, lineListingApp],
                 baseUrl: BASE_URL,
                 apiVersion: 43,
             })
-        ).toBe(everApp.pluginLaunchUrl)
+        ).toBe(idvApp.pluginLaunchUrl)
     })
 
     it('resolves EVENT_VISUALIZATION to the Line Listing app below api version 43', () => {
         expect(
             getPluginLaunchUrl({
                 type: EVENT_VISUALIZATION,
-                apps: [everApp, lineListingApp],
+                apps: [idvApp, lineListingApp],
                 baseUrl: BASE_URL,
                 apiVersion: 42,
             })

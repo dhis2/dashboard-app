@@ -7,7 +7,7 @@ import Visualization from '../Visualization.jsx'
 // Mutable so each test can pick the backend version and which plugin apps are
 // available, without re-mocking the modules
 let mockApiVersion
-let mockEVERCompatible
+let mockIDVCompatible
 let mockLLCompatible
 
 jest.mock('@dhis2/analytics', () => ({
@@ -28,7 +28,7 @@ jest.mock('../../../../../modules/isAppVersionCompatible.js', () => ({
     ...jest.requireActual('../../../../../modules/isAppVersionCompatible.js'),
     isDVVersionCompatible: () => false,
     isMapsVersionCompatible: () => false,
-    isEVERVersionCompatible: () => mockEVERCompatible,
+    isIDVVersionCompatible: () => mockIDVCompatible,
     isLLVersionCompatible: () => mockLLCompatible,
 }))
 
@@ -36,7 +36,7 @@ jest.mock('../../../../AppDataProvider/AppDataProvider.jsx', () => ({
     useInstalledApps: () => [],
     useInstalledDVVersion: () => '0.0.0',
     useInstalledMapsVersion: () => '0.0.0',
-    useInstalledEVERVersion: () => '0.0.0',
+    useInstalledIDVVersion: () => '0.0.0',
     useInstalledLLVersion: () => '0.0.0',
 }))
 
@@ -89,7 +89,7 @@ const renderVisualization = (props = {}) =>
 
 beforeEach(() => {
     iframePluginProps = undefined
-    mockEVERCompatible = false
+    mockIDVCompatible = false
     mockLLCompatible = false
 })
 
@@ -137,13 +137,13 @@ describe('below api version 43 (Line Listing)', () => {
     })
 })
 
-describe('from api version 43 (Event Visualizer)', () => {
+describe('from api version 43 (Individual Data Visualizer)', () => {
     beforeEach(() => {
         mockApiVersion = 43
     })
 
-    it('renders the plugin when the Event Visualizer app is compatible', () => {
-        mockEVERCompatible = true
+    it('renders the plugin when the Individual Data Visualizer app is compatible', () => {
+        mockIDVCompatible = true
 
         const { container } = renderVisualization()
 
@@ -151,7 +151,7 @@ describe('from api version 43 (Event Visualizer)', () => {
     })
 
     it('passes visualizationId and filters instead of the visualization', () => {
-        mockEVERCompatible = true
+        mockIDVCompatible = true
         const itemFilters = { ou: [{ id: 'ImspTQPwCqd' }] }
 
         renderVisualization({ itemFilters })
@@ -164,7 +164,7 @@ describe('from api version 43 (Event Visualizer)', () => {
     it('renders without fetching a visualization first', () => {
         // The standalone plugin fetches its own, so the dashboard must not
         // fall through to the "No data to display" guard
-        mockEVERCompatible = true
+        mockIDVCompatible = true
 
         const { container, queryByText } = renderVisualization({
             visualization: undefined,
@@ -175,7 +175,7 @@ describe('from api version 43 (Event Visualizer)', () => {
     })
 
     it('does not render the overlay, since the plugin owns that notice', () => {
-        mockEVERCompatible = true
+        mockIDVCompatible = true
 
         const { queryByText } = renderVisualization({
             showNoFiltersOverlay: true,
@@ -184,7 +184,7 @@ describe('from api version 43 (Event Visualizer)', () => {
         expect(queryByText('Show without filters')).toBeNull()
     })
 
-    it('prompts to install the Event Visualizer app when incompatible', () => {
+    it('prompts to install the Individual Data Visualizer app when incompatible', () => {
         const { getByText } = renderVisualization()
 
         expect(

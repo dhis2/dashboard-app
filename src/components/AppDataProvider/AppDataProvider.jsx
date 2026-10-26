@@ -137,7 +137,7 @@ export function useInstalledApps() {
 export function useInstalledDVVersion() {
     return useInstalledAppVersion('data-visualizer')
 }
-export function useInstalledEVERVersion() {
+export function useInstalledIDVVersion() {
     return useInstalledAppVersion('individual-data-visualizer')
 }
 export function useInstalledLLVersion() {

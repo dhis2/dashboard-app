@@ -4,9 +4,9 @@ import { Button, Cover, IconInfo24, colors } from '@dhis2/ui'
 import PropTypes from 'prop-types'
 import React from 'react'
 import {
-    isEVERVersionCompatible,
+    isIDVVersionCompatible,
     isLLVersionCompatible,
-    minEVERVersion,
+    minIDVVersion,
     minLLVersion,
 } from '../../../../modules/isAppVersionCompatible.js'
 import {
@@ -14,7 +14,7 @@ import {
     getAppName,
 } from '../../../../modules/itemTypes.js'
 import {
-    useInstalledEVERVersion,
+    useInstalledIDVVersion,
     useInstalledLLVersion,
 } from '../../../AppDataProvider/AppDataProvider.jsx'
 import IframePlugin from './IframePlugin.jsx'
@@ -53,16 +53,16 @@ const EventVisualizationPlugin = ({
     onClickNoFiltersOverlay,
 }) => {
     const { apiVersion } = useConfig()
-    const everAppVersion = useInstalledEVERVersion()
+    const idvAppVersion = useInstalledIDVVersion()
     const lineListingAppVersion = useInstalledLLVersion()
 
     if (apiVersion >= 43) {
-        return isEVERVersionCompatible(everAppVersion) ? (
+        return isIDVVersionCompatible(idvAppVersion) ? (
             <IframePlugin {...iFramePluginProps} />
         ) : (
             <InstallAppMessage
                 style={style}
-                minVersion={minEVERVersion}
+                minVersion={minIDVVersion}
                 apiVersion={apiVersion}
             />
         )

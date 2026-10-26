@@ -1,6 +1,6 @@
 // Minimum installed app versions required for the various dashboard item to render correctly
 export const minDVVersion = [101, 0, 0]
-export const minEVERVersion = [0, 0, 0]
+export const minIDVVersion = [0, 0, 0]
 export const minLLVersion = [102, 0, 0]
 export const minMapsVersion = [101, 0, 0]
 
@@ -22,8 +22,8 @@ const isAppVersionCompatible = (version, minVersion) => {
 export const isDVVersionCompatible = (version) =>
     isAppVersionCompatible(version, minDVVersion)
 
-export const isEVERVersionCompatible = (version) =>
-    isAppVersionCompatible(version, minEVERVersion)
+export const isIDVVersionCompatible = (version) =>
+    isAppVersionCompatible(version, minIDVVersion)
 
 export const isLLVersionCompatible = (version) =>
     isAppVersionCompatible(version, minLLVersion)
