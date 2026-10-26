@@ -369,9 +369,6 @@ msgstr "View as Map"
 msgid "There was a problem loading details for this item"
 msgstr "There was a problem loading details for this item"
 
-msgid "No data to display"
-msgstr "No data to display"
-
 msgid ""
 "Install {{appName}} app {{appVersion}} or higher in order to display this "
 "item."
@@ -384,6 +381,9 @@ msgstr "Show without filters"
 
 msgid "Maps with Earth Engine layers cannot be displayed when offline"
 msgstr "Maps with Earth Engine layers cannot be displayed when offline"
+
+msgid "No data to display"
+msgstr "No data to display"
 
 msgid "Unable to load the plugin for this item"
 msgstr "Unable to load the plugin for this item"
