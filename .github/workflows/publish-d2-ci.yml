@@ -31,9 +31,9 @@ jobs:
             - name: Print GitHub ref
               run: echo "GITHUB_REF is $GITHUB_REF" and actor is ${{ github.actor }}
 
-            - uses: actions/checkout@v4
+            - uses: actions/checkout@v7
 
-            - uses: actions/setup-node@v4
+            - uses: actions/setup-node@v7
               with:
                   node-version: 20.x
 
@@ -56,12 +56,12 @@ jobs:
         steps:
             - name: Send failure message to analytics-internal-bot slack channel
               id: slack_publish_failure
-              uses: slackapi/slack-github-action@v1.27.0
+              uses: slackapi/slack-github-action@v4.0.0
               with:
-                  channel-id: ${{ secrets.SLACK_CHANNEL_ID }}
+                  method: chat.postMessage
+                  token: ${{ secrets.SLACK_BOT_TOKEN }}
                   payload: |
                       {
-                          "text": ":small_red_triangle_down: :dashboard-app: Dashboard failed to deploy to d2-ci",
+                          "channel": "${{ secrets.SLACK_CHANNEL_ID }}",
+                          "text": ":small_red_triangle_down: :dashboard-app: Dashboard failed to deploy to d2-ci"
                       }
-              env:
-                  SLACK_BOT_TOKEN: ${{ secrets.SLACK_BOT_TOKEN }}
