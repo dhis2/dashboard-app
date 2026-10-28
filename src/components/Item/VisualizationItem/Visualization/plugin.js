@@ -1,3 +1,4 @@
+import { hasAppAccess } from '../../../../modules/appAccess.js'
 import {
     itemTypeMap,
     REPORT_TABLE,
@@ -29,29 +30,8 @@ const hasIntegratedPlugin = (type) =>
 // instead of the plugin.
 // The event reports and event chart scripts are accessible without the authority
 // before 2.42, so their access is only checked after the script fails to load.
-const coreAppAuthorities = {
-    [CHART]: 'M_dhis-web-data-visualizer',
-    [REPORT_TABLE]: 'M_dhis-web-data-visualizer',
-    [VISUALIZATION]: 'M_dhis-web-data-visualizer',
-    [MAP]: 'M_dhis-web-maps',
-    [EVENT_REPORT]: 'M_dhis-web-event-reports',
-    [EVENT_CHART]: 'M_dhis-web-event-visualizer',
-}
-
-// The app management authority grants access to all apps in 2.42+ (see DefaultAppManager.isAccessible
-// in dhis2-core). In 2.40 and 2.41 it doesn't for bundled apps, which then show the JSON error as before.
-const allAppsAuthorities = ['ALL', 'M_dhis-web-app-management']
-
-export const hasPluginAccess = (type, authorities = []) => {
-    const appAuthority = coreAppAuthorities[type]
-
-    return (
-        !appAuthority ||
-        [...allAppsAuthorities, appAuthority].some((authority) =>
-            authorities.includes(authority)
-        )
-    )
-}
+export const hasPluginAccess = (type, authorities) =>
+    hasAppAccess(itemTypeMap[type]?.appKey, authorities)
 
 export const getPluginLaunchUrl = (type, apps, baseUrl) => {
     // 1. lookup in api/apps for the "manually installed" app, this can be a new version for a core (bundled) app

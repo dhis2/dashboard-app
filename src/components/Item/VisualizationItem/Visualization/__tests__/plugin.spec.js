@@ -65,10 +65,17 @@ describe('hasPluginAccess', () => {
         expect(hasPluginAccess(VISUALIZATION)).toBe(false)
     })
 
-    test.each([EVENT_VISUALIZATION, APP])(
-        'does not check authorities for %s',
-        (type) => {
-            expect(hasPluginAccess(type, [])).toBe(true)
-        }
-    )
+    test.each([
+        [EVENT_VISUALIZATION, 'M_linelisting'],
+        [EVENT_VISUALIZATION, 'M_dhis-web-line-listing'],
+    ])('grants access to %s with the %s authority', (type, authority) => {
+        expect(hasPluginAccess(type, [authority])).toBe(true)
+        expect(hasPluginAccess(type, ['M_dhis-web-data-visualizer'])).toBe(
+            false
+        )
+    })
+
+    test('does not check authorities for APP', () => {
+        expect(hasPluginAccess(APP, [])).toBe(true)
+    })
 })
