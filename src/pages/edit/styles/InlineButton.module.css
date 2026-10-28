@@ -30,6 +30,8 @@
 .button:disabled {
     color: var(--colors-grey500);
     cursor: not-allowed;
+    /* let the hover reach a wrapping tooltip, which says why it's disabled */
+    pointer-events: none;
 }
 
 .destructive:hover:not(:disabled) {

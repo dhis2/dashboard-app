@@ -12,6 +12,7 @@ import {
     IconFilter16,
     IconTranslate16,
     IconDelete16,
+    Tooltip,
 } from '@dhis2/ui'
 import PropTypes from 'prop-types'
 import React, { useState } from 'react'
@@ -54,6 +55,17 @@ const deleteFailedMessage = i18n.t(
 )
 
 const fieldsToTranslate = ['name', 'description']
+
+// Icon-only toolbar action: the label is the accessible name and the tooltip
+const IconAction = ({ label, ...rest }) => (
+    <Tooltip content={label} openDelay={300} closeDelay={0}>
+        <InlineButton aria-label={label} {...rest} />
+    </Tooltip>
+)
+
+IconAction.propTypes = {
+    label: PropTypes.string.isRequired,
+}
 
 const EditBar = ({ dashboard, ...props }) => {
     const dataEngine = useDataEngine()
@@ -202,33 +214,38 @@ const EditBar = ({ dashboard, ...props }) => {
 
                 <div className={classes.right}>
                     {canUpdate && !props.isPrintPreviewView && (
-                        <InlineButton
+                        <IconAction
+                            label={i18n.t('Details')}
                             icon={<IconInfo16 />}
                             onClick={() => setDetailsModalIsOpen(true)}
-                        >
-                            {i18n.t('Details')}
-                        </InlineButton>
+                        />
                     )}
                     <OfflineTooltip>
-                        <InlineButton
-                            icon={<IconView16 />}
-                            disabled={!online}
-                            onClick={onPrintPreview}
-                        >
-                            {props.isPrintPreviewView
-                                ? i18n.t('Exit preview')
-                                : i18n.t('Preview')}
-                        </InlineButton>
+                        {props.isPrintPreviewView ? (
+                            <InlineButton
+                                icon={<IconView16 />}
+                                disabled={!online}
+                                onClick={onPrintPreview}
+                            >
+                                {i18n.t('Exit preview')}
+                            </InlineButton>
+                        ) : (
+                            <IconAction
+                                label={i18n.t('Preview')}
+                                icon={<IconView16 />}
+                                disabled={!online}
+                                onClick={onPrintPreview}
+                            />
+                        )}
                     </OfflineTooltip>
                     {canUpdate && !props.isPrintPreviewView && (
                         <OfflineTooltip>
-                            <InlineButton
+                            <IconAction
+                                label={i18n.t('Filters')}
                                 icon={<IconFilter16 />}
                                 disabled={!online}
                                 onClick={toggleFilterSettingsDialog}
-                            >
-                                {i18n.t('Filters')}
-                            </InlineButton>
+                            />
                         </OfflineTooltip>
                     )}
                     {canUpdate && !props.isPrintPreviewView && (
@@ -242,13 +259,12 @@ const EditBar = ({ dashboard, ...props }) => {
                                       )
                             }
                         >
-                            <InlineButton
+                            <IconAction
+                                label={i18n.t('Translate')}
                                 icon={<IconTranslate16 />}
                                 disabled={!online || !dashboard.id}
                                 onClick={toggleTranslationDialog}
-                            >
-                                {i18n.t('Translate')}
-                            </InlineButton>
+                            />
                         </OfflineTooltip>
                     )}
                     {!props.isPrintPreviewView &&
@@ -259,7 +275,8 @@ const EditBar = ({ dashboard, ...props }) => {
                                     'Cannot delete this dashboard while offline'
                                 )}
                             >
-                                <InlineButton
+                                <IconAction
+                                    label={i18n.t('Delete dashboard')}
                                     destructive
                                     icon={<IconDelete16 />}
                                     disabled={Boolean(dashboard.id) && !online}
@@ -269,9 +286,7 @@ const EditBar = ({ dashboard, ...props }) => {
                                             : onDiscardConfirmed
                                     }
                                     dataTest="delete-dashboard-button"
-                                >
-                                    {i18n.t('Delete')}
-                                </InlineButton>
+                                />
                             </OfflineTooltip>
                         )}
                     {!props.isPrintPreviewView && (
