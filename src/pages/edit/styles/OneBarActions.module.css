@@ -1,0 +1,74 @@
+.editBar {
+    display: flex;
+    align-items: center;
+    gap: var(--spacers-dp8);
+    padding: var(--spacers-dp4) var(--spacers-dp8);
+    background-color: var(--colors-white);
+    border-block-end: 1px solid var(--colors-grey400);
+    position: relative;
+    z-index: 10;
+    flex: none;
+}
+
+/* Title shrinks first so the add tools keep their room */
+.title {
+    display: flex;
+    flex: 0 1 240px;
+    min-inline-size: 120px;
+}
+
+.title > * {
+    inline-size: 100%;
+    min-inline-size: 0;
+}
+
+.right {
+    display: flex;
+    align-items: center;
+    gap: 2px;
+    flex: 0 0 auto;
+    margin-inline-start: auto;
+}
+
+.divider {
+    inline-size: 1px;
+    block-size: 16px;
+    background-color: var(--colors-grey400);
+    flex: none;
+    margin-inline: var(--spacers-dp4);
+}
+
+.saveButton {
+    margin-inline-start: var(--spacers-dp4);
+}
+
+.saveStatus {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    margin-inline-end: var(--spacers-dp8);
+    font-size: 12px;
+    color: var(--colors-grey700);
+    white-space: nowrap;
+}
+
+.saveStatus i {
+    inline-size: 7px;
+    block-size: 7px;
+    border-radius: 50%;
+    background: var(--colors-green600);
+}
+
+.saveStatus.dirty i {
+    background: var(--colors-yellow700);
+}
+
+.offline {
+    background-color: rgb(195, 100, 100) !important;
+    color: white !important;
+}
+
+.online {
+    background-color: rgb(143, 188, 167) !important;
+    color: white !important;
+}

@@ -23,3 +23,32 @@
 .itemActionsWrap button {
     margin-inline-start: var(--spacers-dp8);
 }
+
+/* Edit mode: a persistent header strip (same total height as the view header,
+   margins become padding) that is also the item's drag handle. */
+.editHeader {
+    position: relative;
+    z-index: 2;
+    margin: 0;
+    padding: var(--item-header-margin-top) var(--spacers-dp4)
+        var(--item-header-margin-bottom) var(--spacers-dp4);
+    background: var(--colors-grey050);
+    border-block-end: 1px solid var(--colors-grey300);
+    cursor: move;
+}
+
+.grip {
+    display: flex;
+    align-items: center;
+    margin-inline-end: var(--spacers-dp4);
+}
+
+.editHeader .itemTitle {
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+.editHeader .itemActionsWrap button {
+    margin-inline-start: var(--spacers-dp4);
+}

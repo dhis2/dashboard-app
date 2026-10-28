@@ -1,11 +1,6 @@
 import cx from 'classnames'
 import PropTypes from 'prop-types'
-import React, {
-    useEffect,
-    useLayoutEffect,
-    useRef,
-    useState,
-} from 'react'
+import React, { useEffect, useLayoutEffect, useRef, useState } from 'react'
 import { Responsive as ResponsiveReactGridLayout } from 'react-grid-layout'
 import { connect } from 'react-redux'
 import {
@@ -46,6 +41,7 @@ import {
     sGetEditGridColumns,
     sGetLayoutColumns,
 } from '../../reducers/editDashboard.js'
+import { useEditVariant } from './EditVariant.jsx'
 import FirstRunLayoutChoice from './FirstRunLayoutChoice.jsx'
 import GridUnitsPopup from './GridUnitsPopup.jsx'
 import MultiSelectToolbar from './MultiSelectToolbar.jsx'
@@ -101,6 +97,8 @@ const EditItemGrid = ({
     layoutColumns,
 }) => {
     const containerWidth = useContainerWidth()
+    // One toolbar variant: items drag by their header strip only
+    const headerDrag = useEditVariant() === 'onebar'
     const [gridWidth, setGridWidth] = useState({ width: 0 })
     const [selectedIds, setSelectedIds] = useState([])
     const [liveResize, setLiveResize] = useState(null)
@@ -435,8 +433,7 @@ const EditItemGrid = ({
             ) || null
         )
         isMultiResizingRef.current =
-            (isEqualHeightGroup && selectedIds.includes(newItem.i)) ||
-            hasLayout
+            (isEqualHeightGroup && selectedIds.includes(newItem.i)) || hasLayout
         if (isMultiResizingRef.current) {
             resizeGroupIdsRef.current = hasLayout
                 ? baseDisplayItems
@@ -576,7 +573,9 @@ const EditItemGrid = ({
             )}
             <div
                 ref={gridWrapperRef}
-                className={classes.gridWrapper}
+                className={cx(classes.gridWrapper, {
+                    [classes.headerDrag]: headerDrag,
+                })}
                 style={getGridGuideStyle(gridMetrics)}
                 data-resize-axis={resizingAxis || undefined}
                 onClickCapture={handleClickCapture}
@@ -609,6 +608,9 @@ const EditItemGrid = ({
                     onResizeStop={onResizeStop}
                     isDraggable={!hasLayout}
                     isResizable={true}
+                    draggableHandle={
+                        headerDrag ? '.item-drag-handle' : undefined
+                    }
                     draggableCancel="button,input,textarea"
                     onMouseMove={handleMouseMove}
                     onMouseLeave={handleMouseLeave}

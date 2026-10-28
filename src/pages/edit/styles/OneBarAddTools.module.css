@@ -1,0 +1,63 @@
+/* Add tools sit inline in the single edit toolbar (ActionsBar) */
+.bar {
+    display: flex;
+    align-items: center;
+    gap: var(--spacers-dp8);
+    flex: 1 1 auto;
+    min-inline-size: 0;
+    overflow-x: auto;
+    scrollbar-width: none;
+}
+
+.searchGroup {
+    display: flex;
+    align-items: center;
+    gap: 2px;
+    flex: none;
+}
+
+.group {
+    display: flex;
+    align-items: center;
+    gap: var(--spacers-dp8);
+    flex: none;
+}
+
+.divider {
+    inline-size: 1px;
+    block-size: 16px;
+    background-color: var(--colors-grey400);
+    flex: none;
+}
+
+.positionToggle {
+    display: inline-flex;
+    padding: 2px;
+    gap: 2px;
+    border: 1px solid var(--colors-grey400);
+    border-radius: 4px;
+    background: var(--colors-grey100);
+}
+
+.positionOption {
+    display: grid;
+    place-items: center;
+    inline-size: 26px;
+    block-size: 22px;
+    padding: 0;
+    border: 0;
+    border-radius: 3px;
+    background: transparent;
+    color: var(--colors-grey700);
+    cursor: pointer;
+}
+
+.positionOption:hover {
+    color: var(--colors-grey900);
+}
+
+.positionOptionOn {
+    background: var(--colors-white);
+    color: var(--colors-grey900);
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.15);
+}

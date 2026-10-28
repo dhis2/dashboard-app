@@ -5,8 +5,8 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1)\n"
-"POT-Creation-Date: 2026-09-17T10:03:20.344Z\n"
-"PO-Revision-Date: 2026-09-17T10:03:20.344Z\n"
+"POT-Creation-Date: 2026-10-28T08:19:10.556Z\n"
+"PO-Revision-Date: 2026-10-28T08:19:10.556Z\n"
 
 msgid "Untitled dashboard"
 msgstr "Untitled dashboard"
@@ -90,6 +90,12 @@ msgstr "Show chart controls on dashboard items"
 
 msgid "Expand filters"
 msgstr "Expand filters"
+
+msgid "Security"
+msgstr "Security"
+
+msgid "Restrict data by organisation unit hierarchy"
+msgstr "Restrict data by organisation unit hierarchy"
 
 msgid "Delete dashboard"
 msgstr "Delete dashboard"
@@ -272,6 +278,18 @@ msgstr "Change visualization"
 
 msgid "Duplicate item"
 msgstr "Duplicate item"
+
+msgid "Use this height for new items"
+msgstr "Use this height for new items"
+
+msgid "Use this size for new items"
+msgstr "Use this size for new items"
+
+msgid "Use this height for all items"
+msgstr "Use this height for all items"
+
+msgid "Use this size for all items"
+msgstr "Use this size for all items"
 
 msgid "This item has been shortened to fit on one page"
 msgstr "This item has been shortened to fit on one page"
@@ -520,8 +538,20 @@ msgstr "No, stay here"
 msgid "Yes, discard changes"
 msgstr "Yes, discard changes"
 
+msgid "Plugins"
+msgstr "Plugins"
+
 msgid "Layout"
 msgstr "Layout"
+
+msgid "Where to add new items"
+msgstr "Where to add new items"
+
+msgid "Add to start"
+msgstr "Add to start"
+
+msgid "Add to end"
+msgstr "Add to end"
 
 msgid "Search {{type}}"
 msgstr "Search {{type}}"
@@ -581,23 +611,29 @@ msgstr "Available Filters"
 msgid "Selected Filters"
 msgstr "Selected Filters"
 
-msgid "Start by choosing a layout"
-msgstr "Start by choosing a layout"
+msgid "Items are set to a fixed width"
+msgstr "Items are set to a fixed width"
 
-msgid "You can change this anytime from the Layout panel."
-msgstr "You can change this anytime from the Layout panel."
+msgid "Flexible items can be placed anywhere."
+msgstr "Flexible items can be placed anywhere."
 
-msgid "Freeflow"
-msgstr "Freeflow"
+msgid "New dashboard"
+msgstr "New dashboard"
 
-msgid "Place items anywhere, at any size."
-msgstr "Place items anywhere, at any size."
+msgid "Start adding visualizations, reports, and more from the toolbar above"
+msgstr "Start adding visualizations, reports, and more from the toolbar above"
 
-msgid "Fixed columns"
-msgstr "Fixed columns"
+msgid "Layout mode"
+msgstr "Layout mode"
 
-msgid "Items flow into evenly-sized columns."
-msgstr "Items flow into evenly-sized columns."
+msgid "Flexible layout"
+msgstr "Flexible layout"
+
+msgid "Fixed layout"
+msgstr "Fixed layout"
+
+msgid "Charts and tables"
+msgstr "Charts and tables"
 
 msgid "Show fewer"
 msgstr "Show fewer"
@@ -605,26 +641,47 @@ msgstr "Show fewer"
 msgid "Show more"
 msgstr "Show more"
 
+msgid "Special items"
+msgstr "Special items"
+
+msgid "Other"
+msgstr "Other"
+
+msgid "Add item…"
+msgstr "Add item…"
+
+msgid "Search visualizations, maps, reports…"
+msgstr "Search visualizations, maps, reports…"
+
+msgid "Search items to add"
+msgstr "Search items to add"
+
+msgid "No items found"
+msgstr "No items found"
+
+msgid "↑ ↓ to move"
+msgstr "↑ ↓ to move"
+
+msgid "Enter to add"
+msgstr "Enter to add"
+
+msgid "Esc to close"
+msgstr "Esc to close"
+
 msgid "Open visualization in new tab"
 msgstr "Open visualization in new tab"
 
-msgid "Insert"
-msgstr "Insert"
-
-msgid "Search for visualizations, reports and more"
-msgstr "Search for visualizations, reports and more"
+msgid "Search for visualizations and more"
+msgstr "Search for visualizations and more"
 
 msgid "Cannot search for dashboard items while offline"
 msgstr "Cannot search for dashboard items while offline"
 
-msgid "Where to add new items"
-msgstr "Where to add new items"
+msgid "Aggregate"
+msgstr "Aggregate"
 
-msgid "Add to start"
-msgstr "Add to start"
-
-msgid "Add to end"
-msgstr "Add to end"
+msgid "Search"
+msgstr "Search"
 
 msgid "Additional items"
 msgstr "Additional items"
@@ -661,19 +718,74 @@ msgstr ""
 msgid "Save layout"
 msgstr "Save layout"
 
-msgid "{{count}} selected"
-msgid_plural "{{count}} selected"
-msgstr[0] "{{count}} selected"
-msgstr[1] "{{count}} selected"
-
-msgid "Swap positions"
-msgstr "Swap positions"
-
 msgid "Set same height"
 msgstr "Set same height"
 
-msgid "Clear selection"
-msgstr "Clear selection"
+msgid "Remove {{count}} items"
+msgid_plural "Remove {{count}} items"
+msgstr[0] "Remove {{count}} items"
+msgstr[1] "Remove {{count}} items"
+
+msgid "Unsaved changes"
+msgstr "Unsaved changes"
+
+msgid "All changes saved"
+msgstr "All changes saved"
+
+msgid "Not saved yet"
+msgstr "Not saved yet"
+
+msgid "Dashboard settings"
+msgstr "Dashboard settings"
+
+msgid "Discard"
+msgstr "Discard"
+
+msgid "Exit"
+msgstr "Exit"
+
+msgid "Save"
+msgstr "Save"
+
+msgid "Fixed · {{count}} columns"
+msgid_plural "Fixed · {{count}} columns"
+msgstr[0] "Fixed · {{count}} columns"
+msgstr[1] "Fixed · {{count}} columns"
+
+msgid "Flexible"
+msgstr "Flexible"
+
+msgid "New items go to the start"
+msgstr "New items go to the start"
+
+msgid "New items go to the end"
+msgstr "New items go to the end"
+
+msgid "Close"
+msgstr "Close"
+
+msgid "Viewers can filter by {{count}} selected dimensions."
+msgid_plural "Viewers can filter by {{count}} selected dimensions."
+msgstr[0] "Viewers can filter by {{count}} selected dimensions."
+msgstr[1] "Viewers can filter by {{count}} selected dimensions."
+
+msgid "Viewers can filter by all dimensions."
+msgstr "Viewers can filter by all dimensions."
+
+msgid "Edit filter settings"
+msgstr "Edit filter settings"
+
+msgid "Translations"
+msgstr "Translations"
+
+msgid "Translate the title and description into other languages."
+msgstr "Translate the title and description into other languages."
+
+msgid "Save the dashboard before adding translations."
+msgstr "Save the dashboard before adding translations."
+
+msgid "Removes the dashboard for everyone. This can’t be undone."
+msgstr "Removes the dashboard for everyone. This can’t be undone."
 
 msgid "Dashboard title"
 msgstr "Dashboard title"
@@ -754,6 +866,11 @@ msgstr "Requested dashboard not found"
 
 msgid "No description"
 msgstr "No description"
+
+msgid "{{count}} selected"
+msgid_plural "{{count}} selected"
+msgstr[0] "{{count}} selected"
+msgstr[1] "{{count}} selected"
 
 msgid "Cannot edit filters while offline"
 msgstr "Cannot edit filters while offline"
@@ -848,11 +965,3 @@ msgstr "1 minute per slide"
 
 msgid "2 minutes per slide"
 msgstr "2 minutes per slide"
-
-msgctxt "Application title"
-msgid "__MANIFEST_APP_TITLE"
-msgstr "Dashboard"
-
-msgctxt "Application description"
-msgid "__MANIFEST_APP_DESCRIPTION"
-msgstr "DHIS2 Dashboard app"

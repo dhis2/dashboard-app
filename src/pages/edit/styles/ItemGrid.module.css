@@ -160,3 +160,14 @@
     border-radius: 3px;
     opacity: 0.6;
 }
+
+/* One toolbar variant: header strip keeps item actions visible (dimmed until
+   engaged) and is the only drag handle, so the body isn't a move target. */
+.headerDrag :global(.react-grid-item) :global(.edit-item-actions) {
+    opacity: 0.6;
+    pointer-events: auto;
+}
+
+.headerDrag :global(.react-grid-item.edit:hover) {
+    cursor: default;
+}

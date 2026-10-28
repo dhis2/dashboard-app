@@ -27,7 +27,7 @@ const InlineButton = ({
         {...rest}
     >
         {icon && <span className={classes.icon}>{icon}</span>}
-        <span>{children}</span>
+        {children && <span>{children}</span>}
         {iconRight && (
             <span className={cx(classes.icon, classes.iconRight)}>
                 {iconRight}

@@ -60,3 +60,14 @@
 .gap {
     margin-inline-start: var(--spacers-dp16);
 }
+
+.popover {
+    inline-size: 520px;
+    padding: var(--spacers-dp8) var(--spacers-dp8) 0;
+    max-block-size: calc(100vh - 120px);
+    overflow: auto;
+    background: var(--colors-white);
+    border: 1px solid var(--colors-grey300);
+    border-radius: 6px;
+    box-shadow: var(--elevations-e300);
+}

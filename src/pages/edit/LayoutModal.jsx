@@ -2,6 +2,8 @@ import { OfflineTooltip } from '@dhis2/analytics'
 import { useDhis2ConnectionStatus } from '@dhis2/app-runtime'
 import i18n from '@dhis2/d2-i18n'
 import {
+    Layer,
+    Popper,
     Modal,
     ModalTitle,
     ModalContent,
@@ -108,7 +110,28 @@ const isColumns = (value) => Boolean(value) || value === ''
 const getColsSaveValue = (value) =>
     value === '' ? DEFAULT_COLUMNS : parseInt(value, 10)
 
+// With an anchor the same form opens as a popover under the toolbar button
+const LayoutContainer = ({ anchor, onClose, children }) =>
+    anchor ? (
+        <Layer onBackdropClick={onClose}>
+            <Popper reference={anchor} placement="bottom-start">
+                <div className={classes.popover}>{children}</div>
+            </Popper>
+        </Layer>
+    ) : (
+        <Modal large onClose={onClose}>
+            {children}
+        </Modal>
+    )
+
+LayoutContainer.propTypes = {
+    anchor: PropTypes.object,
+    children: PropTypes.node,
+    onClose: PropTypes.func,
+}
+
 export const LayoutModal = ({
+    anchor,
     columns,
     gridColumns,
     onSaveLayout,
@@ -147,7 +170,7 @@ export const LayoutModal = ({
     }
 
     return (
-        <Modal large onClose={onClose}>
+        <LayoutContainer anchor={anchor} onClose={onClose}>
             <ModalTitle>{i18n.t('Dashboard layout')}</ModalTitle>
             <ModalContent>
                 <div
@@ -270,11 +293,12 @@ export const LayoutModal = ({
                     </OfflineTooltip>
                 </ButtonStrip>
             </ModalActions>
-        </Modal>
+        </LayoutContainer>
     )
 }
 
 LayoutModal.propTypes = {
+    anchor: PropTypes.object,
     columns: PropTypes.number,
     gridColumns: PropTypes.number,
     onClose: PropTypes.func,
