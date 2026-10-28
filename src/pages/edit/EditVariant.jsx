@@ -9,13 +9,15 @@ import OneBarActions from './OneBarActions.jsx'
 
 // Prototype switch between editor layouts, driven by a DialKit panel.
 // shortcut: lives only in the edit pages; remove with the losing variant.
-const TODAY = 'Today'
-const ONE_TOOLBAR = 'One toolbar'
+const TODAY = 'Two toolbars'
+const ONE_TOOLBAR = 'Command palette'
 const BUILD_SIDEBAR = 'Build sidebar'
+const SPLIT_BAR = 'Single toolbar'
 const VARIANTS = {
     [TODAY]: 'today',
     [ONE_TOOLBAR]: 'onebar',
     [BUILD_SIDEBAR]: 'sidebar',
+    [SPLIT_BAR]: 'split',
 }
 
 const EditVariantContext = createContext('today')
@@ -28,7 +30,7 @@ export const EditVariantProvider = ({ children }) => {
         {
             layout: {
                 type: 'select',
-                options: [TODAY, ONE_TOOLBAR, BUILD_SIDEBAR],
+                options: [TODAY, SPLIT_BAR, ONE_TOOLBAR, BUILD_SIDEBAR],
             },
         },
         { id: 'dashboard-creator-variant', persist: true }
@@ -51,6 +53,14 @@ EditVariantProvider.propTypes = {
 // left panel for add, layout and settings.
 export const EditShell = ({ showAddBar, children }) => {
     const variant = useEditVariant()
+    if (variant === 'split') {
+        return (
+            <>
+                <ActionsBar split />
+                {children}
+            </>
+        )
+    }
     if (variant === 'today') {
         return (
             <>

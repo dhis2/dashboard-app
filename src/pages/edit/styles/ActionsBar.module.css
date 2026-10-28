@@ -53,3 +53,41 @@
     background-color: rgb(143, 188, 167) !important;
     color: white !important;
 }
+
+/* Split single bar: three sections separated by full-height dividers. When
+   the row runs out of room the add tools wrap inside their section (and as a
+   last resort the actions wrap to a new line) — plain CSS, no measuring. */
+.split {
+    flex-wrap: wrap;
+    gap: 0;
+    padding-block: 0;
+    min-block-size: 44px;
+}
+
+.split .center {
+    flex: 0 1 340px;
+    min-inline-size: 180px;
+    align-items: center;
+    gap: var(--spacers-dp4);
+    padding-inline-end: var(--spacers-dp8);
+}
+
+.split .center > * {
+    inline-size: auto;
+}
+
+.split .center > :first-child {
+    flex: 1;
+}
+
+.split .right {
+    padding-inline-start: var(--spacers-dp8);
+    margin-inline-start: auto;
+}
+
+.sectionDivider {
+    inline-size: 1px;
+    align-self: stretch;
+    background-color: var(--colors-grey300);
+    flex: none;
+}

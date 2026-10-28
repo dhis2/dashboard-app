@@ -175,7 +175,9 @@ export const LayoutModal = ({
 
     return (
         <LayoutContainer anchor={anchor} inline={inline} onClose={onClose}>
-            {!inline && <ModalTitle>{i18n.t('Dashboard layout')}</ModalTitle>}
+            {!inline && !anchor && (
+                <ModalTitle>{i18n.t('Dashboard layout')}</ModalTitle>
+            )}
             <ModalContent>
                 <div
                     className={cx(classes.option, {

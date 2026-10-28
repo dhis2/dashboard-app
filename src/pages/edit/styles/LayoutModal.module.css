@@ -62,8 +62,8 @@
 }
 
 .popover {
-    inline-size: 520px;
-    padding: var(--spacers-dp8) var(--spacers-dp8) 0;
+    inline-size: 440px;
+    padding: var(--spacers-dp12);
     max-block-size: calc(100vh - 120px);
     overflow: auto;
     background: var(--colors-white);
@@ -80,4 +80,23 @@
 
 .inline .option {
     padding: var(--spacers-dp12);
+}
+
+/* Dropdown: no title; the modal content/actions lose their dialog padding so
+   the popover's own 12px frames everything evenly */
+.popover > [data-test='dhis2-uicore-modalcontent'] {
+    padding: 0;
+}
+
+.popover > [data-test='dhis2-uicore-modalactions'] {
+    padding: var(--spacers-dp4) 0 0;
+}
+
+.popover .option {
+    padding: var(--spacers-dp12);
+}
+
+.popover .iconWrapper {
+    margin-inline-start: var(--spacers-dp4);
+    margin-inline-end: var(--spacers-dp12);
 }

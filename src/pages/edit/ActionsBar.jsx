@@ -14,6 +14,7 @@ import {
     IconDelete16,
     Tooltip,
 } from '@dhis2/ui'
+import cx from 'classnames'
 import PropTypes from 'prop-types'
 import React, { useState } from 'react'
 import { connect } from 'react-redux'
@@ -29,14 +30,15 @@ import {
 import { acClearPrintDashboard } from '../../actions/printDashboard.js'
 import { acClearSelected } from '../../actions/selected.js'
 import ConfirmActionDialog from '../../components/ConfirmActionDialog.jsx'
-import DetailsModal from './DetailsModal.jsx'
 import {
     sGetEditDashboardRoot,
     sGetIsPrintPreviewView,
     sGetEditIsDirty,
     sGetLayoutColumns,
 } from '../../reducers/editDashboard.js'
+import AddItemsBar from './AddItemsBar.jsx'
 import { deleteDashboardMutation } from './deleteDashboardMutation.js'
+import DetailsModal from './DetailsModal.jsx'
 import FilterSettingsDialog from './FilterSettingsDialog.jsx'
 import InlineButton from './InlineButton.jsx'
 import InlineTitleEditor from './InlineTitleEditor.jsx'
@@ -67,7 +69,9 @@ IconAction.propTypes = {
     label: PropTypes.string.isRequired,
 }
 
-const EditBar = ({ dashboard, ...props }) => {
+// split: Split single bar variant — one toolbar in three sections (title +
+// details | add tools | document actions) divided by full-height lines
+const EditBar = ({ dashboard, split, ...props }) => {
     const dataEngine = useDataEngine()
     const { isConnected: online } = useDhis2ConnectionStatus()
     const [translationDlgIsOpen, setTranslationDlgIsOpen] = useState(false)
@@ -205,15 +209,33 @@ const EditBar = ({ dashboard, ...props }) => {
 
     return (
         <>
-            <div className={classes.editBar} data-test="edit-control-bar">
+            <div
+                className={cx(classes.editBar, { [classes.split]: split })}
+                data-test="edit-control-bar"
+            >
                 <div className={classes.center}>
                     {canUpdate && !props.isPrintPreviewView && (
                         <InlineTitleEditor />
                     )}
+                    {split && canUpdate && !props.isPrintPreviewView && (
+                        <IconAction
+                            label={i18n.t('Details')}
+                            icon={<IconInfo16 />}
+                            onClick={() => setDetailsModalIsOpen(true)}
+                        />
+                    )}
                 </div>
 
+                {split && canUpdate && !props.isPrintPreviewView && (
+                    <>
+                        <span className={classes.sectionDivider} />
+                        <AddItemsBar inline />
+                        <span className={classes.sectionDivider} />
+                    </>
+                )}
+
                 <div className={classes.right}>
-                    {canUpdate && !props.isPrintPreviewView && (
+                    {!split && canUpdate && !props.isPrintPreviewView && (
                         <IconAction
                             label={i18n.t('Details')}
                             icon={<IconInfo16 />}
@@ -366,6 +388,7 @@ EditBar.propTypes = {
     saveDashboard: PropTypes.func,
     setFilterSettings: PropTypes.func,
     showPrintPreview: PropTypes.func,
+    split: PropTypes.bool,
     onAutoLayoutSelect: PropTypes.func,
     onDiscardChanges: PropTypes.func,
 }

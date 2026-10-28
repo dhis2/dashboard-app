@@ -3,6 +3,7 @@ import { useDhis2ConnectionStatus } from '@dhis2/app-runtime'
 import i18n from '@dhis2/d2-i18n'
 import {
     IconApps16,
+    IconChevronDown16,
     IconEmptyFrame16,
     IconFileDocument16,
     IconLink16,
@@ -10,10 +11,11 @@ import {
     IconTerminalWindow16,
     IconTextBox16,
     IconVisualizationColumn16,
-    SegmentedControl,
+    Tooltip,
 } from '@dhis2/ui'
+import cx from 'classnames'
 import PropTypes from 'prop-types'
-import React, { useState } from 'react'
+import React, { useRef, useState } from 'react'
 import { connect } from 'react-redux'
 import {
     acSetItemConfigInsertPosition,
@@ -34,13 +36,42 @@ import {
     sGetItemConfigInsertPosition,
     sGetLayoutColumns,
 } from '../../reducers/editDashboard.js'
+import { InsertPositionIcon } from './assets/InsertPositionIcon.jsx'
 import InlineButton from './InlineButton.jsx'
 import ItemSelector from './ItemSelector/ItemSelector.jsx'
 import { LayoutModal } from './LayoutModal.jsx'
 import classes from './styles/AddItemsBar.module.css'
 import UndoRedoButtons from './UndoRedoButtons.jsx'
 
+// Labelled button, or (inline) icon-only with the label as tooltip + name
+const AddButton = ({ inline, icon, label, onClick, disabled }) =>
+    inline ? (
+        <Tooltip content={label} openDelay={300} closeDelay={0}>
+            <InlineButton
+                icon={icon}
+                aria-label={label}
+                onClick={onClick}
+                disabled={disabled}
+            />
+        </Tooltip>
+    ) : (
+        <InlineButton icon={icon} onClick={onClick} disabled={disabled}>
+            {label}
+        </InlineButton>
+    )
+
+AddButton.propTypes = {
+    label: PropTypes.string.isRequired,
+    disabled: PropTypes.bool,
+    icon: PropTypes.node,
+    inline: PropTypes.bool,
+    onClick: PropTypes.func,
+}
+
+// inline: the middle section of the Split single bar — sits inside the
+// toolbar, every add button but Visualizations (and Layout) is icon-only
 const AddItemsBar = ({
+    inline,
     columns,
     gridColumns,
     insertPosition,
@@ -53,35 +84,52 @@ const AddItemsBar = ({
 }) => {
     const { isDisconnected: offline } = useDhis2ConnectionStatus()
     const [showLayoutModal, setShowLayoutModal] = useState(false)
+    const iconOnly = inline
+    // Layout opens as a dropdown under its button
+    const layoutButtonRef = useRef(null)
 
     return (
-        <div className={classes.bar} data-test="add-items-bar">
+        <div
+            className={cx(classes.bar, { [classes.inline]: inline })}
+            data-test="add-items-bar"
+        >
             {/* Search for items to add */}
+            {/* Today: undo/redo lead the toolbar */}
+            {!inline && (
+                <>
+                    <div className={classes.group}>
+                        <UndoRedoButtons />
+                    </div>
+                    <div className={classes.divider} />
+                </>
+            )}
             <div className={classes.searchGroup}>
                 <ItemSelector
                     icon={<IconVisualizationColumn16 />}
                     label={i18n.t('Visualizations')}
                 />
-                <InlineButton
+                <AddButton
+                    inline={iconOnly}
                     icon={<IconTextBox16 />}
+                    label={i18n.t('Text box')}
                     onClick={onAddTextBox}
-                >
-                    {i18n.t('Text box')}
-                </InlineButton>
-                <InlineButton
+                />
+                <AddButton
+                    inline={iconOnly}
                     icon={<IconEmptyFrame16 />}
+                    label={i18n.t('Spacer')}
                     onClick={onAddSpacer}
-                >
-                    {i18n.t('Spacer')}
-                </InlineButton>
+                />
                 <ItemSelector
                     compact
+                    iconOnly={iconOnly}
                     types={[RESOURCES]}
                     icon={<IconLink16 />}
                     label={i18n.t('Resources')}
                 />
                 <ItemSelector
                     compact
+                    iconOnly={iconOnly}
                     types={[REPORTS]}
                     icon={<IconFileDocument16 />}
                     label={i18n.t('Reports')}
@@ -89,51 +137,79 @@ const AddItemsBar = ({
                 <ItemSelector
                     compact
                     hideIfEmpty
+                    iconOnly={iconOnly}
                     types={[APP]}
                     icon={<IconTerminalWindow16 />}
                     label={i18n.t('Plugins')}
                 />
-                <InlineButton
+                <AddButton
+                    inline={iconOnly}
                     icon={<IconMail16 />}
+                    label={i18n.t('Messages')}
                     onClick={onAddMessages}
-                >
-                    {i18n.t('Messages')}
-                </InlineButton>
+                />
             </div>
 
             <div className={classes.divider} />
 
             <div className={classes.group}>
                 <OfflineTooltip>
-                    <InlineButton
-                        icon={<IconApps16 />}
-                        disabled={offline}
-                        onClick={() => setShowLayoutModal(true)}
-                    >
-                        {i18n.t('Layout')}
-                    </InlineButton>
+                    <span ref={layoutButtonRef}>
+                        <InlineButton
+                            icon={<IconApps16 />}
+                            iconRight={<IconChevronDown16 />}
+                            disabled={offline}
+                            onClick={() => setShowLayoutModal(!showLayoutModal)}
+                        >
+                            {i18n.t('Layout')}
+                        </InlineButton>
+                    </span>
                 </OfflineTooltip>
-                <SegmentedControl
-                    ariaLabel={i18n.t('Where to add new items')}
-                    dataTest="add-position-control"
-                    options={[
-                        {
-                            label: i18n.t('Add to start'),
-                            value: 'START',
-                        },
-                        {
-                            label: i18n.t('Add to end'),
-                            value: 'END',
-                        },
-                    ]}
-                    selected={insertPosition}
-                    onChange={({ value }) => onChangeInsertPosition(value)}
-                />
-                <UndoRedoButtons />
+                <div
+                    className={classes.positionToggle}
+                    role="radiogroup"
+                    aria-label={i18n.t('Where to add new items')}
+                    data-test="add-position-control"
+                >
+                    {[
+                        [
+                            'START',
+                            <InsertPositionIcon key="i" />,
+                            i18n.t('New items go to the start'),
+                        ],
+                        [
+                            'END',
+                            <InsertPositionIcon key="i" end />,
+                            i18n.t('New items go to the end'),
+                        ],
+                    ].map(([value, icon, label]) => (
+                        <Tooltip
+                            key={value}
+                            content={label}
+                            openDelay={300}
+                            closeDelay={0}
+                        >
+                            <button
+                                type="button"
+                                role="radio"
+                                aria-checked={insertPosition === value}
+                                aria-label={label}
+                                className={cx(classes.positionOption, {
+                                    [classes.positionOptionOn]:
+                                        insertPosition === value,
+                                })}
+                                onClick={() => onChangeInsertPosition(value)}
+                            >
+                                {icon}
+                            </button>
+                        </Tooltip>
+                    ))}
+                </div>
             </div>
 
             {showLayoutModal && (
                 <LayoutModal
+                    anchor={layoutButtonRef}
                     onClose={() => setShowLayoutModal(false)}
                     columns={columns.length}
                     gridColumns={gridColumns}
@@ -154,6 +230,7 @@ AddItemsBar.propTypes = {
     onSetGridColumns: PropTypes.func.isRequired,
     columns: PropTypes.array,
     gridColumns: PropTypes.number,
+    inline: PropTypes.bool,
     insertPosition: PropTypes.string,
 }
 

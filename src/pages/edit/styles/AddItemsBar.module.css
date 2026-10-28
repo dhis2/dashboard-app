@@ -1,7 +1,7 @@
 .bar {
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: flex-start;
     gap: var(--spacers-dp16);
     padding-block-start: var(--spacers-dp8);
     padding-block-end: var(--spacers-dp8);
@@ -34,4 +34,65 @@
     align-self: stretch;
     background-color: var(--colors-grey300);
     flex: none;
+}
+
+/* Split single bar: add tools sit inside the toolbar's middle section */
+.inline {
+    padding: 0;
+    background: transparent;
+    border: 0;
+    flex: 1 1 auto;
+    min-inline-size: 0;
+    justify-content: center;
+}
+
+.inline,
+.inline .searchGroup,
+.inline .group {
+    flex-wrap: wrap;
+    row-gap: 2px;
+}
+
+.inline {
+    overflow: visible;
+    padding-block: 4px;
+    /* zero basis: the section takes the leftover width and wraps its own
+       buttons, rather than pushing the actions onto a new line */
+    flex-basis: 0;
+}
+
+.inline .searchGroup {
+    gap: 2px;
+}
+
+.positionToggle {
+    display: inline-flex;
+    padding: 2px;
+    gap: 2px;
+    border: 1px solid var(--colors-grey400);
+    border-radius: 4px;
+    background: var(--colors-grey100);
+}
+
+.positionOption {
+    display: grid;
+    place-items: center;
+    inline-size: 26px;
+    block-size: 22px;
+    padding: 0;
+    border: 0;
+    border-radius: 3px;
+    background: transparent;
+    color: var(--colors-grey700);
+    cursor: pointer;
+}
+
+.positionOption:hover {
+    color: var(--colors-grey900);
+}
+
+.positionOptionOn {
+    background: var(--colors-white);
+    color: var(--colors-grey900);
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.15);
 }

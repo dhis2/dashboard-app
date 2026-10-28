@@ -1,9 +1,20 @@
 import { useDataQuery } from '@dhis2/app-runtime'
 import i18n from '@dhis2/d2-i18n'
-import { IconChevronDown16, Input, Layer, Menu, Popper } from '@dhis2/ui'
+import {
+    IconChevronDown16,
+    Input,
+    Layer,
+    Menu,
+    Popper,
+    Tooltip,
+} from '@dhis2/ui'
 import PropTypes from 'prop-types'
 import React, { useState, useEffect, useRef } from 'react'
-import { itemTypeMap, getDefaultItemCount, VISUALIZATION } from '../../../modules/itemTypes.js'
+import {
+    itemTypeMap,
+    getDefaultItemCount,
+    VISUALIZATION,
+} from '../../../modules/itemTypes.js'
 import useDebounce from '../../../modules/useDebounce.js'
 import InlineButton from '../InlineButton.jsx'
 import CategorizedMenuGroup from './CategorizedMenuGroup.jsx'
@@ -24,6 +35,7 @@ const dashboardSearchQuery = {
 const ItemSelector = ({
     types = defaultSearchItemTypes,
     compact = false,
+    iconOnly = false,
     hideIfEmpty = false,
     label,
     icon,
@@ -51,8 +63,7 @@ const ItemSelector = ({
         if (hideIfEmpty && !debouncedFilterText) {
             setHasItems(
                 types.some(
-                    (type) =>
-                        data.items[itemTypeMap[type].endPointName]?.length
+                    (type) => data.items[itemTypeMap[type].endPointName]?.length
                 )
             )
         }
@@ -146,13 +157,24 @@ const ItemSelector = ({
     return (
         <>
             <span className={classes.trigger} ref={triggerRef}>
-                <InlineButton
-                    icon={icon}
-                    iconRight={<IconChevronDown16 />}
-                    onClick={toggleMenu}
-                >
-                    {label}
-                </InlineButton>
+                {iconOnly ? (
+                    <Tooltip content={label} openDelay={300} closeDelay={0}>
+                        <InlineButton
+                            icon={icon}
+                            iconRight={<IconChevronDown16 />}
+                            onClick={toggleMenu}
+                            aria-label={label}
+                        />
+                    </Tooltip>
+                ) : (
+                    <InlineButton
+                        icon={icon}
+                        iconRight={<IconChevronDown16 />}
+                        onClick={toggleMenu}
+                    >
+                        {label}
+                    </InlineButton>
+                )}
             </span>
             {isOpen && (
                 <Layer onBackdropClick={closeMenu}>
@@ -200,6 +222,7 @@ ItemSelector.propTypes = {
     compact: PropTypes.bool,
     hideIfEmpty: PropTypes.bool,
     icon: PropTypes.node,
+    iconOnly: PropTypes.bool,
     types: PropTypes.arrayOf(PropTypes.string),
 }
 
