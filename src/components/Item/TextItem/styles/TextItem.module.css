@@ -14,3 +14,47 @@
     margin-block-start: 0;
     margin-block-end: var(--item-content-padding);
 }
+
+/* Edit mode, not editing: rendered markdown with the same spacing as view
+   mode, click to edit */
+.rendered {
+    overflow: auto;
+    cursor: text;
+    border-radius: 3px;
+}
+
+.rendered:hover {
+    background: var(--colors-grey050);
+}
+
+.rendered:focus-visible {
+    outline: 2px solid var(--colors-blue600);
+    outline-offset: -2px;
+}
+
+.placeholder {
+    margin: 0;
+    padding: 10px;
+    font-size: 14px;
+    color: var(--colors-grey600);
+}
+
+/* Item actions (and the drag grip in One toolbar) float over the corner */
+.floatingHeader {
+    position: absolute;
+    inset-block-start: 4px;
+    inset-inline-end: 4px;
+    z-index: 3;
+}
+
+.floatingHeader > div {
+    margin: 0;
+    padding: 2px;
+    border: 0;
+    border-radius: 4px;
+    background: transparent;
+}
+
+.floatingHeader p {
+    display: none;
+}
