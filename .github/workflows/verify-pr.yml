@@ -18,7 +18,7 @@ jobs:
         outputs:
             matrix: ${{ steps.set-matrix.outputs.specs }}
         steps:
-            - uses: actions/checkout@v4
+            - uses: actions/checkout@v7
             - name: Generate Test matrix
               id: set-matrix
               run: echo "::set-output name=specs::$(node cypress/support/generateTestMatrix.js)"
@@ -26,8 +26,8 @@ jobs:
     build:
         runs-on: ubuntu-latest
         steps:
-            - uses: actions/checkout@v4
-            - uses: actions/setup-node@v4
+            - uses: actions/checkout@v7
+            - uses: actions/setup-node@v7
               with:
                   node-version: 20.x
 
@@ -37,7 +37,7 @@ jobs:
             - name: Build
               run: yarn d2-app-scripts build
 
-            - uses: actions/upload-artifact@v4
+            - uses: actions/upload-artifact@v7
               with:
                   name: app-build
                   path: |
@@ -48,8 +48,8 @@ jobs:
     lint:
         runs-on: ubuntu-latest
         steps:
-            - uses: actions/checkout@v4
-            - uses: actions/setup-node@v4
+            - uses: actions/checkout@v7
+            - uses: actions/setup-node@v7
               with:
                   node-version: 20.x
 
@@ -65,8 +65,8 @@ jobs:
     test:
         runs-on: ubuntu-latest
         steps:
-            - uses: actions/checkout@v4
-            - uses: actions/setup-node@v4
+            - uses: actions/checkout@v7
+            - uses: actions/setup-node@v7
               with:
                   node-version: 20.x
 
@@ -82,7 +82,7 @@ jobs:
     call-workflow-e2e-prod:
         if: ${{ !contains(github.event.head_commit.message, '[skip ci]') }}
         needs: [build, lint, test, setup-matrix]
-        uses: dhis2/workflows/.github/workflows/analytics-e2e-tests-prod.yml@feat/hardcoded-e2e-versions-im
+        uses: dhis2/workflows/.github/workflows/analytics-e2e-tests-prod.yml@maps-app
         with:
             should_record: ${{ contains(github.event.head_commit.message, '[e2e record]') || contains(join(github.event.pull_request.labels.*.name), 'e2e record')}}
             spec-group: ${{ needs.setup-matrix.outputs.matrix }}
