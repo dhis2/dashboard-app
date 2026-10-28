@@ -80,9 +80,12 @@ export const acSetDashboardDescription = (value) => ({
     value,
 })
 
-export const acUpdateDashboardItemShapes = (value) => ({
+// meta.history === false: a layout change the user didn't make (grid
+// compaction), kept out of the undo history
+export const acUpdateDashboardItemShapes = (value, meta) => ({
     type: RECEIVED_DASHBOARD_ITEM_SHAPES,
     value,
+    meta,
 })
 
 export const acAddDashboardItem = (item) => ({

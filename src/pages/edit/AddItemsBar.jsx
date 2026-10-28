@@ -38,6 +38,7 @@ import InlineButton from './InlineButton.jsx'
 import ItemSelector from './ItemSelector/ItemSelector.jsx'
 import { LayoutModal } from './LayoutModal.jsx'
 import classes from './styles/AddItemsBar.module.css'
+import UndoRedoButtons from './UndoRedoButtons.jsx'
 
 const AddItemsBar = ({
     columns,
@@ -128,6 +129,7 @@ const AddItemsBar = ({
                     selected={insertPosition}
                     onChange={({ value }) => onChangeInsertPosition(value)}
                 />
+                <UndoRedoButtons />
             </div>
 
             {showLayoutModal && (

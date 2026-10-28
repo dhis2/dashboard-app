@@ -108,6 +108,9 @@ const EditItemGrid = ({
     const gridWrapperRef = useRef(null)
     const resizeLineRef = useRef(null)
     const isResizingRef = useRef(false)
+    // Set when a drag/resize just ended, so the layout change that follows
+    // is recorded for undo; other layout changes (compaction) are not.
+    const userMovedRef = useRef(false)
     const isMultiResizingRef = useRef(false)
     const pendingMultiResizeRef = useRef(null)
     const resizeGroupIdsRef = useRef(null)
@@ -345,8 +348,15 @@ const EditItemGrid = ({
         }
 
         acUpdateDashboardItemShapes(
-            layout.map((item) => toStorageShape(item, effectiveColumns))
+            layout.map((item) => toStorageShape(item, effectiveColumns)),
+            { history: userMovedRef.current }
         )
+    }
+
+    // react-grid-layout calls onLayoutChange right after the stop callbacks
+    const markUserMoved = () => {
+        userMovedRef.current = true
+        setTimeout(() => (userMovedRef.current = false), 0)
     }
 
     const onWidthChanged = (containerWidth) =>
@@ -472,6 +482,7 @@ const EditItemGrid = ({
 
     // eslint-disable-next-line max-params
     const onResizeStop = (_layout, _oldItem, newItem) => {
+        markUserMoved()
         // Snap the rest of the selected items to the dragged item's new height
         // on release; the synced height is applied in onLayoutChange.
         if (isMultiResizingRef.current && newItem) {
@@ -602,6 +613,7 @@ const EditItemGrid = ({
                     // equal-height group overrides this with ['s'] per item.)
                     resizeHandles={['e', 's', 'se']}
                     onLayoutChange={onLayoutChange}
+                    onDragStop={markUserMoved}
                     onWidthChange={onWidthChanged}
                     onResizeStart={onResizeStart}
                     onResize={onResize}

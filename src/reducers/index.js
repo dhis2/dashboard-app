@@ -4,6 +4,7 @@ import dashboards from './dashboards.js'
 import dashboardsFilter from './dashboardsFilter.js'
 import dimensions from './dimensions.js'
 import editDashboard from './editDashboard.js'
+import { EMPTY_HISTORY, withEditHistory } from './editHistory.js'
 import iframePluginStatus from './iframePluginStatus.js'
 import itemActiveTypes from './itemActiveTypes.js'
 import itemFilters from './itemFilters.js'
@@ -15,20 +16,24 @@ import showDescription from './showDescription.js'
 import slideshow from './slideshow.js'
 import visualizations from './visualizations.js'
 
-export default combineReducers({
-    dashboards,
-    selected,
-    dashboardsFilter,
-    visualizations,
-    messages,
-    editDashboard,
-    printDashboard,
-    itemFilters,
-    dimensions,
-    activeModalDimension,
-    passiveViewRegistered,
-    showDescription,
-    slideshow,
-    itemActiveTypes,
-    iframePluginStatus,
-})
+export default withEditHistory(
+    combineReducers({
+        dashboards,
+        selected,
+        dashboardsFilter,
+        visualizations,
+        messages,
+        editDashboard,
+        printDashboard,
+        itemFilters,
+        dimensions,
+        activeModalDimension,
+        passiveViewRegistered,
+        showDescription,
+        slideshow,
+        itemActiveTypes,
+        iframePluginStatus,
+        // written by withEditHistory; declared so combineReducers keeps it
+        editHistory: (state = EMPTY_HISTORY) => state,
+    })
+)
