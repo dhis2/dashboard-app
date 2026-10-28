@@ -203,6 +203,7 @@ const Visualization = ({
                 <LegacyPlugin
                     item={item}
                     activeType={activeType}
+                    dashboardMode={dashboardMode}
                     visualization={visualizationConfig}
                     style={style}
                     gridWidth={gridWidth}
