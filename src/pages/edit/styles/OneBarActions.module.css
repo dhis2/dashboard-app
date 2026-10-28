@@ -72,3 +72,17 @@
     background-color: rgb(143, 188, 167) !important;
     color: white !important;
 }
+
+/* Build sidebar variant: panel on the left, canvas fills the rest */
+.sidebarBody {
+    display: flex;
+    flex: 1;
+    min-block-size: 0;
+}
+
+.sidebarMain {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    min-inline-size: 0;
+}

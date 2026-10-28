@@ -1,0 +1,103 @@
+.sidebar {
+    display: flex;
+    flex-direction: column;
+    inline-size: 300px;
+    flex: none;
+    min-block-size: 0;
+    background: var(--colors-white);
+    border-inline-end: 1px solid var(--colors-grey400);
+}
+
+.collapsed {
+    inline-size: 44px;
+    align-items: center;
+    gap: var(--spacers-dp4);
+    padding-block: var(--spacers-dp8);
+}
+
+.header {
+    display: flex;
+    align-items: center;
+    gap: var(--spacers-dp8);
+    padding: var(--spacers-dp8);
+    border-block-end: 1px solid var(--colors-grey300);
+}
+
+.tabs {
+    flex: 1;
+    min-inline-size: 0;
+}
+
+/* stretch the tab segments to fill the panel */
+.tabs > :global(*) {
+    display: flex;
+}
+
+.tabs :global(button) {
+    flex: 1;
+}
+
+.add {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    min-block-size: 0;
+}
+
+.chips {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    padding: var(--spacers-dp8) var(--spacers-dp12);
+    border-block-end: 1px solid var(--colors-grey300);
+}
+
+.chip {
+    block-size: 24px;
+    padding: 0 10px;
+    border: 1px solid var(--colors-grey400);
+    border-radius: 12px;
+    background: var(--colors-white);
+    color: var(--colors-grey800);
+    font-size: 12px;
+    cursor: pointer;
+}
+
+.chip:hover {
+    border-color: var(--colors-grey600);
+}
+
+.chipOn,
+.chipOn:hover {
+    background: var(--colors-blue700);
+    border-color: var(--colors-blue700);
+    color: var(--colors-white);
+}
+
+.footer {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    padding: var(--spacers-dp12);
+    border-block-start: 1px solid var(--colors-grey300);
+    font-size: 13px;
+    color: var(--colors-grey700);
+}
+
+.footer > :global(*:last-child) {
+    display: flex;
+}
+
+.footer :global(button) {
+    flex: 1;
+}
+
+.scroll {
+    flex: 1;
+    min-block-size: 0;
+    overflow: auto;
+}
+
+.settings {
+    padding: 0 var(--spacers-dp12) var(--spacers-dp24);
+}

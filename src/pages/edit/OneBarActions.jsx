@@ -28,6 +28,7 @@ import {
     sGetEditIsDirty,
     sGetLayoutColumns,
 } from '../../reducers/editDashboard.js'
+import BuildSidebar from './BuildSidebar.jsx'
 import { deleteDashboardMutation } from './deleteDashboardMutation.js'
 import FilterSettingsDialog from './FilterSettingsDialog.jsx'
 import InlineButton from './InlineButton.jsx'
@@ -50,7 +51,9 @@ const deleteFailedMessage = i18n.t(
 
 const fieldsToTranslate = ['name', 'description']
 
-const EditBar = ({ dashboard, ...props }) => {
+// sidebar: Build sidebar variant — add, layout and settings move into a left
+// panel, so the bar keeps only the title and document actions.
+const EditBar = ({ dashboard, sidebar, children, ...props }) => {
     const dataEngine = useDataEngine()
     const { isConnected: online } = useDhis2ConnectionStatus()
     const [translationDlgIsOpen, setTranslationDlgIsOpen] = useState(false)
@@ -215,7 +218,7 @@ const EditBar = ({ dashboard, ...props }) => {
                     {isEditing && <InlineTitleEditor />}
                 </div>
 
-                {isEditing && (
+                {isEditing && !sidebar && (
                     <>
                         <span className={classes.divider} />
                         <OneBarAddTools />
@@ -254,7 +257,7 @@ const EditBar = ({ dashboard, ...props }) => {
                             </Tooltip>
                         )}
                     </OfflineTooltip>
-                    {isEditing && (
+                    {isEditing && !sidebar && (
                         <Tooltip content={i18n.t('Dashboard settings')}>
                             <InlineButton
                                 icon={<IconSettings16 />}
@@ -298,6 +301,24 @@ const EditBar = ({ dashboard, ...props }) => {
                     )}
                 </div>
             </div>
+            {sidebar && isEditing ? (
+                <div className={classes.sidebarBody}>
+                    <BuildSidebar
+                        settings={{
+                            hasId: Boolean(dashboard.id),
+                            canDelete,
+                            onEditFilters: toggleFilterSettingsDialog,
+                            onTranslate: toggleTranslationDialog,
+                            onDelete: dashboard.id
+                                ? onConfirmDelete
+                                : onDiscardConfirmed,
+                        }}
+                    />
+                    <div className={classes.sidebarMain}>{children}</div>
+                </div>
+            ) : (
+                children
+            )}
             {drawerTop !== null && isEditing && (
                 <SettingsDrawer
                     top={drawerTop}
@@ -344,6 +365,7 @@ const EditBar = ({ dashboard, ...props }) => {
 }
 
 EditBar.propTypes = {
+    children: PropTypes.node,
     clearPrintDashboard: PropTypes.func,
     clearPrintPreview: PropTypes.func,
     clearSelected: PropTypes.func,
@@ -355,6 +377,7 @@ EditBar.propTypes = {
     saveDashboard: PropTypes.func,
     setFilterSettings: PropTypes.func,
     showPrintPreview: PropTypes.func,
+    sidebar: PropTypes.bool,
     onAutoLayoutSelect: PropTypes.func,
     onDiscardChanges: PropTypes.func,
 }

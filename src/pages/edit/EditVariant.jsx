@@ -11,6 +11,12 @@ import OneBarActions from './OneBarActions.jsx'
 // shortcut: lives only in the edit pages; remove with the losing variant.
 const TODAY = 'Today'
 const ONE_TOOLBAR = 'One toolbar'
+const BUILD_SIDEBAR = 'Build sidebar'
+const VARIANTS = {
+    [TODAY]: 'today',
+    [ONE_TOOLBAR]: 'onebar',
+    [BUILD_SIDEBAR]: 'sidebar',
+}
 
 const EditVariantContext = createContext('today')
 
@@ -19,16 +25,19 @@ export const useEditVariant = () => useContext(EditVariantContext)
 export const EditVariantProvider = ({ children }) => {
     const { layout } = useDialKit(
         'Dashboard creator',
-        { layout: { type: 'select', options: [TODAY, ONE_TOOLBAR] } },
+        {
+            layout: {
+                type: 'select',
+                options: [TODAY, ONE_TOOLBAR, BUILD_SIDEBAR],
+            },
+        },
         { id: 'dashboard-creator-variant', persist: true }
     )
 
     return (
-        <EditVariantContext.Provider
-            value={layout === ONE_TOOLBAR ? 'onebar' : 'today'}
-        >
+        <EditVariantContext.Provider value={VARIANTS[layout] || 'today'}>
             {children}
-            <DialRoot position="bottom-left" />
+            <DialRoot position="bottom-right" />
         </EditVariantContext.Provider>
     )
 }
@@ -37,17 +46,28 @@ EditVariantProvider.propTypes = {
     children: PropTypes.node,
 }
 
-// Today: action bar + add bar. One toolbar: everything in a single row.
-export const EditToolbars = ({ showAddBar }) =>
-    useEditVariant() === 'onebar' ? (
-        <OneBarActions />
-    ) : (
-        <>
-            <ActionsBar />
-            {showAddBar && <AddItemsBar />}
-        </>
+// Wraps the canvas in the chosen variant's chrome. Today: action bar + add
+// bar. One toolbar: everything in a single row. Build sidebar: title bar +
+// left panel for add, layout and settings.
+export const EditShell = ({ showAddBar, children }) => {
+    const variant = useEditVariant()
+    if (variant === 'today') {
+        return (
+            <>
+                <ActionsBar />
+                {showAddBar && <AddItemsBar />}
+                {children}
+            </>
+        )
+    }
+    return (
+        <OneBarActions sidebar={variant === 'sidebar'}>
+            {children}
+        </OneBarActions>
     )
+}
 
-EditToolbars.propTypes = {
+EditShell.propTypes = {
+    children: PropTypes.node,
     showAddBar: PropTypes.bool,
 }

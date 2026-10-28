@@ -71,3 +71,13 @@
     border-radius: 6px;
     box-shadow: var(--elevations-e300);
 }
+
+/* Build sidebar: the same form laid out in the panel, stacked */
+.inline .iconWrapper {
+    margin-inline-start: var(--spacers-dp8);
+    margin-inline-end: var(--spacers-dp8);
+}
+
+.inline .option {
+    padding: var(--spacers-dp12);
+}

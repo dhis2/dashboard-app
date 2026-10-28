@@ -111,8 +111,10 @@ const getColsSaveValue = (value) =>
     value === '' ? DEFAULT_COLUMNS : parseInt(value, 10)
 
 // With an anchor the same form opens as a popover under the toolbar button
-const LayoutContainer = ({ anchor, onClose, children }) =>
-    anchor ? (
+const LayoutContainer = ({ anchor, inline, onClose, children }) =>
+    inline ? (
+        <div className={classes.inline}>{children}</div>
+    ) : anchor ? (
         <Layer onBackdropClick={onClose}>
             <Popper reference={anchor} placement="bottom-start">
                 <div className={classes.popover}>{children}</div>
@@ -127,11 +129,13 @@ const LayoutContainer = ({ anchor, onClose, children }) =>
 LayoutContainer.propTypes = {
     anchor: PropTypes.object,
     children: PropTypes.node,
+    inline: PropTypes.bool,
     onClose: PropTypes.func,
 }
 
 export const LayoutModal = ({
     anchor,
+    inline,
     columns,
     gridColumns,
     onSaveLayout,
@@ -170,8 +174,8 @@ export const LayoutModal = ({
     }
 
     return (
-        <LayoutContainer anchor={anchor} onClose={onClose}>
-            <ModalTitle>{i18n.t('Dashboard layout')}</ModalTitle>
+        <LayoutContainer anchor={anchor} inline={inline} onClose={onClose}>
+            {!inline && <ModalTitle>{i18n.t('Dashboard layout')}</ModalTitle>}
             <ModalContent>
                 <div
                     className={cx(classes.option, {
@@ -301,6 +305,7 @@ LayoutModal.propTypes = {
     anchor: PropTypes.object,
     columns: PropTypes.number,
     gridColumns: PropTypes.number,
+    inline: PropTypes.bool,
     onClose: PropTypes.func,
     onSaveLayout: PropTypes.func,
     onSetGridColumns: PropTypes.func,

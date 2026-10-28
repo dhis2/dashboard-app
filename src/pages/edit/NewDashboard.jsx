@@ -13,7 +13,7 @@ import { setHeaderbarVisible } from '../../modules/setHeaderbarVisible.js'
 import { isSmallScreen } from '../../modules/smallScreen.js'
 import { sGetIsPrintPreviewView } from '../../reducers/editDashboard.js'
 import LayoutPrintPreview from '../print/PrintLayoutDashboard.jsx'
-import { EditToolbars, EditVariantProvider } from './EditVariant.jsx'
+import { EditShell, EditVariantProvider } from './EditVariant.jsx'
 import ItemGrid from './ItemGrid.jsx'
 import classes from './styles/NewDashboard.module.css'
 
@@ -42,14 +42,15 @@ const NewDashboard = (props) => {
             <div
                 className={cx(classes.container, 'dashboard-scroll-container')}
             >
-                <EditToolbars showAddBar={!props.isPrintPreviewView} />
-                {props.isPrintPreviewView ? (
-                    <LayoutPrintPreview fromEdit={true} />
-                ) : (
-                    <DashboardContainer>
-                        <ItemGrid />
-                    </DashboardContainer>
-                )}
+                <EditShell showAddBar={!props.isPrintPreviewView}>
+                    {props.isPrintPreviewView ? (
+                        <LayoutPrintPreview fromEdit={true} />
+                    ) : (
+                        <DashboardContainer>
+                            <ItemGrid />
+                        </DashboardContainer>
+                    )}
+                </EditShell>
             </div>
             <div className={classes.notice}>
                 <Notice

@@ -17,7 +17,7 @@ import { setHeaderbarVisible } from '../../modules/setHeaderbarVisible.js'
 import { isSmallScreen } from '../../modules/smallScreen.js'
 import { sGetIsPrintPreviewView } from '../../reducers/editDashboard.js'
 import LayoutPrintPreview from '../print/PrintLayoutDashboard.jsx'
-import { EditToolbars, EditVariantProvider } from './EditVariant.jsx'
+import { EditShell, EditVariantProvider } from './EditVariant.jsx'
 import ItemGrid from './ItemGrid.jsx'
 import classes from './styles/EditDashboard.module.css'
 
@@ -86,14 +86,15 @@ const EditDashboard = (props) => {
                 className={cx(classes.container, 'dashboard-scroll-container')}
                 data-test="outer-scroll-container"
             >
-                <EditToolbars
+                <EditShell
                     showAddBar={hasUpdateAccess && !props.isPrintPreviewView}
-                />
-                {hasUpdateAccess ? (
-                    renderGrid()
-                ) : (
-                    <NoContentMessage text={i18n.t('No access')} />
-                )}
+                >
+                    {hasUpdateAccess ? (
+                        renderGrid()
+                    ) : (
+                        <NoContentMessage text={i18n.t('No access')} />
+                    )}
+                </EditShell>
             </div>
             <div className={classes.notice}>
                 <Notice

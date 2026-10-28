@@ -73,8 +73,18 @@ const rowIcon = (type, visType) => {
     return <Icon color={colors.grey600} />
 }
 
-const AddItemPalette = ({ onAddItem, onAddListItem }) => {
-    const [open, setOpen] = useState(false)
+const showAllTypes = () => true
+
+// Search box + grouped results; adding an item calls onDone. showType limits
+// which groups appear (the sidebar's type chips).
+const ItemSearchBase = ({
+    onAddItem,
+    onAddListItem,
+    onDone,
+    autoFocus,
+    showType = showAllTypes,
+    children,
+}) => {
     const [filter, setFilter] = useState('')
     const [active, setActive] = useState(0)
     const [expanded, setExpanded] = useState(new Set())
@@ -85,31 +95,11 @@ const AddItemPalette = ({ onAddItem, onAddListItem }) => {
     })
 
     useEffect(() => {
-        const onKeyDown = (e) => {
-            if ((e.metaKey || e.ctrlKey) && e.key.toLowerCase() === 'k') {
-                e.preventDefault()
-                setOpen(true)
-            }
-        }
-        window.addEventListener('keydown', onKeyDown)
-        return () => window.removeEventListener('keydown', onKeyDown)
-    }, [])
-
-    useEffect(() => {
-        if (open) {
-            refetch({ searchTerm, maxItems: Array.from(expanded) })
-        }
-    }, [open, searchTerm, expanded, refetch])
-
-    const close = () => {
-        setOpen(false)
-        setFilter('')
-        setActive(0)
-        setExpanded(new Set())
-    }
+        refetch({ searchTerm, maxItems: Array.from(expanded) })
+    }, [searchTerm, expanded, refetch])
 
     const add = (row) => {
-        close()
+        onDone?.()
         if (row.special) {
             return onAddItem({ type: row.type, content: row.special.content })
         }
@@ -135,14 +125,14 @@ const AddItemPalette = ({ onAddItem, onAddListItem }) => {
     const sections = []
     const special = (items, title) => {
         const rows = items
-            .filter((s) => matches(s.name, filter))
+            .filter((s) => showType(s.type) && matches(s.name, filter))
             .map((s) => ({ type: s.type, name: s.name, special: s }))
         rows.length && sections.push({ title, rows })
     }
     const searched = (groups) =>
         groups.forEach(([type, title]) => {
             const all = data?.items?.[itemTypeMap[type].endPointName] || []
-            if (!all.length) {
+            if (!all.length || !showType(type)) {
                 return
             }
             const limit = getDefaultItemCount(type)
@@ -195,6 +185,99 @@ const AddItemPalette = ({ onAddItem, onAddListItem }) => {
     let index = -1
 
     return (
+        <div className={classes.search}>
+            <div className={classes.searchRow}>
+                <IconSearch16 color={colors.grey600} />
+                <input
+                    autoFocus={autoFocus}
+                    className={classes.input}
+                    placeholder={i18n.t(
+                        'Search visualizations, maps, reports…'
+                    )}
+                    value={filter}
+                    onChange={(e) => {
+                        setFilter(e.target.value)
+                        setActive(0)
+                    }}
+                    onKeyDown={onKeyDown}
+                    aria-label={i18n.t('Search items to add')}
+                />
+            </div>
+            {children}
+            <div className={classes.list} ref={listRef} role="listbox">
+                {sections.map((section) => (
+                    <div key={section.title}>
+                        <div className={classes.header}>{section.title}</div>
+                        {section.rows.map((row) => {
+                            index += 1
+                            const i = index
+                            return (
+                                <button
+                                    key={`${row.type}-${
+                                        row.item?.id ||
+                                        row.item?.key ||
+                                        row.name
+                                    }`}
+                                    type="button"
+                                    role="option"
+                                    aria-selected={i === current}
+                                    className={cx(classes.row, {
+                                        [classes.active]: i === current,
+                                        [classes.more]: row.more,
+                                    })}
+                                    onMouseMove={() =>
+                                        i !== current && setActive(i)
+                                    }
+                                    onClick={() => run(row)}
+                                >
+                                    {!row.more &&
+                                        rowIcon(row.type, row.item?.type)}
+                                    <span>{row.name}</span>
+                                </button>
+                            )
+                        })}
+                    </div>
+                ))}
+                {!rows.length && (
+                    <div className={classes.empty}>
+                        {i18n.t('No items found')}
+                    </div>
+                )}
+            </div>
+        </div>
+    )
+}
+
+ItemSearchBase.propTypes = {
+    onAddItem: PropTypes.func.isRequired,
+    onAddListItem: PropTypes.func.isRequired,
+    autoFocus: PropTypes.bool,
+    children: PropTypes.node,
+    showType: PropTypes.func,
+    onDone: PropTypes.func,
+}
+
+export const ItemSearch = connect(null, {
+    onAddItem: (item) => (dispatch) => dispatch(tSetDashboardItems(item)),
+    onAddListItem: tAddListItemContent,
+})(ItemSearchBase)
+
+// One toolbar: a search-box trigger (and ⌘K) that opens ItemSearch in a modal
+const AddItemPalette = () => {
+    const [open, setOpen] = useState(false)
+
+    useEffect(() => {
+        const onKeyDown = (e) => {
+            if ((e.metaKey || e.ctrlKey) && e.key.toLowerCase() === 'k') {
+                e.preventDefault()
+                setOpen(true)
+            }
+        }
+        window.addEventListener('keydown', onKeyDown)
+        return () => window.removeEventListener('keydown', onKeyDown)
+    }, [])
+
+    return (
         <>
             <button
                 type="button"
@@ -211,78 +294,11 @@ const AddItemPalette = ({ onAddItem, onAddListItem }) => {
             {open && (
                 <Modal
                     position="top"
-                    onClose={close}
+                    onClose={() => setOpen(false)}
                     dataTest="add-item-palette"
                 >
                     <div className={classes.palette}>
-                        <div className={classes.searchRow}>
-                            <IconSearch16 color={colors.grey600} />
-                            <input
-                                autoFocus
-                                className={classes.input}
-                                placeholder={i18n.t(
-                                    'Search visualizations, maps, reports…'
-                                )}
-                                value={filter}
-                                onChange={(e) => {
-                                    setFilter(e.target.value)
-                                    setActive(0)
-                                }}
-                                onKeyDown={onKeyDown}
-                                aria-label={i18n.t('Search items to add')}
-                            />
-                        </div>
-                        <div
-                            className={classes.list}
-                            ref={listRef}
-                            role="listbox"
-                        >
-                            {sections.map((section) => (
-                                <div key={section.title}>
-                                    <div className={classes.header}>
-                                        {section.title}
-                                    </div>
-                                    {section.rows.map((row) => {
-                                        index += 1
-                                        const i = index
-                                        return (
-                                            <button
-                                                key={`${row.type}-${
-                                                    row.item?.id ||
-                                                    row.item?.key ||
-                                                    row.name
-                                                }`}
-                                                type="button"
-                                                role="option"
-                                                aria-selected={i === current}
-                                                className={cx(classes.row, {
-                                                    [classes.active]:
-                                                        i === current,
-                                                    [classes.more]: row.more,
-                                                })}
-                                                onMouseMove={() =>
-                                                    i !== current &&
-                                                    setActive(i)
-                                                }
-                                                onClick={() => run(row)}
-                                            >
-                                                {!row.more &&
-                                                    rowIcon(
-                                                        row.type,
-                                                        row.item?.type
-                                                    )}
-                                                <span>{row.name}</span>
-                                            </button>
-                                        )
-                                    })}
-                                </div>
-                            ))}
-                            {!rows.length && (
-                                <div className={classes.empty}>
-                                    {i18n.t('No items found')}
-                                </div>
-                            )}
-                        </div>
+                        <ItemSearch autoFocus onDone={() => setOpen(false)} />
                         <div className={classes.footer}>
                             <span>{i18n.t('↑ ↓ to move')}</span>
                             <span>{i18n.t('Enter to add')}</span>
@@ -295,12 +311,4 @@ const AddItemPalette = ({ onAddItem, onAddListItem }) => {
     )
 }
 
-AddItemPalette.propTypes = {
-    onAddItem: PropTypes.func.isRequired,
-    onAddListItem: PropTypes.func.isRequired,
-}
-
-export default connect(null, {
-    onAddItem: (item) => (dispatch) => dispatch(tSetDashboardItems(item)),
-    onAddListItem: tAddListItemContent,
-})(AddItemPalette)
+export default AddItemPalette

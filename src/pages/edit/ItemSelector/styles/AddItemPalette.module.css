@@ -43,13 +43,24 @@
     margin: calc(-1 * var(--spacers-dp24));
 }
 
+.search {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    min-block-size: 0;
+}
+
 .searchRow {
     display: flex;
     align-items: center;
     gap: var(--spacers-dp8);
-    /* room for the modal's close button */
-    padding: var(--spacers-dp12) 48px var(--spacers-dp12) var(--spacers-dp16);
+    padding: var(--spacers-dp8) var(--spacers-dp12);
     border-block-end: 1px solid var(--colors-grey300);
+}
+
+/* room for the modal's close button */
+.palette .searchRow {
+    padding: var(--spacers-dp12) 48px var(--spacers-dp12) var(--spacers-dp16);
 }
 
 .input {
