@@ -45,9 +45,15 @@ export const hasStandalonePlugin = (type, apiVersion) =>
     type in STANDALONE_PLUGIN_MIN_API_VERSION &&
     apiVersion >= STANDALONE_PLUGIN_MIN_API_VERSION[type]
 
-export const getPluginLaunchUrl = ({ type, apps, baseUrl, apiVersion }) => {
+export const getPluginLaunchUrl = ({
+    type,
+    apps = [],
+    baseUrl,
+    apiVersion,
+}) => {
     // 1. lookup in api/apps for the "manually installed" app, this can be a new version for a core (bundled) app
     // 2. fallback to default hardcoded path for the core (bundled) apps
+    // apps is not passed when loading the legacy plugins (see loadPlugin)
     const appKey = getAppKey(type, apiVersion)
 
     const appDetails = appKey && apps.find((app) => app.key === appKey)

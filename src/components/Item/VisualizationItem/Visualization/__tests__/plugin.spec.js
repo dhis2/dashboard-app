@@ -12,6 +12,7 @@ import {
     getPluginLaunchUrl,
     hasPluginAccess,
     hasStandalonePlugin,
+    pluginIsAvailable,
 } from '../plugin.js'
 
 const BASE_URL = 'https://play.dhis2.org'
@@ -234,4 +235,14 @@ describe('hasPluginAccess', () => {
     test('does not check authorities for APP', () => {
         expect(hasPluginAccess(APP, [])).toBe(true)
     })
+})
+
+describe('pluginIsAvailable', () => {
+    // loadPlugin checks the availability without the installed apps
+    test.each([EVENT_REPORT, EVENT_CHART])(
+        'is true for %s without the installed apps',
+        (type) => {
+            expect(pluginIsAvailable({ type })).toBe(true)
+        }
+    )
 })
