@@ -12,6 +12,7 @@ import {
     getPluginLaunchUrl,
     hasPluginAccess,
     hasStandalonePlugin,
+    isPluginAppListed,
     pluginIsAvailable,
 } from '../plugin.js'
 
@@ -245,4 +246,58 @@ describe('pluginIsAvailable', () => {
             expect(pluginIsAvailable({ type })).toBe(true)
         }
     )
+})
+
+describe('isPluginAppListed', () => {
+    const lineListingApp = { key: 'line-listing' }
+    const idvApp = { key: 'individual-data-visualizer' }
+
+    test('is true for EVENT_VISUALIZATION when Line Listing is listed below api version 43', () => {
+        expect(
+            isPluginAppListed({
+                type: EVENT_VISUALIZATION,
+                apps: [lineListingApp],
+                apiVersion: 42,
+            })
+        ).toBe(true)
+    })
+
+    test('is true for EVENT_VISUALIZATION when Individual Data Visualizer is listed from api version 43', () => {
+        expect(
+            isPluginAppListed({
+                type: EVENT_VISUALIZATION,
+                apps: [idvApp],
+                apiVersion: 43,
+            })
+        ).toBe(true)
+    })
+
+    test('is false for EVENT_VISUALIZATION when only the app for the other api version is listed', () => {
+        expect(
+            isPluginAppListed({
+                type: EVENT_VISUALIZATION,
+                apps: [lineListingApp],
+                apiVersion: 43,
+            })
+        ).toBe(false)
+        expect(
+            isPluginAppListed({
+                type: EVENT_VISUALIZATION,
+                apps: [idvApp],
+                apiVersion: 42,
+            })
+        ).toBe(false)
+    })
+
+    test('is false when the apps are missing', () => {
+        expect(
+            isPluginAppListed({ type: EVENT_VISUALIZATION, apiVersion: 43 })
+        ).toBe(false)
+    })
+
+    test('is false for types without an app key', () => {
+        expect(
+            isPluginAppListed({ type: APP, apps: [{ key: undefined }] })
+        ).toBe(false)
+    })
 })

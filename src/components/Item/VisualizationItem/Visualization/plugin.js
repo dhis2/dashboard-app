@@ -34,6 +34,14 @@ const hasIntegratedPlugin = (type) =>
 export const hasPluginAccess = (type, authorities, apiVersion) =>
     hasAppAccess(getAppKey(type, apiVersion), authorities)
 
+// Apps the user has no access to are not listed in api/apps, so a listed app
+// grants access without relying on the authority derived from the app key
+export const isPluginAppListed = ({ type, apps = [], apiVersion }) => {
+    const appKey = getAppKey(type, apiVersion)
+
+    return Boolean(appKey) && apps.some((app) => app.key === appKey)
+}
+
 // Standalone plugins fetch their own visualization and handle filters
 // themselves, so the dashboard passes only visualizationId + filters.
 // Add a row here as DV and Maps migrate to the same model.

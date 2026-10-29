@@ -30,6 +30,7 @@ import VisualizationErrorMessage from '../../ItemMessage/VisualizationErrorMessa
 import {
     getPluginLaunchUrl,
     hasPluginAccess,
+    isPluginAppListed,
     hasStandalonePlugin,
 } from './plugin.js'
 import classes from './styles/IframePlugin.module.css'
@@ -137,8 +138,9 @@ const IframePlugin = ({
     const hasAccess = useMemo(
         () =>
             Boolean(getPluginOverrides()?.[pluginType]) ||
+            isPluginAppListed({ type: pluginType, apps, apiVersion }) ||
             hasPluginAccess(pluginType, authorities, apiVersion),
-        [apiVersion, authorities, pluginType]
+        [apiVersion, apps, authorities, pluginType]
     )
 
     const iframeSrc = hasAccess ? getIframeSrc() : null
