@@ -93,6 +93,37 @@ You can also configure whether newly added items are automatically placed at the
 
 ![](resources/images/dashboard-place-items.png)
 
+#### Text boxes
+
+A text box lets you add formatted text to a dashboard. While editing a text box, use the toolbar buttons for **bold**, _italic_, links, user mentions and emoji. In addition, the text box supports a subset of [Markdown](https://commonmark.org/) syntax that does not have toolbar buttons:
+
+| Feature       | How to write it                                                                                               |
+| ------------- | ------------------------------------------------------------------------------------------------------------- |
+| Headings      | Start a line with `#` for a heading. Use more `#` characters for smaller headings, for example `##` or `###`. |
+| Numbered list | Start each line with a number followed by a period, for example `1.`, `2.`, `3.`                              |
+| Bulleted list | Start each line with `-`, `*` or `+`                                                                          |
+| Bold          | Wrap text in single asterisks: `*bold*`                                                                       |
+| Italic        | Wrap text in single underscores: `_italic_`                                                                   |
+| Line break    | Press **Enter** to start a new line                                                                           |
+
+For example, the following text:
+
+```
+# Monthly report
+
+Key indicators for _this month_:
+
+1. ANC coverage
+2. Immunization rate
+
+Remember to:
+
+- Validate the data
+- *Complete* the review
+```
+
+renders as a level-one heading, an italicised phrase, a numbered list and a bulleted list. Formatting is not shown while you type; click the **Preview** button in the text box toolbar (or save and view the dashboard) to see the rendered result.
+
 #### Spacer items
 
 When adding items to the dashboard using _Freeflow_ layout, they will "rise" upwards until they bump into another item. In order to force empty vertical space between items (like an empty row), you can add spacer items to the dashboard. They are only visible in edit/create mode. In view mode, they are not displayed, but take up the defined space.

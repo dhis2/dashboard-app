@@ -24,8 +24,8 @@ jobs:
                 containers: [1, 2, 3, 4]
 
         steps:
-            - uses: actions/checkout@v4
-            - uses: actions/setup-node@v4
+            - uses: actions/checkout@v7
+            - uses: actions/setup-node@v7
               with:
                   node-version: 20.x
 
@@ -33,7 +33,7 @@ jobs:
               run: yarn install --frozen-lockfile
 
             - name: End-to-End tests
-              uses: cypress-io/github-action@v2
+              uses: cypress-io/github-action@v7
               with:
                   record: true
                   parallel: true
@@ -63,9 +63,10 @@ jobs:
         steps:
             - name: Send failure message to analytics-internal-kfmt slack channel
               id: slack
-              uses: slackapi/slack-github-action@v1.27.0
+              uses: slackapi/slack-github-action@v4.0.0
               with:
-                  channel-id: ${{ secrets.SLACK_CHANNEL_ID }}
-                  slack-message: ':dashboard-app: Dashboard-app e2e nightly run <https://cloud.cypress.io/projects/5fk191/runs?branches=[{"label":"dev","suggested":false,"value":"dev"}]|failed>'
-              env:
-                  SLACK_BOT_TOKEN: ${{ secrets.SLACK_BOT_TOKEN }}
+                  method: chat.postMessage
+                  token: ${{ secrets.SLACK_BOT_TOKEN }}
+                  payload: |
+                      channel: ${{ secrets.SLACK_CHANNEL_ID }}
+                      text: ':dashboard-app: Dashboard-app e2e nightly run <https://cloud.cypress.io/projects/5fk191/runs?branches=[{"label":"dev","suggested":false,"value":"dev"}]|failed>'
