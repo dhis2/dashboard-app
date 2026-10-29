@@ -5,8 +5,8 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1)\n"
-"POT-Creation-Date: 2026-05-07T22:45:54.825Z\n"
-"PO-Revision-Date: 2026-05-07T22:45:54.825Z\n"
+"POT-Creation-Date: 2026-10-27T14:40:38.559Z\n"
+"PO-Revision-Date: 2026-10-27T14:40:38.560Z\n"
 
 msgid "Untitled dashboard"
 msgstr "Untitled dashboard"
@@ -90,6 +90,12 @@ msgstr "Show chart controls on dashboard items"
 
 msgid "Expand filters"
 msgstr "Expand filters"
+
+msgid "Security"
+msgstr "Security"
+
+msgid "Restrict data by organisation unit hierarchy"
+msgstr "Restrict data by organisation unit hierarchy"
 
 msgid "Delete dashboard"
 msgstr "Delete dashboard"
@@ -269,6 +275,12 @@ msgstr "Remove this item"
 
 msgid "This item has been shortened to fit on one page"
 msgstr "This item has been shortened to fit on one page"
+
+msgid "You don't have access to the {{appName}} app needed to display this item"
+msgstr "You don't have access to the {{appName}} app needed to display this item"
+
+msgid "Contact your system administrator for access"
+msgstr "Contact your system administrator for access"
 
 msgid "The plugin needed to display this item is not available"
 msgstr "The plugin needed to display this item is not available"
@@ -783,11 +795,3 @@ msgstr "1 minute per slide"
 
 msgid "2 minutes per slide"
 msgstr "2 minutes per slide"
-
-msgctxt "Application title"
-msgid "__MANIFEST_APP_TITLE"
-msgstr "Dashboard"
-
-msgctxt "Application description"
-msgid "__MANIFEST_APP_DESCRIPTION"
-msgstr "DHIS2 Dashboard app"
