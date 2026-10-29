@@ -1,3 +1,10 @@
+## [101.7.2](https://github.com/dhis2/dashboard-app/compare/v101.7.1...v101.7.2) (2026-10-29)
+
+
+### Bug Fixes
+
+* show a message for non authorised plugins [DHIS2-22363] ([#3346](https://github.com/dhis2/dashboard-app/issues/3346)) ([049701e](https://github.com/dhis2/dashboard-app/commit/049701e008513d03f8eb4df75d3668fda4f6a86b))
+
 ## [101.7.1](https://github.com/dhis2/dashboard-app/compare/v101.7.0...v101.7.1) (2026-09-17)
 
 
