@@ -1,12 +1,13 @@
 import { hasAppAccess } from '../../../../modules/appAccess.js'
 import {
-    itemTypeMap,
+    getAppKey,
     REPORT_TABLE,
     CHART,
     VISUALIZATION,
     MAP,
     EVENT_REPORT,
     EVENT_CHART,
+    EVENT_VISUALIZATION,
 } from '../../../../modules/itemTypes.js'
 import getVisualizationContainerDomId from '../getVisualizationContainerDomId.js'
 import { loadExternalScript } from './loadExternalScript.js'
@@ -30,13 +31,38 @@ const hasIntegratedPlugin = (type) =>
 // instead of the plugin.
 // The event reports and event chart scripts are accessible without the authority
 // before 2.42, so their access is only checked after the script fails to load.
-export const hasPluginAccess = (type, authorities) =>
-    hasAppAccess(itemTypeMap[type]?.appKey, authorities)
+export const hasPluginAccess = (type, authorities, apiVersion) =>
+    hasAppAccess(getAppKey(type, apiVersion), authorities)
 
-export const getPluginLaunchUrl = (type, apps, baseUrl) => {
+// Apps the user has no access to are not listed in api/apps, so a listed app
+// grants access without relying on the authority derived from the app key
+export const isPluginAppListed = ({ type, apps = [], apiVersion }) => {
+    const appKey = getAppKey(type, apiVersion)
+
+    return Boolean(appKey) && apps.some((app) => app.key === appKey)
+}
+
+// Standalone plugins fetch their own visualization and handle filters
+// themselves, so the dashboard passes only visualizationId + filters.
+// Add a row here as DV and Maps migrate to the same model.
+const STANDALONE_PLUGIN_MIN_API_VERSION = {
+    [EVENT_VISUALIZATION]: 43,
+}
+
+export const hasStandalonePlugin = (type, apiVersion) =>
+    type in STANDALONE_PLUGIN_MIN_API_VERSION &&
+    apiVersion >= STANDALONE_PLUGIN_MIN_API_VERSION[type]
+
+export const getPluginLaunchUrl = ({
+    type,
+    apps = [],
+    baseUrl,
+    apiVersion,
+}) => {
     // 1. lookup in api/apps for the "manually installed" app, this can be a new version for a core (bundled) app
     // 2. fallback to default hardcoded path for the core (bundled) apps
-    const appKey = itemTypeMap[type].appKey
+    // apps is not passed when loading the legacy plugins (see loadPlugin)
+    const appKey = getAppKey(type, apiVersion)
 
     const appDetails = appKey && apps.find((app) => app.key === appKey)
 
@@ -97,13 +123,17 @@ const fetchPlugin = async (type, baseUrl) => {
     return await scriptsPromise
 }
 
-export const pluginIsAvailable = (type, apps) =>
+export const pluginIsAvailable = ({ type, apps, baseUrl, apiVersion }) =>
     hasIntegratedPlugin(type) ||
-    Boolean(getPluginLaunchUrl(type, apps)) ||
+    Boolean(getPluginLaunchUrl({ type, apps, baseUrl, apiVersion })) ||
     Boolean(itemTypeToGlobalVariable[type])
 
 const loadPlugin = async ({ type, config, credentials }) => {
-    if (!pluginIsAvailable(type)) {
+    if (
+        !pluginIsAvailable({
+            type,
+        })
+    ) {
         return
     }
 

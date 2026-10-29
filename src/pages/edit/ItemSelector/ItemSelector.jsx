@@ -1,7 +1,11 @@
-import { useDataQuery } from '@dhis2/app-runtime'
+import { useConfig, useDataQuery } from '@dhis2/app-runtime'
 import { Layer, Popper, FlyoutMenu } from '@dhis2/ui'
 import React, { useState, useEffect, createRef } from 'react'
-import { itemTypeMap, getDefaultItemCount } from '../../../modules/itemTypes.js'
+import {
+    itemTypeMap,
+    getDefaultItemCount,
+    getPluralTitle,
+} from '../../../modules/itemTypes.js'
 import useDebounce from '../../../modules/useDebounce.js'
 import CategorizedMenuGroup from './CategorizedMenuGroup.jsx'
 import ItemSearchField from './ItemSearchField.jsx'
@@ -25,6 +29,7 @@ const ItemSelector = () => {
     const [filter, setFilter] = useState('')
     const [items, setItems] = useState(null)
     const [maxOptions, setMaxOptions] = useState(new Set())
+    const { apiVersion } = useConfig()
     const debouncedFilterText = useDebounce(filter, 350)
 
     const { data, refetch } = useDataQuery(dashboardSearchQuery, {
@@ -67,7 +72,7 @@ const ItemSelector = () => {
                     <CategorizedMenuGroup
                         key={type}
                         type={type}
-                        title={itemType.pluralTitle}
+                        title={getPluralTitle(type, apiVersion)}
                         items={displayItems}
                         onChangeItemsLimit={updateMaxOptions}
                         hasMore={hasMore}

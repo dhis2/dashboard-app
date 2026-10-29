@@ -87,8 +87,8 @@ const ItemContextMenu = (props) => {
         type !== VIS_TYPE_PIE
 
     const interpretationMenuLabel = props.activeFooter
-        ? i18n.t(`Hide details and interpretations`)
-        : i18n.t(`Show details and interpretations`)
+        ? i18n.t('Hide details and interpretations')
+        : i18n.t('Show details and interpretations')
 
     const buttonRef = createRef()
 
@@ -138,7 +138,7 @@ const ItemContextMenu = (props) => {
                                 icon={<IconLaunch16 />}
                                 disabledWhenOffline={false}
                                 label={i18n.t('Open in {{appName}} app', {
-                                    appName: getAppName(item.type),
+                                    appName: getAppName(item.type, apiVersion),
                                 })}
                                 href={itemHref}
                                 target="_blank"
