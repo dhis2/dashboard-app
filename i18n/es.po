@@ -8,15 +8,16 @@
 # Janeth Cruz, 2025
 # Enzo Nicolas Rossi <enzo@dhis2.org>, 2025
 # Viktor Varland <viktor@dhis2.org>, 2025
+# Philip Larsen Donnelly, 2025
 # Bruno Raimbault, 2025
-# Philip Larsen Donnelly, 2026
+# Pablo Pajuelo Cabezas <pablo@dhis2.org>, 2026
 # 
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2026-05-07T22:45:54.825Z\n"
+"POT-Creation-Date: 2026-10-27T14:40:38.559Z\n"
 "PO-Revision-Date: 2019-06-25 12:37+0000\n"
-"Last-Translator: Philip Larsen Donnelly, 2026\n"
+"Last-Translator: Pablo Pajuelo Cabezas <pablo@dhis2.org>, 2026\n"
 "Language-Team: Spanish (https://app.transifex.com/hisp-uio/teams/100509/es/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
@@ -110,6 +111,12 @@ msgstr "Mostrar controles de gráficos en los elementos del tablero"
 
 msgid "Expand filters"
 msgstr "Ampliar filtros"
+
+msgid "Security"
+msgstr "Seguridad"
+
+msgid "Restrict data by organisation unit hierarchy"
+msgstr ""
 
 msgid "Delete dashboard"
 msgstr "Borrar tablero"
@@ -291,6 +298,13 @@ msgstr "Eliminar este elemento"
 msgid "This item has been shortened to fit on one page"
 msgstr ""
 "Este elemento ha sido redimensionado para que quepa en una sola página"
+
+msgid ""
+"You don't have access to the {{appName}} app needed to display this item"
+msgstr ""
+
+msgid "Contact your system administrator for access"
+msgstr ""
 
 msgid "The plugin needed to display this item is not available"
 msgstr "El plugin necesario para mostrar este elemento no está disponible"
@@ -816,11 +830,3 @@ msgstr "1 minuto por diapositiva"
 
 msgid "2 minutes per slide"
 msgstr "2 minutos por diapositiva"
-
-msgctxt "Application title"
-msgid "__MANIFEST_APP_TITLE"
-msgstr "Tablero"
-
-msgctxt "Application description"
-msgid "__MANIFEST_APP_DESCRIPTION"
-msgstr ""
