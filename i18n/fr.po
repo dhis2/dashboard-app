@@ -6,17 +6,17 @@
 # Edem Kossi <ekossi@hispwca.org>, 2022
 # Viktor Varland <viktor@dhis2.org>, 2025
 # Karoline Tufte Lien <karoline@dhis2.org>, 2025
+# Philip Larsen Donnelly, 2025
 # Yao Selom SAKA (HISP WCA) <ysaka@hispwca.org>, 2025
-# Cyrille Kabrane, 2025
 # Esther Tokouli, 2025
-# Philip Larsen Donnelly, 2026
+# Cyrille Kabrane, 2026
 # 
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2026-05-07T22:45:54.825Z\n"
+"POT-Creation-Date: 2026-10-27T14:40:38.559Z\n"
 "PO-Revision-Date: 2019-06-25 12:37+0000\n"
-"Last-Translator: Philip Larsen Donnelly, 2026\n"
+"Last-Translator: Cyrille Kabrane, 2026\n"
 "Language-Team: French (https://app.transifex.com/hisp-uio/teams/100509/fr/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
@@ -115,6 +115,12 @@ msgstr "Afficher les contrôles graphiques sur les items du tableau de bord"
 
 msgid "Expand filters"
 msgstr "Développer les filtres"
+
+msgid "Security"
+msgstr "Sécurité"
+
+msgid "Restrict data by organisation unit hierarchy"
+msgstr ""
 
 msgid "Delete dashboard"
 msgstr "Supprimer le tableau de bord"
@@ -300,6 +306,13 @@ msgstr "Supprimer cet item "
 
 msgid "This item has been shortened to fit on one page"
 msgstr "Cet élément a été réduit pour tenir sur une page"
+
+msgid ""
+"You don't have access to the {{appName}} app needed to display this item"
+msgstr ""
+
+msgid "Contact your system administrator for access"
+msgstr ""
 
 msgid "The plugin needed to display this item is not available"
 msgstr ""
@@ -840,11 +853,3 @@ msgstr "1 minute par diapositive"
 
 msgid "2 minutes per slide"
 msgstr "2 minutes par diapositive"
-
-msgctxt "Application title"
-msgid "__MANIFEST_APP_TITLE"
-msgstr "Tableau de bord"
-
-msgctxt "Application description"
-msgid "__MANIFEST_APP_DESCRIPTION"
-msgstr ""
