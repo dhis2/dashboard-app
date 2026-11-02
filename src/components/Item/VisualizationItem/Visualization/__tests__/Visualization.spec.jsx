@@ -13,6 +13,17 @@ jest.mock('@dhis2/analytics', () => ({
     }),
 }))
 
+let mockAuthorities
+
+jest.mock('../../../../AppDataProvider/AppDataProvider.jsx', () => ({
+    ...jest.requireActual('../../../../AppDataProvider/AppDataProvider.jsx'),
+    useCurrentUser: () => ({ authorities: mockAuthorities }),
+}))
+
+beforeEach(() => {
+    mockAuthorities = ['ALL']
+})
+
 jest.mock(
     '../LegacyPlugin.jsx',
     () =>
@@ -151,4 +162,51 @@ test('renders NoVisMessage when no visualization', () => {
         </Provider>
     )
     expect(container).toMatchSnapshot()
+})
+
+describe('without access to the app', () => {
+    const renderItem = (type) =>
+        render(
+            <Provider store={mockStore(DEFAULT_STORE_WITH_ONE_ITEM)}>
+                <Visualization
+                    item={{
+                        id: 'rainbow',
+                        type,
+                        [type === 'MAP' ? 'map' : 'visualization']: {
+                            id: 'rainbowVis',
+                        },
+                    }}
+                    activeType={type}
+                    visualization={{ id: 'rainbowVis' }}
+                    itemFilters={{}}
+                    style={{ height: '500px' }}
+                />
+            </Provider>
+        )
+
+    beforeEach(() => {
+        mockAuthorities = []
+    })
+
+    test.each([
+        ['CHART', 'Data Visualizer'],
+        ['REPORT_TABLE', 'Data Visualizer'],
+        ['VISUALIZATION', 'Data Visualizer'],
+        ['MAP', 'Maps'],
+    ])('shows the missing authority message for %s', (type, appName) => {
+        const { getByText, container } = renderItem(type)
+
+        expect(
+            getByText(
+                `You don't have access to the ${appName} app needed to display this item`
+            )
+        ).toBeTruthy()
+        expect(container.querySelector('.iframe-plugin')).toBeNull()
+    })
+
+    test('does not check the authority upfront for the legacy plugins', () => {
+        const { container } = renderItem('EVENT_REPORT')
+
+        expect(container.querySelector('.legacy-plugin')).toBeTruthy()
+    })
 })

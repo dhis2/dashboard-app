@@ -20,17 +20,23 @@ import {
 } from '../../../../modules/itemTypes.js'
 import { sGetSelectedId } from '../../../../reducers/selected.js'
 import {
+    useCurrentUser,
     useInstalledApps,
     useInstalledDVVersion,
     useInstalledMapsVersion,
 } from '../../../AppDataProvider/AppDataProvider.jsx'
+import MissingAuthorityMessage from '../../ItemMessage/MissingAuthorityMessage.jsx'
 import EventVisualizationPlugin from './EventVisualizationPlugin.jsx'
 import getFilteredVisualization from './getFilteredVisualization.js'
 import getVisualizationConfig from './getVisualizationConfig.js'
 import IframePlugin from './IframePlugin.jsx'
 import LegacyPlugin from './LegacyPlugin.jsx'
 import MapPlugin from './MapPlugin.jsx'
-import { hasStandalonePlugin, pluginIsAvailable } from './plugin.js'
+import {
+    hasIframePluginAccess,
+    hasStandalonePlugin,
+    pluginIsAvailable,
+} from './plugin.js'
 import { PluginWarningMessage } from './PluginWarningMessage.jsx'
 
 const Visualization = ({
@@ -49,6 +55,7 @@ const Visualization = ({
     const dashboardId = useSelector(sGetSelectedId)
     const { isDisconnected: offline } = useDhis2ConnectionStatus()
     const apps = useInstalledApps()
+    const { authorities } = useCurrentUser()
     const dataVisualizerAppVersion = useInstalledDVVersion()
     const mapsAppVersion = useInstalledMapsVersion()
 
@@ -91,6 +98,23 @@ const Visualization = ({
             itemFilters,
         ]
     )
+
+    if (
+        !hasIframePluginAccess({
+            type: activeType,
+            apps,
+            authorities,
+            apiVersion,
+        })
+    ) {
+        return (
+            <div style={style}>
+                <MissingAuthorityMessage
+                    appName={getAppName(activeType, apiVersion)}
+                />
+            </div>
+        )
+    }
 
     if (!hasStandalonePlugin(activeType, apiVersion) && !visualization) {
         return (

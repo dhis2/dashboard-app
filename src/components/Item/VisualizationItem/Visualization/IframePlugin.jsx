@@ -20,17 +20,14 @@ import {
     sGetIframePluginStatus,
 } from '../../../../reducers/iframePluginStatus.js'
 import {
-    useCurrentUser,
     useInstalledApps,
     useUserSettings,
 } from '../../../AppDataProvider/AppDataProvider.jsx'
-import MissingAuthorityMessage from '../../ItemMessage/MissingAuthorityMessage.jsx'
 import MissingPluginMessage from '../../ItemMessage/MissingPluginMessage.jsx'
 import VisualizationErrorMessage from '../../ItemMessage/VisualizationErrorMessage.jsx'
 import {
+    getIframePluginType,
     getPluginLaunchUrl,
-    hasPluginAccess,
-    isPluginAppListed,
     hasStandalonePlugin,
 } from './plugin.js'
 import classes from './styles/IframePlugin.module.css'
@@ -53,14 +50,11 @@ const IframePlugin = ({
     const userSettings = useUserSettings()
     const [error, setError] = useState(null)
     const apps = useInstalledApps()
-    const { authorities } = useCurrentUser()
 
     // When this mounts, check if the dashboard is recording
     const { isCached } = useCacheableSection(dashboardId)
 
-    const pluginType = [CHART, REPORT_TABLE].includes(activeType)
-        ? VISUALIZATION
-        : activeType
+    const pluginType = getIframePluginType(activeType)
 
     const onError = () => setError('plugin')
     const onInstallationStatusChange = useCallback(
@@ -135,29 +129,11 @@ const IframePlugin = ({
         setError('missing-plugin')
     }, [apps, apiVersion, baseUrl, pluginType])
 
-    const hasAccess = useMemo(
-        () =>
-            Boolean(getPluginOverrides()?.[pluginType]) ||
-            isPluginAppListed({ type: pluginType, apps, apiVersion }) ||
-            hasPluginAccess(pluginType, authorities, apiVersion),
-        [apiVersion, apps, authorities, pluginType]
-    )
-
-    const iframeSrc = hasAccess ? getIframeSrc() : null
+    const iframeSrc = getIframeSrc()
 
     useEffect(() => {
         setError(null)
     }, [visualization?.type, filters])
-
-    if (!hasAccess) {
-        return (
-            <div style={style}>
-                <MissingAuthorityMessage
-                    appName={getAppName(itemType, apiVersion)}
-                />
-            </div>
-        )
-    }
 
     if (error) {
         return error === 'missing-plugin' ? (

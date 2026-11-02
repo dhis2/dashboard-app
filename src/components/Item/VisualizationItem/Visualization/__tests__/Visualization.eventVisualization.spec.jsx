@@ -9,6 +9,8 @@ import Visualization from '../Visualization.jsx'
 let mockApiVersion
 let mockIDVCompatible
 let mockLLCompatible
+let mockApps
+let mockAuthorities
 
 jest.mock('@dhis2/analytics', () => ({
     useCachedDataQuery: () => ({
@@ -33,7 +35,8 @@ jest.mock('../../../../../modules/isAppVersionCompatible.js', () => ({
 }))
 
 jest.mock('../../../../AppDataProvider/AppDataProvider.jsx', () => ({
-    useInstalledApps: () => [],
+    useCurrentUser: () => ({ authorities: mockAuthorities }),
+    useInstalledApps: () => mockApps,
     useInstalledDVVersion: () => '0.0.0',
     useInstalledMapsVersion: () => '0.0.0',
     useInstalledIDVVersion: () => '0.0.0',
@@ -91,6 +94,8 @@ beforeEach(() => {
     iframePluginProps = undefined
     mockIDVCompatible = false
     mockLLCompatible = false
+    mockApps = []
+    mockAuthorities = ['ALL']
 })
 
 describe('below api version 43 (Line Listing)', () => {
@@ -134,6 +139,19 @@ describe('below api version 43 (Line Listing)', () => {
         })
 
         expect(getByText(/Install Line Listing app .* or higher/)).toBeTruthy()
+    })
+
+    it('shows the missing authority message instead of the install prompt without access', () => {
+        mockAuthorities = ['M_dhis-web-data-visualizer']
+
+        const { getByText, queryByText } = renderVisualization({
+            visualization: { id: 'rainbowVis', type: 'LINE_LIST' },
+        })
+
+        expect(
+            getByText(/You don't have access to the Line Listing app/)
+        ).toBeTruthy()
+        expect(queryByText(/Install Line Listing app/)).toBeNull()
     })
 })
 
@@ -190,5 +208,29 @@ describe('from api version 43 (Individual Data Visualizer)', () => {
         expect(
             getByText(/Install Individual Data Visualizer app .* or higher/)
         ).toBeTruthy()
+    })
+
+    it('shows the missing authority message instead of the install prompt without access', () => {
+        // Line Listing access does not grant access to the Individual Data Visualizer
+        mockAuthorities = ['M_dhis-web-line-listing']
+
+        const { getByText, queryByText } = renderVisualization()
+
+        expect(
+            getByText(
+                /You don't have access to the Individual Data Visualizer app/
+            )
+        ).toBeTruthy()
+        expect(queryByText(/Install Individual Data Visualizer app/)).toBeNull()
+    })
+
+    it('renders the plugin when the app is listed in api/apps without a matching authority', () => {
+        mockIDVCompatible = true
+        mockAuthorities = []
+        mockApps = [{ key: 'individual-data-visualizer' }]
+
+        const { container } = renderVisualization()
+
+        expect(container.querySelector('.iframe-plugin')).toBeTruthy()
     })
 })

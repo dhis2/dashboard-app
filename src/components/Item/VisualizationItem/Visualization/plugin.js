@@ -9,6 +9,7 @@ import {
     EVENT_CHART,
     EVENT_VISUALIZATION,
 } from '../../../../modules/itemTypes.js'
+import { getPluginOverrides } from '../../../../modules/localStorage.js'
 import getVisualizationContainerDomId from '../getVisualizationContainerDomId.js'
 import { loadExternalScript } from './loadExternalScript.js'
 
@@ -40,6 +41,39 @@ export const isPluginAppListed = ({ type, apps = [], apiVersion }) => {
     const appKey = getAppKey(type, apiVersion)
 
     return Boolean(appKey) && apps.some((app) => app.key === appKey)
+}
+
+const IFRAME_PLUGIN_TYPES = [
+    VISUALIZATION,
+    CHART,
+    REPORT_TABLE,
+    MAP,
+    EVENT_VISUALIZATION,
+]
+
+export const getIframePluginType = (type) =>
+    [CHART, REPORT_TABLE].includes(type) ? VISUALIZATION : type
+
+// Checked before the installed app version, as apps the user has no access to
+// are not listed in api/apps and would otherwise show as not installed.
+// The legacy plugins are only checked after the script fails to load (see hasPluginAccess)
+export const hasIframePluginAccess = ({
+    type,
+    apps,
+    authorities,
+    apiVersion,
+}) => {
+    if (!IFRAME_PLUGIN_TYPES.includes(type)) {
+        return true
+    }
+
+    const pluginType = getIframePluginType(type)
+
+    return (
+        Boolean(getPluginOverrides()?.[pluginType]) ||
+        isPluginAppListed({ type: pluginType, apps, apiVersion }) ||
+        hasPluginAccess(pluginType, authorities, apiVersion)
+    )
 }
 
 // Standalone plugins fetch their own visualization and handle filters
