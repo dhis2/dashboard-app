@@ -3,7 +3,11 @@ import i18n from '@dhis2/d2-i18n'
 import { MenuItem, colors, IconLaunch16 } from '@dhis2/ui'
 import PropTypes from 'prop-types'
 import React, { useCallback } from 'react'
-import { getItemIcon, VISUALIZATION } from '../../../modules/itemTypes.js'
+import {
+    EVENT_VISUALIZATION,
+    getItemIcon,
+    VISUALIZATION,
+} from '../../../modules/itemTypes.js'
 import classes from './styles/ContentMenuItem.module.css'
 
 const LaunchLink = ({ url }) => {
@@ -34,8 +38,10 @@ const ContentMenuItem = ({ type, name, onInsert, url, visType }) => {
     const ItemIcon = getItemIcon(type)
 
     let renderedItemIcon
-    if (type === VISUALIZATION) {
-        const VisualizationIcon = visTypeIcons[visType]
+    if ([VISUALIZATION, EVENT_VISUALIZATION].includes(type)) {
+        // visType comes from the search response and may be absent;
+        // fall back to the item type icon in that case
+        const VisualizationIcon = visTypeIcons[visType] ?? ItemIcon
         renderedItemIcon = <VisualizationIcon color={colors.grey600} />
     } else {
         renderedItemIcon = <ItemIcon color={colors.grey600} />

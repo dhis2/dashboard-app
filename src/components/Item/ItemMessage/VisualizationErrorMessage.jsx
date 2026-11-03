@@ -12,11 +12,11 @@ const VisualizationErrorMessage = ({
     dashboardMode,
     visualizationId,
 }) => {
-    const { baseUrl, apiVersion } = useConfig()
+    const { baseUrl, serverVersion } = useConfig()
 
     const visHref = `${baseUrl}/${itemTypeMap[itemType].appUrl({
         id: visualizationId,
-        apiVersion,
+        serverVersion,
     })}`
 
     return (
@@ -34,7 +34,7 @@ const VisualizationErrorMessage = ({
                         href={visHref}
                     >
                         {i18n.t('Open this item in {{appName}}', {
-                            appName: getAppName(itemType),
+                            appName: getAppName(itemType, serverVersion),
                         })}
                     </a>
                 </span>
