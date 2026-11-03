@@ -41,7 +41,7 @@ const IframePlugin = ({
 }) => {
     const dispatch = useDispatch()
     const iframePluginStatus = useSelector(sGetIframePluginStatus)
-    const { baseUrl, apiVersion } = useConfig()
+    const { baseUrl, serverVersion } = useConfig()
     const userSettings = useUserSettings()
     const [error, setError] = useState(null)
     const apps = useInstalledApps()
@@ -75,7 +75,7 @@ const IframePlugin = ({
             isParentCached: isCached,
         }
 
-        return hasStandalonePlugin(activeType, apiVersion)
+        return hasStandalonePlugin(activeType, serverVersion)
             ? {
                   ...commonProps,
                   visualizationId,
@@ -90,7 +90,7 @@ const IframePlugin = ({
     }, [
         userSettings,
         activeType,
-        apiVersion,
+        serverVersion,
         visualization,
         visualizationId,
         filters,
@@ -114,7 +114,7 @@ const IframePlugin = ({
             type: pluginType,
             apps,
             baseUrl,
-            apiVersion,
+            serverVersion,
         })
 
         if (pluginLaunchUrl) {
@@ -122,7 +122,7 @@ const IframePlugin = ({
         }
 
         setError('missing-plugin')
-    }, [apps, apiVersion, baseUrl, pluginType])
+    }, [apps, serverVersion, baseUrl, pluginType])
 
     const iframeSrc = getIframeSrc()
 
@@ -134,7 +134,7 @@ const IframePlugin = ({
         return error === 'missing-plugin' ? (
             <div style={style}>
                 <MissingPluginMessage
-                    pluginName={getAppName(itemType, apiVersion)}
+                    pluginName={getAppName(itemType, serverVersion)}
                     dashboardMode={dashboardMode}
                 />
             </div>

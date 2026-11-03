@@ -29,7 +29,7 @@ const ItemSelector = () => {
     const [filter, setFilter] = useState('')
     const [items, setItems] = useState(null)
     const [maxOptions, setMaxOptions] = useState(new Set())
-    const { apiVersion } = useConfig()
+    const { serverVersion } = useConfig()
     const debouncedFilterText = useDebounce(filter, 350)
 
     const { data, refetch } = useDataQuery(dashboardSearchQuery, {
@@ -72,7 +72,7 @@ const ItemSelector = () => {
                     <CategorizedMenuGroup
                         key={type}
                         type={type}
-                        title={getPluralTitle(type, apiVersion)}
+                        title={getPluralTitle(type, serverVersion)}
                         items={displayItems}
                         onChangeItemsLimit={updateMaxOptions}
                         hasMore={hasMore}

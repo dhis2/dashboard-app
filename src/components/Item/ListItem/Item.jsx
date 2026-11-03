@@ -33,7 +33,7 @@ const ListItem = ({
     isFullscreen,
     isSlideshowView,
 }) => {
-    const { baseUrl, apiVersion } = useConfig()
+    const { baseUrl, serverVersion } = useConfig()
     const contentItems = getContentItems(item)
 
     const updateDashboardItem = (content) => {
@@ -70,7 +70,7 @@ const ListItem = ({
                         type: item.type,
                         item: contentItem,
                         baseUrl,
-                        apiVersion,
+                        serverVersion,
                     })}
                     tabIndex={isSlideshowView ? '-1' : '0'}
                     target="_top"
@@ -86,7 +86,7 @@ const ListItem = ({
     return (
         <>
             <ItemHeader
-                title={getPluralTitle(item.type, apiVersion)}
+                title={getPluralTitle(item.type, serverVersion)}
                 itemId={item.id}
                 dashboardMode={dashboardMode}
                 isShortened={item.shortened}

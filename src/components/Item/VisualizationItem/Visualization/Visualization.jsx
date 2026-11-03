@@ -51,7 +51,7 @@ const Visualization = ({
     showNoFiltersOverlay,
     onClickNoFiltersOverlay,
 }) => {
-    const { baseUrl, apiVersion } = useConfig()
+    const { baseUrl, serverVersion } = useConfig()
     const dashboardId = useSelector(sGetSelectedId)
     const { isDisconnected: offline } = useDhis2ConnectionStatus()
     const apps = useInstalledApps()
@@ -104,19 +104,19 @@ const Visualization = ({
             type: activeType,
             apps,
             authorities,
-            apiVersion,
+            serverVersion,
         })
     ) {
         return (
             <div style={style}>
                 <MissingAuthorityMessage
-                    appName={getAppName(activeType, apiVersion)}
+                    appName={getAppName(activeType, serverVersion)}
                 />
             </div>
         )
     }
 
-    if (!hasStandalonePlugin(activeType, apiVersion) && !visualization) {
+    if (!hasStandalonePlugin(activeType, serverVersion) && !visualization) {
         return (
             <PluginWarningMessage
                 style={style}
@@ -140,7 +140,7 @@ const Visualization = ({
                     message={i18n.t(
                         `Install {{appName}} app {{appVersion}} or higher in order to display this item.`,
                         {
-                            appName: getAppName(activeType, apiVersion),
+                            appName: getAppName(activeType, serverVersion),
                             appVersion: minDVVersion.join('.'),
                         }
                     )}
@@ -172,7 +172,7 @@ const Visualization = ({
                     message={i18n.t(
                         `Install {{appName}} app {{appVersion}} or higher in order to display this item.`,
                         {
-                            appName: getAppName(activeType, apiVersion),
+                            appName: getAppName(activeType, serverVersion),
                             appVersion: minMapsVersion.join('.'),
                         }
                     )}
@@ -184,7 +184,7 @@ const Visualization = ({
                 type: activeType || item.type,
                 apps,
                 baseUrl,
-                apiVersion,
+                serverVersion,
             }) ? (
                 <PluginWarningMessage
                     style={style}

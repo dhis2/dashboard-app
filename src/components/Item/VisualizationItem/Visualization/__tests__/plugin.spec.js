@@ -16,20 +16,33 @@ import {
     pluginIsAvailable,
 } from '../plugin.js'
 
+const IDV_SERVER_VERSION = { major: 2, minor: 43, patch: 3 }
+const SERVER_VERSION_42 = { major: 2, minor: 42, patch: 0 }
+
 const BASE_URL = 'https://play.dhis2.org'
 
 describe('hasStandalonePlugin', () => {
-    it('is true for EVENT_VISUALIZATION from api version 43', () => {
-        expect(hasStandalonePlugin(EVENT_VISUALIZATION, 43)).toBe(true)
-        expect(hasStandalonePlugin(EVENT_VISUALIZATION, 44)).toBe(true)
+    it('is true for EVENT_VISUALIZATION from 2.43.3', () => {
+        expect(
+            hasStandalonePlugin(EVENT_VISUALIZATION, IDV_SERVER_VERSION)
+        ).toBe(true)
+        expect(
+            hasStandalonePlugin(EVENT_VISUALIZATION, {
+                major: 2,
+                minor: 44,
+                patch: 0,
+            })
+        ).toBe(true)
     })
 
-    it('is false for EVENT_VISUALIZATION below api version 43', () => {
-        expect(hasStandalonePlugin(EVENT_VISUALIZATION, 42)).toBe(false)
+    it('is false for EVENT_VISUALIZATION below 2.43.3', () => {
+        expect(
+            hasStandalonePlugin(EVENT_VISUALIZATION, SERVER_VERSION_42)
+        ).toBe(false)
     })
 
-    it('is false when apiVersion is missing', () => {
-        // Guards against call sites forgetting to pass apiVersion, which would
+    it('is false when serverVersion is missing', () => {
+        // Guards against call sites forgetting to pass serverVersion, which would
         // otherwise silently opt every item into the non-standalone path
         expect(hasStandalonePlugin(EVENT_VISUALIZATION, undefined)).toBe(false)
     })
@@ -43,20 +56,23 @@ describe('hasStandalonePlugin', () => {
             EVENT_REPORT,
             EVENT_CHART,
         ].forEach((type) => {
-            expect(hasStandalonePlugin(type, 43)).toBe(false)
+            expect(hasStandalonePlugin(type, IDV_SERVER_VERSION)).toBe(false)
         })
     })
 
     it('is false for an unknown type', () => {
-        expect(hasStandalonePlugin('PONY', 43)).toBe(false)
+        expect(hasStandalonePlugin('PONY', IDV_SERVER_VERSION)).toBe(false)
     })
 
     it('is false when passed an item instead of an item type', () => {
         // The map is keyed by type string; an object stringifies to a key that
         // never matches, so this must not be mistaken for a standalone plugin
-        expect(hasStandalonePlugin({ type: EVENT_VISUALIZATION }, 43)).toBe(
-            false
-        )
+        expect(
+            hasStandalonePlugin(
+                { type: EVENT_VISUALIZATION },
+                IDV_SERVER_VERSION
+            )
+        ).toBe(false)
     })
 })
 
@@ -74,24 +90,24 @@ describe('getPluginLaunchUrl', () => {
         pluginLaunchUrl: `${BASE_URL}/dhis-web-data-visualizer/plugin.html`,
     }
 
-    it('resolves EVENT_VISUALIZATION to the Individual Data Visualizer app from api version 43', () => {
+    it('resolves EVENT_VISUALIZATION to the Individual Data Visualizer app from 2.43.3', () => {
         expect(
             getPluginLaunchUrl({
                 type: EVENT_VISUALIZATION,
                 apps: [idvApp, lineListingApp],
                 baseUrl: BASE_URL,
-                apiVersion: 43,
+                serverVersion: IDV_SERVER_VERSION,
             })
         ).toBe(idvApp.pluginLaunchUrl)
     })
 
-    it('resolves EVENT_VISUALIZATION to the Line Listing app below api version 43', () => {
+    it('resolves EVENT_VISUALIZATION to the Line Listing app below 2.43.3', () => {
         expect(
             getPluginLaunchUrl({
                 type: EVENT_VISUALIZATION,
                 apps: [idvApp, lineListingApp],
                 baseUrl: BASE_URL,
-                apiVersion: 42,
+                serverVersion: SERVER_VERSION_42,
             })
         ).toBe(lineListingApp.pluginLaunchUrl)
     })
@@ -107,7 +123,7 @@ describe('getPluginLaunchUrl', () => {
                 type: VISUALIZATION,
                 apps: [installed],
                 baseUrl: BASE_URL,
-                apiVersion: 43,
+                serverVersion: IDV_SERVER_VERSION,
             })
         ).toBe(installed.pluginLaunchUrl)
     })
@@ -118,7 +134,7 @@ describe('getPluginLaunchUrl', () => {
                 type: VISUALIZATION,
                 apps: [],
                 baseUrl: BASE_URL,
-                apiVersion: 43,
+                serverVersion: IDV_SERVER_VERSION,
             })
         ).toBe(`${BASE_URL}/dhis-web-data-visualizer/plugin.html`)
 
@@ -127,7 +143,7 @@ describe('getPluginLaunchUrl', () => {
                 type: MAP,
                 apps: [],
                 baseUrl: BASE_URL,
-                apiVersion: 43,
+                serverVersion: IDV_SERVER_VERSION,
             })
         ).toBe(`${BASE_URL}/dhis-web-maps/plugin.html`)
     })
@@ -140,7 +156,7 @@ describe('getPluginLaunchUrl', () => {
                 type: EVENT_VISUALIZATION,
                 apps: [dataVisualizerApp],
                 baseUrl: BASE_URL,
-                apiVersion: 43,
+                serverVersion: IDV_SERVER_VERSION,
             })
         ).toBeUndefined()
     })
@@ -151,7 +167,7 @@ describe('getPluginLaunchUrl', () => {
                 type: EVENT_REPORT,
                 apps: [],
                 baseUrl: BASE_URL,
-                apiVersion: 43,
+                serverVersion: IDV_SERVER_VERSION,
             })
         ).toBeUndefined()
     })
@@ -222,15 +238,17 @@ describe('hasPluginAccess', () => {
         )
     })
 
-    test('checks the Individual Data Visualizer app for EVENT_VISUALIZATION from api version 43', () => {
+    test('checks the Individual Data Visualizer app for EVENT_VISUALIZATION from 2.43.3', () => {
         expect(
             hasPluginAccess(
                 EVENT_VISUALIZATION,
                 ['M_dhis-web-line-listing'],
-                43
+                IDV_SERVER_VERSION
             )
         ).toBe(false)
-        expect(hasPluginAccess(EVENT_VISUALIZATION, ['ALL'], 43)).toBe(true)
+        expect(
+            hasPluginAccess(EVENT_VISUALIZATION, ['ALL'], IDV_SERVER_VERSION)
+        ).toBe(true)
     })
 
     test('does not check authorities for APP', () => {
@@ -252,46 +270,49 @@ describe('isPluginAppListed', () => {
     const lineListingApp = { key: 'line-listing' }
     const idvApp = { key: 'individual-data-visualizer' }
 
-    test('is true for EVENT_VISUALIZATION when Line Listing is listed below api version 43', () => {
+    test('is true for EVENT_VISUALIZATION when Line Listing is listed below 2.43.3', () => {
         expect(
             isPluginAppListed({
                 type: EVENT_VISUALIZATION,
                 apps: [lineListingApp],
-                apiVersion: 42,
+                serverVersion: SERVER_VERSION_42,
             })
         ).toBe(true)
     })
 
-    test('is true for EVENT_VISUALIZATION when Individual Data Visualizer is listed from api version 43', () => {
+    test('is true for EVENT_VISUALIZATION when Individual Data Visualizer is listed from 2.43.3', () => {
         expect(
             isPluginAppListed({
                 type: EVENT_VISUALIZATION,
                 apps: [idvApp],
-                apiVersion: 43,
+                serverVersion: IDV_SERVER_VERSION,
             })
         ).toBe(true)
     })
 
-    test('is false for EVENT_VISUALIZATION when only the app for the other api version is listed', () => {
+    test('is false for EVENT_VISUALIZATION when only the app for the other server version is listed', () => {
         expect(
             isPluginAppListed({
                 type: EVENT_VISUALIZATION,
                 apps: [lineListingApp],
-                apiVersion: 43,
+                serverVersion: IDV_SERVER_VERSION,
             })
         ).toBe(false)
         expect(
             isPluginAppListed({
                 type: EVENT_VISUALIZATION,
                 apps: [idvApp],
-                apiVersion: 42,
+                serverVersion: SERVER_VERSION_42,
             })
         ).toBe(false)
     })
 
     test('is false when the apps are missing', () => {
         expect(
-            isPluginAppListed({ type: EVENT_VISUALIZATION, apiVersion: 43 })
+            isPluginAppListed({
+                type: EVENT_VISUALIZATION,
+                serverVersion: IDV_SERVER_VERSION,
+            })
         ).toBe(false)
     })
 

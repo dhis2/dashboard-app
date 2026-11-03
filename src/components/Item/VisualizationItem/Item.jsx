@@ -51,6 +51,7 @@ import {
     pluginIsAvailable,
 } from './Visualization/plugin.js'
 import Visualization from './Visualization/Visualization.jsx'
+import { systemHasIdv } from '../../../modules/serverVersion.js'
 
 const DEFAULT_VISUALIZATION = {}
 
@@ -70,10 +71,10 @@ class Item extends Component {
     }
 
     fetchVisualization = async () => {
-        const { item, apiVersion, engine, visualization, isRecording } =
+        const { item, serverVersion, engine, visualization, isRecording } =
             this.props
 
-        if (hasStandalonePlugin(item.type, apiVersion)) {
+        if (hasStandalonePlugin(item.type, serverVersion)) {
             return
         }
 
@@ -117,7 +118,7 @@ class Item extends Component {
         if (
             this.props.isRecording &&
             this.props.isRecording !== prevProps.isRecording &&
-            !hasStandalonePlugin(this.props.item.type, this.props.apiVersion)
+            !hasStandalonePlugin(this.props.item.type, this.props.serverVersion)
         ) {
             apiFetchVisualization(this.props.item, this.props.engine).catch(
                 console.error
@@ -155,7 +156,7 @@ class Item extends Component {
     render() {
         const {
             baseUrl,
-            apiVersion,
+            serverVersion,
             item,
             dashboardMode,
             itemFilters,
@@ -174,7 +175,7 @@ class Item extends Component {
                 type: activeType || item.type,
                 apps: this.props.apps,
                 baseUrl,
-                apiVersion,
+                serverVersion,
             }) &&
             isViewMode(dashboardMode) &&
             !isSlideshowView ? (
@@ -194,7 +195,8 @@ class Item extends Component {
             if (isViewMode(dashboardMode) && Object.keys(itemFilters).length) {
                 switch (activeType) {
                     case EVENT_VISUALIZATION: {
-                        return apiVersion < 43 && !showNoFiltersOverlay ? (
+                        return !systemHasIdv(serverVersion) &&
+                            !showNoFiltersOverlay ? (
                             <Tooltip
                                 content={i18n.t(
                                     'Filters are not applied to line list dashboard items'
@@ -301,7 +303,7 @@ Item.propTypes = {
     item: PropTypes.object.isRequired,
     itemFilters: PropTypes.object.isRequired,
     activeType: PropTypes.string,
-    apiVersion: PropTypes.number,
+    serverVersion: PropTypes.object,
     apps: PropTypes.array,
     baseUrl: PropTypes.string,
     dashboardMode: PropTypes.string,
@@ -350,12 +352,12 @@ const mapDispatchToProps = {
 
 const ItemWithSettingsAndConfig = (props) => {
     const systemSettings = useSystemSettings()
-    const { baseUrl, apiVersion } = useConfig()
+    const { baseUrl, serverVersion } = useConfig()
     return (
         <Item
             settings={systemSettings}
             baseUrl={baseUrl}
-            apiVersion={apiVersion}
+            serverVersion={serverVersion}
             {...props}
         />
     )

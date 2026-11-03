@@ -10,6 +10,7 @@ import {
     EVENT_VISUALIZATION,
 } from '../../../../modules/itemTypes.js'
 import { getPluginOverrides } from '../../../../modules/localStorage.js'
+import { systemHasIdv } from '../../../../modules/serverVersion.js'
 import getVisualizationContainerDomId from '../getVisualizationContainerDomId.js'
 import { loadExternalScript } from './loadExternalScript.js'
 
@@ -32,13 +33,13 @@ const hasIntegratedPlugin = (type) =>
 // instead of the plugin.
 // The event reports and event chart scripts are accessible without the authority
 // before 2.42, so their access is only checked after the script fails to load.
-export const hasPluginAccess = (type, authorities, apiVersion) =>
-    hasAppAccess(getAppKey(type, apiVersion), authorities)
+export const hasPluginAccess = (type, authorities, serverVersion) =>
+    hasAppAccess(getAppKey(type, serverVersion), authorities)
 
 // Apps the user has no access to are not listed in api/apps, so a listed app
 // grants access without relying on the authority derived from the app key
-export const isPluginAppListed = ({ type, apps = [], apiVersion }) => {
-    const appKey = getAppKey(type, apiVersion)
+export const isPluginAppListed = ({ type, apps = [], serverVersion }) => {
+    const appKey = getAppKey(type, serverVersion)
 
     return Boolean(appKey) && apps.some((app) => app.key === appKey)
 }
@@ -61,7 +62,7 @@ export const hasIframePluginAccess = ({
     type,
     apps,
     authorities,
-    apiVersion,
+    serverVersion,
 }) => {
     if (!IFRAME_PLUGIN_TYPES.has(type)) {
         return true
@@ -71,32 +72,32 @@ export const hasIframePluginAccess = ({
 
     return (
         Boolean(getPluginOverrides()?.[pluginType]) ||
-        isPluginAppListed({ type: pluginType, apps, apiVersion }) ||
-        hasPluginAccess(pluginType, authorities, apiVersion)
+        isPluginAppListed({ type: pluginType, apps, serverVersion }) ||
+        hasPluginAccess(pluginType, authorities, serverVersion)
     )
 }
 
 // Standalone plugins fetch their own visualization and handle filters
 // themselves, so the dashboard passes only visualizationId + filters.
 // Add a row here as DV and Maps migrate to the same model.
-const STANDALONE_PLUGIN_MIN_API_VERSION = {
-    [EVENT_VISUALIZATION]: 43,
+const STANDALONE_PLUGIN_SERVER_CHECKS = {
+    [EVENT_VISUALIZATION]: systemHasIdv,
 }
 
-export const hasStandalonePlugin = (type, apiVersion) =>
-    type in STANDALONE_PLUGIN_MIN_API_VERSION &&
-    apiVersion >= STANDALONE_PLUGIN_MIN_API_VERSION[type]
+export const hasStandalonePlugin = (type, serverVersion) =>
+    Object.hasOwn(STANDALONE_PLUGIN_SERVER_CHECKS, type) &&
+    STANDALONE_PLUGIN_SERVER_CHECKS[type](serverVersion)
 
 export const getPluginLaunchUrl = ({
     type,
     apps = [],
     baseUrl,
-    apiVersion,
+    serverVersion,
 }) => {
     // 1. lookup in api/apps for the "manually installed" app, this can be a new version for a core (bundled) app
     // 2. fallback to default hardcoded path for the core (bundled) apps
     // apps is not passed when loading the legacy plugins (see loadPlugin)
-    const appKey = getAppKey(type, apiVersion)
+    const appKey = getAppKey(type, serverVersion)
 
     const appDetails = appKey && apps.find((app) => app.key === appKey)
 
@@ -157,9 +158,9 @@ const fetchPlugin = async (type, baseUrl) => {
     return await scriptsPromise
 }
 
-export const pluginIsAvailable = ({ type, apps, baseUrl, apiVersion }) =>
+export const pluginIsAvailable = ({ type, apps, baseUrl, serverVersion }) =>
     hasIntegratedPlugin(type) ||
-    Boolean(getPluginLaunchUrl({ type, apps, baseUrl, apiVersion })) ||
+    Boolean(getPluginLaunchUrl({ type, apps, baseUrl, serverVersion })) ||
     Boolean(itemTypeToGlobalVariable[type])
 
 const loadPlugin = async ({ type, config, credentials }) => {

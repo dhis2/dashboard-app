@@ -10,7 +10,7 @@ import FatalErrorBoundary from '../FatalErrorBoundary.jsx'
 import classes from './styles/ItemFooter.module.css'
 
 const ItemFooter = ({ item }) => {
-    const { baseUrl, apiVersion } = useConfig()
+    const { baseUrl, serverVersion } = useConfig()
     const currentUser = useCurrentUser()
     const id = getVisualizationId(item)
     const type = itemTypeMap[item.type]?.propName
@@ -18,7 +18,7 @@ const ItemFooter = ({ item }) => {
         type: item.type,
         item: { id },
         baseUrl,
-        apiVersion,
+        serverVersion,
     })
 
     return (

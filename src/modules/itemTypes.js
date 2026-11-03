@@ -14,6 +14,7 @@ import {
     IconVisualizationColumn24,
     IconWorld24,
 } from '@dhis2/ui'
+import { systemHasIdv } from './serverVersion.js'
 
 // Item types
 export const VISUALIZATION = 'VISUALIZATION'
@@ -45,12 +46,12 @@ export const isTrackerDomainType = (itemType) =>
     itemTypeMap[itemType].domainType === DOMAIN_TYPE_TRACKER
 export const getDefaultItemCount = (itemType) =>
     itemTypeMap[itemType].defaultItemCount || 5
-export const getAppName = (itemType, apiVersion) =>
-    itemTypeMap[itemType]?.appName?.({ apiVersion }) || ''
-export const getAppKey = (itemType, apiVersion) =>
-    itemTypeMap[itemType]?.appKey?.({ apiVersion })
-export const getPluralTitle = (itemType, apiVersion) =>
-    itemTypeMap[itemType]?.pluralTitle?.({ apiVersion })
+export const getAppName = (itemType, serverVersion) =>
+    itemTypeMap[itemType]?.appName?.({ serverVersion }) || ''
+export const getAppKey = (itemType, serverVersion) =>
+    itemTypeMap[itemType]?.appKey?.({ serverVersion })
+export const getPluralTitle = (itemType, serverVersion) =>
+    itemTypeMap[itemType]?.pluralTitle?.({ serverVersion })
 
 export const getItemTypeForVis = (item) => {
     if (item.type === VISUALIZATION) {
@@ -149,27 +150,31 @@ export const itemTypeMap = {
         endPointName: 'eventVisualizations',
         dataStatisticsName: 'EVENT_VISUALIZATION_VIEW',
         propName: 'eventVisualization',
-        pluralTitle: ({ apiVersion }) =>
-            apiVersion >= 43
+        pluralTitle: ({ serverVersion }) =>
+            systemHasIdv(serverVersion)
                 ? i18n.t('Event visualizations')
                 : i18n.t('Line lists'),
         domainType: DOMAIN_TYPE_TRACKER,
         isVisualizationType: true,
-        appUrl: ({ id, apiVersion }) => {
-            if (apiVersion >= 43) {
+        appUrl: ({ id, serverVersion }) => {
+            if (systemHasIdv(serverVersion)) {
                 return `api/apps/individual-data-visualizer/index.html#/${id}`
             }
 
-            if (apiVersion >= 42) {
+            if (serverVersion?.minor >= 42) {
                 return `dhis-web-line-listing/#/${id}`
             }
 
             return `api/apps/line-listing/index.html#/${id}`
         },
-        appName: ({ apiVersion }) =>
-            apiVersion >= 43 ? 'Individual Data Visualizer' : 'Line Listing',
-        appKey: ({ apiVersion }) =>
-            apiVersion >= 43 ? 'individual-data-visualizer' : 'line-listing',
+        appName: ({ serverVersion }) =>
+            systemHasIdv(serverVersion)
+                ? 'Individual Data Visualizer'
+                : 'Line Listing',
+        appKey: ({ serverVersion }) =>
+            systemHasIdv(serverVersion)
+                ? 'individual-data-visualizer'
+                : 'line-listing',
         supportsFullscreen: true,
     },
     [APP]: {
@@ -242,7 +247,7 @@ export const getEndPointName = (type) => itemTypeMap[type].endPointName
 export const getDataStatisticsName = (type) =>
     itemTypeMap[type].dataStatisticsName || null
 
-export const getItemUrl = ({ type, item, baseUrl, apiVersion }) => {
+export const getItemUrl = ({ type, item, baseUrl, serverVersion }) => {
     let url
 
     if (type === APP) {
@@ -253,7 +258,7 @@ export const getItemUrl = ({ type, item, baseUrl, apiVersion }) => {
         url = `${baseUrl}/${itemTypeMap[type].appUrl({
             id: item.id,
             type: item.type,
-            apiVersion,
+            serverVersion,
         })}`
     }
 

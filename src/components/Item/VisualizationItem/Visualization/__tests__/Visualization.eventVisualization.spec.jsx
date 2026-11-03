@@ -6,7 +6,7 @@ import Visualization from '../Visualization.jsx'
 
 // Mutable so each test can pick the backend version and which plugin apps are
 // available, without re-mocking the modules
-let mockApiVersion
+let mockServerVersion
 let mockIDVCompatible
 let mockLLCompatible
 let mockApps
@@ -20,7 +20,7 @@ jest.mock('@dhis2/analytics', () => ({
 
 jest.mock('@dhis2/app-runtime', () => ({
     ...jest.requireActual('@dhis2/app-runtime'),
-    useConfig: () => ({ baseUrl: 'dhis2', apiVersion: mockApiVersion }),
+    useConfig: () => ({ baseUrl: 'dhis2', serverVersion: mockServerVersion }),
 }))
 
 // Stub compatibility rather than driving it through installed-app versions:
@@ -98,9 +98,9 @@ beforeEach(() => {
     mockAuthorities = ['ALL']
 })
 
-describe('below api version 43 (Line Listing)', () => {
+describe('below 2.43.3 (Line Listing)', () => {
     beforeEach(() => {
-        mockApiVersion = 42
+        mockServerVersion = { major: 2, minor: 42, patch: 0 }
     })
 
     it('renders the plugin when the Line Listing app is compatible', () => {
@@ -141,6 +141,17 @@ describe('below api version 43 (Line Listing)', () => {
         expect(getByText(/Install Line Listing app .* or higher/)).toBeTruthy()
     })
 
+    it('renders the Line Listing plugin on 2.43 before the IDV release', () => {
+        mockServerVersion = { major: 2, minor: 43, patch: 2 }
+        mockLLCompatible = true
+        mockIDVCompatible = true
+        const visualization = { id: 'rainbowVis', type: 'LINE_LIST' }
+
+        renderVisualization({ visualization })
+
+        expect(iframePluginProps.visualization).toEqual(visualization)
+    })
+
     it('shows the missing authority message instead of the install prompt without access', () => {
         mockAuthorities = ['M_dhis-web-data-visualizer']
 
@@ -155,9 +166,9 @@ describe('below api version 43 (Line Listing)', () => {
     })
 })
 
-describe('from api version 43 (Individual Data Visualizer)', () => {
+describe('from 2.43.3 (Individual Data Visualizer)', () => {
     beforeEach(() => {
-        mockApiVersion = 43
+        mockServerVersion = { major: 2, minor: 43, patch: 3 }
     })
 
     it('renders the plugin when the Individual Data Visualizer app is compatible', () => {

@@ -8,13 +8,13 @@ import WindowDimensionsProvider from '../../../WindowDimensionsProvider.jsx'
 import { Item } from '../../Item.jsx'
 
 // Mutable so each test can pick the backend version without re-mocking
-let mockApiVersion
+let mockServerVersion
 
 jest.mock('../../../../api/fetchVisualization')
 
 jest.mock('@dhis2/app-runtime', () => ({
     ...jest.requireActual('@dhis2/app-runtime'),
-    useConfig: () => ({ baseUrl: 'dhis2', apiVersion: mockApiVersion }),
+    useConfig: () => ({ baseUrl: 'dhis2', serverVersion: mockServerVersion }),
 }))
 
 jest.mock('../../../AppDataProvider/AppDataProvider.jsx', () => ({
@@ -85,18 +85,18 @@ beforeEach(() => {
 })
 
 describe('fetching the visualization', () => {
-    it('does not fetch for EVENT_VISUALIZATION from api version 43', async () => {
+    it('does not fetch for EVENT_VISUALIZATION from 2.43.3', async () => {
         // The standalone plugin fetches the visualization itself
-        mockApiVersion = 43
+        mockServerVersion = { major: 2, minor: 43, patch: 3 }
 
         await renderItem(eventVisualizationItem)
 
         expect(apiFetchVisualization).not.toHaveBeenCalled()
     })
 
-    it('still fetches for EVENT_VISUALIZATION below api version 43', async () => {
+    it('still fetches for EVENT_VISUALIZATION below 2.43.3', async () => {
         // The Line Listing plugin is handed the visualization by the dashboard
-        mockApiVersion = 42
+        mockServerVersion = { major: 2, minor: 42, patch: 0 }
 
         await renderItem(eventVisualizationItem)
 
@@ -104,7 +104,7 @@ describe('fetching the visualization', () => {
     })
 
     it('still fetches for other item types on a new backend', async () => {
-        mockApiVersion = 43
+        mockServerVersion = { major: 2, minor: 43, patch: 3 }
 
         await renderItem({
             type: 'VISUALIZATION',

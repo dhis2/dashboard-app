@@ -20,14 +20,15 @@ import {
 import IframePlugin from './IframePlugin.jsx'
 import { PluginWarningMessage } from './PluginWarningMessage.jsx'
 import classes from './styles/Visualization.module.css'
+import { systemHasIdv } from '../../../../modules/serverVersion.js'
 
-const InstallAppMessage = ({ style, minVersion, apiVersion }) => (
+const InstallAppMessage = ({ style, minVersion, serverVersion }) => (
     <PluginWarningMessage
         style={style}
         message={i18n.t(
             `Install {{appName}} app {{appVersion}} or higher in order to display this item.`,
             {
-                appName: getAppName(EVENT_VISUALIZATION, apiVersion),
+                appName: getAppName(EVENT_VISUALIZATION, serverVersion),
                 appVersion: minVersion.join('.'),
             }
         )}
@@ -35,13 +36,13 @@ const InstallAppMessage = ({ style, minVersion, apiVersion }) => (
 )
 
 InstallAppMessage.propTypes = {
-    apiVersion: PropTypes.number,
+    serverVersion: PropTypes.object,
     minVersion: PropTypes.array,
     style: PropTypes.object,
 }
 
-/* From api version 43 event visualizations are rendered by the Event
- * Visualizer plugin, which fetches the visualization itself and shows its own
+/* From 2.43.3 (see systemHasIdv) event visualizations are rendered by the
+ * Individual Data Visualizer plugin, which fetches the visualization itself and shows its own
  * notice about unapplied filters. Below that they are rendered by the Line
  * Listing plugin, which is handed the visualization and relies on the
  * dashboard for that notice. */
@@ -52,18 +53,18 @@ const EventVisualizationPlugin = ({
     showNoFiltersOverlay,
     onClickNoFiltersOverlay,
 }) => {
-    const { apiVersion } = useConfig()
+    const { serverVersion } = useConfig()
     const idvAppVersion = useInstalledIDVVersion()
     const lineListingAppVersion = useInstalledLLVersion()
 
-    if (apiVersion >= 43) {
+    if (systemHasIdv(serverVersion)) {
         return isIDVVersionCompatible(idvAppVersion) ? (
             <IframePlugin {...iFramePluginProps} />
         ) : (
             <InstallAppMessage
                 style={style}
                 minVersion={minIDVVersion}
-                apiVersion={apiVersion}
+                serverVersion={serverVersion}
             />
         )
     }
@@ -98,7 +99,7 @@ const EventVisualizationPlugin = ({
         <InstallAppMessage
             style={style}
             minVersion={minLLVersion}
-            apiVersion={apiVersion}
+            serverVersion={serverVersion}
         />
     )
 }
