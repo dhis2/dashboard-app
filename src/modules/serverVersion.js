@@ -1,5 +1,4 @@
 // The Individual Data Visualizer replaces Line Listing for event visualizations
-// TODO: update to the actual version once the IDV release is scheduled
 const IDV_MIN_SERVER_VERSION = { minor: 43, patch: 3 }
 
 // serverVersion is the one from useConfig, ie. { major: 2, minor: 43, patch: 3 } for 2.43.3
