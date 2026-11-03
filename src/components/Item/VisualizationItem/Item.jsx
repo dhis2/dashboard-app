@@ -32,6 +32,7 @@ import {
     VISUALIZATION,
     EVENT_REPORT,
 } from '../../../modules/itemTypes.js'
+import { systemHasIdv } from '../../../modules/serverVersion.js'
 import { sGetIsEditing } from '../../../reducers/editDashboard.js'
 import { sGetItemActiveType } from '../../../reducers/itemActiveTypes.js'
 import {
@@ -51,7 +52,6 @@ import {
     pluginIsAvailable,
 } from './Visualization/plugin.js'
 import Visualization from './Visualization/Visualization.jsx'
-import { systemHasIdv } from '../../../modules/serverVersion.js'
 
 const DEFAULT_VISUALIZATION = {}
 
@@ -303,7 +303,6 @@ Item.propTypes = {
     item: PropTypes.object.isRequired,
     itemFilters: PropTypes.object.isRequired,
     activeType: PropTypes.string,
-    serverVersion: PropTypes.object,
     apps: PropTypes.array,
     baseUrl: PropTypes.string,
     dashboardMode: PropTypes.string,
@@ -313,6 +312,7 @@ Item.propTypes = {
     isFullscreen: PropTypes.bool,
     isRecording: PropTypes.bool,
     isSlideshowView: PropTypes.bool,
+    serverVersion: PropTypes.object,
     setActiveType: PropTypes.func,
     setSlideshow: PropTypes.func,
     setVisualization: PropTypes.func,

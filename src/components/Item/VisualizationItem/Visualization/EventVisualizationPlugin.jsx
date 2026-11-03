@@ -13,6 +13,7 @@ import {
     EVENT_VISUALIZATION,
     getAppName,
 } from '../../../../modules/itemTypes.js'
+import { systemHasIdv } from '../../../../modules/serverVersion.js'
 import {
     useInstalledIDVVersion,
     useInstalledLLVersion,
@@ -20,7 +21,6 @@ import {
 import IframePlugin from './IframePlugin.jsx'
 import { PluginWarningMessage } from './PluginWarningMessage.jsx'
 import classes from './styles/Visualization.module.css'
-import { systemHasIdv } from '../../../../modules/serverVersion.js'
 
 const InstallAppMessage = ({ style, minVersion, serverVersion }) => (
     <PluginWarningMessage
@@ -36,8 +36,8 @@ const InstallAppMessage = ({ style, minVersion, serverVersion }) => (
 )
 
 InstallAppMessage.propTypes = {
-    serverVersion: PropTypes.object,
     minVersion: PropTypes.array,
+    serverVersion: PropTypes.object,
     style: PropTypes.object,
 }
 
