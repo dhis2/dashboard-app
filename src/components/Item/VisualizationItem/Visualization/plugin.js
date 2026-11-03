@@ -43,13 +43,13 @@ export const isPluginAppListed = ({ type, apps = [], apiVersion }) => {
     return Boolean(appKey) && apps.some((app) => app.key === appKey)
 }
 
-const IFRAME_PLUGIN_TYPES = [
+const IFRAME_PLUGIN_TYPES = new Set([
     VISUALIZATION,
     CHART,
     REPORT_TABLE,
     MAP,
     EVENT_VISUALIZATION,
-]
+])
 
 export const getIframePluginType = (type) =>
     [CHART, REPORT_TABLE].includes(type) ? VISUALIZATION : type
@@ -63,7 +63,7 @@ export const hasIframePluginAccess = ({
     authorities,
     apiVersion,
 }) => {
-    if (!IFRAME_PLUGIN_TYPES.includes(type)) {
+    if (!IFRAME_PLUGIN_TYPES.has(type)) {
         return true
     }
 

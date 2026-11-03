@@ -6,12 +6,7 @@ import PropTypes from 'prop-types'
 import React, { useCallback, useEffect, useMemo, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { acAddIframePluginStatus } from '../../../../actions/iframePluginStatus.js'
-import {
-    CHART,
-    REPORT_TABLE,
-    VISUALIZATION,
-    getAppName,
-} from '../../../../modules/itemTypes.js'
+import { getAppName } from '../../../../modules/itemTypes.js'
 import { getPluginOverrides } from '../../../../modules/localStorage.js'
 import { useCacheableSection } from '../../../../modules/useCacheableSection.js'
 import {
