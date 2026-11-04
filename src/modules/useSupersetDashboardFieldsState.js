@@ -6,6 +6,7 @@ export const FIELD_NAME_DESCRIPTION = 'description'
 export const FIELD_NAME_SUPERSET_EMBED_ID = 'supersetEmbedId'
 export const FIELD_NAME_SHOW_CHART_CONTROLS = 'showChartControls'
 export const FIELD_NAME_EXPAND_FILTERS = 'expandFilters'
+export const FIELD_NAME_RESTRICT_ORG_UNIT_HIERARCHY = 'restrictOrgUnitHierarchy'
 
 const defaultInitialValues = {
     [FIELD_NAME_TITLE]: '',
@@ -14,6 +15,7 @@ const defaultInitialValues = {
     [FIELD_NAME_SUPERSET_EMBED_ID]: '',
     [FIELD_NAME_SHOW_CHART_CONTROLS]: true,
     [FIELD_NAME_EXPAND_FILTERS]: false,
+    [FIELD_NAME_RESTRICT_ORG_UNIT_HIERARCHY]: false,
 }
 const FIELD_CHANGE = 'FIELD_CHANGE'
 const SUPERSET_FIELD_BLUR = 'SUPERSET_FIELD_BLUR'

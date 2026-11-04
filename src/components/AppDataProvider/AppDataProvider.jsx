@@ -123,7 +123,9 @@ const useInstalledAppVersion = (appKey) => {
     const { apps, bundledApps } = useContext(AppDataCtx)
     return (
         apps.find((app) => app.key === appKey)?.version ??
-        bundledApps.find((app) => app.name === appKey)?.version ??
+        bundledApps.find(
+            (app) => app.name === appKey || app.name === `${appKey}-app`
+        )?.version ??
         '0.0.0'
     )
 }
@@ -159,6 +161,10 @@ export function useIsSupersetSupported() {
 export function useSupersetBaseUrl() {
     const { supersetBaseUrl } = useSystemSettings()
     return supersetBaseUrl ?? null
+}
+export function useSupersetGatewayCapability() {
+    const { supersetGatewayCapability } = useSystemSettings()
+    return supersetGatewayCapability
 }
 export function useCurrentUser() {
     const { currentUser } = useContext(AppDataCtx)

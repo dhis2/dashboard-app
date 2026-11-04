@@ -20,12 +20,14 @@ import {
     sGetIframePluginStatus,
 } from '../../../../reducers/iframePluginStatus.js'
 import {
+    useCurrentUser,
     useInstalledApps,
     useUserSettings,
 } from '../../../AppDataProvider/AppDataProvider.jsx'
+import MissingAuthorityMessage from '../../ItemMessage/MissingAuthorityMessage.jsx'
 import MissingPluginMessage from '../../ItemMessage/MissingPluginMessage.jsx'
 import VisualizationErrorMessage from '../../ItemMessage/VisualizationErrorMessage.jsx'
-import { getPluginLaunchUrl } from './plugin.js'
+import { getPluginLaunchUrl, hasPluginAccess } from './plugin.js'
 import classes from './styles/IframePlugin.module.css'
 
 const IframePlugin = ({
@@ -44,6 +46,7 @@ const IframePlugin = ({
     const userSettings = useUserSettings()
     const [error, setError] = useState(null)
     const apps = useInstalledApps()
+    const { authorities } = useCurrentUser()
 
     // When this mounts, check if the dashboard is recording
     const { isCached } = useCacheableSection(dashboardId)
@@ -107,11 +110,26 @@ const IframePlugin = ({
         setError('missing-plugin')
     }, [apps, baseUrl, pluginType])
 
-    const iframeSrc = getIframeSrc()
+    const hasAccess = useMemo(
+        () =>
+            Boolean(getPluginOverrides()?.[pluginType]) ||
+            hasPluginAccess(pluginType, authorities),
+        [authorities, pluginType]
+    )
+
+    const iframeSrc = hasAccess ? getIframeSrc() : null
 
     useEffect(() => {
         setError(null)
     }, [visualization.type])
+
+    if (!hasAccess) {
+        return (
+            <div style={style}>
+                <MissingAuthorityMessage appName={getAppName(itemType)} />
+            </div>
+        )
+    }
 
     if (error) {
         return error === 'missing-plugin' ? (

@@ -1,19 +1,18 @@
-# 
 # Translators:
 # Philip Larsen Donnelly, 2025
 # Viktor Varland <viktor@dhis2.org>, 2025
-# Hamza <7amza.it@gmail.com>, 2025
 # Nadiia <semchuk@aph.org.ua>, 2025
+# Hamza <7amza.it@gmail.com>, 2026
 # 
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2025-07-04T15:00:39.114Z\n"
+"POT-Creation-Date: 2026-05-07T22:45:54.825Z\n"
 "PO-Revision-Date: 2019-06-25 12:37+0000\n"
-"Last-Translator: Nadiia <semchuk@aph.org.ua>, 2025\n"
+"Last-Translator: Hamza <7amza.it@gmail.com>, 2026\n"
 "Language-Team: Arabic (https://app.transifex.com/hisp-uio/teams/100509/ar/)\n"
 "MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Language: ar\n"
 "Plural-Forms: nplurals=6; plural=n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 && n%100<=10 ? 3 : n%100>=11 && n%100<=99 ? 4 : 5;\n"
@@ -317,9 +316,6 @@ msgstr "مربع نص"
 msgid "Add text here"
 msgstr "اضف نص هنا"
 
-msgid "Back to all interpretations"
-msgstr "العودة إلى كل التفسيرات"
-
 msgid "Filters are not applied to line list dashboard items"
 msgstr ""
 
@@ -362,8 +358,8 @@ msgstr ""
 msgid "View as Map"
 msgstr "عرض كخريطة"
 
-msgid "There was a problem loading interpretations for this item"
-msgstr "حدثت مشكلة أثناء تحميل التفسيرات لهذا العنصر"
+msgid "There was a problem loading details for this item"
+msgstr ""
 
 msgid "No data to display"
 msgstr "لا توجد بيانات للعرض"
@@ -708,27 +704,6 @@ msgstr ""
 msgid "Yes, remove filters"
 msgstr "نعم ، قم بإزالة عوامل التصفية"
 
-msgid "Exit slideshow"
-msgstr ""
-
-msgid "Previous item"
-msgstr ""
-
-msgid "Next item"
-msgstr ""
-
-msgid "{{name}}: {{filter}}"
-msgstr ""
-
-msgid "{{count}} filters active"
-msgid_plural "{{count}} filters active"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
-msgstr[3] ""
-msgstr[4] ""
-msgstr[5] ""
-
 msgid ""
 "There was a problem loading the embedded dashboard content from an external "
 "service"
@@ -766,3 +741,50 @@ msgstr "لا يمكن تحميل لوحة المعلومات هذه بلا إن�
 
 msgid "Go to start page"
 msgstr "اذهب إلى صفحة البداية"
+
+msgid "Slideshow started over 24 hours ago"
+msgstr ""
+
+msgid "Exit slideshow"
+msgstr ""
+
+msgid "Previous item"
+msgstr ""
+
+msgid "Next item"
+msgstr ""
+
+msgid "{{name}}: {{filter}}"
+msgstr ""
+
+msgid "{{count}} filters active"
+msgid_plural "{{count}} filters active"
+msgstr[0] ""
+msgstr[1] ""
+msgstr[2] ""
+msgstr[3] ""
+msgstr[4] ""
+msgstr[5] ""
+
+msgid "10 seconds per slide"
+msgstr ""
+
+msgid "20 seconds per slide"
+msgstr ""
+
+msgid "30 seconds per slide"
+msgstr ""
+
+msgid "1 minute per slide"
+msgstr ""
+
+msgid "2 minutes per slide"
+msgstr ""
+
+msgctxt "Application title"
+msgid "__MANIFEST_APP_TITLE"
+msgstr "لوحة المعلومات"
+
+msgctxt "Application description"
+msgid "__MANIFEST_APP_DESCRIPTION"
+msgstr ""

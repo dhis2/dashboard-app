@@ -19,6 +19,7 @@ const getDashboardItemsFields = () =>
         'height~rename(h)',
         'messages',
         'text',
+        'displayText',
         'appKey',
         `${getListItemFields().join(',')}`,
         `${getFavoritesFields().join(',')}`,

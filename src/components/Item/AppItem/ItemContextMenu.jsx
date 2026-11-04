@@ -27,9 +27,13 @@ export const ItemContextMenu = ({
 
     const { allowVisOpenInApp, allowVisFullscreen } = useSystemSettings()
 
-    const noOptionsEnabled = !allowVisOpenInApp && !allowVisFullscreen
+    // plugins without an app entrypoint have no appUrl, so there is nothing to
+    // open in a standalone app (DHIS2-21739)
+    const openInAppEnabled = allowVisOpenInApp && !!appUrl
 
-    if (noOptionsEnabled || (!allowVisOpenInApp && loadItemFailed)) {
+    const noOptionsEnabled = !openInAppEnabled && !allowVisFullscreen
+
+    if (noOptionsEnabled || (!openInAppEnabled && loadItemFailed)) {
         return null
     }
 
@@ -63,7 +67,7 @@ export const ItemContextMenu = ({
                     onClickOutside={closeMenu}
                 >
                     <Menu dense>
-                        {allowVisOpenInApp && !isSmallScreen(width) && (
+                        {openInAppEnabled && !isSmallScreen(width) && (
                             <MenuItem
                                 icon={<IconLaunch16 />}
                                 disabledWhenOffline={false}

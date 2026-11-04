@@ -1,7 +1,5 @@
-# 
 # Translators:
 # Ge Joao <gsimango@saudigitus.org>, 2021
-# Sheila André <sandre@saudigitus.org>, 2021
 # Fernando Jorge Bade, 2021
 # Gabriela Rodriguez <grodriguezcoronado@gmail.com>, 2025
 # Shelsea Chumaio, 2025
@@ -9,16 +7,17 @@
 # Viktor Varland <viktor@dhis2.org>, 2025
 # David Júnior <davidjr.mondlane@gmail.com>, 2025
 # Philip Larsen Donnelly, 2025
+# Sheila André <sandre@saudigitus.org>, 2026
 # 
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2025-07-04T15:00:39.114Z\n"
+"POT-Creation-Date: 2026-05-07T22:45:54.825Z\n"
 "PO-Revision-Date: 2019-06-25 12:37+0000\n"
-"Last-Translator: Philip Larsen Donnelly, 2025\n"
+"Last-Translator: Sheila André <sandre@saudigitus.org>, 2026\n"
 "Language-Team: Portuguese (https://app.transifex.com/hisp-uio/teams/100509/pt/)\n"
 "MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Language: pt\n"
 "Plural-Forms: nplurals=3; plural=(n == 0 || n == 1) ? 0 : n != 0 && n % 1000000 == 0 ? 1 : 2;\n"
@@ -326,9 +325,6 @@ msgstr "Caixa de texto"
 msgid "Add text here"
 msgstr "Adicione texto aqui"
 
-msgid "Back to all interpretations"
-msgstr "Voltar para todas as interpretações"
-
 msgid "Filters are not applied to line list dashboard items"
 msgstr ""
 "Os filtros não são aplicados aos itens do painel de controlo da lista de "
@@ -375,8 +371,8 @@ msgstr "Ver como tabela dinâmica"
 msgid "View as Map"
 msgstr "Ver como mapa"
 
-msgid "There was a problem loading interpretations for this item"
-msgstr "Ocorreu um problema ao carregar as interpretações para este item"
+msgid "There was a problem loading details for this item"
+msgstr ""
 
 msgid "No data to display"
 msgstr "Nenhum dado para exibir"
@@ -720,24 +716,6 @@ msgstr ""
 msgid "Yes, remove filters"
 msgstr "Sim, remover filtros"
 
-msgid "Exit slideshow"
-msgstr ""
-
-msgid "Previous item"
-msgstr ""
-
-msgid "Next item"
-msgstr ""
-
-msgid "{{name}}: {{filter}}"
-msgstr ""
-
-msgid "{{count}} filters active"
-msgid_plural "{{count}} filters active"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
-
 msgid ""
 "There was a problem loading the embedded dashboard content from an external "
 "service"
@@ -778,3 +756,47 @@ msgstr ""
 
 msgid "Go to start page"
 msgstr "Ir para a página inicial"
+
+msgid "Slideshow started over 24 hours ago"
+msgstr ""
+
+msgid "Exit slideshow"
+msgstr ""
+
+msgid "Previous item"
+msgstr ""
+
+msgid "Next item"
+msgstr ""
+
+msgid "{{name}}: {{filter}}"
+msgstr ""
+
+msgid "{{count}} filters active"
+msgid_plural "{{count}} filters active"
+msgstr[0] ""
+msgstr[1] ""
+msgstr[2] ""
+
+msgid "10 seconds per slide"
+msgstr ""
+
+msgid "20 seconds per slide"
+msgstr ""
+
+msgid "30 seconds per slide"
+msgstr ""
+
+msgid "1 minute per slide"
+msgstr ""
+
+msgid "2 minutes per slide"
+msgstr ""
+
+msgctxt "Application title"
+msgid "__MANIFEST_APP_TITLE"
+msgstr "Painel de Instrumentos"
+
+msgctxt "Application description"
+msgid "__MANIFEST_APP_DESCRIPTION"
+msgstr ""

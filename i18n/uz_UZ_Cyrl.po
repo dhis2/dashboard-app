@@ -1,17 +1,16 @@
-# 
 # Translators:
 # Philip Larsen Donnelly, 2025
-# Khurshid Ibatov <x.ibatov@dtsj.uz>, 2025
+# Khurshid Ibatov <x.ibatov@dtsj.uz>, 2026
 # 
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2025-07-04T15:00:39.114Z\n"
+"POT-Creation-Date: 2026-05-07T22:45:54.825Z\n"
 "PO-Revision-Date: 2019-06-25 12:37+0000\n"
-"Last-Translator: Khurshid Ibatov <x.ibatov@dtsj.uz>, 2025\n"
+"Last-Translator: Khurshid Ibatov <x.ibatov@dtsj.uz>, 2026\n"
 "Language-Team: Uzbek (Cyrillic) (https://app.transifex.com/hisp-uio/teams/100509/uz@Cyrl/)\n"
 "MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Language: uz@Cyrl\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
@@ -319,9 +318,6 @@ msgstr "Матн жойи"
 msgid "Add text here"
 msgstr "Матнни шу ерга қўшинг"
 
-msgid "Back to all interpretations"
-msgstr "Жами талқинларга қайтиш"
-
 msgid "Filters are not applied to line list dashboard items"
 msgstr ""
 "Мониторинг панели элементлари қатори рўйхати учун фильтр қўллаб бўлмади"
@@ -365,8 +361,8 @@ msgstr ""
 msgid "View as Map"
 msgstr "Харита сифатида кўриш"
 
-msgid "There was a problem loading interpretations for this item"
-msgstr "Ушбу элемент тавсифини юклашда хатолик юз берди"
+msgid "There was a problem loading details for this item"
+msgstr ""
 
 msgid "No data to display"
 msgstr "Маълумот экранга чиқарилмади"
@@ -704,22 +700,6 @@ msgstr ""
 msgid "Yes, remove filters"
 msgstr "Ҳа, фильтрларни ўчириш"
 
-msgid "Exit slideshow"
-msgstr ""
-
-msgid "Previous item"
-msgstr ""
-
-msgid "Next item"
-msgstr ""
-
-msgid "{{name}}: {{filter}}"
-msgstr ""
-
-msgid "{{count}} filters active"
-msgid_plural "{{count}} filters active"
-msgstr[0] ""
-
 msgid ""
 "There was a problem loading the embedded dashboard content from an external "
 "service"
@@ -757,3 +737,45 @@ msgstr "Бошқарув панелини оффлайн режимда юкла
 
 msgid "Go to start page"
 msgstr "Бошланғич саҳифага ўтиш"
+
+msgid "Slideshow started over 24 hours ago"
+msgstr ""
+
+msgid "Exit slideshow"
+msgstr ""
+
+msgid "Previous item"
+msgstr ""
+
+msgid "Next item"
+msgstr ""
+
+msgid "{{name}}: {{filter}}"
+msgstr ""
+
+msgid "{{count}} filters active"
+msgid_plural "{{count}} filters active"
+msgstr[0] ""
+
+msgid "10 seconds per slide"
+msgstr ""
+
+msgid "20 seconds per slide"
+msgstr ""
+
+msgid "30 seconds per slide"
+msgstr ""
+
+msgid "1 minute per slide"
+msgstr ""
+
+msgid "2 minutes per slide"
+msgstr ""
+
+msgctxt "Application title"
+msgid "__MANIFEST_APP_TITLE"
+msgstr "Бошқарув панели"
+
+msgctxt "Application description"
+msgid "__MANIFEST_APP_DESCRIPTION"
+msgstr ""

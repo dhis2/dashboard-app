@@ -1,3 +1,87 @@
+## [101.7.2](https://github.com/dhis2/dashboard-app/compare/v101.7.1...v101.7.2) (2026-10-29)
+
+
+### Bug Fixes
+
+* show a message for non authorised plugins [DHIS2-22363] ([#3346](https://github.com/dhis2/dashboard-app/issues/3346)) ([049701e](https://github.com/dhis2/dashboard-app/commit/049701e008513d03f8eb4df75d3668fda4f6a86b))
+
+## [101.7.1](https://github.com/dhis2/dashboard-app/compare/v101.7.0...v101.7.1) (2026-09-17)
+
+
+### Bug Fixes
+
+* show correct basemap for maps on dashboards (DHIS2-22110) ([#3343](https://github.com/dhis2/dashboard-app/issues/3343)) ([2734cd1](https://github.com/dhis2/dashboard-app/commit/2734cd182c4dc1090798997714a983bfe527eb25))
+
+# [101.7.0](https://github.com/dhis2/dashboard-app/compare/v101.6.3...v101.7.0) (2026-08-31)
+
+
+### Features
+
+* add org unit security for external dashboards ([#3342](https://github.com/dhis2/dashboard-app/issues/3342)) ([0707c1e](https://github.com/dhis2/dashboard-app/commit/0707c1e27510067c8529c99e7a34bb790275e2ff))
+
+## [101.6.3](https://github.com/dhis2/dashboard-app/compare/v101.6.2...v101.6.3) (2026-08-23)
+
+
+### Bug Fixes
+
+* **translations:** sync translations from transifex (master) ([56e57a6](https://github.com/dhis2/dashboard-app/commit/56e57a6708145ba850d23ea2a9ae89e50bf38f45))
+
+## [101.6.2](https://github.com/dhis2/dashboard-app/compare/v101.6.1...v101.6.2) (2026-07-23)
+
+
+### Bug Fixes
+
+* hide "Open in app" for plugins without an app entrypoint (DHIS2-21739) ([#3335](https://github.com/dhis2/dashboard-app/issues/3335)) ([dbf4c3b](https://github.com/dhis2/dashboard-app/commit/dbf4c3b620e419957b71b6da4c23bab72c865df3))
+
+## [101.6.1](https://github.com/dhis2/dashboard-app/compare/v101.6.0...v101.6.1) (2026-05-07)
+
+
+### Bug Fixes
+
+* handle new bundled app endpoint format (DHIS2-21469) ([#3330](https://github.com/dhis2/dashboard-app/issues/3330)) ([786a232](https://github.com/dhis2/dashboard-app/commit/786a232933a8e7c8a8bbe1854da7331c09919300))
+
+# [101.6.0](https://github.com/dhis2/dashboard-app/compare/v101.5.2...v101.6.0) (2026-03-17)
+
+
+### Features
+
+* support loading custom translations from the data store ([#3318](https://github.com/dhis2/dashboard-app/issues/3318)) ([da4521e](https://github.com/dhis2/dashboard-app/commit/da4521e48d5f71f1bf9a7bb9c23f7412df8908bf))
+
+## [101.5.2](https://github.com/dhis2/dashboard-app/compare/v101.5.1...v101.5.2) (2026-03-14)
+
+
+### Bug Fixes
+
+* use data output period types ([#3317](https://github.com/dhis2/dashboard-app/issues/3317)) ([1fbf24c](https://github.com/dhis2/dashboard-app/commit/1fbf24c2673e3f67259e25003d0e4a6844c2c499))
+
+## [101.5.1](https://github.com/dhis2/dashboard-app/compare/v101.5.0...v101.5.1) (2026-03-12)
+
+
+### Bug Fixes
+
+* **translations:** sync translations from transifex (master) ([#3302](https://github.com/dhis2/dashboard-app/issues/3302)) ([7a78721](https://github.com/dhis2/dashboard-app/commit/7a78721bb302950dba90aa13c29818eb4683e9b7))
+
+# [101.5.0](https://github.com/dhis2/dashboard-app/compare/v101.4.2...v101.5.0) (2026-02-22)
+
+
+### Features
+
+* show translated text in text boxes ([#3316](https://github.com/dhis2/dashboard-app/issues/3316)) ([ab1b967](https://github.com/dhis2/dashboard-app/commit/ab1b96750a82390de8317c78724b01aef97d8b11))
+
+## [101.4.2](https://github.com/dhis2/dashboard-app/compare/v101.4.1...v101.4.2) (2025-10-30)
+
+
+### Bug Fixes
+
+* upgrade analytics to get interpretations fixes ([#3315](https://github.com/dhis2/dashboard-app/issues/3315)) ([fc734b5](https://github.com/dhis2/dashboard-app/commit/fc734b5c25b0c001c24f927daefc3a64c0db7414))
+
+## [101.4.1](https://github.com/dhis2/dashboard-app/compare/v101.4.0...v101.4.1) (2025-10-29)
+
+
+### Bug Fixes
+
+* use interpretations provider from analytics ([#3312](https://github.com/dhis2/dashboard-app/issues/3312)) ([f43ae33](https://github.com/dhis2/dashboard-app/commit/f43ae339073adfbcd7923c05691a19e0ce63c2fe))
+
 # [101.4.0](https://github.com/dhis2/dashboard-app/compare/v101.3.3...v101.4.0) (2025-09-23)
 
 
