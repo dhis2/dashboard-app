@@ -1,11 +1,12 @@
 import i18n from '@dhis2/d2-i18n'
 import { DropdownButton } from '@dhis2/ui'
+import PropTypes from 'prop-types'
 import React, { useState } from 'react'
 import { IconNavigation } from './IconNavigation.jsx'
 import { NavigationMenu } from './NavigationMenu.jsx'
 import styles from './styles/NavigationMenuDropdownButton.module.css'
 
-export const NavigationMenuDropdownButton = () => {
+export const NavigationMenuDropdownButton = ({ hasDashboards }) => {
     const [navigationMenuOpen, setNavigationMenuOpen] = useState(false)
 
     return (
@@ -17,7 +18,10 @@ export const NavigationMenuDropdownButton = () => {
             onClick={() => setNavigationMenuOpen((open) => !open)}
             open={navigationMenuOpen}
             component={
-                <NavigationMenu close={() => setNavigationMenuOpen(false)} />
+                <NavigationMenu
+                    close={() => setNavigationMenuOpen(false)}
+                    hasDashboards={!!hasDashboards}
+                />
             }
         >
             <span className={styles.navMenuButtonText}>
@@ -25,4 +29,8 @@ export const NavigationMenuDropdownButton = () => {
             </span>
         </DropdownButton>
     )
+}
+
+NavigationMenuDropdownButton.propTypes = {
+    hasDashboards: PropTypes.bool,
 }

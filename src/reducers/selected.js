@@ -48,8 +48,6 @@ export const sGetSelected = (state) => state.selected
 
 export const sGetSelectedId = (state) => sGetSelected(state).id
 
-export const sGetSelectedStarred = (state) => !!sGetSelected(state).starred
-
 export const sGetSelectedIsEmbedded = (state) => !!sGetSelected(state).embedded
 
 export const msGetSelectedSupersetEmbedData = createSelector(

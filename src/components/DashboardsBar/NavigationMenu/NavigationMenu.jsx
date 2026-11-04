@@ -2,7 +2,7 @@ import { useDataEngine, useDhis2ConnectionStatus } from '@dhis2/app-runtime'
 import i18n from '@dhis2/d2-i18n'
 import { Input, Menu } from '@dhis2/ui'
 import cx from 'classnames'
-import orderBy from 'lodash/sortBy.js'
+import sortBy from 'lodash/sortBy.js'
 import PropTypes from 'prop-types'
 import React, { useCallback, useEffect, useRef, useState, useMemo } from 'react'
 import { useSelector } from 'react-redux'
@@ -40,15 +40,13 @@ export const NavigationMenu = ({ close, hasDashboards }) => {
     })
     const offlineDashboards = useMemo(
         () =>
-            orderBy(unorderedOfflineDashboards, [
-                ['starred', 'displayName'],
-                'desc',
-                'asc',
+            sortBy(unorderedOfflineDashboards, [
+                (dashboard) => !dashboard.starred,
+                'displayName',
             ]),
         [unorderedOfflineDashboards]
     )
 
-    // console.log('jj NavMenu ordered offlineDashboards', offlineDashboards)
     const debouncedRequestParams = useDebounce(requestParams, 300)
 
     useEffect(() => {

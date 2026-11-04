@@ -10,16 +10,6 @@ export const firstDashboardQuery = {
     },
 }
 
-export const requestedDashboardQuery = {
-    dashboard: {
-        resource: 'dashboards',
-        id: ({ id }) => id,
-        params: {
-            fields: ['id', 'displayName'],
-        },
-    },
-}
-
 export const dashboardsByIdsQuery = {
     dashboards: {
         resource: 'dashboards',

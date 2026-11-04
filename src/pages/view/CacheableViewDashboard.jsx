@@ -1,4 +1,3 @@
-import { useCachedDataQuery } from '@dhis2/analytics'
 import {
     CacheableSection,
     useDataEngine,
@@ -15,6 +14,7 @@ import {
     firstDashboardQuery,
     dashboardsByIdsQuery,
 } from '../../api/fetchDashboards.js'
+import { useCurrentUser } from '../../components/AppDataProvider/AppDataProvider.jsx'
 import DashboardsBar from '../../components/DashboardsBar/index.js'
 import LoadingMask from '../../components/LoadingMask.jsx'
 import NoContentMessage from '../../components/NoContentMessage.jsx'
@@ -34,7 +34,7 @@ const requestedDashboardQuery = {
 }
 
 const CacheableViewDashboard = ({ match }) => {
-    const { currentUser } = useCachedDataQuery()
+    const currentUser = useCurrentUser()
     const { cachedSections } = useCachedSections()
     const engine = useDataEngine()
     const dispatch = useDispatch()
@@ -53,7 +53,6 @@ const CacheableViewDashboard = ({ match }) => {
     )
 
     useEffect(() => {
-        console.log('jj CVD request offline dashboards', offlineDashboardIds)
         engine.query(dashboardsByIdsQuery, {
             variables: { ids: offlineDashboardIds },
             onComplete: (data) => {
@@ -69,10 +68,13 @@ const CacheableViewDashboard = ({ match }) => {
     }, [routeId, preferredId, currentId, dispatch])
 
     useEffect(() => {
+        const storedPreferredId =
+            getPreferredDashboardId(currentUser.username) || null
+
         const fetchIdToLoad = async () => {
             try {
                 // no id, so fetch the first starred/alphabetical dashboard in the catch block
-                if (!routeId && !preferredId) {
+                if (!routeId && !storedPreferredId) {
                     throw new Error('No dashboard id provided')
                 }
 
@@ -80,7 +82,7 @@ const CacheableViewDashboard = ({ match }) => {
                 const { dashboard } = await engine.query(
                     requestedDashboardQuery,
                     {
-                        variables: { id: routeId || preferredId },
+                        variables: { id: routeId || storedPreferredId },
                     }
                 )
                 setDashboardName(dashboard.displayName)
@@ -88,13 +90,6 @@ const CacheableViewDashboard = ({ match }) => {
                 setHasDashboards(true)
             } catch (error) {
                 const { dashboards } = await engine.query(firstDashboardQuery)
-
-                // this is required for offline dashboards
-                // if (!routeId && !preferredId && dashboards.dashboards[0]) {
-                //     engine.query(requestedDashboardQuery, {
-                //         variables: { id: dashboards.dashboards[0].id },
-                //     })
-                // }
 
                 setHasDashboards(dashboards.dashboards.length > 0)
 
@@ -117,7 +112,7 @@ const CacheableViewDashboard = ({ match }) => {
         setFetchError(null)
 
         fetchIdToLoad()
-    }, [engine, routeId, preferredId])
+    }, [engine, routeId, currentUser.username])
 
     if (fetchError) {
         return (
