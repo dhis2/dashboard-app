@@ -84,6 +84,7 @@ export const itemTypeMap = {
         isVisualizationType: true,
         appUrl: ({ id }) => `dhis-web-data-visualizer/#/${id}`,
         appName: 'Data Visualizer',
+        appKey: 'data-visualizer',
         supportsFullscreen: true,
     },
     [CHART]: {
@@ -96,6 +97,7 @@ export const itemTypeMap = {
         isVisualizationType: true,
         appUrl: ({ id }) => `dhis-web-data-visualizer/#/${id}`,
         appName: 'Data Visualizer',
+        appKey: 'data-visualizer',
         supportsFullscreen: true,
     },
     [MAP]: {
@@ -108,6 +110,7 @@ export const itemTypeMap = {
         isVisualizationType: true,
         appUrl: ({ id }) => `dhis-web-maps/#/${id}`,
         appName: 'Maps',
+        appKey: 'maps',
         supportsFullscreen: true,
     },
     [EVENT_REPORT]: {
@@ -120,6 +123,7 @@ export const itemTypeMap = {
         isVisualizationType: true,
         appUrl: ({ id }) => `dhis-web-event-reports/?id=${id}`,
         appName: 'Event Reports',
+        appKey: 'event-reports',
         supportsFullscreen: true,
     },
     [EVENT_CHART]: {
@@ -132,6 +136,7 @@ export const itemTypeMap = {
         isVisualizationType: true,
         appUrl: ({ id }) => `dhis-web-event-visualizer/?id=${id}`,
         appName: 'Event Visualizer',
+        appKey: 'event-visualizer',
         supportsFullscreen: true,
     },
     [EVENT_VISUALIZATION]: {

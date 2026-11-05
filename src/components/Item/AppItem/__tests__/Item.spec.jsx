@@ -47,12 +47,14 @@ jest.mock('@dhis2/app-runtime/experimental', () => ({
     },
 }))
 
+let mockCurrentUser = mockData.currentUser
+
 jest.mock('../../../AppDataProvider/AppDataProvider', () => ({
     ...jest.requireActual('../../../AppDataProvider/AppDataProvider'),
     __esModule: true,
     default: ({ children }) => children,
     useInstalledApps: () => mockData.apps,
-    useCurrentUser: () => mockData.currentUser,
+    useCurrentUser: () => mockCurrentUser,
     useSystemSettings: () => mockData.systemSettings,
 }))
 
@@ -241,30 +243,52 @@ test('renders a valid widget AppItem when in slideshow', () => {
     expect(container).toMatchSnapshot()
 })
 
-test('renders an invalid AppItem', () => {
-    const store = {
-        itemFilters: {
-            ou: [{ path: '/rainbow' }],
-        },
-        selected: { id: 'some-dashboard' },
-        slideshow: null,
-    }
-
-    const invalidItem = {
-        type: APP,
-        appKey: 'unknownAppKey',
-        id: 'unknown',
-        shortened: false,
-    }
-
-    const { container } = render(
-        <Provider store={mockStore(store)}>
+const renderInvalidAppItem = () =>
+    render(
+        <Provider
+            store={mockStore({
+                itemFilters: {
+                    ou: [{ path: '/rainbow' }],
+                },
+                selected: { id: 'some-dashboard' },
+                slideshow: null,
+            })}
+        >
             <AppDataProvider>
                 <WindowDimensionsProvider>
-                    <Item item={invalidItem} dashboardMode={'edit'} />
+                    <Item
+                        item={{
+                            type: APP,
+                            appKey: 'unknownAppKey',
+                            id: 'unknown',
+                            shortened: false,
+                        }}
+                        dashboardMode={'edit'}
+                    />
                 </WindowDimensionsProvider>
             </AppDataProvider>
         </Provider>
     )
+
+test('renders an invalid AppItem', () => {
+    mockCurrentUser = {
+        ...mockData.currentUser,
+        authorities: ['M_unknownAppKey'],
+    }
+
+    const { container } = renderInvalidAppItem()
+
+    mockCurrentUser = mockData.currentUser
+
     expect(container).toMatchSnapshot()
+})
+
+test('renders an AppItem the user has no access to', () => {
+    const { getByText } = renderInvalidAppItem()
+
+    expect(
+        getByText(
+            "You don't have access to the unknownAppKey app needed to display this item"
+        )
+    ).toBeInTheDocument()
 })

@@ -12,6 +12,7 @@ import React, {
 } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import { acSetSlideshow } from '../../../actions/slideshow.js'
+import { hasAppAccess } from '../../../modules/appAccess.js'
 import {
     EDIT,
     isEditMode,
@@ -24,9 +25,11 @@ import {
     DEFAULT_STATE_ITEM_FILTERS,
 } from '../../../reducers/itemFilters.js'
 import { sGetSelectedId } from '../../../reducers/selected.js'
+import { useCurrentUser } from '../../AppDataProvider/AppDataProvider.jsx'
 import FatalErrorBoundary from '../FatalErrorBoundary.jsx'
 import { getAvailableDimensions } from '../getAvailableDimensions.js'
 import ItemHeader from '../ItemHeader/ItemHeader.jsx'
+import MissingAuthorityMessage from '../ItemMessage/MissingAuthorityMessage.jsx'
 import MissingPluginMessage from '../ItemMessage/MissingPluginMessage.jsx'
 import { getIframeSrc } from './getIframeSrc.js'
 import { ItemContextMenu } from './ItemContextMenu.jsx'
@@ -48,6 +51,7 @@ const AppItem = ({
     const isSlideshowView = useSelector((state) => state.slideshow !== null)
     let itemFilters = useSelector(sGetItemFiltersRoot)
     const dispatch = useDispatch()
+    const { authorities } = useCurrentUser()
 
     if (isEditMode(dashboardMode)) {
         itemFilters = DEFAULT_STATE_ITEM_FILTERS
@@ -195,13 +199,17 @@ const AppItem = ({
                 </FatalErrorBoundary>
             </>
         )
-    } else {
+    } else if (hasAppAccess(item.appKey, authorities)) {
+        // the user has access, so the app is not installed
         return (
             <MissingPluginMessage
                 pluginName={item.appKey}
                 dashboardMode={dashboardMode}
             />
         )
+    } else {
+        // apps the user has no access to are not listed in api/apps
+        return <MissingAuthorityMessage appName={item.appKey} />
     }
 }
 

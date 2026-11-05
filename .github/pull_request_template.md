@@ -8,7 +8,9 @@ _text_
 
 ### Quality checklist
 
-Add _N/A_ to items that are not applicable.
+<!---
+Strike through items that are not applicable: `- [ ] ~item~`
+-->
 
 - [ ] Tested with and without global shell
 - [ ] Cypress and/or Jest tests added/updated
