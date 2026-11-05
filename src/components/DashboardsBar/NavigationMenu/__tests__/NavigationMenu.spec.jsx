@@ -1,4 +1,4 @@
-import { render, waitFor, act } from '@testing-library/react'
+import { render, waitFor, act, fireEvent } from '@testing-library/react'
 import { createMemoryHistory } from 'history'
 import React from 'react'
 import { Provider } from 'react-redux'
@@ -93,6 +93,57 @@ describe('NavigationMenu', () => {
 
         await waitFor(() => {
             expect(getAllByRole('presentation')).toHaveLength(5)
+        })
+    })
+
+    it('renders the menu while it is not yet known whether dashboards exist', async () => {
+        const { getAllByRole, queryByText } = render(
+            <Provider store={store}>
+                <Router history={createMemoryHistory()}>
+                    <NavigationMenu close={() => {}} />
+                </Router>
+            </Provider>
+        )
+
+        expect(queryByText('No dashboards available.')).toBeNull()
+        await waitFor(() => {
+            expect(getAllByRole('presentation')).toHaveLength(5)
+        })
+    })
+
+    it('keeps the search text typed while the last page is loading', async () => {
+        let resolveFirstPage
+        dataEngine.query.mockImplementationOnce(
+            () =>
+                new Promise((resolve) => {
+                    resolveFirstPage = resolve
+                })
+        )
+        const { getByPlaceholderText } = render(
+            <Provider store={store}>
+                <Router history={createMemoryHistory()}>
+                    <NavigationMenu close={() => {}} hasDashboards={true} />
+                </Router>
+            </Provider>
+        )
+        const input = getByPlaceholderText('Search for a dashboard')
+
+        fireEvent.change(input, { target: { value: 'anc' } })
+        await act(async () => {
+            resolveFirstPage({
+                dashboards: {
+                    dashboards: Object.values(dashboards),
+                    pager: { page: 1, nextPage: null },
+                },
+            })
+        })
+
+        expect(input).toHaveValue('anc')
+        await waitFor(() => {
+            expect(dataEngine.query).toHaveBeenLastCalledWith(
+                expect.anything(),
+                { variables: expect.objectContaining({ filterText: 'anc' }) }
+            )
         })
     })
 

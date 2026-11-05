@@ -15,7 +15,7 @@ const LandingPage = ({ username, onMount }) => {
     return (
         <>
             <DashboardsBar
-                hasDashboards={!!data?.dashboards.dashboards.length}
+                hasDashboards={data && data.dashboards.dashboards.length > 0}
             />
             <StartScreen username={username} />
         </>

@@ -78,7 +78,11 @@ export const NavigationMenu = ({ close, hasDashboards }) => {
             )
 
             if (response.nextPage === null) {
-                setRequestParams({ page: null, filterText })
+                setRequestParams((currentParams) =>
+                    currentParams.filterText === filterText
+                        ? { ...currentParams, page: null }
+                        : currentParams
+                )
             }
         }
 
@@ -126,9 +130,9 @@ export const NavigationMenu = ({ close, hasDashboards }) => {
                 block: 'end',
                 inline: 'nearest',
             })
-    }, [])
+    }, [initialFetchComplete])
 
-    if (!hasDashboards) {
+    if (hasDashboards === false) {
         return (
             <div
                 className={cx(styles.container, styles.noDashboardsAvailable)}
@@ -196,5 +200,5 @@ export const NavigationMenu = ({ close, hasDashboards }) => {
 
 NavigationMenu.propTypes = {
     close: PropTypes.func.isRequired,
-    hasDashboards: PropTypes.bool.isRequired,
+    hasDashboards: PropTypes.bool,
 }

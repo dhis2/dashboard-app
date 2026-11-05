@@ -20,7 +20,7 @@ export const NavigationMenuDropdownButton = ({ hasDashboards }) => {
             component={
                 <NavigationMenu
                     close={() => setNavigationMenuOpen(false)}
-                    hasDashboards={!!hasDashboards}
+                    hasDashboards={hasDashboards}
                 />
             }
         >
