@@ -45,6 +45,13 @@ const PrintLayoutDashboard = ({
     const [redirectUrl, setRedirectUrl] = useState(null)
     const [isLoading, setIsLoading] = useState(true)
 
+    // The preview hides the header bar; the editor doesn't re-show it on exit
+    useEffect(() => {
+        if (fromEdit) {
+            return () => setHeaderbarVisible(true)
+        }
+    }, [fromEdit])
+
     const customizePrintLayoutDashboard = (dboard) => {
         // If any items are taller than one page, reduce it to one
         // page (react-grid-layout units)
