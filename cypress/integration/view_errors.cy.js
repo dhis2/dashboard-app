@@ -4,6 +4,8 @@ import {
     clickItemDeleteButton,
     titleInputSel,
     getNavigationMenuItem,
+    getNavigationMenuDropdown,
+    closeNavigationMenu,
     dashboardTitleSel,
     dashboardUnstarredSel,
     dashboardStarredSel,
@@ -31,6 +33,22 @@ const ROUTE_EDIT = 'edit'
 const getRouteFromHash = (hash) => {
     const lastSlashIdx = hash.lastIndexOf('/')
     return hash.slice(lastSlashIdx + 1)
+}
+
+const interceptNoDashboards = () => {
+    cy.intercept(/\/api\/(\d+\/)?dashboards\?/, {
+        body: { pager: { page: 1, pageCount: 1, total: 0 }, dashboards: [] },
+    })
+    cy.intercept(/\/api\/(\d+\/)?dashboards\/[a-zA-Z0-9]{11}\?/, {
+        statusCode: 404,
+        body: { httpStatusCode: 404, status: 'ERROR' },
+    })
+}
+
+const assertNavigationMenuHasNoDashboards = () => {
+    getNavigationMenuDropdown().click()
+    cy.getByDataTest('navmenu-no-dashboards-message').should('be.visible')
+    closeNavigationMenu()
 }
 
 const confirmEditMode = () => {
@@ -98,6 +116,25 @@ it("navigates to a dashboard that doesn't exist or user doesn't have access to",
 
     // Check that the Delivery dashboard title is displayed
     cy.get(dashboardTitleSel).should('be.visible').and('contain', 'Delivery')
+})
+
+it('shows a message when there are no dashboards', () => {
+    interceptNoDashboards()
+    cy.visit('/')
+
+    cy.contains('No dashboards found. Use the + button').should('be.visible')
+    cy.get(newButtonSel).should('be.visible')
+
+    assertNavigationMenuHasNoDashboards()
+})
+
+it("navigates to a dashboard that doesn't exist when there are no dashboards", () => {
+    interceptNoDashboards()
+    cy.visit('#/invalid')
+
+    assertDashboardNotFound()
+
+    assertNavigationMenuHasNoDashboards()
 })
 
 it("navigates to edit dashboard that doesn't exist", () => {

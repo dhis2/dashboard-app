@@ -33,6 +33,11 @@ const requestedDashboardQuery = {
     dashboard: viewDashboardQuery,
 }
 
+const isNotFoundError = (error) => {
+    const status = error.details?.httpStatusCode
+    return error.type === 'access' || (status >= 400 && status < 500)
+}
+
 const CacheableViewDashboard = ({ match }) => {
     const currentUser = useCurrentUser()
     const { cachedSections } = useCachedSections()
@@ -62,10 +67,11 @@ const CacheableViewDashboard = ({ match }) => {
     }, [engine, dispatch, offlineDashboardIds])
 
     useEffect(() => {
-        if (routeId === null && preferredId === null && currentId !== null) {
+        const nothingRequested = routeId === null && preferredId === null
+        if ((fetchError || nothingRequested) && currentId !== null) {
             dispatch(acClearSelected())
         }
-    }, [routeId, preferredId, currentId, dispatch])
+    }, [fetchError, routeId, preferredId, currentId, dispatch])
 
     useEffect(() => {
         const storedPreferredId =
@@ -88,7 +94,13 @@ const CacheableViewDashboard = ({ match }) => {
                 setDashboardName(dashboard.displayName)
                 setIdToLoad(dashboard.id)
                 setHasDashboards(true)
-            } catch {
+            } catch (error) {
+                const requestedId = routeId || storedPreferredId
+                if (requestedId && !isNotFoundError(error)) {
+                    setIdToLoad(requestedId)
+                    return
+                }
+
                 const { dashboards } = await engine.query(firstDashboardQuery)
 
                 setHasDashboards(dashboards.dashboards.length > 0)
