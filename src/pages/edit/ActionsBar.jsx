@@ -7,6 +7,7 @@ import {
 import i18n from '@dhis2/d2-i18n'
 import {
     Button,
+    IconChevronLeft16,
     IconView16,
     IconInfo16,
     IconSettings16,
@@ -231,6 +232,15 @@ const EditBar = ({ dashboard, split, ...props }) => {
                     {canUpdate && !props.isPrintPreviewView && (
                         <InlineTitleEditor />
                     )}
+                    {props.isPrintPreviewView && (
+                        <p className={classes.previewLabel}>
+                            <strong>{i18n.t('Print preview')}</strong>
+                            <span>
+                                {dashboard.name ||
+                                    i18n.t('Untitled dashboard')}
+                            </span>
+                        </p>
+                    )}
                     {split && canUpdate && !props.isPrintPreviewView && (
                         <IconAction
                             label={i18n.t('Details')}
@@ -251,16 +261,18 @@ const EditBar = ({ dashboard, split, ...props }) => {
                 <div className={classes.right}>
                     <OfflineTooltip>
                         {props.isPrintPreviewView ? (
-                            <InlineButton
-                                icon={<IconView16 />}
+                            <Button
+                                small
+                                secondary
+                                icon={<IconChevronLeft16 />}
                                 disabled={!online}
                                 onClick={onPrintPreview}
                             >
-                                {i18n.t('Exit preview')}
-                            </InlineButton>
+                                {i18n.t('Back to editing')}
+                            </Button>
                         ) : (
                             <IconAction
-                                label={i18n.t('Preview')}
+                                label={i18n.t('Print preview')}
                                 icon={<IconView16 />}
                                 disabled={!online}
                                 onClick={onPrintPreview}

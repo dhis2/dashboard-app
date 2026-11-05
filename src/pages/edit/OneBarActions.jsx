@@ -244,15 +244,15 @@ const EditBar = ({ dashboard, sidebar, children, ...props }) => {
                                 disabled={!online}
                                 onClick={onPrintPreview}
                             >
-                                {i18n.t('Exit preview')}
+                                {i18n.t('Exit print preview')}
                             </InlineButton>
                         ) : (
-                            <Tooltip content={i18n.t('Preview')}>
+                            <Tooltip content={i18n.t('Print preview')}>
                                 <InlineButton
                                     icon={<IconView16 />}
                                     disabled={!online}
                                     onClick={onPrintPreview}
-                                    aria-label={i18n.t('Preview')}
+                                    aria-label={i18n.t('Print preview')}
                                 />
                             </Tooltip>
                         )}

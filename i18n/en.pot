@@ -5,8 +5,8 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1)\n"
-"POT-Creation-Date: 2026-11-05T12:05:59.708Z\n"
-"PO-Revision-Date: 2026-11-05T12:05:59.708Z\n"
+"POT-Creation-Date: 2026-11-05T13:01:16.282Z\n"
+"PO-Revision-Date: 2026-11-05T13:01:16.283Z\n"
 
 msgid "Untitled dashboard"
 msgstr "Untitled dashboard"
@@ -486,11 +486,11 @@ msgstr ""
 msgid "Details"
 msgstr "Details"
 
-msgid "Exit preview"
-msgstr "Exit preview"
+msgid "Exit print preview"
+msgstr "Exit print preview"
 
-msgid "Preview"
-msgstr "Preview"
+msgid "Print preview"
+msgstr "Print preview"
 
 msgid "Dashboard settings"
 msgstr "Dashboard settings"
@@ -844,9 +844,6 @@ msgstr "Undo"
 
 msgid "Redo"
 msgstr "Redo"
-
-msgid "Exit print preview"
-msgstr "Exit print preview"
 
 msgid "dashboard layout"
 msgstr "dashboard layout"

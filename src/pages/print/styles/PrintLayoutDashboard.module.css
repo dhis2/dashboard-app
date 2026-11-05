@@ -13,6 +13,12 @@
 .wrapper.editView {
     padding-block-start: var(--spacers-dp24);
     padding-block-end: var(--spacers-dp48);
+    padding-inline: var(--spacers-dp24);
+}
+
+/* In the editor, centre the pages instead of hugging the left edge */
+.editView .pageOuter {
+    margin-inline: auto;
 }
 
 .pageOuter {

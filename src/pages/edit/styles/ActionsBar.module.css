@@ -44,6 +44,26 @@
     max-inline-size: 1200px;
 }
 
+/* Print preview: says where you are, in place of the title editor */
+.previewLabel {
+    display: flex;
+    align-items: baseline;
+    gap: var(--spacers-dp8);
+    margin: 0;
+    padding-inline-start: var(--spacers-dp4);
+    font-size: 14px;
+    color: var(--colors-grey900);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.previewLabel span {
+    color: var(--colors-grey700);
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
 .offline {
     background-color: rgb(195, 100, 100) !important;
     color: white !important;
