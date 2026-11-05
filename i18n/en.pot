@@ -5,8 +5,8 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1)\n"
-"POT-Creation-Date: 2026-10-28T08:19:10.556Z\n"
-"PO-Revision-Date: 2026-10-28T08:19:10.556Z\n"
+"POT-Creation-Date: 2026-11-05T12:05:59.708Z\n"
+"PO-Revision-Date: 2026-11-05T12:05:59.708Z\n"
 
 msgid "Untitled dashboard"
 msgstr "Untitled dashboard"
@@ -330,11 +330,11 @@ msgstr "Spacer"
 msgid "Use a spacer to create empty vertical space between other dashboard items."
 msgstr "Use a spacer to create empty vertical space between other dashboard items."
 
-msgid "Text box"
-msgstr "Text box"
-
 msgid "Add text here"
 msgstr "Add text here"
+
+msgid "Edit text"
+msgstr "Edit text"
 
 msgid "Filters are not applied to line list dashboard items"
 msgstr "Filters are not applied to line list dashboard items"
@@ -492,6 +492,9 @@ msgstr "Exit preview"
 msgid "Preview"
 msgstr "Preview"
 
+msgid "Dashboard settings"
+msgstr "Dashboard settings"
+
 msgid "Filters"
 msgstr "Filters"
 
@@ -538,6 +541,9 @@ msgstr "No, stay here"
 msgid "Yes, discard changes"
 msgstr "Yes, discard changes"
 
+msgid "Text box"
+msgstr "Text box"
+
 msgid "Plugins"
 msgstr "Plugins"
 
@@ -547,11 +553,50 @@ msgstr "Layout"
 msgid "Where to add new items"
 msgstr "Where to add new items"
 
-msgid "Add to start"
-msgstr "Add to start"
+msgid "New items go to the start"
+msgstr "New items go to the start"
 
-msgid "Add to end"
-msgstr "Add to end"
+msgid "New items go to the end"
+msgstr "New items go to the end"
+
+msgid "Add"
+msgstr "Add"
+
+msgid "Settings"
+msgstr "Settings"
+
+msgid "All"
+msgstr "All"
+
+msgid "Charts & tables"
+msgstr "Charts & tables"
+
+msgid "Event reports & charts"
+msgstr "Event reports & charts"
+
+msgid "Expand panel"
+msgstr "Expand panel"
+
+msgid "Build"
+msgstr "Build"
+
+msgid "Panel"
+msgstr "Panel"
+
+msgid "Collapse panel"
+msgstr "Collapse panel"
+
+msgid "Filter by type"
+msgstr "Filter by type"
+
+msgid "New items go to the"
+msgstr "New items go to the"
+
+msgid "Top"
+msgstr "Top"
+
+msgid "Bottom"
+msgstr "Bottom"
 
 msgid "Search {{type}}"
 msgstr "Search {{type}}"
@@ -647,9 +692,6 @@ msgstr "Special items"
 msgid "Other"
 msgstr "Other"
 
-msgid "Add item…"
-msgstr "Add item…"
-
 msgid "Search visualizations, maps, reports…"
 msgstr "Search visualizations, maps, reports…"
 
@@ -658,6 +700,9 @@ msgstr "Search items to add"
 
 msgid "No items found"
 msgstr "No items found"
+
+msgid "Add item…"
+msgstr "Add item…"
 
 msgid "↑ ↓ to move"
 msgstr "↑ ↓ to move"
@@ -735,9 +780,6 @@ msgstr "All changes saved"
 msgid "Not saved yet"
 msgstr "Not saved yet"
 
-msgid "Dashboard settings"
-msgstr "Dashboard settings"
-
 msgid "Discard"
 msgstr "Discard"
 
@@ -755,25 +797,11 @@ msgstr[1] "Fixed · {{count}} columns"
 msgid "Flexible"
 msgstr "Flexible"
 
-msgid "New items go to the start"
-msgstr "New items go to the start"
+msgid "Selected filters"
+msgstr "Selected filters"
 
-msgid "New items go to the end"
-msgstr "New items go to the end"
-
-msgid "Close"
-msgstr "Close"
-
-msgid "Viewers can filter by {{count}} selected dimensions."
-msgid_plural "Viewers can filter by {{count}} selected dimensions."
-msgstr[0] "Viewers can filter by {{count}} selected dimensions."
-msgstr[1] "Viewers can filter by {{count}} selected dimensions."
-
-msgid "Viewers can filter by all dimensions."
-msgstr "Viewers can filter by all dimensions."
-
-msgid "Edit filter settings"
-msgstr "Edit filter settings"
+msgid "Choose dimensions"
+msgstr "Choose dimensions"
 
 msgid "Translations"
 msgstr "Translations"
@@ -786,6 +814,9 @@ msgstr "Save the dashboard before adding translations."
 
 msgid "Removes the dashboard for everyone. This can’t be undone."
 msgstr "Removes the dashboard for everyone. This can’t be undone."
+
+msgid "Close"
+msgstr "Close"
 
 msgid "Dashboard title"
 msgstr "Dashboard title"
@@ -807,6 +838,12 @@ msgstr "End of dashboard"
 
 msgid "Start of dashboard"
 msgstr "Start of dashboard"
+
+msgid "Undo"
+msgstr "Undo"
+
+msgid "Redo"
+msgstr "Redo"
 
 msgid "Exit print preview"
 msgstr "Exit print preview"

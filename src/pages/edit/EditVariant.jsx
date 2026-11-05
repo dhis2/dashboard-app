@@ -1,48 +1,18 @@
-import { DialRoot, useDialKit } from 'dialkit'
-// eslint-disable-next-line import/no-unresolved -- resolved via the package's exports map
-import 'dialkit/styles.css'
 import PropTypes from 'prop-types'
-import React, { createContext, useContext } from 'react'
+import React from 'react'
 import ActionsBar from './ActionsBar.jsx'
 import AddItemsBar from './AddItemsBar.jsx'
 import OneBarActions from './OneBarActions.jsx'
 
-// Prototype switch between editor layouts, driven by a DialKit panel.
-// shortcut: lives only in the edit pages; remove with the losing variant.
-const TODAY = 'Two toolbars'
-const ONE_TOOLBAR = 'Command palette'
-const BUILD_SIDEBAR = 'Build sidebar'
-const SPLIT_BAR = 'Single toolbar'
-const VARIANTS = {
-    [TODAY]: 'today',
-    [ONE_TOOLBAR]: 'onebar',
-    [BUILD_SIDEBAR]: 'sidebar',
-    [SPLIT_BAR]: 'split',
-}
+// Editor layout. Fixed to Two toolbars ('today') for sharing; the other
+// variants ('split', 'onebar', 'sidebar') stay in the code and can be tried
+// by changing this value.
+// shortcut: hard-coded switch; delete the losing variants once one is picked
+const VARIANT = 'today'
 
-const EditVariantContext = createContext('today')
+export const useEditVariant = () => VARIANT
 
-export const useEditVariant = () => useContext(EditVariantContext)
-
-export const EditVariantProvider = ({ children }) => {
-    const { layout } = useDialKit(
-        'Dashboard creator',
-        {
-            layout: {
-                type: 'select',
-                options: [TODAY, SPLIT_BAR, ONE_TOOLBAR, BUILD_SIDEBAR],
-            },
-        },
-        { id: 'dashboard-creator-variant', persist: true }
-    )
-
-    return (
-        <EditVariantContext.Provider value={VARIANTS[layout] || 'today'}>
-            {children}
-            <DialRoot position="bottom-right" />
-        </EditVariantContext.Provider>
-    )
-}
+export const EditVariantProvider = ({ children }) => children
 
 EditVariantProvider.propTypes = {
     children: PropTypes.node,

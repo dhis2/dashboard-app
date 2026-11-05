@@ -1,12 +1,23 @@
+import { DIMENSION_ID_ORGUNIT, DIMENSION_ID_PERIOD } from '@dhis2/analytics'
 import i18n from '@dhis2/d2-i18n'
-import { Button, IconCross16, InputField, TextAreaField } from '@dhis2/ui'
+import {
+    Button,
+    IconCross16,
+    InputField,
+    MultiSelectField,
+    MultiSelectOption,
+    Radio,
+    TextAreaField,
+} from '@dhis2/ui'
 import PropTypes from 'prop-types'
 import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import {
     acSetDashboardCode,
     acSetDashboardDescription,
+    acSetFilterSettings,
 } from '../../actions/editDashboard.js'
+import useDimensions from '../../modules/useDimensions.js'
 import {
     sGetEditDashboardCode,
     sGetEditDashboardDescription,
@@ -14,21 +25,81 @@ import {
 } from '../../reducers/editDashboard.js'
 import classes from './styles/SettingsDrawer.module.css'
 
+const PINNED = [DIMENSION_ID_PERIOD, DIMENSION_ID_ORGUNIT]
+
+// Period and org unit always come first, as in the filter settings dialog
+const withPinnedFirst = (ids) => [
+    ...PINNED.filter((id) => ids.includes(id)),
+    ...ids.filter((id) => !PINNED.includes(id)),
+]
+
+// Same choices as FilterSettingsDialog, edited in place with a multi-select
+const FilterFields = () => {
+    const dispatch = useDispatch()
+    const { restrictFilters, allowedFilters = [] } = useSelector(
+        sGetEditDashboardRoot
+    )
+    const dimensions = useDimensions(true)
+    const set = (restrict, selected) =>
+        dispatch(
+            acSetFilterSettings({
+                restrictFilters: restrict,
+                allowedFilters: restrict ? withPinnedFirst(selected) : [],
+            })
+        )
+
+    return (
+        <>
+            <Radio
+                dense
+                name="filter-restriction"
+                label={i18n.t('Allow filtering by all dimensions')}
+                checked={!restrictFilters}
+                onChange={() => set(false, [])}
+            />
+            <Radio
+                dense
+                name="filter-restriction"
+                label={i18n.t('Only allow filtering by selected dimensions')}
+                checked={Boolean(restrictFilters)}
+                onChange={() => set(true, [...PINNED, ...allowedFilters])}
+            />
+            {restrictFilters && (
+                <MultiSelectField
+                    filterable
+                    clearable
+                    dense
+                    label={i18n.t('Selected filters')}
+                    placeholder={i18n.t('Choose dimensions')}
+                    loading={!dimensions.length}
+                    // options load async; selected values need their options
+                    selected={dimensions.length ? allowedFilters : []}
+                    onChange={({ selected }) => set(true, selected)}
+                >
+                    {dimensions.map((d) => (
+                        <MultiSelectOption
+                            key={d.id}
+                            label={d.name}
+                            value={d.id}
+                        />
+                    ))}
+                </MultiSelectField>
+            )}
+        </>
+    )
+}
+
 // Details, filters, translations and delete — shared by the settings drawer
 // (One toolbar) and the Settings tab of the Build sidebar.
 export const SettingsFields = ({
     hasId,
     canDelete,
-    onEditFilters,
     onTranslate,
     onDelete,
 }) => {
     const dispatch = useDispatch()
     const description = useSelector(sGetEditDashboardDescription) || ''
     const code = useSelector(sGetEditDashboardCode) || ''
-    const { restrictFilters, allowedFilters = [] } = useSelector(
-        sGetEditDashboardRoot
-    )
 
     return (
         <>
@@ -57,17 +128,7 @@ export const SettingsFields = ({
             </section>
             <section className={classes.section}>
                 <h3>{i18n.t('Filters')}</h3>
-                <p>
-                    {restrictFilters
-                        ? i18n.t(
-                              'Viewers can filter by {{count}} selected dimensions.',
-                              { count: allowedFilters.length }
-                          )
-                        : i18n.t('Viewers can filter by all dimensions.')}
-                </p>
-                <Button small secondary onClick={onEditFilters}>
-                    {i18n.t('Edit filter settings')}
-                </Button>
+                <FilterFields />
             </section>
             <section className={classes.section}>
                 <h3>{i18n.t('Translations')}</h3>
@@ -109,20 +170,18 @@ export const SettingsFields = ({
 
 SettingsFields.propTypes = {
     onDelete: PropTypes.func.isRequired,
-    onEditFilters: PropTypes.func.isRequired,
     onTranslate: PropTypes.func.isRequired,
     canDelete: PropTypes.bool,
     hasId: PropTypes.bool,
 }
 
-// One drawer for "how the dashboard behaves". Details edit inline; filters and
-// translations keep their existing dialogs, opened from here.
+// One drawer for "how the dashboard behaves". Details and filters edit inline;
+// translations keep their existing dialog, opened from here.
 const SettingsDrawer = ({
     top,
     hasId,
     canDelete,
     onClose,
-    onEditFilters,
     onTranslate,
     onDelete,
 }) => {
@@ -153,7 +212,6 @@ const SettingsDrawer = ({
                 <SettingsFields
                     hasId={hasId}
                     canDelete={canDelete}
-                    onEditFilters={onEditFilters}
                     onTranslate={onTranslate}
                     onDelete={onDelete}
                 />
@@ -165,7 +223,6 @@ const SettingsDrawer = ({
 SettingsDrawer.propTypes = {
     onClose: PropTypes.func.isRequired,
     onDelete: PropTypes.func.isRequired,
-    onEditFilters: PropTypes.func.isRequired,
     onTranslate: PropTypes.func.isRequired,
     canDelete: PropTypes.bool,
     hasId: PropTypes.bool,

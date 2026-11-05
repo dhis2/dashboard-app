@@ -9,6 +9,7 @@ import {
     Button,
     IconView16,
     IconInfo16,
+    IconSettings16,
     IconFilter16,
     IconTranslate16,
     IconDelete16,
@@ -42,6 +43,7 @@ import DetailsModal from './DetailsModal.jsx'
 import FilterSettingsDialog from './FilterSettingsDialog.jsx'
 import InlineButton from './InlineButton.jsx'
 import InlineTitleEditor from './InlineTitleEditor.jsx'
+import SettingsDrawer from './SettingsDrawer.jsx'
 import classes from './styles/ActionsBar.module.css'
 
 const saveFailedMessage = i18n.t(
@@ -78,6 +80,8 @@ const EditBar = ({ dashboard, split, ...props }) => {
     const [filterSettingsDlgIsOpen, setFilterSettingsDlgIsOpen] =
         useState(false)
     const [detailsModalIsOpen, setDetailsModalIsOpen] = useState(false)
+    // Two toolbars: top offset of the settings drawer while it's open
+    const [drawerTop, setDrawerTop] = useState(null)
     const [confirmDeleteDlgIsOpen, setConfirmDeleteDlgIsOpen] = useState(false)
     const [confirmDiscardDlgIsOpen, setConfirmDiscardDlgIsOpen] =
         useState(false)
@@ -201,6 +205,16 @@ const EditBar = ({ dashboard, split, ...props }) => {
         )
     }
 
+    const toggleDrawer = () =>
+        setDrawerTop(
+            drawerTop === null
+                ? (
+                      document.querySelector('[data-test="add-items-bar"]') ||
+                      document.querySelector('[data-test="edit-control-bar"]')
+                  )?.getBoundingClientRect().bottom ?? 0
+                : null
+        )
+
     const canUpdate = dashboard.access?.update
 
     if (redirectUrl) {
@@ -235,13 +249,6 @@ const EditBar = ({ dashboard, split, ...props }) => {
                 )}
 
                 <div className={classes.right}>
-                    {!split && canUpdate && !props.isPrintPreviewView && (
-                        <IconAction
-                            label={i18n.t('Details')}
-                            icon={<IconInfo16 />}
-                            onClick={() => setDetailsModalIsOpen(true)}
-                        />
-                    )}
                     <OfflineTooltip>
                         {props.isPrintPreviewView ? (
                             <InlineButton
@@ -260,7 +267,18 @@ const EditBar = ({ dashboard, split, ...props }) => {
                             />
                         )}
                     </OfflineTooltip>
-                    {canUpdate && !props.isPrintPreviewView && (
+                    {/* Two toolbars: details, filters, translations and
+                        delete live in one settings drawer */}
+                    {!split && canUpdate && !props.isPrintPreviewView && (
+                        <IconAction
+                            label={i18n.t('Dashboard settings')}
+                            icon={<IconSettings16 />}
+                            aria-pressed={drawerTop !== null}
+                            onClick={toggleDrawer}
+                            dataTest="dashboard-settings-button"
+                        />
+                    )}
+                    {split && canUpdate && !props.isPrintPreviewView && (
                         <OfflineTooltip>
                             <IconAction
                                 label={i18n.t('Filters')}
@@ -270,7 +288,7 @@ const EditBar = ({ dashboard, split, ...props }) => {
                             />
                         </OfflineTooltip>
                     )}
-                    {canUpdate && !props.isPrintPreviewView && (
+                    {split && canUpdate && !props.isPrintPreviewView && (
                         <OfflineTooltip
                             disabled={!dashboard.id}
                             content={
@@ -289,7 +307,8 @@ const EditBar = ({ dashboard, split, ...props }) => {
                             />
                         </OfflineTooltip>
                     )}
-                    {!props.isPrintPreviewView &&
+                    {split &&
+                        !props.isPrintPreviewView &&
                         (dashboard.access?.delete || !dashboard.id) && (
                             <OfflineTooltip
                                 disabledWhenOffline={Boolean(dashboard.id)}
@@ -342,6 +361,22 @@ const EditBar = ({ dashboard, split, ...props }) => {
                     )}
                 </div>
             </div>
+            {drawerTop !== null && canUpdate && !props.isPrintPreviewView && (
+                <SettingsDrawer
+                    top={drawerTop}
+                    hasId={Boolean(dashboard.id)}
+                    canDelete={Boolean(
+                        dashboard.access?.delete || !dashboard.id
+                    )}
+                    onClose={() => setDrawerTop(null)}
+                    onEditFilters={toggleFilterSettingsDialog}
+                    onTranslate={toggleTranslationDialog}
+                    onDelete={() => {
+                        setDrawerTop(null)
+                        dashboard.id ? onConfirmDelete() : onDiscardConfirmed()
+                    }}
+                />
+            )}
             {detailsModalIsOpen && (
                 <DetailsModal onClose={() => setDetailsModalIsOpen(false)} />
             )}
