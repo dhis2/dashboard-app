@@ -97,7 +97,7 @@ const AddItemsBar = ({
             {/* Today: undo/redo lead the toolbar */}
             {!inline && (
                 <>
-                    <div className={classes.group}>
+                    <div className={cx(classes.group, classes.undoGroup)}>
                         <UndoRedoButtons />
                     </div>
                     <div className={classes.divider} />

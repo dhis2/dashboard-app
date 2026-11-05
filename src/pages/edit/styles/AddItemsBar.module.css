@@ -29,6 +29,12 @@
     flex: none;
 }
 
+/* Undo/redo: a compact pair, 8px from the bar edge and from the divider */
+.undoGroup {
+    gap: var(--spacers-dp4);
+    margin-inline: calc(-1 * var(--spacers-dp8));
+}
+
 .divider {
     inline-size: 1px;
     align-self: stretch;
