@@ -27,9 +27,11 @@ const getInputByLabelText = (labelText, inputTag = 'input') =>
 
 describe('Creating, viewing, editing and deleting an embedded superset dashboard', () => {
     let UNIQUE_CODE = null
+    let showDescription = false
 
     before(function () {
         UNIQUE_CODE = `${BASE_CODE}_${Date.now().toString().substring(8)}`
+        showDescription = false
         // Skip this test if the DHIS2 Core version is below 42
         const version = parseVersionFromEnvToInt()
 
@@ -72,6 +74,16 @@ describe('Creating, viewing, editing and deleting an embedded superset dashboard
                 })
             } else if (req.url.includes(`${SUPERSET_BASE_URL}/embedded/`)) {
                 req.reply(SUPERSET_DASHBOARD_STUB)
+            } else if (
+                req.url.includes('/userDataStore/dashboard/showDescription')
+            ) {
+                if (req.method !== 'GET') {
+                    showDescription = String(req.body) === 'true'
+                }
+                req.reply({
+                    headers: { 'content-type': 'application/json' },
+                    body: JSON.stringify(showDescription),
+                })
             } else {
                 // Just return the response by default
                 req.continue((resp) => resp)
