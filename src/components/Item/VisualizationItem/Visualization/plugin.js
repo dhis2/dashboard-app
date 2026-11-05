@@ -1,3 +1,4 @@
+import { hasAppAccess } from '../../../../modules/appAccess.js'
 import {
     itemTypeMap,
     REPORT_TABLE,
@@ -22,6 +23,15 @@ const itemTypeToScriptPath = {
 
 const hasIntegratedPlugin = (type) =>
     [CHART, REPORT_TABLE, VISUALIZATION, MAP].includes(type)
+
+// Core app plugins are always loaded from the bundled app path (see getPluginLaunchUrl
+// and itemTypeToScriptPath), even when the app is not listed in api/apps because the
+// user has no access to it. Without the authority, that path returns a JSON error
+// instead of the plugin.
+// The event reports and event chart scripts are accessible without the authority
+// before 2.42, so their access is only checked after the script fails to load.
+export const hasPluginAccess = (type, authorities) =>
+    hasAppAccess(itemTypeMap[type]?.appKey, authorities)
 
 export const getPluginLaunchUrl = (type, apps, baseUrl) => {
     // 1. lookup in api/apps for the "manually installed" app, this can be a new version for a core (bundled) app
