@@ -11,5 +11,5 @@ export const getOfflineDashboardIds = (userId, cachedSections) => {
         }
     }
 
-    return dashboardIds.sort()
+    return dashboardIds.sort((a, b) => a.localeCompare(b))
 }

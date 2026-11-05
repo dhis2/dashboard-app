@@ -88,7 +88,7 @@ const CacheableViewDashboard = ({ match }) => {
                 setDashboardName(dashboard.displayName)
                 setIdToLoad(dashboard.id)
                 setHasDashboards(true)
-            } catch (error) {
+            } catch {
                 const { dashboards } = await engine.query(firstDashboardQuery)
 
                 setHasDashboards(dashboards.dashboards.length > 0)
@@ -111,7 +111,7 @@ const CacheableViewDashboard = ({ match }) => {
         setDashboardName(null)
         setFetchError(null)
 
-        fetchIdToLoad()
+        fetchIdToLoad().catch(() => {})
     }, [engine, routeId, currentUser.username])
 
     if (fetchError) {

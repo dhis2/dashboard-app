@@ -148,20 +148,13 @@ describe('NavigationMenu', () => {
     })
 
     it('renders a notification if no dashboards are available', async () => {
-        let getByText
-        await act(async () => {
-            const renderResult = render(
-                <Provider store={store}>
-                    <Router history={createMemoryHistory()}>
-                        <NavigationMenu
-                            close={() => {}}
-                            hasDashboards={false}
-                        />
-                    </Router>
-                </Provider>
-            )
-            getByText = renderResult.getByText
-        })
+        const { getByText } = render(
+            <Provider store={store}>
+                <Router history={createMemoryHistory()}>
+                    <NavigationMenu close={() => {}} hasDashboards={false} />
+                </Router>
+            </Provider>
+        )
 
         expect(getByText('No dashboards available.')).toBeVisible()
         expect(

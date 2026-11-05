@@ -87,7 +87,7 @@ export const NavigationMenu = ({ close, hasDashboards }) => {
         }
 
         if (!offline && debouncedRequestParams.page !== null) {
-            fetchDashboards()
+            fetchDashboards().catch(() => {})
         }
 
         if (offline) {
