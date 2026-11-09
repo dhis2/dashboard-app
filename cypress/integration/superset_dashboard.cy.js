@@ -1,5 +1,9 @@
 import { newButtonSel } from '../elements/viewDashboard.js'
-import { EXTENDED_TIMEOUT, parseVersionFromEnvToInt } from '../support/utils.js'
+import {
+    EXTENDED_TIMEOUT,
+    parseVersionFromEnvToInt,
+    resetShowDescription,
+} from '../support/utils.js'
 
 const SUPERSET_BASE_URL = 'https://superset-test.dhis2.org'
 const NAME = 'My new dashboard'
@@ -40,6 +44,12 @@ describe('Creating, viewing, editing and deleting an embedded superset dashboard
         if (version < 42) {
             this.skip()
         }
+
+        resetShowDescription()
+    })
+
+    after(() => {
+        resetShowDescription()
     })
 
     beforeEach(() => {

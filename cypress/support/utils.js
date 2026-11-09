@@ -12,6 +12,16 @@ export const getApiBaseUrl = () => {
     return baseUrl
 }
 
+export const resetShowDescription = () =>
+    cy.request({
+        method: 'PUT',
+        url: `${getApiBaseUrl()}/api/userDataStore/dashboard/showDescription`,
+        headers: {
+            'content-type': 'application/json',
+        },
+        body: 'false',
+    })
+
 export const goOffline = () => {
     cy.log('**go offline**')
         .then(() => {
