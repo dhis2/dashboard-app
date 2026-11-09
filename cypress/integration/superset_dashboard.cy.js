@@ -1,5 +1,9 @@
 import { newButtonSel } from '../elements/viewDashboard.js'
-import { EXTENDED_TIMEOUT, parseVersionFromEnvToInt } from '../support/utils.js'
+import {
+    EXTENDED_TIMEOUT,
+    parseVersionFromEnvToInt,
+    resetShowDescription,
+} from '../support/utils.js'
 
 const SUPERSET_BASE_URL = 'https://superset-test.dhis2.org'
 const NAME = 'My new dashboard'
@@ -27,11 +31,9 @@ const getInputByLabelText = (labelText, inputTag = 'input') =>
 
 describe('Creating, viewing, editing and deleting an embedded superset dashboard', () => {
     let UNIQUE_CODE = null
-    let showDescription = false
 
     before(function () {
         UNIQUE_CODE = `${BASE_CODE}_${Date.now().toString().substring(8)}`
-        showDescription = false
         // Skip this test if the DHIS2 Core version is below 42
         const version = parseVersionFromEnvToInt()
 
@@ -42,6 +44,12 @@ describe('Creating, viewing, editing and deleting an embedded superset dashboard
         if (version < 42) {
             this.skip()
         }
+
+        resetShowDescription()
+    })
+
+    after(() => {
+        resetShowDescription()
     })
 
     beforeEach(() => {
@@ -74,16 +82,6 @@ describe('Creating, viewing, editing and deleting an embedded superset dashboard
                 })
             } else if (req.url.includes(`${SUPERSET_BASE_URL}/embedded/`)) {
                 req.reply(SUPERSET_DASHBOARD_STUB)
-            } else if (
-                req.url.includes('/userDataStore/dashboard/showDescription')
-            ) {
-                if (req.method !== 'GET') {
-                    showDescription = String(req.body) === 'true'
-                }
-                req.reply({
-                    headers: { 'content-type': 'application/json' },
-                    body: JSON.stringify(showDescription),
-                })
             } else {
                 // Just return the response by default
                 req.continue((resp) => resp)
