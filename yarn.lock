@@ -1948,47 +1948,64 @@
     "@dhis2/pwa" "12.11.0"
     moment "^2.24.0"
 
-"@dhis2/app-runtime@^3.14.3", "@dhis2/app-runtime@^3.14.4":
-  version "3.14.4"
-  resolved "https://registry.yarnpkg.com/@dhis2/app-runtime/-/app-runtime-3.14.4.tgz#ae8de08ccf4f1e580dd04644d352c4b252d14217"
-  integrity sha512-s127XS/aRL2UmW5BLi2vQ4l98GF/oQz+hNLqKWmi5lai/JoFlQjQI8uukauafP9CNrN7u69W9OIBLVfueaBptw==
+"@dhis2/app-runtime@^3.14.3", "@dhis2/app-runtime@^3.17.4":
+  version "3.17.4"
+  resolved "https://registry.yarnpkg.com/@dhis2/app-runtime/-/app-runtime-3.17.4.tgz#928b21a8b5435e3297ac1b0a332268c0cf9209a2"
+  integrity sha512-1nmUbDrIDbuGV9wl5yk5XJLIXT3OzjlHhJAV86Nlh0Uc/G76sIW50pSpgCuBzQ2S6oiDZFodjlGdjFT/Z7VNUQ==
   dependencies:
-    "@dhis2/app-service-alerts" "3.14.4"
-    "@dhis2/app-service-config" "3.14.4"
-    "@dhis2/app-service-data" "3.14.4"
-    "@dhis2/app-service-offline" "3.14.4"
-    "@dhis2/app-service-plugin" "3.14.4"
+    "@dhis2/app-service-alerts" "3.17.4"
+    "@dhis2/app-service-config" "3.17.4"
+    "@dhis2/app-service-data" "3.17.4"
+    "@dhis2/app-service-offline" "3.17.4"
+    "@dhis2/app-service-plugin" "3.17.4"
+    "@dhis2/app-service-user" "3.17.4"
+    prop-types "^15.7.2"
 
-"@dhis2/app-service-alerts@3.14.4":
-  version "3.14.4"
-  resolved "https://registry.yarnpkg.com/@dhis2/app-service-alerts/-/app-service-alerts-3.14.4.tgz#08352be174b59909664f991e0f91ffdb8e77850b"
-  integrity sha512-VWm794Kz9ntjIVFFKvvG0yt7ntXZw/qN0K2wmg+jaAMBeNGdxRCsnxDTMcAVN3POmAzD71X3X1jd7OfRumxGjQ==
-
-"@dhis2/app-service-config@3.14.4":
-  version "3.14.4"
-  resolved "https://registry.yarnpkg.com/@dhis2/app-service-config/-/app-service-config-3.14.4.tgz#44a52b64c91f1252e4709c56f84d0347be45af8b"
-  integrity sha512-pX8GQJOZwztoiPZ1Fp1Uq5Z0bFSTpmp8IPZqWMWAoQtHuFMlqtBRGKODd8XsbazNSteg29jS+/oz+vT8Dfj+oA==
-
-"@dhis2/app-service-data@3.14.4":
-  version "3.14.4"
-  resolved "https://registry.yarnpkg.com/@dhis2/app-service-data/-/app-service-data-3.14.4.tgz#84e48f357f19bd8fc9a194a4381d1e1a58a41841"
-  integrity sha512-iyWMKkvWms+Lp8V/+V0PZhjynis9LtXzPoSfHwusB+cFPeBVDvxld8hW/BttGIX8ujPpYluljHSE4b1kfEzy2A==
+"@dhis2/app-service-alerts@3.17.4":
+  version "3.17.4"
+  resolved "https://registry.yarnpkg.com/@dhis2/app-service-alerts/-/app-service-alerts-3.17.4.tgz#fe9e635cfa01bb54c4d048783dac76a5aaa3b8d1"
+  integrity sha512-GHTB+jAYEZIl0YD1LfwdntWWf2EGPjQbsnxOnWfZqH10kCRgnTXqqBUx1xeA+T3k1tBW7w6FXcLbI6xoKUC1Mw==
   dependencies:
+    prop-types "^15.7.2"
+
+"@dhis2/app-service-config@3.17.4":
+  version "3.17.4"
+  resolved "https://registry.yarnpkg.com/@dhis2/app-service-config/-/app-service-config-3.17.4.tgz#c2776c74024b3ca98b583bb557ecd915f785d048"
+  integrity sha512-TIgkyFOp2m7APCbXXAMaj0iLF3EXqB2k3biNDclIvilt0p8xhJGLSy1nU2nqkDFlLg460PGgcissKP02FL7umw==
+  dependencies:
+    prop-types "^15.7.2"
+
+"@dhis2/app-service-data@3.17.4":
+  version "3.17.4"
+  resolved "https://registry.yarnpkg.com/@dhis2/app-service-data/-/app-service-data-3.17.4.tgz#0abdbc10295162ad8f4a4dfe5a6c9606a1722b7a"
+  integrity sha512-awyWdVwLx9kZlcb36i+olzKZTqC2lgVKclvZ6IXq20ciX8BdtlpfL3ymyTi8Jvp88X2qj0rt6fQL68m/bu079Q==
+  dependencies:
+    "@dhis2/data-engine" "3.17.4"
     "@tanstack/react-query" "^4.36.1"
+    prop-types "^15.7.2"
 
-"@dhis2/app-service-offline@3.14.4":
-  version "3.14.4"
-  resolved "https://registry.yarnpkg.com/@dhis2/app-service-offline/-/app-service-offline-3.14.4.tgz#b0dd39fb20fc747a27dff39a9f929a8c68bd63f4"
-  integrity sha512-8NkzyDO0pn6/nCFnRBmtcxJSdOaLcFjM7OzkWkwEAlIaa7jgQZl09FLXt8bygU9ELtLkzHO2tuDCHR2ggDIhFA==
+"@dhis2/app-service-offline@3.17.4":
+  version "3.17.4"
+  resolved "https://registry.yarnpkg.com/@dhis2/app-service-offline/-/app-service-offline-3.17.4.tgz#2036cfe4902c12c5a1029107bc25f55a25e6aae2"
+  integrity sha512-afXFCgJIwMZjBEm/frFu3MeWKDLE3+MsHlmdZHxog2Mv/IPM6T74KT9cJidfhuLqckJd5bq3aOEHcOzoPwFtOg==
   dependencies:
     lodash "^4.17.21"
+    prop-types "^15.7.2"
 
-"@dhis2/app-service-plugin@3.14.4":
-  version "3.14.4"
-  resolved "https://registry.yarnpkg.com/@dhis2/app-service-plugin/-/app-service-plugin-3.14.4.tgz#0742be93265d785dacea364556f5edd02c95c00f"
-  integrity sha512-XUWzNEC3MTyj/RPX+JLhkKNItkqwnLRkaqY2roMQNBHQFHB5m6KhHr07+tV+2TKMDBNul8LqDq0brFu7OUow/g==
+"@dhis2/app-service-plugin@3.17.4":
+  version "3.17.4"
+  resolved "https://registry.yarnpkg.com/@dhis2/app-service-plugin/-/app-service-plugin-3.17.4.tgz#d4d88c9bb5363e8f289585713517bee8facbab93"
+  integrity sha512-bDOdbOuEqHXMyxamA58bjyE7ZbhpFh8o46Gg/4mdKQ8xkei/bk6rMwsoOeAQbFWvhmwNjlQDSJL+s2GkF8Gheg==
   dependencies:
     post-robot "^10.0.46"
+    prop-types "^15.7.2"
+
+"@dhis2/app-service-user@3.17.4":
+  version "3.17.4"
+  resolved "https://registry.yarnpkg.com/@dhis2/app-service-user/-/app-service-user-3.17.4.tgz#71ccf51c36a5d9b7e32fafe701c5e1a1d6b4a5dc"
+  integrity sha512-I7XfC3ZKRuO695l5+pLBFtkQUgBidiPFa5KrFHkBmzi1/aPrVgG3t0COzSXTsDb4f/1bGJfV5g+UBSJNgtat4A==
+  dependencies:
+    prop-types "^15.7.2"
 
 "@dhis2/app-shell@12.11.0":
   version "12.11.0"
@@ -2132,6 +2149,11 @@
     "@types/i18next" "^11.9.0"
     i18next "^10.3"
     moment "^2.24.0"
+
+"@dhis2/data-engine@3.17.4":
+  version "3.17.4"
+  resolved "https://registry.yarnpkg.com/@dhis2/data-engine/-/data-engine-3.17.4.tgz#2db65f48f2fae66b4b4ae398f6cf223284916508"
+  integrity sha512-4mlLwnxhVdiUncd77d2ZW7FEyLlehDNjPCrpXPHiaxoMSsScDD0cX7FAtBb08Xsq3TWr5vK36kQHGBdYAZ2CjQ==
 
 "@dhis2/multi-calendar-dates@2.1.2":
   version "2.1.2"
