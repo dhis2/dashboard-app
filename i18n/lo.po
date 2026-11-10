@@ -8,7 +8,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2026-05-07T22:45:54.825Z\n"
+"POT-Creation-Date: 2026-10-27T14:40:38.559Z\n"
 "PO-Revision-Date: 2019-06-25 12:37+0000\n"
 "Last-Translator: Saysamone Sibounma, 2026\n"
 "Language-Team: Lao (https://app.transifex.com/hisp-uio/teams/100509/lo/)\n"
@@ -105,6 +105,12 @@ msgstr "ສະແດງປຸ່ມຄວບຄຸມແຜນພູມໃນລ
 
 msgid "Expand filters"
 msgstr "ຂະຫຍາຍຕົວກອງ"
+
+msgid "Security"
+msgstr "ຄວາມປອດໄພ"
+
+msgid "Restrict data by organisation unit hierarchy"
+msgstr ""
 
 msgid "Delete dashboard"
 msgstr "ລຶບໜ້າຈໍສະແດງຜົນລວມ"
@@ -283,6 +289,13 @@ msgstr "ລຶບລາຍການນີ້ອອກ"
 
 msgid "This item has been shortened to fit on one page"
 msgstr "ລາຍການນີ້ຖືກເຮັດໃຫ້ສັ້ນລົງເພື່ອໃຫ້ພໍດີກັບໜຶ່ງໜ້າ"
+
+msgid ""
+"You don't have access to the {{appName}} app needed to display this item"
+msgstr ""
+
+msgid "Contact your system administrator for access"
+msgstr ""
 
 msgid "The plugin needed to display this item is not available"
 msgstr "ປລັກອິນທີ່ຈຳເປັນໃນການສະແດງລາຍການນີ້ບໍ່ສາມາດໃຊ້ງານໄດ້"
@@ -784,11 +797,3 @@ msgstr "1 ນາທີຕໍ່ສະໄລ້"
 
 msgid "2 minutes per slide"
 msgstr "2 ນາທີຕໍ່ສະໄລ້"
-
-msgctxt "Application title"
-msgid "__MANIFEST_APP_TITLE"
-msgstr "ກະດານຂ່າວ"
-
-msgctxt "Application description"
-msgid "__MANIFEST_APP_DESCRIPTION"
-msgstr ""
