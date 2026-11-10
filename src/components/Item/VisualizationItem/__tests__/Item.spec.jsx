@@ -18,11 +18,10 @@ jest.mock('../../../AppDataProvider/AppDataProvider.jsx', () => ({
     useSystemSettings: () => mockData.systemSettings,
 }))
 
-jest.mock('../Visualization/plugin', () => {
-    return {
-        pluginIsAvailable: () => true,
-    }
-})
+jest.mock('../Visualization/plugin', () => ({
+    ...jest.requireActual('../Visualization/plugin'),
+    pluginIsAvailable: () => true,
+}))
 
 jest.mock(
     '../../ItemHeader/DeleteItemButton.jsx',

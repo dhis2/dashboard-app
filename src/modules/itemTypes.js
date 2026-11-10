@@ -14,6 +14,7 @@ import {
     IconVisualizationColumn24,
     IconWorld24,
 } from '@dhis2/ui'
+import { systemHasIdv } from './serverVersion.js'
 
 // Item types
 export const VISUALIZATION = 'VISUALIZATION'
@@ -45,7 +46,12 @@ export const isTrackerDomainType = (itemType) =>
     itemTypeMap[itemType].domainType === DOMAIN_TYPE_TRACKER
 export const getDefaultItemCount = (itemType) =>
     itemTypeMap[itemType].defaultItemCount || 5
-export const getAppName = (itemType) => itemTypeMap[itemType].appName || ''
+export const getAppName = (itemType, serverVersion) =>
+    itemTypeMap[itemType]?.appName?.({ serverVersion }) || ''
+export const getAppKey = (itemType, serverVersion) =>
+    itemTypeMap[itemType]?.appKey?.({ serverVersion })
+export const getPluralTitle = (itemType, serverVersion) =>
+    itemTypeMap[itemType]?.pluralTitle?.({ serverVersion })
 
 export const getItemTypeForVis = (item) => {
     if (item.type === VISUALIZATION) {
@@ -65,12 +71,12 @@ export const itemTypeMap = {
         endPointName: 'visualizations',
         dataStatisticsName: 'VISUALIZATION_VIEW',
         propName: 'visualization',
-        pluralTitle: i18n.t('Visualizations'),
+        pluralTitle: () => i18n.t('Visualizations'),
         domainType: DOMAIN_TYPE_AGGREGATE,
         isVisualizationType: true,
         appUrl: ({ id }) => `dhis-web-data-visualizer/#/${id}`,
-        appName: 'Data Visualizer',
-        appKey: 'data-visualizer',
+        appName: () => 'Data Visualizer',
+        appKey: () => 'data-visualizer',
         defaultItemCount: 10,
         supportsFullscreen: true,
     },
@@ -79,12 +85,12 @@ export const itemTypeMap = {
         endPointName: 'visualizations',
         dataStatisticsName: 'VISUALIZATION_VIEW',
         propName: 'visualization',
-        pluralTitle: i18n.t('Pivot tables'),
+        pluralTitle: () => i18n.t('Pivot tables'),
         domainType: DOMAIN_TYPE_AGGREGATE,
         isVisualizationType: true,
         appUrl: ({ id }) => `dhis-web-data-visualizer/#/${id}`,
-        appName: 'Data Visualizer',
-        appKey: 'data-visualizer',
+        appName: () => 'Data Visualizer',
+        appKey: () => 'data-visualizer',
         supportsFullscreen: true,
     },
     [CHART]: {
@@ -92,12 +98,12 @@ export const itemTypeMap = {
         endPointName: 'visualizations',
         propName: 'visualization',
         dataStatisticsName: 'VISUALIZATION_VIEW',
-        pluralTitle: i18n.t('Charts'),
+        pluralTitle: () => i18n.t('Charts'),
         domainType: DOMAIN_TYPE_AGGREGATE,
         isVisualizationType: true,
         appUrl: ({ id }) => `dhis-web-data-visualizer/#/${id}`,
-        appName: 'Data Visualizer',
-        appKey: 'data-visualizer',
+        appName: () => 'Data Visualizer',
+        appKey: () => 'data-visualizer',
         supportsFullscreen: true,
     },
     [MAP]: {
@@ -105,12 +111,12 @@ export const itemTypeMap = {
         endPointName: 'maps',
         dataStatisticsName: 'MAP_VIEW',
         propName: 'map',
-        pluralTitle: i18n.t('Maps'),
+        pluralTitle: () => i18n.t('Maps'),
         domainType: DOMAIN_TYPE_AGGREGATE,
         isVisualizationType: true,
         appUrl: ({ id }) => `dhis-web-maps/#/${id}`,
-        appName: 'Maps',
-        appKey: 'maps',
+        appName: () => 'Maps',
+        appKey: () => 'maps',
         supportsFullscreen: true,
     },
     [EVENT_REPORT]: {
@@ -118,12 +124,12 @@ export const itemTypeMap = {
         endPointName: 'eventReports',
         dataStatisticsName: 'EVENT_REPORT_VIEW',
         propName: 'eventReport',
-        pluralTitle: i18n.t('Event reports'),
+        pluralTitle: () => i18n.t('Event reports'),
         domainType: DOMAIN_TYPE_TRACKER,
         isVisualizationType: true,
         appUrl: ({ id }) => `dhis-web-event-reports/?id=${id}`,
-        appName: 'Event Reports',
-        appKey: 'event-reports',
+        appName: () => 'Event Reports',
+        appKey: () => 'event-reports',
         supportsFullscreen: true,
     },
     [EVENT_CHART]: {
@@ -131,12 +137,12 @@ export const itemTypeMap = {
         endPointName: 'eventCharts',
         dataStatisticsName: 'EVENT_CHART_VIEW',
         propName: 'eventChart',
-        pluralTitle: i18n.t('Event charts'),
+        pluralTitle: () => i18n.t('Event charts'),
         domainType: DOMAIN_TYPE_TRACKER,
         isVisualizationType: true,
         appUrl: ({ id }) => `dhis-web-event-visualizer/?id=${id}`,
-        appName: 'Event Visualizer',
-        appKey: 'event-visualizer',
+        appName: () => 'Event Visualizer',
+        appKey: () => 'event-visualizer',
         supportsFullscreen: true,
     },
     [EVENT_VISUALIZATION]: {
@@ -144,29 +150,45 @@ export const itemTypeMap = {
         endPointName: 'eventVisualizations',
         dataStatisticsName: 'EVENT_VISUALIZATION_VIEW',
         propName: 'eventVisualization',
-        pluralTitle: i18n.t('Line lists'),
+        pluralTitle: ({ serverVersion }) =>
+            systemHasIdv(serverVersion)
+                ? i18n.t('Event visualizations')
+                : i18n.t('Line lists'),
         domainType: DOMAIN_TYPE_TRACKER,
         isVisualizationType: true,
-        appUrl: ({ id, apiVersion }) =>
-            apiVersion >= 42
-                ? `dhis-web-line-listing/#/${id}`
-                : `api/apps/line-listing/index.html#/${id}`,
-        appName: 'Line Listing',
-        appKey: 'line-listing',
+        appUrl: ({ id, serverVersion }) => {
+            if (systemHasIdv(serverVersion)) {
+                return `api/apps/individual-data-visualizer/index.html#/${id}`
+            }
+
+            if (serverVersion?.minor >= 42) {
+                return `dhis-web-line-listing/#/${id}`
+            }
+
+            return `api/apps/line-listing/index.html#/${id}`
+        },
+        appName: ({ serverVersion }) =>
+            systemHasIdv(serverVersion)
+                ? 'Individual Data Visualizer'
+                : 'Line Listing',
+        appKey: ({ serverVersion }) =>
+            systemHasIdv(serverVersion)
+                ? 'individual-data-visualizer'
+                : 'line-listing',
         supportsFullscreen: true,
     },
     [APP]: {
         id: APP,
         endPointName: 'apps',
         propName: 'appKey',
-        pluralTitle: i18n.t('Apps'),
+        pluralTitle: () => i18n.t('Apps'),
         supportsFullscreen: true,
     },
     [REPORTS]: {
         id: REPORTS,
         endPointName: 'reports',
         propName: 'reports',
-        pluralTitle: i18n.t('Reports'),
+        pluralTitle: () => i18n.t('Reports'),
         appUrl: ({ id, type }) => {
             switch (type) {
                 case 'HTML':
@@ -184,7 +206,7 @@ export const itemTypeMap = {
         id: RESOURCES,
         endPointName: 'resources',
         propName: 'resources',
-        pluralTitle: i18n.t('Resources'),
+        pluralTitle: () => i18n.t('Resources'),
         appUrl: ({ id }) => `api/documents/${id}/data`,
         supportsFullscreen: true,
     },
@@ -192,7 +214,7 @@ export const itemTypeMap = {
         id: USERS,
         endPointName: 'users',
         propName: 'users',
-        pluralTitle: i18n.t('Users'),
+        pluralTitle: () => i18n.t('Users'),
         appUrl: ({ id }) =>
             `dhis-web-dashboard-integration/profile.action?id=${id}`,
         supportsFullscreen: false,
@@ -225,7 +247,7 @@ export const getEndPointName = (type) => itemTypeMap[type].endPointName
 export const getDataStatisticsName = (type) =>
     itemTypeMap[type].dataStatisticsName || null
 
-export const getItemUrl = (type, item, baseUrl) => {
+export const getItemUrl = ({ type, item, baseUrl, serverVersion }) => {
     let url
 
     if (type === APP) {
@@ -236,6 +258,7 @@ export const getItemUrl = (type, item, baseUrl) => {
         url = `${baseUrl}/${itemTypeMap[type].appUrl({
             id: item.id,
             type: item.type,
+            serverVersion,
         })}`
     }
 

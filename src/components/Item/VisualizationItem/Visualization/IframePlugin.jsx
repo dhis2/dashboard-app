@@ -6,12 +6,7 @@ import PropTypes from 'prop-types'
 import React, { useCallback, useEffect, useMemo, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { acAddIframePluginStatus } from '../../../../actions/iframePluginStatus.js'
-import {
-    CHART,
-    REPORT_TABLE,
-    VISUALIZATION,
-    getAppName,
-} from '../../../../modules/itemTypes.js'
+import { getAppName } from '../../../../modules/itemTypes.js'
 import { getPluginOverrides } from '../../../../modules/localStorage.js'
 import { useCacheableSection } from '../../../../modules/useCacheableSection.js'
 import {
@@ -20,14 +15,16 @@ import {
     sGetIframePluginStatus,
 } from '../../../../reducers/iframePluginStatus.js'
 import {
-    useCurrentUser,
     useInstalledApps,
     useUserSettings,
 } from '../../../AppDataProvider/AppDataProvider.jsx'
-import MissingAuthorityMessage from '../../ItemMessage/MissingAuthorityMessage.jsx'
 import MissingPluginMessage from '../../ItemMessage/MissingPluginMessage.jsx'
 import VisualizationErrorMessage from '../../ItemMessage/VisualizationErrorMessage.jsx'
-import { getPluginLaunchUrl, hasPluginAccess } from './plugin.js'
+import {
+    getIframePluginType,
+    getPluginLaunchUrl,
+    hasStandalonePlugin,
+} from './plugin.js'
 import classes from './styles/IframePlugin.module.css'
 
 const IframePlugin = ({
@@ -39,21 +36,20 @@ const IframePlugin = ({
     itemId,
     itemType,
     isFirstOfType,
+    visualizationId,
+    filters,
 }) => {
     const dispatch = useDispatch()
     const iframePluginStatus = useSelector(sGetIframePluginStatus)
-    const { baseUrl } = useConfig()
+    const { baseUrl, serverVersion } = useConfig()
     const userSettings = useUserSettings()
     const [error, setError] = useState(null)
     const apps = useInstalledApps()
-    const { authorities } = useCurrentUser()
 
     // When this mounts, check if the dashboard is recording
     const { isCached } = useCacheableSection(dashboardId)
 
-    const pluginType = [CHART, REPORT_TABLE].includes(activeType)
-        ? VISUALIZATION
-        : activeType
+    const pluginType = getIframePluginType(activeType)
 
     const onError = () => setError('plugin')
     const onInstallationStatusChange = useCallback(
@@ -70,26 +66,39 @@ const IframePlugin = ({
         [dispatch, isFirstOfType, pluginType]
     )
 
-    const pluginProps = useMemo(
-        () => ({
-            isVisualizationLoaded: true,
-            forDashboard: true,
+    const pluginProps = useMemo(() => {
+        const commonProps = {
             displayProperty: userSettings.keyAnalysisDisplayProperty,
-            visualization,
             onError,
             onInstallationStatusChange,
             cacheId: `${dashboardId}-${itemId}`, // see DHIS2-19799
             isParentCached: isCached,
-        }),
-        [
-            userSettings,
-            visualization,
-            dashboardId,
-            itemId,
-            isCached,
-            onInstallationStatusChange,
-        ]
-    )
+        }
+
+        return hasStandalonePlugin(activeType, serverVersion)
+            ? {
+                  ...commonProps,
+                  visualizationId,
+                  filters,
+              }
+            : {
+                  ...commonProps,
+                  isVisualizationLoaded: true,
+                  forDashboard: true,
+                  visualization,
+              }
+    }, [
+        userSettings,
+        activeType,
+        serverVersion,
+        visualization,
+        visualizationId,
+        filters,
+        dashboardId,
+        itemId,
+        isCached,
+        onInstallationStatusChange,
+    ])
 
     const getIframeSrc = useCallback(() => {
         // 1. check if there is an override for the plugin
@@ -101,41 +110,31 @@ const IframePlugin = ({
 
         // 2. check if there is an installed app for the pluginType
         // and use its plugin launch URL
-        const pluginLaunchUrl = getPluginLaunchUrl(pluginType, apps, baseUrl)
+        const pluginLaunchUrl = getPluginLaunchUrl({
+            type: pluginType,
+            apps,
+            baseUrl,
+            serverVersion,
+        })
 
         if (pluginLaunchUrl) {
             return pluginLaunchUrl
         }
 
         setError('missing-plugin')
-    }, [apps, baseUrl, pluginType])
+    }, [apps, serverVersion, baseUrl, pluginType])
 
-    const hasAccess = useMemo(
-        () =>
-            Boolean(getPluginOverrides()?.[pluginType]) ||
-            hasPluginAccess(pluginType, authorities),
-        [authorities, pluginType]
-    )
-
-    const iframeSrc = hasAccess ? getIframeSrc() : null
+    const iframeSrc = getIframeSrc()
 
     useEffect(() => {
         setError(null)
-    }, [visualization.type])
-
-    if (!hasAccess) {
-        return (
-            <div style={style}>
-                <MissingAuthorityMessage appName={getAppName(itemType)} />
-            </div>
-        )
-    }
+    }, [visualization?.type, filters])
 
     if (error) {
         return error === 'missing-plugin' ? (
             <div style={style}>
                 <MissingPluginMessage
-                    pluginName={getAppName(itemType)}
+                    pluginName={getAppName(itemType, serverVersion)}
                     dashboardMode={dashboardMode}
                 />
             </div>
@@ -143,7 +142,7 @@ const IframePlugin = ({
             <div style={style}>
                 <VisualizationErrorMessage
                     itemType={itemType}
-                    visualizationId={visualization.id}
+                    visualizationId={visualizationId}
                     dashboardMode={dashboardMode}
                 />
             </div>
@@ -188,11 +187,13 @@ IframePlugin.propTypes = {
     activeType: PropTypes.string,
     dashboardId: PropTypes.string,
     dashboardMode: PropTypes.string,
+    filters: PropTypes.object,
     isFirstOfType: PropTypes.bool,
     itemId: PropTypes.string,
     itemType: PropTypes.string,
     style: PropTypes.object,
     visualization: PropTypes.object,
+    visualizationId: PropTypes.string,
 }
 
 // Memoize the whole component to avoid re-rendering when the parent component re-renders.

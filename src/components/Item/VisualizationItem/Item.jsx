@@ -3,6 +3,7 @@ import {
     DIMENSION_ID_PERIOD,
     DIMENSION_ID_ORGUNIT,
 } from '@dhis2/analytics'
+import { useConfig } from '@dhis2/app-runtime'
 import i18n from '@dhis2/d2-i18n'
 import { Tag, Tooltip } from '@dhis2/ui'
 import cx from 'classnames'
@@ -31,6 +32,7 @@ import {
     VISUALIZATION,
     EVENT_REPORT,
 } from '../../../modules/itemTypes.js'
+import { systemHasIdv } from '../../../modules/serverVersion.js'
 import { sGetIsEditing } from '../../../reducers/editDashboard.js'
 import { sGetItemActiveType } from '../../../reducers/itemActiveTypes.js'
 import {
@@ -45,7 +47,10 @@ import ItemHeader from '../ItemHeader/ItemHeader.jsx'
 import ItemContextMenu from './ItemContextMenu/ItemContextMenu.jsx'
 import ItemFooter from './ItemFooter.jsx'
 import styles from './styles/Item.module.css'
-import { pluginIsAvailable } from './Visualization/plugin.js'
+import {
+    hasStandalonePlugin,
+    pluginIsAvailable,
+} from './Visualization/plugin.js'
 import Visualization from './Visualization/Visualization.jsx'
 
 const DEFAULT_VISUALIZATION = {}
@@ -65,24 +70,31 @@ class Item extends Component {
         this.headerRef = React.createRef()
     }
 
+    fetchVisualization = async () => {
+        const { item, serverVersion, engine, visualization, isRecording } =
+            this.props
+
+        if (hasStandalonePlugin(item.type, serverVersion)) {
+            return
+        }
+
+        // Avoid refetching the visualization already in the Redux store
+        // when the same dashboard item is added again.
+        // This also solves a flashing of all the "duplicated" dashboard items.
+        if (!visualization.id) {
+            const vis = await apiFetchVisualization(item, engine)
+            this.props.setVisualization(vis[item.type])
+        }
+
+        // force fetch when recording to allow caching of the visualizations request
+        if (isRecording) {
+            apiFetchVisualization(item, engine).catch(console.error)
+        }
+    }
+
     async componentDidMount() {
         try {
-            // Avoid refetching the visualization already in the Redux store
-            // when the same dashboard item is added again.
-            // This also solves a flashing of all the "duplicated" dashboard items.
-            if (!this.props.visualization.id) {
-                const vis = await apiFetchVisualization(
-                    this.props.item,
-                    this.props.engine
-                )
-
-                this.props.setVisualization(vis[this.props.item.type])
-            }
-
-            // force fetch when recording to allow caching of the visualizations request
-            if (this.props.isRecording) {
-                apiFetchVisualization(this.props.item, this.props.engine)
-            }
+            await this.fetchVisualization()
 
             if (
                 this.props.settings
@@ -105,9 +117,12 @@ class Item extends Component {
     componentDidUpdate(prevProps) {
         if (
             this.props.isRecording &&
-            this.props.isRecording !== prevProps.isRecording
+            this.props.isRecording !== prevProps.isRecording &&
+            !hasStandalonePlugin(this.props.item.type, this.props.serverVersion)
         ) {
-            apiFetchVisualization(this.props.item, this.props.engine)
+            apiFetchVisualization(this.props.item, this.props.engine).catch(
+                console.error
+            )
         }
 
         if (this.props.item.h !== prevProps.item.h) {
@@ -140,6 +155,8 @@ class Item extends Component {
 
     render() {
         const {
+            baseUrl,
+            serverVersion,
             item,
             dashboardMode,
             itemFilters,
@@ -154,7 +171,12 @@ class Item extends Component {
         const activeType = this.getActiveType()
 
         const actionButtons =
-            pluginIsAvailable(activeType || item.type, this.props.apps) &&
+            pluginIsAvailable({
+                type: activeType || item.type,
+                apps: this.props.apps,
+                baseUrl,
+                serverVersion,
+            }) &&
             isViewMode(dashboardMode) &&
             !isSlideshowView ? (
                 <ItemContextMenu
@@ -173,7 +195,8 @@ class Item extends Component {
             if (isViewMode(dashboardMode) && Object.keys(itemFilters).length) {
                 switch (activeType) {
                     case EVENT_VISUALIZATION: {
-                        return !showNoFiltersOverlay ? (
+                        return !systemHasIdv(serverVersion) &&
+                            !showNoFiltersOverlay ? (
                             <Tooltip
                                 content={i18n.t(
                                     'Filters are not applied to line list dashboard items'
@@ -281,6 +304,7 @@ Item.propTypes = {
     itemFilters: PropTypes.object.isRequired,
     activeType: PropTypes.string,
     apps: PropTypes.array,
+    baseUrl: PropTypes.string,
     dashboardMode: PropTypes.string,
     engine: PropTypes.object,
     gridWidth: PropTypes.number,
@@ -288,6 +312,7 @@ Item.propTypes = {
     isFullscreen: PropTypes.bool,
     isRecording: PropTypes.bool,
     isSlideshowView: PropTypes.bool,
+    serverVersion: PropTypes.object,
     setActiveType: PropTypes.func,
     setSlideshow: PropTypes.func,
     setVisualization: PropTypes.func,
@@ -325,9 +350,20 @@ const mapDispatchToProps = {
     setSlideshow: acSetSlideshow,
 }
 
-const ItemWithSettings = (props) => {
+const ItemWithSettingsAndConfig = (props) => {
     const systemSettings = useSystemSettings()
-    return <Item settings={systemSettings} {...props} />
+    const { baseUrl, serverVersion } = useConfig()
+    return (
+        <Item
+            settings={systemSettings}
+            baseUrl={baseUrl}
+            serverVersion={serverVersion}
+            {...props}
+        />
+    )
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(ItemWithSettings)
+export default connect(
+    mapStateToProps,
+    mapDispatchToProps
+)(ItemWithSettingsAndConfig)
