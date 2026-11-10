@@ -29,6 +29,10 @@ it('informs that there are no dashboards', () => {
             dashboards: [],
         },
     })
+    cy.intercept(/\/dashboards\/[a-zA-Z0-9]{11}\?/, {
+        statusCode: 404,
+        body: { httpStatusCode: 404, status: 'ERROR' },
+    })
 
     cy.visit('/')
     cy.contains('No dashboards found').should('be.visible')

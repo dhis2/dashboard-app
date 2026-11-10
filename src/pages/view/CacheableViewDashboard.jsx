@@ -1,108 +1,169 @@
-import { CacheableSection } from '@dhis2/app-runtime'
+import {
+    CacheableSection,
+    useDataEngine,
+    useCachedSections,
+} from '@dhis2/app-runtime'
 import i18n from '@dhis2/d2-i18n'
-import isEmpty from 'lodash/isEmpty.js'
 import PropTypes from 'prop-types'
-import React, { useEffect } from 'react'
-import { connect } from 'react-redux'
+import React, { useEffect, useState, useMemo } from 'react'
+import { useSelector, useDispatch } from 'react-redux'
+import { acSetOfflineDashboards } from '../../actions/offlineDashboards.js'
 import { acClearSelected } from '../../actions/selected.js'
+import { viewDashboardQuery } from '../../api/fetchDashboard.js'
+import {
+    firstDashboardQuery,
+    dashboardsByIdsQuery,
+} from '../../api/fetchDashboards.js'
 import { useCurrentUser } from '../../components/AppDataProvider/AppDataProvider.jsx'
 import DashboardsBar from '../../components/DashboardsBar/index.js'
 import LoadingMask from '../../components/LoadingMask.jsx'
 import NoContentMessage from '../../components/NoContentMessage.jsx'
-import getCacheableSectionId from '../../modules/getCacheableSectionId.js'
-import { getPreferredDashboardId } from '../../modules/localStorage.js'
 import {
-    sDashboardsIsFetching,
-    sGetDashboardById,
-    sGetDashboardsSortedByStarred,
-} from '../../reducers/dashboards.js'
+    getCacheableSectionId,
+    getOfflineDashboardIds,
+} from '../../modules/getCacheableSectionId.js'
+import { getPreferredDashboardId } from '../../modules/localStorage.js'
 import { sGetSelectedId } from '../../reducers/selected.js'
 import ViewDashboard from './ViewDashboard.jsx'
 
-const CacheableViewDashboard = ({
-    clearSelectedDashboard,
-    dashboardsIsEmpty,
-    dashboardsLoaded,
-    id,
-    selectedId,
-}) => {
+const NO_DASHBOARDS_FOUND = 'NO_DASHBOARDS_FOUND'
+const REQUESTED_DASHBOARD_NOT_FOUND = 'REQUESTED_DASHBOARD_NOT_FOUND'
+
+const requestedDashboardQuery = {
+    dashboard: viewDashboardQuery,
+}
+
+const isNotFoundError = (error) => {
+    const status = error.details?.httpStatusCode
+    return error.type === 'access' || (status >= 400 && status < 500)
+}
+
+const CacheableViewDashboard = ({ match }) => {
     const currentUser = useCurrentUser()
+    const { cachedSections } = useCachedSections()
+    const engine = useDataEngine()
+    const dispatch = useDispatch()
+    const [idToLoad, setIdToLoad] = useState(null)
+    const [dashboardName, setDashboardName] = useState(null)
+    const [fetchError, setFetchError] = useState(null)
+    const [hasDashboards, setHasDashboards] = useState(null)
+    const currentId = useSelector(sGetSelectedId)
+    const preferredId = getPreferredDashboardId(currentUser.username) || null
+    // match comes from react-router-dom
+    const routeId = match?.params?.dashboardId || null
+
+    const offlineDashboardIds = useMemo(
+        () => getOfflineDashboardIds(currentUser.id, cachedSections),
+        [currentUser.id, cachedSections]
+    )
 
     useEffect(() => {
-        if (id === null && selectedId !== null) {
-            clearSelectedDashboard()
+        engine.query(dashboardsByIdsQuery, {
+            variables: { ids: offlineDashboardIds },
+            onComplete: (data) => {
+                dispatch(acSetOfflineDashboards(data.dashboards.dashboards))
+            },
+        })
+    }, [engine, dispatch, offlineDashboardIds])
+
+    useEffect(() => {
+        const nothingRequested = routeId === null && preferredId === null
+        if ((fetchError || nothingRequested) && currentId !== null) {
+            dispatch(acClearSelected())
         }
-    }, [id, selectedId, clearSelectedDashboard])
+    }, [fetchError, routeId, preferredId, currentId, dispatch])
 
-    if (!dashboardsLoaded) {
-        return <LoadingMask />
-    }
+    useEffect(() => {
+        const storedPreferredId =
+            getPreferredDashboardId(currentUser.username) || null
 
-    if (dashboardsIsEmpty || id === null) {
+        const fetchIdToLoad = async () => {
+            try {
+                // no id, so fetch the first starred/alphabetical dashboard in the catch block
+                if (!routeId && !storedPreferredId) {
+                    throw new Error('No dashboard id provided')
+                }
+
+                // get the dashboard by id, throws an error if the dashboard is not found
+                const { dashboard } = await engine.query(
+                    requestedDashboardQuery,
+                    {
+                        variables: { id: routeId || storedPreferredId },
+                    }
+                )
+                setDashboardName(dashboard.displayName)
+                setIdToLoad(dashboard.id)
+                setHasDashboards(true)
+            } catch (error) {
+                const requestedId = routeId || storedPreferredId
+                if (requestedId && !isNotFoundError(error)) {
+                    setIdToLoad(requestedId)
+                    return
+                }
+
+                const { dashboards } = await engine.query(firstDashboardQuery)
+
+                setHasDashboards(dashboards.dashboards.length > 0)
+
+                if (!routeId) {
+                    setDashboardName(
+                        dashboards.dashboards[0]?.displayName || null
+                    )
+                    setIdToLoad(dashboards.dashboards[0]?.id || null)
+                    setFetchError(
+                        !dashboards.dashboards.length && NO_DASHBOARDS_FOUND
+                    )
+                } else {
+                    setFetchError(REQUESTED_DASHBOARD_NOT_FOUND)
+                }
+            }
+        }
+
+        setIdToLoad(null)
+        setDashboardName(null)
+        setFetchError(null)
+
+        fetchIdToLoad().catch(() => {})
+    }, [engine, routeId, currentUser.username])
+
+    if (fetchError) {
         return (
             <>
-                <DashboardsBar />
+                <DashboardsBar hasDashboards={hasDashboards} />
                 <NoContentMessage
                     text={
-                        dashboardsIsEmpty
-                            ? i18n.t(
+                        fetchError === REQUESTED_DASHBOARD_NOT_FOUND
+                            ? i18n.t('Requested dashboard not found')
+                            : i18n.t(
                                   'No dashboards found. Use the + button to create a new dashboard.'
                               )
-                            : i18n.t('Requested dashboard not found')
                     }
                 />
             </>
         )
     }
 
-    const cacheSectionId = getCacheableSectionId(currentUser.id, id)
+    if (idToLoad === null) {
+        return <LoadingMask />
+    }
+
+    const cacheSectionId = getCacheableSectionId(currentUser.id, idToLoad)
 
     return (
         <CacheableSection id={cacheSectionId} loadingMask={<LoadingMask />}>
             <ViewDashboard
                 key={cacheSectionId}
-                requestedId={id}
+                requestedId={idToLoad}
                 username={currentUser.username}
+                hasDashboards={hasDashboards}
+                requestedDashboardName={dashboardName}
             />
         </CacheableSection>
     )
 }
 
 CacheableViewDashboard.propTypes = {
-    clearSelectedDashboard: PropTypes.func,
-    dashboardsIsEmpty: PropTypes.bool,
-    dashboardsLoaded: PropTypes.bool,
-    id: PropTypes.string,
-    selectedId: PropTypes.string,
+    match: PropTypes.object,
 }
 
-const mapStateToProps = (state, ownProps) => {
-    const dashboards = sGetDashboardsSortedByStarred(state)
-    // match is provided by the react-router-dom
-    const routeId = ownProps.match?.params?.dashboardId || null
-
-    let dashboardToSelect = null
-    if (routeId) {
-        dashboardToSelect = sGetDashboardById(state, routeId) || null
-    } else {
-        const lastStoredDashboardId = getPreferredDashboardId(ownProps.username)
-        const dash = sGetDashboardById(state, lastStoredDashboardId)
-        dashboardToSelect = lastStoredDashboardId && dash ? dash : dashboards[0]
-    }
-
-    return {
-        dashboardsIsEmpty: isEmpty(dashboards),
-        dashboardsLoaded: !sDashboardsIsFetching(state),
-        id: dashboardToSelect?.id || null,
-        selectedId: sGetSelectedId(state) || null,
-    }
-}
-
-const mapDispatchToProps = {
-    clearSelectedDashboard: acClearSelected,
-}
-
-export default connect(
-    mapStateToProps,
-    mapDispatchToProps
-)(CacheableViewDashboard)
+export default CacheableViewDashboard

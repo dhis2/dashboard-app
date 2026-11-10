@@ -4,8 +4,6 @@ import React, { useEffect } from 'react'
 import { connect } from 'react-redux'
 import { Redirect, HashRouter as Router, Route, Switch } from 'react-router-dom'
 import { acClearActiveModalDimension } from '../actions/activeModalDimension.js'
-import { tFetchDashboards } from '../actions/dashboards.js'
-import { acClearDashboardsFilter } from '../actions/dashboardsFilter.js'
 import { acClearEditDashboard } from '../actions/editDashboard.js'
 import { acClearItemActiveTypes } from '../actions/itemActiveTypes.js'
 import { acClearItemFilters } from '../actions/itemFilters.js'
@@ -26,14 +24,13 @@ import 'react-grid-layout/css/styles.css'
 import 'react-resizable/css/styles.css'
 import './styles/ItemGrid.css'
 
-const App = ({ fetchDashboards, setShowDescription, resetState }) => {
+const App = ({ setShowDescription, resetState }) => {
     const systemSettings = useSystemSettings()
     const currentUser = useCurrentUser()
 
     useEffect(() => {
-        fetchDashboards()
         setShowDescription()
-    }, [fetchDashboards, setShowDescription])
+    }, [setShowDescription])
 
     return (
         systemSettings && (
@@ -48,10 +45,7 @@ const App = ({ fetchDashboards, setShowDescription, resetState }) => {
                                 systemSettings.startModuleEnableLightweight ? (
                                     <Redirect to={ROUTE_START_PATH} />
                                 ) : (
-                                    <ViewDashboard
-                                        {...props}
-                                        username={currentUser.username}
-                                    />
+                                    <ViewDashboard {...props} />
                                 )
                             }
                         />
@@ -73,12 +67,7 @@ const App = ({ fetchDashboards, setShowDescription, resetState }) => {
                         <Route
                             exact
                             path="/:dashboardId"
-                            render={(props) => (
-                                <ViewDashboard
-                                    {...props}
-                                    username={currentUser.username}
-                                />
-                            )}
+                            render={(props) => <ViewDashboard {...props} />}
                         />
                         <Route
                             exact
@@ -105,17 +94,14 @@ const App = ({ fetchDashboards, setShowDescription, resetState }) => {
 }
 
 App.propTypes = {
-    fetchDashboards: PropTypes.func,
     resetState: PropTypes.func,
     setShowDescription: PropTypes.func,
 }
 
 const mapDispatchToProps = {
-    fetchDashboards: tFetchDashboards,
     setShowDescription: tSetShowDescription,
     resetState: () => (dispatch) => {
         dispatch(acSetSelected({}))
-        dispatch(acClearDashboardsFilter())
         dispatch(acClearVisualizations())
         dispatch(acClearEditDashboard())
         dispatch(acClearPrintDashboard())
