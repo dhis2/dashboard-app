@@ -1,19 +1,16 @@
 import { dashboardDescriptionSel } from '../elements/viewDashboard.js'
-import { getApiBaseUrl } from '../support/utils.js'
+import { resetShowDescription } from '../support/utils.js'
 
 const RESP_CODE_200 = 200
 const RESP_CODE_201 = 201
 
+after(() => {
+    resetShowDescription()
+})
+
 it('toggles show description', () => {
     // Send request to ensure that the description is not currently shown
-    cy.request({
-        method: 'PUT',
-        url: `${getApiBaseUrl()}/api/userDataStore/dashboard/showDescription`,
-        headers: {
-            'content-type': 'application/json',
-        },
-        body: 'false',
-    }).then((response) => {
+    resetShowDescription().then((response) => {
         expect(response.status).to.be.oneOf([RESP_CODE_201, RESP_CODE_200])
 
         // Open dashboard and confirm that the description is not shown
