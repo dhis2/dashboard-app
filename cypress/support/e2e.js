@@ -24,7 +24,7 @@ Cypress.on('uncaught:exception', (err) => {
     }
 })
 
-before(() => {
+const loginAndStoreSessionCookie = () => {
     const username = Cypress.env('dhis2Username')
     const password = Cypress.env('dhis2Password')
     const baseUrl = Cypress.env('dhis2BaseUrl')
@@ -48,6 +48,10 @@ before(() => {
                 JSON.stringify(sessionCookieForBaseUrl)
             )
         })
+}
+
+before(() => {
+    loginAndStoreSessionCookie()
 })
 
 beforeEach(() => {
@@ -63,6 +67,16 @@ beforeEach(() => {
     }
     localStorage.setItem(LOCAL_STORAGE_KEY, baseUrl)
     cy.setCookie(name, value, options)
+
+    cy.request({
+        url: `${baseUrl}/api/me?fields=id`,
+        followRedirect: false,
+        failOnStatusCode: false,
+    }).then(({ status }) => {
+        if (status !== 200) {
+            loginAndStoreSessionCookie()
+        }
+    })
 
     cy.getAllCookies().should((cookies) => {
         expect(findSessionCookieForBaseUrl(baseUrl, cookies)).to.exist
