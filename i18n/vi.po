@@ -1,16 +1,16 @@
 # Translators:
 # Mai Nguyen <thanhmai.jica@gmail.com>, 2021
 # Viktor Varland <viktor@dhis2.org>, 2025
-# Thuy Nguyen <thuynguyen@hispvietnam.org>, 2025
 # Philip Larsen Donnelly, 2025
 # Em Le <em.hispvietnam@gmail.com>, 2026
+# Thuy Nguyen <thuynguyen@hispvietnam.org>, 2026
 # 
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2026-05-07T22:45:54.825Z\n"
+"POT-Creation-Date: 2026-10-27T14:40:38.559Z\n"
 "PO-Revision-Date: 2019-06-25 12:37+0000\n"
-"Last-Translator: Em Le <em.hispvietnam@gmail.com>, 2026\n"
+"Last-Translator: Thuy Nguyen <thuynguyen@hispvietnam.org>, 2026\n"
 "Language-Team: Vietnamese (https://app.transifex.com/hisp-uio/teams/100509/vi/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
@@ -108,6 +108,12 @@ msgstr "Hiển thị các điều khiển biểu đồ trên các mục bảng t
 
 msgid "Expand filters"
 msgstr "Mở rộng bộ lọc"
+
+msgid "Security"
+msgstr "Bảo mật"
+
+msgid "Restrict data by organisation unit hierarchy"
+msgstr ""
 
 msgid "Delete dashboard"
 msgstr "Xóa bảng thông tin"
@@ -287,6 +293,13 @@ msgstr "Xóa mục này"
 
 msgid "This item has been shortened to fit on one page"
 msgstr "Mục này đã được rút ngắn để vừa với một trang"
+
+msgid ""
+"You don't have access to the {{appName}} app needed to display this item"
+msgstr ""
+
+msgid "Contact your system administrator for access"
+msgstr ""
 
 msgid "The plugin needed to display this item is not available"
 msgstr "Plugin cần thiết để hiển thị mục này không khả dụng"
@@ -796,11 +809,3 @@ msgstr "1 phút cho mỗi slide"
 
 msgid "2 minutes per slide"
 msgstr "2 phút cho mỗi slide"
-
-msgctxt "Application title"
-msgid "__MANIFEST_APP_TITLE"
-msgstr "Bảng thông tin"
-
-msgctxt "Application description"
-msgid "__MANIFEST_APP_DESCRIPTION"
-msgstr ""

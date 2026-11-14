@@ -1,20 +1,20 @@
 # Translators:
 # Ge Joao <gsimango@saudigitus.org>, 2021
+# Sheila André <sandre@saudigitus.org>, 2021
 # Fernando Jorge Bade, 2021
-# Gabriela Rodriguez <grodriguezcoronado@gmail.com>, 2025
 # Shelsea Chumaio, 2025
 # Helton Dias, 2025
 # Viktor Varland <viktor@dhis2.org>, 2025
 # David Júnior <davidjr.mondlane@gmail.com>, 2025
 # Philip Larsen Donnelly, 2025
-# Sheila André <sandre@saudigitus.org>, 2026
+# Gabriela Rodriguez <grodriguezcoronado@gmail.com>, 2026
 # 
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2026-05-07T22:45:54.825Z\n"
+"POT-Creation-Date: 2026-10-27T14:40:38.559Z\n"
 "PO-Revision-Date: 2019-06-25 12:37+0000\n"
-"Last-Translator: Sheila André <sandre@saudigitus.org>, 2026\n"
+"Last-Translator: Gabriela Rodriguez <grodriguezcoronado@gmail.com>, 2026\n"
 "Language-Team: Portuguese (https://app.transifex.com/hisp-uio/teams/100509/pt/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
@@ -99,6 +99,12 @@ msgid "Show chart controls on dashboard items"
 msgstr ""
 
 msgid "Expand filters"
+msgstr ""
+
+msgid "Security"
+msgstr "Segurança"
+
+msgid "Restrict data by organisation unit hierarchy"
 msgstr ""
 
 msgid "Delete dashboard"
@@ -279,6 +285,13 @@ msgstr "Remover este item"
 
 msgid "This item has been shortened to fit on one page"
 msgstr "Este item foi reduzido para caber em uma página"
+
+msgid ""
+"You don't have access to the {{appName}} app needed to display this item"
+msgstr ""
+
+msgid "Contact your system administrator for access"
+msgstr ""
 
 msgid "The plugin needed to display this item is not available"
 msgstr ""
@@ -791,12 +804,4 @@ msgid "1 minute per slide"
 msgstr ""
 
 msgid "2 minutes per slide"
-msgstr ""
-
-msgctxt "Application title"
-msgid "__MANIFEST_APP_TITLE"
-msgstr "Painel de Instrumentos"
-
-msgctxt "Application description"
-msgid "__MANIFEST_APP_DESCRIPTION"
 msgstr ""

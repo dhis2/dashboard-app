@@ -1,15 +1,15 @@
 # Translators:
+# Philip Larsen Donnelly, 2019
 # KRG HIS <antonia.bezenchek@informa.pro>, 2021
 # Antonia Bezenchek <antonia@informa.pro>, 2025
 # Viktor Varland <viktor@dhis2.org>, 2025
-# Philip Larsen Donnelly, 2026
 # 
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2026-05-07T22:45:54.825Z\n"
+"POT-Creation-Date: 2026-10-27T14:40:38.559Z\n"
 "PO-Revision-Date: 2019-06-25 12:37+0000\n"
-"Last-Translator: Philip Larsen Donnelly, 2026\n"
+"Last-Translator: Viktor Varland <viktor@dhis2.org>, 2025\n"
 "Language-Team: Central Kurdish (https://app.transifex.com/hisp-uio/teams/100509/ckb/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
@@ -94,6 +94,12 @@ msgid "Show chart controls on dashboard items"
 msgstr ""
 
 msgid "Expand filters"
+msgstr ""
+
+msgid "Security"
+msgstr ""
+
+msgid "Restrict data by organisation unit hierarchy"
 msgstr ""
 
 msgid "Delete dashboard"
@@ -266,6 +272,13 @@ msgid "Remove this item"
 msgstr ""
 
 msgid "This item has been shortened to fit on one page"
+msgstr ""
+
+msgid ""
+"You don't have access to the {{appName}} app needed to display this item"
+msgstr ""
+
+msgid "Contact your system administrator for access"
 msgstr ""
 
 msgid "The plugin needed to display this item is not available"
@@ -741,12 +754,4 @@ msgid "1 minute per slide"
 msgstr ""
 
 msgid "2 minutes per slide"
-msgstr ""
-
-msgctxt "Application title"
-msgid "__MANIFEST_APP_TITLE"
-msgstr "شيتةل كردني داتا"
-
-msgctxt "Application description"
-msgid "__MANIFEST_APP_DESCRIPTION"
 msgstr ""
