@@ -1,17 +1,16 @@
-# 
 # Translators:
-# Jaime Bosque <jaime.bosque@dhis2.org>, 2025
 # Enzo Nicolas Rossi <enzo@dhis2.org>, 2025
+# Jaime Bosque <jaime.bosque@dhis2.org>, 2026
 # 
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2025-03-18T14:27:12.993Z\n"
+"POT-Creation-Date: 2026-10-27T14:40:38.559Z\n"
 "PO-Revision-Date: 2019-06-25 12:37+0000\n"
-"Last-Translator: Enzo Nicolas Rossi <enzo@dhis2.org>, 2025\n"
+"Last-Translator: Jaime Bosque <jaime.bosque@dhis2.org>, 2026\n"
 "Language-Team: Spanish (Latin America) (https://app.transifex.com/hisp-uio/teams/100509/es_419/)\n"
 "MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Language: es_419\n"
 "Plural-Forms: nplurals=3; plural=n == 1 ? 0 : n != 0 && n % 1000000 == 0 ? 1 : 2;\n"
@@ -40,6 +39,12 @@ msgstr ""
 msgid ""
 "Could not get guest token from Superset Gateway for dashboard ID "
 "\"{{dashboardId}}\""
+msgstr ""
+
+msgid "Network error"
+msgstr ""
+
+msgid "Could not load app data"
 msgstr ""
 
 msgid "New dashboard: external"
@@ -87,6 +92,12 @@ msgid "Show chart controls on dashboard items"
 msgstr ""
 
 msgid "Expand filters"
+msgstr ""
+
+msgid "Security"
+msgstr "Seguridad"
+
+msgid "Restrict data by organisation unit hierarchy"
 msgstr ""
 
 msgid "Delete dashboard"
@@ -198,6 +209,12 @@ msgstr "No, cancelar"
 msgid "Yes, clear filters and sync"
 msgstr ""
 
+msgid "This dashboard is showing data from outside this system"
+msgstr ""
+
+msgid "External source"
+msgstr ""
+
 msgid "Confirm"
 msgstr ""
 
@@ -208,12 +225,6 @@ msgid "Failed to unstar the dashboard"
 msgstr ""
 
 msgid "Failed to star the dashboard"
-msgstr ""
-
-msgid "This dashboard is showing data from outside this system"
-msgstr ""
-
-msgid "External source"
 msgstr ""
 
 msgid "Offline data last updated {{timeAgo}}"
@@ -243,12 +254,6 @@ msgstr ""
 msgid "Dashboards"
 msgstr ""
 
-msgid "Could not fetch bundled apps"
-msgstr ""
-
-msgid "Network error"
-msgstr ""
-
 msgid "There was a problem loading this dashboard item"
 msgstr ""
 
@@ -265,6 +270,13 @@ msgid "Remove this item"
 msgstr ""
 
 msgid "This item has been shortened to fit on one page"
+msgstr ""
+
+msgid ""
+"You don't have access to the {{appName}} app needed to display this item"
+msgstr ""
+
+msgid "Contact your system administrator for access"
 msgstr ""
 
 msgid "The plugin needed to display this item is not available"
@@ -310,9 +322,6 @@ msgstr ""
 msgid "Add text here"
 msgstr ""
 
-msgid "Back to all interpretations"
-msgstr ""
-
 msgid "Filters are not applied to line list dashboard items"
 msgstr ""
 
@@ -355,7 +364,7 @@ msgstr ""
 msgid "View as Map"
 msgstr ""
 
-msgid "There was a problem loading interpretations for this item"
+msgid "There was a problem loading details for this item"
 msgstr ""
 
 msgid "No data to display"
@@ -569,17 +578,6 @@ msgstr ""
 msgid "Number of columns"
 msgstr ""
 
-msgid "Gap size between columns (px)"
-msgstr ""
-
-msgid ""
-"Default height only applies to items added to a dashboard, this setting will"
-" not change existing items"
-msgstr ""
-
-msgid "Default height for items added to dashboard (rows)"
-msgstr ""
-
 msgid "Save layout"
 msgstr ""
 
@@ -685,23 +683,10 @@ msgstr ""
 msgid "Yes, remove filters"
 msgstr ""
 
-msgid "Exit slideshow"
+msgid ""
+"There was a problem loading the embedded dashboard content from an external "
+"service"
 msgstr ""
-
-msgid "Previous item"
-msgstr ""
-
-msgid "Next item"
-msgstr ""
-
-msgid "{{name}}: {{filter}}"
-msgstr ""
-
-msgid "{{count}} filters active"
-msgid_plural "{{count}} filters active"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
 
 msgid "Fetching external dashboard"
 msgstr ""
@@ -734,4 +719,40 @@ msgid "This dashboard cannot be loaded while offline."
 msgstr ""
 
 msgid "Go to start page"
+msgstr ""
+
+msgid "Slideshow started over 24 hours ago"
+msgstr ""
+
+msgid "Exit slideshow"
+msgstr ""
+
+msgid "Previous item"
+msgstr ""
+
+msgid "Next item"
+msgstr ""
+
+msgid "{{name}}: {{filter}}"
+msgstr ""
+
+msgid "{{count}} filters active"
+msgid_plural "{{count}} filters active"
+msgstr[0] ""
+msgstr[1] ""
+msgstr[2] ""
+
+msgid "10 seconds per slide"
+msgstr ""
+
+msgid "20 seconds per slide"
+msgstr ""
+
+msgid "30 seconds per slide"
+msgstr ""
+
+msgid "1 minute per slide"
+msgstr ""
+
+msgid "2 minutes per slide"
 msgstr ""
