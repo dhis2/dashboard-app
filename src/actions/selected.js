@@ -6,9 +6,9 @@ import { storePreferredDashboardId } from '../modules/localStorage.js'
 import {
     SET_SELECTED,
     CLEAR_SELECTED,
+    SET_SELECTED_STARRED,
     sGetSelectedId,
 } from '../reducers/selected.js'
-import { acAppendDashboards } from './dashboards.js'
 import { acClearItemActiveTypes } from './itemActiveTypes.js'
 import { acClearItemFilters } from './itemFilters.js'
 import { acClearVisualizations } from './visualizations.js'
@@ -24,21 +24,17 @@ export const acClearSelected = () => ({
     type: CLEAR_SELECTED,
 })
 
+export const acSetSelectedStarred = (isStarred) => ({
+    type: SET_SELECTED_STARRED,
+    value: isStarred,
+})
+
 // thunks
 export const tSetSelectedDashboardById =
     (id, username) => async (dispatch, getState, dataEngine) => {
         const dashboard = await apiFetchDashboard(dataEngine, id, {
             mode: VIEW,
         })
-        dispatch(
-            acAppendDashboards([
-                {
-                    id: dashboard.id,
-                    displayName: dashboard.displayName,
-                    starred: dashboard.starred,
-                },
-            ])
-        )
 
         if (username) {
             storePreferredDashboardId(username, id)

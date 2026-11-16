@@ -20,7 +20,6 @@ import DashboardContainer from '../../components/DashboardContainer.jsx'
 import DashboardsBar from '../../components/DashboardsBar/index.js'
 import { setHeaderbarVisible } from '../../modules/setHeaderbarVisible.js'
 import { useCacheableSection } from '../../modules/useCacheableSection.js'
-import { sGetDashboardById } from '../../reducers/dashboards.js'
 import { sGetPassiveViewRegistered } from '../../reducers/passiveViewRegistered.js'
 import { sGetSelectedId } from '../../reducers/selected.js'
 import classes from './styles/ViewDashboard.module.css'
@@ -30,10 +29,12 @@ const ViewDashboard = ({
     clearEditDashboard,
     clearPrintDashboard,
     fetchDashboard,
+    hasDashboards,
     passiveViewRegistered,
     registerPassiveView,
     requestedDashboardName,
     requestedId,
+    currentId,
     setSelectedAsOffline,
     username,
 }) => {
@@ -135,11 +136,11 @@ const ViewDashboard = ({
             className={cx(classes.container, 'dashboard-scroll-container')}
             data-test="outer-scroll-container"
         >
-            <DashboardsBar />
+            <DashboardsBar hasDashboards={hasDashboards} />
             <DashboardContainer>
                 <ViewDashboardContent
                     isCached={isCached}
-                    loading={loading}
+                    loading={requestedId !== currentId || loading}
                     loaded={loaded}
                     loadFailed={loadFailed}
                 />
@@ -151,7 +152,9 @@ const ViewDashboard = ({
 ViewDashboard.propTypes = {
     clearEditDashboard: PropTypes.func,
     clearPrintDashboard: PropTypes.func,
+    currentId: PropTypes.string,
     fetchDashboard: PropTypes.func,
+    hasDashboards: PropTypes.bool,
     passiveViewRegistered: PropTypes.bool,
     registerPassiveView: PropTypes.func,
     requestedDashboardName: PropTypes.string,
@@ -160,12 +163,9 @@ ViewDashboard.propTypes = {
     username: PropTypes.string,
 }
 
-const mapStateToProps = (state, ownProps) => {
-    const dashboard = sGetDashboardById(state, ownProps.requestedId) || {}
-
+const mapStateToProps = (state) => {
     return {
         passiveViewRegistered: sGetPassiveViewRegistered(state),
-        requestedDashboardName: dashboard.displayName || null,
         currentId: sGetSelectedId(state),
     }
 }

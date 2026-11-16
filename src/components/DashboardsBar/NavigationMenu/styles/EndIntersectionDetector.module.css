@@ -1,0 +1,9 @@
+.container {
+    inline-size: 100%;
+    block-size: 50px;
+    position: absolute;
+    z-index: -1;
+    inset-block-end: 0;
+    inset-inline-start: 0;
+    background-color: red;
+}
