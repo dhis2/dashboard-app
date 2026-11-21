@@ -6,14 +6,14 @@
 # Untoro Dwi Raharjo <untoro.dwi.raharjo@mail.ugm.ac.id>, 2025
 # Aprisa Chrysantina <aprisa.chrysantina@gmail.com>, 2025
 # Viktor Varland <viktor@dhis2.org>, 2025
-# ratih syabrina, 2026
+# Transifex Bot <>, 2026
 # 
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2026-05-07T22:45:54.825Z\n"
+"POT-Creation-Date: 2026-10-27T14:40:38.559Z\n"
 "PO-Revision-Date: 2019-06-25 12:37+0000\n"
-"Last-Translator: ratih syabrina, 2026\n"
+"Last-Translator: Transifex Bot <>, 2026\n"
 "Language-Team: Indonesian (https://app.transifex.com/hisp-uio/teams/100509/id/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
@@ -98,6 +98,12 @@ msgid "Show chart controls on dashboard items"
 msgstr ""
 
 msgid "Expand filters"
+msgstr ""
+
+msgid "Security"
+msgstr "Keamanan"
+
+msgid "Restrict data by organisation unit hierarchy"
 msgstr ""
 
 msgid "Delete dashboard"
@@ -274,6 +280,13 @@ msgstr "Hapus item ini"
 
 msgid "This item has been shortened to fit on one page"
 msgstr "Item ini telah dipersingkat agar muat di satu halaman"
+
+msgid ""
+"You don't have access to the {{appName}} app needed to display this item"
+msgstr ""
+
+msgid "Contact your system administrator for access"
+msgstr ""
 
 msgid "The plugin needed to display this item is not available"
 msgstr ""
@@ -760,12 +773,4 @@ msgid "1 minute per slide"
 msgstr ""
 
 msgid "2 minutes per slide"
-msgstr ""
-
-msgctxt "Application title"
-msgid "__MANIFEST_APP_TITLE"
-msgstr "Dasbor"
-
-msgctxt "Application description"
-msgid "__MANIFEST_APP_DESCRIPTION"
 msgstr ""

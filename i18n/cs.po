@@ -4,7 +4,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2026-05-07T22:45:54.825Z\n"
+"POT-Creation-Date: 2026-10-27T14:40:38.559Z\n"
 "PO-Revision-Date: 2019-06-25 12:37+0000\n"
 "Last-Translator: Jiří Podhorecký <jirka.p@volny.cz>, 2026\n"
 "Language-Team: Czech (https://app.transifex.com/hisp-uio/teams/100509/cs/)\n"
@@ -96,6 +96,12 @@ msgstr "Zobrazení ovládacích prvků grafu na položkách ovládacího panelu"
 
 msgid "Expand filters"
 msgstr "Rozbalit filtry"
+
+msgid "Security"
+msgstr "Zabezpečení"
+
+msgid "Restrict data by organisation unit hierarchy"
+msgstr ""
 
 msgid "Delete dashboard"
 msgstr "Smazat ovládací panel"
@@ -275,6 +281,13 @@ msgstr "Odebrat tuto položku"
 
 msgid "This item has been shortened to fit on one page"
 msgstr "Tato položka byla zkrácena tak, aby se vešla na jednu stránku"
+
+msgid ""
+"You don't have access to the {{appName}} app needed to display this item"
+msgstr ""
+
+msgid "Contact your system administrator for access"
+msgstr ""
 
 msgid "The plugin needed to display this item is not available"
 msgstr "Zásuvný modul potřebný k zobrazení této položky není k dispozici"
@@ -785,11 +798,3 @@ msgstr "1 minuta na snímek"
 
 msgid "2 minutes per slide"
 msgstr "2 minuty na snímek"
-
-msgctxt "Application title"
-msgid "__MANIFEST_APP_TITLE"
-msgstr "Ovládací panel"
-
-msgctxt "Application description"
-msgid "__MANIFEST_APP_DESCRIPTION"
-msgstr ""
