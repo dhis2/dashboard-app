@@ -22,7 +22,7 @@ import ItemGrid from './ItemGrid.jsx'
 import classes from './styles/EditDashboard.module.css'
 import TitleBar from './TitleBar.jsx'
 
-const EditDashboard = (props) => {
+const EditDashboard = ({ id, isPrintPreviewView, setEditDashboard }) => {
     const dataEngine = useDataEngine()
     const { width } = useWindowDimensions()
     const [redirectUrl, setRedirectUrl] = useState(null)
@@ -32,29 +32,28 @@ const EditDashboard = (props) => {
     useEffect(() => {
         const loadDashboard = async () => {
             try {
-                const dashboard = await apiFetchDashboard(
-                    dataEngine,
-                    props.id,
-                    { mode: EDIT }
-                )
-                props.setEditDashboard(dashboard)
+                const dashboard = await apiFetchDashboard(dataEngine, id, {
+                    mode: EDIT,
+                })
+                setEditDashboard(dashboard)
                 setHasUpdateAccess(dashboard.access?.update || false)
                 setIsLoading(false)
             } catch (error) {
                 console.error('Error fetching dashboard:', error)
-                setRedirectUrl(props.id ? `/${props.id}` : '/')
+                setRedirectUrl(id ? `/${id}` : '/')
                 setIsLoading(false)
             }
         }
 
         if (isSmallScreen(width)) {
-            setRedirectUrl(props.id ? `/${props.id}` : '/')
+            setRedirectUrl(id ? `/${id}` : '/')
             return
         }
         setHeaderbarVisible(true)
 
         loadDashboard()
-    }, [props.id])
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [dataEngine, id, setEditDashboard])
 
     if (redirectUrl) {
         return <Redirect to={redirectUrl} />
@@ -71,7 +70,7 @@ const EditDashboard = (props) => {
     }
 
     const renderGrid = () => {
-        if (props.isPrintPreviewView) {
+        if (isPrintPreviewView) {
             return <LayoutPrintPreview fromEdit={true} />
         }
         return (

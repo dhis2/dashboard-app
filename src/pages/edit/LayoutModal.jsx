@@ -30,6 +30,7 @@ export const LayoutModal = ({ columns, onSaveLayout, onClose }) => {
     const { isDisconnected: offline } = useDhis2ConnectionStatus()
     const [cols, setCols] = useState(columns)
 
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     useEffect(() => setCols(columns), [])
 
     const setColsWrapper = (value) => {

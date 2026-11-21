@@ -98,7 +98,14 @@ const PrintDashboard = ({
         setHeaderbarVisible(false)
 
         loadDashboard()
-    }, [id])
+    }, [
+        id,
+        dataEngine,
+        setPrintDashboard,
+        addDashboardItem,
+        removeDashboardItem,
+        updateDashboardItem,
+    ])
 
     if (redirectUrl) {
         return <Redirect to={redirectUrl} />
